@@ -34,6 +34,33 @@
           "@all"
         ]
       }
+    },
+    {
+      "name": "RA/Java/de.rac.generator.basic-src-openscenario",
+      "version": "r3230",
+      "features": {
+        "Windows": [
+          "@all"
+        ]
+      }
+    },
+    {
+      "name": "RA/Java/de.rac.openscenario.v1_0.generator-src",
+      "version": "r128",
+      "features": {
+        "Windows": [
+          "@all"
+        ]
+      }
+    },
+    {
+      "name": "RA/Java/de.rac.openscenario.v1_0.generator.helper-src",
+      "version": "r125",
+      "features": {
+        "Windows": [
+          "@all"
+        ]
+      }
     }
   ]
 }
