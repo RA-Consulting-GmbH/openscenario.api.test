@@ -1,0 +1,39 @@
+{
+  "features-enabled": true,
+  "features": [
+    "Linux",
+    "Windows"
+  ],
+  "components": [
+    {
+      "name": "Externals/CMake",
+      "version": "3.8.2",
+      "features": {
+        "Windows": [
+          "@all"
+        ]
+      }
+    },
+    {
+      "name": "Externals/CMake-Linux",
+      "version": "3.8.2",
+      "features": {
+        "Linux": [
+          "@all"
+        ]
+      }
+    },
+    {
+      "name": "RA/Cpp/Rac.Core.Cpp",
+      "version": "r21",
+      "features": {
+        "Linux": [
+          "@all"
+        ],
+        "Windows": [
+          "@all"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+################################################################
+# CMakeLists.txt
+cmake_minimum_required( VERSION 3.7.1 )
+project( OpenScenario-Cpp )
+message("${PROJECT_NAME}")
+
+
+################################################################
+# Add a module path for cmake modules
+list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/../Rac.Core.Cpp-src/CMake-Helper/" )
+include( RaCMakeHelper )
+
+
+################################################################
+# Set common, C++, and build params
+RAC_SET_COMMON_PARAM()
+RAC_SET_CPP_PARAM()
+RAC_SET_BUILD_PARAM()
+
+
+################################################################
+# Build as static or shared lib
+option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
+
+
+################################################################
+# Add subprojects
+# DiagRA Portable dependencies, not master
+set( MASTER_PROJECT FALSE )
+message("Subprojects:")
+
+# Set compile output folder for DiagRA Portable core libs
+RAC_SET_FOLDERS()
+message ("Building all into: ${CMAKE_BINARY_DIR}")
+
+# Subprojects
+add_subdirectory( OpenScenario )
+
+################################################################
+# Visual Studio Startup Project and debug cmd line args
+if( MSVC )
+  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenario" )
+endif()
