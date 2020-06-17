@@ -15,7 +15,9 @@ namespace RAC_OPENSCENARIO
 */
     class ICatalogElement 
     {
-
+    public:
+        ICatalogElement() = default;
+        virtual ~ICatalogElement() = default;
     };
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -29,7 +31,9 @@ namespace RAC_OPENSCENARIO
 */
     class IEntity 
     {
-
+    public:
+        IEntity() = default;
+        virtual ~IEntity() = default;
     };
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -42,7 +46,9 @@ namespace RAC_OPENSCENARIO
 */
     class ISpawnedObject 
     {
-
+    public:
+        ISpawnedObject() = default;
+        virtual ~ISpawnedObject() = default;
     };
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -56,6 +62,8 @@ namespace RAC_OPENSCENARIO
 */
     class IStoryboardElement 
     {
-
+    public:
+        IStoryboardElement() = default;
+        virtual ~IStoryboardElement() = default;
     };
 }

@@ -24,14 +24,14 @@ namespace RAC_OPENSCENARIO
          * @param classifier the class an adapter is requested for class name as string
          * @return an adapter or null, if the specified adapter class is not supported.
          */
-        virtual std::shared_ptr<Object> GetAdapter(const std::string classifier) = 0;
+        virtual std::shared_ptr<Object> GetAdapter(const std::string classifier) { return nullptr; };
 
         /**
          * Provides the parent of this object. It is null for any Object that is not of type IOpenScenario
          * (which is the root)
          * @return the model parent of this object
          */
-        virtual std::shared_ptr <IOpenScenarioModelElement> GetParent() = 0;
+        virtual std::shared_ptr<IOpenScenarioModelElement> GetParent() { return nullptr; }
 
     };
 

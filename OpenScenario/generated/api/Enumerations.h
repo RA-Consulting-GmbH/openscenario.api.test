@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include "DateTime.h"
 
 namespace RAC_OPENSCENARIO
 {
@@ -37,10 +38,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        CloudStateEnum _cloudStateEnum;
         static std::map<std::string, CloudStateEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> CloudStateEnumString 
+        const std::vector<std::string> kCloudStateEnumString 
         {
             "skyOff",
             "free",
@@ -50,10 +52,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        CloudState()
+        {
+            _literal = kCloudStateEnumString[0];
+            _cloudStateEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        CloudState(std::string& literal_):_literal(literal_){}
+        CloudState(std::string& literal_):_literal(literal_) 
+        {
+            _cloudStateEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -61,12 +75,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        CloudState& operator= (const CloudStateEnum &rhs)
+        {
+            _cloudStateEnum = rhs;
+            if (_cloudStateEnum > -1)
+                _literal = kCloudStateEnumString[_cloudStateEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        CloudState& operator= (const CloudState &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _cloudStateEnum = rhs._cloudStateEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static CloudStateEnum GetFromLiteral(std::string literal_)
+        static CloudStateEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -110,10 +142,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        ConditionEdgeEnum _conditionEdgeEnum;
         static std::map<std::string, ConditionEdgeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> ConditionEdgeEnumString 
+        const std::vector<std::string> kConditionEdgeEnumString 
         {
             "rising",
             "falling",
@@ -122,10 +155,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        ConditionEdge()
+        {
+            _literal = kConditionEdgeEnumString[0];
+            _conditionEdgeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        ConditionEdge(std::string& literal_):_literal(literal_){}
+        ConditionEdge(std::string& literal_):_literal(literal_) 
+        {
+            _conditionEdgeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -133,12 +178,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        ConditionEdge& operator= (const ConditionEdgeEnum &rhs)
+        {
+            _conditionEdgeEnum = rhs;
+            if (_conditionEdgeEnum > -1)
+                _literal = kConditionEdgeEnumString[_conditionEdgeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        ConditionEdge& operator= (const ConditionEdge &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _conditionEdgeEnum = rhs._conditionEdgeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static ConditionEdgeEnum GetFromLiteral(std::string literal_)
+        static ConditionEdgeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -175,10 +238,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        DynamicsDimensionEnum _dynamicsDimensionEnum;
         static std::map<std::string, DynamicsDimensionEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> DynamicsDimensionEnumString 
+        const std::vector<std::string> kDynamicsDimensionEnumString 
         {
             "rate",
             "time",
@@ -186,10 +250,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        DynamicsDimension()
+        {
+            _literal = kDynamicsDimensionEnumString[0];
+            _dynamicsDimensionEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        DynamicsDimension(std::string& literal_):_literal(literal_){}
+        DynamicsDimension(std::string& literal_):_literal(literal_) 
+        {
+            _dynamicsDimensionEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -197,12 +273,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        DynamicsDimension& operator= (const DynamicsDimensionEnum &rhs)
+        {
+            _dynamicsDimensionEnum = rhs;
+            if (_dynamicsDimensionEnum > -1)
+                _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        DynamicsDimension& operator= (const DynamicsDimension &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _dynamicsDimensionEnum = rhs._dynamicsDimensionEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static DynamicsDimensionEnum GetFromLiteral(std::string literal_)
+        static DynamicsDimensionEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -241,10 +335,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        DynamicsShapeEnum _dynamicsShapeEnum;
         static std::map<std::string, DynamicsShapeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> DynamicsShapeEnumString 
+        const std::vector<std::string> kDynamicsShapeEnumString 
         {
             "linear",
             "cubic",
@@ -253,10 +348,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        DynamicsShape()
+        {
+            _literal = kDynamicsShapeEnumString[0];
+            _dynamicsShapeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        DynamicsShape(std::string& literal_):_literal(literal_){}
+        DynamicsShape(std::string& literal_):_literal(literal_) 
+        {
+            _dynamicsShapeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -264,12 +371,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        DynamicsShape& operator= (const DynamicsShapeEnum &rhs)
+        {
+            _dynamicsShapeEnum = rhs;
+            if (_dynamicsShapeEnum > -1)
+                _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        DynamicsShape& operator= (const DynamicsShape &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _dynamicsShapeEnum = rhs._dynamicsShapeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static DynamicsShapeEnum GetFromLiteral(std::string literal_)
+        static DynamicsShapeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -304,20 +429,33 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        FollowingModeEnum _followingModeEnum;
         static std::map<std::string, FollowingModeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> FollowingModeEnumString 
+        const std::vector<std::string> kFollowingModeEnumString 
         {
             "position",
             "follow",
         };
 
         /**
+         * Default Constructor
+         */
+        FollowingMode()
+        {
+            _literal = kFollowingModeEnumString[0];
+            _followingModeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        FollowingMode(std::string& literal_):_literal(literal_){}
+        FollowingMode(std::string& literal_):_literal(literal_) 
+        {
+            _followingModeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -325,12 +463,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        FollowingMode& operator= (const FollowingModeEnum &rhs)
+        {
+            _followingModeEnum = rhs;
+            if (_followingModeEnum > -1)
+                _literal = kFollowingModeEnumString[_followingModeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        FollowingMode& operator= (const FollowingMode &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _followingModeEnum = rhs._followingModeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static FollowingModeEnum GetFromLiteral(std::string literal_)
+        static FollowingModeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -395,10 +551,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        MiscObjectCategoryEnum _miscObjectCategoryEnum;
         static std::map<std::string, MiscObjectCategoryEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> MiscObjectCategoryEnumString 
+        const std::vector<std::string> kMiscObjectCategoryEnumString 
         {
             "none",
             "obstacle",
@@ -420,10 +577,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        MiscObjectCategory()
+        {
+            _literal = kMiscObjectCategoryEnumString[0];
+            _miscObjectCategoryEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        MiscObjectCategory(std::string& literal_):_literal(literal_){}
+        MiscObjectCategory(std::string& literal_):_literal(literal_) 
+        {
+            _miscObjectCategoryEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -431,12 +600,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        MiscObjectCategory& operator= (const MiscObjectCategoryEnum &rhs)
+        {
+            _miscObjectCategoryEnum = rhs;
+            if (_miscObjectCategoryEnum > -1)
+                _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        MiscObjectCategory& operator= (const MiscObjectCategory &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _miscObjectCategoryEnum = rhs._miscObjectCategoryEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static MiscObjectCategoryEnum GetFromLiteral(std::string literal_)
+        static MiscObjectCategoryEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -473,10 +660,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        ObjectTypeEnum _objectTypeEnum;
         static std::map<std::string, ObjectTypeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> ObjectTypeEnumString 
+        const std::vector<std::string> kObjectTypeEnumString 
         {
             "pedestrian",
             "vehicle",
@@ -484,10 +672,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        ObjectType()
+        {
+            _literal = kObjectTypeEnumString[0];
+            _objectTypeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        ObjectType(std::string& literal_):_literal(literal_){}
+        ObjectType(std::string& literal_):_literal(literal_) 
+        {
+            _objectTypeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -495,12 +695,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        ObjectType& operator= (const ObjectTypeEnum &rhs)
+        {
+            _objectTypeEnum = rhs;
+            if (_objectTypeEnum > -1)
+                _literal = kObjectTypeEnumString[_objectTypeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        ObjectType& operator= (const ObjectType &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _objectTypeEnum = rhs._objectTypeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static ObjectTypeEnum GetFromLiteral(std::string literal_)
+        static ObjectTypeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -545,10 +763,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        ParameterTypeEnum _parameterTypeEnum;
         static std::map<std::string, ParameterTypeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> ParameterTypeEnumString 
+        const std::vector<std::string> kParameterTypeEnumString 
         {
             "integer",
             "double",
@@ -560,10 +779,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        ParameterType()
+        {
+            _literal = kParameterTypeEnumString[0];
+            _parameterTypeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        ParameterType(std::string& literal_):_literal(literal_){}
+        ParameterType(std::string& literal_):_literal(literal_) 
+        {
+            _parameterTypeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -571,12 +802,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        ParameterType& operator= (const ParameterTypeEnum &rhs)
+        {
+            _parameterTypeEnum = rhs;
+            if (_parameterTypeEnum > -1)
+                _literal = kParameterTypeEnumString[_parameterTypeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        ParameterType& operator= (const ParameterType &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _parameterTypeEnum = rhs._parameterTypeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static ParameterTypeEnum GetFromLiteral(std::string literal_)
+        static ParameterTypeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -613,10 +862,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        PedestrianCategoryEnum _pedestrianCategoryEnum;
         static std::map<std::string, PedestrianCategoryEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> PedestrianCategoryEnumString 
+        const std::vector<std::string> kPedestrianCategoryEnumString 
         {
             "pedestrian",
             "wheelchair",
@@ -624,10 +874,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        PedestrianCategory()
+        {
+            _literal = kPedestrianCategoryEnumString[0];
+            _pedestrianCategoryEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        PedestrianCategory(std::string& literal_):_literal(literal_){}
+        PedestrianCategory(std::string& literal_):_literal(literal_) 
+        {
+            _pedestrianCategoryEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -635,12 +897,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        PedestrianCategory& operator= (const PedestrianCategoryEnum &rhs)
+        {
+            _pedestrianCategoryEnum = rhs;
+            if (_pedestrianCategoryEnum > -1)
+                _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        PedestrianCategory& operator= (const PedestrianCategory &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _pedestrianCategoryEnum = rhs._pedestrianCategoryEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static PedestrianCategoryEnum GetFromLiteral(std::string literal_)
+        static PedestrianCategoryEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -677,10 +957,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        PrecipitationTypeEnum _precipitationTypeEnum;
         static std::map<std::string, PrecipitationTypeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> PrecipitationTypeEnumString 
+        const std::vector<std::string> kPrecipitationTypeEnumString 
         {
             "dry",
             "rain",
@@ -688,10 +969,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        PrecipitationType()
+        {
+            _literal = kPrecipitationTypeEnumString[0];
+            _precipitationTypeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        PrecipitationType(std::string& literal_):_literal(literal_){}
+        PrecipitationType(std::string& literal_):_literal(literal_) 
+        {
+            _precipitationTypeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -699,12 +992,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        PrecipitationType& operator= (const PrecipitationTypeEnum &rhs)
+        {
+            _precipitationTypeEnum = rhs;
+            if (_precipitationTypeEnum > -1)
+                _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        PrecipitationType& operator= (const PrecipitationType &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _precipitationTypeEnum = rhs._precipitationTypeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static PrecipitationTypeEnum GetFromLiteral(std::string literal_)
+        static PrecipitationTypeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -743,10 +1054,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        PriorityEnum _priorityEnum;
         static std::map<std::string, PriorityEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> PriorityEnumString 
+        const std::vector<std::string> kPriorityEnumString 
         {
             "overwrite",
             "skip",
@@ -754,10 +1066,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        Priority()
+        {
+            _literal = kPriorityEnumString[0];
+            _priorityEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        Priority(std::string& literal_):_literal(literal_){}
+        Priority(std::string& literal_):_literal(literal_) 
+        {
+            _priorityEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -765,12 +1089,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        Priority& operator= (const PriorityEnum &rhs)
+        {
+            _priorityEnum = rhs;
+            if (_priorityEnum > -1)
+                _literal = kPriorityEnumString[_priorityEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        Priority& operator= (const Priority &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _priorityEnum = rhs._priorityEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static PriorityEnum GetFromLiteral(std::string literal_)
+        static PriorityEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -805,20 +1147,33 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        ReferenceContextEnum _referenceContextEnum;
         static std::map<std::string, ReferenceContextEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> ReferenceContextEnumString 
+        const std::vector<std::string> kReferenceContextEnumString 
         {
             "relative",
             "absolute",
         };
 
         /**
+         * Default Constructor
+         */
+        ReferenceContext()
+        {
+            _literal = kReferenceContextEnumString[0];
+            _referenceContextEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        ReferenceContext(std::string& literal_):_literal(literal_){}
+        ReferenceContext(std::string& literal_):_literal(literal_) 
+        {
+            _referenceContextEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -826,12 +1181,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        ReferenceContext& operator= (const ReferenceContextEnum &rhs)
+        {
+            _referenceContextEnum = rhs;
+            if (_referenceContextEnum > -1)
+                _literal = kReferenceContextEnumString[_referenceContextEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        ReferenceContext& operator= (const ReferenceContext &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _referenceContextEnum = rhs._referenceContextEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static ReferenceContextEnum GetFromLiteral(std::string literal_)
+        static ReferenceContextEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -868,10 +1241,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        RelativeDistanceTypeEnum _relativeDistanceTypeEnum;
         static std::map<std::string, RelativeDistanceTypeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> RelativeDistanceTypeEnumString 
+        const std::vector<std::string> kRelativeDistanceTypeEnumString 
         {
             "longitudinal",
             "lateral",
@@ -879,10 +1253,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        RelativeDistanceType()
+        {
+            _literal = kRelativeDistanceTypeEnumString[0];
+            _relativeDistanceTypeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        RelativeDistanceType(std::string& literal_):_literal(literal_){}
+        RelativeDistanceType(std::string& literal_):_literal(literal_) 
+        {
+            _relativeDistanceTypeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -890,12 +1276,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        RelativeDistanceType& operator= (const RelativeDistanceTypeEnum &rhs)
+        {
+            _relativeDistanceTypeEnum = rhs;
+            if (_relativeDistanceTypeEnum > -1)
+                _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        RelativeDistanceType& operator= (const RelativeDistanceType &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _relativeDistanceTypeEnum = rhs._relativeDistanceTypeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static RelativeDistanceTypeEnum GetFromLiteral(std::string literal_)
+        static RelativeDistanceTypeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -934,10 +1338,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        RouteStrategyEnum _routeStrategyEnum;
         static std::map<std::string, RouteStrategyEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> RouteStrategyEnumString 
+        const std::vector<std::string> kRouteStrategyEnumString 
         {
             "fastest",
             "shortest",
@@ -946,10 +1351,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        RouteStrategy()
+        {
+            _literal = kRouteStrategyEnumString[0];
+            _routeStrategyEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        RouteStrategy(std::string& literal_):_literal(literal_){}
+        RouteStrategy(std::string& literal_):_literal(literal_) 
+        {
+            _routeStrategyEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -957,12 +1374,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        RouteStrategy& operator= (const RouteStrategyEnum &rhs)
+        {
+            _routeStrategyEnum = rhs;
+            if (_routeStrategyEnum > -1)
+                _literal = kRouteStrategyEnumString[_routeStrategyEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        RouteStrategy& operator= (const RouteStrategy &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _routeStrategyEnum = rhs._routeStrategyEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static RouteStrategyEnum GetFromLiteral(std::string literal_)
+        static RouteStrategyEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -999,10 +1434,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        RuleEnum _ruleEnum;
         static std::map<std::string, RuleEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> RuleEnumString 
+        const std::vector<std::string> kRuleEnumString 
         {
             "greaterThan",
             "lessThan",
@@ -1010,10 +1446,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        Rule()
+        {
+            _literal = kRuleEnumString[0];
+            _ruleEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        Rule(std::string& literal_):_literal(literal_){}
+        Rule(std::string& literal_):_literal(literal_) 
+        {
+            _ruleEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -1021,12 +1469,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        Rule& operator= (const RuleEnum &rhs)
+        {
+            _ruleEnum = rhs;
+            if (_ruleEnum > -1)
+                _literal = kRuleEnumString[_ruleEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        Rule& operator= (const Rule &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _ruleEnum = rhs._ruleEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static RuleEnum GetFromLiteral(std::string literal_)
+        static RuleEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -1063,20 +1529,33 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        SpeedTargetValueTypeEnum _speedTargetValueTypeEnum;
         static std::map<std::string, SpeedTargetValueTypeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> SpeedTargetValueTypeEnumString 
+        const std::vector<std::string> kSpeedTargetValueTypeEnumString 
         {
             "delta",
             "factor",
         };
 
         /**
+         * Default Constructor
+         */
+        SpeedTargetValueType()
+        {
+            _literal = kSpeedTargetValueTypeEnumString[0];
+            _speedTargetValueTypeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        SpeedTargetValueType(std::string& literal_):_literal(literal_){}
+        SpeedTargetValueType(std::string& literal_):_literal(literal_) 
+        {
+            _speedTargetValueTypeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -1084,12 +1563,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        SpeedTargetValueType& operator= (const SpeedTargetValueTypeEnum &rhs)
+        {
+            _speedTargetValueTypeEnum = rhs;
+            if (_speedTargetValueTypeEnum > -1)
+                _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        SpeedTargetValueType& operator= (const SpeedTargetValueType &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _speedTargetValueTypeEnum = rhs._speedTargetValueTypeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static SpeedTargetValueTypeEnum GetFromLiteral(std::string literal_)
+        static SpeedTargetValueTypeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -1139,10 +1636,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        StoryboardElementStateEnum _storyboardElementStateEnum;
         static std::map<std::string, StoryboardElementStateEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> StoryboardElementStateEnumString 
+        const std::vector<std::string> kStoryboardElementStateEnumString 
         {
             "startTransition",
             "endTransition",
@@ -1154,10 +1652,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        StoryboardElementState()
+        {
+            _literal = kStoryboardElementStateEnumString[0];
+            _storyboardElementStateEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        StoryboardElementState(std::string& literal_):_literal(literal_){}
+        StoryboardElementState(std::string& literal_):_literal(literal_) 
+        {
+            _storyboardElementStateEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -1165,12 +1675,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        StoryboardElementState& operator= (const StoryboardElementStateEnum &rhs)
+        {
+            _storyboardElementStateEnum = rhs;
+            if (_storyboardElementStateEnum > -1)
+                _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        StoryboardElementState& operator= (const StoryboardElementState &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _storyboardElementStateEnum = rhs._storyboardElementStateEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static StoryboardElementStateEnum GetFromLiteral(std::string literal_)
+        static StoryboardElementStateEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -1213,10 +1741,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        StoryboardElementTypeEnum _storyboardElementTypeEnum;
         static std::map<std::string, StoryboardElementTypeEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> StoryboardElementTypeEnumString 
+        const std::vector<std::string> kStoryboardElementTypeEnumString 
         {
             "story",
             "act",
@@ -1227,10 +1756,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        StoryboardElementType()
+        {
+            _literal = kStoryboardElementTypeEnumString[0];
+            _storyboardElementTypeEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        StoryboardElementType(std::string& literal_):_literal(literal_){}
+        StoryboardElementType(std::string& literal_):_literal(literal_) 
+        {
+            _storyboardElementTypeEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -1238,12 +1779,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        StoryboardElementType& operator= (const StoryboardElementTypeEnum &rhs)
+        {
+            _storyboardElementTypeEnum = rhs;
+            if (_storyboardElementTypeEnum > -1)
+                _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        StoryboardElementType& operator= (const StoryboardElementType &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _storyboardElementTypeEnum = rhs._storyboardElementTypeEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static StoryboardElementTypeEnum GetFromLiteral(std::string literal_)
+        static StoryboardElementTypeEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -1278,20 +1837,33 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        TriggeringEntitiesRuleEnum _triggeringEntitiesRuleEnum;
         static std::map<std::string, TriggeringEntitiesRuleEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> TriggeringEntitiesRuleEnumString 
+        const std::vector<std::string> kTriggeringEntitiesRuleEnumString 
         {
             "any",
             "all",
         };
 
         /**
+         * Default Constructor
+         */
+        TriggeringEntitiesRule()
+        {
+            _literal = kTriggeringEntitiesRuleEnumString[0];
+            _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        TriggeringEntitiesRule(std::string& literal_):_literal(literal_){}
+        TriggeringEntitiesRule(std::string& literal_):_literal(literal_) 
+        {
+            _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -1299,12 +1871,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        TriggeringEntitiesRule& operator= (const TriggeringEntitiesRuleEnum &rhs)
+        {
+            _triggeringEntitiesRuleEnum = rhs;
+            if (_triggeringEntitiesRuleEnum > -1)
+                _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        TriggeringEntitiesRule& operator= (const TriggeringEntitiesRule &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _triggeringEntitiesRuleEnum = rhs._triggeringEntitiesRuleEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static TriggeringEntitiesRuleEnum GetFromLiteral(std::string literal_)
+        static TriggeringEntitiesRuleEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())
@@ -1355,10 +1945,11 @@ namespace RAC_OPENSCENARIO
 
     private:
         std::string _literal;
+        VehicleCategoryEnum _vehicleCategoryEnum;
         static std::map<std::string, VehicleCategoryEnum> _stringToEnum;
 
     public:
-        const std::vector<std::string> VehicleCategoryEnumString 
+        const std::vector<std::string> kVehicleCategoryEnumString 
         {
             "car",
             "van",
@@ -1373,10 +1964,22 @@ namespace RAC_OPENSCENARIO
         };
 
         /**
+         * Default Constructor
+         */
+        VehicleCategory()
+        {
+            _literal = kVehicleCategoryEnumString[0];
+            _vehicleCategoryEnum = GetFromLiteral(_literal);
+        }
+
+        /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
          */
-        VehicleCategory(std::string& literal_):_literal(literal_){}
+        VehicleCategory(std::string& literal_):_literal(literal_) 
+        {
+            _vehicleCategoryEnum = GetFromLiteral(_literal);
+        }
 
         /**
          * The literal from this enumeration value.
@@ -1384,12 +1987,30 @@ namespace RAC_OPENSCENARIO
          */
         std::string GetLiteral() const { return _literal;}
 
+
+        VehicleCategory& operator= (const VehicleCategoryEnum &rhs)
+        {
+            _vehicleCategoryEnum = rhs;
+            if (_vehicleCategoryEnum > -1)
+                _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum];
+            else
+                _literal = "unknown";
+            return *this;
+        }
+
+        VehicleCategory& operator= (const VehicleCategory &rhs ) 
+        { 
+             _literal = rhs._literal;
+            _vehicleCategoryEnum = rhs._vehicleCategoryEnum;
+            return *this;
+        }
+
         /**
          * The enumeration value from the literal
          * @param literal_ as defined in OpenSCENARIO
          * @return the enumeration value
          */
-        static VehicleCategoryEnum GetFromLiteral(std::string literal_)
+        static VehicleCategoryEnum GetFromLiteral(const std::string literal_)
         {
             const auto kIt = _stringToEnum.find(literal_);
             if (kIt != _stringToEnum.end())

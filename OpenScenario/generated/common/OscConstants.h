@@ -10,9 +10,8 @@
 
 namespace RAC_OPENSCENARIO
 {
-    class OscConstants 
+    namespace OSC_CONSTANTS 
     {
-    public:
         const std::string ATTRIBUTE__ACTIVE = "active";
         const std::string ATTRIBUTE__ALONG_ROUTE = "alongRoute";
         const std::string ATTRIBUTE__ANIMATION = "animation";
@@ -325,5 +324,5 @@ namespace RAC_OPENSCENARIO
         const std::string ELEMENT__WAYPOINT = "Waypoint";
         const std::string ELEMENT__WEATHER = "Weather";
         const std::string ELEMENT__WORLD_POSITION = "WorldPosition";
-    };
+    }
 }

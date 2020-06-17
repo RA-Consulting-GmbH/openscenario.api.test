@@ -34,9 +34,9 @@ namespace RAC_OPENSCENARIO
          * The filename
          * @return the name of the file.
          */
-        std::string getFilename() const { return _filename; }
+        std::string GetFilename() const { return _filename; }
 
-        bool operator==(const Textmarker& rhs)
+        bool operator==(const Textmarker& rhs) const
         {
             //TODO: check if the dyncamic cast is necessary or if this will already be ensured
             return strcmp(rhs._filename.c_str(), this->_filename.c_str()) && rhs._line == this->_line && rhs._column == this->_column;
