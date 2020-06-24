@@ -207,7 +207,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAbsoluteSpeed : public IOpenScenarioModelElement
+    class IAbsoluteSpeed : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -234,7 +234,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAbsoluteTargetLane : public IOpenScenarioModelElement
+    class IAbsoluteTargetLane : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -261,7 +261,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAbsoluteTargetLaneOffset : public IOpenScenarioModelElement
+    class IAbsoluteTargetLaneOffset : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -288,7 +288,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAbsoluteTargetSpeed : public IOpenScenarioModelElement
+    class IAbsoluteTargetSpeed : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -316,7 +316,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAccelerationCondition : public IOpenScenarioModelElement
+    class IAccelerationCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -354,7 +354,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAcquirePositionAction : public IOpenScenarioModelElement
+    class IAcquirePositionAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -382,7 +382,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAct : public IOpenScenarioModelElement, public IStoryboardElement
+    class IAct : public virtual IOpenScenarioModelElement, public IStoryboardElement
     {
     public:
 
@@ -442,7 +442,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAction : public IOpenScenarioModelElement, public IStoryboardElement
+    class IAction : public virtual IOpenScenarioModelElement, public IStoryboardElement
     {
     public:
 
@@ -502,7 +502,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IActivateControllerAction : public IOpenScenarioModelElement
+    class IActivateControllerAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -540,7 +540,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IActors : public IOpenScenarioModelElement
+    class IActors : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -578,7 +578,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAddEntityAction : public IOpenScenarioModelElement
+    class IAddEntityAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -606,7 +606,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAssignControllerAction : public IOpenScenarioModelElement
+    class IAssignControllerAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -646,7 +646,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAssignRouteAction : public IOpenScenarioModelElement
+    class IAssignRouteAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -684,7 +684,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAxle : public IOpenScenarioModelElement
+    class IAxle : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -756,7 +756,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IAxles : public IOpenScenarioModelElement
+    class IAxles : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -805,7 +805,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IBoundingBox : public IOpenScenarioModelElement
+    class IBoundingBox : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -846,7 +846,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IByEntityCondition : public IOpenScenarioModelElement
+    class IByEntityCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -884,7 +884,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IByObjectType : public IOpenScenarioModelElement
+    class IByObjectType : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -911,7 +911,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IByType : public IOpenScenarioModelElement
+    class IByType : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -938,7 +938,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IByValueCondition : public IOpenScenarioModelElement
+    class IByValueCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1032,7 +1032,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICatalog : public IOpenScenarioModelElement
+    class ICatalog : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1147,7 +1147,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICatalogDefinition : public IOpenScenarioModelElement
+    class ICatalogDefinition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1174,7 +1174,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICatalogLocations : public IOpenScenarioModelElement
+    class ICatalogLocations : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1279,7 +1279,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICatalogReference : public IOpenScenarioModelElement
+    class ICatalogReference : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1341,7 +1341,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICenter : public IOpenScenarioModelElement
+    class ICenter : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1390,7 +1390,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICentralSwarmObject : public IOpenScenarioModelElement
+    class ICentralSwarmObject : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1418,7 +1418,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IClothoid : public IOpenScenarioModelElement
+    class IClothoid : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1501,7 +1501,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICollisionCondition : public IOpenScenarioModelElement
+    class ICollisionCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1541,7 +1541,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICondition : public IOpenScenarioModelElement
+    class ICondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1614,7 +1614,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IConditionGroup : public IOpenScenarioModelElement
+    class IConditionGroup : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1641,7 +1641,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IControlPoint : public IOpenScenarioModelElement
+    class IControlPoint : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1691,7 +1691,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IController : public IOpenScenarioModelElement, public ICatalogElement
+    class IController : public virtual IOpenScenarioModelElement, public ICatalogElement
     {
     public:
 
@@ -1740,7 +1740,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IControllerAction : public IOpenScenarioModelElement
+    class IControllerAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1778,7 +1778,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IControllerCatalogLocation : public IOpenScenarioModelElement
+    class IControllerCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1805,7 +1805,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IControllerDistribution : public IOpenScenarioModelElement
+    class IControllerDistribution : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1832,7 +1832,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IControllerDistributionEntry : public IOpenScenarioModelElement
+    class IControllerDistributionEntry : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1881,7 +1881,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ICustomCommandAction : public IOpenScenarioModelElement
+    class ICustomCommandAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1919,7 +1919,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IDeleteEntityAction : public IOpenScenarioModelElement
+    class IDeleteEntityAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1936,7 +1936,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IDimensions : public IOpenScenarioModelElement
+    class IDimensions : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -1985,7 +1985,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IDirectory : public IOpenScenarioModelElement
+    class IDirectory : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2013,7 +2013,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IDistanceCondition : public IOpenScenarioModelElement
+    class IDistanceCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2084,7 +2084,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IDynamicConstraints : public IOpenScenarioModelElement
+    class IDynamicConstraints : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2133,7 +2133,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEndOfRoadCondition : public IOpenScenarioModelElement
+    class IEndOfRoadCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2160,7 +2160,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEntities : public IOpenScenarioModelElement
+    class IEntities : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2198,7 +2198,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEntityAction : public IOpenScenarioModelElement
+    class IEntityAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2248,7 +2248,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEntityCondition : public IOpenScenarioModelElement
+    class IEntityCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2407,7 +2407,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEntityObject : public IOpenScenarioModelElement
+    class IEntityObject : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2467,7 +2467,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEntityRef : public IOpenScenarioModelElement
+    class IEntityRef : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2496,7 +2496,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEntitySelection : public IOpenScenarioModelElement, public IEntity
+    class IEntitySelection : public virtual IOpenScenarioModelElement, public IEntity
     {
     public:
 
@@ -2534,7 +2534,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEnvironment : public IOpenScenarioModelElement, public ICatalogElement
+    class IEnvironment : public virtual IOpenScenarioModelElement, public ICatalogElement
     {
     public:
 
@@ -2606,7 +2606,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEnvironmentAction : public IOpenScenarioModelElement
+    class IEnvironmentAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2644,7 +2644,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEnvironmentCatalogLocation : public IOpenScenarioModelElement
+    class IEnvironmentCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2672,7 +2672,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IEvent : public IOpenScenarioModelElement, public IStoryboardElement
+    class IEvent : public virtual IOpenScenarioModelElement, public IStoryboardElement
     {
     public:
 
@@ -2743,7 +2743,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IFile : public IOpenScenarioModelElement
+    class IFile : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2770,7 +2770,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IFileHeader : public IOpenScenarioModelElement
+    class IFileHeader : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2841,7 +2841,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IFinalSpeed : public IOpenScenarioModelElement
+    class IFinalSpeed : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2879,7 +2879,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IFog : public IOpenScenarioModelElement
+    class IFog : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2918,7 +2918,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IFollowTrajectoryAction : public IOpenScenarioModelElement
+    class IFollowTrajectoryAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -2980,7 +2980,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IGlobalAction : public IOpenScenarioModelElement
+    class IGlobalAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3052,7 +3052,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IInRoutePosition : public IOpenScenarioModelElement
+    class IInRoutePosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3101,7 +3101,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IInfrastructureAction : public IOpenScenarioModelElement
+    class IInfrastructureAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3128,7 +3128,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IInit : public IOpenScenarioModelElement
+    class IInit : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3156,7 +3156,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IInitActions : public IOpenScenarioModelElement
+    class IInitActions : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3205,7 +3205,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IKnot : public IOpenScenarioModelElement
+    class IKnot : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3236,7 +3236,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILaneChangeAction : public IOpenScenarioModelElement
+    class ILaneChangeAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3285,7 +3285,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILaneChangeTarget : public IOpenScenarioModelElement
+    class ILaneChangeTarget : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3330,7 +3330,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILaneOffsetAction : public IOpenScenarioModelElement
+    class ILaneOffsetAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3380,7 +3380,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILaneOffsetActionDynamics : public IOpenScenarioModelElement
+    class ILaneOffsetActionDynamics : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3418,7 +3418,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILaneOffsetTarget : public IOpenScenarioModelElement
+    class ILaneOffsetTarget : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3456,7 +3456,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILanePosition : public IOpenScenarioModelElement
+    class ILanePosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3527,7 +3527,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILateralAction : public IOpenScenarioModelElement
+    class ILateralAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3580,7 +3580,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILateralDistanceAction : public IOpenScenarioModelElement
+    class ILateralDistanceAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3654,7 +3654,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILongitudinalAction : public IOpenScenarioModelElement
+    class ILongitudinalAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3694,7 +3694,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ILongitudinalDistanceAction : public IOpenScenarioModelElement
+    class ILongitudinalDistanceAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3779,7 +3779,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IManeuver : public IOpenScenarioModelElement, public IStoryboardElement, public ICatalogElement
+    class IManeuver : public virtual IOpenScenarioModelElement, public IStoryboardElement, public ICatalogElement
     {
     public:
 
@@ -3828,7 +3828,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IManeuverCatalogLocation : public IOpenScenarioModelElement
+    class IManeuverCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -3856,7 +3856,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IManeuverGroup : public IOpenScenarioModelElement, public IStoryboardElement
+    class IManeuverGroup : public virtual IOpenScenarioModelElement, public IStoryboardElement
     {
     public:
 
@@ -3927,7 +3927,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IMiscObject : public IOpenScenarioModelElement, public ICatalogElement
+    class IMiscObject : public virtual IOpenScenarioModelElement, public ICatalogElement
     {
     public:
 
@@ -4009,7 +4009,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IMiscObjectCatalogLocation : public IOpenScenarioModelElement
+    class IMiscObjectCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4037,7 +4037,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IModifyRule : public IOpenScenarioModelElement
+    class IModifyRule : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4075,7 +4075,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class INone : public IOpenScenarioModelElement
+    class INone : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4091,7 +4091,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class INurbs : public IOpenScenarioModelElement
+    class INurbs : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4143,7 +4143,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IObjectController : public IOpenScenarioModelElement
+    class IObjectController : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4182,7 +4182,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOffroadCondition : public IOpenScenarioModelElement
+    class IOffroadCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4209,7 +4209,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOpenScenario : public IOpenScenarioModelElement
+    class IOpenScenario : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4247,7 +4247,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOpenScenarioCategory : public IOpenScenarioModelElement
+    class IOpenScenarioCategory : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4285,7 +4285,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOrientation : public IOpenScenarioModelElement
+    class IOrientation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4345,7 +4345,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOverrideBrakeAction : public IOpenScenarioModelElement
+    class IOverrideBrakeAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4383,7 +4383,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOverrideClutchAction : public IOpenScenarioModelElement
+    class IOverrideClutchAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4421,7 +4421,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOverrideControllerValueAction : public IOpenScenarioModelElement
+    class IOverrideControllerValueAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4503,7 +4503,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOverrideGearAction : public IOpenScenarioModelElement
+    class IOverrideGearAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4541,7 +4541,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOverrideParkingBrakeAction : public IOpenScenarioModelElement
+    class IOverrideParkingBrakeAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4579,7 +4579,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOverrideSteeringWheelAction : public IOpenScenarioModelElement
+    class IOverrideSteeringWheelAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4617,7 +4617,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IOverrideThrottleAction : public IOpenScenarioModelElement
+    class IOverrideThrottleAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4655,7 +4655,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterAction : public IOpenScenarioModelElement
+    class IParameterAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4705,7 +4705,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterAddValueRule : public IOpenScenarioModelElement
+    class IParameterAddValueRule : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4733,7 +4733,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterAssignment : public IOpenScenarioModelElement
+    class IParameterAssignment : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4774,7 +4774,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterCondition : public IOpenScenarioModelElement
+    class IParameterCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4824,7 +4824,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterDeclaration : public IOpenScenarioModelElement
+    class IParameterDeclaration : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4873,7 +4873,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterModifyAction : public IOpenScenarioModelElement
+    class IParameterModifyAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4900,7 +4900,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterMultiplyByValueRule : public IOpenScenarioModelElement
+    class IParameterMultiplyByValueRule : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4927,7 +4927,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IParameterSetAction : public IOpenScenarioModelElement
+    class IParameterSetAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -4954,7 +4954,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPedestrian : public IOpenScenarioModelElement, public ICatalogElement
+    class IPedestrian : public virtual IOpenScenarioModelElement, public ICatalogElement
     {
     public:
 
@@ -5047,7 +5047,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPedestrianCatalogLocation : public IOpenScenarioModelElement
+    class IPedestrianCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5074,7 +5074,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPerformance : public IOpenScenarioModelElement
+    class IPerformance : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5124,7 +5124,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPhase : public IOpenScenarioModelElement
+    class IPhase : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5174,7 +5174,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPolyline : public IOpenScenarioModelElement
+    class IPolyline : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5201,7 +5201,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPosition : public IOpenScenarioModelElement
+    class IPosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5306,7 +5306,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPositionInLaneCoordinates : public IOpenScenarioModelElement
+    class IPositionInLaneCoordinates : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5356,7 +5356,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPositionInRoadCoordinates : public IOpenScenarioModelElement
+    class IPositionInRoadCoordinates : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5395,7 +5395,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPositionOfCurrentEntity : public IOpenScenarioModelElement
+    class IPositionOfCurrentEntity : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5423,7 +5423,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPrecipitation : public IOpenScenarioModelElement
+    class IPrecipitation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5461,7 +5461,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPrivate : public IOpenScenarioModelElement
+    class IPrivate : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5500,7 +5500,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IPrivateAction : public IOpenScenarioModelElement
+    class IPrivateAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5607,7 +5607,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IProperties : public IOpenScenarioModelElement
+    class IProperties : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5647,7 +5647,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IProperty : public IOpenScenarioModelElement
+    class IProperty : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5685,7 +5685,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IReachPositionCondition : public IOpenScenarioModelElement
+    class IReachPositionCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5724,7 +5724,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeDistanceCondition : public IOpenScenarioModelElement
+    class IRelativeDistanceCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5796,7 +5796,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeLanePosition : public IOpenScenarioModelElement
+    class IRelativeLanePosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5870,7 +5870,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeObjectPosition : public IOpenScenarioModelElement
+    class IRelativeObjectPosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -5942,7 +5942,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeRoadPosition : public IOpenScenarioModelElement
+    class IRelativeRoadPosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6004,7 +6004,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeSpeedCondition : public IOpenScenarioModelElement
+    class IRelativeSpeedCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6054,7 +6054,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeSpeedToMaster : public IOpenScenarioModelElement
+    class IRelativeSpeedToMaster : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6092,7 +6092,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeTargetLane : public IOpenScenarioModelElement
+    class IRelativeTargetLane : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6132,7 +6132,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeTargetLaneOffset : public IOpenScenarioModelElement
+    class IRelativeTargetLaneOffset : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6171,7 +6171,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeTargetSpeed : public IOpenScenarioModelElement
+    class IRelativeTargetSpeed : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6237,7 +6237,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRelativeWorldPosition : public IOpenScenarioModelElement
+    class IRelativeWorldPosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6309,7 +6309,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRoadCondition : public IOpenScenarioModelElement
+    class IRoadCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6350,7 +6350,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRoadNetwork : public IOpenScenarioModelElement
+    class IRoadNetwork : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6400,7 +6400,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRoadPosition : public IOpenScenarioModelElement
+    class IRoadPosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6461,7 +6461,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRoute : public IOpenScenarioModelElement, public ICatalogElement
+    class IRoute : public virtual IOpenScenarioModelElement, public ICatalogElement
     {
     public:
 
@@ -6521,7 +6521,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRouteCatalogLocation : public IOpenScenarioModelElement
+    class IRouteCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6549,7 +6549,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRoutePosition : public IOpenScenarioModelElement
+    class IRoutePosition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6599,7 +6599,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRouteRef : public IOpenScenarioModelElement
+    class IRouteRef : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6638,7 +6638,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IRoutingAction : public IOpenScenarioModelElement
+    class IRoutingAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6688,7 +6688,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IScenarioDefinition : public IOpenScenarioModelElement
+    class IScenarioDefinition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6763,7 +6763,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IScenarioObject : public IOpenScenarioModelElement, public IEntity
+    class IScenarioObject : public virtual IOpenScenarioModelElement, public IEntity
     {
     public:
 
@@ -6812,7 +6812,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ISelectedEntities : public IOpenScenarioModelElement
+    class ISelectedEntities : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6850,7 +6850,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IShape : public IOpenScenarioModelElement
+    class IShape : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6899,7 +6899,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ISimulationTimeCondition : public IOpenScenarioModelElement
+    class ISimulationTimeCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6938,7 +6938,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ISpeedAction : public IOpenScenarioModelElement
+    class ISpeedAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -6977,7 +6977,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ISpeedActionTarget : public IOpenScenarioModelElement
+    class ISpeedActionTarget : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7016,7 +7016,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ISpeedCondition : public IOpenScenarioModelElement
+    class ISpeedCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7054,7 +7054,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IStandStillCondition : public IOpenScenarioModelElement
+    class IStandStillCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7081,7 +7081,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IStory : public IOpenScenarioModelElement, public IStoryboardElement
+    class IStory : public virtual IOpenScenarioModelElement, public IStoryboardElement
     {
     public:
 
@@ -7130,7 +7130,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IStoryboard : public IOpenScenarioModelElement
+    class IStoryboard : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7181,7 +7181,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IStoryboardElementStateCondition : public IOpenScenarioModelElement
+    class IStoryboardElementStateCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7231,7 +7231,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ISun : public IOpenScenarioModelElement
+    class ISun : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7283,7 +7283,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ISynchronizeAction : public IOpenScenarioModelElement
+    class ISynchronizeAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7344,7 +7344,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITeleportAction : public IOpenScenarioModelElement
+    class ITeleportAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7372,7 +7372,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITimeHeadwayCondition : public IOpenScenarioModelElement
+    class ITimeHeadwayCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7445,7 +7445,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITimeOfDay : public IOpenScenarioModelElement
+    class ITimeOfDay : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7484,7 +7484,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITimeOfDayCondition : public IOpenScenarioModelElement
+    class ITimeOfDayCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7523,7 +7523,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITimeReference : public IOpenScenarioModelElement
+    class ITimeReference : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7564,7 +7564,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITimeToCollisionCondition : public IOpenScenarioModelElement
+    class ITimeToCollisionCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7637,7 +7637,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITimeToCollisionConditionTarget : public IOpenScenarioModelElement
+    class ITimeToCollisionConditionTarget : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7675,7 +7675,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITiming : public IOpenScenarioModelElement
+    class ITiming : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7725,7 +7725,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficAction : public IOpenScenarioModelElement
+    class ITrafficAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7774,7 +7774,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficDefinition : public IOpenScenarioModelElement
+    class ITrafficDefinition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7823,7 +7823,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSignalAction : public IOpenScenarioModelElement
+    class ITrafficSignalAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7863,7 +7863,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSignalCondition : public IOpenScenarioModelElement
+    class ITrafficSignalCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7902,7 +7902,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSignalController : public IOpenScenarioModelElement
+    class ITrafficSignalController : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -7965,7 +7965,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSignalControllerAction : public IOpenScenarioModelElement
+    class ITrafficSignalControllerAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8017,7 +8017,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSignalControllerCondition : public IOpenScenarioModelElement
+    class ITrafficSignalControllerCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8068,7 +8068,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSignalState : public IOpenScenarioModelElement
+    class ITrafficSignalState : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8106,7 +8106,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSignalStateAction : public IOpenScenarioModelElement
+    class ITrafficSignalStateAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8144,7 +8144,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSinkAction : public IOpenScenarioModelElement
+    class ITrafficSinkAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8204,7 +8204,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSourceAction : public IOpenScenarioModelElement
+    class ITrafficSourceAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8280,7 +8280,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrafficSwarmAction : public IOpenScenarioModelElement
+    class ITrafficSwarmAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8387,7 +8387,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrajectory : public IOpenScenarioModelElement, public ICatalogElement
+    class ITrajectory : public virtual IOpenScenarioModelElement, public ICatalogElement
     {
     public:
 
@@ -8447,7 +8447,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrajectoryCatalogLocation : public IOpenScenarioModelElement
+    class ITrajectoryCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8474,7 +8474,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrajectoryFollowingMode : public IOpenScenarioModelElement
+    class ITrajectoryFollowingMode : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8506,7 +8506,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITransitionDynamics : public IOpenScenarioModelElement
+    class ITransitionDynamics : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8556,7 +8556,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITraveledDistanceCondition : public IOpenScenarioModelElement
+    class ITraveledDistanceCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8584,7 +8584,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITrigger : public IOpenScenarioModelElement
+    class ITrigger : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8612,7 +8612,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ITriggeringEntities : public IOpenScenarioModelElement
+    class ITriggeringEntities : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8651,7 +8651,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IUserDefinedAction : public IOpenScenarioModelElement
+    class IUserDefinedAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8680,7 +8680,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IUserDefinedValueCondition : public IOpenScenarioModelElement
+    class IUserDefinedValueCondition : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8729,7 +8729,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IVehicle : public IOpenScenarioModelElement, public ICatalogElement
+    class IVehicle : public virtual IOpenScenarioModelElement, public ICatalogElement
     {
     public:
 
@@ -8822,7 +8822,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IVehicleCatalogLocation : public IOpenScenarioModelElement
+    class IVehicleCatalogLocation : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8850,7 +8850,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IVehicleCategoryDistribution : public IOpenScenarioModelElement
+    class IVehicleCategoryDistribution : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8878,7 +8878,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IVehicleCategoryDistributionEntry : public IOpenScenarioModelElement
+    class IVehicleCategoryDistributionEntry : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8916,7 +8916,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IVertex : public IOpenScenarioModelElement
+    class IVertex : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -8955,7 +8955,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IVisibilityAction : public IOpenScenarioModelElement
+    class IVisibilityAction : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -9005,7 +9005,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IWaypoint : public IOpenScenarioModelElement
+    class IWaypoint : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -9043,7 +9043,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IWeather : public IOpenScenarioModelElement
+    class IWeather : public virtual IOpenScenarioModelElement
     {
     public:
 
@@ -9104,7 +9104,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class IWorldPosition : public IOpenScenarioModelElement
+    class IWorldPosition : public virtual IOpenScenarioModelElement
     {
     public:
 

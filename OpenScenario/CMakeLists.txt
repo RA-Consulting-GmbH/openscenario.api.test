@@ -25,8 +25,13 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/loader )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/main )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parameter )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/modelgroup )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/type )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/simple )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/simple/struct )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/xmlIndexer )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../TinyXML2 )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/api )
@@ -36,10 +41,10 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/checker/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/checker/range )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/catalog)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/parser )
 #include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/loader )
 #include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/main )
 #include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/parameter )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/parser )
 #include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/simple )
 
 if ( WIN32 )
@@ -51,7 +56,8 @@ endif ( WIN32 )
 # Source files
 set( SOURCES
   ${SOURCES}
-  "src/OpenScenario.cpp"  
+  "src/OpenScenario.cpp"
+    "../../TinyXML2/tinyxml2.cpp"
 )
 
 set( SOURCES_GENERATED_API
@@ -73,6 +79,12 @@ set( SOURCES_GENERATED_IMPL
   ${SOURCES_GENERATED_IMPL}
   "generated/impl/ApiClassImpl.cpp"
 )
+
+set( SOURCES_GENERATED_XMLPARSER
+  ${SOURCES_GENERATED_XMLPARSER}
+  "generated/xmlParser/XmlParsers.cpp"
+)
+
 
 ################################################################
 # Header files
@@ -117,6 +129,45 @@ set( HEADERS_PARAMETER
 set( HEADERS_PARSER
   ${HEADERS_PARSER}
   "src/parser/ParserHelper.h"
+  "src/parser/ParserContext.h"
+  "src/parser/WrappedListParser.h"
+  "src/parser/XMLParserBase.h"
+  "src/parser/XMLParserException.h"
+  "src/parser/XmlModelGroupParser.h"
+)
+
+set( HEADERS_PARSER_MODEL_GROUP
+  ${HEADERS_PARSER_MODEL_GROUP}
+  "src/parser/modelgroup/XmlAllParser.h"
+  "src/parser/modelgroup/XmlChoiceParser.h"
+  "src/parser/modelgroup/XmlSequenceParser.h"
+)
+
+set( HEADERS_PARSER_TYPE
+  ${HEADERS_PARSER_TYPE}
+  "src/parser/type/IXmlTypeParser.h"
+  "src/parser/type/XmlComplexTypeParser.h"
+  "src/parser/type/XmlGroupParser.h"
+  "src/parser/type/XmlSimpleContentParser.h"
+)
+
+set( HEADERS_XMLINDEXER
+  ${HEADERS_XMLINDEXER}
+  "src/xmlIndexer/AttributeNode.h"
+  "src/xmlIndexer/ElementNode.h"
+  "src/xmlIndexer/Position.h"
+  "src/xmlIndexer/PositionIndex.h"
+  "src/xmlIndexer/PositionNode.h"
+)
+
+set( HEADERS_SIMPLE_STRUCT
+  ${HEADERS_SIMPLE_STRUCT}
+  "src/simple/struct/IndexedElement.h"
+)
+
+set( HEADERS_CATALOG
+  ${HEADERS_CATALOG}
+  "src/catalog/ICatalogReferenceProvider.h"
 )
 
 set( HEADERS_GENERATED_API
@@ -157,6 +208,11 @@ set( HEADERS_GENERATED_IMPL
   "generated/impl/ApiClassImpl.h"
 )
 
+set( HEADERS_GENERATED_XMLPARSER
+  ${HEADERS_GENERATED_XMLPARSER}
+  "generated/xmlParser/XmlParsers.h"
+)
+
 ################################################################
 # Create groups for VS
 if( MSVC )
@@ -166,6 +222,7 @@ if( MSVC )
   source_group( Sources\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_CHECKER_IMPL} )
   source_group( Sources\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_CHECKER_RANGE} )
   source_group( Sources\\Generated\\Impl FILES ${SOURCES_GENERATED_IMPL} )
+  source_group( Sources\\Generated\\XmlParser FILES ${SOURCES_GENERATED_XMLPARSER} )
 
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
@@ -175,6 +232,12 @@ if( MSVC )
   source_group( Headers\\Impl FILES ${HEADERS_IMPL})
   source_group( Headers\\Parameter FILES ${HEADERS_PARAMETER})
   source_group( Headers\\Parser FILES ${HEADERS_PARSER})
+  source_group( Headers\\Parser\\ModelGroup FILES ${HEADERS_PARSER_MODEL_GROUP})
+  source_group( Headers\\Parser\\Type FILES ${HEADERS_PARSER_TYPE})
+  source_group( Headers\\XmlIndexer FILES ${HEADERS_XMLINDEXER})
+  source_group( Headers\\Simple\\Struct FILES ${HEADERS_SIMPLE_STRUCT})
+  source_group( Headers\\Catalog FILES ${HEADERS_CATALOG})
+
   source_group( Headers\\Generated\\Api FILES ${HEADERS_GENERATED_API} )
   source_group( Headers\\Generated\\Common FILES ${HEADERS_GENERATED_COMMON} )
   source_group( Headers\\Generated\\Checker FILES ${HEADERS_GENERATED_CHECKER} )
@@ -182,14 +245,16 @@ if( MSVC )
   source_group( Headers\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_CHECKER_RANGE} )
   source_group( Headers\\Generated\\Catalog FILES ${HEADERS_GENERATED_CATALOG} )
   source_group( Headers\\Generated\\Impl FILES ${HEADERS_GENERATED_IMPL} )
+  source_group( Headers\\Generated\\XmlParser FILES ${HEADERS_GENERATED_XMLPARSER} )
 endif()
 
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${SOURCES_GENERATED_API} ${SOURCES_GENERATED_CHECKER_IMPL} ${SOURCES_GENERATED_CHECKER_RANGE} ${SOURCES_GENERATED_IMPL} ${HEADERS} ${HEADERS_API} ${HEADERS_COMMON}
-                ${HEADERS_CHECKER} ${HEADERS_IMPL} ${HEADERS_PARAMETER} ${HEADERS_PARSER}
-                ${HEADERS_GENERATED_API} ${HEADERS_GENERATED_COMMON} ${HEADERS_GENERATED_CHECKER} ${HEADERS_GENERATED_CHECKER_IMPL} ${HEADERS_GENERATED_CHECKER_RANGE} ${HEADERS_GENERATED_CATALOG} ${HEADERS_GENERATED_IMPL})
+add_executable( ${PROJECT_NAME} ${SOURCES} ${SOURCES_GENERATED_API} ${SOURCES_GENERATED_CHECKER_IMPL} ${SOURCES_GENERATED_CHECKER_RANGE} ${SOURCES_GENERATED_IMPL} ${SOURCES_GENERATED_XMLPARSER} ${HEADERS} ${HEADERS_API} ${HEADERS_COMMON}
+                ${HEADERS_CHECKER} ${HEADERS_IMPL} ${HEADERS_PARAMETER} ${HEADERS_PARSER} ${HEADERS_PARSER_MODEL_GROUP} ${HEADERS_PARSER_TYPE} ${HEADERS_XMLINDEXER} ${HEADERS_SIMPLE_STRUCT} ${HEADERS_CATALOG}
+                ${HEADERS_GENERATED_API} ${HEADERS_GENERATED_COMMON} ${HEADERS_GENERATED_CHECKER} ${HEADERS_GENERATED_CHECKER_IMPL} ${HEADERS_GENERATED_CHECKER_RANGE} ${HEADERS_GENERATED_CATALOG} ${HEADERS_GENERATED_IMPL}
+                ${HEADERS_GENERATED_XMLPARSER})
 
 # ${CMAKE_THREAD_LIBS_INIT}
 target_link_libraries( ${PROJECT_NAME} )
@@ -198,6 +263,7 @@ target_link_libraries( ${PROJECT_NAME} )
 ################################################################
 # Visual Studio solution folders
 if( MSVC )
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Core )
 endif()
 

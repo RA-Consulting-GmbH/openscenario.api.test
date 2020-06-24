@@ -15,12 +15,12 @@ namespace RAC_OPENSCENARIO
          * Logging a single message to a log target.
          * @param message the message to log.
          */
-        virtual void LogMessage(FileContentMessage& message) = 0;
+        virtual void LogMessage(FileContentMessage& message) {}
 
         /**
          * Logging a list of messages to a log target.
          * @param messages the list of messages.
          */
-        virtual void LogAllMessages(std::vector<FileContentMessage>& messages) = 0;
+        virtual void LogAllMessages(std::vector<FileContentMessage>& messages) {};
     };
 }

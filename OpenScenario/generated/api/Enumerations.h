@@ -60,6 +60,12 @@ namespace RAC_OPENSCENARIO
             _cloudStateEnum = GetFromLiteral(_literal);
         }
 
+        CloudState(CloudStateEnum& cloudState)
+        {
+            _literal = kCloudStateEnumString[cloudState];
+            _cloudStateEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -163,6 +169,12 @@ namespace RAC_OPENSCENARIO
             _conditionEdgeEnum = GetFromLiteral(_literal);
         }
 
+        ConditionEdge(ConditionEdgeEnum& conditionEdge)
+        {
+            _literal = kConditionEdgeEnumString[conditionEdge];
+            _conditionEdgeEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -255,6 +267,12 @@ namespace RAC_OPENSCENARIO
         DynamicsDimension()
         {
             _literal = kDynamicsDimensionEnumString[0];
+            _dynamicsDimensionEnum = GetFromLiteral(_literal);
+        }
+
+        DynamicsDimension(DynamicsDimensionEnum& dynamicsDimension)
+        {
+            _literal = kDynamicsDimensionEnumString[dynamicsDimension];
             _dynamicsDimensionEnum = GetFromLiteral(_literal);
         }
 
@@ -356,6 +374,12 @@ namespace RAC_OPENSCENARIO
             _dynamicsShapeEnum = GetFromLiteral(_literal);
         }
 
+        DynamicsShape(DynamicsShapeEnum& dynamicsShape)
+        {
+            _literal = kDynamicsShapeEnumString[dynamicsShape];
+            _dynamicsShapeEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -445,6 +469,12 @@ namespace RAC_OPENSCENARIO
         FollowingMode()
         {
             _literal = kFollowingModeEnumString[0];
+            _followingModeEnum = GetFromLiteral(_literal);
+        }
+
+        FollowingMode(FollowingModeEnum& followingMode)
+        {
+            _literal = kFollowingModeEnumString[followingMode];
             _followingModeEnum = GetFromLiteral(_literal);
         }
 
@@ -585,6 +615,12 @@ namespace RAC_OPENSCENARIO
             _miscObjectCategoryEnum = GetFromLiteral(_literal);
         }
 
+        MiscObjectCategory(MiscObjectCategoryEnum& miscObjectCategory)
+        {
+            _literal = kMiscObjectCategoryEnumString[miscObjectCategory];
+            _miscObjectCategoryEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -677,6 +713,12 @@ namespace RAC_OPENSCENARIO
         ObjectType()
         {
             _literal = kObjectTypeEnumString[0];
+            _objectTypeEnum = GetFromLiteral(_literal);
+        }
+
+        ObjectType(ObjectTypeEnum& objectType)
+        {
+            _literal = kObjectTypeEnumString[objectType];
             _objectTypeEnum = GetFromLiteral(_literal);
         }
 
@@ -787,6 +829,12 @@ namespace RAC_OPENSCENARIO
             _parameterTypeEnum = GetFromLiteral(_literal);
         }
 
+        ParameterType(ParameterTypeEnum& parameterType)
+        {
+            _literal = kParameterTypeEnumString[parameterType];
+            _parameterTypeEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -882,6 +930,12 @@ namespace RAC_OPENSCENARIO
             _pedestrianCategoryEnum = GetFromLiteral(_literal);
         }
 
+        PedestrianCategory(PedestrianCategoryEnum& pedestrianCategory)
+        {
+            _literal = kPedestrianCategoryEnumString[pedestrianCategory];
+            _pedestrianCategoryEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -974,6 +1028,12 @@ namespace RAC_OPENSCENARIO
         PrecipitationType()
         {
             _literal = kPrecipitationTypeEnumString[0];
+            _precipitationTypeEnum = GetFromLiteral(_literal);
+        }
+
+        PrecipitationType(PrecipitationTypeEnum& precipitationType)
+        {
+            _literal = kPrecipitationTypeEnumString[precipitationType];
             _precipitationTypeEnum = GetFromLiteral(_literal);
         }
 
@@ -1074,6 +1134,12 @@ namespace RAC_OPENSCENARIO
             _priorityEnum = GetFromLiteral(_literal);
         }
 
+        Priority(PriorityEnum& priority)
+        {
+            _literal = kPriorityEnumString[priority];
+            _priorityEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -1163,6 +1229,12 @@ namespace RAC_OPENSCENARIO
         ReferenceContext()
         {
             _literal = kReferenceContextEnumString[0];
+            _referenceContextEnum = GetFromLiteral(_literal);
+        }
+
+        ReferenceContext(ReferenceContextEnum& referenceContext)
+        {
+            _literal = kReferenceContextEnumString[referenceContext];
             _referenceContextEnum = GetFromLiteral(_literal);
         }
 
@@ -1258,6 +1330,12 @@ namespace RAC_OPENSCENARIO
         RelativeDistanceType()
         {
             _literal = kRelativeDistanceTypeEnumString[0];
+            _relativeDistanceTypeEnum = GetFromLiteral(_literal);
+        }
+
+        RelativeDistanceType(RelativeDistanceTypeEnum& relativeDistanceType)
+        {
+            _literal = kRelativeDistanceTypeEnumString[relativeDistanceType];
             _relativeDistanceTypeEnum = GetFromLiteral(_literal);
         }
 
@@ -1359,6 +1437,12 @@ namespace RAC_OPENSCENARIO
             _routeStrategyEnum = GetFromLiteral(_literal);
         }
 
+        RouteStrategy(RouteStrategyEnum& routeStrategy)
+        {
+            _literal = kRouteStrategyEnumString[routeStrategy];
+            _routeStrategyEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -1454,6 +1538,12 @@ namespace RAC_OPENSCENARIO
             _ruleEnum = GetFromLiteral(_literal);
         }
 
+        Rule(RuleEnum& rule)
+        {
+            _literal = kRuleEnumString[rule];
+            _ruleEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -1545,6 +1635,12 @@ namespace RAC_OPENSCENARIO
         SpeedTargetValueType()
         {
             _literal = kSpeedTargetValueTypeEnumString[0];
+            _speedTargetValueTypeEnum = GetFromLiteral(_literal);
+        }
+
+        SpeedTargetValueType(SpeedTargetValueTypeEnum& speedTargetValueType)
+        {
+            _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType];
             _speedTargetValueTypeEnum = GetFromLiteral(_literal);
         }
 
@@ -1660,6 +1756,12 @@ namespace RAC_OPENSCENARIO
             _storyboardElementStateEnum = GetFromLiteral(_literal);
         }
 
+        StoryboardElementState(StoryboardElementStateEnum& storyboardElementState)
+        {
+            _literal = kStoryboardElementStateEnumString[storyboardElementState];
+            _storyboardElementStateEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -1764,6 +1866,12 @@ namespace RAC_OPENSCENARIO
             _storyboardElementTypeEnum = GetFromLiteral(_literal);
         }
 
+        StoryboardElementType(StoryboardElementTypeEnum& storyboardElementType)
+        {
+            _literal = kStoryboardElementTypeEnumString[storyboardElementType];
+            _storyboardElementTypeEnum = GetFromLiteral(_literal);
+        }
+
         /**
          * Constructor using the literal
          * @param literal_ as defined in OpenSCENARIO
@@ -1853,6 +1961,12 @@ namespace RAC_OPENSCENARIO
         TriggeringEntitiesRule()
         {
             _literal = kTriggeringEntitiesRuleEnumString[0];
+            _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
+        }
+
+        TriggeringEntitiesRule(TriggeringEntitiesRuleEnum& triggeringEntitiesRule)
+        {
+            _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule];
             _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
         }
 
@@ -1969,6 +2083,12 @@ namespace RAC_OPENSCENARIO
         VehicleCategory()
         {
             _literal = kVehicleCategoryEnumString[0];
+            _vehicleCategoryEnum = GetFromLiteral(_literal);
+        }
+
+        VehicleCategory(VehicleCategoryEnum& vehicleCategory)
+        {
+            _literal = kVehicleCategoryEnumString[vehicleCategory];
             _vehicleCategoryEnum = GetFromLiteral(_literal);
         }
 

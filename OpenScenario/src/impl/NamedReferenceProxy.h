@@ -35,7 +35,7 @@ namespace RAC_OPENSCENARIO
          *
          * @param nameRef name that represents the reference to a real object
          */
-        NamedReferenceProxy(std::string& nameRef): _targetObject(nullptr),  _nameRef(nameRef) {}
+        NamedReferenceProxy(const std::string nameRef): _targetObject(nullptr),  _nameRef(nameRef) {}
 
         std::shared_ptr<T> GetTargetObject() override
          {

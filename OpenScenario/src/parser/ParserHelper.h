@@ -192,7 +192,7 @@ namespace RAC_OPENSCENARIO
          * @param textMarker text marker
          * @return the parsed value or null if value cannot be parsed
          */
-        static  DateTime ParseDateTime(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
+        static DateTime ParseDateTime(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
         {
             DateTime result{};
 

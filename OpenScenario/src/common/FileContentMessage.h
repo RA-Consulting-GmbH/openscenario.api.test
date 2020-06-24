@@ -24,7 +24,7 @@ namespace RAC_OPENSCENARIO
          * @param errorLevel the error level of the message
          * @param textmarker the text marker that enables the user to trace the message back to a file location.
          */
-        FileContentMessage(const std::string message, const ErrorLevel errorLevel, Textmarker& textmarker) :
+        FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker) :
             _textmarker(textmarker), _message(message), _errorLevel(errorLevel) {}
 
         /**

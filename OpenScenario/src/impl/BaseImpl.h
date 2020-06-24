@@ -20,7 +20,7 @@
  */
 namespace RAC_OPENSCENARIO
 {
-    class BaseImpl : public IParameterizedObject, public IOpenScenarioModelElement
+    class BaseImpl : public IParameterizedObject, public virtual IOpenScenarioModelElement
     {
     private:
         /**
@@ -32,9 +32,7 @@ namespace RAC_OPENSCENARIO
             Textmarker textMarker;
             std::string parameterName;
 
-            ParameterizedAttribute(std::string& parameterName, Textmarker& textMarker) : textMarker(textMarker), parameterName(parameterName)
-            {
-            }
+            ParameterizedAttribute(const std::string parameterName, Textmarker& textMarker) : textMarker(textMarker), parameterName(parameterName) {}
         };
 
         class BaseImplIlocator : public ILocator
@@ -80,10 +78,10 @@ namespace RAC_OPENSCENARIO
         Textmarker _endMarker;
         std::shared_ptr<IOpenScenarioModelElement> _parent;
 
-
     protected:
         std::map<std::string, std::string> _propertyToType;
 
+    public:
         /**
          * A clone method for the start marker
          * @param baseImpl the cloned object to set this object's start marker
@@ -139,7 +137,7 @@ namespace RAC_OPENSCENARIO
          * @param parameterName the name of the parameter.
          * @param textMarker The text marker for this object.
          */
-        void SetAttributeParameter(std::string& attributeKey, std::string& parameterName, Textmarker& textMarker)
+        void SetAttributeParameter(const std::string attributeKey, const std::string parameterName, Textmarker& textMarker)
         {
             _attributeKeyToParameterName.emplace(attributeKey, std::make_shared<ParameterizedAttribute>(parameterName, textMarker));
         }
@@ -183,9 +181,8 @@ namespace RAC_OPENSCENARIO
          * @param attributeKey the key of the property the value should be assigned to
          * @param value the string representation of the value that should be assigned to the property
          */
-        virtual void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& value) = 0;
+        virtual void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& value) {}
 
-    public:
         /**
          * Constructor
          */
@@ -215,7 +212,7 @@ namespace RAC_OPENSCENARIO
          * @param propertyKey the key of the property
          * @param startMarker the start marker
          */
-        void PutPropertyStartMarker(std::string& propertyKey, std::shared_ptr<Textmarker>& startMarker)
+        void PutPropertyStartMarker(std::string propertyKey, std::shared_ptr<Textmarker> startMarker)
         {
             _attributeKeyToStartMarker.emplace(std::make_pair(propertyKey, startMarker));
         }
@@ -225,7 +222,7 @@ namespace RAC_OPENSCENARIO
          * @param propertyKey the key of the property
          * @param endMarker the end marker
          */
-        void PutPropertyEndMarker(std::string& propertyKey, std::shared_ptr<Textmarker>& endMarker)
+        void PutPropertyEndMarker(std::string propertyKey, std::shared_ptr<Textmarker> endMarker)
         {
             _attributeKeyToEndMarker.emplace(std::make_pair(propertyKey, endMarker));
         }
@@ -320,7 +317,10 @@ namespace RAC_OPENSCENARIO
          * All child instances of this object as a flattened list. Must be implemented in subclasses.
          * @return a list with all child instances.
          */
-        virtual  std::vector<std::shared_ptr<BaseImpl>> GetChildren() = 0;
+        virtual  std::vector<std::shared_ptr<BaseImpl>> GetChildren()
+        {
+            return {};
+        }
 
         /**
          * Indicating that all subclasses must implement the the Clonable interface.

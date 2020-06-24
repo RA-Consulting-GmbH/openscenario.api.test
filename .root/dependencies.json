@@ -24,6 +24,18 @@
       }
     },
     {
+      "name": "Externals/TinyXML2",
+      "version": "2.61a4c7d",
+      "features": {
+        "Linux": [
+          "@all"
+        ],
+        "Windows": [
+          "@all"
+        ]
+      }
+    },
+    {
       "name": "RA/Cpp/Rac.Core.Cpp",
       "version": "r21",
       "features": {

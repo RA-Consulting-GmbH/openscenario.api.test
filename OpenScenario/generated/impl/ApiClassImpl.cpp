@@ -25,7 +25,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Absolute speed. Unit: m/s. Range: [0..inf[.]
 	 * 
 	*/
-    void AbsoluteSpeedImpl::SetValue(double& value )
+    void AbsoluteSpeedImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -65,18 +65,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AbsoluteSpeedImpl AbsoluteSpeedImpl::Clone()
+    std::shared_ptr<AbsoluteSpeedImpl> AbsoluteSpeedImpl::Clone()
     {
-        AbsoluteSpeedImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AbsoluteSpeedImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -102,7 +102,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Number (ID) of the target lane the entity will change to.]
 	 * 
 	*/
-    void AbsoluteTargetLaneImpl::SetValue(std::string& value )
+    void AbsoluteTargetLaneImpl::SetValue(const std::string value )
     {
         _value = value;
     }
@@ -142,18 +142,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AbsoluteTargetLaneImpl AbsoluteTargetLaneImpl::Clone()
+    std::shared_ptr<AbsoluteTargetLaneImpl> AbsoluteTargetLaneImpl::Clone()
     {
-        AbsoluteTargetLaneImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AbsoluteTargetLaneImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -180,7 +180,7 @@ namespace RAC_OPENSCENARIO
 	 * offset from the center of the current lane.]
 	 * 
 	*/
-    void AbsoluteTargetLaneOffsetImpl::SetValue(double& value )
+    void AbsoluteTargetLaneOffsetImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -220,18 +220,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AbsoluteTargetLaneOffsetImpl AbsoluteTargetLaneOffsetImpl::Clone()
+    std::shared_ptr<AbsoluteTargetLaneOffsetImpl> AbsoluteTargetLaneOffsetImpl::Clone()
     {
-        AbsoluteTargetLaneOffsetImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AbsoluteTargetLaneOffsetImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -257,7 +257,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Target speed in m/s the vehicle should change to.]
 	 * 
 	*/
-    void AbsoluteTargetSpeedImpl::SetValue(double& value )
+    void AbsoluteTargetSpeedImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -297,18 +297,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AbsoluteTargetSpeedImpl AbsoluteTargetSpeedImpl::Clone()
+    std::shared_ptr<AbsoluteTargetSpeedImpl> AbsoluteTargetSpeedImpl::Clone()
     {
-        AbsoluteTargetSpeedImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AbsoluteTargetSpeedImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -339,7 +339,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Acceleration value. Unit: m/s^2.]
 	 * 
 	*/
-    void AccelerationConditionImpl::SetValue(double& value )
+    void AccelerationConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -348,7 +348,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void AccelerationConditionImpl::SetRule(Rule& rule )
+    void AccelerationConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -403,20 +403,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AccelerationConditionImpl AccelerationConditionImpl::Clone()
+    std::shared_ptr<AccelerationConditionImpl> AccelerationConditionImpl::Clone()
     {
-        AccelerationConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AccelerationConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -441,7 +441,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [A position to acquire.]
 	 * 
 	*/
-    void AcquirePositionActionImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void AcquirePositionActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -480,24 +480,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AcquirePositionActionImpl AcquirePositionActionImpl::Clone()
+    std::shared_ptr<AcquirePositionActionImpl> AcquirePositionActionImpl::Clone()
     {
-        AcquirePositionActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AcquirePositionActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -535,7 +535,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of this act.]
 	 * 
 	*/
-    void ActImpl::SetName(std::string& name )
+    void ActImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -553,7 +553,7 @@ namespace RAC_OPENSCENARIO
 	 * @param startTrigger from OpenSCENARIO class model specification: [Defines a trigger to that starts the act.]
 	 * 
 	*/
-    void ActImpl::SetStartTrigger(std::shared_ptr<ITrigger>& startTrigger )
+    void ActImpl::SetStartTrigger(const std::shared_ptr<ITrigger> startTrigger )
     {
         _startTrigger = startTrigger;
     }
@@ -562,7 +562,7 @@ namespace RAC_OPENSCENARIO
 	 * @param stopTrigger from OpenSCENARIO class model specification: [Defines a trigger that stops the act.]
 	 * 
 	*/
-    void ActImpl::SetStopTrigger(std::shared_ptr<ITrigger>& stopTrigger )
+    void ActImpl::SetStopTrigger(const std::shared_ptr<ITrigger> stopTrigger )
     {
         _stopTrigger = stopTrigger;
     }
@@ -620,18 +620,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ActImpl ActImpl::Clone()
+    std::shared_ptr<ActImpl> ActImpl::Clone()
     {
-        ActImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ActImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kManeuverGroups =  GetManeuverGroups();
         if (!kManeuverGroups.empty())
@@ -639,27 +639,27 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IManeuverGroup>> clonedList;
             for(auto&& kItem : kManeuverGroups)
             {
-                auto clonedChild = std::make_shared <ManeuverGroupImpl>(std::dynamic_pointer_cast<ManeuverGroupImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ManeuverGroupImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetManeuverGroups(clonedList);
+            clonedObject->SetManeuverGroups(clonedList);
         }
         const auto kStartTrigger =  GetStartTrigger();
         if (kStartTrigger)
         {
-            auto clonedChild = std::make_shared<TriggerImpl>(std::dynamic_pointer_cast<TriggerImpl>(kStartTrigger)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStartTrigger)->Clone();
             auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetStartTrigger(clonedChildITrigger);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetStartTrigger(clonedChildITrigger);
         }
         const auto kStopTrigger =  GetStopTrigger();
         if (kStopTrigger)
         {
-            auto clonedChild = std::make_shared<TriggerImpl>(std::dynamic_pointer_cast<TriggerImpl>(kStopTrigger)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStopTrigger)->Clone();
             auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetStopTrigger(clonedChildITrigger);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetStopTrigger(clonedChildITrigger);
         }
         return clonedObject;
     }
@@ -697,7 +697,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of this action.]
 	 * 
 	*/
-    void ActionImpl::SetName(std::string& name )
+    void ActionImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -707,7 +707,7 @@ namespace RAC_OPENSCENARIO
 	 * Action is startedis started.]
 	 * 
 	*/
-    void ActionImpl::SetGlobalAction(std::shared_ptr<IGlobalAction>& globalAction )
+    void ActionImpl::SetGlobalAction(const std::shared_ptr<IGlobalAction> globalAction )
     {
         _globalAction = globalAction;
     }
@@ -717,7 +717,7 @@ namespace RAC_OPENSCENARIO
 	 * enclosing Action is started.]
 	 * 
 	*/
-    void ActionImpl::SetUserDefinedAction(std::shared_ptr<IUserDefinedAction>& userDefinedAction )
+    void ActionImpl::SetUserDefinedAction(const std::shared_ptr<IUserDefinedAction> userDefinedAction )
     {
         _userDefinedAction = userDefinedAction;
     }
@@ -727,7 +727,7 @@ namespace RAC_OPENSCENARIO
 	 * Action is started.]
 	 * 
 	*/
-    void ActionImpl::SetPrivateAction(std::shared_ptr<IPrivateAction>& privateAction )
+    void ActionImpl::SetPrivateAction(const std::shared_ptr<IPrivateAction> privateAction )
     {
         _privateAction = privateAction;
     }
@@ -782,42 +782,42 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ActionImpl ActionImpl::Clone()
+    std::shared_ptr<ActionImpl> ActionImpl::Clone()
     {
-        ActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kGlobalAction =  GetGlobalAction();
         if (kGlobalAction)
         {
-            auto clonedChild = std::make_shared<GlobalActionImpl>(std::dynamic_pointer_cast<GlobalActionImpl>(kGlobalAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<GlobalActionImpl>(kGlobalAction)->Clone();
             auto clonedChildIGlobalAction = std::dynamic_pointer_cast<IGlobalAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetGlobalAction(clonedChildIGlobalAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetGlobalAction(clonedChildIGlobalAction);
         }
         const auto kUserDefinedAction =  GetUserDefinedAction();
         if (kUserDefinedAction)
         {
-            auto clonedChild = std::make_shared<UserDefinedActionImpl>(std::dynamic_pointer_cast<UserDefinedActionImpl>(kUserDefinedAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<UserDefinedActionImpl>(kUserDefinedAction)->Clone();
             auto clonedChildIUserDefinedAction = std::dynamic_pointer_cast<IUserDefinedAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetUserDefinedAction(clonedChildIUserDefinedAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetUserDefinedAction(clonedChildIUserDefinedAction);
         }
         const auto kPrivateAction =  GetPrivateAction();
         if (kPrivateAction)
         {
-            auto clonedChild = std::make_shared<PrivateActionImpl>(std::dynamic_pointer_cast<PrivateActionImpl>(kPrivateAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PrivateActionImpl>(kPrivateAction)->Clone();
             auto clonedChildIPrivateAction = std::dynamic_pointer_cast<IPrivateAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPrivateAction(clonedChildIPrivateAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPrivateAction(clonedChildIPrivateAction);
         }
         return clonedObject;
     }
@@ -849,7 +849,7 @@ namespace RAC_OPENSCENARIO
 	 * defined (e.g. automated, autonomous) behavior.]
 	 * 
 	*/
-    void ActivateControllerActionImpl::SetLateral(bool& lateral )
+    void ActivateControllerActionImpl::SetLateral(const bool lateral )
     {
         _lateral = lateral;
     }
@@ -859,7 +859,7 @@ namespace RAC_OPENSCENARIO
 	 * autonomous behavior.]
 	 * 
 	*/
-    void ActivateControllerActionImpl::SetLongitudinal(bool& longitudinal )
+    void ActivateControllerActionImpl::SetLongitudinal(const bool longitudinal )
     {
         _longitudinal = longitudinal;
     }
@@ -905,20 +905,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ActivateControllerActionImpl ActivateControllerActionImpl::Clone()
+    std::shared_ptr<ActivateControllerActionImpl> ActivateControllerActionImpl::Clone()
     {
-        ActivateControllerActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ActivateControllerActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetLateral(_lateral);
+        clonedObject->SetLateral(_lateral);
         // Simple type
-        clonedObject.SetLongitudinal(_longitudinal);
+        clonedObject->SetLongitudinal(_longitudinal);
         // clone children
         return clonedObject;
     }
@@ -949,7 +949,7 @@ namespace RAC_OPENSCENARIO
 	 * are considered actors.]
 	 * 
 	*/
-    void ActorsImpl::SetSelectTriggeringEntities(bool& selectTriggeringEntities )
+    void ActorsImpl::SetSelectTriggeringEntities(const bool selectTriggeringEntities )
     {
         _selectTriggeringEntities = selectTriggeringEntities;
     }
@@ -1006,18 +1006,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ActorsImpl ActorsImpl::Clone()
+    std::shared_ptr<ActorsImpl> ActorsImpl::Clone()
     {
-        ActorsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ActorsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetSelectTriggeringEntities(_selectTriggeringEntities);
+        clonedObject->SetSelectTriggeringEntities(_selectTriggeringEntities);
         // clone children
         const auto kEntityRefs =  GetEntityRefs();
         if (!kEntityRefs.empty())
@@ -1025,11 +1025,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IEntityRef>> clonedList;
             for(auto&& kItem : kEntityRefs)
             {
-                auto clonedChild = std::make_shared <EntityRefImpl>(std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetEntityRefs(clonedList);
+            clonedObject->SetEntityRefs(clonedList);
         }
         return clonedObject;
     }
@@ -1054,7 +1054,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Adds an entity at the specified position.]
 	 * 
 	*/
-    void AddEntityActionImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void AddEntityActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -1093,24 +1093,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AddEntityActionImpl AddEntityActionImpl::Clone()
+    std::shared_ptr<AddEntityActionImpl> AddEntityActionImpl::Clone()
     {
-        AddEntityActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AddEntityActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -1139,7 +1139,7 @@ namespace RAC_OPENSCENARIO
 	 * @param controller from OpenSCENARIO class model specification: [Assigns a controller to a given entity.]
 	 * 
 	*/
-    void AssignControllerActionImpl::SetController(std::shared_ptr<IController>& controller )
+    void AssignControllerActionImpl::SetController(const std::shared_ptr<IController> controller )
     {
         _controller = controller;
     }
@@ -1149,7 +1149,7 @@ namespace RAC_OPENSCENARIO
 	 * a given entity. CatalogReference must point to a Controller type.]
 	 * 
 	*/
-    void AssignControllerActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void AssignControllerActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -1193,32 +1193,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AssignControllerActionImpl AssignControllerActionImpl::Clone()
+    std::shared_ptr<AssignControllerActionImpl> AssignControllerActionImpl::Clone()
     {
-        AssignControllerActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AssignControllerActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kController =  GetController();
         if (kController)
         {
-            auto clonedChild = std::make_shared<ControllerImpl>(std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone();
             auto clonedChildIController = std::dynamic_pointer_cast<IController>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetController(clonedChildIController);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetController(clonedChildIController);
         }
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         return clonedObject;
     }
@@ -1247,7 +1247,7 @@ namespace RAC_OPENSCENARIO
 	 * @param route from OpenSCENARIO class model specification: [The route definition.]
 	 * 
 	*/
-    void AssignRouteActionImpl::SetRoute(std::shared_ptr<IRoute>& route )
+    void AssignRouteActionImpl::SetRoute(const std::shared_ptr<IRoute> route )
     {
         _route = route;
     }
@@ -1257,7 +1257,7 @@ namespace RAC_OPENSCENARIO
 	 * The reference must point to a route.]
 	 * 
 	*/
-    void AssignRouteActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void AssignRouteActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -1301,32 +1301,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AssignRouteActionImpl AssignRouteActionImpl::Clone()
+    std::shared_ptr<AssignRouteActionImpl> AssignRouteActionImpl::Clone()
     {
-        AssignRouteActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AssignRouteActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kRoute =  GetRoute();
         if (kRoute)
         {
-            auto clonedChild = std::make_shared<RouteImpl>(std::dynamic_pointer_cast<RouteImpl>(kRoute)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RouteImpl>(kRoute)->Clone();
             auto clonedChildIRoute = std::dynamic_pointer_cast<IRoute>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRoute(clonedChildIRoute);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRoute(clonedChildIRoute);
         }
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         return clonedObject;
     }
@@ -1373,7 +1373,7 @@ namespace RAC_OPENSCENARIO
 	 * wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.]
 	 * 
 	*/
-    void AxleImpl::SetMaxSteering(double& maxSteering )
+    void AxleImpl::SetMaxSteering(const double maxSteering )
     {
         _maxSteering = maxSteering;
     }
@@ -1383,7 +1383,7 @@ namespace RAC_OPENSCENARIO
 	 * ]0..inf[.]
 	 * 
 	*/
-    void AxleImpl::SetWheelDiameter(double& wheelDiameter )
+    void AxleImpl::SetWheelDiameter(const double wheelDiameter )
     {
         _wheelDiameter = wheelDiameter;
     }
@@ -1393,7 +1393,7 @@ namespace RAC_OPENSCENARIO
 	 * Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void AxleImpl::SetTrackWidth(double& trackWidth )
+    void AxleImpl::SetTrackWidth(const double trackWidth )
     {
         _trackWidth = trackWidth;
     }
@@ -1403,7 +1403,7 @@ namespace RAC_OPENSCENARIO
 	 * vehicles reference point. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void AxleImpl::SetPositionX(double& positionX )
+    void AxleImpl::SetPositionX(const double positionX )
     {
         _positionX = positionX;
     }
@@ -1413,7 +1413,7 @@ namespace RAC_OPENSCENARIO
 	 * reference point. Usually this is half of wheel diameter. Unit:m; , Range:[0..inf[.]
 	 * 
 	*/
-    void AxleImpl::SetPositionZ(double& positionZ )
+    void AxleImpl::SetPositionZ(const double positionZ )
     {
         _positionZ = positionZ;
     }
@@ -1477,26 +1477,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AxleImpl AxleImpl::Clone()
+    std::shared_ptr<AxleImpl> AxleImpl::Clone()
     {
-        AxleImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AxleImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetMaxSteering(_maxSteering);
+        clonedObject->SetMaxSteering(_maxSteering);
         // Simple type
-        clonedObject.SetWheelDiameter(_wheelDiameter);
+        clonedObject->SetWheelDiameter(_wheelDiameter);
         // Simple type
-        clonedObject.SetTrackWidth(_trackWidth);
+        clonedObject->SetTrackWidth(_trackWidth);
         // Simple type
-        clonedObject.SetPositionX(_positionX);
+        clonedObject->SetPositionX(_positionX);
         // Simple type
-        clonedObject.SetPositionZ(_positionZ);
+        clonedObject->SetPositionZ(_positionZ);
         // clone children
         return clonedObject;
     }
@@ -1529,7 +1529,7 @@ namespace RAC_OPENSCENARIO
 	 * @param frontAxle from OpenSCENARIO class model specification: [Front axle.]
 	 * 
 	*/
-    void AxlesImpl::SetFrontAxle(std::shared_ptr<IAxle>& frontAxle )
+    void AxlesImpl::SetFrontAxle(const std::shared_ptr<IAxle> frontAxle )
     {
         _frontAxle = frontAxle;
     }
@@ -1538,7 +1538,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rearAxle from OpenSCENARIO class model specification: [Rear axle.]
 	 * 
 	*/
-    void AxlesImpl::SetRearAxle(std::shared_ptr<IAxle>& rearAxle )
+    void AxlesImpl::SetRearAxle(const std::shared_ptr<IAxle> rearAxle )
     {
         _rearAxle = rearAxle;
     }
@@ -1599,32 +1599,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    AxlesImpl AxlesImpl::Clone()
+    std::shared_ptr<AxlesImpl> AxlesImpl::Clone()
     {
-        AxlesImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<AxlesImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kFrontAxle =  GetFrontAxle();
         if (kFrontAxle)
         {
-            auto clonedChild = std::make_shared<AxleImpl>(std::dynamic_pointer_cast<AxleImpl>(kFrontAxle)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AxleImpl>(kFrontAxle)->Clone();
             auto clonedChildIAxle = std::dynamic_pointer_cast<IAxle>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFrontAxle(clonedChildIAxle);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFrontAxle(clonedChildIAxle);
         }
         const auto kRearAxle =  GetRearAxle();
         if (kRearAxle)
         {
-            auto clonedChild = std::make_shared<AxleImpl>(std::dynamic_pointer_cast<AxleImpl>(kRearAxle)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AxleImpl>(kRearAxle)->Clone();
             auto clonedChildIAxle = std::dynamic_pointer_cast<IAxle>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRearAxle(clonedChildIAxle);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRearAxle(clonedChildIAxle);
         }
         const auto kAdditionalAxles =  GetAdditionalAxles();
         if (!kAdditionalAxles.empty())
@@ -1632,11 +1632,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IAxle>> clonedList;
             for(auto&& kItem : kAdditionalAxles)
             {
-                auto clonedChild = std::make_shared <AxleImpl>(std::dynamic_pointer_cast<AxleImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<AxleImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetAdditionalAxles(clonedList);
+            clonedObject->SetAdditionalAxles(clonedList);
         }
         return clonedObject;
     }
@@ -1666,7 +1666,7 @@ namespace RAC_OPENSCENARIO
 	 * expressed in coordinates that refer to the coordinate system of , the entity (e.g. the vehicle coordinate system).]
 	 * 
 	*/
-    void BoundingBoxImpl::SetCenter(std::shared_ptr<ICenter>& center )
+    void BoundingBoxImpl::SetCenter(const std::shared_ptr<ICenter> center )
     {
         _center = center;
     }
@@ -1675,7 +1675,7 @@ namespace RAC_OPENSCENARIO
 	 * @param dimensions from OpenSCENARIO class model specification: [Width, length and height of the bounding box.]
 	 * 
 	*/
-    void BoundingBoxImpl::SetDimensions(std::shared_ptr<IDimensions>& dimensions )
+    void BoundingBoxImpl::SetDimensions(const std::shared_ptr<IDimensions> dimensions )
     {
         _dimensions = dimensions;
     }
@@ -1719,32 +1719,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    BoundingBoxImpl BoundingBoxImpl::Clone()
+    std::shared_ptr<BoundingBoxImpl> BoundingBoxImpl::Clone()
     {
-        BoundingBoxImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<BoundingBoxImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kCenter =  GetCenter();
         if (kCenter)
         {
-            auto clonedChild = std::make_shared<CenterImpl>(std::dynamic_pointer_cast<CenterImpl>(kCenter)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CenterImpl>(kCenter)->Clone();
             auto clonedChildICenter = std::dynamic_pointer_cast<ICenter>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCenter(clonedChildICenter);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCenter(clonedChildICenter);
         }
         const auto kDimensions =  GetDimensions();
         if (kDimensions)
         {
-            auto clonedChild = std::make_shared<DimensionsImpl>(std::dynamic_pointer_cast<DimensionsImpl>(kDimensions)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DimensionsImpl>(kDimensions)->Clone();
             auto clonedChildIDimensions = std::dynamic_pointer_cast<IDimensions>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDimensions(clonedChildIDimensions);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDimensions(clonedChildIDimensions);
         }
         return clonedObject;
     }
@@ -1773,7 +1773,7 @@ namespace RAC_OPENSCENARIO
 	 * @param triggeringEntities from OpenSCENARIO class model specification: [A list of entities triggering this condition.]
 	 * 
 	*/
-    void ByEntityConditionImpl::SetTriggeringEntities(std::shared_ptr<ITriggeringEntities>& triggeringEntities )
+    void ByEntityConditionImpl::SetTriggeringEntities(const std::shared_ptr<ITriggeringEntities> triggeringEntities )
     {
         _triggeringEntities = triggeringEntities;
     }
@@ -1783,7 +1783,7 @@ namespace RAC_OPENSCENARIO
 	 * entities.]
 	 * 
 	*/
-    void ByEntityConditionImpl::SetEntityCondition(std::shared_ptr<IEntityCondition>& entityCondition )
+    void ByEntityConditionImpl::SetEntityCondition(const std::shared_ptr<IEntityCondition> entityCondition )
     {
         _entityCondition = entityCondition;
     }
@@ -1827,32 +1827,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ByEntityConditionImpl ByEntityConditionImpl::Clone()
+    std::shared_ptr<ByEntityConditionImpl> ByEntityConditionImpl::Clone()
     {
-        ByEntityConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ByEntityConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kTriggeringEntities =  GetTriggeringEntities();
         if (kTriggeringEntities)
         {
-            auto clonedChild = std::make_shared<TriggeringEntitiesImpl>(std::dynamic_pointer_cast<TriggeringEntitiesImpl>(kTriggeringEntities)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TriggeringEntitiesImpl>(kTriggeringEntities)->Clone();
             auto clonedChildITriggeringEntities = std::dynamic_pointer_cast<ITriggeringEntities>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTriggeringEntities(clonedChildITriggeringEntities);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTriggeringEntities(clonedChildITriggeringEntities);
         }
         const auto kEntityCondition =  GetEntityCondition();
         if (kEntityCondition)
         {
-            auto clonedChild = std::make_shared<EntityConditionImpl>(std::dynamic_pointer_cast<EntityConditionImpl>(kEntityCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EntityConditionImpl>(kEntityCondition)->Clone();
             auto clonedChildIEntityCondition = std::dynamic_pointer_cast<IEntityCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEntityCondition(clonedChildIEntityCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEntityCondition(clonedChildIEntityCondition);
         }
         return clonedObject;
     }
@@ -1878,7 +1878,7 @@ namespace RAC_OPENSCENARIO
 	 * @param type from OpenSCENARIO class model specification: [Defines the type.]
 	 * 
 	*/
-    void ByObjectTypeImpl::SetType(ObjectType& type )
+    void ByObjectTypeImpl::SetType(const ObjectType type )
     {
         _type = type;
     }
@@ -1927,18 +1927,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ByObjectTypeImpl ByObjectTypeImpl::Clone()
+    std::shared_ptr<ByObjectTypeImpl> ByObjectTypeImpl::Clone()
     {
-        ByObjectTypeImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ByObjectTypeImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetType(_type);
+        clonedObject->SetType(_type);
         // clone children
         return clonedObject;
     }
@@ -1965,7 +1965,7 @@ namespace RAC_OPENSCENARIO
 	 * is part of the entity selection.]
 	 * 
 	*/
-    void ByTypeImpl::SetObjectType(ObjectType& objectType )
+    void ByTypeImpl::SetObjectType(const ObjectType objectType )
     {
         _objectType = objectType;
     }
@@ -2014,18 +2014,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ByTypeImpl ByTypeImpl::Clone()
+    std::shared_ptr<ByTypeImpl> ByTypeImpl::Clone()
     {
-        ByTypeImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ByTypeImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetObjectType(_objectType);
+        clonedObject->SetObjectType(_objectType);
         // clone children
         return clonedObject;
     }
@@ -2075,7 +2075,7 @@ namespace RAC_OPENSCENARIO
 	 * reference value.]
 	 * 
 	*/
-    void ByValueConditionImpl::SetParameterCondition(std::shared_ptr<IParameterCondition>& parameterCondition )
+    void ByValueConditionImpl::SetParameterCondition(const std::shared_ptr<IParameterCondition> parameterCondition )
     {
         _parameterCondition = parameterCondition;
     }
@@ -2085,7 +2085,7 @@ namespace RAC_OPENSCENARIO
 	 * reference value.]
 	 * 
 	*/
-    void ByValueConditionImpl::SetTimeOfDayCondition(std::shared_ptr<ITimeOfDayCondition>& timeOfDayCondition )
+    void ByValueConditionImpl::SetTimeOfDayCondition(const std::shared_ptr<ITimeOfDayCondition> timeOfDayCondition )
     {
         _timeOfDayCondition = timeOfDayCondition;
     }
@@ -2095,7 +2095,7 @@ namespace RAC_OPENSCENARIO
 	 * a reference value.]
 	 * 
 	*/
-    void ByValueConditionImpl::SetSimulationTimeCondition(std::shared_ptr<ISimulationTimeCondition>& simulationTimeCondition )
+    void ByValueConditionImpl::SetSimulationTimeCondition(const std::shared_ptr<ISimulationTimeCondition> simulationTimeCondition )
     {
         _simulationTimeCondition = simulationTimeCondition;
     }
@@ -2105,7 +2105,7 @@ namespace RAC_OPENSCENARIO
 	 * referenced StoryboardElement terminates according to the given rule.]
 	 * 
 	*/
-    void ByValueConditionImpl::SetStoryboardElementStateCondition(std::shared_ptr<IStoryboardElementStateCondition>& storyboardElementStateCondition )
+    void ByValueConditionImpl::SetStoryboardElementStateCondition(const std::shared_ptr<IStoryboardElementStateCondition> storyboardElementStateCondition )
     {
         _storyboardElementStateCondition = storyboardElementStateCondition;
     }
@@ -2115,7 +2115,7 @@ namespace RAC_OPENSCENARIO
 	 * defined named value is compared to a reference value (less, greater, equal).]
 	 * 
 	*/
-    void ByValueConditionImpl::SetUserDefinedValueCondition(std::shared_ptr<IUserDefinedValueCondition>& userDefinedValueCondition )
+    void ByValueConditionImpl::SetUserDefinedValueCondition(const std::shared_ptr<IUserDefinedValueCondition> userDefinedValueCondition )
     {
         _userDefinedValueCondition = userDefinedValueCondition;
     }
@@ -2125,7 +2125,7 @@ namespace RAC_OPENSCENARIO
 	 * signal reaches the indicated state.]
 	 * 
 	*/
-    void ByValueConditionImpl::SetTrafficSignalCondition(std::shared_ptr<ITrafficSignalCondition>& trafficSignalCondition )
+    void ByValueConditionImpl::SetTrafficSignalCondition(const std::shared_ptr<ITrafficSignalCondition> trafficSignalCondition )
     {
         _trafficSignalCondition = trafficSignalCondition;
     }
@@ -2135,7 +2135,7 @@ namespace RAC_OPENSCENARIO
 	 * referenced signal controller reaches the indicated state.]
 	 * 
 	*/
-    void ByValueConditionImpl::SetTrafficSignalControllerCondition(std::shared_ptr<ITrafficSignalControllerCondition>& trafficSignalControllerCondition )
+    void ByValueConditionImpl::SetTrafficSignalControllerCondition(const std::shared_ptr<ITrafficSignalControllerCondition> trafficSignalControllerCondition )
     {
         _trafficSignalControllerCondition = trafficSignalControllerCondition;
     }
@@ -2204,72 +2204,72 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ByValueConditionImpl ByValueConditionImpl::Clone()
+    std::shared_ptr<ByValueConditionImpl> ByValueConditionImpl::Clone()
     {
-        ByValueConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ByValueConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kParameterCondition =  GetParameterCondition();
         if (kParameterCondition)
         {
-            auto clonedChild = std::make_shared<ParameterConditionImpl>(std::dynamic_pointer_cast<ParameterConditionImpl>(kParameterCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ParameterConditionImpl>(kParameterCondition)->Clone();
             auto clonedChildIParameterCondition = std::dynamic_pointer_cast<IParameterCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetParameterCondition(clonedChildIParameterCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetParameterCondition(clonedChildIParameterCondition);
         }
         const auto kTimeOfDayCondition =  GetTimeOfDayCondition();
         if (kTimeOfDayCondition)
         {
-            auto clonedChild = std::make_shared<TimeOfDayConditionImpl>(std::dynamic_pointer_cast<TimeOfDayConditionImpl>(kTimeOfDayCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TimeOfDayConditionImpl>(kTimeOfDayCondition)->Clone();
             auto clonedChildITimeOfDayCondition = std::dynamic_pointer_cast<ITimeOfDayCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTimeOfDayCondition(clonedChildITimeOfDayCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTimeOfDayCondition(clonedChildITimeOfDayCondition);
         }
         const auto kSimulationTimeCondition =  GetSimulationTimeCondition();
         if (kSimulationTimeCondition)
         {
-            auto clonedChild = std::make_shared<SimulationTimeConditionImpl>(std::dynamic_pointer_cast<SimulationTimeConditionImpl>(kSimulationTimeCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<SimulationTimeConditionImpl>(kSimulationTimeCondition)->Clone();
             auto clonedChildISimulationTimeCondition = std::dynamic_pointer_cast<ISimulationTimeCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSimulationTimeCondition(clonedChildISimulationTimeCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSimulationTimeCondition(clonedChildISimulationTimeCondition);
         }
         const auto kStoryboardElementStateCondition =  GetStoryboardElementStateCondition();
         if (kStoryboardElementStateCondition)
         {
-            auto clonedChild = std::make_shared<StoryboardElementStateConditionImpl>(std::dynamic_pointer_cast<StoryboardElementStateConditionImpl>(kStoryboardElementStateCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<StoryboardElementStateConditionImpl>(kStoryboardElementStateCondition)->Clone();
             auto clonedChildIStoryboardElementStateCondition = std::dynamic_pointer_cast<IStoryboardElementStateCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetStoryboardElementStateCondition(clonedChildIStoryboardElementStateCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetStoryboardElementStateCondition(clonedChildIStoryboardElementStateCondition);
         }
         const auto kUserDefinedValueCondition =  GetUserDefinedValueCondition();
         if (kUserDefinedValueCondition)
         {
-            auto clonedChild = std::make_shared<UserDefinedValueConditionImpl>(std::dynamic_pointer_cast<UserDefinedValueConditionImpl>(kUserDefinedValueCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<UserDefinedValueConditionImpl>(kUserDefinedValueCondition)->Clone();
             auto clonedChildIUserDefinedValueCondition = std::dynamic_pointer_cast<IUserDefinedValueCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetUserDefinedValueCondition(clonedChildIUserDefinedValueCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetUserDefinedValueCondition(clonedChildIUserDefinedValueCondition);
         }
         const auto kTrafficSignalCondition =  GetTrafficSignalCondition();
         if (kTrafficSignalCondition)
         {
-            auto clonedChild = std::make_shared<TrafficSignalConditionImpl>(std::dynamic_pointer_cast<TrafficSignalConditionImpl>(kTrafficSignalCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSignalConditionImpl>(kTrafficSignalCondition)->Clone();
             auto clonedChildITrafficSignalCondition = std::dynamic_pointer_cast<ITrafficSignalCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSignalCondition(clonedChildITrafficSignalCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSignalCondition(clonedChildITrafficSignalCondition);
         }
         const auto kTrafficSignalControllerCondition =  GetTrafficSignalControllerCondition();
         if (kTrafficSignalControllerCondition)
         {
-            auto clonedChild = std::make_shared<TrafficSignalControllerConditionImpl>(std::dynamic_pointer_cast<TrafficSignalControllerConditionImpl>(kTrafficSignalControllerCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSignalControllerConditionImpl>(kTrafficSignalControllerCondition)->Clone();
             auto clonedChildITrafficSignalControllerCondition = std::dynamic_pointer_cast<ITrafficSignalControllerCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSignalControllerCondition(clonedChildITrafficSignalControllerCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSignalControllerCondition(clonedChildITrafficSignalControllerCondition);
         }
         return clonedObject;
     }
@@ -2327,7 +2327,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the catalog.]
 	 * 
 	*/
-    void CatalogImpl::SetName(std::string& name )
+    void CatalogImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -2509,18 +2509,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CatalogImpl CatalogImpl::Clone()
+    std::shared_ptr<CatalogImpl> CatalogImpl::Clone()
     {
-        CatalogImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CatalogImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kVehicles =  GetVehicles();
         if (!kVehicles.empty())
@@ -2528,11 +2528,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IVehicle>> clonedList;
             for(auto&& kItem : kVehicles)
             {
-                auto clonedChild = std::make_shared <VehicleImpl>(std::dynamic_pointer_cast<VehicleImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<VehicleImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetVehicles(clonedList);
+            clonedObject->SetVehicles(clonedList);
         }
         const auto kControllers =  GetControllers();
         if (!kControllers.empty())
@@ -2540,11 +2540,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IController>> clonedList;
             for(auto&& kItem : kControllers)
             {
-                auto clonedChild = std::make_shared <ControllerImpl>(std::dynamic_pointer_cast<ControllerImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetControllers(clonedList);
+            clonedObject->SetControllers(clonedList);
         }
         const auto kPedestrians =  GetPedestrians();
         if (!kPedestrians.empty())
@@ -2552,11 +2552,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IPedestrian>> clonedList;
             for(auto&& kItem : kPedestrians)
             {
-                auto clonedChild = std::make_shared <PedestrianImpl>(std::dynamic_pointer_cast<PedestrianImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<PedestrianImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetPedestrians(clonedList);
+            clonedObject->SetPedestrians(clonedList);
         }
         const auto kMiscObjects =  GetMiscObjects();
         if (!kMiscObjects.empty())
@@ -2564,11 +2564,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IMiscObject>> clonedList;
             for(auto&& kItem : kMiscObjects)
             {
-                auto clonedChild = std::make_shared <MiscObjectImpl>(std::dynamic_pointer_cast<MiscObjectImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<MiscObjectImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetMiscObjects(clonedList);
+            clonedObject->SetMiscObjects(clonedList);
         }
         const auto kEnvironments =  GetEnvironments();
         if (!kEnvironments.empty())
@@ -2576,11 +2576,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IEnvironment>> clonedList;
             for(auto&& kItem : kEnvironments)
             {
-                auto clonedChild = std::make_shared <EnvironmentImpl>(std::dynamic_pointer_cast<EnvironmentImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<EnvironmentImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetEnvironments(clonedList);
+            clonedObject->SetEnvironments(clonedList);
         }
         const auto kManeuvers =  GetManeuvers();
         if (!kManeuvers.empty())
@@ -2588,11 +2588,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IManeuver>> clonedList;
             for(auto&& kItem : kManeuvers)
             {
-                auto clonedChild = std::make_shared <ManeuverImpl>(std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetManeuvers(clonedList);
+            clonedObject->SetManeuvers(clonedList);
         }
         const auto kTrajectories =  GetTrajectories();
         if (!kTrajectories.empty())
@@ -2600,11 +2600,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<ITrajectory>> clonedList;
             for(auto&& kItem : kTrajectories)
             {
-                auto clonedChild = std::make_shared <TrajectoryImpl>(std::dynamic_pointer_cast<TrajectoryImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<TrajectoryImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetTrajectories(clonedList);
+            clonedObject->SetTrajectories(clonedList);
         }
         const auto kRoutes =  GetRoutes();
         if (!kRoutes.empty())
@@ -2612,11 +2612,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IRoute>> clonedList;
             for(auto&& kItem : kRoutes)
             {
-                auto clonedChild = std::make_shared <RouteImpl>(std::dynamic_pointer_cast<RouteImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<RouteImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetRoutes(clonedList);
+            clonedObject->SetRoutes(clonedList);
         }
         return clonedObject;
     }
@@ -2641,7 +2641,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalog from OpenSCENARIO class model specification: [Definition of a catalog.]
 	 * 
 	*/
-    void CatalogDefinitionImpl::SetCatalog(std::shared_ptr<ICatalog>& catalog )
+    void CatalogDefinitionImpl::SetCatalog(const std::shared_ptr<ICatalog> catalog )
     {
         _catalog = catalog;
     }
@@ -2680,24 +2680,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CatalogDefinitionImpl CatalogDefinitionImpl::Clone()
+    std::shared_ptr<CatalogDefinitionImpl> CatalogDefinitionImpl::Clone()
     {
-        CatalogDefinitionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CatalogDefinitionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kCatalog =  GetCatalog();
         if (kCatalog)
         {
-            auto clonedChild = std::make_shared<CatalogImpl>(std::dynamic_pointer_cast<CatalogImpl>(kCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogImpl>(kCatalog)->Clone();
             auto clonedChildICatalog = std::dynamic_pointer_cast<ICatalog>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalog(clonedChildICatalog);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalog(clonedChildICatalog);
         }
         return clonedObject;
     }
@@ -2751,7 +2751,7 @@ namespace RAC_OPENSCENARIO
 	 * CatalogReferences on vehicle types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetVehicleCatalog(std::shared_ptr<IVehicleCatalogLocation>& vehicleCatalog )
+    void CatalogLocationsImpl::SetVehicleCatalog(const std::shared_ptr<IVehicleCatalogLocation> vehicleCatalog )
     {
         _vehicleCatalog = vehicleCatalog;
     }
@@ -2761,7 +2761,7 @@ namespace RAC_OPENSCENARIO
 	 * resolve CatalogReferences on controller types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetControllerCatalog(std::shared_ptr<IControllerCatalogLocation>& controllerCatalog )
+    void CatalogLocationsImpl::SetControllerCatalog(const std::shared_ptr<IControllerCatalogLocation> controllerCatalog )
     {
         _controllerCatalog = controllerCatalog;
     }
@@ -2771,7 +2771,7 @@ namespace RAC_OPENSCENARIO
 	 * resolve CatalogReferences on pedestrian types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetPedestrianCatalog(std::shared_ptr<IPedestrianCatalogLocation>& pedestrianCatalog )
+    void CatalogLocationsImpl::SetPedestrianCatalog(const std::shared_ptr<IPedestrianCatalogLocation> pedestrianCatalog )
     {
         _pedestrianCatalog = pedestrianCatalog;
     }
@@ -2781,7 +2781,7 @@ namespace RAC_OPENSCENARIO
 	 * resolve CatalogReferences on miscellaneous object types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetMiscObjectCatalog(std::shared_ptr<IMiscObjectCatalogLocation>& miscObjectCatalog )
+    void CatalogLocationsImpl::SetMiscObjectCatalog(const std::shared_ptr<IMiscObjectCatalogLocation> miscObjectCatalog )
     {
         _miscObjectCatalog = miscObjectCatalog;
     }
@@ -2791,7 +2791,7 @@ namespace RAC_OPENSCENARIO
 	 * resolve CatalogReferences on environment types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetEnvironmentCatalog(std::shared_ptr<IEnvironmentCatalogLocation>& environmentCatalog )
+    void CatalogLocationsImpl::SetEnvironmentCatalog(const std::shared_ptr<IEnvironmentCatalogLocation> environmentCatalog )
     {
         _environmentCatalog = environmentCatalog;
     }
@@ -2801,7 +2801,7 @@ namespace RAC_OPENSCENARIO
 	 * resolve CatalogReferences on maneuver types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetManeuverCatalog(std::shared_ptr<IManeuverCatalogLocation>& maneuverCatalog )
+    void CatalogLocationsImpl::SetManeuverCatalog(const std::shared_ptr<IManeuverCatalogLocation> maneuverCatalog )
     {
         _maneuverCatalog = maneuverCatalog;
     }
@@ -2811,7 +2811,7 @@ namespace RAC_OPENSCENARIO
 	 * resolve CatalogReferences on trajectory types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetTrajectoryCatalog(std::shared_ptr<ITrajectoryCatalogLocation>& trajectoryCatalog )
+    void CatalogLocationsImpl::SetTrajectoryCatalog(const std::shared_ptr<ITrajectoryCatalogLocation> trajectoryCatalog )
     {
         _trajectoryCatalog = trajectoryCatalog;
     }
@@ -2821,7 +2821,7 @@ namespace RAC_OPENSCENARIO
 	 * CatalogReferences on route types.]
 	 * 
 	*/
-    void CatalogLocationsImpl::SetRouteCatalog(std::shared_ptr<IRouteCatalogLocation>& routeCatalog )
+    void CatalogLocationsImpl::SetRouteCatalog(const std::shared_ptr<IRouteCatalogLocation> routeCatalog )
     {
         _routeCatalog = routeCatalog;
     }
@@ -2895,80 +2895,80 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CatalogLocationsImpl CatalogLocationsImpl::Clone()
+    std::shared_ptr<CatalogLocationsImpl> CatalogLocationsImpl::Clone()
     {
-        CatalogLocationsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CatalogLocationsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kVehicleCatalog =  GetVehicleCatalog();
         if (kVehicleCatalog)
         {
-            auto clonedChild = std::make_shared<VehicleCatalogLocationImpl>(std::dynamic_pointer_cast<VehicleCatalogLocationImpl>(kVehicleCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<VehicleCatalogLocationImpl>(kVehicleCatalog)->Clone();
             auto clonedChildIVehicleCatalogLocation = std::dynamic_pointer_cast<IVehicleCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetVehicleCatalog(clonedChildIVehicleCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetVehicleCatalog(clonedChildIVehicleCatalogLocation);
         }
         const auto kControllerCatalog =  GetControllerCatalog();
         if (kControllerCatalog)
         {
-            auto clonedChild = std::make_shared<ControllerCatalogLocationImpl>(std::dynamic_pointer_cast<ControllerCatalogLocationImpl>(kControllerCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ControllerCatalogLocationImpl>(kControllerCatalog)->Clone();
             auto clonedChildIControllerCatalogLocation = std::dynamic_pointer_cast<IControllerCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetControllerCatalog(clonedChildIControllerCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetControllerCatalog(clonedChildIControllerCatalogLocation);
         }
         const auto kPedestrianCatalog =  GetPedestrianCatalog();
         if (kPedestrianCatalog)
         {
-            auto clonedChild = std::make_shared<PedestrianCatalogLocationImpl>(std::dynamic_pointer_cast<PedestrianCatalogLocationImpl>(kPedestrianCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PedestrianCatalogLocationImpl>(kPedestrianCatalog)->Clone();
             auto clonedChildIPedestrianCatalogLocation = std::dynamic_pointer_cast<IPedestrianCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPedestrianCatalog(clonedChildIPedestrianCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPedestrianCatalog(clonedChildIPedestrianCatalogLocation);
         }
         const auto kMiscObjectCatalog =  GetMiscObjectCatalog();
         if (kMiscObjectCatalog)
         {
-            auto clonedChild = std::make_shared<MiscObjectCatalogLocationImpl>(std::dynamic_pointer_cast<MiscObjectCatalogLocationImpl>(kMiscObjectCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<MiscObjectCatalogLocationImpl>(kMiscObjectCatalog)->Clone();
             auto clonedChildIMiscObjectCatalogLocation = std::dynamic_pointer_cast<IMiscObjectCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetMiscObjectCatalog(clonedChildIMiscObjectCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetMiscObjectCatalog(clonedChildIMiscObjectCatalogLocation);
         }
         const auto kEnvironmentCatalog =  GetEnvironmentCatalog();
         if (kEnvironmentCatalog)
         {
-            auto clonedChild = std::make_shared<EnvironmentCatalogLocationImpl>(std::dynamic_pointer_cast<EnvironmentCatalogLocationImpl>(kEnvironmentCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EnvironmentCatalogLocationImpl>(kEnvironmentCatalog)->Clone();
             auto clonedChildIEnvironmentCatalogLocation = std::dynamic_pointer_cast<IEnvironmentCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEnvironmentCatalog(clonedChildIEnvironmentCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEnvironmentCatalog(clonedChildIEnvironmentCatalogLocation);
         }
         const auto kManeuverCatalog =  GetManeuverCatalog();
         if (kManeuverCatalog)
         {
-            auto clonedChild = std::make_shared<ManeuverCatalogLocationImpl>(std::dynamic_pointer_cast<ManeuverCatalogLocationImpl>(kManeuverCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ManeuverCatalogLocationImpl>(kManeuverCatalog)->Clone();
             auto clonedChildIManeuverCatalogLocation = std::dynamic_pointer_cast<IManeuverCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetManeuverCatalog(clonedChildIManeuverCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetManeuverCatalog(clonedChildIManeuverCatalogLocation);
         }
         const auto kTrajectoryCatalog =  GetTrajectoryCatalog();
         if (kTrajectoryCatalog)
         {
-            auto clonedChild = std::make_shared<TrajectoryCatalogLocationImpl>(std::dynamic_pointer_cast<TrajectoryCatalogLocationImpl>(kTrajectoryCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrajectoryCatalogLocationImpl>(kTrajectoryCatalog)->Clone();
             auto clonedChildITrajectoryCatalogLocation = std::dynamic_pointer_cast<ITrajectoryCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrajectoryCatalog(clonedChildITrajectoryCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrajectoryCatalog(clonedChildITrajectoryCatalogLocation);
         }
         const auto kRouteCatalog =  GetRouteCatalog();
         if (kRouteCatalog)
         {
-            auto clonedChild = std::make_shared<RouteCatalogLocationImpl>(std::dynamic_pointer_cast<RouteCatalogLocationImpl>(kRouteCatalog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RouteCatalogLocationImpl>(kRouteCatalog)->Clone();
             auto clonedChildIRouteCatalogLocation = std::dynamic_pointer_cast<IRouteCatalogLocation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRouteCatalog(clonedChildIRouteCatalogLocation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRouteCatalog(clonedChildIRouteCatalogLocation);
         }
         return clonedObject;
     }
@@ -3007,7 +3007,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalogName from OpenSCENARIO class model specification: [Name of the catalog.]
 	 * 
 	*/
-    void CatalogReferenceImpl::SetCatalogName(std::string& catalogName )
+    void CatalogReferenceImpl::SetCatalogName(const std::string catalogName )
     {
         _catalogName = catalogName;
     }
@@ -3016,7 +3016,7 @@ namespace RAC_OPENSCENARIO
 	 * @param entryName from OpenSCENARIO class model specification: [Name of catalog entry.]
 	 * 
 	*/
-    void CatalogReferenceImpl::SetEntryName(std::string& entryName )
+    void CatalogReferenceImpl::SetEntryName(const std::string entryName )
     {
         _entryName = entryName;
     }
@@ -3036,7 +3036,7 @@ namespace RAC_OPENSCENARIO
 	 * catalogName and entryName). Transient means, that it is not , mapped to the schema.]
 	 * 
 	*/
-    void CatalogReferenceImpl::SetRef(std::shared_ptr<ICatalogElement>& ref )
+    void CatalogReferenceImpl::SetRef(const std::shared_ptr<ICatalogElement> ref )
     {
         _ref = ref;
     }
@@ -3090,20 +3090,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CatalogReferenceImpl CatalogReferenceImpl::Clone()
+    std::shared_ptr<CatalogReferenceImpl> CatalogReferenceImpl::Clone()
     {
-        CatalogReferenceImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CatalogReferenceImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetCatalogName(_catalogName);
+        clonedObject->SetCatalogName(_catalogName);
         // Simple type
-        clonedObject.SetEntryName(_entryName);
+        clonedObject->SetEntryName(_entryName);
         // clone children
         const auto kParameterAssignments =  GetParameterAssignments();
         if (!kParameterAssignments.empty())
@@ -3111,11 +3111,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterAssignment>> clonedList;
             for(auto&& kItem : kParameterAssignments)
             {
-                auto clonedChild = std::make_shared <ParameterAssignmentImpl>(std::dynamic_pointer_cast<ParameterAssignmentImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterAssignmentImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterAssignments(clonedList);
+            clonedObject->SetParameterAssignments(clonedList);
         }
         return clonedObject;
     }
@@ -3151,7 +3151,7 @@ namespace RAC_OPENSCENARIO
 	 * @param x from OpenSCENARIO class model specification: [Center offset in x direction.]
 	 * 
 	*/
-    void CenterImpl::SetX(double& x )
+    void CenterImpl::SetX(const double x )
     {
         _x = x;
     }
@@ -3160,7 +3160,7 @@ namespace RAC_OPENSCENARIO
 	 * @param y from OpenSCENARIO class model specification: [Center offset in y direction.]
 	 * 
 	*/
-    void CenterImpl::SetY(double& y )
+    void CenterImpl::SetY(const double y )
     {
         _y = y;
     }
@@ -3169,7 +3169,7 @@ namespace RAC_OPENSCENARIO
 	 * @param z from OpenSCENARIO class model specification: [Center offset in z direction.]
 	 * 
 	*/
-    void CenterImpl::SetZ(double& z )
+    void CenterImpl::SetZ(const double z )
     {
         _z = z;
     }
@@ -3221,22 +3221,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CenterImpl CenterImpl::Clone()
+    std::shared_ptr<CenterImpl> CenterImpl::Clone()
     {
-        CenterImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CenterImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetX(_x);
+        clonedObject->SetX(_x);
         // Simple type
-        clonedObject.SetY(_y);
+        clonedObject->SetY(_y);
         // Simple type
-        clonedObject.SetZ(_z);
+        clonedObject->SetZ(_z);
         // clone children
         return clonedObject;
     }
@@ -3303,20 +3303,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CentralSwarmObjectImpl CentralSwarmObjectImpl::Clone()
+    std::shared_ptr<CentralSwarmObjectImpl> CentralSwarmObjectImpl::Clone()
     {
-        CentralSwarmObjectImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CentralSwarmObjectImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // clone children
         return clonedObject;
     }
@@ -3366,7 +3366,7 @@ namespace RAC_OPENSCENARIO
 	 * @param curvature from OpenSCENARIO class model specification: [Start curvature of clothoid.]
 	 * 
 	*/
-    void ClothoidImpl::SetCurvature(double& curvature )
+    void ClothoidImpl::SetCurvature(const double curvature )
     {
         _curvature = curvature;
     }
@@ -3376,7 +3376,7 @@ namespace RAC_OPENSCENARIO
 	 * 1/s;Range [0..inf[.]
 	 * 
 	*/
-    void ClothoidImpl::SetCurvatureDot(double& curvatureDot )
+    void ClothoidImpl::SetCurvatureDot(const double curvatureDot )
     {
         _curvatureDot = curvatureDot;
     }
@@ -3385,7 +3385,7 @@ namespace RAC_OPENSCENARIO
 	 * @param length from OpenSCENARIO class model specification: [Length of clothoid.]
 	 * 
 	*/
-    void ClothoidImpl::SetLength(double& length )
+    void ClothoidImpl::SetLength(const double length )
     {
         _length = length;
     }
@@ -3395,7 +3395,7 @@ namespace RAC_OPENSCENARIO
 	 * Unit: s;Range [0..inf[.]
 	 * 
 	*/
-    void ClothoidImpl::SetStartTime(double& startTime )
+    void ClothoidImpl::SetStartTime(const double startTime )
     {
         _startTime = startTime;
     }
@@ -3405,7 +3405,7 @@ namespace RAC_OPENSCENARIO
 	 * Unit: s;Range ]0..inf[.]
 	 * 
 	*/
-    void ClothoidImpl::SetStopTime(double& stopTime )
+    void ClothoidImpl::SetStopTime(const double stopTime )
     {
         _stopTime = stopTime;
     }
@@ -3414,7 +3414,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Start position of a clothoid.]
 	 * 
 	*/
-    void ClothoidImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void ClothoidImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -3483,34 +3483,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ClothoidImpl ClothoidImpl::Clone()
+    std::shared_ptr<ClothoidImpl> ClothoidImpl::Clone()
     {
-        ClothoidImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ClothoidImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetCurvature(_curvature);
+        clonedObject->SetCurvature(_curvature);
         // Simple type
-        clonedObject.SetCurvatureDot(_curvatureDot);
+        clonedObject->SetCurvatureDot(_curvatureDot);
         // Simple type
-        clonedObject.SetLength(_length);
+        clonedObject->SetLength(_length);
         // Simple type
-        clonedObject.SetStartTime(_startTime);
+        clonedObject->SetStartTime(_startTime);
         // Simple type
-        clonedObject.SetStopTime(_stopTime);
+        clonedObject->SetStopTime(_stopTime);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -3539,7 +3539,7 @@ namespace RAC_OPENSCENARIO
 	 * @param entityRef from OpenSCENARIO class model specification: [Name of a specific entity.]
 	 * 
 	*/
-    void CollisionConditionImpl::SetEntityRef(std::shared_ptr<IEntityRef>& entityRef )
+    void CollisionConditionImpl::SetEntityRef(const std::shared_ptr<IEntityRef> entityRef )
     {
         _entityRef = entityRef;
     }
@@ -3549,7 +3549,7 @@ namespace RAC_OPENSCENARIO
 	 * collide.]
 	 * 
 	*/
-    void CollisionConditionImpl::SetByType(std::shared_ptr<IByObjectType>& byType )
+    void CollisionConditionImpl::SetByType(const std::shared_ptr<IByObjectType> byType )
     {
         _byType = byType;
     }
@@ -3593,32 +3593,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CollisionConditionImpl CollisionConditionImpl::Clone()
+    std::shared_ptr<CollisionConditionImpl> CollisionConditionImpl::Clone()
     {
-        CollisionConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CollisionConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kEntityRef =  GetEntityRef();
         if (kEntityRef)
         {
-            auto clonedChild = std::make_shared<EntityRefImpl>(std::dynamic_pointer_cast<EntityRefImpl>(kEntityRef)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kEntityRef)->Clone();
             auto clonedChildIEntityRef = std::dynamic_pointer_cast<IEntityRef>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEntityRef(clonedChildIEntityRef);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEntityRef(clonedChildIEntityRef);
         }
         const auto kByType =  GetByType();
         if (kByType)
         {
-            auto clonedChild = std::make_shared<ByObjectTypeImpl>(std::dynamic_pointer_cast<ByObjectTypeImpl>(kByType)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ByObjectTypeImpl>(kByType)->Clone();
             auto clonedChildIByObjectType = std::dynamic_pointer_cast<IByObjectType>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetByType(clonedChildIByObjectType);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetByType(clonedChildIByObjectType);
         }
         return clonedObject;
     }
@@ -3662,7 +3662,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the condition.]
 	 * 
 	*/
-    void ConditionImpl::SetName(std::string& name )
+    void ConditionImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -3672,7 +3672,7 @@ namespace RAC_OPENSCENARIO
 	 * condition returns true to the scenario. Unit: s; Range: , [0..inf[.]
 	 * 
 	*/
-    void ConditionImpl::SetDelay(double& delay )
+    void ConditionImpl::SetDelay(const double delay )
     {
         _delay = delay;
     }
@@ -3682,7 +3682,7 @@ namespace RAC_OPENSCENARIO
 	 * true (rising, falling, any).]
 	 * 
 	*/
-    void ConditionImpl::SetConditionEdge(ConditionEdge& conditionEdge )
+    void ConditionImpl::SetConditionEdge(const ConditionEdge conditionEdge )
     {
         _conditionEdge = conditionEdge;
     }
@@ -3691,7 +3691,7 @@ namespace RAC_OPENSCENARIO
 	 * @param byEntityCondition from OpenSCENARIO class model specification: [A condition that refers to an entity.]
 	 * 
 	*/
-    void ConditionImpl::SetByEntityCondition(std::shared_ptr<IByEntityCondition>& byEntityCondition )
+    void ConditionImpl::SetByEntityCondition(const std::shared_ptr<IByEntityCondition> byEntityCondition )
     {
         _byEntityCondition = byEntityCondition;
     }
@@ -3700,7 +3700,7 @@ namespace RAC_OPENSCENARIO
 	 * @param byValueCondition from OpenSCENARIO class model specification: [A condition that refers to a runtime value.]
 	 * 
 	*/
-    void ConditionImpl::SetByValueCondition(std::shared_ptr<IByValueCondition>& byValueCondition )
+    void ConditionImpl::SetByValueCondition(const std::shared_ptr<IByValueCondition> byValueCondition )
     {
         _byValueCondition = byValueCondition;
     }
@@ -3771,38 +3771,38 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ConditionImpl ConditionImpl::Clone()
+    std::shared_ptr<ConditionImpl> ConditionImpl::Clone()
     {
-        ConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetDelay(_delay);
+        clonedObject->SetDelay(_delay);
         // Enumeration Type
-        clonedObject.SetConditionEdge(_conditionEdge);
+        clonedObject->SetConditionEdge(_conditionEdge);
         // clone children
         const auto kByEntityCondition =  GetByEntityCondition();
         if (kByEntityCondition)
         {
-            auto clonedChild = std::make_shared<ByEntityConditionImpl>(std::dynamic_pointer_cast<ByEntityConditionImpl>(kByEntityCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ByEntityConditionImpl>(kByEntityCondition)->Clone();
             auto clonedChildIByEntityCondition = std::dynamic_pointer_cast<IByEntityCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetByEntityCondition(clonedChildIByEntityCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetByEntityCondition(clonedChildIByEntityCondition);
         }
         const auto kByValueCondition =  GetByValueCondition();
         if (kByValueCondition)
         {
-            auto clonedChild = std::make_shared<ByValueConditionImpl>(std::dynamic_pointer_cast<ByValueConditionImpl>(kByValueCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ByValueConditionImpl>(kByValueCondition)->Clone();
             auto clonedChildIByValueCondition = std::dynamic_pointer_cast<IByValueCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetByValueCondition(clonedChildIByValueCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetByValueCondition(clonedChildIByValueCondition);
         }
         return clonedObject;
     }
@@ -3869,14 +3869,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ConditionGroupImpl ConditionGroupImpl::Clone()
+    std::shared_ptr<ConditionGroupImpl> ConditionGroupImpl::Clone()
     {
-        ConditionGroupImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ConditionGroupImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -3886,11 +3886,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<ICondition>> clonedList;
             for(auto&& kItem : kConditions)
             {
-                auto clonedChild = std::make_shared <ConditionImpl>(std::dynamic_pointer_cast<ConditionImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ConditionImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetConditions(clonedList);
+            clonedObject->SetConditions(clonedList);
         }
         return clonedObject;
     }
@@ -3926,7 +3926,7 @@ namespace RAC_OPENSCENARIO
 	 * point. Unit: s;Range [0..inf[.]
 	 * 
 	*/
-    void ControlPointImpl::SetTime(double& time )
+    void ControlPointImpl::SetTime(const double time )
     {
         _time = time;
     }
@@ -3936,7 +3936,7 @@ namespace RAC_OPENSCENARIO
 	 * unspecified, all control points will be equal weighted. Range , ]-inf..inf[.]
 	 * 
 	*/
-    void ControlPointImpl::SetWeight(double& weight )
+    void ControlPointImpl::SetWeight(const double weight )
     {
         _weight = weight;
     }
@@ -3945,7 +3945,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Position of the control point.]
 	 * 
 	*/
-    void ControlPointImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void ControlPointImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -3996,28 +3996,28 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ControlPointImpl ControlPointImpl::Clone()
+    std::shared_ptr<ControlPointImpl> ControlPointImpl::Clone()
     {
-        ControlPointImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ControlPointImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetTime(_time);
+        clonedObject->SetTime(_time);
         // Simple type
-        clonedObject.SetWeight(_weight);
+        clonedObject->SetWeight(_weight);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -4051,7 +4051,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the controller type.]
 	 * 
 	*/
-    void ControllerImpl::SetName(std::string& name )
+    void ControllerImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -4069,7 +4069,7 @@ namespace RAC_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Describing properties for the controller.]
 	 * 
 	*/
-    void ControllerImpl::SetProperties(std::shared_ptr<IProperties>& properties )
+    void ControllerImpl::SetProperties(const std::shared_ptr<IProperties> properties )
     {
         _properties = properties;
     }
@@ -4142,18 +4142,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ControllerImpl ControllerImpl::Clone()
+    std::shared_ptr<ControllerImpl> ControllerImpl::Clone()
     {
-        ControllerImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ControllerImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -4161,19 +4161,19 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kProperties =  GetProperties();
         if (kProperties)
         {
-            auto clonedChild = std::make_shared<PropertiesImpl>(std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
             auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetProperties(clonedChildIProperties);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetProperties(clonedChildIProperties);
         }
         return clonedObject;
     }
@@ -4202,7 +4202,7 @@ namespace RAC_OPENSCENARIO
 	 * @param assignControllerAction from OpenSCENARIO class model specification: [Assign a controller to an entity.]
 	 * 
 	*/
-    void ControllerActionImpl::SetAssignControllerAction(std::shared_ptr<IAssignControllerAction>& assignControllerAction )
+    void ControllerActionImpl::SetAssignControllerAction(const std::shared_ptr<IAssignControllerAction> assignControllerAction )
     {
         _assignControllerAction = assignControllerAction;
     }
@@ -4212,7 +4212,7 @@ namespace RAC_OPENSCENARIO
 	 * parking brake, steering wheel or gear.]
 	 * 
 	*/
-    void ControllerActionImpl::SetOverrideControllerValueAction(std::shared_ptr<IOverrideControllerValueAction>& overrideControllerValueAction )
+    void ControllerActionImpl::SetOverrideControllerValueAction(const std::shared_ptr<IOverrideControllerValueAction> overrideControllerValueAction )
     {
         _overrideControllerValueAction = overrideControllerValueAction;
     }
@@ -4256,32 +4256,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ControllerActionImpl ControllerActionImpl::Clone()
+    std::shared_ptr<ControllerActionImpl> ControllerActionImpl::Clone()
     {
-        ControllerActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ControllerActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kAssignControllerAction =  GetAssignControllerAction();
         if (kAssignControllerAction)
         {
-            auto clonedChild = std::make_shared<AssignControllerActionImpl>(std::dynamic_pointer_cast<AssignControllerActionImpl>(kAssignControllerAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AssignControllerActionImpl>(kAssignControllerAction)->Clone();
             auto clonedChildIAssignControllerAction = std::dynamic_pointer_cast<IAssignControllerAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAssignControllerAction(clonedChildIAssignControllerAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAssignControllerAction(clonedChildIAssignControllerAction);
         }
         const auto kOverrideControllerValueAction =  GetOverrideControllerValueAction();
         if (kOverrideControllerValueAction)
         {
-            auto clonedChild = std::make_shared<OverrideControllerValueActionImpl>(std::dynamic_pointer_cast<OverrideControllerValueActionImpl>(kOverrideControllerValueAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OverrideControllerValueActionImpl>(kOverrideControllerValueAction)->Clone();
             auto clonedChildIOverrideControllerValueAction = std::dynamic_pointer_cast<IOverrideControllerValueAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOverrideControllerValueAction(clonedChildIOverrideControllerValueAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOverrideControllerValueAction(clonedChildIOverrideControllerValueAction);
         }
         return clonedObject;
     }
@@ -4306,7 +4306,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalog files in this directory must be evaluated.]
 	 * 
 	*/
-    void ControllerCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void ControllerCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -4345,24 +4345,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ControllerCatalogLocationImpl ControllerCatalogLocationImpl::Clone()
+    std::shared_ptr<ControllerCatalogLocationImpl> ControllerCatalogLocationImpl::Clone()
     {
-        ControllerCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ControllerCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -4430,14 +4430,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ControllerDistributionImpl ControllerDistributionImpl::Clone()
+    std::shared_ptr<ControllerDistributionImpl> ControllerDistributionImpl::Clone()
     {
-        ControllerDistributionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ControllerDistributionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -4447,11 +4447,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IControllerDistributionEntry>> clonedList;
             for(auto&& kItem : kControllerDistributionEntries)
             {
-                auto clonedChild = std::make_shared <ControllerDistributionEntryImpl>(std::dynamic_pointer_cast<ControllerDistributionEntryImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ControllerDistributionEntryImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetControllerDistributionEntries(clonedList);
+            clonedObject->SetControllerDistributionEntries(clonedList);
         }
         return clonedObject;
     }
@@ -4485,7 +4485,7 @@ namespace RAC_OPENSCENARIO
 	 * @param weight from OpenSCENARIO class model specification: [The weight of the entry. Range: ]0..inf[.]
 	 * 
 	*/
-    void ControllerDistributionEntryImpl::SetWeight(double& weight )
+    void ControllerDistributionEntryImpl::SetWeight(const double weight )
     {
         _weight = weight;
     }
@@ -4494,7 +4494,7 @@ namespace RAC_OPENSCENARIO
 	 * @param controller from OpenSCENARIO class model specification: [The specified controller type.]
 	 * 
 	*/
-    void ControllerDistributionEntryImpl::SetController(std::shared_ptr<IController>& controller )
+    void ControllerDistributionEntryImpl::SetController(const std::shared_ptr<IController> controller )
     {
         _controller = controller;
     }
@@ -4503,7 +4503,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [A controller type import from a catalog.]
 	 * 
 	*/
-    void ControllerDistributionEntryImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void ControllerDistributionEntryImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -4553,34 +4553,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ControllerDistributionEntryImpl ControllerDistributionEntryImpl::Clone()
+    std::shared_ptr<ControllerDistributionEntryImpl> ControllerDistributionEntryImpl::Clone()
     {
-        ControllerDistributionEntryImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ControllerDistributionEntryImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetWeight(_weight);
+        clonedObject->SetWeight(_weight);
         // clone children
         const auto kController =  GetController();
         if (kController)
         {
-            auto clonedChild = std::make_shared<ControllerImpl>(std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone();
             auto clonedChildIController = std::dynamic_pointer_cast<IController>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetController(clonedChildIController);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetController(clonedChildIController);
         }
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         return clonedObject;
     }
@@ -4612,7 +4612,7 @@ namespace RAC_OPENSCENARIO
 	 * environment provider and the author of a scenario.]
 	 * 
 	*/
-    void CustomCommandActionImpl::SetType(std::string& type )
+    void CustomCommandActionImpl::SetType(const std::string type )
     {
         _type = type;
     }
@@ -4622,7 +4622,7 @@ namespace RAC_OPENSCENARIO
 	 * simulation environment provider and the author of a scenario.]
 	 * 
 	*/
-    void CustomCommandActionImpl::SetContent(std::string& content )
+    void CustomCommandActionImpl::SetContent(const std::string content )
     {
         _content = content;
     }
@@ -4668,18 +4668,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    CustomCommandActionImpl CustomCommandActionImpl::Clone()
+    std::shared_ptr<CustomCommandActionImpl> CustomCommandActionImpl::Clone()
     {
-        CustomCommandActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<CustomCommandActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetType(_type);
+        clonedObject->SetType(_type);
         // clone children
         return clonedObject;
     }
@@ -4725,14 +4725,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    DeleteEntityActionImpl DeleteEntityActionImpl::Clone()
+    std::shared_ptr<DeleteEntityActionImpl> DeleteEntityActionImpl::Clone()
     {
-        DeleteEntityActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<DeleteEntityActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -4771,7 +4771,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void DimensionsImpl::SetWidth(double& width )
+    void DimensionsImpl::SetWidth(const double width )
     {
         _width = width;
     }
@@ -4781,7 +4781,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void DimensionsImpl::SetLength(double& length )
+    void DimensionsImpl::SetLength(const double length )
     {
         _length = length;
     }
@@ -4791,7 +4791,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void DimensionsImpl::SetHeight(double& height )
+    void DimensionsImpl::SetHeight(const double height )
     {
         _height = height;
     }
@@ -4843,22 +4843,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    DimensionsImpl DimensionsImpl::Clone()
+    std::shared_ptr<DimensionsImpl> DimensionsImpl::Clone()
     {
-        DimensionsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<DimensionsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetWidth(_width);
+        clonedObject->SetWidth(_width);
         // Simple type
-        clonedObject.SetLength(_length);
+        clonedObject->SetLength(_length);
         // Simple type
-        clonedObject.SetHeight(_height);
+        clonedObject->SetHeight(_height);
         // clone children
         return clonedObject;
     }
@@ -4884,7 +4884,7 @@ namespace RAC_OPENSCENARIO
 	 * @param path from OpenSCENARIO class model specification: [File system path, e.g. path=/home/simulation/.]
 	 * 
 	*/
-    void DirectoryImpl::SetPath(std::string& path )
+    void DirectoryImpl::SetPath(const std::string path )
     {
         _path = path;
     }
@@ -4924,18 +4924,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    DirectoryImpl DirectoryImpl::Clone()
+    std::shared_ptr<DirectoryImpl> DirectoryImpl::Clone()
     {
-        DirectoryImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<DirectoryImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetPath(_path);
+        clonedObject->SetPath(_path);
         // clone children
         return clonedObject;
     }
@@ -4980,7 +4980,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The distance value. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-    void DistanceConditionImpl::SetValue(double& value )
+    void DistanceConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -4990,7 +4990,7 @@ namespace RAC_OPENSCENARIO
 	 * points. False: reference point distance is used.]
 	 * 
 	*/
-    void DistanceConditionImpl::SetFreespace(bool& freespace )
+    void DistanceConditionImpl::SetFreespace(const bool freespace )
     {
         _freespace = freespace;
     }
@@ -5000,7 +5000,7 @@ namespace RAC_OPENSCENARIO
 	 * increase distance. False: straight line distance is used.]
 	 * 
 	*/
-    void DistanceConditionImpl::SetAlongRoute(bool& alongRoute )
+    void DistanceConditionImpl::SetAlongRoute(const bool alongRoute )
     {
         _alongRoute = alongRoute;
     }
@@ -5009,7 +5009,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void DistanceConditionImpl::SetRule(Rule& rule )
+    void DistanceConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -5018,7 +5018,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The given position the distance is related to.]
 	 * 
 	*/
-    void DistanceConditionImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void DistanceConditionImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -5090,32 +5090,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    DistanceConditionImpl DistanceConditionImpl::Clone()
+    std::shared_ptr<DistanceConditionImpl> DistanceConditionImpl::Clone()
     {
-        DistanceConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<DistanceConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetFreespace(_freespace);
+        clonedObject->SetFreespace(_freespace);
         // Simple type
-        clonedObject.SetAlongRoute(_alongRoute);
+        clonedObject->SetAlongRoute(_alongRoute);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -5152,7 +5152,7 @@ namespace RAC_OPENSCENARIO
 	 * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
 	 * 
 	*/
-    void DynamicConstraintsImpl::SetMaxAcceleration(double& maxAcceleration )
+    void DynamicConstraintsImpl::SetMaxAcceleration(const double maxAcceleration )
     {
         _maxAcceleration = maxAcceleration;
     }
@@ -5162,7 +5162,7 @@ namespace RAC_OPENSCENARIO
 	 * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
 	 * 
 	*/
-    void DynamicConstraintsImpl::SetMaxDeceleration(double& maxDeceleration )
+    void DynamicConstraintsImpl::SetMaxDeceleration(const double maxDeceleration )
     {
         _maxDeceleration = maxDeceleration;
     }
@@ -5172,7 +5172,7 @@ namespace RAC_OPENSCENARIO
 	 * for keeping the distance. Unit: m/s; Range: [0..inf[.]
 	 * 
 	*/
-    void DynamicConstraintsImpl::SetMaxSpeed(double& maxSpeed )
+    void DynamicConstraintsImpl::SetMaxSpeed(const double maxSpeed )
     {
         _maxSpeed = maxSpeed;
     }
@@ -5224,22 +5224,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    DynamicConstraintsImpl DynamicConstraintsImpl::Clone()
+    std::shared_ptr<DynamicConstraintsImpl> DynamicConstraintsImpl::Clone()
     {
-        DynamicConstraintsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<DynamicConstraintsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetMaxAcceleration(_maxAcceleration);
+        clonedObject->SetMaxAcceleration(_maxAcceleration);
         // Simple type
-        clonedObject.SetMaxDeceleration(_maxDeceleration);
+        clonedObject->SetMaxDeceleration(_maxDeceleration);
         // Simple type
-        clonedObject.SetMaxSpeed(_maxSpeed);
+        clonedObject->SetMaxSpeed(_maxSpeed);
         // clone children
         return clonedObject;
     }
@@ -5265,7 +5265,7 @@ namespace RAC_OPENSCENARIO
 	 * @param duration from OpenSCENARIO class model specification: [Amount of time at end of road. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-    void EndOfRoadConditionImpl::SetDuration(double& duration )
+    void EndOfRoadConditionImpl::SetDuration(const double duration )
     {
         _duration = duration;
     }
@@ -5305,18 +5305,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EndOfRoadConditionImpl EndOfRoadConditionImpl::Clone()
+    std::shared_ptr<EndOfRoadConditionImpl> EndOfRoadConditionImpl::Clone()
     {
-        EndOfRoadConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EndOfRoadConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetDuration(_duration);
+        clonedObject->SetDuration(_duration);
         // clone children
         return clonedObject;
     }
@@ -5405,14 +5405,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EntitiesImpl EntitiesImpl::Clone()
+    std::shared_ptr<EntitiesImpl> EntitiesImpl::Clone()
     {
-        EntitiesImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EntitiesImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -5422,11 +5422,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IScenarioObject>> clonedList;
             for(auto&& kItem : kScenarioObjects)
             {
-                auto clonedChild = std::make_shared <ScenarioObjectImpl>(std::dynamic_pointer_cast<ScenarioObjectImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ScenarioObjectImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetScenarioObjects(clonedList);
+            clonedObject->SetScenarioObjects(clonedList);
         }
         const auto kEntitySelections =  GetEntitySelections();
         if (!kEntitySelections.empty())
@@ -5434,11 +5434,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IEntitySelection>> clonedList;
             for(auto&& kItem : kEntitySelections)
             {
-                auto clonedChild = std::make_shared <EntitySelectionImpl>(std::dynamic_pointer_cast<EntitySelectionImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<EntitySelectionImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetEntitySelections(clonedList);
+            clonedObject->SetEntitySelections(clonedList);
         }
         return clonedObject;
     }
@@ -5482,7 +5482,7 @@ namespace RAC_OPENSCENARIO
 	 * scenario.]
 	 * 
 	*/
-    void EntityActionImpl::SetAddEntityAction(std::shared_ptr<IAddEntityAction>& addEntityAction )
+    void EntityActionImpl::SetAddEntityAction(const std::shared_ptr<IAddEntityAction> addEntityAction )
     {
         _addEntityAction = addEntityAction;
     }
@@ -5492,7 +5492,7 @@ namespace RAC_OPENSCENARIO
 	 * the scenario.]
 	 * 
 	*/
-    void EntityActionImpl::SetDeleteEntityAction(std::shared_ptr<IDeleteEntityAction>& deleteEntityAction )
+    void EntityActionImpl::SetDeleteEntityAction(const std::shared_ptr<IDeleteEntityAction> deleteEntityAction )
     {
         _deleteEntityAction = deleteEntityAction;
     }
@@ -5542,36 +5542,36 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EntityActionImpl EntityActionImpl::Clone()
+    std::shared_ptr<EntityActionImpl> EntityActionImpl::Clone()
     {
-        EntityActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EntityActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // clone children
         const auto kAddEntityAction =  GetAddEntityAction();
         if (kAddEntityAction)
         {
-            auto clonedChild = std::make_shared<AddEntityActionImpl>(std::dynamic_pointer_cast<AddEntityActionImpl>(kAddEntityAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AddEntityActionImpl>(kAddEntityAction)->Clone();
             auto clonedChildIAddEntityAction = std::dynamic_pointer_cast<IAddEntityAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAddEntityAction(clonedChildIAddEntityAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAddEntityAction(clonedChildIAddEntityAction);
         }
         const auto kDeleteEntityAction =  GetDeleteEntityAction();
         if (kDeleteEntityAction)
         {
-            auto clonedChild = std::make_shared<DeleteEntityActionImpl>(std::dynamic_pointer_cast<DeleteEntityActionImpl>(kDeleteEntityAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DeleteEntityActionImpl>(kDeleteEntityAction)->Clone();
             auto clonedChildIDeleteEntityAction = std::dynamic_pointer_cast<IDeleteEntityAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDeleteEntityAction(clonedChildIDeleteEntityAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDeleteEntityAction(clonedChildIDeleteEntityAction);
         }
         return clonedObject;
     }
@@ -5645,7 +5645,7 @@ namespace RAC_OPENSCENARIO
 	 * entity has reached the end of the road.]
 	 * 
 	*/
-    void EntityConditionImpl::SetEndOfRoadCondition(std::shared_ptr<IEndOfRoadCondition>& endOfRoadCondition )
+    void EntityConditionImpl::SetEndOfRoadCondition(const std::shared_ptr<IEndOfRoadCondition> endOfRoadCondition )
     {
         _endOfRoadCondition = endOfRoadCondition;
     }
@@ -5655,7 +5655,7 @@ namespace RAC_OPENSCENARIO
 	 * was involved in a collision.]
 	 * 
 	*/
-    void EntityConditionImpl::SetCollisionCondition(std::shared_ptr<ICollisionCondition>& collisionCondition )
+    void EntityConditionImpl::SetCollisionCondition(const std::shared_ptr<ICollisionCondition> collisionCondition )
     {
         _collisionCondition = collisionCondition;
     }
@@ -5665,7 +5665,7 @@ namespace RAC_OPENSCENARIO
 	 * entity has left the road.]
 	 * 
 	*/
-    void EntityConditionImpl::SetOffroadCondition(std::shared_ptr<IOffroadCondition>& offroadCondition )
+    void EntityConditionImpl::SetOffroadCondition(const std::shared_ptr<IOffroadCondition> offroadCondition )
     {
         _offroadCondition = offroadCondition;
     }
@@ -5675,7 +5675,7 @@ namespace RAC_OPENSCENARIO
 	 * two entities.]
 	 * 
 	*/
-    void EntityConditionImpl::SetTimeHeadwayCondition(std::shared_ptr<ITimeHeadwayCondition>& timeHeadwayCondition )
+    void EntityConditionImpl::SetTimeHeadwayCondition(const std::shared_ptr<ITimeHeadwayCondition> timeHeadwayCondition )
     {
         _timeHeadwayCondition = timeHeadwayCondition;
     }
@@ -5685,7 +5685,7 @@ namespace RAC_OPENSCENARIO
 	 * between two entities.]
 	 * 
 	*/
-    void EntityConditionImpl::SetTimeToCollisionCondition(std::shared_ptr<ITimeToCollisionCondition>& timeToCollisionCondition )
+    void EntityConditionImpl::SetTimeToCollisionCondition(const std::shared_ptr<ITimeToCollisionCondition> timeToCollisionCondition )
     {
         _timeToCollisionCondition = timeToCollisionCondition;
     }
@@ -5695,7 +5695,7 @@ namespace RAC_OPENSCENARIO
 	 * of an entity.]
 	 * 
 	*/
-    void EntityConditionImpl::SetAccelerationCondition(std::shared_ptr<IAccelerationCondition>& accelerationCondition )
+    void EntityConditionImpl::SetAccelerationCondition(const std::shared_ptr<IAccelerationCondition> accelerationCondition )
     {
         _accelerationCondition = accelerationCondition;
     }
@@ -5705,7 +5705,7 @@ namespace RAC_OPENSCENARIO
 	 * entity has not moved.]
 	 * 
 	*/
-    void EntityConditionImpl::SetStandStillCondition(std::shared_ptr<IStandStillCondition>& standStillCondition )
+    void EntityConditionImpl::SetStandStillCondition(const std::shared_ptr<IStandStillCondition> standStillCondition )
     {
         _standStillCondition = standStillCondition;
     }
@@ -5715,7 +5715,7 @@ namespace RAC_OPENSCENARIO
 	 * referenced entities.]
 	 * 
 	*/
-    void EntityConditionImpl::SetSpeedCondition(std::shared_ptr<ISpeedCondition>& speedCondition )
+    void EntityConditionImpl::SetSpeedCondition(const std::shared_ptr<ISpeedCondition> speedCondition )
     {
         _speedCondition = speedCondition;
     }
@@ -5725,7 +5725,7 @@ namespace RAC_OPENSCENARIO
 	 * between two entity.]
 	 * 
 	*/
-    void EntityConditionImpl::SetRelativeSpeedCondition(std::shared_ptr<IRelativeSpeedCondition>& relativeSpeedCondition )
+    void EntityConditionImpl::SetRelativeSpeedCondition(const std::shared_ptr<IRelativeSpeedCondition> relativeSpeedCondition )
     {
         _relativeSpeedCondition = relativeSpeedCondition;
     }
@@ -5735,7 +5735,7 @@ namespace RAC_OPENSCENARIO
 	 * distance of the reference entity since the start of the scenario.]
 	 * 
 	*/
-    void EntityConditionImpl::SetTraveledDistanceCondition(std::shared_ptr<ITraveledDistanceCondition>& traveledDistanceCondition )
+    void EntityConditionImpl::SetTraveledDistanceCondition(const std::shared_ptr<ITraveledDistanceCondition> traveledDistanceCondition )
     {
         _traveledDistanceCondition = traveledDistanceCondition;
     }
@@ -5745,7 +5745,7 @@ namespace RAC_OPENSCENARIO
 	 * entity has reached a given position within a given uncertainty.]
 	 * 
 	*/
-    void EntityConditionImpl::SetReachPositionCondition(std::shared_ptr<IReachPositionCondition>& reachPositionCondition )
+    void EntityConditionImpl::SetReachPositionCondition(const std::shared_ptr<IReachPositionCondition> reachPositionCondition )
     {
         _reachPositionCondition = reachPositionCondition;
     }
@@ -5755,7 +5755,7 @@ namespace RAC_OPENSCENARIO
 	 * entities or an entity and a position.]
 	 * 
 	*/
-    void EntityConditionImpl::SetDistanceCondition(std::shared_ptr<IDistanceCondition>& distanceCondition )
+    void EntityConditionImpl::SetDistanceCondition(const std::shared_ptr<IDistanceCondition> distanceCondition )
     {
         _distanceCondition = distanceCondition;
     }
@@ -5765,7 +5765,7 @@ namespace RAC_OPENSCENARIO
 	 * between two entities.]
 	 * 
 	*/
-    void EntityConditionImpl::SetRelativeDistanceCondition(std::shared_ptr<IRelativeDistanceCondition>& relativeDistanceCondition )
+    void EntityConditionImpl::SetRelativeDistanceCondition(const std::shared_ptr<IRelativeDistanceCondition> relativeDistanceCondition )
     {
         _relativeDistanceCondition = relativeDistanceCondition;
     }
@@ -5864,120 +5864,120 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EntityConditionImpl EntityConditionImpl::Clone()
+    std::shared_ptr<EntityConditionImpl> EntityConditionImpl::Clone()
     {
-        EntityConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EntityConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kEndOfRoadCondition =  GetEndOfRoadCondition();
         if (kEndOfRoadCondition)
         {
-            auto clonedChild = std::make_shared<EndOfRoadConditionImpl>(std::dynamic_pointer_cast<EndOfRoadConditionImpl>(kEndOfRoadCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EndOfRoadConditionImpl>(kEndOfRoadCondition)->Clone();
             auto clonedChildIEndOfRoadCondition = std::dynamic_pointer_cast<IEndOfRoadCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEndOfRoadCondition(clonedChildIEndOfRoadCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEndOfRoadCondition(clonedChildIEndOfRoadCondition);
         }
         const auto kCollisionCondition =  GetCollisionCondition();
         if (kCollisionCondition)
         {
-            auto clonedChild = std::make_shared<CollisionConditionImpl>(std::dynamic_pointer_cast<CollisionConditionImpl>(kCollisionCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CollisionConditionImpl>(kCollisionCondition)->Clone();
             auto clonedChildICollisionCondition = std::dynamic_pointer_cast<ICollisionCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCollisionCondition(clonedChildICollisionCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCollisionCondition(clonedChildICollisionCondition);
         }
         const auto kOffroadCondition =  GetOffroadCondition();
         if (kOffroadCondition)
         {
-            auto clonedChild = std::make_shared<OffroadConditionImpl>(std::dynamic_pointer_cast<OffroadConditionImpl>(kOffroadCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OffroadConditionImpl>(kOffroadCondition)->Clone();
             auto clonedChildIOffroadCondition = std::dynamic_pointer_cast<IOffroadCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOffroadCondition(clonedChildIOffroadCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOffroadCondition(clonedChildIOffroadCondition);
         }
         const auto kTimeHeadwayCondition =  GetTimeHeadwayCondition();
         if (kTimeHeadwayCondition)
         {
-            auto clonedChild = std::make_shared<TimeHeadwayConditionImpl>(std::dynamic_pointer_cast<TimeHeadwayConditionImpl>(kTimeHeadwayCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TimeHeadwayConditionImpl>(kTimeHeadwayCondition)->Clone();
             auto clonedChildITimeHeadwayCondition = std::dynamic_pointer_cast<ITimeHeadwayCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTimeHeadwayCondition(clonedChildITimeHeadwayCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTimeHeadwayCondition(clonedChildITimeHeadwayCondition);
         }
         const auto kTimeToCollisionCondition =  GetTimeToCollisionCondition();
         if (kTimeToCollisionCondition)
         {
-            auto clonedChild = std::make_shared<TimeToCollisionConditionImpl>(std::dynamic_pointer_cast<TimeToCollisionConditionImpl>(kTimeToCollisionCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TimeToCollisionConditionImpl>(kTimeToCollisionCondition)->Clone();
             auto clonedChildITimeToCollisionCondition = std::dynamic_pointer_cast<ITimeToCollisionCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTimeToCollisionCondition(clonedChildITimeToCollisionCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTimeToCollisionCondition(clonedChildITimeToCollisionCondition);
         }
         const auto kAccelerationCondition =  GetAccelerationCondition();
         if (kAccelerationCondition)
         {
-            auto clonedChild = std::make_shared<AccelerationConditionImpl>(std::dynamic_pointer_cast<AccelerationConditionImpl>(kAccelerationCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AccelerationConditionImpl>(kAccelerationCondition)->Clone();
             auto clonedChildIAccelerationCondition = std::dynamic_pointer_cast<IAccelerationCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAccelerationCondition(clonedChildIAccelerationCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAccelerationCondition(clonedChildIAccelerationCondition);
         }
         const auto kStandStillCondition =  GetStandStillCondition();
         if (kStandStillCondition)
         {
-            auto clonedChild = std::make_shared<StandStillConditionImpl>(std::dynamic_pointer_cast<StandStillConditionImpl>(kStandStillCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<StandStillConditionImpl>(kStandStillCondition)->Clone();
             auto clonedChildIStandStillCondition = std::dynamic_pointer_cast<IStandStillCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetStandStillCondition(clonedChildIStandStillCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetStandStillCondition(clonedChildIStandStillCondition);
         }
         const auto kSpeedCondition =  GetSpeedCondition();
         if (kSpeedCondition)
         {
-            auto clonedChild = std::make_shared<SpeedConditionImpl>(std::dynamic_pointer_cast<SpeedConditionImpl>(kSpeedCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<SpeedConditionImpl>(kSpeedCondition)->Clone();
             auto clonedChildISpeedCondition = std::dynamic_pointer_cast<ISpeedCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSpeedCondition(clonedChildISpeedCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSpeedCondition(clonedChildISpeedCondition);
         }
         const auto kRelativeSpeedCondition =  GetRelativeSpeedCondition();
         if (kRelativeSpeedCondition)
         {
-            auto clonedChild = std::make_shared<RelativeSpeedConditionImpl>(std::dynamic_pointer_cast<RelativeSpeedConditionImpl>(kRelativeSpeedCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeSpeedConditionImpl>(kRelativeSpeedCondition)->Clone();
             auto clonedChildIRelativeSpeedCondition = std::dynamic_pointer_cast<IRelativeSpeedCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeSpeedCondition(clonedChildIRelativeSpeedCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeSpeedCondition(clonedChildIRelativeSpeedCondition);
         }
         const auto kTraveledDistanceCondition =  GetTraveledDistanceCondition();
         if (kTraveledDistanceCondition)
         {
-            auto clonedChild = std::make_shared<TraveledDistanceConditionImpl>(std::dynamic_pointer_cast<TraveledDistanceConditionImpl>(kTraveledDistanceCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TraveledDistanceConditionImpl>(kTraveledDistanceCondition)->Clone();
             auto clonedChildITraveledDistanceCondition = std::dynamic_pointer_cast<ITraveledDistanceCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTraveledDistanceCondition(clonedChildITraveledDistanceCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTraveledDistanceCondition(clonedChildITraveledDistanceCondition);
         }
         const auto kReachPositionCondition =  GetReachPositionCondition();
         if (kReachPositionCondition)
         {
-            auto clonedChild = std::make_shared<ReachPositionConditionImpl>(std::dynamic_pointer_cast<ReachPositionConditionImpl>(kReachPositionCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ReachPositionConditionImpl>(kReachPositionCondition)->Clone();
             auto clonedChildIReachPositionCondition = std::dynamic_pointer_cast<IReachPositionCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetReachPositionCondition(clonedChildIReachPositionCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetReachPositionCondition(clonedChildIReachPositionCondition);
         }
         const auto kDistanceCondition =  GetDistanceCondition();
         if (kDistanceCondition)
         {
-            auto clonedChild = std::make_shared<DistanceConditionImpl>(std::dynamic_pointer_cast<DistanceConditionImpl>(kDistanceCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DistanceConditionImpl>(kDistanceCondition)->Clone();
             auto clonedChildIDistanceCondition = std::dynamic_pointer_cast<IDistanceCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDistanceCondition(clonedChildIDistanceCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDistanceCondition(clonedChildIDistanceCondition);
         }
         const auto kRelativeDistanceCondition =  GetRelativeDistanceCondition();
         if (kRelativeDistanceCondition)
         {
-            auto clonedChild = std::make_shared<RelativeDistanceConditionImpl>(std::dynamic_pointer_cast<RelativeDistanceConditionImpl>(kRelativeDistanceCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeDistanceConditionImpl>(kRelativeDistanceCondition)->Clone();
             auto clonedChildIRelativeDistanceCondition = std::dynamic_pointer_cast<IRelativeDistanceCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeDistanceCondition(clonedChildIRelativeDistanceCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeDistanceCondition(clonedChildIRelativeDistanceCondition);
         }
         return clonedObject;
     }
@@ -6015,7 +6015,7 @@ namespace RAC_OPENSCENARIO
 	 * Vehicle or Pedestrian.]
 	 * 
 	*/
-    void EntityObjectImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void EntityObjectImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -6024,7 +6024,7 @@ namespace RAC_OPENSCENARIO
 	 * @param vehicle from OpenSCENARIO class model specification: [Vehicle definition.]
 	 * 
 	*/
-    void EntityObjectImpl::SetVehicle(std::shared_ptr<IVehicle>& vehicle )
+    void EntityObjectImpl::SetVehicle(const std::shared_ptr<IVehicle> vehicle )
     {
         _vehicle = vehicle;
     }
@@ -6033,7 +6033,7 @@ namespace RAC_OPENSCENARIO
 	 * @param pedestrian from OpenSCENARIO class model specification: [Pedestrian definition.]
 	 * 
 	*/
-    void EntityObjectImpl::SetPedestrian(std::shared_ptr<IPedestrian>& pedestrian )
+    void EntityObjectImpl::SetPedestrian(const std::shared_ptr<IPedestrian> pedestrian )
     {
         _pedestrian = pedestrian;
     }
@@ -6042,7 +6042,7 @@ namespace RAC_OPENSCENARIO
 	 * @param miscObject from OpenSCENARIO class model specification: [Definition of a MiscObject.]
 	 * 
 	*/
-    void EntityObjectImpl::SetMiscObject(std::shared_ptr<IMiscObject>& miscObject )
+    void EntityObjectImpl::SetMiscObject(const std::shared_ptr<IMiscObject> miscObject )
     {
         _miscObject = miscObject;
     }
@@ -6096,48 +6096,48 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EntityObjectImpl EntityObjectImpl::Clone()
+    std::shared_ptr<EntityObjectImpl> EntityObjectImpl::Clone()
     {
-        EntityObjectImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EntityObjectImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         const auto kVehicle =  GetVehicle();
         if (kVehicle)
         {
-            auto clonedChild = std::make_shared<VehicleImpl>(std::dynamic_pointer_cast<VehicleImpl>(kVehicle)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<VehicleImpl>(kVehicle)->Clone();
             auto clonedChildIVehicle = std::dynamic_pointer_cast<IVehicle>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetVehicle(clonedChildIVehicle);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetVehicle(clonedChildIVehicle);
         }
         const auto kPedestrian =  GetPedestrian();
         if (kPedestrian)
         {
-            auto clonedChild = std::make_shared<PedestrianImpl>(std::dynamic_pointer_cast<PedestrianImpl>(kPedestrian)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PedestrianImpl>(kPedestrian)->Clone();
             auto clonedChildIPedestrian = std::dynamic_pointer_cast<IPedestrian>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPedestrian(clonedChildIPedestrian);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPedestrian(clonedChildIPedestrian);
         }
         const auto kMiscObject =  GetMiscObject();
         if (kMiscObject)
         {
-            auto clonedChild = std::make_shared<MiscObjectImpl>(std::dynamic_pointer_cast<MiscObjectImpl>(kMiscObject)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<MiscObjectImpl>(kMiscObject)->Clone();
             auto clonedChildIMiscObject = std::dynamic_pointer_cast<IMiscObject>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetMiscObject(clonedChildIMiscObject);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetMiscObject(clonedChildIMiscObject);
         }
         return clonedObject;
     }
@@ -6203,20 +6203,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EntityRefImpl EntityRefImpl::Clone()
+    std::shared_ptr<EntityRefImpl> EntityRefImpl::Clone()
     {
-        EntityRefImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EntityRefImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // clone children
         return clonedObject;
     }
@@ -6247,7 +6247,7 @@ namespace RAC_OPENSCENARIO
 	 * referenced as an entity.]
 	 * 
 	*/
-    void EntitySelectionImpl::SetName(std::string& name )
+    void EntitySelectionImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -6256,7 +6256,7 @@ namespace RAC_OPENSCENARIO
 	 * @param members from OpenSCENARIO class model specification: [Selected entities as members of the entity selection.]
 	 * 
 	*/
-    void EntitySelectionImpl::SetMembers(std::shared_ptr<ISelectedEntities>& members )
+    void EntitySelectionImpl::SetMembers(const std::shared_ptr<ISelectedEntities> members )
     {
         _members = members;
     }
@@ -6301,26 +6301,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EntitySelectionImpl EntitySelectionImpl::Clone()
+    std::shared_ptr<EntitySelectionImpl> EntitySelectionImpl::Clone()
     {
-        EntitySelectionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EntitySelectionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kMembers =  GetMembers();
         if (kMembers)
         {
-            auto clonedChild = std::make_shared<SelectedEntitiesImpl>(std::dynamic_pointer_cast<SelectedEntitiesImpl>(kMembers)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<SelectedEntitiesImpl>(kMembers)->Clone();
             auto clonedChildISelectedEntities = std::dynamic_pointer_cast<ISelectedEntities>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetMembers(clonedChildISelectedEntities);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetMembers(clonedChildISelectedEntities);
         }
         return clonedObject;
     }
@@ -6362,7 +6362,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the environment. If used in catalog name is required.]
 	 * 
 	*/
-    void EnvironmentImpl::SetName(std::string& name )
+    void EnvironmentImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -6380,7 +6380,7 @@ namespace RAC_OPENSCENARIO
 	 * @param timeOfDay from OpenSCENARIO class model specification: [Time of the day during the simulation.]
 	 * 
 	*/
-    void EnvironmentImpl::SetTimeOfDay(std::shared_ptr<ITimeOfDay>& timeOfDay )
+    void EnvironmentImpl::SetTimeOfDay(const std::shared_ptr<ITimeOfDay> timeOfDay )
     {
         _timeOfDay = timeOfDay;
     }
@@ -6389,7 +6389,7 @@ namespace RAC_OPENSCENARIO
 	 * @param weather from OpenSCENARIO class model specification: [Weather conditions during the simulation.]
 	 * 
 	*/
-    void EnvironmentImpl::SetWeather(std::shared_ptr<IWeather>& weather )
+    void EnvironmentImpl::SetWeather(const std::shared_ptr<IWeather> weather )
     {
         _weather = weather;
     }
@@ -6398,7 +6398,7 @@ namespace RAC_OPENSCENARIO
 	 * @param roadCondition from OpenSCENARIO class model specification: [Road conditions during the simulation.]
 	 * 
 	*/
-    void EnvironmentImpl::SetRoadCondition(std::shared_ptr<IRoadCondition>& roadCondition )
+    void EnvironmentImpl::SetRoadCondition(const std::shared_ptr<IRoadCondition> roadCondition )
     {
         _roadCondition = roadCondition;
     }
@@ -6481,18 +6481,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EnvironmentImpl EnvironmentImpl::Clone()
+    std::shared_ptr<EnvironmentImpl> EnvironmentImpl::Clone()
     {
-        EnvironmentImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EnvironmentImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -6500,35 +6500,35 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kTimeOfDay =  GetTimeOfDay();
         if (kTimeOfDay)
         {
-            auto clonedChild = std::make_shared<TimeOfDayImpl>(std::dynamic_pointer_cast<TimeOfDayImpl>(kTimeOfDay)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TimeOfDayImpl>(kTimeOfDay)->Clone();
             auto clonedChildITimeOfDay = std::dynamic_pointer_cast<ITimeOfDay>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTimeOfDay(clonedChildITimeOfDay);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTimeOfDay(clonedChildITimeOfDay);
         }
         const auto kWeather =  GetWeather();
         if (kWeather)
         {
-            auto clonedChild = std::make_shared<WeatherImpl>(std::dynamic_pointer_cast<WeatherImpl>(kWeather)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<WeatherImpl>(kWeather)->Clone();
             auto clonedChildIWeather = std::dynamic_pointer_cast<IWeather>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetWeather(clonedChildIWeather);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetWeather(clonedChildIWeather);
         }
         const auto kRoadCondition =  GetRoadCondition();
         if (kRoadCondition)
         {
-            auto clonedChild = std::make_shared<RoadConditionImpl>(std::dynamic_pointer_cast<RoadConditionImpl>(kRoadCondition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RoadConditionImpl>(kRoadCondition)->Clone();
             auto clonedChildIRoadCondition = std::dynamic_pointer_cast<IRoadCondition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRoadCondition(clonedChildIRoadCondition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRoadCondition(clonedChildIRoadCondition);
         }
         return clonedObject;
     }
@@ -6557,7 +6557,7 @@ namespace RAC_OPENSCENARIO
 	 * @param environment from OpenSCENARIO class model specification: [New environment definition.]
 	 * 
 	*/
-    void EnvironmentActionImpl::SetEnvironment(std::shared_ptr<IEnvironment>& environment )
+    void EnvironmentActionImpl::SetEnvironment(const std::shared_ptr<IEnvironment> environment )
     {
         _environment = environment;
     }
@@ -6566,7 +6566,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type Environment.]
 	 * 
 	*/
-    void EnvironmentActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void EnvironmentActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -6610,32 +6610,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EnvironmentActionImpl EnvironmentActionImpl::Clone()
+    std::shared_ptr<EnvironmentActionImpl> EnvironmentActionImpl::Clone()
     {
-        EnvironmentActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EnvironmentActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kEnvironment =  GetEnvironment();
         if (kEnvironment)
         {
-            auto clonedChild = std::make_shared<EnvironmentImpl>(std::dynamic_pointer_cast<EnvironmentImpl>(kEnvironment)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EnvironmentImpl>(kEnvironment)->Clone();
             auto clonedChildIEnvironment = std::dynamic_pointer_cast<IEnvironment>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEnvironment(clonedChildIEnvironment);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEnvironment(clonedChildIEnvironment);
         }
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         return clonedObject;
     }
@@ -6660,7 +6660,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-    void EnvironmentCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void EnvironmentCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -6699,24 +6699,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EnvironmentCatalogLocationImpl EnvironmentCatalogLocationImpl::Clone()
+    std::shared_ptr<EnvironmentCatalogLocationImpl> EnvironmentCatalogLocationImpl::Clone()
     {
-        EnvironmentCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EnvironmentCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -6760,7 +6760,7 @@ namespace RAC_OPENSCENARIO
 	 * @param priority from OpenSCENARIO class model specification: [Priority of each event.]
 	 * 
 	*/
-    void EventImpl::SetPriority(Priority& priority )
+    void EventImpl::SetPriority(const Priority priority )
     {
         _priority = priority;
     }
@@ -6770,7 +6770,7 @@ namespace RAC_OPENSCENARIO
 	 * is 1. Range: [1..inf[.]
 	 * 
 	*/
-    void EventImpl::SetMaximumExecutionCount(unsigned int& maximumExecutionCount )
+    void EventImpl::SetMaximumExecutionCount(const unsigned int maximumExecutionCount )
     {
         _maximumExecutionCount = maximumExecutionCount;
     }
@@ -6779,7 +6779,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the event.]
 	 * 
 	*/
-    void EventImpl::SetName(std::string& name )
+    void EventImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -6798,7 +6798,7 @@ namespace RAC_OPENSCENARIO
 	 * fires. This point in time represents the start of the event.]
 	 * 
 	*/
-    void EventImpl::SetStartTrigger(std::shared_ptr<ITrigger>& startTrigger )
+    void EventImpl::SetStartTrigger(const std::shared_ptr<ITrigger> startTrigger )
     {
         _startTrigger = startTrigger;
     }
@@ -6872,22 +6872,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    EventImpl EventImpl::Clone()
+    std::shared_ptr<EventImpl> EventImpl::Clone()
     {
-        EventImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<EventImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetPriority(_priority);
+        clonedObject->SetPriority(_priority);
         // Simple type
-        clonedObject.SetMaximumExecutionCount(_maximumExecutionCount);
+        clonedObject->SetMaximumExecutionCount(_maximumExecutionCount);
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kActions =  GetActions();
         if (!kActions.empty())
@@ -6895,19 +6895,19 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IAction>> clonedList;
             for(auto&& kItem : kActions)
             {
-                auto clonedChild = std::make_shared <ActionImpl>(std::dynamic_pointer_cast<ActionImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ActionImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetActions(clonedList);
+            clonedObject->SetActions(clonedList);
         }
         const auto kStartTrigger =  GetStartTrigger();
         if (kStartTrigger)
         {
-            auto clonedChild = std::make_shared<TriggerImpl>(std::dynamic_pointer_cast<TriggerImpl>(kStartTrigger)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStartTrigger)->Clone();
             auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetStartTrigger(clonedChildITrigger);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetStartTrigger(clonedChildITrigger);
         }
         return clonedObject;
     }
@@ -6934,7 +6934,7 @@ namespace RAC_OPENSCENARIO
 	 * filepath=/home/simulator/customDriverSpecification.xml.]
 	 * 
 	*/
-    void FileImpl::SetFilepath(std::string& filepath )
+    void FileImpl::SetFilepath(const std::string filepath )
     {
         _filepath = filepath;
     }
@@ -6974,18 +6974,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    FileImpl FileImpl::Clone()
+    std::shared_ptr<FileImpl> FileImpl::Clone()
     {
-        FileImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<FileImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetFilepath(_filepath);
+        clonedObject->SetFilepath(_filepath);
         // clone children
         return clonedObject;
     }
@@ -7032,7 +7032,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void FileHeaderImpl::SetRevMajor(unsigned short& revMajor )
+    void FileHeaderImpl::SetRevMajor(const unsigned short revMajor )
     {
         _revMajor = revMajor;
     }
@@ -7042,7 +7042,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void FileHeaderImpl::SetRevMinor(unsigned short& revMinor )
+    void FileHeaderImpl::SetRevMinor(const unsigned short revMinor )
     {
         _revMinor = revMinor;
     }
@@ -7051,7 +7051,7 @@ namespace RAC_OPENSCENARIO
 	 * @param date from OpenSCENARIO class model specification: [User specific date and time recommended: YYYY-MM-DDThh:mm:ss.]
 	 * 
 	*/
-    void FileHeaderImpl::SetDate(DateTime& date )
+    void FileHeaderImpl::SetDate(const DateTime date )
     {
         _date = date;
     }
@@ -7060,7 +7060,7 @@ namespace RAC_OPENSCENARIO
 	 * @param description from OpenSCENARIO class model specification: [User specific description.]
 	 * 
 	*/
-    void FileHeaderImpl::SetDescription(std::string& description )
+    void FileHeaderImpl::SetDescription(const std::string description )
     {
         _description = description;
     }
@@ -7069,7 +7069,7 @@ namespace RAC_OPENSCENARIO
 	 * @param author from OpenSCENARIO class model specification: [Author of the scenario or the catalog.]
 	 * 
 	*/
-    void FileHeaderImpl::SetAuthor(std::string& author )
+    void FileHeaderImpl::SetAuthor(const std::string author )
     {
         _author = author;
     }
@@ -7133,26 +7133,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    FileHeaderImpl FileHeaderImpl::Clone()
+    std::shared_ptr<FileHeaderImpl> FileHeaderImpl::Clone()
     {
-        FileHeaderImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<FileHeaderImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetRevMajor(_revMajor);
+        clonedObject->SetRevMajor(_revMajor);
         // Simple type
-        clonedObject.SetRevMinor(_revMinor);
+        clonedObject->SetRevMinor(_revMinor);
         // Simple type
-        clonedObject.SetDate(_date);
+        clonedObject->SetDate(_date);
         // Simple type
-        clonedObject.SetDescription(_description);
+        clonedObject->SetDescription(_description);
         // Simple type
-        clonedObject.SetAuthor(_author);
+        clonedObject->SetAuthor(_author);
         // clone children
         return clonedObject;
     }
@@ -7182,7 +7182,7 @@ namespace RAC_OPENSCENARIO
 	 * at its target position.]
 	 * 
 	*/
-    void FinalSpeedImpl::SetAbsoluteSpeed(std::shared_ptr<IAbsoluteSpeed>& absoluteSpeed )
+    void FinalSpeedImpl::SetAbsoluteSpeed(const std::shared_ptr<IAbsoluteSpeed> absoluteSpeed )
     {
         _absoluteSpeed = absoluteSpeed;
     }
@@ -7192,7 +7192,7 @@ namespace RAC_OPENSCENARIO
 	 * relative to its master entity at its target position.]
 	 * 
 	*/
-    void FinalSpeedImpl::SetRelativeSpeedToMaster(std::shared_ptr<IRelativeSpeedToMaster>& relativeSpeedToMaster )
+    void FinalSpeedImpl::SetRelativeSpeedToMaster(const std::shared_ptr<IRelativeSpeedToMaster> relativeSpeedToMaster )
     {
         _relativeSpeedToMaster = relativeSpeedToMaster;
     }
@@ -7236,32 +7236,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    FinalSpeedImpl FinalSpeedImpl::Clone()
+    std::shared_ptr<FinalSpeedImpl> FinalSpeedImpl::Clone()
     {
-        FinalSpeedImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<FinalSpeedImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kAbsoluteSpeed =  GetAbsoluteSpeed();
         if (kAbsoluteSpeed)
         {
-            auto clonedChild = std::make_shared<AbsoluteSpeedImpl>(std::dynamic_pointer_cast<AbsoluteSpeedImpl>(kAbsoluteSpeed)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AbsoluteSpeedImpl>(kAbsoluteSpeed)->Clone();
             auto clonedChildIAbsoluteSpeed = std::dynamic_pointer_cast<IAbsoluteSpeed>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAbsoluteSpeed(clonedChildIAbsoluteSpeed);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAbsoluteSpeed(clonedChildIAbsoluteSpeed);
         }
         const auto kRelativeSpeedToMaster =  GetRelativeSpeedToMaster();
         if (kRelativeSpeedToMaster)
         {
-            auto clonedChild = std::make_shared<RelativeSpeedToMasterImpl>(std::dynamic_pointer_cast<RelativeSpeedToMasterImpl>(kRelativeSpeedToMaster)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeSpeedToMasterImpl>(kRelativeSpeedToMaster)->Clone();
             auto clonedChildIRelativeSpeedToMaster = std::dynamic_pointer_cast<IRelativeSpeedToMaster>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeSpeedToMaster(clonedChildIRelativeSpeedToMaster);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeSpeedToMaster(clonedChildIRelativeSpeedToMaster);
         }
         return clonedObject;
     }
@@ -7291,7 +7291,7 @@ namespace RAC_OPENSCENARIO
 	 * @param visualRange from OpenSCENARIO class model specification: [Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void FogImpl::SetVisualRange(double& visualRange )
+    void FogImpl::SetVisualRange(const double visualRange )
     {
         _visualRange = visualRange;
     }
@@ -7300,7 +7300,7 @@ namespace RAC_OPENSCENARIO
 	 * @param boundingBox from OpenSCENARIO class model specification: [Dimensions and center of fog in fixed coordinates.]
 	 * 
 	*/
-    void FogImpl::SetBoundingBox(std::shared_ptr<IBoundingBox>& boundingBox )
+    void FogImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
     {
         _boundingBox = boundingBox;
     }
@@ -7345,26 +7345,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    FogImpl FogImpl::Clone()
+    std::shared_ptr<FogImpl> FogImpl::Clone()
     {
-        FogImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<FogImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetVisualRange(_visualRange);
+        clonedObject->SetVisualRange(_visualRange);
         // clone children
         const auto kBoundingBox =  GetBoundingBox();
         if (kBoundingBox)
         {
-            auto clonedChild = std::make_shared<BoundingBoxImpl>(std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
             auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetBoundingBox(clonedChildIBoundingBox);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetBoundingBox(clonedChildIBoundingBox);
         }
         return clonedObject;
     }
@@ -7401,7 +7401,7 @@ namespace RAC_OPENSCENARIO
 	 * @param trajectory from OpenSCENARIO class model specification: [Trajectory definition.]
 	 * 
 	*/
-    void FollowTrajectoryActionImpl::SetTrajectory(std::shared_ptr<ITrajectory>& trajectory )
+    void FollowTrajectoryActionImpl::SetTrajectory(const std::shared_ptr<ITrajectory> trajectory )
     {
         _trajectory = trajectory;
     }
@@ -7410,7 +7410,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [A reference to the trajectory type in a catalog.]
 	 * 
 	*/
-    void FollowTrajectoryActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void FollowTrajectoryActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -7421,7 +7421,7 @@ namespace RAC_OPENSCENARIO
 	 * order to define longitudinal velocity of the actor. Moreover, a time , offset or time scaling may be applied.]
 	 * 
 	*/
-    void FollowTrajectoryActionImpl::SetTimeReference(std::shared_ptr<ITimeReference>& timeReference )
+    void FollowTrajectoryActionImpl::SetTimeReference(const std::shared_ptr<ITimeReference> timeReference )
     {
         _timeReference = timeReference;
     }
@@ -7431,7 +7431,7 @@ namespace RAC_OPENSCENARIO
 	 * trajectory.]
 	 * 
 	*/
-    void FollowTrajectoryActionImpl::SetTrajectoryFollowingMode(std::shared_ptr<ITrajectoryFollowingMode>& trajectoryFollowingMode )
+    void FollowTrajectoryActionImpl::SetTrajectoryFollowingMode(const std::shared_ptr<ITrajectoryFollowingMode> trajectoryFollowingMode )
     {
         _trajectoryFollowingMode = trajectoryFollowingMode;
     }
@@ -7485,48 +7485,48 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    FollowTrajectoryActionImpl FollowTrajectoryActionImpl::Clone()
+    std::shared_ptr<FollowTrajectoryActionImpl> FollowTrajectoryActionImpl::Clone()
     {
-        FollowTrajectoryActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<FollowTrajectoryActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kTrajectory =  GetTrajectory();
         if (kTrajectory)
         {
-            auto clonedChild = std::make_shared<TrajectoryImpl>(std::dynamic_pointer_cast<TrajectoryImpl>(kTrajectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrajectoryImpl>(kTrajectory)->Clone();
             auto clonedChildITrajectory = std::dynamic_pointer_cast<ITrajectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrajectory(clonedChildITrajectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrajectory(clonedChildITrajectory);
         }
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         const auto kTimeReference =  GetTimeReference();
         if (kTimeReference)
         {
-            auto clonedChild = std::make_shared<TimeReferenceImpl>(std::dynamic_pointer_cast<TimeReferenceImpl>(kTimeReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TimeReferenceImpl>(kTimeReference)->Clone();
             auto clonedChildITimeReference = std::dynamic_pointer_cast<ITimeReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTimeReference(clonedChildITimeReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTimeReference(clonedChildITimeReference);
         }
         const auto kTrajectoryFollowingMode =  GetTrajectoryFollowingMode();
         if (kTrajectoryFollowingMode)
         {
-            auto clonedChild = std::make_shared<TrajectoryFollowingModeImpl>(std::dynamic_pointer_cast<TrajectoryFollowingModeImpl>(kTrajectoryFollowingMode)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrajectoryFollowingModeImpl>(kTrajectoryFollowingMode)->Clone();
             auto clonedChildITrajectoryFollowingMode = std::dynamic_pointer_cast<ITrajectoryFollowingMode>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrajectoryFollowingMode(clonedChildITrajectoryFollowingMode);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrajectoryFollowingMode(clonedChildITrajectoryFollowingMode);
         }
         return clonedObject;
     }
@@ -7568,7 +7568,7 @@ namespace RAC_OPENSCENARIO
 	 * of the day.]
 	 * 
 	*/
-    void GlobalActionImpl::SetEnvironmentAction(std::shared_ptr<IEnvironmentAction>& environmentAction )
+    void GlobalActionImpl::SetEnvironmentAction(const std::shared_ptr<IEnvironmentAction> environmentAction )
     {
         _environmentAction = environmentAction;
     }
@@ -7577,7 +7577,7 @@ namespace RAC_OPENSCENARIO
 	 * @param entityAction from OpenSCENARIO class model specification: [Removing or adding entities.]
 	 * 
 	*/
-    void GlobalActionImpl::SetEntityAction(std::shared_ptr<IEntityAction>& entityAction )
+    void GlobalActionImpl::SetEntityAction(const std::shared_ptr<IEntityAction> entityAction )
     {
         _entityAction = entityAction;
     }
@@ -7586,7 +7586,7 @@ namespace RAC_OPENSCENARIO
 	 * @param parameterAction from OpenSCENARIO class model specification: [Setting/modifying values of parameters.]
 	 * 
 	*/
-    void GlobalActionImpl::SetParameterAction(std::shared_ptr<IParameterAction>& parameterAction )
+    void GlobalActionImpl::SetParameterAction(const std::shared_ptr<IParameterAction> parameterAction )
     {
         _parameterAction = parameterAction;
     }
@@ -7595,7 +7595,7 @@ namespace RAC_OPENSCENARIO
 	 * @param infrastructureAction from OpenSCENARIO class model specification: [Setting/modifying traffic signals.]
 	 * 
 	*/
-    void GlobalActionImpl::SetInfrastructureAction(std::shared_ptr<IInfrastructureAction>& infrastructureAction )
+    void GlobalActionImpl::SetInfrastructureAction(const std::shared_ptr<IInfrastructureAction> infrastructureAction )
     {
         _infrastructureAction = infrastructureAction;
     }
@@ -7604,7 +7604,7 @@ namespace RAC_OPENSCENARIO
 	 * @param trafficAction from OpenSCENARIO class model specification: [Populating ambient traffic.]
 	 * 
 	*/
-    void GlobalActionImpl::SetTrafficAction(std::shared_ptr<ITrafficAction>& trafficAction )
+    void GlobalActionImpl::SetTrafficAction(const std::shared_ptr<ITrafficAction> trafficAction )
     {
         _trafficAction = trafficAction;
     }
@@ -7663,56 +7663,56 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    GlobalActionImpl GlobalActionImpl::Clone()
+    std::shared_ptr<GlobalActionImpl> GlobalActionImpl::Clone()
     {
-        GlobalActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<GlobalActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kEnvironmentAction =  GetEnvironmentAction();
         if (kEnvironmentAction)
         {
-            auto clonedChild = std::make_shared<EnvironmentActionImpl>(std::dynamic_pointer_cast<EnvironmentActionImpl>(kEnvironmentAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EnvironmentActionImpl>(kEnvironmentAction)->Clone();
             auto clonedChildIEnvironmentAction = std::dynamic_pointer_cast<IEnvironmentAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEnvironmentAction(clonedChildIEnvironmentAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEnvironmentAction(clonedChildIEnvironmentAction);
         }
         const auto kEntityAction =  GetEntityAction();
         if (kEntityAction)
         {
-            auto clonedChild = std::make_shared<EntityActionImpl>(std::dynamic_pointer_cast<EntityActionImpl>(kEntityAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EntityActionImpl>(kEntityAction)->Clone();
             auto clonedChildIEntityAction = std::dynamic_pointer_cast<IEntityAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEntityAction(clonedChildIEntityAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEntityAction(clonedChildIEntityAction);
         }
         const auto kParameterAction =  GetParameterAction();
         if (kParameterAction)
         {
-            auto clonedChild = std::make_shared<ParameterActionImpl>(std::dynamic_pointer_cast<ParameterActionImpl>(kParameterAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ParameterActionImpl>(kParameterAction)->Clone();
             auto clonedChildIParameterAction = std::dynamic_pointer_cast<IParameterAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetParameterAction(clonedChildIParameterAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetParameterAction(clonedChildIParameterAction);
         }
         const auto kInfrastructureAction =  GetInfrastructureAction();
         if (kInfrastructureAction)
         {
-            auto clonedChild = std::make_shared<InfrastructureActionImpl>(std::dynamic_pointer_cast<InfrastructureActionImpl>(kInfrastructureAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<InfrastructureActionImpl>(kInfrastructureAction)->Clone();
             auto clonedChildIInfrastructureAction = std::dynamic_pointer_cast<IInfrastructureAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetInfrastructureAction(clonedChildIInfrastructureAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetInfrastructureAction(clonedChildIInfrastructureAction);
         }
         const auto kTrafficAction =  GetTrafficAction();
         if (kTrafficAction)
         {
-            auto clonedChild = std::make_shared<TrafficActionImpl>(std::dynamic_pointer_cast<TrafficActionImpl>(kTrafficAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficActionImpl>(kTrafficAction)->Clone();
             auto clonedChildITrafficAction = std::dynamic_pointer_cast<ITrafficAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficAction(clonedChildITrafficAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficAction(clonedChildITrafficAction);
         }
         return clonedObject;
     }
@@ -7746,7 +7746,7 @@ namespace RAC_OPENSCENARIO
 	 * position of a given entity.]
 	 * 
 	*/
-    void InRoutePositionImpl::SetFromCurrentEntity(std::shared_ptr<IPositionOfCurrentEntity>& fromCurrentEntity )
+    void InRoutePositionImpl::SetFromCurrentEntity(const std::shared_ptr<IPositionOfCurrentEntity> fromCurrentEntity )
     {
         _fromCurrentEntity = fromCurrentEntity;
     }
@@ -7755,7 +7755,7 @@ namespace RAC_OPENSCENARIO
 	 * @param fromRoadCoordinates from OpenSCENARIO class model specification: [Route position in road coordinate system.]
 	 * 
 	*/
-    void InRoutePositionImpl::SetFromRoadCoordinates(std::shared_ptr<IPositionInRoadCoordinates>& fromRoadCoordinates )
+    void InRoutePositionImpl::SetFromRoadCoordinates(const std::shared_ptr<IPositionInRoadCoordinates> fromRoadCoordinates )
     {
         _fromRoadCoordinates = fromRoadCoordinates;
     }
@@ -7764,7 +7764,7 @@ namespace RAC_OPENSCENARIO
 	 * @param fromLaneCoordinates from OpenSCENARIO class model specification: [Route position in lane coordinate system.]
 	 * 
 	*/
-    void InRoutePositionImpl::SetFromLaneCoordinates(std::shared_ptr<IPositionInLaneCoordinates>& fromLaneCoordinates )
+    void InRoutePositionImpl::SetFromLaneCoordinates(const std::shared_ptr<IPositionInLaneCoordinates> fromLaneCoordinates )
     {
         _fromLaneCoordinates = fromLaneCoordinates;
     }
@@ -7813,40 +7813,40 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    InRoutePositionImpl InRoutePositionImpl::Clone()
+    std::shared_ptr<InRoutePositionImpl> InRoutePositionImpl::Clone()
     {
-        InRoutePositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<InRoutePositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kFromCurrentEntity =  GetFromCurrentEntity();
         if (kFromCurrentEntity)
         {
-            auto clonedChild = std::make_shared<PositionOfCurrentEntityImpl>(std::dynamic_pointer_cast<PositionOfCurrentEntityImpl>(kFromCurrentEntity)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionOfCurrentEntityImpl>(kFromCurrentEntity)->Clone();
             auto clonedChildIPositionOfCurrentEntity = std::dynamic_pointer_cast<IPositionOfCurrentEntity>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFromCurrentEntity(clonedChildIPositionOfCurrentEntity);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFromCurrentEntity(clonedChildIPositionOfCurrentEntity);
         }
         const auto kFromRoadCoordinates =  GetFromRoadCoordinates();
         if (kFromRoadCoordinates)
         {
-            auto clonedChild = std::make_shared<PositionInRoadCoordinatesImpl>(std::dynamic_pointer_cast<PositionInRoadCoordinatesImpl>(kFromRoadCoordinates)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionInRoadCoordinatesImpl>(kFromRoadCoordinates)->Clone();
             auto clonedChildIPositionInRoadCoordinates = std::dynamic_pointer_cast<IPositionInRoadCoordinates>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFromRoadCoordinates(clonedChildIPositionInRoadCoordinates);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFromRoadCoordinates(clonedChildIPositionInRoadCoordinates);
         }
         const auto kFromLaneCoordinates =  GetFromLaneCoordinates();
         if (kFromLaneCoordinates)
         {
-            auto clonedChild = std::make_shared<PositionInLaneCoordinatesImpl>(std::dynamic_pointer_cast<PositionInLaneCoordinatesImpl>(kFromLaneCoordinates)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionInLaneCoordinatesImpl>(kFromLaneCoordinates)->Clone();
             auto clonedChildIPositionInLaneCoordinates = std::dynamic_pointer_cast<IPositionInLaneCoordinates>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFromLaneCoordinates(clonedChildIPositionInLaneCoordinates);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFromLaneCoordinates(clonedChildIPositionInLaneCoordinates);
         }
         return clonedObject;
     }
@@ -7872,7 +7872,7 @@ namespace RAC_OPENSCENARIO
 	 * controllers state from a road network.]
 	 * 
 	*/
-    void InfrastructureActionImpl::SetTrafficSignalAction(std::shared_ptr<ITrafficSignalAction>& trafficSignalAction )
+    void InfrastructureActionImpl::SetTrafficSignalAction(const std::shared_ptr<ITrafficSignalAction> trafficSignalAction )
     {
         _trafficSignalAction = trafficSignalAction;
     }
@@ -7911,24 +7911,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    InfrastructureActionImpl InfrastructureActionImpl::Clone()
+    std::shared_ptr<InfrastructureActionImpl> InfrastructureActionImpl::Clone()
     {
-        InfrastructureActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<InfrastructureActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kTrafficSignalAction =  GetTrafficSignalAction();
         if (kTrafficSignalAction)
         {
-            auto clonedChild = std::make_shared<TrafficSignalActionImpl>(std::dynamic_pointer_cast<TrafficSignalActionImpl>(kTrafficSignalAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSignalActionImpl>(kTrafficSignalAction)->Clone();
             auto clonedChildITrafficSignalAction = std::dynamic_pointer_cast<ITrafficSignalAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSignalAction(clonedChildITrafficSignalAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSignalAction(clonedChildITrafficSignalAction);
         }
         return clonedObject;
     }
@@ -7954,7 +7954,7 @@ namespace RAC_OPENSCENARIO
 	 * storyboard starts.]
 	 * 
 	*/
-    void InitImpl::SetActions(std::shared_ptr<IInitActions>& actions )
+    void InitImpl::SetActions(const std::shared_ptr<IInitActions> actions )
     {
         _actions = actions;
     }
@@ -7993,24 +7993,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    InitImpl InitImpl::Clone()
+    std::shared_ptr<InitImpl> InitImpl::Clone()
     {
-        InitImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<InitImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kActions =  GetActions();
         if (kActions)
         {
-            auto clonedChild = std::make_shared<InitActionsImpl>(std::dynamic_pointer_cast<InitActionsImpl>(kActions)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<InitActionsImpl>(kActions)->Clone();
             auto clonedChildIInitActions = std::dynamic_pointer_cast<IInitActions>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetActions(clonedChildIInitActions);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetActions(clonedChildIInitActions);
         }
         return clonedObject;
     }
@@ -8119,14 +8119,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    InitActionsImpl InitActionsImpl::Clone()
+    std::shared_ptr<InitActionsImpl> InitActionsImpl::Clone()
     {
-        InitActionsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<InitActionsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -8136,11 +8136,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IGlobalAction>> clonedList;
             for(auto&& kItem : kGlobalActions)
             {
-                auto clonedChild = std::make_shared <GlobalActionImpl>(std::dynamic_pointer_cast<GlobalActionImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<GlobalActionImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetGlobalActions(clonedList);
+            clonedObject->SetGlobalActions(clonedList);
         }
         const auto kUserDefinedActions =  GetUserDefinedActions();
         if (!kUserDefinedActions.empty())
@@ -8148,11 +8148,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IUserDefinedAction>> clonedList;
             for(auto&& kItem : kUserDefinedActions)
             {
-                auto clonedChild = std::make_shared <UserDefinedActionImpl>(std::dynamic_pointer_cast<UserDefinedActionImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<UserDefinedActionImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetUserDefinedActions(clonedList);
+            clonedObject->SetUserDefinedActions(clonedList);
         }
         const auto kPrivates =  GetPrivates();
         if (!kPrivates.empty())
@@ -8160,11 +8160,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IPrivate>> clonedList;
             for(auto&& kItem : kPrivates)
             {
-                auto clonedChild = std::make_shared <PrivateImpl>(std::dynamic_pointer_cast<PrivateImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<PrivateImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetPrivates(clonedList);
+            clonedObject->SetPrivates(clonedList);
         }
         return clonedObject;
     }
@@ -8190,7 +8190,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Knot vector value. Range ]-inf..inf[.]
 	 * 
 	*/
-    void KnotImpl::SetValue(double& value )
+    void KnotImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -8230,18 +8230,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    KnotImpl KnotImpl::Clone()
+    std::shared_ptr<KnotImpl> KnotImpl::Clone()
     {
-        KnotImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<KnotImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -8276,7 +8276,7 @@ namespace RAC_OPENSCENARIO
 	 * action will end there. Unit: m.]
 	 * 
 	*/
-    void LaneChangeActionImpl::SetTargetLaneOffset(double& targetLaneOffset )
+    void LaneChangeActionImpl::SetTargetLaneOffset(const double targetLaneOffset )
     {
         _targetLaneOffset = targetLaneOffset;
     }
@@ -8285,7 +8285,7 @@ namespace RAC_OPENSCENARIO
 	 * @param laneChangeActionDynamics from OpenSCENARIO class model specification: [Shape/time of lane change action.]
 	 * 
 	*/
-    void LaneChangeActionImpl::SetLaneChangeActionDynamics(std::shared_ptr<ITransitionDynamics>& laneChangeActionDynamics )
+    void LaneChangeActionImpl::SetLaneChangeActionDynamics(const std::shared_ptr<ITransitionDynamics> laneChangeActionDynamics )
     {
         _laneChangeActionDynamics = laneChangeActionDynamics;
     }
@@ -8294,7 +8294,7 @@ namespace RAC_OPENSCENARIO
 	 * @param laneChangeTarget from OpenSCENARIO class model specification: [Direction of lane change action.]
 	 * 
 	*/
-    void LaneChangeActionImpl::SetLaneChangeTarget(std::shared_ptr<ILaneChangeTarget>& laneChangeTarget )
+    void LaneChangeActionImpl::SetLaneChangeTarget(const std::shared_ptr<ILaneChangeTarget> laneChangeTarget )
     {
         _laneChangeTarget = laneChangeTarget;
     }
@@ -8344,34 +8344,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LaneChangeActionImpl LaneChangeActionImpl::Clone()
+    std::shared_ptr<LaneChangeActionImpl> LaneChangeActionImpl::Clone()
     {
-        LaneChangeActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LaneChangeActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetTargetLaneOffset(_targetLaneOffset);
+        clonedObject->SetTargetLaneOffset(_targetLaneOffset);
         // clone children
         const auto kLaneChangeActionDynamics =  GetLaneChangeActionDynamics();
         if (kLaneChangeActionDynamics)
         {
-            auto clonedChild = std::make_shared<TransitionDynamicsImpl>(std::dynamic_pointer_cast<TransitionDynamicsImpl>(kLaneChangeActionDynamics)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TransitionDynamicsImpl>(kLaneChangeActionDynamics)->Clone();
             auto clonedChildITransitionDynamics = std::dynamic_pointer_cast<ITransitionDynamics>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLaneChangeActionDynamics(clonedChildITransitionDynamics);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLaneChangeActionDynamics(clonedChildITransitionDynamics);
         }
         const auto kLaneChangeTarget =  GetLaneChangeTarget();
         if (kLaneChangeTarget)
         {
-            auto clonedChild = std::make_shared<LaneChangeTargetImpl>(std::dynamic_pointer_cast<LaneChangeTargetImpl>(kLaneChangeTarget)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LaneChangeTargetImpl>(kLaneChangeTarget)->Clone();
             auto clonedChildILaneChangeTarget = std::dynamic_pointer_cast<ILaneChangeTarget>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLaneChangeTarget(clonedChildILaneChangeTarget);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLaneChangeTarget(clonedChildILaneChangeTarget);
         }
         return clonedObject;
     }
@@ -8401,7 +8401,7 @@ namespace RAC_OPENSCENARIO
 	 * lane.]
 	 * 
 	*/
-    void LaneChangeTargetImpl::SetRelativeTargetLane(std::shared_ptr<IRelativeTargetLane>& relativeTargetLane )
+    void LaneChangeTargetImpl::SetRelativeTargetLane(const std::shared_ptr<IRelativeTargetLane> relativeTargetLane )
     {
         _relativeTargetLane = relativeTargetLane;
     }
@@ -8410,7 +8410,7 @@ namespace RAC_OPENSCENARIO
 	 * @param absoluteTargetLane from OpenSCENARIO class model specification: [Lane change target lane number.]
 	 * 
 	*/
-    void LaneChangeTargetImpl::SetAbsoluteTargetLane(std::shared_ptr<IAbsoluteTargetLane>& absoluteTargetLane )
+    void LaneChangeTargetImpl::SetAbsoluteTargetLane(const std::shared_ptr<IAbsoluteTargetLane> absoluteTargetLane )
     {
         _absoluteTargetLane = absoluteTargetLane;
     }
@@ -8454,32 +8454,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LaneChangeTargetImpl LaneChangeTargetImpl::Clone()
+    std::shared_ptr<LaneChangeTargetImpl> LaneChangeTargetImpl::Clone()
     {
-        LaneChangeTargetImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LaneChangeTargetImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kRelativeTargetLane =  GetRelativeTargetLane();
         if (kRelativeTargetLane)
         {
-            auto clonedChild = std::make_shared<RelativeTargetLaneImpl>(std::dynamic_pointer_cast<RelativeTargetLaneImpl>(kRelativeTargetLane)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeTargetLaneImpl>(kRelativeTargetLane)->Clone();
             auto clonedChildIRelativeTargetLane = std::dynamic_pointer_cast<IRelativeTargetLane>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeTargetLane(clonedChildIRelativeTargetLane);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeTargetLane(clonedChildIRelativeTargetLane);
         }
         const auto kAbsoluteTargetLane =  GetAbsoluteTargetLane();
         if (kAbsoluteTargetLane)
         {
-            auto clonedChild = std::make_shared<AbsoluteTargetLaneImpl>(std::dynamic_pointer_cast<AbsoluteTargetLaneImpl>(kAbsoluteTargetLane)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AbsoluteTargetLaneImpl>(kAbsoluteTargetLane)->Clone();
             auto clonedChildIAbsoluteTargetLane = std::dynamic_pointer_cast<IAbsoluteTargetLane>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAbsoluteTargetLane(clonedChildIAbsoluteTargetLane);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAbsoluteTargetLane(clonedChildIAbsoluteTargetLane);
         }
         return clonedObject;
     }
@@ -8514,7 +8514,7 @@ namespace RAC_OPENSCENARIO
 	 * reached. If true it does not end but has to be stopped.]
 	 * 
 	*/
-    void LaneOffsetActionImpl::SetContinuous(bool& continuous )
+    void LaneOffsetActionImpl::SetContinuous(const bool continuous )
     {
         _continuous = continuous;
     }
@@ -8524,7 +8524,7 @@ namespace RAC_OPENSCENARIO
 	 * LaneOffsetAction.]
 	 * 
 	*/
-    void LaneOffsetActionImpl::SetLaneOffsetActionDynamics(std::shared_ptr<ILaneOffsetActionDynamics>& laneOffsetActionDynamics )
+    void LaneOffsetActionImpl::SetLaneOffsetActionDynamics(const std::shared_ptr<ILaneOffsetActionDynamics> laneOffsetActionDynamics )
     {
         _laneOffsetActionDynamics = laneOffsetActionDynamics;
     }
@@ -8534,7 +8534,7 @@ namespace RAC_OPENSCENARIO
 	 * defined relative to another entity or absolute to the current lane's center , line.]
 	 * 
 	*/
-    void LaneOffsetActionImpl::SetLaneOffsetTarget(std::shared_ptr<ILaneOffsetTarget>& laneOffsetTarget )
+    void LaneOffsetActionImpl::SetLaneOffsetTarget(const std::shared_ptr<ILaneOffsetTarget> laneOffsetTarget )
     {
         _laneOffsetTarget = laneOffsetTarget;
     }
@@ -8584,34 +8584,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LaneOffsetActionImpl LaneOffsetActionImpl::Clone()
+    std::shared_ptr<LaneOffsetActionImpl> LaneOffsetActionImpl::Clone()
     {
-        LaneOffsetActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LaneOffsetActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetContinuous(_continuous);
+        clonedObject->SetContinuous(_continuous);
         // clone children
         const auto kLaneOffsetActionDynamics =  GetLaneOffsetActionDynamics();
         if (kLaneOffsetActionDynamics)
         {
-            auto clonedChild = std::make_shared<LaneOffsetActionDynamicsImpl>(std::dynamic_pointer_cast<LaneOffsetActionDynamicsImpl>(kLaneOffsetActionDynamics)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LaneOffsetActionDynamicsImpl>(kLaneOffsetActionDynamics)->Clone();
             auto clonedChildILaneOffsetActionDynamics = std::dynamic_pointer_cast<ILaneOffsetActionDynamics>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLaneOffsetActionDynamics(clonedChildILaneOffsetActionDynamics);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLaneOffsetActionDynamics(clonedChildILaneOffsetActionDynamics);
         }
         const auto kLaneOffsetTarget =  GetLaneOffsetTarget();
         if (kLaneOffsetTarget)
         {
-            auto clonedChild = std::make_shared<LaneOffsetTargetImpl>(std::dynamic_pointer_cast<LaneOffsetTargetImpl>(kLaneOffsetTarget)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LaneOffsetTargetImpl>(kLaneOffsetTarget)->Clone();
             auto clonedChildILaneOffsetTarget = std::dynamic_pointer_cast<ILaneOffsetTarget>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLaneOffsetTarget(clonedChildILaneOffsetTarget);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLaneOffsetTarget(clonedChildILaneOffsetTarget);
         }
         return clonedObject;
     }
@@ -8643,7 +8643,7 @@ namespace RAC_OPENSCENARIO
 	 * and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.]
 	 * 
 	*/
-    void LaneOffsetActionDynamicsImpl::SetMaxLateralAcc(double& maxLateralAcc )
+    void LaneOffsetActionDynamicsImpl::SetMaxLateralAcc(const double maxLateralAcc )
     {
         _maxLateralAcc = maxLateralAcc;
     }
@@ -8653,7 +8653,7 @@ namespace RAC_OPENSCENARIO
 	 * dynamics.]
 	 * 
 	*/
-    void LaneOffsetActionDynamicsImpl::SetDynamicsShape(DynamicsShape& dynamicsShape )
+    void LaneOffsetActionDynamicsImpl::SetDynamicsShape(const DynamicsShape dynamicsShape )
     {
         _dynamicsShape = dynamicsShape;
     }
@@ -8708,20 +8708,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LaneOffsetActionDynamicsImpl LaneOffsetActionDynamicsImpl::Clone()
+    std::shared_ptr<LaneOffsetActionDynamicsImpl> LaneOffsetActionDynamicsImpl::Clone()
     {
-        LaneOffsetActionDynamicsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LaneOffsetActionDynamicsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetMaxLateralAcc(_maxLateralAcc);
+        clonedObject->SetMaxLateralAcc(_maxLateralAcc);
         // Enumeration Type
-        clonedObject.SetDynamicsShape(_dynamicsShape);
+        clonedObject->SetDynamicsShape(_dynamicsShape);
         // clone children
         return clonedObject;
     }
@@ -8751,7 +8751,7 @@ namespace RAC_OPENSCENARIO
 	 * a specific entity.]
 	 * 
 	*/
-    void LaneOffsetTargetImpl::SetRelativeTargetLaneOffset(std::shared_ptr<IRelativeTargetLaneOffset>& relativeTargetLaneOffset )
+    void LaneOffsetTargetImpl::SetRelativeTargetLaneOffset(const std::shared_ptr<IRelativeTargetLaneOffset> relativeTargetLaneOffset )
     {
         _relativeTargetLaneOffset = relativeTargetLaneOffset;
     }
@@ -8761,7 +8761,7 @@ namespace RAC_OPENSCENARIO
 	 * center line.]
 	 * 
 	*/
-    void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(std::shared_ptr<IAbsoluteTargetLaneOffset>& absoluteTargetLaneOffset )
+    void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(const std::shared_ptr<IAbsoluteTargetLaneOffset> absoluteTargetLaneOffset )
     {
         _absoluteTargetLaneOffset = absoluteTargetLaneOffset;
     }
@@ -8805,32 +8805,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LaneOffsetTargetImpl LaneOffsetTargetImpl::Clone()
+    std::shared_ptr<LaneOffsetTargetImpl> LaneOffsetTargetImpl::Clone()
     {
-        LaneOffsetTargetImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LaneOffsetTargetImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kRelativeTargetLaneOffset =  GetRelativeTargetLaneOffset();
         if (kRelativeTargetLaneOffset)
         {
-            auto clonedChild = std::make_shared<RelativeTargetLaneOffsetImpl>(std::dynamic_pointer_cast<RelativeTargetLaneOffsetImpl>(kRelativeTargetLaneOffset)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeTargetLaneOffsetImpl>(kRelativeTargetLaneOffset)->Clone();
             auto clonedChildIRelativeTargetLaneOffset = std::dynamic_pointer_cast<IRelativeTargetLaneOffset>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeTargetLaneOffset(clonedChildIRelativeTargetLaneOffset);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeTargetLaneOffset(clonedChildIRelativeTargetLaneOffset);
         }
         const auto kAbsoluteTargetLaneOffset =  GetAbsoluteTargetLaneOffset();
         if (kAbsoluteTargetLaneOffset)
         {
-            auto clonedChild = std::make_shared<AbsoluteTargetLaneOffsetImpl>(std::dynamic_pointer_cast<AbsoluteTargetLaneOffsetImpl>(kAbsoluteTargetLaneOffset)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AbsoluteTargetLaneOffsetImpl>(kAbsoluteTargetLaneOffset)->Clone();
             auto clonedChildIAbsoluteTargetLaneOffset = std::dynamic_pointer_cast<IAbsoluteTargetLaneOffset>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAbsoluteTargetLaneOffset(clonedChildIAbsoluteTargetLaneOffset);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAbsoluteTargetLaneOffset(clonedChildIAbsoluteTargetLaneOffset);
         }
         return clonedObject;
     }
@@ -8875,7 +8875,7 @@ namespace RAC_OPENSCENARIO
 	 * @param roadId from OpenSCENARIO class model specification: [ID of the current road (ID of a road in road network).]
 	 * 
 	*/
-    void LanePositionImpl::SetRoadId(std::string& roadId )
+    void LanePositionImpl::SetRoadId(const std::string roadId )
     {
         _roadId = roadId;
     }
@@ -8884,7 +8884,7 @@ namespace RAC_OPENSCENARIO
 	 * @param laneId from OpenSCENARIO class model specification: [ID of the current lane (ID of a lane in road network).]
 	 * 
 	*/
-    void LanePositionImpl::SetLaneId(std::string& laneId )
+    void LanePositionImpl::SetLaneId(const std::string laneId )
     {
         _laneId = laneId;
     }
@@ -8894,7 +8894,7 @@ namespace RAC_OPENSCENARIO
 	 * m.]
 	 * 
 	*/
-    void LanePositionImpl::SetOffset(double& offset )
+    void LanePositionImpl::SetOffset(const double offset )
     {
         _offset = offset;
     }
@@ -8904,7 +8904,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void LanePositionImpl::SetS(double& s )
+    void LanePositionImpl::SetS(const double s )
     {
         _s = s;
     }
@@ -8914,7 +8914,7 @@ namespace RAC_OPENSCENARIO
 	 * the referenced road's s and t coordinates.]
 	 * 
 	*/
-    void LanePositionImpl::SetOrientation(std::shared_ptr<IOrientation>& orientation )
+    void LanePositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
     {
         _orientation = orientation;
     }
@@ -8977,32 +8977,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LanePositionImpl LanePositionImpl::Clone()
+    std::shared_ptr<LanePositionImpl> LanePositionImpl::Clone()
     {
-        LanePositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LanePositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetRoadId(_roadId);
+        clonedObject->SetRoadId(_roadId);
         // Simple type
-        clonedObject.SetLaneId(_laneId);
+        clonedObject->SetLaneId(_laneId);
         // Simple type
-        clonedObject.SetOffset(_offset);
+        clonedObject->SetOffset(_offset);
         // Simple type
-        clonedObject.SetS(_s);
+        clonedObject->SetS(_s);
         // clone children
         const auto kOrientation =  GetOrientation();
         if (kOrientation)
         {
-            auto clonedChild = std::make_shared<OrientationImpl>(std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
             auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOrientation(clonedChildIOrientation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOrientation(clonedChildIOrientation);
         }
         return clonedObject;
     }
@@ -9035,7 +9035,7 @@ namespace RAC_OPENSCENARIO
 	 * @param laneChangeAction from OpenSCENARIO class model specification: [Action defining a lane change.]
 	 * 
 	*/
-    void LateralActionImpl::SetLaneChangeAction(std::shared_ptr<ILaneChangeAction>& laneChangeAction )
+    void LateralActionImpl::SetLaneChangeAction(const std::shared_ptr<ILaneChangeAction> laneChangeAction )
     {
         _laneChangeAction = laneChangeAction;
     }
@@ -9044,7 +9044,7 @@ namespace RAC_OPENSCENARIO
 	 * @param laneOffsetAction from OpenSCENARIO class model specification: [Action defining a continuously kept lane offset.]
 	 * 
 	*/
-    void LateralActionImpl::SetLaneOffsetAction(std::shared_ptr<ILaneOffsetAction>& laneOffsetAction )
+    void LateralActionImpl::SetLaneOffsetAction(const std::shared_ptr<ILaneOffsetAction> laneOffsetAction )
     {
         _laneOffsetAction = laneOffsetAction;
     }
@@ -9054,7 +9054,7 @@ namespace RAC_OPENSCENARIO
 	 * distance to a specific entity.]
 	 * 
 	*/
-    void LateralActionImpl::SetLateralDistanceAction(std::shared_ptr<ILateralDistanceAction>& lateralDistanceAction )
+    void LateralActionImpl::SetLateralDistanceAction(const std::shared_ptr<ILateralDistanceAction> lateralDistanceAction )
     {
         _lateralDistanceAction = lateralDistanceAction;
     }
@@ -9103,40 +9103,40 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LateralActionImpl LateralActionImpl::Clone()
+    std::shared_ptr<LateralActionImpl> LateralActionImpl::Clone()
     {
-        LateralActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LateralActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kLaneChangeAction =  GetLaneChangeAction();
         if (kLaneChangeAction)
         {
-            auto clonedChild = std::make_shared<LaneChangeActionImpl>(std::dynamic_pointer_cast<LaneChangeActionImpl>(kLaneChangeAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LaneChangeActionImpl>(kLaneChangeAction)->Clone();
             auto clonedChildILaneChangeAction = std::dynamic_pointer_cast<ILaneChangeAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLaneChangeAction(clonedChildILaneChangeAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLaneChangeAction(clonedChildILaneChangeAction);
         }
         const auto kLaneOffsetAction =  GetLaneOffsetAction();
         if (kLaneOffsetAction)
         {
-            auto clonedChild = std::make_shared<LaneOffsetActionImpl>(std::dynamic_pointer_cast<LaneOffsetActionImpl>(kLaneOffsetAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LaneOffsetActionImpl>(kLaneOffsetAction)->Clone();
             auto clonedChildILaneOffsetAction = std::dynamic_pointer_cast<ILaneOffsetAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLaneOffsetAction(clonedChildILaneOffsetAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLaneOffsetAction(clonedChildILaneOffsetAction);
         }
         const auto kLateralDistanceAction =  GetLateralDistanceAction();
         if (kLateralDistanceAction)
         {
-            auto clonedChild = std::make_shared<LateralDistanceActionImpl>(std::dynamic_pointer_cast<LateralDistanceActionImpl>(kLateralDistanceAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LateralDistanceActionImpl>(kLateralDistanceAction)->Clone();
             auto clonedChildILateralDistanceAction = std::dynamic_pointer_cast<ILateralDistanceAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLateralDistanceAction(clonedChildILateralDistanceAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLateralDistanceAction(clonedChildILateralDistanceAction);
         }
         return clonedObject;
     }
@@ -9191,7 +9191,7 @@ namespace RAC_OPENSCENARIO
 	 * @param distance from OpenSCENARIO class model specification: [Lateral distance value. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void LateralDistanceActionImpl::SetDistance(double& distance )
+    void LateralDistanceActionImpl::SetDistance(const double distance )
     {
         _distance = distance;
     }
@@ -9201,7 +9201,7 @@ namespace RAC_OPENSCENARIO
 	 * between closest bounding box points. False: Reference point , distance is used.]
 	 * 
 	*/
-    void LateralDistanceActionImpl::SetFreespace(bool& freespace )
+    void LateralDistanceActionImpl::SetFreespace(const bool freespace )
     {
         _freespace = freespace;
     }
@@ -9211,7 +9211,7 @@ namespace RAC_OPENSCENARIO
 	 * reached. If true it does not end and can only be stopped.]
 	 * 
 	*/
-    void LateralDistanceActionImpl::SetContinuous(bool& continuous )
+    void LateralDistanceActionImpl::SetContinuous(const bool continuous )
     {
         _continuous = continuous;
     }
@@ -9221,7 +9221,7 @@ namespace RAC_OPENSCENARIO
 	 * (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the, action.]
 	 * 
 	*/
-    void LateralDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints>& dynamicConstraints )
+    void LateralDistanceActionImpl::SetDynamicConstraints(const std::shared_ptr<IDynamicConstraints> dynamicConstraints )
     {
         _dynamicConstraints = dynamicConstraints;
     }
@@ -9284,34 +9284,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LateralDistanceActionImpl LateralDistanceActionImpl::Clone()
+    std::shared_ptr<LateralDistanceActionImpl> LateralDistanceActionImpl::Clone()
     {
-        LateralDistanceActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LateralDistanceActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetDistance(_distance);
+        clonedObject->SetDistance(_distance);
         // Simple type
-        clonedObject.SetFreespace(_freespace);
+        clonedObject->SetFreespace(_freespace);
         // Simple type
-        clonedObject.SetContinuous(_continuous);
+        clonedObject->SetContinuous(_continuous);
         // clone children
         const auto kDynamicConstraints =  GetDynamicConstraints();
         if (kDynamicConstraints)
         {
-            auto clonedChild = std::make_shared<DynamicConstraintsImpl>(std::dynamic_pointer_cast<DynamicConstraintsImpl>(kDynamicConstraints)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DynamicConstraintsImpl>(kDynamicConstraints)->Clone();
             auto clonedChildIDynamicConstraints = std::dynamic_pointer_cast<IDynamicConstraints>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDynamicConstraints(clonedChildIDynamicConstraints);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDynamicConstraints(clonedChildIDynamicConstraints);
         }
         return clonedObject;
     }
@@ -9341,7 +9341,7 @@ namespace RAC_OPENSCENARIO
 	 * current longitudinal speed of an entity and its target speed.]
 	 * 
 	*/
-    void LongitudinalActionImpl::SetSpeedAction(std::shared_ptr<ISpeedAction>& speedAction )
+    void LongitudinalActionImpl::SetSpeedAction(const std::shared_ptr<ISpeedAction> speedAction )
     {
         _speedAction = speedAction;
     }
@@ -9351,7 +9351,7 @@ namespace RAC_OPENSCENARIO
 	 * longitudinal distance to a specific entity.]
 	 * 
 	*/
-    void LongitudinalActionImpl::SetLongitudinalDistanceAction(std::shared_ptr<ILongitudinalDistanceAction>& longitudinalDistanceAction )
+    void LongitudinalActionImpl::SetLongitudinalDistanceAction(const std::shared_ptr<ILongitudinalDistanceAction> longitudinalDistanceAction )
     {
         _longitudinalDistanceAction = longitudinalDistanceAction;
     }
@@ -9395,32 +9395,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LongitudinalActionImpl LongitudinalActionImpl::Clone()
+    std::shared_ptr<LongitudinalActionImpl> LongitudinalActionImpl::Clone()
     {
-        LongitudinalActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LongitudinalActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kSpeedAction =  GetSpeedAction();
         if (kSpeedAction)
         {
-            auto clonedChild = std::make_shared<SpeedActionImpl>(std::dynamic_pointer_cast<SpeedActionImpl>(kSpeedAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<SpeedActionImpl>(kSpeedAction)->Clone();
             auto clonedChildISpeedAction = std::dynamic_pointer_cast<ISpeedAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSpeedAction(clonedChildISpeedAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSpeedAction(clonedChildISpeedAction);
         }
         const auto kLongitudinalDistanceAction =  GetLongitudinalDistanceAction();
         if (kLongitudinalDistanceAction)
         {
-            auto clonedChild = std::make_shared<LongitudinalDistanceActionImpl>(std::dynamic_pointer_cast<LongitudinalDistanceActionImpl>(kLongitudinalDistanceAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LongitudinalDistanceActionImpl>(kLongitudinalDistanceAction)->Clone();
             auto clonedChildILongitudinalDistanceAction = std::dynamic_pointer_cast<ILongitudinalDistanceAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLongitudinalDistanceAction(clonedChildILongitudinalDistanceAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLongitudinalDistanceAction(clonedChildILongitudinalDistanceAction);
         }
         return clonedObject;
     }
@@ -9480,7 +9480,7 @@ namespace RAC_OPENSCENARIO
 	 * attribute. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void LongitudinalDistanceActionImpl::SetDistance(double& distance )
+    void LongitudinalDistanceActionImpl::SetDistance(const double distance )
     {
         _distance = distance;
     }
@@ -9490,7 +9490,7 @@ namespace RAC_OPENSCENARIO
 	 * attribute. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-    void LongitudinalDistanceActionImpl::SetTimeGap(double& timeGap )
+    void LongitudinalDistanceActionImpl::SetTimeGap(const double timeGap )
     {
         _timeGap = timeGap;
     }
@@ -9500,7 +9500,7 @@ namespace RAC_OPENSCENARIO
 	 * closest bounding box points False: Reference point distance is , used.]
 	 * 
 	*/
-    void LongitudinalDistanceActionImpl::SetFreespace(bool& freespace )
+    void LongitudinalDistanceActionImpl::SetFreespace(const bool freespace )
     {
         _freespace = freespace;
     }
@@ -9510,7 +9510,7 @@ namespace RAC_OPENSCENARIO
 	 * reached. If true it does not end and can only be stopped.]
 	 * 
 	*/
-    void LongitudinalDistanceActionImpl::SetContinuous(bool& continuous )
+    void LongitudinalDistanceActionImpl::SetContinuous(const bool continuous )
     {
         _continuous = continuous;
     }
@@ -9520,7 +9520,7 @@ namespace RAC_OPENSCENARIO
 	 * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to , the action.]
 	 * 
 	*/
-    void LongitudinalDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints>& dynamicConstraints )
+    void LongitudinalDistanceActionImpl::SetDynamicConstraints(const std::shared_ptr<IDynamicConstraints> dynamicConstraints )
     {
         _dynamicConstraints = dynamicConstraints;
     }
@@ -9589,36 +9589,36 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    LongitudinalDistanceActionImpl LongitudinalDistanceActionImpl::Clone()
+    std::shared_ptr<LongitudinalDistanceActionImpl> LongitudinalDistanceActionImpl::Clone()
     {
-        LongitudinalDistanceActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<LongitudinalDistanceActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetDistance(_distance);
+        clonedObject->SetDistance(_distance);
         // Simple type
-        clonedObject.SetTimeGap(_timeGap);
+        clonedObject->SetTimeGap(_timeGap);
         // Simple type
-        clonedObject.SetFreespace(_freespace);
+        clonedObject->SetFreespace(_freespace);
         // Simple type
-        clonedObject.SetContinuous(_continuous);
+        clonedObject->SetContinuous(_continuous);
         // clone children
         const auto kDynamicConstraints =  GetDynamicConstraints();
         if (kDynamicConstraints)
         {
-            auto clonedChild = std::make_shared<DynamicConstraintsImpl>(std::dynamic_pointer_cast<DynamicConstraintsImpl>(kDynamicConstraints)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DynamicConstraintsImpl>(kDynamicConstraints)->Clone();
             auto clonedChildIDynamicConstraints = std::dynamic_pointer_cast<IDynamicConstraints>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDynamicConstraints(clonedChildIDynamicConstraints);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDynamicConstraints(clonedChildIDynamicConstraints);
         }
         return clonedObject;
     }
@@ -9652,7 +9652,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the maneuver.]
 	 * 
 	*/
-    void ManeuverImpl::SetName(std::string& name )
+    void ManeuverImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -9746,18 +9746,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ManeuverImpl ManeuverImpl::Clone()
+    std::shared_ptr<ManeuverImpl> ManeuverImpl::Clone()
     {
-        ManeuverImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ManeuverImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -9765,11 +9765,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kEvents =  GetEvents();
         if (!kEvents.empty())
@@ -9777,11 +9777,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IEvent>> clonedList;
             for(auto&& kItem : kEvents)
             {
-                auto clonedChild = std::make_shared <EventImpl>(std::dynamic_pointer_cast<EventImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<EventImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetEvents(clonedList);
+            clonedObject->SetEvents(clonedList);
         }
         return clonedObject;
     }
@@ -9806,7 +9806,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-    void ManeuverCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void ManeuverCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -9845,24 +9845,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ManeuverCatalogLocationImpl ManeuverCatalogLocationImpl::Clone()
+    std::shared_ptr<ManeuverCatalogLocationImpl> ManeuverCatalogLocationImpl::Clone()
     {
-        ManeuverCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ManeuverCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -9906,7 +9906,7 @@ namespace RAC_OPENSCENARIO
 	 * group. Default value is 1. Range: [1..inf[.]
 	 * 
 	*/
-    void ManeuverGroupImpl::SetMaximumExecutionCount(unsigned int& maximumExecutionCount )
+    void ManeuverGroupImpl::SetMaximumExecutionCount(const unsigned int maximumExecutionCount )
     {
         _maximumExecutionCount = maximumExecutionCount;
     }
@@ -9915,7 +9915,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
 	 * 
 	*/
-    void ManeuverGroupImpl::SetName(std::string& name )
+    void ManeuverGroupImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -9924,7 +9924,7 @@ namespace RAC_OPENSCENARIO
 	 * @param actors from OpenSCENARIO class model specification: [Actors of the maneuver group.]
 	 * 
 	*/
-    void ManeuverGroupImpl::SetActors(std::shared_ptr<IActors>& actors )
+    void ManeuverGroupImpl::SetActors(const std::shared_ptr<IActors> actors )
     {
         _actors = actors;
     }
@@ -10010,28 +10010,28 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ManeuverGroupImpl ManeuverGroupImpl::Clone()
+    std::shared_ptr<ManeuverGroupImpl> ManeuverGroupImpl::Clone()
     {
-        ManeuverGroupImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ManeuverGroupImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetMaximumExecutionCount(_maximumExecutionCount);
+        clonedObject->SetMaximumExecutionCount(_maximumExecutionCount);
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kActors =  GetActors();
         if (kActors)
         {
-            auto clonedChild = std::make_shared<ActorsImpl>(std::dynamic_pointer_cast<ActorsImpl>(kActors)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ActorsImpl>(kActors)->Clone();
             auto clonedChildIActors = std::dynamic_pointer_cast<IActors>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetActors(clonedChildIActors);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetActors(clonedChildIActors);
         }
         const auto kCatalogReferences =  GetCatalogReferences();
         if (!kCatalogReferences.empty())
@@ -10039,11 +10039,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<ICatalogReference>> clonedList;
             for(auto&& kItem : kCatalogReferences)
             {
-                auto clonedChild = std::make_shared <CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetCatalogReferences(clonedList);
+            clonedObject->SetCatalogReferences(clonedList);
         }
         const auto kManeuvers =  GetManeuvers();
         if (!kManeuvers.empty())
@@ -10051,11 +10051,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IManeuver>> clonedList;
             for(auto&& kItem : kManeuvers)
             {
-                auto clonedChild = std::make_shared <ManeuverImpl>(std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetManeuvers(clonedList);
+            clonedObject->SetManeuvers(clonedList);
         }
         return clonedObject;
     }
@@ -10103,7 +10103,7 @@ namespace RAC_OPENSCENARIO
 	 * @param miscObjectCategory from OpenSCENARIO class model specification: [Categorization of the miscellaneous object.]
 	 * 
 	*/
-    void MiscObjectImpl::SetMiscObjectCategory(MiscObjectCategory& miscObjectCategory )
+    void MiscObjectImpl::SetMiscObjectCategory(const MiscObjectCategory miscObjectCategory )
     {
         _miscObjectCategory = miscObjectCategory;
     }
@@ -10112,7 +10112,7 @@ namespace RAC_OPENSCENARIO
 	 * @param mass from OpenSCENARIO class model specification: [Mass of the miscellaneous object. Unit: kg; Range: [0..inf[.]
 	 * 
 	*/
-    void MiscObjectImpl::SetMass(double& mass )
+    void MiscObjectImpl::SetMass(const double mass )
     {
         _mass = mass;
     }
@@ -10121,7 +10121,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the miscellaneous object type.]
 	 * 
 	*/
-    void MiscObjectImpl::SetName(std::string& name )
+    void MiscObjectImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -10139,7 +10139,7 @@ namespace RAC_OPENSCENARIO
 	 * @param boundingBox from OpenSCENARIO class model specification: [Bounding box definition for the miscellaneous object.]
 	 * 
 	*/
-    void MiscObjectImpl::SetBoundingBox(std::shared_ptr<IBoundingBox>& boundingBox )
+    void MiscObjectImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
     {
         _boundingBox = boundingBox;
     }
@@ -10148,7 +10148,7 @@ namespace RAC_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Property definitions for the miscellaneous object.]
 	 * 
 	*/
-    void MiscObjectImpl::SetProperties(std::shared_ptr<IProperties>& properties )
+    void MiscObjectImpl::SetProperties(const std::shared_ptr<IProperties> properties )
     {
         _properties = properties;
     }
@@ -10247,22 +10247,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    MiscObjectImpl MiscObjectImpl::Clone()
+    std::shared_ptr<MiscObjectImpl> MiscObjectImpl::Clone()
     {
-        MiscObjectImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<MiscObjectImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetMiscObjectCategory(_miscObjectCategory);
+        clonedObject->SetMiscObjectCategory(_miscObjectCategory);
         // Simple type
-        clonedObject.SetMass(_mass);
+        clonedObject->SetMass(_mass);
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -10270,27 +10270,27 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kBoundingBox =  GetBoundingBox();
         if (kBoundingBox)
         {
-            auto clonedChild = std::make_shared<BoundingBoxImpl>(std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
             auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetBoundingBox(clonedChildIBoundingBox);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetBoundingBox(clonedChildIBoundingBox);
         }
         const auto kProperties =  GetProperties();
         if (kProperties)
         {
-            auto clonedChild = std::make_shared<PropertiesImpl>(std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
             auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetProperties(clonedChildIProperties);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetProperties(clonedChildIProperties);
         }
         return clonedObject;
     }
@@ -10315,7 +10315,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-    void MiscObjectCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void MiscObjectCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -10354,24 +10354,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    MiscObjectCatalogLocationImpl MiscObjectCatalogLocationImpl::Clone()
+    std::shared_ptr<MiscObjectCatalogLocationImpl> MiscObjectCatalogLocationImpl::Clone()
     {
-        MiscObjectCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<MiscObjectCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -10400,7 +10400,7 @@ namespace RAC_OPENSCENARIO
 	 * @param addValue from OpenSCENARIO class model specification: [Adding a value to a parameter.]
 	 * 
 	*/
-    void ModifyRuleImpl::SetAddValue(std::shared_ptr<IParameterAddValueRule>& addValue )
+    void ModifyRuleImpl::SetAddValue(const std::shared_ptr<IParameterAddValueRule> addValue )
     {
         _addValue = addValue;
     }
@@ -10409,7 +10409,7 @@ namespace RAC_OPENSCENARIO
 	 * @param multiplyByValue from OpenSCENARIO class model specification: [Multiply a parameter by a value.]
 	 * 
 	*/
-    void ModifyRuleImpl::SetMultiplyByValue(std::shared_ptr<IParameterMultiplyByValueRule>& multiplyByValue )
+    void ModifyRuleImpl::SetMultiplyByValue(const std::shared_ptr<IParameterMultiplyByValueRule> multiplyByValue )
     {
         _multiplyByValue = multiplyByValue;
     }
@@ -10453,32 +10453,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ModifyRuleImpl ModifyRuleImpl::Clone()
+    std::shared_ptr<ModifyRuleImpl> ModifyRuleImpl::Clone()
     {
-        ModifyRuleImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ModifyRuleImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kAddValue =  GetAddValue();
         if (kAddValue)
         {
-            auto clonedChild = std::make_shared<ParameterAddValueRuleImpl>(std::dynamic_pointer_cast<ParameterAddValueRuleImpl>(kAddValue)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ParameterAddValueRuleImpl>(kAddValue)->Clone();
             auto clonedChildIParameterAddValueRule = std::dynamic_pointer_cast<IParameterAddValueRule>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAddValue(clonedChildIParameterAddValueRule);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAddValue(clonedChildIParameterAddValueRule);
         }
         const auto kMultiplyByValue =  GetMultiplyByValue();
         if (kMultiplyByValue)
         {
-            auto clonedChild = std::make_shared<ParameterMultiplyByValueRuleImpl>(std::dynamic_pointer_cast<ParameterMultiplyByValueRuleImpl>(kMultiplyByValue)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ParameterMultiplyByValueRuleImpl>(kMultiplyByValue)->Clone();
             auto clonedChildIParameterMultiplyByValueRule = std::dynamic_pointer_cast<IParameterMultiplyByValueRule>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetMultiplyByValue(clonedChildIParameterMultiplyByValueRule);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetMultiplyByValue(clonedChildIParameterMultiplyByValueRule);
         }
         return clonedObject;
     }
@@ -10524,14 +10524,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    NoneImpl NoneImpl::Clone()
+    std::shared_ptr<NoneImpl> NoneImpl::Clone()
     {
-        NoneImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<NoneImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -10568,7 +10568,7 @@ namespace RAC_OPENSCENARIO
 	 * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
 	 * 
 	*/
-    void NurbsImpl::SetOrder(unsigned int& order )
+    void NurbsImpl::SetOrder(const unsigned int order )
     {
         _order = order;
     }
@@ -10645,18 +10645,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    NurbsImpl NurbsImpl::Clone()
+    std::shared_ptr<NurbsImpl> NurbsImpl::Clone()
     {
-        NurbsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<NurbsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetOrder(_order);
+        clonedObject->SetOrder(_order);
         // clone children
         const auto kControlPoints =  GetControlPoints();
         if (!kControlPoints.empty())
@@ -10664,11 +10664,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IControlPoint>> clonedList;
             for(auto&& kItem : kControlPoints)
             {
-                auto clonedChild = std::make_shared <ControlPointImpl>(std::dynamic_pointer_cast<ControlPointImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ControlPointImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetControlPoints(clonedList);
+            clonedObject->SetControlPoints(clonedList);
         }
         const auto kKnots =  GetKnots();
         if (!kKnots.empty())
@@ -10676,11 +10676,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IKnot>> clonedList;
             for(auto&& kItem : kKnots)
             {
-                auto clonedChild = std::make_shared <KnotImpl>(std::dynamic_pointer_cast<KnotImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<KnotImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetKnots(clonedList);
+            clonedObject->SetKnots(clonedList);
         }
         return clonedObject;
     }
@@ -10709,7 +10709,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [Catalog reference to a controller.]
 	 * 
 	*/
-    void ObjectControllerImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void ObjectControllerImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -10718,7 +10718,7 @@ namespace RAC_OPENSCENARIO
 	 * @param controller from OpenSCENARIO class model specification: [Controller type definition.]
 	 * 
 	*/
-    void ObjectControllerImpl::SetController(std::shared_ptr<IController>& controller )
+    void ObjectControllerImpl::SetController(const std::shared_ptr<IController> controller )
     {
         _controller = controller;
     }
@@ -10762,32 +10762,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ObjectControllerImpl ObjectControllerImpl::Clone()
+    std::shared_ptr<ObjectControllerImpl> ObjectControllerImpl::Clone()
     {
-        ObjectControllerImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ObjectControllerImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         const auto kController =  GetController();
         if (kController)
         {
-            auto clonedChild = std::make_shared<ControllerImpl>(std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone();
             auto clonedChildIController = std::dynamic_pointer_cast<IController>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetController(clonedChildIController);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetController(clonedChildIController);
         }
         return clonedObject;
     }
@@ -10814,7 +10814,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void OffroadConditionImpl::SetDuration(double& duration )
+    void OffroadConditionImpl::SetDuration(const double duration )
     {
         _duration = duration;
     }
@@ -10854,18 +10854,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OffroadConditionImpl OffroadConditionImpl::Clone()
+    std::shared_ptr<OffroadConditionImpl> OffroadConditionImpl::Clone()
     {
-        OffroadConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OffroadConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetDuration(_duration);
+        clonedObject->SetDuration(_duration);
         // clone children
         return clonedObject;
     }
@@ -10894,7 +10894,7 @@ namespace RAC_OPENSCENARIO
 	 * @param fileHeader from OpenSCENARIO class model specification: [Header information for the scenario or the catalog.]
 	 * 
 	*/
-    void OpenScenarioImpl::SetFileHeader(std::shared_ptr<IFileHeader>& fileHeader )
+    void OpenScenarioImpl::SetFileHeader(const std::shared_ptr<IFileHeader> fileHeader )
     {
         _fileHeader = fileHeader;
     }
@@ -10904,7 +10904,7 @@ namespace RAC_OPENSCENARIO
 	 * OpenSCENARIO description.]
 	 * 
 	*/
-    void OpenScenarioImpl::SetOpenScenarioCategory(std::shared_ptr<IOpenScenarioCategory>& openScenarioCategory )
+    void OpenScenarioImpl::SetOpenScenarioCategory(const std::shared_ptr<IOpenScenarioCategory> openScenarioCategory )
     {
         _openScenarioCategory = openScenarioCategory;
     }
@@ -10948,32 +10948,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OpenScenarioImpl OpenScenarioImpl::Clone()
+    std::shared_ptr<OpenScenarioImpl> OpenScenarioImpl::Clone()
     {
-        OpenScenarioImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OpenScenarioImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kFileHeader =  GetFileHeader();
         if (kFileHeader)
         {
-            auto clonedChild = std::make_shared<FileHeaderImpl>(std::dynamic_pointer_cast<FileHeaderImpl>(kFileHeader)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<FileHeaderImpl>(kFileHeader)->Clone();
             auto clonedChildIFileHeader = std::dynamic_pointer_cast<IFileHeader>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFileHeader(clonedChildIFileHeader);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFileHeader(clonedChildIFileHeader);
         }
         const auto kOpenScenarioCategory =  GetOpenScenarioCategory();
         if (kOpenScenarioCategory)
         {
-            auto clonedChild = std::make_shared<OpenScenarioCategoryImpl>(std::dynamic_pointer_cast<OpenScenarioCategoryImpl>(kOpenScenarioCategory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OpenScenarioCategoryImpl>(kOpenScenarioCategory)->Clone();
             auto clonedChildIOpenScenarioCategory = std::dynamic_pointer_cast<IOpenScenarioCategory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOpenScenarioCategory(clonedChildIOpenScenarioCategory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOpenScenarioCategory(clonedChildIOpenScenarioCategory);
         }
         return clonedObject;
     }
@@ -11002,7 +11002,7 @@ namespace RAC_OPENSCENARIO
 	 * @param scenarioDefinition from OpenSCENARIO class model specification: [Definition of a scenario.]
 	 * 
 	*/
-    void OpenScenarioCategoryImpl::SetScenarioDefinition(std::shared_ptr<IScenarioDefinition>& scenarioDefinition )
+    void OpenScenarioCategoryImpl::SetScenarioDefinition(const std::shared_ptr<IScenarioDefinition> scenarioDefinition )
     {
         _scenarioDefinition = scenarioDefinition;
     }
@@ -11011,7 +11011,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalogDefinition from OpenSCENARIO class model specification: [Definition of a catalog.]
 	 * 
 	*/
-    void OpenScenarioCategoryImpl::SetCatalogDefinition(std::shared_ptr<ICatalogDefinition>& catalogDefinition )
+    void OpenScenarioCategoryImpl::SetCatalogDefinition(const std::shared_ptr<ICatalogDefinition> catalogDefinition )
     {
         _catalogDefinition = catalogDefinition;
     }
@@ -11055,32 +11055,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OpenScenarioCategoryImpl OpenScenarioCategoryImpl::Clone()
+    std::shared_ptr<OpenScenarioCategoryImpl> OpenScenarioCategoryImpl::Clone()
     {
-        OpenScenarioCategoryImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OpenScenarioCategoryImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kScenarioDefinition =  GetScenarioDefinition();
         if (kScenarioDefinition)
         {
-            auto clonedChild = std::make_shared<ScenarioDefinitionImpl>(std::dynamic_pointer_cast<ScenarioDefinitionImpl>(kScenarioDefinition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ScenarioDefinitionImpl>(kScenarioDefinition)->Clone();
             auto clonedChildIScenarioDefinition = std::dynamic_pointer_cast<IScenarioDefinition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetScenarioDefinition(clonedChildIScenarioDefinition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetScenarioDefinition(clonedChildIScenarioDefinition);
         }
         const auto kCatalogDefinition =  GetCatalogDefinition();
         if (kCatalogDefinition)
         {
-            auto clonedChild = std::make_shared<CatalogDefinitionImpl>(std::dynamic_pointer_cast<CatalogDefinitionImpl>(kCatalogDefinition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogDefinitionImpl>(kCatalogDefinition)->Clone();
             auto clonedChildICatalogDefinition = std::dynamic_pointer_cast<ICatalogDefinition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogDefinition(clonedChildICatalogDefinition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogDefinition(clonedChildICatalogDefinition);
         }
         return clonedObject;
     }
@@ -11121,7 +11121,7 @@ namespace RAC_OPENSCENARIO
 	 * @param type from OpenSCENARIO class model specification: [Relative or absolute definition.]
 	 * 
 	*/
-    void OrientationImpl::SetType(ReferenceContext& type )
+    void OrientationImpl::SetType(const ReferenceContext type )
     {
         _type = type;
     }
@@ -11130,7 +11130,7 @@ namespace RAC_OPENSCENARIO
 	 * @param h from OpenSCENARIO class model specification: [Heading angle. Unit: rad;.]
 	 * 
 	*/
-    void OrientationImpl::SetH(double& h )
+    void OrientationImpl::SetH(const double h )
     {
         _h = h;
     }
@@ -11139,7 +11139,7 @@ namespace RAC_OPENSCENARIO
 	 * @param p from OpenSCENARIO class model specification: [Pitch angle. Unit: rad;.]
 	 * 
 	*/
-    void OrientationImpl::SetP(double& p )
+    void OrientationImpl::SetP(const double p )
     {
         _p = p;
     }
@@ -11148,7 +11148,7 @@ namespace RAC_OPENSCENARIO
 	 * @param r from OpenSCENARIO class model specification: [Roll angle. Unit: rad;.]
 	 * 
 	*/
-    void OrientationImpl::SetR(double& r )
+    void OrientationImpl::SetR(const double r )
     {
         _r = r;
     }
@@ -11215,24 +11215,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OrientationImpl OrientationImpl::Clone()
+    std::shared_ptr<OrientationImpl> OrientationImpl::Clone()
     {
-        OrientationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OrientationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetType(_type);
+        clonedObject->SetType(_type);
         // Simple type
-        clonedObject.SetH(_h);
+        clonedObject->SetH(_h);
         // Simple type
-        clonedObject.SetP(_p);
+        clonedObject->SetP(_p);
         // Simple type
-        clonedObject.SetR(_r);
+        clonedObject->SetR(_r);
         // clone children
         return clonedObject;
     }
@@ -11264,7 +11264,7 @@ namespace RAC_OPENSCENARIO
 	 * represents 100% of pressing the brake pedal.]
 	 * 
 	*/
-    void OverrideBrakeActionImpl::SetValue(double& value )
+    void OverrideBrakeActionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -11273,7 +11273,7 @@ namespace RAC_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-    void OverrideBrakeActionImpl::SetActive(bool& active )
+    void OverrideBrakeActionImpl::SetActive(const bool active )
     {
         _active = active;
     }
@@ -11319,20 +11319,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OverrideBrakeActionImpl OverrideBrakeActionImpl::Clone()
+    std::shared_ptr<OverrideBrakeActionImpl> OverrideBrakeActionImpl::Clone()
     {
-        OverrideBrakeActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OverrideBrakeActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetActive(_active);
+        clonedObject->SetActive(_active);
         // clone children
         return clonedObject;
     }
@@ -11364,7 +11364,7 @@ namespace RAC_OPENSCENARIO
 	 * represents 100% of pressing the clutch pedal.]
 	 * 
 	*/
-    void OverrideClutchActionImpl::SetValue(double& value )
+    void OverrideClutchActionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -11373,7 +11373,7 @@ namespace RAC_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-    void OverrideClutchActionImpl::SetActive(bool& active )
+    void OverrideClutchActionImpl::SetActive(const bool active )
     {
         _active = active;
     }
@@ -11419,20 +11419,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OverrideClutchActionImpl OverrideClutchActionImpl::Clone()
+    std::shared_ptr<OverrideClutchActionImpl> OverrideClutchActionImpl::Clone()
     {
-        OverrideClutchActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OverrideClutchActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetActive(_active);
+        clonedObject->SetActive(_active);
         // clone children
         return clonedObject;
     }
@@ -11477,7 +11477,7 @@ namespace RAC_OPENSCENARIO
 	 * @param throttle from OpenSCENARIO class model specification: [New value for throttle pedal position or unset value.]
 	 * 
 	*/
-    void OverrideControllerValueActionImpl::SetThrottle(std::shared_ptr<IOverrideThrottleAction>& throttle )
+    void OverrideControllerValueActionImpl::SetThrottle(const std::shared_ptr<IOverrideThrottleAction> throttle )
     {
         _throttle = throttle;
     }
@@ -11486,7 +11486,7 @@ namespace RAC_OPENSCENARIO
 	 * @param brake from OpenSCENARIO class model specification: [New value for brake position or unset value.]
 	 * 
 	*/
-    void OverrideControllerValueActionImpl::SetBrake(std::shared_ptr<IOverrideBrakeAction>& brake )
+    void OverrideControllerValueActionImpl::SetBrake(const std::shared_ptr<IOverrideBrakeAction> brake )
     {
         _brake = brake;
     }
@@ -11495,7 +11495,7 @@ namespace RAC_OPENSCENARIO
 	 * @param clutch from OpenSCENARIO class model specification: [New value for clutch position or unset value.]
 	 * 
 	*/
-    void OverrideControllerValueActionImpl::SetClutch(std::shared_ptr<IOverrideClutchAction>& clutch )
+    void OverrideControllerValueActionImpl::SetClutch(const std::shared_ptr<IOverrideClutchAction> clutch )
     {
         _clutch = clutch;
     }
@@ -11504,7 +11504,7 @@ namespace RAC_OPENSCENARIO
 	 * @param parkingBrake from OpenSCENARIO class model specification: [New value for parking brake position or unset value.]
 	 * 
 	*/
-    void OverrideControllerValueActionImpl::SetParkingBrake(std::shared_ptr<IOverrideParkingBrakeAction>& parkingBrake )
+    void OverrideControllerValueActionImpl::SetParkingBrake(const std::shared_ptr<IOverrideParkingBrakeAction> parkingBrake )
     {
         _parkingBrake = parkingBrake;
     }
@@ -11514,7 +11514,7 @@ namespace RAC_OPENSCENARIO
 	 * value.]
 	 * 
 	*/
-    void OverrideControllerValueActionImpl::SetSteeringWheel(std::shared_ptr<IOverrideSteeringWheelAction>& steeringWheel )
+    void OverrideControllerValueActionImpl::SetSteeringWheel(const std::shared_ptr<IOverrideSteeringWheelAction> steeringWheel )
     {
         _steeringWheel = steeringWheel;
     }
@@ -11523,7 +11523,7 @@ namespace RAC_OPENSCENARIO
 	 * @param gear from OpenSCENARIO class model specification: [New value for gear position or unset value.]
 	 * 
 	*/
-    void OverrideControllerValueActionImpl::SetGear(std::shared_ptr<IOverrideGearAction>& gear )
+    void OverrideControllerValueActionImpl::SetGear(const std::shared_ptr<IOverrideGearAction> gear )
     {
         _gear = gear;
     }
@@ -11587,64 +11587,64 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OverrideControllerValueActionImpl OverrideControllerValueActionImpl::Clone()
+    std::shared_ptr<OverrideControllerValueActionImpl> OverrideControllerValueActionImpl::Clone()
     {
-        OverrideControllerValueActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OverrideControllerValueActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kThrottle =  GetThrottle();
         if (kThrottle)
         {
-            auto clonedChild = std::make_shared<OverrideThrottleActionImpl>(std::dynamic_pointer_cast<OverrideThrottleActionImpl>(kThrottle)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OverrideThrottleActionImpl>(kThrottle)->Clone();
             auto clonedChildIOverrideThrottleAction = std::dynamic_pointer_cast<IOverrideThrottleAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetThrottle(clonedChildIOverrideThrottleAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetThrottle(clonedChildIOverrideThrottleAction);
         }
         const auto kBrake =  GetBrake();
         if (kBrake)
         {
-            auto clonedChild = std::make_shared<OverrideBrakeActionImpl>(std::dynamic_pointer_cast<OverrideBrakeActionImpl>(kBrake)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OverrideBrakeActionImpl>(kBrake)->Clone();
             auto clonedChildIOverrideBrakeAction = std::dynamic_pointer_cast<IOverrideBrakeAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetBrake(clonedChildIOverrideBrakeAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetBrake(clonedChildIOverrideBrakeAction);
         }
         const auto kClutch =  GetClutch();
         if (kClutch)
         {
-            auto clonedChild = std::make_shared<OverrideClutchActionImpl>(std::dynamic_pointer_cast<OverrideClutchActionImpl>(kClutch)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OverrideClutchActionImpl>(kClutch)->Clone();
             auto clonedChildIOverrideClutchAction = std::dynamic_pointer_cast<IOverrideClutchAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetClutch(clonedChildIOverrideClutchAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetClutch(clonedChildIOverrideClutchAction);
         }
         const auto kParkingBrake =  GetParkingBrake();
         if (kParkingBrake)
         {
-            auto clonedChild = std::make_shared<OverrideParkingBrakeActionImpl>(std::dynamic_pointer_cast<OverrideParkingBrakeActionImpl>(kParkingBrake)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OverrideParkingBrakeActionImpl>(kParkingBrake)->Clone();
             auto clonedChildIOverrideParkingBrakeAction = std::dynamic_pointer_cast<IOverrideParkingBrakeAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetParkingBrake(clonedChildIOverrideParkingBrakeAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetParkingBrake(clonedChildIOverrideParkingBrakeAction);
         }
         const auto kSteeringWheel =  GetSteeringWheel();
         if (kSteeringWheel)
         {
-            auto clonedChild = std::make_shared<OverrideSteeringWheelActionImpl>(std::dynamic_pointer_cast<OverrideSteeringWheelActionImpl>(kSteeringWheel)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OverrideSteeringWheelActionImpl>(kSteeringWheel)->Clone();
             auto clonedChildIOverrideSteeringWheelAction = std::dynamic_pointer_cast<IOverrideSteeringWheelAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSteeringWheel(clonedChildIOverrideSteeringWheelAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSteeringWheel(clonedChildIOverrideSteeringWheelAction);
         }
         const auto kGear =  GetGear();
         if (kGear)
         {
-            auto clonedChild = std::make_shared<OverrideGearActionImpl>(std::dynamic_pointer_cast<OverrideGearActionImpl>(kGear)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OverrideGearActionImpl>(kGear)->Clone();
             auto clonedChildIOverrideGearAction = std::dynamic_pointer_cast<IOverrideGearAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetGear(clonedChildIOverrideGearAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetGear(clonedChildIOverrideGearAction);
         }
         return clonedObject;
     }
@@ -11675,7 +11675,7 @@ namespace RAC_OPENSCENARIO
 	 * @param number from OpenSCENARIO class model specification: [Gear number.]
 	 * 
 	*/
-    void OverrideGearActionImpl::SetNumber(double& number )
+    void OverrideGearActionImpl::SetNumber(const double number )
     {
         _number = number;
     }
@@ -11684,7 +11684,7 @@ namespace RAC_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-    void OverrideGearActionImpl::SetActive(bool& active )
+    void OverrideGearActionImpl::SetActive(const bool active )
     {
         _active = active;
     }
@@ -11730,20 +11730,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OverrideGearActionImpl OverrideGearActionImpl::Clone()
+    std::shared_ptr<OverrideGearActionImpl> OverrideGearActionImpl::Clone()
     {
-        OverrideGearActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OverrideGearActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetNumber(_number);
+        clonedObject->SetNumber(_number);
         // Simple type
-        clonedObject.SetActive(_active);
+        clonedObject->SetActive(_active);
         // clone children
         return clonedObject;
     }
@@ -11775,7 +11775,7 @@ namespace RAC_OPENSCENARIO
 	 * represent the maximum parking brake state.]
 	 * 
 	*/
-    void OverrideParkingBrakeActionImpl::SetValue(double& value )
+    void OverrideParkingBrakeActionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -11784,7 +11784,7 @@ namespace RAC_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-    void OverrideParkingBrakeActionImpl::SetActive(bool& active )
+    void OverrideParkingBrakeActionImpl::SetActive(const bool active )
     {
         _active = active;
     }
@@ -11830,20 +11830,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OverrideParkingBrakeActionImpl OverrideParkingBrakeActionImpl::Clone()
+    std::shared_ptr<OverrideParkingBrakeActionImpl> OverrideParkingBrakeActionImpl::Clone()
     {
-        OverrideParkingBrakeActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OverrideParkingBrakeActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetActive(_active);
+        clonedObject->SetActive(_active);
         // clone children
         return clonedObject;
     }
@@ -11874,7 +11874,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Steering wheel angle. Unit: rad.]
 	 * 
 	*/
-    void OverrideSteeringWheelActionImpl::SetValue(double& value )
+    void OverrideSteeringWheelActionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -11883,7 +11883,7 @@ namespace RAC_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-    void OverrideSteeringWheelActionImpl::SetActive(bool& active )
+    void OverrideSteeringWheelActionImpl::SetActive(const bool active )
     {
         _active = active;
     }
@@ -11929,20 +11929,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OverrideSteeringWheelActionImpl OverrideSteeringWheelActionImpl::Clone()
+    std::shared_ptr<OverrideSteeringWheelActionImpl> OverrideSteeringWheelActionImpl::Clone()
     {
-        OverrideSteeringWheelActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OverrideSteeringWheelActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetActive(_active);
+        clonedObject->SetActive(_active);
         // clone children
         return clonedObject;
     }
@@ -11974,7 +11974,7 @@ namespace RAC_OPENSCENARIO
 	 * represents 100% of pressing the throttle pedal.]
 	 * 
 	*/
-    void OverrideThrottleActionImpl::SetValue(double& value )
+    void OverrideThrottleActionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -11983,7 +11983,7 @@ namespace RAC_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-    void OverrideThrottleActionImpl::SetActive(bool& active )
+    void OverrideThrottleActionImpl::SetActive(const bool active )
     {
         _active = active;
     }
@@ -12029,20 +12029,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    OverrideThrottleActionImpl OverrideThrottleActionImpl::Clone()
+    std::shared_ptr<OverrideThrottleActionImpl> OverrideThrottleActionImpl::Clone()
     {
-        OverrideThrottleActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<OverrideThrottleActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetActive(_active);
+        clonedObject->SetActive(_active);
         // clone children
         return clonedObject;
     }
@@ -12085,7 +12085,7 @@ namespace RAC_OPENSCENARIO
 	 * @param setAction from OpenSCENARIO class model specification: [New value for the parameter.]
 	 * 
 	*/
-    void ParameterActionImpl::SetSetAction(std::shared_ptr<IParameterSetAction>& setAction )
+    void ParameterActionImpl::SetSetAction(const std::shared_ptr<IParameterSetAction> setAction )
     {
         _setAction = setAction;
     }
@@ -12095,7 +12095,7 @@ namespace RAC_OPENSCENARIO
 	 * multiply by value).]
 	 * 
 	*/
-    void ParameterActionImpl::SetModifyAction(std::shared_ptr<IParameterModifyAction>& modifyAction )
+    void ParameterActionImpl::SetModifyAction(const std::shared_ptr<IParameterModifyAction> modifyAction )
     {
         _modifyAction = modifyAction;
     }
@@ -12145,36 +12145,36 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterActionImpl ParameterActionImpl::Clone()
+    std::shared_ptr<ParameterActionImpl> ParameterActionImpl::Clone()
     {
-        ParameterActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _parameterRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetParameterRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetParameterRef(proxy);
         // clone children
         const auto kSetAction =  GetSetAction();
         if (kSetAction)
         {
-            auto clonedChild = std::make_shared<ParameterSetActionImpl>(std::dynamic_pointer_cast<ParameterSetActionImpl>(kSetAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ParameterSetActionImpl>(kSetAction)->Clone();
             auto clonedChildIParameterSetAction = std::dynamic_pointer_cast<IParameterSetAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSetAction(clonedChildIParameterSetAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSetAction(clonedChildIParameterSetAction);
         }
         const auto kModifyAction =  GetModifyAction();
         if (kModifyAction)
         {
-            auto clonedChild = std::make_shared<ParameterModifyActionImpl>(std::dynamic_pointer_cast<ParameterModifyActionImpl>(kModifyAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ParameterModifyActionImpl>(kModifyAction)->Clone();
             auto clonedChildIParameterModifyAction = std::dynamic_pointer_cast<IParameterModifyAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetModifyAction(clonedChildIParameterModifyAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetModifyAction(clonedChildIParameterModifyAction);
         }
         return clonedObject;
     }
@@ -12200,7 +12200,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Add value to existing parameter.]
 	 * 
 	*/
-    void ParameterAddValueRuleImpl::SetValue(double& value )
+    void ParameterAddValueRuleImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -12240,18 +12240,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterAddValueRuleImpl ParameterAddValueRuleImpl::Clone()
+    std::shared_ptr<ParameterAddValueRuleImpl> ParameterAddValueRuleImpl::Clone()
     {
-        ParameterAddValueRuleImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterAddValueRuleImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -12293,7 +12293,7 @@ namespace RAC_OPENSCENARIO
 	 * parametrizable type.]
 	 * 
 	*/
-    void ParameterAssignmentImpl::SetValue(std::string& value )
+    void ParameterAssignmentImpl::SetValue(const std::string value )
     {
         _value = value;
     }
@@ -12333,22 +12333,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterAssignmentImpl ParameterAssignmentImpl::Clone()
+    std::shared_ptr<ParameterAssignmentImpl> ParameterAssignmentImpl::Clone()
     {
-        ParameterAssignmentImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterAssignmentImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _parameterRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetParameterRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetParameterRef(proxy);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -12393,7 +12393,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Value of the parameter.]
 	 * 
 	*/
-    void ParameterConditionImpl::SetValue(std::string& value )
+    void ParameterConditionImpl::SetValue(const std::string value )
     {
         _value = value;
     }
@@ -12402,7 +12402,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void ParameterConditionImpl::SetRule(Rule& rule )
+    void ParameterConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -12463,24 +12463,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterConditionImpl ParameterConditionImpl::Clone()
+    std::shared_ptr<ParameterConditionImpl> ParameterConditionImpl::Clone()
     {
-        ParameterConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _parameterRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetParameterRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetParameterRef(proxy);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -12516,7 +12516,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the parameter.]
 	 * 
 	*/
-    void ParameterDeclarationImpl::SetName(std::string& name )
+    void ParameterDeclarationImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -12525,7 +12525,7 @@ namespace RAC_OPENSCENARIO
 	 * @param parameterType from OpenSCENARIO class model specification: [Type of the parameter.]
 	 * 
 	*/
-    void ParameterDeclarationImpl::SetParameterType(ParameterType& parameterType )
+    void ParameterDeclarationImpl::SetParameterType(const ParameterType parameterType )
     {
         _parameterType = parameterType;
     }
@@ -12534,7 +12534,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Value of the parameter as its default value.]
 	 * 
 	*/
-    void ParameterDeclarationImpl::SetValue(std::string& value )
+    void ParameterDeclarationImpl::SetValue(const std::string value )
     {
         _value = value;
     }
@@ -12589,22 +12589,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterDeclarationImpl ParameterDeclarationImpl::Clone()
+    std::shared_ptr<ParameterDeclarationImpl> ParameterDeclarationImpl::Clone()
     {
-        ParameterDeclarationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterDeclarationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Enumeration Type
-        clonedObject.SetParameterType(_parameterType);
+        clonedObject->SetParameterType(_parameterType);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -12630,7 +12630,7 @@ namespace RAC_OPENSCENARIO
 	 * by a value. Has to match the parameter type.]
 	 * 
 	*/
-    void ParameterModifyActionImpl::SetRule(std::shared_ptr<IModifyRule>& rule )
+    void ParameterModifyActionImpl::SetRule(const std::shared_ptr<IModifyRule> rule )
     {
         _rule = rule;
     }
@@ -12669,24 +12669,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterModifyActionImpl ParameterModifyActionImpl::Clone()
+    std::shared_ptr<ParameterModifyActionImpl> ParameterModifyActionImpl::Clone()
     {
-        ParameterModifyActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterModifyActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kRule =  GetRule();
         if (kRule)
         {
-            auto clonedChild = std::make_shared<ModifyRuleImpl>(std::dynamic_pointer_cast<ModifyRuleImpl>(kRule)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ModifyRuleImpl>(kRule)->Clone();
             auto clonedChildIModifyRule = std::dynamic_pointer_cast<IModifyRule>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRule(clonedChildIModifyRule);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRule(clonedChildIModifyRule);
         }
         return clonedObject;
     }
@@ -12713,7 +12713,7 @@ namespace RAC_OPENSCENARIO
 	 * parameter data type).]
 	 * 
 	*/
-    void ParameterMultiplyByValueRuleImpl::SetValue(double& value )
+    void ParameterMultiplyByValueRuleImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -12753,18 +12753,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterMultiplyByValueRuleImpl ParameterMultiplyByValueRuleImpl::Clone()
+    std::shared_ptr<ParameterMultiplyByValueRuleImpl> ParameterMultiplyByValueRuleImpl::Clone()
     {
-        ParameterMultiplyByValueRuleImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterMultiplyByValueRuleImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -12790,7 +12790,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The new value for the parameter.]
 	 * 
 	*/
-    void ParameterSetActionImpl::SetValue(std::string& value )
+    void ParameterSetActionImpl::SetValue(const std::string value )
     {
         _value = value;
     }
@@ -12830,18 +12830,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ParameterSetActionImpl ParameterSetActionImpl::Clone()
+    std::shared_ptr<ParameterSetActionImpl> ParameterSetActionImpl::Clone()
     {
-        ParameterSetActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ParameterSetActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -12894,7 +12894,7 @@ namespace RAC_OPENSCENARIO
 	 * @param model from OpenSCENARIO class model specification: [Definition of the model of the pedestrian.]
 	 * 
 	*/
-    void PedestrianImpl::SetModel(std::string& model )
+    void PedestrianImpl::SetModel(const std::string model )
     {
         _model = model;
     }
@@ -12903,7 +12903,7 @@ namespace RAC_OPENSCENARIO
 	 * @param mass from OpenSCENARIO class model specification: [The mass of a pedestrian in kg.]
 	 * 
 	*/
-    void PedestrianImpl::SetMass(double& mass )
+    void PedestrianImpl::SetMass(const double mass )
     {
         _mass = mass;
     }
@@ -12912,7 +12912,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the pedestrian type. Required when used in catalog.]
 	 * 
 	*/
-    void PedestrianImpl::SetName(std::string& name )
+    void PedestrianImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -12921,7 +12921,7 @@ namespace RAC_OPENSCENARIO
 	 * @param pedestrianCategory from OpenSCENARIO class model specification: [Category type of pedestrian.]
 	 * 
 	*/
-    void PedestrianImpl::SetPedestrianCategory(PedestrianCategory& pedestrianCategory )
+    void PedestrianImpl::SetPedestrianCategory(const PedestrianCategory pedestrianCategory )
     {
         _pedestrianCategory = pedestrianCategory;
     }
@@ -12939,7 +12939,7 @@ namespace RAC_OPENSCENARIO
 	 * @param boundingBox from OpenSCENARIO class model specification: [Bounding box of the pedestrian.]
 	 * 
 	*/
-    void PedestrianImpl::SetBoundingBox(std::shared_ptr<IBoundingBox>& boundingBox )
+    void PedestrianImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
     {
         _boundingBox = boundingBox;
     }
@@ -12948,7 +12948,7 @@ namespace RAC_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Properties (values/files) of the pedestrian.]
 	 * 
 	*/
-    void PedestrianImpl::SetProperties(std::shared_ptr<IProperties>& properties )
+    void PedestrianImpl::SetProperties(const std::shared_ptr<IProperties> properties )
     {
         _properties = properties;
     }
@@ -13053,24 +13053,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PedestrianImpl PedestrianImpl::Clone()
+    std::shared_ptr<PedestrianImpl> PedestrianImpl::Clone()
     {
-        PedestrianImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PedestrianImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetModel(_model);
+        clonedObject->SetModel(_model);
         // Simple type
-        clonedObject.SetMass(_mass);
+        clonedObject->SetMass(_mass);
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Enumeration Type
-        clonedObject.SetPedestrianCategory(_pedestrianCategory);
+        clonedObject->SetPedestrianCategory(_pedestrianCategory);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -13078,27 +13078,27 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kBoundingBox =  GetBoundingBox();
         if (kBoundingBox)
         {
-            auto clonedChild = std::make_shared<BoundingBoxImpl>(std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
             auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetBoundingBox(clonedChildIBoundingBox);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetBoundingBox(clonedChildIBoundingBox);
         }
         const auto kProperties =  GetProperties();
         if (kProperties)
         {
-            auto clonedChild = std::make_shared<PropertiesImpl>(std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
             auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetProperties(clonedChildIProperties);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetProperties(clonedChildIProperties);
         }
         return clonedObject;
     }
@@ -13123,7 +13123,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [File path for the pedestrian catalog files.]
 	 * 
 	*/
-    void PedestrianCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void PedestrianCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -13162,24 +13162,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PedestrianCatalogLocationImpl PedestrianCatalogLocationImpl::Clone()
+    std::shared_ptr<PedestrianCatalogLocationImpl> PedestrianCatalogLocationImpl::Clone()
     {
-        PedestrianCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PedestrianCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -13215,7 +13215,7 @@ namespace RAC_OPENSCENARIO
 	 * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed of the vehicle. Unit: m/s.]
 	 * 
 	*/
-    void PerformanceImpl::SetMaxSpeed(double& maxSpeed )
+    void PerformanceImpl::SetMaxSpeed(const double maxSpeed )
     {
         _maxSpeed = maxSpeed;
     }
@@ -13225,7 +13225,7 @@ namespace RAC_OPENSCENARIO
 	 * Range: [0..inf[.]
 	 * 
 	*/
-    void PerformanceImpl::SetMaxAcceleration(double& maxAcceleration )
+    void PerformanceImpl::SetMaxAcceleration(const double maxAcceleration )
     {
         _maxAcceleration = maxAcceleration;
     }
@@ -13235,7 +13235,7 @@ namespace RAC_OPENSCENARIO
 	 * Range: [0..inf[.]
 	 * 
 	*/
-    void PerformanceImpl::SetMaxDeceleration(double& maxDeceleration )
+    void PerformanceImpl::SetMaxDeceleration(const double maxDeceleration )
     {
         _maxDeceleration = maxDeceleration;
     }
@@ -13287,22 +13287,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PerformanceImpl PerformanceImpl::Clone()
+    std::shared_ptr<PerformanceImpl> PerformanceImpl::Clone()
     {
-        PerformanceImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PerformanceImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetMaxSpeed(_maxSpeed);
+        clonedObject->SetMaxSpeed(_maxSpeed);
         // Simple type
-        clonedObject.SetMaxAcceleration(_maxAcceleration);
+        clonedObject->SetMaxAcceleration(_maxAcceleration);
         // Simple type
-        clonedObject.SetMaxDeceleration(_maxDeceleration);
+        clonedObject->SetMaxDeceleration(_maxDeceleration);
         // clone children
         return clonedObject;
     }
@@ -13337,7 +13337,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the phase.]
 	 * 
 	*/
-    void PhaseImpl::SetName(std::string& name )
+    void PhaseImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -13346,7 +13346,7 @@ namespace RAC_OPENSCENARIO
 	 * @param duration from OpenSCENARIO class model specification: [Duration of the phase. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-    void PhaseImpl::SetDuration(double& duration )
+    void PhaseImpl::SetDuration(const double duration )
     {
         _duration = duration;
     }
@@ -13411,20 +13411,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PhaseImpl PhaseImpl::Clone()
+    std::shared_ptr<PhaseImpl> PhaseImpl::Clone()
     {
-        PhaseImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PhaseImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetDuration(_duration);
+        clonedObject->SetDuration(_duration);
         // clone children
         const auto kTrafficSignalStates =  GetTrafficSignalStates();
         if (!kTrafficSignalStates.empty())
@@ -13432,11 +13432,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<ITrafficSignalState>> clonedList;
             for(auto&& kItem : kTrafficSignalStates)
             {
-                auto clonedChild = std::make_shared <TrafficSignalStateImpl>(std::dynamic_pointer_cast<TrafficSignalStateImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<TrafficSignalStateImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetTrafficSignalStates(clonedList);
+            clonedObject->SetTrafficSignalStates(clonedList);
         }
         return clonedObject;
     }
@@ -13503,14 +13503,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PolylineImpl PolylineImpl::Clone()
+    std::shared_ptr<PolylineImpl> PolylineImpl::Clone()
     {
-        PolylineImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PolylineImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -13520,11 +13520,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IVertex>> clonedList;
             for(auto&& kItem : kVertices)
             {
-                auto clonedChild = std::make_shared <VertexImpl>(std::dynamic_pointer_cast<VertexImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<VertexImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetVertices(clonedList);
+            clonedObject->SetVertices(clonedList);
         }
         return clonedObject;
     }
@@ -13577,7 +13577,7 @@ namespace RAC_OPENSCENARIO
 	 * @param worldPosition from OpenSCENARIO class model specification: [Position that uses global coordinates.]
 	 * 
 	*/
-    void PositionImpl::SetWorldPosition(std::shared_ptr<IWorldPosition>& worldPosition )
+    void PositionImpl::SetWorldPosition(const std::shared_ptr<IWorldPosition> worldPosition )
     {
         _worldPosition = worldPosition;
     }
@@ -13587,7 +13587,7 @@ namespace RAC_OPENSCENARIO
 	 * position.]
 	 * 
 	*/
-    void PositionImpl::SetRelativeWorldPosition(std::shared_ptr<IRelativeWorldPosition>& relativeWorldPosition )
+    void PositionImpl::SetRelativeWorldPosition(const std::shared_ptr<IRelativeWorldPosition> relativeWorldPosition )
     {
         _relativeWorldPosition = relativeWorldPosition;
     }
@@ -13596,7 +13596,7 @@ namespace RAC_OPENSCENARIO
 	 * @param relativeObjectPosition from OpenSCENARIO class model specification: [Position is given relative to an entity.]
 	 * 
 	*/
-    void PositionImpl::SetRelativeObjectPosition(std::shared_ptr<IRelativeObjectPosition>& relativeObjectPosition )
+    void PositionImpl::SetRelativeObjectPosition(const std::shared_ptr<IRelativeObjectPosition> relativeObjectPosition )
     {
         _relativeObjectPosition = relativeObjectPosition;
     }
@@ -13606,7 +13606,7 @@ namespace RAC_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-    void PositionImpl::SetRoadPosition(std::shared_ptr<IRoadPosition>& roadPosition )
+    void PositionImpl::SetRoadPosition(const std::shared_ptr<IRoadPosition> roadPosition )
     {
         _roadPosition = roadPosition;
     }
@@ -13616,7 +13616,7 @@ namespace RAC_OPENSCENARIO
 	 * (ds, dt).]
 	 * 
 	*/
-    void PositionImpl::SetRelativeRoadPosition(std::shared_ptr<IRelativeRoadPosition>& relativeRoadPosition )
+    void PositionImpl::SetRelativeRoadPosition(const std::shared_ptr<IRelativeRoadPosition> relativeRoadPosition )
     {
         _relativeRoadPosition = relativeRoadPosition;
     }
@@ -13626,7 +13626,7 @@ namespace RAC_OPENSCENARIO
 	 * the s coordinate of a given road.]
 	 * 
 	*/
-    void PositionImpl::SetLanePosition(std::shared_ptr<ILanePosition>& lanePosition )
+    void PositionImpl::SetLanePosition(const std::shared_ptr<ILanePosition> lanePosition )
     {
         _lanePosition = lanePosition;
     }
@@ -13636,7 +13636,7 @@ namespace RAC_OPENSCENARIO
 	 * lane coordinates of a given entity. (Relative lane and relative s to this , entity).]
 	 * 
 	*/
-    void PositionImpl::SetRelativeLanePosition(std::shared_ptr<IRelativeLanePosition>& relativeLanePosition )
+    void PositionImpl::SetRelativeLanePosition(const std::shared_ptr<IRelativeLanePosition> relativeLanePosition )
     {
         _relativeLanePosition = relativeLanePosition;
     }
@@ -13645,7 +13645,7 @@ namespace RAC_OPENSCENARIO
 	 * @param routePosition from OpenSCENARIO class model specification: [Position that is determined by a given route.]
 	 * 
 	*/
-    void PositionImpl::SetRoutePosition(std::shared_ptr<IRoutePosition>& routePosition )
+    void PositionImpl::SetRoutePosition(const std::shared_ptr<IRoutePosition> routePosition )
     {
         _routePosition = routePosition;
     }
@@ -13719,80 +13719,80 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PositionImpl PositionImpl::Clone()
+    std::shared_ptr<PositionImpl> PositionImpl::Clone()
     {
-        PositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kWorldPosition =  GetWorldPosition();
         if (kWorldPosition)
         {
-            auto clonedChild = std::make_shared<WorldPositionImpl>(std::dynamic_pointer_cast<WorldPositionImpl>(kWorldPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<WorldPositionImpl>(kWorldPosition)->Clone();
             auto clonedChildIWorldPosition = std::dynamic_pointer_cast<IWorldPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetWorldPosition(clonedChildIWorldPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetWorldPosition(clonedChildIWorldPosition);
         }
         const auto kRelativeWorldPosition =  GetRelativeWorldPosition();
         if (kRelativeWorldPosition)
         {
-            auto clonedChild = std::make_shared<RelativeWorldPositionImpl>(std::dynamic_pointer_cast<RelativeWorldPositionImpl>(kRelativeWorldPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeWorldPositionImpl>(kRelativeWorldPosition)->Clone();
             auto clonedChildIRelativeWorldPosition = std::dynamic_pointer_cast<IRelativeWorldPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeWorldPosition(clonedChildIRelativeWorldPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeWorldPosition(clonedChildIRelativeWorldPosition);
         }
         const auto kRelativeObjectPosition =  GetRelativeObjectPosition();
         if (kRelativeObjectPosition)
         {
-            auto clonedChild = std::make_shared<RelativeObjectPositionImpl>(std::dynamic_pointer_cast<RelativeObjectPositionImpl>(kRelativeObjectPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeObjectPositionImpl>(kRelativeObjectPosition)->Clone();
             auto clonedChildIRelativeObjectPosition = std::dynamic_pointer_cast<IRelativeObjectPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeObjectPosition(clonedChildIRelativeObjectPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeObjectPosition(clonedChildIRelativeObjectPosition);
         }
         const auto kRoadPosition =  GetRoadPosition();
         if (kRoadPosition)
         {
-            auto clonedChild = std::make_shared<RoadPositionImpl>(std::dynamic_pointer_cast<RoadPositionImpl>(kRoadPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RoadPositionImpl>(kRoadPosition)->Clone();
             auto clonedChildIRoadPosition = std::dynamic_pointer_cast<IRoadPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRoadPosition(clonedChildIRoadPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRoadPosition(clonedChildIRoadPosition);
         }
         const auto kRelativeRoadPosition =  GetRelativeRoadPosition();
         if (kRelativeRoadPosition)
         {
-            auto clonedChild = std::make_shared<RelativeRoadPositionImpl>(std::dynamic_pointer_cast<RelativeRoadPositionImpl>(kRelativeRoadPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeRoadPositionImpl>(kRelativeRoadPosition)->Clone();
             auto clonedChildIRelativeRoadPosition = std::dynamic_pointer_cast<IRelativeRoadPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeRoadPosition(clonedChildIRelativeRoadPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeRoadPosition(clonedChildIRelativeRoadPosition);
         }
         const auto kLanePosition =  GetLanePosition();
         if (kLanePosition)
         {
-            auto clonedChild = std::make_shared<LanePositionImpl>(std::dynamic_pointer_cast<LanePositionImpl>(kLanePosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LanePositionImpl>(kLanePosition)->Clone();
             auto clonedChildILanePosition = std::dynamic_pointer_cast<ILanePosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLanePosition(clonedChildILanePosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLanePosition(clonedChildILanePosition);
         }
         const auto kRelativeLanePosition =  GetRelativeLanePosition();
         if (kRelativeLanePosition)
         {
-            auto clonedChild = std::make_shared<RelativeLanePositionImpl>(std::dynamic_pointer_cast<RelativeLanePositionImpl>(kRelativeLanePosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeLanePositionImpl>(kRelativeLanePosition)->Clone();
             auto clonedChildIRelativeLanePosition = std::dynamic_pointer_cast<IRelativeLanePosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeLanePosition(clonedChildIRelativeLanePosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeLanePosition(clonedChildIRelativeLanePosition);
         }
         const auto kRoutePosition =  GetRoutePosition();
         if (kRoutePosition)
         {
-            auto clonedChild = std::make_shared<RoutePositionImpl>(std::dynamic_pointer_cast<RoutePositionImpl>(kRoutePosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RoutePositionImpl>(kRoutePosition)->Clone();
             auto clonedChildIRoutePosition = std::dynamic_pointer_cast<IRoutePosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRoutePosition(clonedChildIRoutePosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRoutePosition(clonedChildIRoutePosition);
         }
         return clonedObject;
     }
@@ -13829,7 +13829,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void PositionInLaneCoordinatesImpl::SetPathS(double& pathS )
+    void PositionInLaneCoordinatesImpl::SetPathS(const double pathS )
     {
         _pathS = pathS;
     }
@@ -13838,7 +13838,7 @@ namespace RAC_OPENSCENARIO
 	 * @param laneId from OpenSCENARIO class model specification: [Lane ID of the actual position.]
 	 * 
 	*/
-    void PositionInLaneCoordinatesImpl::SetLaneId(std::string& laneId )
+    void PositionInLaneCoordinatesImpl::SetLaneId(const std::string laneId )
     {
         _laneId = laneId;
     }
@@ -13848,7 +13848,7 @@ namespace RAC_OPENSCENARIO
 	 * actual position. Unit: m.]
 	 * 
 	*/
-    void PositionInLaneCoordinatesImpl::SetLaneOffset(double& laneOffset )
+    void PositionInLaneCoordinatesImpl::SetLaneOffset(const double laneOffset )
     {
         _laneOffset = laneOffset;
     }
@@ -13900,22 +13900,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PositionInLaneCoordinatesImpl PositionInLaneCoordinatesImpl::Clone()
+    std::shared_ptr<PositionInLaneCoordinatesImpl> PositionInLaneCoordinatesImpl::Clone()
     {
-        PositionInLaneCoordinatesImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PositionInLaneCoordinatesImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetPathS(_pathS);
+        clonedObject->SetPathS(_pathS);
         // Simple type
-        clonedObject.SetLaneId(_laneId);
+        clonedObject->SetLaneId(_laneId);
         // Simple type
-        clonedObject.SetLaneOffset(_laneOffset);
+        clonedObject->SetLaneOffset(_laneOffset);
         // clone children
         return clonedObject;
     }
@@ -13947,7 +13947,7 @@ namespace RAC_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-    void PositionInRoadCoordinatesImpl::SetPathS(double& pathS )
+    void PositionInRoadCoordinatesImpl::SetPathS(const double pathS )
     {
         _pathS = pathS;
     }
@@ -13957,7 +13957,7 @@ namespace RAC_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-    void PositionInRoadCoordinatesImpl::SetT(double& t )
+    void PositionInRoadCoordinatesImpl::SetT(const double t )
     {
         _t = t;
     }
@@ -14003,20 +14003,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PositionInRoadCoordinatesImpl PositionInRoadCoordinatesImpl::Clone()
+    std::shared_ptr<PositionInRoadCoordinatesImpl> PositionInRoadCoordinatesImpl::Clone()
     {
-        PositionInRoadCoordinatesImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PositionInRoadCoordinatesImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetPathS(_pathS);
+        clonedObject->SetPathS(_pathS);
         // Simple type
-        clonedObject.SetT(_t);
+        clonedObject->SetT(_t);
         // clone children
         return clonedObject;
     }
@@ -14082,20 +14082,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PositionOfCurrentEntityImpl PositionOfCurrentEntityImpl::Clone()
+    std::shared_ptr<PositionOfCurrentEntityImpl> PositionOfCurrentEntityImpl::Clone()
     {
-        PositionOfCurrentEntityImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PositionOfCurrentEntityImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // clone children
         return clonedObject;
     }
@@ -14126,7 +14126,7 @@ namespace RAC_OPENSCENARIO
 	 * @param precipitationType from OpenSCENARIO class model specification: [Type of the precipitation.]
 	 * 
 	*/
-    void PrecipitationImpl::SetPrecipitationType(PrecipitationType& precipitationType )
+    void PrecipitationImpl::SetPrecipitationType(const PrecipitationType precipitationType )
     {
         _precipitationType = precipitationType;
     }
@@ -14135,7 +14135,7 @@ namespace RAC_OPENSCENARIO
 	 * @param intensity from OpenSCENARIO class model specification: [The intensity of the precipitation. Range: [0..1].]
 	 * 
 	*/
-    void PrecipitationImpl::SetIntensity(double& intensity )
+    void PrecipitationImpl::SetIntensity(const double intensity )
     {
         _intensity = intensity;
     }
@@ -14190,20 +14190,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PrecipitationImpl PrecipitationImpl::Clone()
+    std::shared_ptr<PrecipitationImpl> PrecipitationImpl::Clone()
     {
-        PrecipitationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PrecipitationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetPrecipitationType(_precipitationType);
+        clonedObject->SetPrecipitationType(_precipitationType);
         // Simple type
-        clonedObject.SetIntensity(_intensity);
+        clonedObject->SetIntensity(_intensity);
         // clone children
         return clonedObject;
     }
@@ -14291,20 +14291,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PrivateImpl PrivateImpl::Clone()
+    std::shared_ptr<PrivateImpl> PrivateImpl::Clone()
     {
-        PrivateImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PrivateImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // clone children
         const auto kPrivateActions =  GetPrivateActions();
         if (!kPrivateActions.empty())
@@ -14312,11 +14312,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IPrivateAction>> clonedList;
             for(auto&& kItem : kPrivateActions)
             {
-                auto clonedChild = std::make_shared <PrivateActionImpl>(std::dynamic_pointer_cast<PrivateActionImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<PrivateActionImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetPrivateActions(clonedList);
+            clonedObject->SetPrivateActions(clonedList);
         }
         return clonedObject;
     }
@@ -14370,7 +14370,7 @@ namespace RAC_OPENSCENARIO
 	 * reference entity/entities. Either a SpeedAction or a , LongitudinalDistanceAction.]
 	 * 
 	*/
-    void PrivateActionImpl::SetLongitudinalAction(std::shared_ptr<ILongitudinalAction>& longitudinalAction )
+    void PrivateActionImpl::SetLongitudinalAction(const std::shared_ptr<ILongitudinalAction> longitudinalAction )
     {
         _longitudinalAction = longitudinalAction;
     }
@@ -14380,7 +14380,7 @@ namespace RAC_OPENSCENARIO
 	 * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a , LateralDistanceAction.]
 	 * 
 	*/
-    void PrivateActionImpl::SetLateralAction(std::shared_ptr<ILateralAction>& lateralAction )
+    void PrivateActionImpl::SetLateralAction(const std::shared_ptr<ILateralAction> lateralAction )
     {
         _lateralAction = lateralAction;
     }
@@ -14390,7 +14390,7 @@ namespace RAC_OPENSCENARIO
 	 * entity/entities.]
 	 * 
 	*/
-    void PrivateActionImpl::SetVisibilityAction(std::shared_ptr<IVisibilityAction>& visibilityAction )
+    void PrivateActionImpl::SetVisibilityAction(const std::shared_ptr<IVisibilityAction> visibilityAction )
     {
         _visibilityAction = visibilityAction;
     }
@@ -14400,7 +14400,7 @@ namespace RAC_OPENSCENARIO
 	 * master entity. A target position is provided for the entity and for , the master entity to be reached at the same time.]
 	 * 
 	*/
-    void PrivateActionImpl::SetSynchronizeAction(std::shared_ptr<ISynchronizeAction>& synchronizeAction )
+    void PrivateActionImpl::SetSynchronizeAction(const std::shared_ptr<ISynchronizeAction> synchronizeAction )
     {
         _synchronizeAction = synchronizeAction;
     }
@@ -14410,7 +14410,7 @@ namespace RAC_OPENSCENARIO
 	 * reference entity/entities.]
 	 * 
 	*/
-    void PrivateActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerAction>& activateControllerAction )
+    void PrivateActionImpl::SetActivateControllerAction(const std::shared_ptr<IActivateControllerAction> activateControllerAction )
     {
         _activateControllerAction = activateControllerAction;
     }
@@ -14420,7 +14420,7 @@ namespace RAC_OPENSCENARIO
 	 * entity/entities.]
 	 * 
 	*/
-    void PrivateActionImpl::SetControllerAction(std::shared_ptr<IControllerAction>& controllerAction )
+    void PrivateActionImpl::SetControllerAction(const std::shared_ptr<IControllerAction> controllerAction )
     {
         _controllerAction = controllerAction;
     }
@@ -14430,7 +14430,7 @@ namespace RAC_OPENSCENARIO
 	 * entity/entities.]
 	 * 
 	*/
-    void PrivateActionImpl::SetTeleportAction(std::shared_ptr<ITeleportAction>& teleportAction )
+    void PrivateActionImpl::SetTeleportAction(const std::shared_ptr<ITeleportAction> teleportAction )
     {
         _teleportAction = teleportAction;
     }
@@ -14440,7 +14440,7 @@ namespace RAC_OPENSCENARIO
 	 * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.]
 	 * 
 	*/
-    void PrivateActionImpl::SetRoutingAction(std::shared_ptr<IRoutingAction>& routingAction )
+    void PrivateActionImpl::SetRoutingAction(const std::shared_ptr<IRoutingAction> routingAction )
     {
         _routingAction = routingAction;
     }
@@ -14514,80 +14514,80 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PrivateActionImpl PrivateActionImpl::Clone()
+    std::shared_ptr<PrivateActionImpl> PrivateActionImpl::Clone()
     {
-        PrivateActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PrivateActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kLongitudinalAction =  GetLongitudinalAction();
         if (kLongitudinalAction)
         {
-            auto clonedChild = std::make_shared<LongitudinalActionImpl>(std::dynamic_pointer_cast<LongitudinalActionImpl>(kLongitudinalAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LongitudinalActionImpl>(kLongitudinalAction)->Clone();
             auto clonedChildILongitudinalAction = std::dynamic_pointer_cast<ILongitudinalAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLongitudinalAction(clonedChildILongitudinalAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLongitudinalAction(clonedChildILongitudinalAction);
         }
         const auto kLateralAction =  GetLateralAction();
         if (kLateralAction)
         {
-            auto clonedChild = std::make_shared<LateralActionImpl>(std::dynamic_pointer_cast<LateralActionImpl>(kLateralAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<LateralActionImpl>(kLateralAction)->Clone();
             auto clonedChildILateralAction = std::dynamic_pointer_cast<ILateralAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLateralAction(clonedChildILateralAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLateralAction(clonedChildILateralAction);
         }
         const auto kVisibilityAction =  GetVisibilityAction();
         if (kVisibilityAction)
         {
-            auto clonedChild = std::make_shared<VisibilityActionImpl>(std::dynamic_pointer_cast<VisibilityActionImpl>(kVisibilityAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<VisibilityActionImpl>(kVisibilityAction)->Clone();
             auto clonedChildIVisibilityAction = std::dynamic_pointer_cast<IVisibilityAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetVisibilityAction(clonedChildIVisibilityAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetVisibilityAction(clonedChildIVisibilityAction);
         }
         const auto kSynchronizeAction =  GetSynchronizeAction();
         if (kSynchronizeAction)
         {
-            auto clonedChild = std::make_shared<SynchronizeActionImpl>(std::dynamic_pointer_cast<SynchronizeActionImpl>(kSynchronizeAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<SynchronizeActionImpl>(kSynchronizeAction)->Clone();
             auto clonedChildISynchronizeAction = std::dynamic_pointer_cast<ISynchronizeAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSynchronizeAction(clonedChildISynchronizeAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSynchronizeAction(clonedChildISynchronizeAction);
         }
         const auto kActivateControllerAction =  GetActivateControllerAction();
         if (kActivateControllerAction)
         {
-            auto clonedChild = std::make_shared<ActivateControllerActionImpl>(std::dynamic_pointer_cast<ActivateControllerActionImpl>(kActivateControllerAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ActivateControllerActionImpl>(kActivateControllerAction)->Clone();
             auto clonedChildIActivateControllerAction = std::dynamic_pointer_cast<IActivateControllerAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetActivateControllerAction(clonedChildIActivateControllerAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetActivateControllerAction(clonedChildIActivateControllerAction);
         }
         const auto kControllerAction =  GetControllerAction();
         if (kControllerAction)
         {
-            auto clonedChild = std::make_shared<ControllerActionImpl>(std::dynamic_pointer_cast<ControllerActionImpl>(kControllerAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ControllerActionImpl>(kControllerAction)->Clone();
             auto clonedChildIControllerAction = std::dynamic_pointer_cast<IControllerAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetControllerAction(clonedChildIControllerAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetControllerAction(clonedChildIControllerAction);
         }
         const auto kTeleportAction =  GetTeleportAction();
         if (kTeleportAction)
         {
-            auto clonedChild = std::make_shared<TeleportActionImpl>(std::dynamic_pointer_cast<TeleportActionImpl>(kTeleportAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TeleportActionImpl>(kTeleportAction)->Clone();
             auto clonedChildITeleportAction = std::dynamic_pointer_cast<ITeleportAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTeleportAction(clonedChildITeleportAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTeleportAction(clonedChildITeleportAction);
         }
         const auto kRoutingAction =  GetRoutingAction();
         if (kRoutingAction)
         {
-            auto clonedChild = std::make_shared<RoutingActionImpl>(std::dynamic_pointer_cast<RoutingActionImpl>(kRoutingAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RoutingActionImpl>(kRoutingAction)->Clone();
             auto clonedChildIRoutingAction = std::dynamic_pointer_cast<IRoutingAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRoutingAction(clonedChildIRoutingAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRoutingAction(clonedChildIRoutingAction);
         }
         return clonedObject;
     }
@@ -14678,14 +14678,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PropertiesImpl PropertiesImpl::Clone()
+    std::shared_ptr<PropertiesImpl> PropertiesImpl::Clone()
     {
-        PropertiesImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PropertiesImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -14695,11 +14695,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IProperty>> clonedList;
             for(auto&& kItem : kProperties)
             {
-                auto clonedChild = std::make_shared <PropertyImpl>(std::dynamic_pointer_cast<PropertyImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<PropertyImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetProperties(clonedList);
+            clonedObject->SetProperties(clonedList);
         }
         const auto kFiles =  GetFiles();
         if (!kFiles.empty())
@@ -14707,11 +14707,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IFile>> clonedList;
             for(auto&& kItem : kFiles)
             {
-                auto clonedChild = std::make_shared <FileImpl>(std::dynamic_pointer_cast<FileImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<FileImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetFiles(clonedList);
+            clonedObject->SetFiles(clonedList);
         }
         return clonedObject;
     }
@@ -14742,7 +14742,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of a user defined property.]
 	 * 
 	*/
-    void PropertyImpl::SetName(std::string& name )
+    void PropertyImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -14751,7 +14751,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Value of a user defined property.]
 	 * 
 	*/
-    void PropertyImpl::SetValue(std::string& value )
+    void PropertyImpl::SetValue(const std::string value )
     {
         _value = value;
     }
@@ -14797,20 +14797,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    PropertyImpl PropertyImpl::Clone()
+    std::shared_ptr<PropertyImpl> PropertyImpl::Clone()
     {
-        PropertyImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<PropertyImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -14841,7 +14841,7 @@ namespace RAC_OPENSCENARIO
 	 * m; Range: [0..inf[.]
 	 * 
 	*/
-    void ReachPositionConditionImpl::SetTolerance(double& tolerance )
+    void ReachPositionConditionImpl::SetTolerance(const double tolerance )
     {
         _tolerance = tolerance;
     }
@@ -14850,7 +14850,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The position to be reached with the defined tolerance.]
 	 * 
 	*/
-    void ReachPositionConditionImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void ReachPositionConditionImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -14895,26 +14895,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ReachPositionConditionImpl ReachPositionConditionImpl::Clone()
+    std::shared_ptr<ReachPositionConditionImpl> ReachPositionConditionImpl::Clone()
     {
-        ReachPositionConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ReachPositionConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetTolerance(_tolerance);
+        clonedObject->SetTolerance(_tolerance);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -14969,7 +14969,7 @@ namespace RAC_OPENSCENARIO
 	 * @param relativeDistanceType from OpenSCENARIO class model specification: [The domain the distance is calculated in.]
 	 * 
 	*/
-    void RelativeDistanceConditionImpl::SetRelativeDistanceType(RelativeDistanceType& relativeDistanceType )
+    void RelativeDistanceConditionImpl::SetRelativeDistanceType(const RelativeDistanceType relativeDistanceType )
     {
         _relativeDistanceType = relativeDistanceType;
     }
@@ -14978,7 +14978,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The distance value. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void RelativeDistanceConditionImpl::SetValue(double& value )
+    void RelativeDistanceConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -14988,7 +14988,7 @@ namespace RAC_OPENSCENARIO
 	 * points. False: reference point distance is used.]
 	 * 
 	*/
-    void RelativeDistanceConditionImpl::SetFreespace(bool& freespace )
+    void RelativeDistanceConditionImpl::SetFreespace(const bool freespace )
     {
         _freespace = freespace;
     }
@@ -14997,7 +14997,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void RelativeDistanceConditionImpl::SetRule(Rule& rule )
+    void RelativeDistanceConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -15079,28 +15079,28 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeDistanceConditionImpl RelativeDistanceConditionImpl::Clone()
+    std::shared_ptr<RelativeDistanceConditionImpl> RelativeDistanceConditionImpl::Clone()
     {
-        RelativeDistanceConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeDistanceConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Enumeration Type
-        clonedObject.SetRelativeDistanceType(_relativeDistanceType);
+        clonedObject->SetRelativeDistanceType(_relativeDistanceType);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetFreespace(_freespace);
+        clonedObject->SetFreespace(_freespace);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -15154,7 +15154,7 @@ namespace RAC_OPENSCENARIO
 	 * @param dLane from OpenSCENARIO class model specification: [Relative dlane to the lane of the reference entity.]
 	 * 
 	*/
-    void RelativeLanePositionImpl::SetDLane(int& dLane )
+    void RelativeLanePositionImpl::SetDLane(const int dLane )
     {
         _dLane = dLane;
     }
@@ -15163,7 +15163,7 @@ namespace RAC_OPENSCENARIO
 	 * @param ds from OpenSCENARIO class model specification: [Relative ds to the s of reference entity.]
 	 * 
 	*/
-    void RelativeLanePositionImpl::SetDs(double& ds )
+    void RelativeLanePositionImpl::SetDs(const double ds )
     {
         _ds = ds;
     }
@@ -15173,7 +15173,7 @@ namespace RAC_OPENSCENARIO
 	 * ]-inf..inf[]
 	 * 
 	*/
-    void RelativeLanePositionImpl::SetOffset(double& offset )
+    void RelativeLanePositionImpl::SetOffset(const double offset )
     {
         _offset = offset;
     }
@@ -15183,7 +15183,7 @@ namespace RAC_OPENSCENARIO
 	 * the referenced lane's s and t coordinates.]
 	 * 
 	*/
-    void RelativeLanePositionImpl::SetOrientation(std::shared_ptr<IOrientation>& orientation )
+    void RelativeLanePositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
     {
         _orientation = orientation;
     }
@@ -15246,34 +15246,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeLanePositionImpl RelativeLanePositionImpl::Clone()
+    std::shared_ptr<RelativeLanePositionImpl> RelativeLanePositionImpl::Clone()
     {
-        RelativeLanePositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeLanePositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetDLane(_dLane);
+        clonedObject->SetDLane(_dLane);
         // Simple type
-        clonedObject.SetDs(_ds);
+        clonedObject->SetDs(_ds);
         // Simple type
-        clonedObject.SetOffset(_offset);
+        clonedObject->SetOffset(_offset);
         // clone children
         const auto kOrientation =  GetOrientation();
         if (kOrientation)
         {
-            auto clonedChild = std::make_shared<OrientationImpl>(std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
             auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOrientation(clonedChildIOrientation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOrientation(clonedChildIOrientation);
         }
         return clonedObject;
     }
@@ -15328,7 +15328,7 @@ namespace RAC_OPENSCENARIO
 	 * the reference entity.]
 	 * 
 	*/
-    void RelativeObjectPositionImpl::SetDx(double& dx )
+    void RelativeObjectPositionImpl::SetDx(const double dx )
     {
         _dx = dx;
     }
@@ -15338,7 +15338,7 @@ namespace RAC_OPENSCENARIO
 	 * the reference entity.]
 	 * 
 	*/
-    void RelativeObjectPositionImpl::SetDy(double& dy )
+    void RelativeObjectPositionImpl::SetDy(const double dy )
     {
         _dy = dy;
     }
@@ -15348,7 +15348,7 @@ namespace RAC_OPENSCENARIO
 	 * the reference entity.]
 	 * 
 	*/
-    void RelativeObjectPositionImpl::SetDz(double& dz )
+    void RelativeObjectPositionImpl::SetDz(const double dz )
     {
         _dz = dz;
     }
@@ -15358,7 +15358,7 @@ namespace RAC_OPENSCENARIO
 	 * the orientation of the reference entity.]
 	 * 
 	*/
-    void RelativeObjectPositionImpl::SetOrientation(std::shared_ptr<IOrientation>& orientation )
+    void RelativeObjectPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
     {
         _orientation = orientation;
     }
@@ -15421,34 +15421,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeObjectPositionImpl RelativeObjectPositionImpl::Clone()
+    std::shared_ptr<RelativeObjectPositionImpl> RelativeObjectPositionImpl::Clone()
     {
-        RelativeObjectPositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeObjectPositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetDx(_dx);
+        clonedObject->SetDx(_dx);
         // Simple type
-        clonedObject.SetDy(_dy);
+        clonedObject->SetDy(_dy);
         // Simple type
-        clonedObject.SetDz(_dz);
+        clonedObject->SetDz(_dz);
         // clone children
         const auto kOrientation =  GetOrientation();
         if (kOrientation)
         {
-            auto clonedChild = std::make_shared<OrientationImpl>(std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
             auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOrientation(clonedChildIOrientation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOrientation(clonedChildIOrientation);
         }
         return clonedObject;
     }
@@ -15498,7 +15498,7 @@ namespace RAC_OPENSCENARIO
 	 * entity.]
 	 * 
 	*/
-    void RelativeRoadPositionImpl::SetDs(double& ds )
+    void RelativeRoadPositionImpl::SetDs(const double ds )
     {
         _ds = ds;
     }
@@ -15508,7 +15508,7 @@ namespace RAC_OPENSCENARIO
 	 * entity.]
 	 * 
 	*/
-    void RelativeRoadPositionImpl::SetDt(double& dt )
+    void RelativeRoadPositionImpl::SetDt(const double dt )
     {
         _dt = dt;
     }
@@ -15518,7 +15518,7 @@ namespace RAC_OPENSCENARIO
 	 * the referenced road's s and t coordinates.]
 	 * 
 	*/
-    void RelativeRoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation>& orientation )
+    void RelativeRoadPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
     {
         _orientation = orientation;
     }
@@ -15575,32 +15575,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeRoadPositionImpl RelativeRoadPositionImpl::Clone()
+    std::shared_ptr<RelativeRoadPositionImpl> RelativeRoadPositionImpl::Clone()
     {
-        RelativeRoadPositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeRoadPositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetDs(_ds);
+        clonedObject->SetDs(_ds);
         // Simple type
-        clonedObject.SetDt(_dt);
+        clonedObject->SetDt(_dt);
         // clone children
         const auto kOrientation =  GetOrientation();
         if (kOrientation)
         {
-            auto clonedChild = std::make_shared<OrientationImpl>(std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
             auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOrientation(clonedChildIOrientation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOrientation(clonedChildIOrientation);
         }
         return clonedObject;
     }
@@ -15645,7 +15645,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Relative speed value. Unit: m/s.]
 	 * 
 	*/
-    void RelativeSpeedConditionImpl::SetValue(double& value )
+    void RelativeSpeedConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -15654,7 +15654,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void RelativeSpeedConditionImpl::SetRule(Rule& rule )
+    void RelativeSpeedConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -15715,24 +15715,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeSpeedConditionImpl RelativeSpeedConditionImpl::Clone()
+    std::shared_ptr<RelativeSpeedConditionImpl> RelativeSpeedConditionImpl::Clone()
     {
-        RelativeSpeedConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeSpeedConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -15763,7 +15763,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Relative speed. Unit: m/s. Range: ]-inf..inf[.]
 	 * 
 	*/
-    void RelativeSpeedToMasterImpl::SetValue(double& value )
+    void RelativeSpeedToMasterImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -15773,7 +15773,7 @@ namespace RAC_OPENSCENARIO
 	 * factor).]
 	 * 
 	*/
-    void RelativeSpeedToMasterImpl::SetSpeedTargetValueType(SpeedTargetValueType& speedTargetValueType )
+    void RelativeSpeedToMasterImpl::SetSpeedTargetValueType(const SpeedTargetValueType speedTargetValueType )
     {
         _speedTargetValueType = speedTargetValueType;
     }
@@ -15828,20 +15828,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeSpeedToMasterImpl RelativeSpeedToMasterImpl::Clone()
+    std::shared_ptr<RelativeSpeedToMasterImpl> RelativeSpeedToMasterImpl::Clone()
     {
-        RelativeSpeedToMasterImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeSpeedToMasterImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetSpeedTargetValueType(_speedTargetValueType);
+        clonedObject->SetSpeedTargetValueType(_speedTargetValueType);
         // clone children
         return clonedObject;
     }
@@ -15882,7 +15882,7 @@ namespace RAC_OPENSCENARIO
 	 * current lane.]
 	 * 
 	*/
-    void RelativeTargetLaneImpl::SetValue(int& value )
+    void RelativeTargetLaneImpl::SetValue(const int value )
     {
         _value = value;
     }
@@ -15928,22 +15928,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeTargetLaneImpl RelativeTargetLaneImpl::Clone()
+    std::shared_ptr<RelativeTargetLaneImpl> RelativeTargetLaneImpl::Clone()
     {
-        RelativeTargetLaneImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeTargetLaneImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -15984,7 +15984,7 @@ namespace RAC_OPENSCENARIO
 	 * lane position. Unit: m.]
 	 * 
 	*/
-    void RelativeTargetLaneOffsetImpl::SetValue(double& value )
+    void RelativeTargetLaneOffsetImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -16030,22 +16030,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeTargetLaneOffsetImpl RelativeTargetLaneOffsetImpl::Clone()
+    std::shared_ptr<RelativeTargetLaneOffsetImpl> RelativeTargetLaneOffsetImpl::Clone()
     {
-        RelativeTargetLaneOffsetImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeTargetLaneOffsetImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -16098,7 +16098,7 @@ namespace RAC_OPENSCENARIO
 	 * entity/entities are supposed to drive 10% faster than the target, reference entity. Unit: m/s or 1.]
 	 * 
 	*/
-    void RelativeTargetSpeedImpl::SetValue(double& value )
+    void RelativeTargetSpeedImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -16108,7 +16108,7 @@ namespace RAC_OPENSCENARIO
 	 * factor (no Unit).]
 	 * 
 	*/
-    void RelativeTargetSpeedImpl::SetSpeedTargetValueType(SpeedTargetValueType& speedTargetValueType )
+    void RelativeTargetSpeedImpl::SetSpeedTargetValueType(const SpeedTargetValueType speedTargetValueType )
     {
         _speedTargetValueType = speedTargetValueType;
     }
@@ -16119,7 +16119,7 @@ namespace RAC_OPENSCENARIO
 	 * Dynamics.distance.]
 	 * 
 	*/
-    void RelativeTargetSpeedImpl::SetContinuous(bool& continuous )
+    void RelativeTargetSpeedImpl::SetContinuous(const bool continuous )
     {
         _continuous = continuous;
     }
@@ -16186,26 +16186,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeTargetSpeedImpl RelativeTargetSpeedImpl::Clone()
+    std::shared_ptr<RelativeTargetSpeedImpl> RelativeTargetSpeedImpl::Clone()
     {
-        RelativeTargetSpeedImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeTargetSpeedImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetSpeedTargetValueType(_speedTargetValueType);
+        clonedObject->SetSpeedTargetValueType(_speedTargetValueType);
         // Simple type
-        clonedObject.SetContinuous(_continuous);
+        clonedObject->SetContinuous(_continuous);
         // clone children
         return clonedObject;
     }
@@ -16260,7 +16260,7 @@ namespace RAC_OPENSCENARIO
 	 * @param dx from OpenSCENARIO class model specification: [Relative x coordinate in the world coordinate system.]
 	 * 
 	*/
-    void RelativeWorldPositionImpl::SetDx(double& dx )
+    void RelativeWorldPositionImpl::SetDx(const double dx )
     {
         _dx = dx;
     }
@@ -16269,7 +16269,7 @@ namespace RAC_OPENSCENARIO
 	 * @param dy from OpenSCENARIO class model specification: [Relative y coordinate in the world coordinate system.]
 	 * 
 	*/
-    void RelativeWorldPositionImpl::SetDy(double& dy )
+    void RelativeWorldPositionImpl::SetDy(const double dy )
     {
         _dy = dy;
     }
@@ -16278,7 +16278,7 @@ namespace RAC_OPENSCENARIO
 	 * @param dz from OpenSCENARIO class model specification: [Relative z coordinate in the world coordinate system.]
 	 * 
 	*/
-    void RelativeWorldPositionImpl::SetDz(double& dz )
+    void RelativeWorldPositionImpl::SetDz(const double dz )
     {
         _dz = dz;
     }
@@ -16288,7 +16288,7 @@ namespace RAC_OPENSCENARIO
 	 * the reference entity's orientation.]
 	 * 
 	*/
-    void RelativeWorldPositionImpl::SetOrientation(std::shared_ptr<IOrientation>& orientation )
+    void RelativeWorldPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
     {
         _orientation = orientation;
     }
@@ -16351,34 +16351,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RelativeWorldPositionImpl RelativeWorldPositionImpl::Clone()
+    std::shared_ptr<RelativeWorldPositionImpl> RelativeWorldPositionImpl::Clone()
     {
-        RelativeWorldPositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RelativeWorldPositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetDx(_dx);
+        clonedObject->SetDx(_dx);
         // Simple type
-        clonedObject.SetDy(_dy);
+        clonedObject->SetDy(_dy);
         // Simple type
-        clonedObject.SetDz(_dz);
+        clonedObject->SetDz(_dz);
         // clone children
         const auto kOrientation =  GetOrientation();
         if (kOrientation)
         {
-            auto clonedChild = std::make_shared<OrientationImpl>(std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
             auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOrientation(clonedChildIOrientation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOrientation(clonedChildIOrientation);
         }
         return clonedObject;
     }
@@ -16408,7 +16408,7 @@ namespace RAC_OPENSCENARIO
 	 * @param frictionScaleFactor from OpenSCENARIO class model specification: [Friction scale factor. Range: [0..inf[]
 	 * 
 	*/
-    void RoadConditionImpl::SetFrictionScaleFactor(double& frictionScaleFactor )
+    void RoadConditionImpl::SetFrictionScaleFactor(const double frictionScaleFactor )
     {
         _frictionScaleFactor = frictionScaleFactor;
     }
@@ -16417,7 +16417,7 @@ namespace RAC_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Additional properties to describe the road condition.]
 	 * 
 	*/
-    void RoadConditionImpl::SetProperties(std::shared_ptr<IProperties>& properties )
+    void RoadConditionImpl::SetProperties(const std::shared_ptr<IProperties> properties )
     {
         _properties = properties;
     }
@@ -16462,26 +16462,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RoadConditionImpl RoadConditionImpl::Clone()
+    std::shared_ptr<RoadConditionImpl> RoadConditionImpl::Clone()
     {
-        RoadConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RoadConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetFrictionScaleFactor(_frictionScaleFactor);
+        clonedObject->SetFrictionScaleFactor(_frictionScaleFactor);
         // clone children
         const auto kProperties =  GetProperties();
         if (kProperties)
         {
-            auto clonedChild = std::make_shared<PropertiesImpl>(std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
             auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetProperties(clonedChildIProperties);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetProperties(clonedChildIProperties);
         }
         return clonedObject;
     }
@@ -16515,7 +16515,7 @@ namespace RAC_OPENSCENARIO
 	 * OpenDRIVE file).]
 	 * 
 	*/
-    void RoadNetworkImpl::SetLogicFile(std::shared_ptr<IFile>& logicFile )
+    void RoadNetworkImpl::SetLogicFile(const std::shared_ptr<IFile> logicFile )
     {
         _logicFile = logicFile;
     }
@@ -16525,7 +16525,7 @@ namespace RAC_OPENSCENARIO
 	 * environment. This may be used for visual representation (rendering).]
 	 * 
 	*/
-    void RoadNetworkImpl::SetSceneGraphFile(std::shared_ptr<IFile>& sceneGraphFile )
+    void RoadNetworkImpl::SetSceneGraphFile(const std::shared_ptr<IFile> sceneGraphFile )
     {
         _sceneGraphFile = sceneGraphFile;
     }
@@ -16587,32 +16587,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RoadNetworkImpl RoadNetworkImpl::Clone()
+    std::shared_ptr<RoadNetworkImpl> RoadNetworkImpl::Clone()
     {
-        RoadNetworkImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RoadNetworkImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kLogicFile =  GetLogicFile();
         if (kLogicFile)
         {
-            auto clonedChild = std::make_shared<FileImpl>(std::dynamic_pointer_cast<FileImpl>(kLogicFile)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<FileImpl>(kLogicFile)->Clone();
             auto clonedChildIFile = std::dynamic_pointer_cast<IFile>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetLogicFile(clonedChildIFile);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetLogicFile(clonedChildIFile);
         }
         const auto kSceneGraphFile =  GetSceneGraphFile();
         if (kSceneGraphFile)
         {
-            auto clonedChild = std::make_shared<FileImpl>(std::dynamic_pointer_cast<FileImpl>(kSceneGraphFile)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<FileImpl>(kSceneGraphFile)->Clone();
             auto clonedChildIFile = std::dynamic_pointer_cast<IFile>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSceneGraphFile(clonedChildIFile);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSceneGraphFile(clonedChildIFile);
         }
         const auto kTrafficSignals =  GetTrafficSignals();
         if (!kTrafficSignals.empty())
@@ -16620,11 +16620,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<ITrafficSignalController>> clonedList;
             for(auto&& kItem : kTrafficSignals)
             {
-                auto clonedChild = std::make_shared <TrafficSignalControllerImpl>(std::dynamic_pointer_cast<TrafficSignalControllerImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<TrafficSignalControllerImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetTrafficSignals(clonedList);
+            clonedObject->SetTrafficSignals(clonedList);
         }
         return clonedObject;
     }
@@ -16665,7 +16665,7 @@ namespace RAC_OPENSCENARIO
 	 * definition file (external to ASAM OpenSCENARIO).]
 	 * 
 	*/
-    void RoadPositionImpl::SetRoadId(std::string& roadId )
+    void RoadPositionImpl::SetRoadId(const std::string roadId )
     {
         _roadId = roadId;
     }
@@ -16674,7 +16674,7 @@ namespace RAC_OPENSCENARIO
 	 * @param s from OpenSCENARIO class model specification: [Represents s coordinate along the reference line of the road.]
 	 * 
 	*/
-    void RoadPositionImpl::SetS(double& s )
+    void RoadPositionImpl::SetS(const double s )
     {
         _s = s;
     }
@@ -16684,7 +16684,7 @@ namespace RAC_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-    void RoadPositionImpl::SetT(double& t )
+    void RoadPositionImpl::SetT(const double t )
     {
         _t = t;
     }
@@ -16694,7 +16694,7 @@ namespace RAC_OPENSCENARIO
 	 * the referenced road's s and t coordinates.]
 	 * 
 	*/
-    void RoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation>& orientation )
+    void RoadPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
     {
         _orientation = orientation;
     }
@@ -16751,30 +16751,30 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RoadPositionImpl RoadPositionImpl::Clone()
+    std::shared_ptr<RoadPositionImpl> RoadPositionImpl::Clone()
     {
-        RoadPositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RoadPositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetRoadId(_roadId);
+        clonedObject->SetRoadId(_roadId);
         // Simple type
-        clonedObject.SetS(_s);
+        clonedObject->SetS(_s);
         // Simple type
-        clonedObject.SetT(_t);
+        clonedObject->SetT(_t);
         // clone children
         const auto kOrientation =  GetOrientation();
         if (kOrientation)
         {
-            auto clonedChild = std::make_shared<OrientationImpl>(std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
             auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOrientation(clonedChildIOrientation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOrientation(clonedChildIOrientation);
         }
         return clonedObject;
     }
@@ -16813,7 +16813,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the route. Required in catalogs.]
 	 * 
 	*/
-    void RouteImpl::SetName(std::string& name )
+    void RouteImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -16823,7 +16823,7 @@ namespace RAC_OPENSCENARIO
 	 * first waypoint to create a closed route.]
 	 * 
 	*/
-    void RouteImpl::SetClosed(bool& closed )
+    void RouteImpl::SetClosed(const bool closed )
     {
         _closed = closed;
     }
@@ -16923,20 +16923,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RouteImpl RouteImpl::Clone()
+    std::shared_ptr<RouteImpl> RouteImpl::Clone()
     {
-        RouteImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RouteImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetClosed(_closed);
+        clonedObject->SetClosed(_closed);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -16944,11 +16944,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kWaypoints =  GetWaypoints();
         if (!kWaypoints.empty())
@@ -16956,11 +16956,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IWaypoint>> clonedList;
             for(auto&& kItem : kWaypoints)
             {
-                auto clonedChild = std::make_shared <WaypointImpl>(std::dynamic_pointer_cast<WaypointImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<WaypointImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetWaypoints(clonedList);
+            clonedObject->SetWaypoints(clonedList);
         }
         return clonedObject;
     }
@@ -16985,7 +16985,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-    void RouteCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void RouteCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -17024,24 +17024,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RouteCatalogLocationImpl RouteCatalogLocationImpl::Clone()
+    std::shared_ptr<RouteCatalogLocationImpl> RouteCatalogLocationImpl::Clone()
     {
-        RouteCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RouteCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -17074,7 +17074,7 @@ namespace RAC_OPENSCENARIO
 	 * @param routeRef from OpenSCENARIO class model specification: [Reference to the route the position is calculated from.]
 	 * 
 	*/
-    void RoutePositionImpl::SetRouteRef(std::shared_ptr<IRouteRef>& routeRef )
+    void RoutePositionImpl::SetRouteRef(const std::shared_ptr<IRouteRef> routeRef )
     {
         _routeRef = routeRef;
     }
@@ -17085,7 +17085,7 @@ namespace RAC_OPENSCENARIO
 	 * reference entity.]
 	 * 
 	*/
-    void RoutePositionImpl::SetOrientation(std::shared_ptr<IOrientation>& orientation )
+    void RoutePositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
     {
         _orientation = orientation;
     }
@@ -17094,7 +17094,7 @@ namespace RAC_OPENSCENARIO
 	 * @param inRoutePosition from OpenSCENARIO class model specification: [Position along the route.]
 	 * 
 	*/
-    void RoutePositionImpl::SetInRoutePosition(std::shared_ptr<IInRoutePosition>& inRoutePosition )
+    void RoutePositionImpl::SetInRoutePosition(const std::shared_ptr<IInRoutePosition> inRoutePosition )
     {
         _inRoutePosition = inRoutePosition;
     }
@@ -17143,40 +17143,40 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RoutePositionImpl RoutePositionImpl::Clone()
+    std::shared_ptr<RoutePositionImpl> RoutePositionImpl::Clone()
     {
-        RoutePositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RoutePositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kRouteRef =  GetRouteRef();
         if (kRouteRef)
         {
-            auto clonedChild = std::make_shared<RouteRefImpl>(std::dynamic_pointer_cast<RouteRefImpl>(kRouteRef)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RouteRefImpl>(kRouteRef)->Clone();
             auto clonedChildIRouteRef = std::dynamic_pointer_cast<IRouteRef>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRouteRef(clonedChildIRouteRef);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRouteRef(clonedChildIRouteRef);
         }
         const auto kOrientation =  GetOrientation();
         if (kOrientation)
         {
-            auto clonedChild = std::make_shared<OrientationImpl>(std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
             auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetOrientation(clonedChildIOrientation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetOrientation(clonedChildIOrientation);
         }
         const auto kInRoutePosition =  GetInRoutePosition();
         if (kInRoutePosition)
         {
-            auto clonedChild = std::make_shared<InRoutePositionImpl>(std::dynamic_pointer_cast<InRoutePositionImpl>(kInRoutePosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<InRoutePositionImpl>(kInRoutePosition)->Clone();
             auto clonedChildIInRoutePosition = std::dynamic_pointer_cast<IInRoutePosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetInRoutePosition(clonedChildIInRoutePosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetInRoutePosition(clonedChildIInRoutePosition);
         }
         return clonedObject;
     }
@@ -17205,7 +17205,7 @@ namespace RAC_OPENSCENARIO
 	 * @param route from OpenSCENARIO class model specification: [Route definition.]
 	 * 
 	*/
-    void RouteRefImpl::SetRoute(std::shared_ptr<IRoute>& route )
+    void RouteRefImpl::SetRoute(const std::shared_ptr<IRoute> route )
     {
         _route = route;
     }
@@ -17214,7 +17214,7 @@ namespace RAC_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [Reference to route in the catalog.]
 	 * 
 	*/
-    void RouteRefImpl::SetCatalogReference(std::shared_ptr<ICatalogReference>& catalogReference )
+    void RouteRefImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
     {
         _catalogReference = catalogReference;
     }
@@ -17258,32 +17258,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RouteRefImpl RouteRefImpl::Clone()
+    std::shared_ptr<RouteRefImpl> RouteRefImpl::Clone()
     {
-        RouteRefImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RouteRefImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kRoute =  GetRoute();
         if (kRoute)
         {
-            auto clonedChild = std::make_shared<RouteImpl>(std::dynamic_pointer_cast<RouteImpl>(kRoute)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RouteImpl>(kRoute)->Clone();
             auto clonedChildIRoute = std::dynamic_pointer_cast<IRoute>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRoute(clonedChildIRoute);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRoute(clonedChildIRoute);
         }
         const auto kCatalogReference =  GetCatalogReference();
         if (kCatalogReference)
         {
-            auto clonedChild = std::make_shared<CatalogReferenceImpl>(std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
             auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogReference(clonedChildICatalogReference);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogReference(clonedChildICatalogReference);
         }
         return clonedObject;
     }
@@ -17317,7 +17317,7 @@ namespace RAC_OPENSCENARIO
 	 * defined by at least two waypoints.]
 	 * 
 	*/
-    void RoutingActionImpl::SetAssignRouteAction(std::shared_ptr<IAssignRouteAction>& assignRouteAction )
+    void RoutingActionImpl::SetAssignRouteAction(const std::shared_ptr<IAssignRouteAction> assignRouteAction )
     {
         _assignRouteAction = assignRouteAction;
     }
@@ -17326,7 +17326,7 @@ namespace RAC_OPENSCENARIO
 	 * @param followTrajectoryAction from OpenSCENARIO class model specification: [Controls an entity to follow a trajectory.]
 	 * 
 	*/
-    void RoutingActionImpl::SetFollowTrajectoryAction(std::shared_ptr<IFollowTrajectoryAction>& followTrajectoryAction )
+    void RoutingActionImpl::SetFollowTrajectoryAction(const std::shared_ptr<IFollowTrajectoryAction> followTrajectoryAction )
     {
         _followTrajectoryAction = followTrajectoryAction;
     }
@@ -17336,7 +17336,7 @@ namespace RAC_OPENSCENARIO
 	 * assigned will be the shortest route (along roads) between the entity's current , position and the position specified.]
 	 * 
 	*/
-    void RoutingActionImpl::SetAcquirePositionAction(std::shared_ptr<IAcquirePositionAction>& acquirePositionAction )
+    void RoutingActionImpl::SetAcquirePositionAction(const std::shared_ptr<IAcquirePositionAction> acquirePositionAction )
     {
         _acquirePositionAction = acquirePositionAction;
     }
@@ -17385,40 +17385,40 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    RoutingActionImpl RoutingActionImpl::Clone()
+    std::shared_ptr<RoutingActionImpl> RoutingActionImpl::Clone()
     {
-        RoutingActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<RoutingActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kAssignRouteAction =  GetAssignRouteAction();
         if (kAssignRouteAction)
         {
-            auto clonedChild = std::make_shared<AssignRouteActionImpl>(std::dynamic_pointer_cast<AssignRouteActionImpl>(kAssignRouteAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AssignRouteActionImpl>(kAssignRouteAction)->Clone();
             auto clonedChildIAssignRouteAction = std::dynamic_pointer_cast<IAssignRouteAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAssignRouteAction(clonedChildIAssignRouteAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAssignRouteAction(clonedChildIAssignRouteAction);
         }
         const auto kFollowTrajectoryAction =  GetFollowTrajectoryAction();
         if (kFollowTrajectoryAction)
         {
-            auto clonedChild = std::make_shared<FollowTrajectoryActionImpl>(std::dynamic_pointer_cast<FollowTrajectoryActionImpl>(kFollowTrajectoryAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<FollowTrajectoryActionImpl>(kFollowTrajectoryAction)->Clone();
             auto clonedChildIFollowTrajectoryAction = std::dynamic_pointer_cast<IFollowTrajectoryAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFollowTrajectoryAction(clonedChildIFollowTrajectoryAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFollowTrajectoryAction(clonedChildIFollowTrajectoryAction);
         }
         const auto kAcquirePositionAction =  GetAcquirePositionAction();
         if (kAcquirePositionAction)
         {
-            auto clonedChild = std::make_shared<AcquirePositionActionImpl>(std::dynamic_pointer_cast<AcquirePositionActionImpl>(kAcquirePositionAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AcquirePositionActionImpl>(kAcquirePositionAction)->Clone();
             auto clonedChildIAcquirePositionAction = std::dynamic_pointer_cast<IAcquirePositionAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAcquirePositionAction(clonedChildIAcquirePositionAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAcquirePositionAction(clonedChildIAcquirePositionAction);
         }
         return clonedObject;
     }
@@ -17471,7 +17471,7 @@ namespace RAC_OPENSCENARIO
 	 * catalog element type has its own list.]
 	 * 
 	*/
-    void ScenarioDefinitionImpl::SetCatalogLocations(std::shared_ptr<ICatalogLocations>& catalogLocations )
+    void ScenarioDefinitionImpl::SetCatalogLocations(const std::shared_ptr<ICatalogLocations> catalogLocations )
     {
         _catalogLocations = catalogLocations;
     }
@@ -17480,7 +17480,7 @@ namespace RAC_OPENSCENARIO
 	 * @param roadNetwork from OpenSCENARIO class model specification: [Reference to the road network.]
 	 * 
 	*/
-    void ScenarioDefinitionImpl::SetRoadNetwork(std::shared_ptr<IRoadNetwork>& roadNetwork )
+    void ScenarioDefinitionImpl::SetRoadNetwork(const std::shared_ptr<IRoadNetwork> roadNetwork )
     {
         _roadNetwork = roadNetwork;
     }
@@ -17490,7 +17490,7 @@ namespace RAC_OPENSCENARIO
 	 * definitions. Instances of ScenarioObject, of EntitySelection and of , SpawnedObject considered instances of Entity.]
 	 * 
 	*/
-    void ScenarioDefinitionImpl::SetEntities(std::shared_ptr<IEntities>& entities )
+    void ScenarioDefinitionImpl::SetEntities(const std::shared_ptr<IEntities> entities )
     {
         _entities = entities;
     }
@@ -17499,7 +17499,7 @@ namespace RAC_OPENSCENARIO
 	 * @param storyboard from OpenSCENARIO class model specification: [Container for the dynamic content of the scenario.]
 	 * 
 	*/
-    void ScenarioDefinitionImpl::SetStoryboard(std::shared_ptr<IStoryboard>& storyboard )
+    void ScenarioDefinitionImpl::SetStoryboard(const std::shared_ptr<IStoryboard> storyboard )
     {
         _storyboard = storyboard;
     }
@@ -17581,14 +17581,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ScenarioDefinitionImpl ScenarioDefinitionImpl::Clone()
+    std::shared_ptr<ScenarioDefinitionImpl> ScenarioDefinitionImpl::Clone()
     {
-        ScenarioDefinitionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ScenarioDefinitionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -17598,43 +17598,43 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kCatalogLocations =  GetCatalogLocations();
         if (kCatalogLocations)
         {
-            auto clonedChild = std::make_shared<CatalogLocationsImpl>(std::dynamic_pointer_cast<CatalogLocationsImpl>(kCatalogLocations)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CatalogLocationsImpl>(kCatalogLocations)->Clone();
             auto clonedChildICatalogLocations = std::dynamic_pointer_cast<ICatalogLocations>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCatalogLocations(clonedChildICatalogLocations);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCatalogLocations(clonedChildICatalogLocations);
         }
         const auto kRoadNetwork =  GetRoadNetwork();
         if (kRoadNetwork)
         {
-            auto clonedChild = std::make_shared<RoadNetworkImpl>(std::dynamic_pointer_cast<RoadNetworkImpl>(kRoadNetwork)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RoadNetworkImpl>(kRoadNetwork)->Clone();
             auto clonedChildIRoadNetwork = std::dynamic_pointer_cast<IRoadNetwork>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRoadNetwork(clonedChildIRoadNetwork);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRoadNetwork(clonedChildIRoadNetwork);
         }
         const auto kEntities =  GetEntities();
         if (kEntities)
         {
-            auto clonedChild = std::make_shared<EntitiesImpl>(std::dynamic_pointer_cast<EntitiesImpl>(kEntities)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EntitiesImpl>(kEntities)->Clone();
             auto clonedChildIEntities = std::dynamic_pointer_cast<IEntities>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEntities(clonedChildIEntities);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEntities(clonedChildIEntities);
         }
         const auto kStoryboard =  GetStoryboard();
         if (kStoryboard)
         {
-            auto clonedChild = std::make_shared<StoryboardImpl>(std::dynamic_pointer_cast<StoryboardImpl>(kStoryboard)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<StoryboardImpl>(kStoryboard)->Clone();
             auto clonedChildIStoryboard = std::dynamic_pointer_cast<IStoryboard>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetStoryboard(clonedChildIStoryboard);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetStoryboard(clonedChildIStoryboard);
         }
         return clonedObject;
     }
@@ -17668,7 +17668,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Identifier of the scenario object.]
 	 * 
 	*/
-    void ScenarioObjectImpl::SetName(std::string& name )
+    void ScenarioObjectImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -17678,7 +17678,7 @@ namespace RAC_OPENSCENARIO
 	 * Pedestrian or MiscObject).]
 	 * 
 	*/
-    void ScenarioObjectImpl::SetEntityObject(std::shared_ptr<IEntityObject>& entityObject )
+    void ScenarioObjectImpl::SetEntityObject(const std::shared_ptr<IEntityObject> entityObject )
     {
         _entityObject = entityObject;
     }
@@ -17687,7 +17687,7 @@ namespace RAC_OPENSCENARIO
 	 * @param objectController from OpenSCENARIO class model specification: [Controller of the EntityObject instance.]
 	 * 
 	*/
-    void ScenarioObjectImpl::SetObjectController(std::shared_ptr<IObjectController>& objectController )
+    void ScenarioObjectImpl::SetObjectController(const std::shared_ptr<IObjectController> objectController )
     {
         _objectController = objectController;
     }
@@ -17737,34 +17737,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ScenarioObjectImpl ScenarioObjectImpl::Clone()
+    std::shared_ptr<ScenarioObjectImpl> ScenarioObjectImpl::Clone()
     {
-        ScenarioObjectImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ScenarioObjectImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kEntityObject =  GetEntityObject();
         if (kEntityObject)
         {
-            auto clonedChild = std::make_shared<EntityObjectImpl>(std::dynamic_pointer_cast<EntityObjectImpl>(kEntityObject)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EntityObjectImpl>(kEntityObject)->Clone();
             auto clonedChildIEntityObject = std::dynamic_pointer_cast<IEntityObject>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEntityObject(clonedChildIEntityObject);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEntityObject(clonedChildIEntityObject);
         }
         const auto kObjectController =  GetObjectController();
         if (kObjectController)
         {
-            auto clonedChild = std::make_shared<ObjectControllerImpl>(std::dynamic_pointer_cast<ObjectControllerImpl>(kObjectController)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ObjectControllerImpl>(kObjectController)->Clone();
             auto clonedChildIObjectController = std::dynamic_pointer_cast<IObjectController>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetObjectController(clonedChildIObjectController);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetObjectController(clonedChildIObjectController);
         }
         return clonedObject;
     }
@@ -17853,14 +17853,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    SelectedEntitiesImpl SelectedEntitiesImpl::Clone()
+    std::shared_ptr<SelectedEntitiesImpl> SelectedEntitiesImpl::Clone()
     {
-        SelectedEntitiesImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<SelectedEntitiesImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -17870,11 +17870,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IEntityRef>> clonedList;
             for(auto&& kItem : kEntityRef)
             {
-                auto clonedChild = std::make_shared <EntityRefImpl>(std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetEntityRef(clonedList);
+            clonedObject->SetEntityRef(clonedList);
         }
         const auto kByType =  GetByType();
         if (!kByType.empty())
@@ -17882,11 +17882,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IByType>> clonedList;
             for(auto&& kItem : kByType)
             {
-                auto clonedChild = std::make_shared <ByTypeImpl>(std::dynamic_pointer_cast<ByTypeImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ByTypeImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetByType(clonedList);
+            clonedObject->SetByType(clonedList);
         }
         return clonedObject;
     }
@@ -17919,7 +17919,7 @@ namespace RAC_OPENSCENARIO
 	 * @param polyline from OpenSCENARIO class model specification: [Polyline property of a shape.]
 	 * 
 	*/
-    void ShapeImpl::SetPolyline(std::shared_ptr<IPolyline>& polyline )
+    void ShapeImpl::SetPolyline(const std::shared_ptr<IPolyline> polyline )
     {
         _polyline = polyline;
     }
@@ -17928,7 +17928,7 @@ namespace RAC_OPENSCENARIO
 	 * @param clothoid from OpenSCENARIO class model specification: [Clothoid property of a shape.]
 	 * 
 	*/
-    void ShapeImpl::SetClothoid(std::shared_ptr<IClothoid>& clothoid )
+    void ShapeImpl::SetClothoid(const std::shared_ptr<IClothoid> clothoid )
     {
         _clothoid = clothoid;
     }
@@ -17937,7 +17937,7 @@ namespace RAC_OPENSCENARIO
 	 * @param nurbs from OpenSCENARIO class model specification: [NURBS property of a shape.]
 	 * 
 	*/
-    void ShapeImpl::SetNurbs(std::shared_ptr<INurbs>& nurbs )
+    void ShapeImpl::SetNurbs(const std::shared_ptr<INurbs> nurbs )
     {
         _nurbs = nurbs;
     }
@@ -17986,40 +17986,40 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    ShapeImpl ShapeImpl::Clone()
+    std::shared_ptr<ShapeImpl> ShapeImpl::Clone()
     {
-        ShapeImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<ShapeImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kPolyline =  GetPolyline();
         if (kPolyline)
         {
-            auto clonedChild = std::make_shared<PolylineImpl>(std::dynamic_pointer_cast<PolylineImpl>(kPolyline)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PolylineImpl>(kPolyline)->Clone();
             auto clonedChildIPolyline = std::dynamic_pointer_cast<IPolyline>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPolyline(clonedChildIPolyline);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPolyline(clonedChildIPolyline);
         }
         const auto kClothoid =  GetClothoid();
         if (kClothoid)
         {
-            auto clonedChild = std::make_shared<ClothoidImpl>(std::dynamic_pointer_cast<ClothoidImpl>(kClothoid)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ClothoidImpl>(kClothoid)->Clone();
             auto clonedChildIClothoid = std::dynamic_pointer_cast<IClothoid>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetClothoid(clonedChildIClothoid);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetClothoid(clonedChildIClothoid);
         }
         const auto kNurbs =  GetNurbs();
         if (kNurbs)
         {
-            auto clonedChild = std::make_shared<NurbsImpl>(std::dynamic_pointer_cast<NurbsImpl>(kNurbs)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<NurbsImpl>(kNurbs)->Clone();
             auto clonedChildINurbs = std::dynamic_pointer_cast<INurbs>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetNurbs(clonedChildINurbs);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetNurbs(clonedChildINurbs);
         }
         return clonedObject;
     }
@@ -18050,7 +18050,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Time value of the simulation time condition. Unit: s.]
 	 * 
 	*/
-    void SimulationTimeConditionImpl::SetValue(double& value )
+    void SimulationTimeConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -18059,7 +18059,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void SimulationTimeConditionImpl::SetRule(Rule& rule )
+    void SimulationTimeConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -18114,20 +18114,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    SimulationTimeConditionImpl SimulationTimeConditionImpl::Clone()
+    std::shared_ptr<SimulationTimeConditionImpl> SimulationTimeConditionImpl::Clone()
     {
-        SimulationTimeConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<SimulationTimeConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -18156,7 +18156,7 @@ namespace RAC_OPENSCENARIO
 	 * @param speedActionDynamics from OpenSCENARIO class model specification: [Defines how the target speed is reached.]
 	 * 
 	*/
-    void SpeedActionImpl::SetSpeedActionDynamics(std::shared_ptr<ITransitionDynamics>& speedActionDynamics )
+    void SpeedActionImpl::SetSpeedActionDynamics(const std::shared_ptr<ITransitionDynamics> speedActionDynamics )
     {
         _speedActionDynamics = speedActionDynamics;
     }
@@ -18166,7 +18166,7 @@ namespace RAC_OPENSCENARIO
 	 * reached.]
 	 * 
 	*/
-    void SpeedActionImpl::SetSpeedActionTarget(std::shared_ptr<ISpeedActionTarget>& speedActionTarget )
+    void SpeedActionImpl::SetSpeedActionTarget(const std::shared_ptr<ISpeedActionTarget> speedActionTarget )
     {
         _speedActionTarget = speedActionTarget;
     }
@@ -18210,32 +18210,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    SpeedActionImpl SpeedActionImpl::Clone()
+    std::shared_ptr<SpeedActionImpl> SpeedActionImpl::Clone()
     {
-        SpeedActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<SpeedActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kSpeedActionDynamics =  GetSpeedActionDynamics();
         if (kSpeedActionDynamics)
         {
-            auto clonedChild = std::make_shared<TransitionDynamicsImpl>(std::dynamic_pointer_cast<TransitionDynamicsImpl>(kSpeedActionDynamics)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TransitionDynamicsImpl>(kSpeedActionDynamics)->Clone();
             auto clonedChildITransitionDynamics = std::dynamic_pointer_cast<ITransitionDynamics>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSpeedActionDynamics(clonedChildITransitionDynamics);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSpeedActionDynamics(clonedChildITransitionDynamics);
         }
         const auto kSpeedActionTarget =  GetSpeedActionTarget();
         if (kSpeedActionTarget)
         {
-            auto clonedChild = std::make_shared<SpeedActionTargetImpl>(std::dynamic_pointer_cast<SpeedActionTargetImpl>(kSpeedActionTarget)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<SpeedActionTargetImpl>(kSpeedActionTarget)->Clone();
             auto clonedChildISpeedActionTarget = std::dynamic_pointer_cast<ISpeedActionTarget>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSpeedActionTarget(clonedChildISpeedActionTarget);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSpeedActionTarget(clonedChildISpeedActionTarget);
         }
         return clonedObject;
     }
@@ -18265,7 +18265,7 @@ namespace RAC_OPENSCENARIO
 	 * reference entity. Unit: m/s.]
 	 * 
 	*/
-    void SpeedActionTargetImpl::SetRelativeTargetSpeed(std::shared_ptr<IRelativeTargetSpeed>& relativeTargetSpeed )
+    void SpeedActionTargetImpl::SetRelativeTargetSpeed(const std::shared_ptr<IRelativeTargetSpeed> relativeTargetSpeed )
     {
         _relativeTargetSpeed = relativeTargetSpeed;
     }
@@ -18275,7 +18275,7 @@ namespace RAC_OPENSCENARIO
 	 * speed.Unit: m/s.]
 	 * 
 	*/
-    void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(std::shared_ptr<IAbsoluteTargetSpeed>& absoluteTargetSpeed )
+    void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(const std::shared_ptr<IAbsoluteTargetSpeed> absoluteTargetSpeed )
     {
         _absoluteTargetSpeed = absoluteTargetSpeed;
     }
@@ -18319,32 +18319,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    SpeedActionTargetImpl SpeedActionTargetImpl::Clone()
+    std::shared_ptr<SpeedActionTargetImpl> SpeedActionTargetImpl::Clone()
     {
-        SpeedActionTargetImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<SpeedActionTargetImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kRelativeTargetSpeed =  GetRelativeTargetSpeed();
         if (kRelativeTargetSpeed)
         {
-            auto clonedChild = std::make_shared<RelativeTargetSpeedImpl>(std::dynamic_pointer_cast<RelativeTargetSpeedImpl>(kRelativeTargetSpeed)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<RelativeTargetSpeedImpl>(kRelativeTargetSpeed)->Clone();
             auto clonedChildIRelativeTargetSpeed = std::dynamic_pointer_cast<IRelativeTargetSpeed>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetRelativeTargetSpeed(clonedChildIRelativeTargetSpeed);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetRelativeTargetSpeed(clonedChildIRelativeTargetSpeed);
         }
         const auto kAbsoluteTargetSpeed =  GetAbsoluteTargetSpeed();
         if (kAbsoluteTargetSpeed)
         {
-            auto clonedChild = std::make_shared<AbsoluteTargetSpeedImpl>(std::dynamic_pointer_cast<AbsoluteTargetSpeedImpl>(kAbsoluteTargetSpeed)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AbsoluteTargetSpeedImpl>(kAbsoluteTargetSpeed)->Clone();
             auto clonedChildIAbsoluteTargetSpeed = std::dynamic_pointer_cast<IAbsoluteTargetSpeed>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAbsoluteTargetSpeed(clonedChildIAbsoluteTargetSpeed);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAbsoluteTargetSpeed(clonedChildIAbsoluteTargetSpeed);
         }
         return clonedObject;
     }
@@ -18375,7 +18375,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Speed value of the speed condition. Unit m/s.]
 	 * 
 	*/
-    void SpeedConditionImpl::SetValue(double& value )
+    void SpeedConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -18384,7 +18384,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void SpeedConditionImpl::SetRule(Rule& rule )
+    void SpeedConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -18439,20 +18439,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    SpeedConditionImpl SpeedConditionImpl::Clone()
+    std::shared_ptr<SpeedConditionImpl> SpeedConditionImpl::Clone()
     {
-        SpeedConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<SpeedConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -18479,7 +18479,7 @@ namespace RAC_OPENSCENARIO
 	 * expression become true. Unit: s. Range [0..inf[.]
 	 * 
 	*/
-    void StandStillConditionImpl::SetDuration(double& duration )
+    void StandStillConditionImpl::SetDuration(const double duration )
     {
         _duration = duration;
     }
@@ -18519,18 +18519,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    StandStillConditionImpl StandStillConditionImpl::Clone()
+    std::shared_ptr<StandStillConditionImpl> StandStillConditionImpl::Clone()
     {
-        StandStillConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<StandStillConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetDuration(_duration);
+        clonedObject->SetDuration(_duration);
         // clone children
         return clonedObject;
     }
@@ -18565,7 +18565,7 @@ namespace RAC_OPENSCENARIO
 	 * file.]
 	 * 
 	*/
-    void StoryImpl::SetName(std::string& name )
+    void StoryImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -18659,18 +18659,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    StoryImpl StoryImpl::Clone()
+    std::shared_ptr<StoryImpl> StoryImpl::Clone()
     {
-        StoryImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<StoryImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -18678,11 +18678,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kActs =  GetActs();
         if (!kActs.empty())
@@ -18690,11 +18690,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IAct>> clonedList;
             for(auto&& kItem : kActs)
             {
-                auto clonedChild = std::make_shared <ActImpl>(std::dynamic_pointer_cast<ActImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ActImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetActs(clonedList);
+            clonedObject->SetActs(clonedList);
         }
         return clonedObject;
     }
@@ -18728,7 +18728,7 @@ namespace RAC_OPENSCENARIO
 	 * are set and initial actions are applied to entities.]
 	 * 
 	*/
-    void StoryboardImpl::SetInit(std::shared_ptr<IInit>& init )
+    void StoryboardImpl::SetInit(const std::shared_ptr<IInit> init )
     {
         _init = init;
     }
@@ -18746,7 +18746,7 @@ namespace RAC_OPENSCENARIO
 	 * @param stopTrigger from OpenSCENARIO class model specification: [Trigger to stop the Storyboard instance.]
 	 * 
 	*/
-    void StoryboardImpl::SetStopTrigger(std::shared_ptr<ITrigger>& stopTrigger )
+    void StoryboardImpl::SetStopTrigger(const std::shared_ptr<ITrigger> stopTrigger )
     {
         _stopTrigger = stopTrigger;
     }
@@ -18798,24 +18798,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    StoryboardImpl StoryboardImpl::Clone()
+    std::shared_ptr<StoryboardImpl> StoryboardImpl::Clone()
     {
-        StoryboardImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<StoryboardImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kInit =  GetInit();
         if (kInit)
         {
-            auto clonedChild = std::make_shared<InitImpl>(std::dynamic_pointer_cast<InitImpl>(kInit)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<InitImpl>(kInit)->Clone();
             auto clonedChildIInit = std::dynamic_pointer_cast<IInit>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetInit(clonedChildIInit);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetInit(clonedChildIInit);
         }
         const auto kStories =  GetStories();
         if (!kStories.empty())
@@ -18823,19 +18823,19 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IStory>> clonedList;
             for(auto&& kItem : kStories)
             {
-                auto clonedChild = std::make_shared <StoryImpl>(std::dynamic_pointer_cast<StoryImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<StoryImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetStories(clonedList);
+            clonedObject->SetStories(clonedList);
         }
         const auto kStopTrigger =  GetStopTrigger();
         if (kStopTrigger)
         {
-            auto clonedChild = std::make_shared<TriggerImpl>(std::dynamic_pointer_cast<TriggerImpl>(kStopTrigger)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStopTrigger)->Clone();
             auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetStopTrigger(clonedChildITrigger);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetStopTrigger(clonedChildITrigger);
         }
         return clonedObject;
     }
@@ -18871,7 +18871,7 @@ namespace RAC_OPENSCENARIO
 	 * @param storyboardElementType from OpenSCENARIO class model specification: [Type of storyboard element instance.]
 	 * 
 	*/
-    void StoryboardElementStateConditionImpl::SetStoryboardElementType(StoryboardElementType& storyboardElementType )
+    void StoryboardElementStateConditionImpl::SetStoryboardElementType(const StoryboardElementType storyboardElementType )
     {
         _storyboardElementType = storyboardElementType;
     }
@@ -18890,7 +18890,7 @@ namespace RAC_OPENSCENARIO
 	 * instance for which the condition becomes true.]
 	 * 
 	*/
-    void StoryboardElementStateConditionImpl::SetState(StoryboardElementState& state )
+    void StoryboardElementStateConditionImpl::SetState(const StoryboardElementState state )
     {
         _state = state;
     }
@@ -18960,24 +18960,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    StoryboardElementStateConditionImpl StoryboardElementStateConditionImpl::Clone()
+    std::shared_ptr<StoryboardElementStateConditionImpl> StoryboardElementStateConditionImpl::Clone()
     {
-        StoryboardElementStateConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<StoryboardElementStateConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetStoryboardElementType(_storyboardElementType);
+        clonedObject->SetStoryboardElementType(_storyboardElementType);
         // Proxy
         auto proxy = _storyboardElementRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetStoryboardElementRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetStoryboardElementRef(proxy);
         // Enumeration Type
-        clonedObject.SetState(_state);
+        clonedObject->SetState(_state);
         // clone children
         return clonedObject;
     }
@@ -19014,7 +19014,7 @@ namespace RAC_OPENSCENARIO
 	 * lx. Unit: lux; Range: [0..inf[.]
 	 * 
 	*/
-    void SunImpl::SetIntensity(double& intensity )
+    void SunImpl::SetIntensity(const double intensity )
     {
         _intensity = intensity;
     }
@@ -19024,7 +19024,7 @@ namespace RAC_OPENSCENARIO
 	 * = east, PI=south, 3/2 PI=west. Unit: radian; Range: , [0..2PI].]
 	 * 
 	*/
-    void SunImpl::SetAzimuth(double& azimuth )
+    void SunImpl::SetAzimuth(const double azimuth )
     {
         _azimuth = azimuth;
     }
@@ -19034,7 +19034,7 @@ namespace RAC_OPENSCENARIO
 	 * rad; Range: [-PI..PI].]
 	 * 
 	*/
-    void SunImpl::SetElevation(double& elevation )
+    void SunImpl::SetElevation(const double elevation )
     {
         _elevation = elevation;
     }
@@ -19086,22 +19086,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    SunImpl SunImpl::Clone()
+    std::shared_ptr<SunImpl> SunImpl::Clone()
     {
-        SunImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<SunImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetIntensity(_intensity);
+        clonedObject->SetIntensity(_intensity);
         // Simple type
-        clonedObject.SetAzimuth(_azimuth);
+        clonedObject->SetAzimuth(_azimuth);
         // Simple type
-        clonedObject.SetElevation(_elevation);
+        clonedObject->SetElevation(_elevation);
         // clone children
         return clonedObject;
     }
@@ -19148,7 +19148,7 @@ namespace RAC_OPENSCENARIO
 	 * @param targetPositionMaster from OpenSCENARIO class model specification: [The target position for the master entity.]
 	 * 
 	*/
-    void SynchronizeActionImpl::SetTargetPositionMaster(std::shared_ptr<IPosition>& targetPositionMaster )
+    void SynchronizeActionImpl::SetTargetPositionMaster(const std::shared_ptr<IPosition> targetPositionMaster )
     {
         _targetPositionMaster = targetPositionMaster;
     }
@@ -19158,7 +19158,7 @@ namespace RAC_OPENSCENARIO
 	 * synchronized.]
 	 * 
 	*/
-    void SynchronizeActionImpl::SetTargetPosition(std::shared_ptr<IPosition>& targetPosition )
+    void SynchronizeActionImpl::SetTargetPosition(const std::shared_ptr<IPosition> targetPosition )
     {
         _targetPosition = targetPosition;
     }
@@ -19168,7 +19168,7 @@ namespace RAC_OPENSCENARIO
 	 * its target position.]
 	 * 
 	*/
-    void SynchronizeActionImpl::SetFinalSpeed(std::shared_ptr<IFinalSpeed>& finalSpeed )
+    void SynchronizeActionImpl::SetFinalSpeed(const std::shared_ptr<IFinalSpeed> finalSpeed )
     {
         _finalSpeed = finalSpeed;
     }
@@ -19223,44 +19223,44 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    SynchronizeActionImpl SynchronizeActionImpl::Clone()
+    std::shared_ptr<SynchronizeActionImpl> SynchronizeActionImpl::Clone()
     {
-        SynchronizeActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<SynchronizeActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _masterEntityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetMasterEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetMasterEntityRef(proxy);
         // clone children
         const auto kTargetPositionMaster =  GetTargetPositionMaster();
         if (kTargetPositionMaster)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kTargetPositionMaster)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kTargetPositionMaster)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTargetPositionMaster(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTargetPositionMaster(clonedChildIPosition);
         }
         const auto kTargetPosition =  GetTargetPosition();
         if (kTargetPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kTargetPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kTargetPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTargetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTargetPosition(clonedChildIPosition);
         }
         const auto kFinalSpeed =  GetFinalSpeed();
         if (kFinalSpeed)
         {
-            auto clonedChild = std::make_shared<FinalSpeedImpl>(std::dynamic_pointer_cast<FinalSpeedImpl>(kFinalSpeed)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<FinalSpeedImpl>(kFinalSpeed)->Clone();
             auto clonedChildIFinalSpeed = std::dynamic_pointer_cast<IFinalSpeed>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFinalSpeed(clonedChildIFinalSpeed);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFinalSpeed(clonedChildIFinalSpeed);
         }
         return clonedObject;
     }
@@ -19285,7 +19285,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The position the entity/entities are teleported to.]
 	 * 
 	*/
-    void TeleportActionImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void TeleportActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -19324,24 +19324,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TeleportActionImpl TeleportActionImpl::Clone()
+    std::shared_ptr<TeleportActionImpl> TeleportActionImpl::Clone()
     {
-        TeleportActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TeleportActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -19396,7 +19396,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The time headway value. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-    void TimeHeadwayConditionImpl::SetValue(double& value )
+    void TimeHeadwayConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -19406,7 +19406,7 @@ namespace RAC_OPENSCENARIO
 	 * closest bounding box points. False: reference point distance , is used.]
 	 * 
 	*/
-    void TimeHeadwayConditionImpl::SetFreespace(bool& freespace )
+    void TimeHeadwayConditionImpl::SetFreespace(const bool freespace )
     {
         _freespace = freespace;
     }
@@ -19416,7 +19416,7 @@ namespace RAC_OPENSCENARIO
 	 * increase distance. False: straight line distance is used.]
 	 * 
 	*/
-    void TimeHeadwayConditionImpl::SetAlongRoute(bool& alongRoute )
+    void TimeHeadwayConditionImpl::SetAlongRoute(const bool alongRoute )
     {
         _alongRoute = alongRoute;
     }
@@ -19425,7 +19425,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void TimeHeadwayConditionImpl::SetRule(Rule& rule )
+    void TimeHeadwayConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -19498,28 +19498,28 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TimeHeadwayConditionImpl TimeHeadwayConditionImpl::Clone()
+    std::shared_ptr<TimeHeadwayConditionImpl> TimeHeadwayConditionImpl::Clone()
     {
-        TimeHeadwayConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TimeHeadwayConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _entityRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetEntityRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetEntityRef(proxy);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetFreespace(_freespace);
+        clonedObject->SetFreespace(_freespace);
         // Simple type
-        clonedObject.SetAlongRoute(_alongRoute);
+        clonedObject->SetAlongRoute(_alongRoute);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -19551,7 +19551,7 @@ namespace RAC_OPENSCENARIO
 	 * simulation time, e.g. in order to animate the position of the sun.]
 	 * 
 	*/
-    void TimeOfDayImpl::SetAnimation(bool& animation )
+    void TimeOfDayImpl::SetAnimation(const bool animation )
     {
         _animation = animation;
     }
@@ -19560,7 +19560,7 @@ namespace RAC_OPENSCENARIO
 	 * @param dateTime from OpenSCENARIO class model specification: [Datetime value.]
 	 * 
 	*/
-    void TimeOfDayImpl::SetDateTime(DateTime& dateTime )
+    void TimeOfDayImpl::SetDateTime(const DateTime dateTime )
     {
         _dateTime = dateTime;
     }
@@ -19606,20 +19606,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TimeOfDayImpl TimeOfDayImpl::Clone()
+    std::shared_ptr<TimeOfDayImpl> TimeOfDayImpl::Clone()
     {
-        TimeOfDayImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TimeOfDayImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetAnimation(_animation);
+        clonedObject->SetAnimation(_animation);
         // Simple type
-        clonedObject.SetDateTime(_dateTime);
+        clonedObject->SetDateTime(_dateTime);
         // clone children
         return clonedObject;
     }
@@ -19650,7 +19650,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void TimeOfDayConditionImpl::SetRule(Rule& rule )
+    void TimeOfDayConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -19659,7 +19659,7 @@ namespace RAC_OPENSCENARIO
 	 * @param dateTime from OpenSCENARIO class model specification: [Datetime value for comparison.]
 	 * 
 	*/
-    void TimeOfDayConditionImpl::SetDateTime(DateTime& dateTime )
+    void TimeOfDayConditionImpl::SetDateTime(const DateTime dateTime )
     {
         _dateTime = dateTime;
     }
@@ -19714,20 +19714,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TimeOfDayConditionImpl TimeOfDayConditionImpl::Clone()
+    std::shared_ptr<TimeOfDayConditionImpl> TimeOfDayConditionImpl::Clone()
     {
-        TimeOfDayConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TimeOfDayConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // Simple type
-        clonedObject.SetDateTime(_dateTime);
+        clonedObject->SetDateTime(_dateTime);
         // clone children
         return clonedObject;
     }
@@ -19756,7 +19756,7 @@ namespace RAC_OPENSCENARIO
 	 * @param none from OpenSCENARIO class model specification: [This property indicates Timing information is neglected.]
 	 * 
 	*/
-    void TimeReferenceImpl::SetNone(std::shared_ptr<INone>& none )
+    void TimeReferenceImpl::SetNone(const std::shared_ptr<INone> none )
     {
         _none = none;
     }
@@ -19767,7 +19767,7 @@ namespace RAC_OPENSCENARIO
 	 * global time offset.]
 	 * 
 	*/
-    void TimeReferenceImpl::SetTiming(std::shared_ptr<ITiming>& timing )
+    void TimeReferenceImpl::SetTiming(const std::shared_ptr<ITiming> timing )
     {
         _timing = timing;
     }
@@ -19811,32 +19811,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TimeReferenceImpl TimeReferenceImpl::Clone()
+    std::shared_ptr<TimeReferenceImpl> TimeReferenceImpl::Clone()
     {
-        TimeReferenceImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TimeReferenceImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kNone =  GetNone();
         if (kNone)
         {
-            auto clonedChild = std::make_shared<NoneImpl>(std::dynamic_pointer_cast<NoneImpl>(kNone)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<NoneImpl>(kNone)->Clone();
             auto clonedChildINone = std::dynamic_pointer_cast<INone>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetNone(clonedChildINone);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetNone(clonedChildINone);
         }
         const auto kTiming =  GetTiming();
         if (kTiming)
         {
-            auto clonedChild = std::make_shared<TimingImpl>(std::dynamic_pointer_cast<TimingImpl>(kTiming)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TimingImpl>(kTiming)->Clone();
             auto clonedChildITiming = std::dynamic_pointer_cast<ITiming>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTiming(clonedChildITiming);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTiming(clonedChildITiming);
         }
         return clonedObject;
     }
@@ -19881,7 +19881,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The time to collision value. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-    void TimeToCollisionConditionImpl::SetValue(double& value )
+    void TimeToCollisionConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -19891,7 +19891,7 @@ namespace RAC_OPENSCENARIO
 	 * between closest bounding box points.False: reference point , distance is used.]
 	 * 
 	*/
-    void TimeToCollisionConditionImpl::SetFreespace(bool& freespace )
+    void TimeToCollisionConditionImpl::SetFreespace(const bool freespace )
     {
         _freespace = freespace;
     }
@@ -19901,7 +19901,7 @@ namespace RAC_OPENSCENARIO
 	 * increase distance. False: straight line distance is used.]
 	 * 
 	*/
-    void TimeToCollisionConditionImpl::SetAlongRoute(bool& alongRoute )
+    void TimeToCollisionConditionImpl::SetAlongRoute(const bool alongRoute )
     {
         _alongRoute = alongRoute;
     }
@@ -19910,7 +19910,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void TimeToCollisionConditionImpl::SetRule(Rule& rule )
+    void TimeToCollisionConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -19920,7 +19920,7 @@ namespace RAC_OPENSCENARIO
 	 * defined through the current position of a reference entity.]
 	 * 
 	*/
-    void TimeToCollisionConditionImpl::SetTimeToCollisionConditionTarget(std::shared_ptr<ITimeToCollisionConditionTarget>& timeToCollisionConditionTarget )
+    void TimeToCollisionConditionImpl::SetTimeToCollisionConditionTarget(const std::shared_ptr<ITimeToCollisionConditionTarget> timeToCollisionConditionTarget )
     {
         _timeToCollisionConditionTarget = timeToCollisionConditionTarget;
     }
@@ -19992,32 +19992,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TimeToCollisionConditionImpl TimeToCollisionConditionImpl::Clone()
+    std::shared_ptr<TimeToCollisionConditionImpl> TimeToCollisionConditionImpl::Clone()
     {
-        TimeToCollisionConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TimeToCollisionConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Simple type
-        clonedObject.SetFreespace(_freespace);
+        clonedObject->SetFreespace(_freespace);
         // Simple type
-        clonedObject.SetAlongRoute(_alongRoute);
+        clonedObject->SetAlongRoute(_alongRoute);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         const auto kTimeToCollisionConditionTarget =  GetTimeToCollisionConditionTarget();
         if (kTimeToCollisionConditionTarget)
         {
-            auto clonedChild = std::make_shared<TimeToCollisionConditionTargetImpl>(std::dynamic_pointer_cast<TimeToCollisionConditionTargetImpl>(kTimeToCollisionConditionTarget)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TimeToCollisionConditionTargetImpl>(kTimeToCollisionConditionTarget)->Clone();
             auto clonedChildITimeToCollisionConditionTarget = std::dynamic_pointer_cast<ITimeToCollisionConditionTarget>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTimeToCollisionConditionTarget(clonedChildITimeToCollisionConditionTarget);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTimeToCollisionConditionTarget(clonedChildITimeToCollisionConditionTarget);
         }
         return clonedObject;
     }
@@ -20046,7 +20046,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Position.]
 	 * 
 	*/
-    void TimeToCollisionConditionTargetImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void TimeToCollisionConditionTargetImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -20055,7 +20055,7 @@ namespace RAC_OPENSCENARIO
 	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
 	 * 
 	*/
-    void TimeToCollisionConditionTargetImpl::SetEntityRef(std::shared_ptr<IEntityRef>& entityRef )
+    void TimeToCollisionConditionTargetImpl::SetEntityRef(const std::shared_ptr<IEntityRef> entityRef )
     {
         _entityRef = entityRef;
     }
@@ -20099,32 +20099,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TimeToCollisionConditionTargetImpl TimeToCollisionConditionTargetImpl::Clone()
+    std::shared_ptr<TimeToCollisionConditionTargetImpl> TimeToCollisionConditionTargetImpl::Clone()
     {
-        TimeToCollisionConditionTargetImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TimeToCollisionConditionTargetImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         const auto kEntityRef =  GetEntityRef();
         if (kEntityRef)
         {
-            auto clonedChild = std::make_shared<EntityRefImpl>(std::dynamic_pointer_cast<EntityRefImpl>(kEntityRef)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kEntityRef)->Clone();
             auto clonedChildIEntityRef = std::dynamic_pointer_cast<IEntityRef>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetEntityRef(clonedChildIEntityRef);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetEntityRef(clonedChildIEntityRef);
         }
         return clonedObject;
     }
@@ -20161,7 +20161,7 @@ namespace RAC_OPENSCENARIO
 	 * absolute or relative.]
 	 * 
 	*/
-    void TimingImpl::SetDomainAbsoluteRelative(ReferenceContext& domainAbsoluteRelative )
+    void TimingImpl::SetDomainAbsoluteRelative(const ReferenceContext domainAbsoluteRelative )
     {
         _domainAbsoluteRelative = domainAbsoluteRelative;
     }
@@ -20172,7 +20172,7 @@ namespace RAC_OPENSCENARIO
 	 * Range: ]0..inf[.]
 	 * 
 	*/
-    void TimingImpl::SetScale(double& scale )
+    void TimingImpl::SetScale(const double scale )
     {
         _scale = scale;
     }
@@ -20182,7 +20182,7 @@ namespace RAC_OPENSCENARIO
 	 * s; Range: ]-inf..inf[.]
 	 * 
 	*/
-    void TimingImpl::SetOffset(double& offset )
+    void TimingImpl::SetOffset(const double offset )
     {
         _offset = offset;
     }
@@ -20243,22 +20243,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TimingImpl TimingImpl::Clone()
+    std::shared_ptr<TimingImpl> TimingImpl::Clone()
     {
-        TimingImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TimingImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetDomainAbsoluteRelative(_domainAbsoluteRelative);
+        clonedObject->SetDomainAbsoluteRelative(_domainAbsoluteRelative);
         // Simple type
-        clonedObject.SetScale(_scale);
+        clonedObject->SetScale(_scale);
         // Simple type
-        clonedObject.SetOffset(_offset);
+        clonedObject->SetOffset(_offset);
         // clone children
         return clonedObject;
     }
@@ -20292,7 +20292,7 @@ namespace RAC_OPENSCENARIO
 	 * position.]
 	 * 
 	*/
-    void TrafficActionImpl::SetTrafficSourceAction(std::shared_ptr<ITrafficSourceAction>& trafficSourceAction )
+    void TrafficActionImpl::SetTrafficSourceAction(const std::shared_ptr<ITrafficSourceAction> trafficSourceAction )
     {
         _trafficSourceAction = trafficSourceAction;
     }
@@ -20302,7 +20302,7 @@ namespace RAC_OPENSCENARIO
 	 * position.]
 	 * 
 	*/
-    void TrafficActionImpl::SetTrafficSinkAction(std::shared_ptr<ITrafficSinkAction>& trafficSinkAction )
+    void TrafficActionImpl::SetTrafficSinkAction(const std::shared_ptr<ITrafficSinkAction> trafficSinkAction )
     {
         _trafficSinkAction = trafficSinkAction;
     }
@@ -20312,7 +20312,7 @@ namespace RAC_OPENSCENARIO
 	 * entity.]
 	 * 
 	*/
-    void TrafficActionImpl::SetTrafficSwarmAction(std::shared_ptr<ITrafficSwarmAction>& trafficSwarmAction )
+    void TrafficActionImpl::SetTrafficSwarmAction(const std::shared_ptr<ITrafficSwarmAction> trafficSwarmAction )
     {
         _trafficSwarmAction = trafficSwarmAction;
     }
@@ -20361,40 +20361,40 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficActionImpl TrafficActionImpl::Clone()
+    std::shared_ptr<TrafficActionImpl> TrafficActionImpl::Clone()
     {
-        TrafficActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kTrafficSourceAction =  GetTrafficSourceAction();
         if (kTrafficSourceAction)
         {
-            auto clonedChild = std::make_shared<TrafficSourceActionImpl>(std::dynamic_pointer_cast<TrafficSourceActionImpl>(kTrafficSourceAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSourceActionImpl>(kTrafficSourceAction)->Clone();
             auto clonedChildITrafficSourceAction = std::dynamic_pointer_cast<ITrafficSourceAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSourceAction(clonedChildITrafficSourceAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSourceAction(clonedChildITrafficSourceAction);
         }
         const auto kTrafficSinkAction =  GetTrafficSinkAction();
         if (kTrafficSinkAction)
         {
-            auto clonedChild = std::make_shared<TrafficSinkActionImpl>(std::dynamic_pointer_cast<TrafficSinkActionImpl>(kTrafficSinkAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSinkActionImpl>(kTrafficSinkAction)->Clone();
             auto clonedChildITrafficSinkAction = std::dynamic_pointer_cast<ITrafficSinkAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSinkAction(clonedChildITrafficSinkAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSinkAction(clonedChildITrafficSinkAction);
         }
         const auto kTrafficSwarmAction =  GetTrafficSwarmAction();
         if (kTrafficSwarmAction)
         {
-            auto clonedChild = std::make_shared<TrafficSwarmActionImpl>(std::dynamic_pointer_cast<TrafficSwarmActionImpl>(kTrafficSwarmAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSwarmActionImpl>(kTrafficSwarmAction)->Clone();
             auto clonedChildITrafficSwarmAction = std::dynamic_pointer_cast<ITrafficSwarmAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSwarmAction(clonedChildITrafficSwarmAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSwarmAction(clonedChildITrafficSwarmAction);
         }
         return clonedObject;
     }
@@ -20428,7 +20428,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the traffic definition.]
 	 * 
 	*/
-    void TrafficDefinitionImpl::SetName(std::string& name )
+    void TrafficDefinitionImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -20438,7 +20438,7 @@ namespace RAC_OPENSCENARIO
 	 * within the traffic.]
 	 * 
 	*/
-    void TrafficDefinitionImpl::SetVehicleCategoryDistribution(std::shared_ptr<IVehicleCategoryDistribution>& vehicleCategoryDistribution )
+    void TrafficDefinitionImpl::SetVehicleCategoryDistribution(const std::shared_ptr<IVehicleCategoryDistribution> vehicleCategoryDistribution )
     {
         _vehicleCategoryDistribution = vehicleCategoryDistribution;
     }
@@ -20448,7 +20448,7 @@ namespace RAC_OPENSCENARIO
 	 * traffic.]
 	 * 
 	*/
-    void TrafficDefinitionImpl::SetControllerDistribution(std::shared_ptr<IControllerDistribution>& controllerDistribution )
+    void TrafficDefinitionImpl::SetControllerDistribution(const std::shared_ptr<IControllerDistribution> controllerDistribution )
     {
         _controllerDistribution = controllerDistribution;
     }
@@ -20498,34 +20498,34 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficDefinitionImpl TrafficDefinitionImpl::Clone()
+    std::shared_ptr<TrafficDefinitionImpl> TrafficDefinitionImpl::Clone()
     {
-        TrafficDefinitionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficDefinitionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // clone children
         const auto kVehicleCategoryDistribution =  GetVehicleCategoryDistribution();
         if (kVehicleCategoryDistribution)
         {
-            auto clonedChild = std::make_shared<VehicleCategoryDistributionImpl>(std::dynamic_pointer_cast<VehicleCategoryDistributionImpl>(kVehicleCategoryDistribution)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<VehicleCategoryDistributionImpl>(kVehicleCategoryDistribution)->Clone();
             auto clonedChildIVehicleCategoryDistribution = std::dynamic_pointer_cast<IVehicleCategoryDistribution>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetVehicleCategoryDistribution(clonedChildIVehicleCategoryDistribution);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetVehicleCategoryDistribution(clonedChildIVehicleCategoryDistribution);
         }
         const auto kControllerDistribution =  GetControllerDistribution();
         if (kControllerDistribution)
         {
-            auto clonedChild = std::make_shared<ControllerDistributionImpl>(std::dynamic_pointer_cast<ControllerDistributionImpl>(kControllerDistribution)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ControllerDistributionImpl>(kControllerDistribution)->Clone();
             auto clonedChildIControllerDistribution = std::dynamic_pointer_cast<IControllerDistribution>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetControllerDistribution(clonedChildIControllerDistribution);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetControllerDistribution(clonedChildIControllerDistribution);
         }
         return clonedObject;
     }
@@ -20555,7 +20555,7 @@ namespace RAC_OPENSCENARIO
 	 * signal.]
 	 * 
 	*/
-    void TrafficSignalActionImpl::SetTrafficSignalControllerAction(std::shared_ptr<ITrafficSignalControllerAction>& trafficSignalControllerAction )
+    void TrafficSignalActionImpl::SetTrafficSignalControllerAction(const std::shared_ptr<ITrafficSignalControllerAction> trafficSignalControllerAction )
     {
         _trafficSignalControllerAction = trafficSignalControllerAction;
     }
@@ -20565,7 +20565,7 @@ namespace RAC_OPENSCENARIO
 	 * signal controller.]
 	 * 
 	*/
-    void TrafficSignalActionImpl::SetTrafficSignalStateAction(std::shared_ptr<ITrafficSignalStateAction>& trafficSignalStateAction )
+    void TrafficSignalActionImpl::SetTrafficSignalStateAction(const std::shared_ptr<ITrafficSignalStateAction> trafficSignalStateAction )
     {
         _trafficSignalStateAction = trafficSignalStateAction;
     }
@@ -20609,32 +20609,32 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSignalActionImpl TrafficSignalActionImpl::Clone()
+    std::shared_ptr<TrafficSignalActionImpl> TrafficSignalActionImpl::Clone()
     {
-        TrafficSignalActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSignalActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kTrafficSignalControllerAction =  GetTrafficSignalControllerAction();
         if (kTrafficSignalControllerAction)
         {
-            auto clonedChild = std::make_shared<TrafficSignalControllerActionImpl>(std::dynamic_pointer_cast<TrafficSignalControllerActionImpl>(kTrafficSignalControllerAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSignalControllerActionImpl>(kTrafficSignalControllerAction)->Clone();
             auto clonedChildITrafficSignalControllerAction = std::dynamic_pointer_cast<ITrafficSignalControllerAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSignalControllerAction(clonedChildITrafficSignalControllerAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSignalControllerAction(clonedChildITrafficSignalControllerAction);
         }
         const auto kTrafficSignalStateAction =  GetTrafficSignalStateAction();
         if (kTrafficSignalStateAction)
         {
-            auto clonedChild = std::make_shared<TrafficSignalStateActionImpl>(std::dynamic_pointer_cast<TrafficSignalStateActionImpl>(kTrafficSignalStateAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficSignalStateActionImpl>(kTrafficSignalStateAction)->Clone();
             auto clonedChildITrafficSignalStateAction = std::dynamic_pointer_cast<ITrafficSignalStateAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficSignalStateAction(clonedChildITrafficSignalStateAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficSignalStateAction(clonedChildITrafficSignalStateAction);
         }
         return clonedObject;
     }
@@ -20666,7 +20666,7 @@ namespace RAC_OPENSCENARIO
 	 * signal ID must be listed in the TrafficSignal list of the , RoadNetwork section.]
 	 * 
 	*/
-    void TrafficSignalConditionImpl::SetName(std::string& name )
+    void TrafficSignalConditionImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -20676,7 +20676,7 @@ namespace RAC_OPENSCENARIO
 	 * true.]
 	 * 
 	*/
-    void TrafficSignalConditionImpl::SetState(std::string& state )
+    void TrafficSignalConditionImpl::SetState(const std::string state )
     {
         _state = state;
     }
@@ -20722,20 +20722,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSignalConditionImpl TrafficSignalConditionImpl::Clone()
+    std::shared_ptr<TrafficSignalConditionImpl> TrafficSignalConditionImpl::Clone()
     {
-        TrafficSignalConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSignalConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetState(_state);
+        clonedObject->SetState(_state);
         // clone children
         return clonedObject;
     }
@@ -20775,7 +20775,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [ID of the traffic signal controller in the road network.]
 	 * 
 	*/
-    void TrafficSignalControllerImpl::SetName(std::string& name )
+    void TrafficSignalControllerImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -20788,7 +20788,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void TrafficSignalControllerImpl::SetDelay(double& delay )
+    void TrafficSignalControllerImpl::SetDelay(const double delay )
     {
         _delay = delay;
     }
@@ -20798,7 +20798,7 @@ namespace RAC_OPENSCENARIO
 	 * network. If reference is set, a delay is required.]
 	 * 
 	*/
-    void TrafficSignalControllerImpl::SetReference(std::string& reference )
+    void TrafficSignalControllerImpl::SetReference(const std::string reference )
     {
         _reference = reference;
     }
@@ -20867,22 +20867,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSignalControllerImpl TrafficSignalControllerImpl::Clone()
+    std::shared_ptr<TrafficSignalControllerImpl> TrafficSignalControllerImpl::Clone()
     {
-        TrafficSignalControllerImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSignalControllerImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetDelay(_delay);
+        clonedObject->SetDelay(_delay);
         // Simple type
-        clonedObject.SetReference(_reference);
+        clonedObject->SetReference(_reference);
         // clone children
         const auto kPhases =  GetPhases();
         if (!kPhases.empty())
@@ -20890,11 +20890,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IPhase>> clonedList;
             for(auto&& kItem : kPhases)
             {
-                auto clonedChild = std::make_shared <PhaseImpl>(std::dynamic_pointer_cast<PhaseImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<PhaseImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetPhases(clonedList);
+            clonedObject->SetPhases(clonedList);
         }
         return clonedObject;
     }
@@ -20940,7 +20940,7 @@ namespace RAC_OPENSCENARIO
 	 * are defined in type RoadNetwork under the property , trafficSignalControllers.]
 	 * 
 	*/
-    void TrafficSignalControllerActionImpl::SetPhase(std::string& phase )
+    void TrafficSignalControllerActionImpl::SetPhase(const std::string phase )
     {
         _phase = phase;
     }
@@ -20996,22 +20996,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSignalControllerActionImpl TrafficSignalControllerActionImpl::Clone()
+    std::shared_ptr<TrafficSignalControllerActionImpl> TrafficSignalControllerActionImpl::Clone()
     {
-        TrafficSignalControllerActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSignalControllerActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _trafficSignalControllerRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetTrafficSignalControllerRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetTrafficSignalControllerRef(proxy);
         // Simple type
-        clonedObject.SetPhase(_phase);
+        clonedObject->SetPhase(_phase);
         // clone children
         return clonedObject;
     }
@@ -21058,7 +21058,7 @@ namespace RAC_OPENSCENARIO
 	 * trafficSignalControllers.]
 	 * 
 	*/
-    void TrafficSignalControllerConditionImpl::SetPhase(std::string& phase )
+    void TrafficSignalControllerConditionImpl::SetPhase(const std::string phase )
     {
         _phase = phase;
     }
@@ -21114,22 +21114,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSignalControllerConditionImpl TrafficSignalControllerConditionImpl::Clone()
+    std::shared_ptr<TrafficSignalControllerConditionImpl> TrafficSignalControllerConditionImpl::Clone()
     {
-        TrafficSignalControllerConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSignalControllerConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Proxy
         auto proxy = _trafficSignalControllerRef;
-        proxy.SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-        clonedObject.SetTrafficSignalControllerRef(proxy);
+        proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+        clonedObject->SetTrafficSignalControllerRef(proxy);
         // Simple type
-        clonedObject.SetPhase(_phase);
+        clonedObject->SetPhase(_phase);
         // clone children
         return clonedObject;
     }
@@ -21161,7 +21161,7 @@ namespace RAC_OPENSCENARIO
 	 * signal ID must be listed in TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-    void TrafficSignalStateImpl::SetTrafficSignalId(std::string& trafficSignalId )
+    void TrafficSignalStateImpl::SetTrafficSignalId(const std::string trafficSignalId )
     {
         _trafficSignalId = trafficSignalId;
     }
@@ -21171,7 +21171,7 @@ namespace RAC_OPENSCENARIO
 	 * TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-    void TrafficSignalStateImpl::SetState(std::string& state )
+    void TrafficSignalStateImpl::SetState(const std::string state )
     {
         _state = state;
     }
@@ -21217,20 +21217,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSignalStateImpl TrafficSignalStateImpl::Clone()
+    std::shared_ptr<TrafficSignalStateImpl> TrafficSignalStateImpl::Clone()
     {
-        TrafficSignalStateImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSignalStateImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetTrafficSignalId(_trafficSignalId);
+        clonedObject->SetTrafficSignalId(_trafficSignalId);
         // Simple type
-        clonedObject.SetState(_state);
+        clonedObject->SetState(_state);
         // clone children
         return clonedObject;
     }
@@ -21262,7 +21262,7 @@ namespace RAC_OPENSCENARIO
 	 * in the TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-    void TrafficSignalStateActionImpl::SetName(std::string& name )
+    void TrafficSignalStateActionImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -21272,7 +21272,7 @@ namespace RAC_OPENSCENARIO
 	 * in the TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-    void TrafficSignalStateActionImpl::SetState(std::string& state )
+    void TrafficSignalStateActionImpl::SetState(const std::string state )
     {
         _state = state;
     }
@@ -21318,20 +21318,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSignalStateActionImpl TrafficSignalStateActionImpl::Clone()
+    std::shared_ptr<TrafficSignalStateActionImpl> TrafficSignalStateActionImpl::Clone()
     {
-        TrafficSignalStateActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSignalStateActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetState(_state);
+        clonedObject->SetState(_state);
         // clone children
         return clonedObject;
     }
@@ -21371,7 +21371,7 @@ namespace RAC_OPENSCENARIO
 	 * location. Unit: vehicles/s Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSinkActionImpl::SetRate(double& rate )
+    void TrafficSinkActionImpl::SetRate(const double rate )
     {
         _rate = rate;
     }
@@ -21381,7 +21381,7 @@ namespace RAC_OPENSCENARIO
 	 * disappear around the specified position. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSinkActionImpl::SetRadius(double& radius )
+    void TrafficSinkActionImpl::SetRadius(const double radius )
     {
         _radius = radius;
     }
@@ -21390,7 +21390,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic sink.]
 	 * 
 	*/
-    void TrafficSinkActionImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void TrafficSinkActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -21400,7 +21400,7 @@ namespace RAC_OPENSCENARIO
 	 * for the sink.]
 	 * 
 	*/
-    void TrafficSinkActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition>& trafficDefinition )
+    void TrafficSinkActionImpl::SetTrafficDefinition(const std::shared_ptr<ITrafficDefinition> trafficDefinition )
     {
         _trafficDefinition = trafficDefinition;
     }
@@ -21456,36 +21456,36 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSinkActionImpl TrafficSinkActionImpl::Clone()
+    std::shared_ptr<TrafficSinkActionImpl> TrafficSinkActionImpl::Clone()
     {
-        TrafficSinkActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSinkActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetRate(_rate);
+        clonedObject->SetRate(_rate);
         // Simple type
-        clonedObject.SetRadius(_radius);
+        clonedObject->SetRadius(_radius);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         const auto kTrafficDefinition =  GetTrafficDefinition();
         if (kTrafficDefinition)
         {
-            auto clonedChild = std::make_shared<TrafficDefinitionImpl>(std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone();
             auto clonedChildITrafficDefinition = std::dynamic_pointer_cast<ITrafficDefinition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficDefinition(clonedChildITrafficDefinition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
         }
         return clonedObject;
     }
@@ -21530,7 +21530,7 @@ namespace RAC_OPENSCENARIO
 	 * location. Unit: vehicles/s. Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSourceActionImpl::SetRate(double& rate )
+    void TrafficSourceActionImpl::SetRate(const double rate )
     {
         _rate = rate;
     }
@@ -21540,7 +21540,7 @@ namespace RAC_OPENSCENARIO
 	 * appear around the specific position. Unit: m. Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSourceActionImpl::SetRadius(double& radius )
+    void TrafficSourceActionImpl::SetRadius(const double radius )
     {
         _radius = radius;
     }
@@ -21550,7 +21550,7 @@ namespace RAC_OPENSCENARIO
 	 * m/s; Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSourceActionImpl::SetVelocity(double& velocity )
+    void TrafficSourceActionImpl::SetVelocity(const double velocity )
     {
         _velocity = velocity;
     }
@@ -21559,7 +21559,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic source.]
 	 * 
 	*/
-    void TrafficSourceActionImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void TrafficSourceActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -21569,7 +21569,7 @@ namespace RAC_OPENSCENARIO
 	 * for the source.]
 	 * 
 	*/
-    void TrafficSourceActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition>& trafficDefinition )
+    void TrafficSourceActionImpl::SetTrafficDefinition(const std::shared_ptr<ITrafficDefinition> trafficDefinition )
     {
         _trafficDefinition = trafficDefinition;
     }
@@ -21631,38 +21631,38 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSourceActionImpl TrafficSourceActionImpl::Clone()
+    std::shared_ptr<TrafficSourceActionImpl> TrafficSourceActionImpl::Clone()
     {
-        TrafficSourceActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSourceActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetRate(_rate);
+        clonedObject->SetRate(_rate);
         // Simple type
-        clonedObject.SetRadius(_radius);
+        clonedObject->SetRadius(_radius);
         // Simple type
-        clonedObject.SetVelocity(_velocity);
+        clonedObject->SetVelocity(_velocity);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         const auto kTrafficDefinition =  GetTrafficDefinition();
         if (kTrafficDefinition)
         {
-            auto clonedChild = std::make_shared<TrafficDefinitionImpl>(std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone();
             auto clonedChildITrafficDefinition = std::dynamic_pointer_cast<ITrafficDefinition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficDefinition(clonedChildITrafficDefinition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
         }
         return clonedObject;
     }
@@ -21723,7 +21723,7 @@ namespace RAC_OPENSCENARIO
 	 * Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetSemiMajorAxis(double& semiMajorAxis )
+    void TrafficSwarmActionImpl::SetSemiMajorAxis(const double semiMajorAxis )
     {
         _semiMajorAxis = semiMajorAxis;
     }
@@ -21734,7 +21734,7 @@ namespace RAC_OPENSCENARIO
 	 * Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetSemiMinorAxis(double& semiMinorAxis )
+    void TrafficSwarmActionImpl::SetSemiMinorAxis(const double semiMinorAxis )
     {
         _semiMinorAxis = semiMinorAxis;
     }
@@ -21744,7 +21744,7 @@ namespace RAC_OPENSCENARIO
 	 * entity. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetInnerRadius(double& innerRadius )
+    void TrafficSwarmActionImpl::SetInnerRadius(const double innerRadius )
     {
         _innerRadius = innerRadius;
     }
@@ -21754,7 +21754,7 @@ namespace RAC_OPENSCENARIO
 	 * the central entity. Unit: m;.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetOffset(double& offset )
+    void TrafficSwarmActionImpl::SetOffset(const double offset )
     {
         _offset = offset;
     }
@@ -21764,7 +21764,7 @@ namespace RAC_OPENSCENARIO
 	 * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetNumberOfVehicles(unsigned int& numberOfVehicles )
+    void TrafficSwarmActionImpl::SetNumberOfVehicles(const unsigned int numberOfVehicles )
     {
         _numberOfVehicles = numberOfVehicles;
     }
@@ -21774,7 +21774,7 @@ namespace RAC_OPENSCENARIO
 	 * m/s; Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetVelocity(double& velocity )
+    void TrafficSwarmActionImpl::SetVelocity(const double velocity )
     {
         _velocity = velocity;
     }
@@ -21783,7 +21783,7 @@ namespace RAC_OPENSCENARIO
 	 * @param centralObject from OpenSCENARIO class model specification: [The entity that represents the center of a swarm.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetCentralObject(std::shared_ptr<ICentralSwarmObject>& centralObject )
+    void TrafficSwarmActionImpl::SetCentralObject(const std::shared_ptr<ICentralSwarmObject> centralObject )
     {
         _centralObject = centralObject;
     }
@@ -21793,7 +21793,7 @@ namespace RAC_OPENSCENARIO
 	 * respect to vehicle and driver distributions.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition>& trafficDefinition )
+    void TrafficSwarmActionImpl::SetTrafficDefinition(const std::shared_ptr<ITrafficDefinition> trafficDefinition )
     {
         _trafficDefinition = trafficDefinition;
     }
@@ -21873,44 +21873,44 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrafficSwarmActionImpl TrafficSwarmActionImpl::Clone()
+    std::shared_ptr<TrafficSwarmActionImpl> TrafficSwarmActionImpl::Clone()
     {
-        TrafficSwarmActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrafficSwarmActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetSemiMajorAxis(_semiMajorAxis);
+        clonedObject->SetSemiMajorAxis(_semiMajorAxis);
         // Simple type
-        clonedObject.SetSemiMinorAxis(_semiMinorAxis);
+        clonedObject->SetSemiMinorAxis(_semiMinorAxis);
         // Simple type
-        clonedObject.SetInnerRadius(_innerRadius);
+        clonedObject->SetInnerRadius(_innerRadius);
         // Simple type
-        clonedObject.SetOffset(_offset);
+        clonedObject->SetOffset(_offset);
         // Simple type
-        clonedObject.SetNumberOfVehicles(_numberOfVehicles);
+        clonedObject->SetNumberOfVehicles(_numberOfVehicles);
         // Simple type
-        clonedObject.SetVelocity(_velocity);
+        clonedObject->SetVelocity(_velocity);
         // clone children
         const auto kCentralObject =  GetCentralObject();
         if (kCentralObject)
         {
-            auto clonedChild = std::make_shared<CentralSwarmObjectImpl>(std::dynamic_pointer_cast<CentralSwarmObjectImpl>(kCentralObject)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CentralSwarmObjectImpl>(kCentralObject)->Clone();
             auto clonedChildICentralSwarmObject = std::dynamic_pointer_cast<ICentralSwarmObject>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCentralObject(clonedChildICentralSwarmObject);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCentralObject(clonedChildICentralSwarmObject);
         }
         const auto kTrafficDefinition =  GetTrafficDefinition();
         if (kTrafficDefinition)
         {
-            auto clonedChild = std::make_shared<TrafficDefinitionImpl>(std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone();
             auto clonedChildITrafficDefinition = std::dynamic_pointer_cast<ITrafficDefinition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetTrafficDefinition(clonedChildITrafficDefinition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
         }
         return clonedObject;
     }
@@ -21949,7 +21949,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the trajectory type. Required if used in catalog.]
 	 * 
 	*/
-    void TrajectoryImpl::SetName(std::string& name )
+    void TrajectoryImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -21958,7 +21958,7 @@ namespace RAC_OPENSCENARIO
 	 * @param closed from OpenSCENARIO class model specification: [True if trajectory is closed.]
 	 * 
 	*/
-    void TrajectoryImpl::SetClosed(bool& closed )
+    void TrajectoryImpl::SetClosed(const bool closed )
     {
         _closed = closed;
     }
@@ -21976,7 +21976,7 @@ namespace RAC_OPENSCENARIO
 	 * @param shape from OpenSCENARIO class model specification: [The shape of a trajectory (Polyline, Clothoid or Nurbs)]
 	 * 
 	*/
-    void TrajectoryImpl::SetShape(std::shared_ptr<IShape>& shape )
+    void TrajectoryImpl::SetShape(const std::shared_ptr<IShape> shape )
     {
         _shape = shape;
     }
@@ -22055,20 +22055,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrajectoryImpl TrajectoryImpl::Clone()
+    std::shared_ptr<TrajectoryImpl> TrajectoryImpl::Clone()
     {
-        TrajectoryImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrajectoryImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetClosed(_closed);
+        clonedObject->SetClosed(_closed);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -22076,19 +22076,19 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kShape =  GetShape();
         if (kShape)
         {
-            auto clonedChild = std::make_shared<ShapeImpl>(std::dynamic_pointer_cast<ShapeImpl>(kShape)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<ShapeImpl>(kShape)->Clone();
             auto clonedChildIShape = std::dynamic_pointer_cast<IShape>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetShape(clonedChildIShape);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetShape(clonedChildIShape);
         }
         return clonedObject;
     }
@@ -22113,7 +22113,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-    void TrajectoryCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void TrajectoryCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -22152,24 +22152,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrajectoryCatalogLocationImpl TrajectoryCatalogLocationImpl::Clone()
+    std::shared_ptr<TrajectoryCatalogLocationImpl> TrajectoryCatalogLocationImpl::Clone()
     {
-        TrajectoryCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrajectoryCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -22198,7 +22198,7 @@ namespace RAC_OPENSCENARIO
 	 * by dynamics constraints and/or control loop implementation.]
 	 * 
 	*/
-    void TrajectoryFollowingModeImpl::SetFollowingMode(FollowingMode& followingMode )
+    void TrajectoryFollowingModeImpl::SetFollowingMode(const FollowingMode followingMode )
     {
         _followingMode = followingMode;
     }
@@ -22247,18 +22247,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TrajectoryFollowingModeImpl TrajectoryFollowingModeImpl::Clone()
+    std::shared_ptr<TrajectoryFollowingModeImpl> TrajectoryFollowingModeImpl::Clone()
     {
-        TrajectoryFollowingModeImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TrajectoryFollowingModeImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetFollowingMode(_followingMode);
+        clonedObject->SetFollowingMode(_followingMode);
         // clone children
         return clonedObject;
     }
@@ -22295,7 +22295,7 @@ namespace RAC_OPENSCENARIO
 	 * current and target value.]
 	 * 
 	*/
-    void TransitionDynamicsImpl::SetDynamicsShape(DynamicsShape& dynamicsShape )
+    void TransitionDynamicsImpl::SetDynamicsShape(const DynamicsShape dynamicsShape )
     {
         _dynamicsShape = dynamicsShape;
     }
@@ -22305,7 +22305,7 @@ namespace RAC_OPENSCENARIO
 	 * s) or distance (Unit: m) to acquire the target value. , Range: [0..inf[.]
 	 * 
 	*/
-    void TransitionDynamicsImpl::SetValue(double& value )
+    void TransitionDynamicsImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -22315,7 +22315,7 @@ namespace RAC_OPENSCENARIO
 	 * 'distance'.]
 	 * 
 	*/
-    void TransitionDynamicsImpl::SetDynamicsDimension(DynamicsDimension& dynamicsDimension )
+    void TransitionDynamicsImpl::SetDynamicsDimension(const DynamicsDimension dynamicsDimension )
     {
         _dynamicsDimension = dynamicsDimension;
     }
@@ -22385,22 +22385,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TransitionDynamicsImpl TransitionDynamicsImpl::Clone()
+    std::shared_ptr<TransitionDynamicsImpl> TransitionDynamicsImpl::Clone()
     {
-        TransitionDynamicsImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TransitionDynamicsImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetDynamicsShape(_dynamicsShape);
+        clonedObject->SetDynamicsShape(_dynamicsShape);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetDynamicsDimension(_dynamicsDimension);
+        clonedObject->SetDynamicsDimension(_dynamicsDimension);
         // clone children
         return clonedObject;
     }
@@ -22426,7 +22426,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Amount of traveled distance. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-    void TraveledDistanceConditionImpl::SetValue(double& value )
+    void TraveledDistanceConditionImpl::SetValue(const double value )
     {
         _value = value;
     }
@@ -22466,18 +22466,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TraveledDistanceConditionImpl TraveledDistanceConditionImpl::Clone()
+    std::shared_ptr<TraveledDistanceConditionImpl> TraveledDistanceConditionImpl::Clone()
     {
-        TraveledDistanceConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TraveledDistanceConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // clone children
         return clonedObject;
     }
@@ -22545,14 +22545,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TriggerImpl TriggerImpl::Clone()
+    std::shared_ptr<TriggerImpl> TriggerImpl::Clone()
     {
-        TriggerImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TriggerImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -22562,11 +22562,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IConditionGroup>> clonedList;
             for(auto&& kItem : kConditionGroups)
             {
-                auto clonedChild = std::make_shared <ConditionGroupImpl>(std::dynamic_pointer_cast<ConditionGroupImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ConditionGroupImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetConditionGroups(clonedList);
+            clonedObject->SetConditionGroups(clonedList);
         }
         return clonedObject;
     }
@@ -22596,7 +22596,7 @@ namespace RAC_OPENSCENARIO
 	 * @param triggeringEntitiesRule from OpenSCENARIO class model specification: [All or any.]
 	 * 
 	*/
-    void TriggeringEntitiesImpl::SetTriggeringEntitiesRule(TriggeringEntitiesRule& triggeringEntitiesRule )
+    void TriggeringEntitiesImpl::SetTriggeringEntitiesRule(const TriggeringEntitiesRule triggeringEntitiesRule )
     {
         _triggeringEntitiesRule = triggeringEntitiesRule;
     }
@@ -22662,18 +22662,18 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    TriggeringEntitiesImpl TriggeringEntitiesImpl::Clone()
+    std::shared_ptr<TriggeringEntitiesImpl> TriggeringEntitiesImpl::Clone()
     {
-        TriggeringEntitiesImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<TriggeringEntitiesImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetTriggeringEntitiesRule(_triggeringEntitiesRule);
+        clonedObject->SetTriggeringEntitiesRule(_triggeringEntitiesRule);
         // clone children
         const auto kEntityRefs =  GetEntityRefs();
         if (!kEntityRefs.empty())
@@ -22681,11 +22681,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IEntityRef>> clonedList;
             for(auto&& kItem : kEntityRefs)
             {
-                auto clonedChild = std::make_shared <EntityRefImpl>(std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetEntityRefs(clonedList);
+            clonedObject->SetEntityRefs(clonedList);
         }
         return clonedObject;
     }
@@ -22711,7 +22711,7 @@ namespace RAC_OPENSCENARIO
 	 * contract between simulation environment provider and scenario author.]
 	 * 
 	*/
-    void UserDefinedActionImpl::SetCustomCommandAction(std::shared_ptr<ICustomCommandAction>& customCommandAction )
+    void UserDefinedActionImpl::SetCustomCommandAction(const std::shared_ptr<ICustomCommandAction> customCommandAction )
     {
         _customCommandAction = customCommandAction;
     }
@@ -22750,24 +22750,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    UserDefinedActionImpl UserDefinedActionImpl::Clone()
+    std::shared_ptr<UserDefinedActionImpl> UserDefinedActionImpl::Clone()
     {
-        UserDefinedActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<UserDefinedActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kCustomCommandAction =  GetCustomCommandAction();
         if (kCustomCommandAction)
         {
-            auto clonedChild = std::make_shared<CustomCommandActionImpl>(std::dynamic_pointer_cast<CustomCommandActionImpl>(kCustomCommandAction)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<CustomCommandActionImpl>(kCustomCommandAction)->Clone();
             auto clonedChildICustomCommandAction = std::dynamic_pointer_cast<ICustomCommandAction>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetCustomCommandAction(clonedChildICustomCommandAction);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetCustomCommandAction(clonedChildICustomCommandAction);
         }
         return clonedObject;
     }
@@ -22803,7 +22803,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the external value.]
 	 * 
 	*/
-    void UserDefinedValueConditionImpl::SetName(std::string& name )
+    void UserDefinedValueConditionImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -22812,7 +22812,7 @@ namespace RAC_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Reference value the external value is compared to.]
 	 * 
 	*/
-    void UserDefinedValueConditionImpl::SetValue(std::string& value )
+    void UserDefinedValueConditionImpl::SetValue(const std::string value )
     {
         _value = value;
     }
@@ -22821,7 +22821,7 @@ namespace RAC_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-    void UserDefinedValueConditionImpl::SetRule(Rule& rule )
+    void UserDefinedValueConditionImpl::SetRule(const Rule rule )
     {
         _rule = rule;
     }
@@ -22882,22 +22882,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    UserDefinedValueConditionImpl UserDefinedValueConditionImpl::Clone()
+    std::shared_ptr<UserDefinedValueConditionImpl> UserDefinedValueConditionImpl::Clone()
     {
-        UserDefinedValueConditionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<UserDefinedValueConditionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Simple type
-        clonedObject.SetValue(_value);
+        clonedObject->SetValue(_value);
         // Enumeration Type
-        clonedObject.SetRule(_rule);
+        clonedObject->SetRule(_rule);
         // clone children
         return clonedObject;
     }
@@ -22948,7 +22948,7 @@ namespace RAC_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the vehicle type.]
 	 * 
 	*/
-    void VehicleImpl::SetName(std::string& name )
+    void VehicleImpl::SetName(const std::string name )
     {
         _name = name;
     }
@@ -22957,7 +22957,7 @@ namespace RAC_OPENSCENARIO
 	 * @param vehicleCategory from OpenSCENARIO class model specification: [Category of the vehicle (bicycle, train,...).]
 	 * 
 	*/
-    void VehicleImpl::SetVehicleCategory(VehicleCategory& vehicleCategory )
+    void VehicleImpl::SetVehicleCategory(const VehicleCategory vehicleCategory )
     {
         _vehicleCategory = vehicleCategory;
     }
@@ -22976,7 +22976,7 @@ namespace RAC_OPENSCENARIO
 	 * vehicle.]
 	 * 
 	*/
-    void VehicleImpl::SetBoundingBox(std::shared_ptr<IBoundingBox>& boundingBox )
+    void VehicleImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
     {
         _boundingBox = boundingBox;
     }
@@ -22985,7 +22985,7 @@ namespace RAC_OPENSCENARIO
 	 * @param performance from OpenSCENARIO class model specification: [Performance properties of the vehicle.]
 	 * 
 	*/
-    void VehicleImpl::SetPerformance(std::shared_ptr<IPerformance>& performance )
+    void VehicleImpl::SetPerformance(const std::shared_ptr<IPerformance> performance )
     {
         _performance = performance;
     }
@@ -22995,7 +22995,7 @@ namespace RAC_OPENSCENARIO
 	 * locations.]
 	 * 
 	*/
-    void VehicleImpl::SetAxles(std::shared_ptr<IAxles>& axles )
+    void VehicleImpl::SetAxles(const std::shared_ptr<IAxles> axles )
     {
         _axles = axles;
     }
@@ -23004,7 +23004,7 @@ namespace RAC_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Additional properties as name value pairs.]
 	 * 
 	*/
-    void VehicleImpl::SetProperties(std::shared_ptr<IProperties>& properties )
+    void VehicleImpl::SetProperties(const std::shared_ptr<IProperties> properties )
     {
         _properties = properties;
     }
@@ -23107,20 +23107,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    VehicleImpl VehicleImpl::Clone()
+    std::shared_ptr<VehicleImpl> VehicleImpl::Clone()
     {
-        VehicleImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<VehicleImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetName(_name);
+        clonedObject->SetName(_name);
         // Enumeration Type
-        clonedObject.SetVehicleCategory(_vehicleCategory);
+        clonedObject->SetVehicleCategory(_vehicleCategory);
         // clone children
         const auto kParameterDeclarations =  GetParameterDeclarations();
         if (!kParameterDeclarations.empty())
@@ -23128,43 +23128,43 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
             for(auto&& kItem : kParameterDeclarations)
             {
-                auto clonedChild = std::make_shared <ParameterDeclarationImpl>(std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetParameterDeclarations(clonedList);
+            clonedObject->SetParameterDeclarations(clonedList);
         }
         const auto kBoundingBox =  GetBoundingBox();
         if (kBoundingBox)
         {
-            auto clonedChild = std::make_shared<BoundingBoxImpl>(std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
             auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetBoundingBox(clonedChildIBoundingBox);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetBoundingBox(clonedChildIBoundingBox);
         }
         const auto kPerformance =  GetPerformance();
         if (kPerformance)
         {
-            auto clonedChild = std::make_shared<PerformanceImpl>(std::dynamic_pointer_cast<PerformanceImpl>(kPerformance)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PerformanceImpl>(kPerformance)->Clone();
             auto clonedChildIPerformance = std::dynamic_pointer_cast<IPerformance>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPerformance(clonedChildIPerformance);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPerformance(clonedChildIPerformance);
         }
         const auto kAxles =  GetAxles();
         if (kAxles)
         {
-            auto clonedChild = std::make_shared<AxlesImpl>(std::dynamic_pointer_cast<AxlesImpl>(kAxles)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<AxlesImpl>(kAxles)->Clone();
             auto clonedChildIAxles = std::dynamic_pointer_cast<IAxles>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetAxles(clonedChildIAxles);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetAxles(clonedChildIAxles);
         }
         const auto kProperties =  GetProperties();
         if (kProperties)
         {
-            auto clonedChild = std::make_shared<PropertiesImpl>(std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
             auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetProperties(clonedChildIProperties);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetProperties(clonedChildIProperties);
         }
         return clonedObject;
     }
@@ -23189,7 +23189,7 @@ namespace RAC_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-    void VehicleCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory>& directory )
+    void VehicleCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
     {
         _directory = directory;
     }
@@ -23228,24 +23228,24 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    VehicleCatalogLocationImpl VehicleCatalogLocationImpl::Clone()
+    std::shared_ptr<VehicleCatalogLocationImpl> VehicleCatalogLocationImpl::Clone()
     {
-        VehicleCatalogLocationImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<VehicleCatalogLocationImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
         const auto kDirectory =  GetDirectory();
         if (kDirectory)
         {
-            auto clonedChild = std::make_shared<DirectoryImpl>(std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
             auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetDirectory(clonedChildIDirectory);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetDirectory(clonedChildIDirectory);
         }
         return clonedObject;
     }
@@ -23313,14 +23313,14 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    VehicleCategoryDistributionImpl VehicleCategoryDistributionImpl::Clone()
+    std::shared_ptr<VehicleCategoryDistributionImpl> VehicleCategoryDistributionImpl::Clone()
     {
-        VehicleCategoryDistributionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<VehicleCategoryDistributionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // clone children
@@ -23330,11 +23330,11 @@ namespace RAC_OPENSCENARIO
             std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> clonedList;
             for(auto&& kItem : kVehicleCategoryDistributionEntries)
             {
-                auto clonedChild = std::make_shared <VehicleCategoryDistributionEntryImpl>(std::dynamic_pointer_cast<VehicleCategoryDistributionEntryImpl>(kItem)->Clone());
-                clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
+                auto clonedChild = std::dynamic_pointer_cast<VehicleCategoryDistributionEntryImpl>(kItem)->Clone();
+                clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
                 clonedList.push_back(clonedChild);
             }
-            clonedObject.SetVehicleCategoryDistributionEntries(clonedList);
+            clonedObject->SetVehicleCategoryDistributionEntries(clonedList);
         }
         return clonedObject;
     }
@@ -23365,7 +23365,7 @@ namespace RAC_OPENSCENARIO
 	 * @param category from OpenSCENARIO class model specification: [The category of the vehicles that appear in traffic.]
 	 * 
 	*/
-    void VehicleCategoryDistributionEntryImpl::SetCategory(VehicleCategory& category )
+    void VehicleCategoryDistributionEntryImpl::SetCategory(const VehicleCategory category )
     {
         _category = category;
     }
@@ -23375,7 +23375,7 @@ namespace RAC_OPENSCENARIO
 	 * distribution. Range: [0..inf[.]
 	 * 
 	*/
-    void VehicleCategoryDistributionEntryImpl::SetWeight(double& weight )
+    void VehicleCategoryDistributionEntryImpl::SetWeight(const double weight )
     {
         _weight = weight;
     }
@@ -23430,20 +23430,20 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    VehicleCategoryDistributionEntryImpl VehicleCategoryDistributionEntryImpl::Clone()
+    std::shared_ptr<VehicleCategoryDistributionEntryImpl> VehicleCategoryDistributionEntryImpl::Clone()
     {
-        VehicleCategoryDistributionEntryImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<VehicleCategoryDistributionEntryImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetCategory(_category);
+        clonedObject->SetCategory(_category);
         // Simple type
-        clonedObject.SetWeight(_weight);
+        clonedObject->SetWeight(_weight);
         // clone children
         return clonedObject;
     }
@@ -23473,7 +23473,7 @@ namespace RAC_OPENSCENARIO
 	 * @param time from OpenSCENARIO class model specification: [Optional time specification of the vertex.]
 	 * 
 	*/
-    void VertexImpl::SetTime(double& time )
+    void VertexImpl::SetTime(const double time )
     {
         _time = time;
     }
@@ -23482,7 +23482,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Position of the vertex.]
 	 * 
 	*/
-    void VertexImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void VertexImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -23527,26 +23527,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    VertexImpl VertexImpl::Clone()
+    std::shared_ptr<VertexImpl> VertexImpl::Clone()
     {
-        VertexImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<VertexImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetTime(_time);
+        clonedObject->SetTime(_time);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -23583,7 +23583,7 @@ namespace RAC_OPENSCENARIO
 	 * is not visible in image generator(s).]
 	 * 
 	*/
-    void VisibilityActionImpl::SetGraphics(bool& graphics )
+    void VisibilityActionImpl::SetGraphics(const bool graphics )
     {
         _graphics = graphics;
     }
@@ -23593,7 +23593,7 @@ namespace RAC_OPENSCENARIO
 	 * particularly for autonomous driver models. False: actor is not , visible for other traffic participants.]
 	 * 
 	*/
-    void VisibilityActionImpl::SetTraffic(bool& traffic )
+    void VisibilityActionImpl::SetTraffic(const bool traffic )
     {
         _traffic = traffic;
     }
@@ -23603,7 +23603,7 @@ namespace RAC_OPENSCENARIO
 	 * visible in sensor(s).]
 	 * 
 	*/
-    void VisibilityActionImpl::SetSensors(bool& sensors )
+    void VisibilityActionImpl::SetSensors(const bool sensors )
     {
         _sensors = sensors;
     }
@@ -23655,22 +23655,22 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    VisibilityActionImpl VisibilityActionImpl::Clone()
+    std::shared_ptr<VisibilityActionImpl> VisibilityActionImpl::Clone()
     {
-        VisibilityActionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<VisibilityActionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetGraphics(_graphics);
+        clonedObject->SetGraphics(_graphics);
         // Simple type
-        clonedObject.SetTraffic(_traffic);
+        clonedObject->SetTraffic(_traffic);
         // Simple type
-        clonedObject.SetSensors(_sensors);
+        clonedObject->SetSensors(_sensors);
         // clone children
         return clonedObject;
     }
@@ -23701,7 +23701,7 @@ namespace RAC_OPENSCENARIO
 	 * shortest, random, leastIntersections).]
 	 * 
 	*/
-    void WaypointImpl::SetRouteStrategy(RouteStrategy& routeStrategy )
+    void WaypointImpl::SetRouteStrategy(const RouteStrategy routeStrategy )
     {
         _routeStrategy = routeStrategy;
     }
@@ -23710,7 +23710,7 @@ namespace RAC_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The reference position to form the route.]
 	 * 
 	*/
-    void WaypointImpl::SetPosition(std::shared_ptr<IPosition>& position )
+    void WaypointImpl::SetPosition(const std::shared_ptr<IPosition> position )
     {
         _position = position;
     }
@@ -23764,26 +23764,26 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    WaypointImpl WaypointImpl::Clone()
+    std::shared_ptr<WaypointImpl> WaypointImpl::Clone()
     {
-        WaypointImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<WaypointImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetRouteStrategy(_routeStrategy);
+        clonedObject->SetRouteStrategy(_routeStrategy);
         // clone children
         const auto kPosition =  GetPosition();
         if (kPosition)
         {
-            auto clonedChild = std::make_shared<PositionImpl>(std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
             auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPosition(clonedChildIPosition);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPosition(clonedChildIPosition);
         }
         return clonedObject;
     }
@@ -23822,7 +23822,7 @@ namespace RAC_OPENSCENARIO
 	 * visualization settings.]
 	 * 
 	*/
-    void WeatherImpl::SetCloudState(CloudState& cloudState )
+    void WeatherImpl::SetCloudState(const CloudState cloudState )
     {
         _cloudState = cloudState;
     }
@@ -23831,7 +23831,7 @@ namespace RAC_OPENSCENARIO
 	 * @param sun from OpenSCENARIO class model specification: [Definition of the sun, i.e. position and intensity.]
 	 * 
 	*/
-    void WeatherImpl::SetSun(std::shared_ptr<ISun>& sun )
+    void WeatherImpl::SetSun(const std::shared_ptr<ISun> sun )
     {
         _sun = sun;
     }
@@ -23840,7 +23840,7 @@ namespace RAC_OPENSCENARIO
 	 * @param fog from OpenSCENARIO class model specification: [Definition of fog, i.e. visual range and bounding box.]
 	 * 
 	*/
-    void WeatherImpl::SetFog(std::shared_ptr<IFog>& fog )
+    void WeatherImpl::SetFog(const std::shared_ptr<IFog> fog )
     {
         _fog = fog;
     }
@@ -23850,7 +23850,7 @@ namespace RAC_OPENSCENARIO
 	 * intensity.]
 	 * 
 	*/
-    void WeatherImpl::SetPrecipitation(std::shared_ptr<IPrecipitation>& precipitation )
+    void WeatherImpl::SetPrecipitation(const std::shared_ptr<IPrecipitation> precipitation )
     {
         _precipitation = precipitation;
     }
@@ -23914,42 +23914,42 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    WeatherImpl WeatherImpl::Clone()
+    std::shared_ptr<WeatherImpl> WeatherImpl::Clone()
     {
-        WeatherImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<WeatherImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Enumeration Type
-        clonedObject.SetCloudState(_cloudState);
+        clonedObject->SetCloudState(_cloudState);
         // clone children
         const auto kSun =  GetSun();
         if (kSun)
         {
-            auto clonedChild = std::make_shared<SunImpl>(std::dynamic_pointer_cast<SunImpl>(kSun)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<SunImpl>(kSun)->Clone();
             auto clonedChildISun = std::dynamic_pointer_cast<ISun>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetSun(clonedChildISun);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetSun(clonedChildISun);
         }
         const auto kFog =  GetFog();
         if (kFog)
         {
-            auto clonedChild = std::make_shared<FogImpl>(std::dynamic_pointer_cast<FogImpl>(kFog)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<FogImpl>(kFog)->Clone();
             auto clonedChildIFog = std::dynamic_pointer_cast<IFog>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetFog(clonedChildIFog);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetFog(clonedChildIFog);
         }
         const auto kPrecipitation =  GetPrecipitation();
         if (kPrecipitation)
         {
-            auto clonedChild = std::make_shared<PrecipitationImpl>(std::dynamic_pointer_cast<PrecipitationImpl>(kPrecipitation)->Clone());
+            auto clonedChild = std::dynamic_pointer_cast<PrecipitationImpl>(kPrecipitation)->Clone();
             auto clonedChildIPrecipitation = std::dynamic_pointer_cast<IPrecipitation>(clonedChild);
-            clonedChild->SetParent(std::make_shared<IOpenScenarioModelElement>(clonedObject));
-            clonedObject.SetPrecipitation(clonedChildIPrecipitation);
+            clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->SetPrecipitation(clonedChildIPrecipitation);
         }
         return clonedObject;
     }
@@ -24000,7 +24000,7 @@ namespace RAC_OPENSCENARIO
 	 * @param x from OpenSCENARIO class model specification: [The x coordinate value.]
 	 * 
 	*/
-    void WorldPositionImpl::SetX(double& x )
+    void WorldPositionImpl::SetX(const double x )
     {
         _x = x;
     }
@@ -24009,7 +24009,7 @@ namespace RAC_OPENSCENARIO
 	 * @param y from OpenSCENARIO class model specification: [The y coordinate value.]
 	 * 
 	*/
-    void WorldPositionImpl::SetY(double& y )
+    void WorldPositionImpl::SetY(const double y )
     {
         _y = y;
     }
@@ -24018,7 +24018,7 @@ namespace RAC_OPENSCENARIO
 	 * @param z from OpenSCENARIO class model specification: [The z coordinate value.]
 	 * 
 	*/
-    void WorldPositionImpl::SetZ(double& z )
+    void WorldPositionImpl::SetZ(const double z )
     {
         _z = z;
     }
@@ -24028,7 +24028,7 @@ namespace RAC_OPENSCENARIO
 	 * positive rotation about the z-axis (see ISO 8855:2011).]
 	 * 
 	*/
-    void WorldPositionImpl::SetH(double& h )
+    void WorldPositionImpl::SetH(const double h )
     {
         _h = h;
     }
@@ -24038,7 +24038,7 @@ namespace RAC_OPENSCENARIO
 	 * rotation about the y-axis (see ISO 8855:2011).]
 	 * 
 	*/
-    void WorldPositionImpl::SetP(double& p )
+    void WorldPositionImpl::SetP(const double p )
     {
         _p = p;
     }
@@ -24048,7 +24048,7 @@ namespace RAC_OPENSCENARIO
 	 * rotation about the x-axis (see ISO 8855:2011).]
 	 * 
 	*/
-    void WorldPositionImpl::SetR(double& r )
+    void WorldPositionImpl::SetR(const double r )
     {
         _r = r;
     }
@@ -24118,28 +24118,28 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    WorldPositionImpl WorldPositionImpl::Clone()
+    std::shared_ptr<WorldPositionImpl> WorldPositionImpl::Clone()
     {
-        WorldPositionImpl clonedObject;
-        CloneStartMarker(clonedObject);
-        CloneEndMarker(clonedObject);
-        CloneAttributeKeyToStartMarker(clonedObject);
-        CloneAttributeKeyToEndMarker(clonedObject);
-        CloneAttributeKeyToParameterNameMap(clonedObject);
+        auto clonedObject = std::make_shared<WorldPositionImpl>();
+        CloneStartMarker(*clonedObject);
+        CloneEndMarker(*clonedObject);
+        CloneAttributeKeyToStartMarker(*clonedObject);
+        CloneAttributeKeyToEndMarker(*clonedObject);
+        CloneAttributeKeyToParameterNameMap(*clonedObject);
 
         // clone attributes;
         // Simple type
-        clonedObject.SetX(_x);
+        clonedObject->SetX(_x);
         // Simple type
-        clonedObject.SetY(_y);
+        clonedObject->SetY(_y);
         // Simple type
-        clonedObject.SetZ(_z);
+        clonedObject->SetZ(_z);
         // Simple type
-        clonedObject.SetH(_h);
+        clonedObject->SetH(_h);
         // Simple type
-        clonedObject.SetP(_p);
+        clonedObject->SetP(_p);
         // Simple type
-        clonedObject.SetR(_r);
+        clonedObject->SetR(_r);
         // clone children
         return clonedObject;
     }
