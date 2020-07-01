@@ -1,0 +1,148 @@
+package de.rac.openscenario.v1_0.impl;
+
+import de.rac.openscenario.v1_0.api.IPrecipitation;
+import de.rac.openscenario.v1_0.impl.BaseImpl;
+import de.rac.openscenario.v1_0.common.ILocator;
+import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.v1_0.common.OscConstants;
+import de.rac.openscenario.v1_0.common.FileContentMessage;
+import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import java.lang.Cloneable;
+import de.rac.openscenario.v1_0.parser.ParserHelper;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.ArrayList;
+import de.rac.openscenario.v1_0.common.ErrorLevel;
+
+import de.rac.openscenario.v1_0.api.PrecipitationType;
+
+
+/**
+ * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+ * <p>
+ * Value class that implements IPrecipitation. With setter methods to fill the properties.
+ * <ul>
+ * <li> getter methods for properties (implemented methods of IPrecipitation)
+ * <li> setter methods for properties
+ * <li> getChildren method to collect all children
+ * <li> clone function to make a deep copy
+ * <li> overrides from BaseImpl
+ * </ul>
+ * 
+ * @author RA Consulting OpenSCENARIO generation facility
+*/
+public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Cloneable{
+	
+	/**
+	 * Filling the property to type map
+	 */
+	 static{
+		propertyToType.put(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE, String.class);
+		propertyToType.put(OscConstants.ATTRIBUTE__INTENSITY, Double.class);
+	}
+	
+	private PrecipitationType precipitationType;
+	private Double intensity;
+
+	@Override
+	public PrecipitationType getPrecipitationType()
+	{
+		return precipitationType;
+	}
+	@Override
+	public Double getIntensity()
+	{
+		return intensity;
+	}
+	/**
+	 * Sets the value of model property precipitationType
+	 * @param precipitationType from OpenSCENARIO class model specification: [Type of the precipitation.]
+	 * 
+	*/
+	public  void setPrecipitationType (PrecipitationType precipitationType )
+	{
+		this.precipitationType = precipitationType;
+	}
+	/**
+	 * Sets the value of model property intensity
+	 * @param intensity from OpenSCENARIO class model specification: [The intensity of the precipitation. Range: [0..1].]
+	 * 
+	*/
+	public  void setIntensity (Double intensity )
+	{
+		this.intensity = intensity;
+	}
+
+	@Override
+	public  void resolveParameterInternal(IParserMessageLogger logger,String attributeKey, String parameterLiteralValue)
+	{
+		if (attributeKey.equals(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE))
+		{
+			// Enumeration Type
+			PrecipitationType result = PrecipitationType.getFromLiteral(parameterLiteralValue);
+			if (result != null)
+			{
+				precipitationType = result;
+				removeResolvedParameter(attributeKey);
+			}else
+			{
+				logger.logMessage(new FileContentMessage( "Value '" + parameterLiteralValue + "' is not allowed.",ErrorLevel.ERROR, getTextmarker(attributeKey)));
+			}
+				
+	 	}
+		else if (attributeKey.equals(OscConstants.ATTRIBUTE__INTENSITY))
+		{
+			// Simple type
+			intensity = ParserHelper.parseDouble(logger,parameterLiteralValue,getTextmarker(attributeKey));
+			removeResolvedParameter(attributeKey);
+				
+	 	}
+	}
+	
+	@Override
+	public  Class<?> getTypeFromAttributeName(String attributeKey)
+	{
+		return propertyToType.get(attributeKey);
+	}
+
+	/**
+	 * A list of all aggregated children (lists are flattened). This may be used for applying a specific 
+	 * method for any child.
+	 * @return a list with all children (as BaseImpl)
+	 */
+	public List<BaseImpl> getChildren()
+	{
+		List<BaseImpl> result = new ArrayList<BaseImpl>();
+		
+		return result;
+	}
+	
+	/**
+	 * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
+	 * @return a deep copy of the object.
+	 */
+	public PrecipitationImpl clone()
+	{
+		PrecipitationImpl clonedObject = new PrecipitationImpl();
+		cloneStartMarker(clonedObject);
+		cloneEndMarker(clonedObject);
+		cloneAttributeKeyToStartMarker(clonedObject);
+		cloneAttributeKeyToEndMarker(clonedObject);
+		cloneAttributeKeyToParameterNameMap(clonedObject);
+		// clone attributes;
+		// Enumeration Type
+		PrecipitationType precipitationType = getPrecipitationType();
+		if (precipitationType != null)
+		{
+			clonedObject.setPrecipitationType(PrecipitationType.getFromLiteral(precipitationType.getLiteral()));
+		}
+		// Simple type
+		clonedObject.setIntensity(getIntensity());		
+		// clone children
+		return clonedObject;
+	}
+	
+	
+	
+}
+

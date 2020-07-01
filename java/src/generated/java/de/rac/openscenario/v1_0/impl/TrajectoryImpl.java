@@ -1,0 +1,223 @@
+package de.rac.openscenario.v1_0.impl;
+
+import de.rac.openscenario.v1_0.api.ITrajectory;
+import de.rac.openscenario.v1_0.impl.BaseImpl;
+import de.rac.openscenario.v1_0.common.ILocator;
+import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.v1_0.common.OscConstants;
+import de.rac.openscenario.v1_0.common.FileContentMessage;
+import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import java.lang.Cloneable;
+import de.rac.openscenario.v1_0.parser.ParserHelper;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.ArrayList;
+import de.rac.openscenario.v1_0.parameter.ParameterValue;
+
+import de.rac.openscenario.v1_0.api.IParameterDeclaration;
+import de.rac.openscenario.v1_0.api.IShape;
+
+
+/**
+ * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+ * <p>
+ * Value class that implements ITrajectory. With setter methods to fill the properties.
+ * <ul>
+ * <li> getter methods for properties (implemented methods of ITrajectory)
+ * <li> setter methods for properties
+ * <li> getChildren method to collect all children
+ * <li> clone function to make a deep copy
+ * <li> overrides from BaseImpl
+ * </ul>
+ * 
+ * @author RA Consulting OpenSCENARIO generation facility
+*/
+public class TrajectoryImpl extends BaseImpl implements ITrajectory, Cloneable{
+	
+	/**
+	 * Filling the property to type map
+	 */
+	 static{
+		propertyToType.put(OscConstants.ATTRIBUTE__NAME, String.class);
+		propertyToType.put(OscConstants.ATTRIBUTE__CLOSED, Boolean.class);
+	}
+	
+	private String name;
+	private Boolean closed;
+	private List<IParameterDeclaration> parameterDeclarations;
+	private IShape shape;
+
+	@Override
+	public String getName()
+	{
+		return name;
+	}
+	@Override
+	public Boolean getClosed()
+	{
+		return closed;
+	}
+	@Override
+	public List<IParameterDeclaration> getParameterDeclarations()
+	{
+		return parameterDeclarations;
+	}
+	@Override
+	public IShape getShape()
+	{
+		return shape;
+	}
+	/**
+	 * Sets the value of model property name
+	 * @param name from OpenSCENARIO class model specification: [Name of the trajectory type. Required if used in catalog.]
+	 * 
+	*/
+	public  void setName (String name )
+	{
+		this.name = name;
+	}
+	/**
+	 * Sets the value of model property closed
+	 * @param closed from OpenSCENARIO class model specification: [True if trajectory is closed.]
+	 * 
+	*/
+	public  void setClosed (Boolean closed )
+	{
+		this.closed = closed;
+	}
+	/**
+	 * Sets the value of model property parameterDeclarations
+	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+	 * 
+	*/
+	public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations)
+	{
+		this.parameterDeclarations = parameterDeclarations;
+	}
+	/**
+	 * Sets the value of model property shape
+	 * @param shape from OpenSCENARIO class model specification: [The shape of a trajectory (Polyline, Clothoid or Nurbs)]
+	 * 
+	*/
+	public  void setShape (IShape shape )
+	{
+		this.shape = shape;
+	}
+
+	@Override
+	public  void resolveParameterInternal(IParserMessageLogger logger,String attributeKey, String parameterLiteralValue)
+	{
+		if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME))
+		{
+			// Simple type
+			name = ParserHelper.parseString(logger,parameterLiteralValue,getTextmarker(attributeKey));
+			removeResolvedParameter(attributeKey);
+				
+	 	}
+		else if (attributeKey.equals(OscConstants.ATTRIBUTE__CLOSED))
+		{
+			// Simple type
+			closed = ParserHelper.parseBoolean(logger,parameterLiteralValue,getTextmarker(attributeKey));
+			removeResolvedParameter(attributeKey);
+				
+	 	}
+	}
+	
+	@Override
+	public  Class<?> getTypeFromAttributeName(String attributeKey)
+	{
+		return propertyToType.get(attributeKey);
+	}
+
+	@Override
+	public boolean hasParameterDefinitions() {
+		return true;
+	}
+	
+	@Override
+	public List<ParameterValue> getParameterDefinitions() {
+		List<ParameterValue> result = new java.util.ArrayList<ParameterValue>();
+		if (parameterDeclarations != null)
+		{
+			for (IParameterDeclaration parameterDeclaration :parameterDeclarations)
+			{
+				ParameterValue parameterValue = new ParameterValue(parameterDeclaration.getName(), getParameterType(parameterDeclaration.getParameterType().getLiteral()),parameterDeclaration.getValue());
+				result.add(parameterValue);
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * A list of all aggregated children (lists are flattened). This may be used for applying a specific 
+	 * method for any child.
+	 * @return a list with all children (as BaseImpl)
+	 */
+	public List<BaseImpl> getChildren()
+	{
+		List<BaseImpl> result = new ArrayList<BaseImpl>();
+		
+			List<IParameterDeclaration> parameterDeclarations = null;
+			parameterDeclarations =  getParameterDeclarations();
+			if (parameterDeclarations != null)
+			{
+				for(IParameterDeclaration item : parameterDeclarations)
+				{
+					result.add((BaseImpl) item);
+				}
+			}
+			IShape shape = null;
+			shape =  getShape();
+			if (shape != null)
+			{
+				result.add((BaseImpl) shape);
+			}	
+		return result;
+	}
+	
+	/**
+	 * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
+	 * @return a deep copy of the object.
+	 */
+	public TrajectoryImpl clone()
+	{
+		TrajectoryImpl clonedObject = new TrajectoryImpl();
+		cloneStartMarker(clonedObject);
+		cloneEndMarker(clonedObject);
+		cloneAttributeKeyToStartMarker(clonedObject);
+		cloneAttributeKeyToEndMarker(clonedObject);
+		cloneAttributeKeyToParameterNameMap(clonedObject);
+		// clone attributes;
+		// Simple type
+		clonedObject.setName(getName());		
+		// Simple type
+		clonedObject.setClosed(getClosed());		
+		// clone children
+		List<IParameterDeclaration> parameterDeclarations = null;
+			parameterDeclarations =  getParameterDeclarations();
+		if (parameterDeclarations != null)
+		{
+			List<IParameterDeclaration> clonedList = new ArrayList<IParameterDeclaration>();
+			for(IParameterDeclaration item : parameterDeclarations)
+			{
+				ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+				clonedList.add(clonedChild);
+				clonedChild.setParent(clonedObject);
+			}
+			clonedObject.setParameterDeclarations(clonedList);
+		}
+		IShape shape = null;
+		shape =  getShape();
+		if (shape != null)
+		{
+			ShapeImpl clonedChild = ((ShapeImpl) shape).clone();
+			clonedObject.setShape(clonedChild);
+			clonedChild.setParent(clonedObject);
+		}	
+		return clonedObject;
+	}
+	
+	
+	
+}
+

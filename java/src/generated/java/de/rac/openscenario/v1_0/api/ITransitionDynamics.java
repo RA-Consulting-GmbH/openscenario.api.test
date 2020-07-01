@@ -1,0 +1,41 @@
+package de.rac.openscenario.v1_0.api;
+
+
+/**
+ * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+ * <p>
+ * From OpenSCENARIO class model specification:
+ * Specifies the dynamics of a value transition and defines how the value changes over time or distance. Different shapes
+ * can be used for the transition. Step is an immediate transition, i.e. a jump from the current current value to the
+ * target value. In this case value for time or distance must be 0. Linear will result in a linear transition between the
+ * start and end value. A smooth transition is only given with cubic and sinusoidal shape.
+ * 
+ * @author RA Consulting OpenSCENARIO generation facility
+*/
+public interface ITransitionDynamics extends IOpenScenarioModelElement{
+
+	/**
+	 * From OpenSCENARIO class model specification:
+	 * The shape of the transition function f(x) between current and target value.
+	 * 
+	 * @return value of model property dynamicsShape
+	*/
+	public DynamicsShape getDynamicsShape();
+
+	/**
+	 * From OpenSCENARIO class model specification:
+	 * The value for a predefined rate (Unit: delta/s), time (Unit: s) or distance (Unit: m) to acquire the target value.
+	 * Range: [0..inf[.
+	 * 
+	 * @return value of model property value
+	*/
+	public Double getValue();
+
+	/**
+	 * From OpenSCENARIO class model specification:
+	 * The semantics of the value: 'rate', 'time' or 'distance'.
+	 * 
+	 * @return value of model property dynamicsDimension
+	*/
+	public DynamicsDimension getDynamicsDimension();
+}

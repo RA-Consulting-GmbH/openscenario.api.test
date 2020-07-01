@@ -1,0 +1,175 @@
+package de.rac.openscenario.v1_0.impl;
+
+import de.rac.openscenario.v1_0.api.ILateralAction;
+import de.rac.openscenario.v1_0.impl.BaseImpl;
+import de.rac.openscenario.v1_0.common.ILocator;
+import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.v1_0.common.OscConstants;
+import de.rac.openscenario.v1_0.common.FileContentMessage;
+import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import java.lang.Cloneable;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.ArrayList;
+
+import de.rac.openscenario.v1_0.api.ILaneChangeAction;
+import de.rac.openscenario.v1_0.api.ILateralDistanceAction;
+import de.rac.openscenario.v1_0.api.ILaneOffsetAction;
+
+
+/**
+ * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+ * <p>
+ * Value class that implements ILateralAction. With setter methods to fill the properties.
+ * <ul>
+ * <li> getter methods for properties (implemented methods of ILateralAction)
+ * <li> setter methods for properties
+ * <li> getChildren method to collect all children
+ * <li> clone function to make a deep copy
+ * <li> overrides from BaseImpl
+ * </ul>
+ * 
+ * @author RA Consulting OpenSCENARIO generation facility
+*/
+public class LateralActionImpl extends BaseImpl implements ILateralAction, Cloneable{
+	
+	/**
+	 * Filling the property to type map
+	 */
+	 static{
+	}
+	
+	private ILaneChangeAction laneChangeAction;
+	private ILaneOffsetAction laneOffsetAction;
+	private ILateralDistanceAction lateralDistanceAction;
+
+	@Override
+	public ILaneChangeAction getLaneChangeAction()
+	{
+		return laneChangeAction;
+	}
+	@Override
+	public ILaneOffsetAction getLaneOffsetAction()
+	{
+		return laneOffsetAction;
+	}
+	@Override
+	public ILateralDistanceAction getLateralDistanceAction()
+	{
+		return lateralDistanceAction;
+	}
+	/**
+	 * Sets the value of model property laneChangeAction
+	 * @param laneChangeAction from OpenSCENARIO class model specification: [Action defining a lane change.]
+	 * 
+	*/
+	public  void setLaneChangeAction (ILaneChangeAction laneChangeAction )
+	{
+		this.laneChangeAction = laneChangeAction;
+	}
+	/**
+	 * Sets the value of model property laneOffsetAction
+	 * @param laneOffsetAction from OpenSCENARIO class model specification: [Action defining a continuously kept lane offset.]
+	 * 
+	*/
+	public  void setLaneOffsetAction (ILaneOffsetAction laneOffsetAction )
+	{
+		this.laneOffsetAction = laneOffsetAction;
+	}
+	/**
+	 * Sets the value of model property lateralDistanceAction
+	 * @param lateralDistanceAction from OpenSCENARIO class model specification: [Action defining a continuously kept lateral 
+	 * distance to a specific entity.]
+	 * 
+	*/
+	public  void setLateralDistanceAction (ILateralDistanceAction lateralDistanceAction )
+	{
+		this.lateralDistanceAction = lateralDistanceAction;
+	}
+
+	@Override
+	public  void resolveParameterInternal(IParserMessageLogger logger,String attributeKey, String parameterLiteralValue)
+	{
+	}
+	
+	@Override
+	public  Class<?> getTypeFromAttributeName(String attributeKey)
+	{
+		return propertyToType.get(attributeKey);
+	}
+
+	/**
+	 * A list of all aggregated children (lists are flattened). This may be used for applying a specific 
+	 * method for any child.
+	 * @return a list with all children (as BaseImpl)
+	 */
+	public List<BaseImpl> getChildren()
+	{
+		List<BaseImpl> result = new ArrayList<BaseImpl>();
+		
+			ILaneChangeAction laneChangeAction = null;
+			laneChangeAction =  getLaneChangeAction();
+			if (laneChangeAction != null)
+			{
+				result.add((BaseImpl) laneChangeAction);
+			}	
+			ILaneOffsetAction laneOffsetAction = null;
+			laneOffsetAction =  getLaneOffsetAction();
+			if (laneOffsetAction != null)
+			{
+				result.add((BaseImpl) laneOffsetAction);
+			}	
+			ILateralDistanceAction lateralDistanceAction = null;
+			lateralDistanceAction =  getLateralDistanceAction();
+			if (lateralDistanceAction != null)
+			{
+				result.add((BaseImpl) lateralDistanceAction);
+			}	
+		return result;
+	}
+	
+	/**
+	 * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
+	 * @return a deep copy of the object.
+	 */
+	public LateralActionImpl clone()
+	{
+		LateralActionImpl clonedObject = new LateralActionImpl();
+		cloneStartMarker(clonedObject);
+		cloneEndMarker(clonedObject);
+		cloneAttributeKeyToStartMarker(clonedObject);
+		cloneAttributeKeyToEndMarker(clonedObject);
+		cloneAttributeKeyToParameterNameMap(clonedObject);
+		// clone attributes;
+		// clone children
+		ILaneChangeAction laneChangeAction = null;
+		laneChangeAction =  getLaneChangeAction();
+		if (laneChangeAction != null)
+		{
+			LaneChangeActionImpl clonedChild = ((LaneChangeActionImpl) laneChangeAction).clone();
+			clonedObject.setLaneChangeAction(clonedChild);
+			clonedChild.setParent(clonedObject);
+		}	
+		ILaneOffsetAction laneOffsetAction = null;
+		laneOffsetAction =  getLaneOffsetAction();
+		if (laneOffsetAction != null)
+		{
+			LaneOffsetActionImpl clonedChild = ((LaneOffsetActionImpl) laneOffsetAction).clone();
+			clonedObject.setLaneOffsetAction(clonedChild);
+			clonedChild.setParent(clonedObject);
+		}	
+		ILateralDistanceAction lateralDistanceAction = null;
+		lateralDistanceAction =  getLateralDistanceAction();
+		if (lateralDistanceAction != null)
+		{
+			LateralDistanceActionImpl clonedChild = ((LateralDistanceActionImpl) lateralDistanceAction).clone();
+			clonedObject.setLateralDistanceAction(clonedChild);
+			clonedChild.setParent(clonedObject);
+		}	
+		return clonedObject;
+	}
+	
+	
+	
+}
+
