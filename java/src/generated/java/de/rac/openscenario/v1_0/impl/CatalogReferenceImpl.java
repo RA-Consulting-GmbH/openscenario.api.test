@@ -1,0 +1,191 @@
+package de.rac.openscenario.v1_0.impl;
+
+import de.rac.openscenario.v1_0.api.ICatalogReference;
+import de.rac.openscenario.v1_0.impl.BaseImpl;
+import de.rac.openscenario.v1_0.common.ILocator;
+import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.v1_0.common.OscConstants;
+import de.rac.openscenario.v1_0.common.FileContentMessage;
+import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import java.lang.Cloneable;
+import de.rac.openscenario.v1_0.parser.ParserHelper;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.ArrayList;
+
+import de.rac.openscenario.v1_0.api.ICatalogElement;
+import de.rac.openscenario.v1_0.api.IParameterAssignment;
+
+
+/**
+ * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+ * <p>
+ * Value class that implements ICatalogReference. With setter methods to fill the properties.
+ * <ul>
+ * <li> getter methods for properties (implemented methods of ICatalogReference)
+ * <li> setter methods for properties
+ * <li> getChildren method to collect all children
+ * <li> clone function to make a deep copy
+ * <li> overrides from BaseImpl
+ * </ul>
+ * 
+ * @author RA Consulting OpenSCENARIO generation facility
+*/
+public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference, Cloneable{
+	
+	/**
+	 * Filling the property to type map
+	 */
+	 static{
+		propertyToType.put(OscConstants.ATTRIBUTE__CATALOG_NAME, String.class);
+		propertyToType.put(OscConstants.ATTRIBUTE__ENTRY_NAME, String.class);
+	}
+	
+	private String catalogName;
+	private String entryName;
+	private List<IParameterAssignment> parameterAssignments;
+	private ICatalogElement ref;
+
+	@Override
+	public String getCatalogName()
+	{
+		return catalogName;
+	}
+	@Override
+	public String getEntryName()
+	{
+		return entryName;
+	}
+	@Override
+	public List<IParameterAssignment> getParameterAssignments()
+	{
+		return parameterAssignments;
+	}
+	@Override
+	public ICatalogElement getRef()
+	{
+		return ref;
+	}
+	/**
+	 * Sets the value of model property catalogName
+	 * @param catalogName from OpenSCENARIO class model specification: [Name of the catalog.]
+	 * 
+	*/
+	public  void setCatalogName (String catalogName )
+	{
+		this.catalogName = catalogName;
+	}
+	/**
+	 * Sets the value of model property entryName
+	 * @param entryName from OpenSCENARIO class model specification: [Name of catalog entry.]
+	 * 
+	*/
+	public  void setEntryName (String entryName )
+	{
+		this.entryName = entryName;
+	}
+	/**
+	 * Sets the value of model property parameterAssignments
+	 * @param parameterAssignments from OpenSCENARIO class model specification: [List of parameter assignments for 
+	 * instantiation.]
+	 * 
+	*/
+	public void setParameterAssignments(List<IParameterAssignment> parameterAssignments)
+	{
+		this.parameterAssignments = parameterAssignments;
+	}
+	/**
+	 * Sets the value of model property ref
+	 * @param ref from OpenSCENARIO class model specification: [The resolved reference to a catalog element (out of the 
+	 * catalogName and entryName). Transient means, that it is not , mapped to the schema.]
+	 * 
+	*/
+	public  void setRef (ICatalogElement ref )
+	{
+		this.ref = ref;
+	}
+
+	@Override
+	public  void resolveParameterInternal(IParserMessageLogger logger,String attributeKey, String parameterLiteralValue)
+	{
+		if (attributeKey.equals(OscConstants.ATTRIBUTE__CATALOG_NAME))
+		{
+			// Simple type
+			catalogName = ParserHelper.parseString(logger,parameterLiteralValue,getTextmarker(attributeKey));
+			removeResolvedParameter(attributeKey);
+				
+	 	}
+		else if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTRY_NAME))
+		{
+			// Simple type
+			entryName = ParserHelper.parseString(logger,parameterLiteralValue,getTextmarker(attributeKey));
+			removeResolvedParameter(attributeKey);
+				
+	 	}
+	}
+	
+	@Override
+	public  Class<?> getTypeFromAttributeName(String attributeKey)
+	{
+		return propertyToType.get(attributeKey);
+	}
+
+	/**
+	 * A list of all aggregated children (lists are flattened). This may be used for applying a specific 
+	 * method for any child.
+	 * @return a list with all children (as BaseImpl)
+	 */
+	public List<BaseImpl> getChildren()
+	{
+		List<BaseImpl> result = new ArrayList<BaseImpl>();
+		
+			List<IParameterAssignment> parameterAssignments = null;
+			parameterAssignments =  getParameterAssignments();
+			if (parameterAssignments != null)
+			{
+				for(IParameterAssignment item : parameterAssignments)
+				{
+					result.add((BaseImpl) item);
+				}
+			}
+		return result;
+	}
+	
+	/**
+	 * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
+	 * @return a deep copy of the object.
+	 */
+	public CatalogReferenceImpl clone()
+	{
+		CatalogReferenceImpl clonedObject = new CatalogReferenceImpl();
+		cloneStartMarker(clonedObject);
+		cloneEndMarker(clonedObject);
+		cloneAttributeKeyToStartMarker(clonedObject);
+		cloneAttributeKeyToEndMarker(clonedObject);
+		cloneAttributeKeyToParameterNameMap(clonedObject);
+		// clone attributes;
+		// Simple type
+		clonedObject.setCatalogName(getCatalogName());		
+		// Simple type
+		clonedObject.setEntryName(getEntryName());		
+		// clone children
+		List<IParameterAssignment> parameterAssignments = null;
+			parameterAssignments =  getParameterAssignments();
+		if (parameterAssignments != null)
+		{
+			List<IParameterAssignment> clonedList = new ArrayList<IParameterAssignment>();
+			for(IParameterAssignment item : parameterAssignments)
+			{
+				ParameterAssignmentImpl clonedChild = ((ParameterAssignmentImpl) item).clone();
+				clonedList.add(clonedChild);
+				clonedChild.setParent(clonedObject);
+			}
+			clonedObject.setParameterAssignments(clonedList);
+		}
+		return clonedObject;
+	}
+	
+	
+	
+}
+
