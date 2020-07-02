@@ -85,7 +85,7 @@ public class TestFiles extends TestBase{
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
-					"XML-Dokumentstrukturen müssen innerhalb derselben Entity beginnen und enden.",
+					"XML-Dokumentstrukturen mÃ¼ssen innerhalb derselben Entity beginnen und enden.",
 					ErrorLevel.FATAL, new Textmarker(30, 3, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.FATAL, messageLogger));
