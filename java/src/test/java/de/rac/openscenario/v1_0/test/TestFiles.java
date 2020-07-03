@@ -1,20 +1,3 @@
-/*
- * Copyright 2020 RA Consulting
- *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
- 
 package de.rac.openscenario.v1_0.test;
 
 import java.io.FileNotFoundException;
@@ -38,7 +21,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testSimpleSuccess() {
 		try {
-			executeParsing(inputDir + "DoubleLaneChanger.xosc");
+			executeParsing(getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath());
 		} catch (ScenarioLoaderException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +31,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testParamsSuccess() {
 		try {
-			executeParsing(inputDir + "DoubleLaneChangerParams.xosc");
+			executeParsing(getResourceFile( "DoubleLaneChangerParams.xosc").getAbsolutePath());
 			Assertions.assertFalse(hasErrors(messageLogger), "Unexpected error occured");
 		} catch (ScenarioLoaderException e) {
 			// TODO Auto-generated catch block
@@ -59,7 +42,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testParamsFailure() {
 		try {
-			String filename = inputDir + "DoubleLaneChangerParamsError.xosc";
+			String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
@@ -81,11 +64,11 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testUnvalidXml() {
 		try {
-			String filename = inputDir + "DoubleLaneChangeExtraHalf.xosc";
+			String filename = getResourceFile( "DoubleLaneChangeExtraHalf.xosc").getAbsolutePath();
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
-					"XML-Dokumentstrukturen mÃ¼ssen innerhalb derselben Entity beginnen und enden.",
+					"XML-Dokumentstrukturen müssen innerhalb derselben Entity beginnen und enden.",
 					ErrorLevel.FATAL, new Textmarker(30, 3, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.FATAL, messageLogger));
@@ -98,8 +81,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testUnknownElement() {
 		try {
-			String filename = inputDir
-					+ "DoubleLaneChangeExtraUnknownElement.xosc";
+			String filename = getResourceFile( "DoubleLaneChangeExtraUnknownElement.xosc").getAbsolutePath();
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
@@ -118,8 +100,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testWrongAttributes() {
 		try {
-			String filename = inputDir
-					+ "DoubleLaneChangerWrongAttributes.xosc";
+			String filename = getResourceFile("DoubleLaneChangerWrongAttributes.xosc").getAbsolutePath();
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage("Value 'TTTT' is not allowed.",
@@ -147,7 +128,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testWrongEndElement() {
 		try {
-			String filename = inputDir + "DoubleLaneChangerWrongEndElement.xosc";
+			String filename = getResourceFile("DoubleLaneChangerWrongEndElement.xosc").getAbsolutePath();
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
@@ -166,7 +147,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testCustomCommandAction() {
 		try {
-			String filename = inputDir + "DoubleLaneChangerCustomCommandAction.xosc";
+			String filename = getResourceFile( "DoubleLaneChangerCustomCommandAction.xosc").getAbsolutePath();
 			OpenScenarioImpl openScenarioImpl = executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			Assertions.assertTrue(
@@ -185,7 +166,7 @@ public class TestFiles extends TestBase{
 	@Test
 	public void testFileNotFound() {
 		try {
-			String filename = inputDir + "FileNotFound.xosc";
+			String filename =  "FileNotFound.xosc";
 			executeParsing(filename);
 
 		} catch (ScenarioLoaderException e) {
