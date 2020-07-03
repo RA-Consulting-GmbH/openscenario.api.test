@@ -22,6 +22,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
+				<configuration>
+						<argLine>${jvm.options}</argLine>
+				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>org.junit.platform</groupId>
@@ -156,5 +159,6 @@
 	<properties>
 		<junit.jupiter.version>5.5.1</junit.jupiter.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jvm.options>-Duser.language=en</jvm.options>
 	</properties>
 </project>
