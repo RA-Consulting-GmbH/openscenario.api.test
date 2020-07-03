@@ -68,7 +68,7 @@ public class TestFiles extends TestBase{
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
-					"XML-Dokumentstrukturen müssen innerhalb derselben Entity beginnen und enden.",
+					"XML document structures must start and end within the same entity.",
 					ErrorLevel.FATAL, new Textmarker(30, 3, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.FATAL, messageLogger));
@@ -132,7 +132,7 @@ public class TestFiles extends TestBase{
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
-					"Elementtyp \"PrivateActions\" muss mit dem entsprechenden Endtag \"</PrivateActions>\" beendet werden.",
+					"The element type \"PrivateActions\" must be terminated by the matching end-tag \"</PrivateActions>\".",
 					ErrorLevel.FATAL, new Textmarker(73,12, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.FATAL, messageLogger));
