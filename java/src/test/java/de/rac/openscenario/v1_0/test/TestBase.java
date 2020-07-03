@@ -38,7 +38,7 @@ import de.rac.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 public class TestBase {
 
 	protected MessageLogger messageLogger = new MessageLogger();
-	protected static String inputDir = "./src/test/Resources/";
+	protected static String inputDir = "./java/src/test/Resources/";
 
 	public OpenScenarioImpl executeParsing(String filename)
 			throws ScenarioLoaderException {

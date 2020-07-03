@@ -78,7 +78,7 @@
 					<links>
 						<link>https://docs.oracle.com/javase/8/docs/api/</link>
 					</links>
-					<sourcepath>src/generated/java:src/main/java</sourcepath>
+					<sourcepath>src/generated/java:src/main/java:target/generated-sources/antlr4</sourcepath>
 					<groups>
 						<group>
 							<title>Common</title>
