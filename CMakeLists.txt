@@ -1,6 +1,6 @@
 ################################################################
 # CMakeLists.txt
-cmake_minimum_required( VERSION 3.7.1 )
+cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenario-Cpp )
 message("${PROJECT_NAME}")
 
@@ -10,18 +10,15 @@ message("${PROJECT_NAME}")
 list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/../Rac.Core.Cpp-src/CMake-Helper/" )
 include( RaCMakeHelper )
 
+################################################################
+# Build as static or shared lib
+option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
 
 ################################################################
 # Set common, C++, and build params
 RAC_SET_COMMON_PARAM()
 RAC_SET_CPP_PARAM()
 RAC_SET_BUILD_PARAM()
-
-
-################################################################
-# Build as static or shared lib
-option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
-
 
 ################################################################
 # Add subprojects
@@ -30,14 +27,22 @@ set( MASTER_PROJECT FALSE )
 message("Subprojects:")
 
 # Set compile output folder for DiagRA Portable core libs
+# This is needed because of the way the make files for AntlrCpp-src are written
+unset(CMAKE_BUILD_TYPE CACHE)
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
 
-# Subprojects
-add_subdirectory( OpenScenario )
+# Dependencies
+#add_subdirectory( ../AntlrCpp-src ${PROJECT_BINARY_DIR}/AntlrCpp-src)
+
+# CoreLibraries
+add_subdirectory( OpenScenarioLib )
+
+# Applications
+add_subdirectory( Applications/OpenScenarioReader )
 
 ################################################################
 # Visual Studio Startup Project and debug cmd line args
 if( MSVC )
-  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenario" )
+  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenarioReader" )
 endif()
