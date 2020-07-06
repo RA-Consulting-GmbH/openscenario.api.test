@@ -38,8 +38,8 @@ public class NamedReferenceProxy<T> implements INamedReference<T>
   /**
    * Constructor using both, target object and nameRef
    * 
-   * @param targetObject
-   * @param nameRef
+   * @param targetObject The object that is hidden by the proxy
+   * @param nameRef The name reference that represents the proxied object
    */
   public NamedReferenceProxy(T targetObject, String nameRef)
   {
