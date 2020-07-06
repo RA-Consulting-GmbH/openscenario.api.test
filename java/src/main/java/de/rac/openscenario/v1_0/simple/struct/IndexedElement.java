@@ -74,11 +74,11 @@ public class IndexedElement {
 	
 	/**
 	 * Adding sub elements (for complex types and groups)
-	 * @param element
+	 * @param subelement the element to be added as a subelement
 	 */
-	public void addSubElement(IndexedElement element)
+	public void addSubElement(IndexedElement subelement)
 	{
-		subElements.add(element);
+		subElements.add(subelement);
 	}
 	
 	/**

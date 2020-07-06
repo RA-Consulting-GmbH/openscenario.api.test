@@ -47,8 +47,8 @@ public class XmlToSimpleNodeConverter {
 	
 	/**
 	 * Creates a IndexedElement root element from a DOM document
-	 * @param document
-	 * @return
+	 * @param document The document that is converted
+	 * @return the indexed root element
 	 */
 	public IndexedElement convert(Document document)
 	{
