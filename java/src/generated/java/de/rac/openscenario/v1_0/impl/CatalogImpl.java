@@ -14,18 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.ICatalog;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
-import de.rac.openscenario.v1_0.parser.ParserHelper;
+import de.rac.openscenario.parser.ParserHelper;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
@@ -72,7 +74,16 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable{
 	private List<IManeuver> maneuvers;
 	private List<ITrajectory> trajectories;
 	private List<IRoute> routes;
-
+	/**
+	 * Default constructor
+	 */
+	public CatalogImpl()
+	{
+		super();
+		addAdapter(CatalogImpl.class, this);
+		addAdapter(ICatalog.class, this);
+		
+	}
 	@Override
 	public String getName()
 	{
@@ -430,8 +441,149 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable{
 		}
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__NAME))
+	{
+		return getName();		
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ELEMENT__VEHICLE))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getVehicles();
+
+	}else 
+	if (key.equals(OscConstants.ELEMENT__CONTROLLER))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getControllers();
+
+	}else 
+	if (key.equals(OscConstants.ELEMENT__PEDESTRIAN))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getPedestrians();
+
+	}else 
+	if (key.equals(OscConstants.ELEMENT__MISC_OBJECT))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getMiscObjects();
+
+	}else 
+	if (key.equals(OscConstants.ELEMENT__ENVIRONMENT))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getEnvironments();
+
+	}else 
+	if (key.equals(OscConstants.ELEMENT__MANEUVER))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getManeuvers();
+
+	}else 
+	if (key.equals(OscConstants.ELEMENT__TRAJECTORY))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getTrajectories();
+
+	}else 
+	if (key.equals(OscConstants.ELEMENT__ROUTE))
+	{
+		return (List<IOpenScenarioFlexElement>)(List<?>) getRoutes();
+
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "Catalog";
+  }
+ 	
 }
 

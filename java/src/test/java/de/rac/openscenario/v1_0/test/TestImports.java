@@ -22,12 +22,12 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import de.rac.openscenario.loader.ScenarioLoaderException;
 import de.rac.openscenario.v1_0.api.ICatalogReference;
 import de.rac.openscenario.v1_0.api.IOpenScenario;
 import de.rac.openscenario.v1_0.api.IScenarioObject;
 import de.rac.openscenario.v1_0.api.IVehicle;
 import de.rac.openscenario.v1_0.catalog.CatalogHelper;
-import de.rac.openscenario.v1_0.loader.ScenarioLoaderException;
 
 public class TestImports extends TestBase{
 

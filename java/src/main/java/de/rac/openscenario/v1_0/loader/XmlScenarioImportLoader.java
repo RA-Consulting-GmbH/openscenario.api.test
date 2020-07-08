@@ -22,6 +22,15 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
 
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.loader.IResourceLocator;
+import de.rac.openscenario.loader.IScenarioLoader;
+import de.rac.openscenario.loader.MessageLoggerDecorator;
+import de.rac.openscenario.loader.ScenarioLoaderException;
 import de.rac.openscenario.v1_0.api.ICatalogElement;
 import de.rac.openscenario.v1_0.api.ICatalogLocations;
 import de.rac.openscenario.v1_0.api.ICatalogReference;
@@ -39,12 +48,7 @@ import de.rac.openscenario.v1_0.api.ITrajectoryCatalogLocation;
 import de.rac.openscenario.v1_0.api.IVehicleCatalogLocation;
 import de.rac.openscenario.v1_0.catalog.CatalogCache;
 import de.rac.openscenario.v1_0.catalog.ICatalogReferenceProvider;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.Textmarker;
 import de.rac.openscenario.v1_0.impl.CatalogReferenceImpl;
 import de.rac.openscenario.v1_0.impl.ParameterAssignmentImpl;
 

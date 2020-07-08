@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.api;
 import java.util.List;
 
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  * <p>
@@ -27,7 +27,7 @@ import java.util.List;
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-public interface IEvent extends IOpenScenarioModelElement,IStoryboardElement{
+public interface IEvent extends IOpenScenarioFlexElement,IStoryboardElement{
 
 	/**
 	 * From OpenSCENARIO class model specification:

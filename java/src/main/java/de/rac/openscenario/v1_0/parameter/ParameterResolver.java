@@ -22,11 +22,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.parameter.IParameterizedObject;
+import de.rac.openscenario.parameter.ParameterValue;
 import de.rac.openscenario.v1_0.api.ICatalogElement;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
 import de.rac.openscenario.v1_0.impl.CatalogReferenceImpl;
 
 /**

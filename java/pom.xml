@@ -85,19 +85,19 @@
 					<groups>
 						<group>
 							<title>Common</title>
-							<packages>de.rac.openscenario.v1_0.common</packages>
+							<packages>de.rac.openscenario.v1_0.common:de.rac.openscenario.common</packages>
 						</group>
 						<group>
 							<title>API Model Interfaces</title>
-							<packages>de.rac.openscenario.v1_0.api</packages>
+							<packages>de.rac.openscenario.v1_0.api:de.rac.openscenario.api</packages>
 						</group>
 						<group>
 							<title>Model Implementation</title>
-							<packages>de.rac.openscenario.v1_0.impl</packages>
+							<packages>de.rac.openscenario.v1_0.impl:de.rac.openscenario.impl</packages>
 						</group>
 						<group>
 							<title>Parameter Resolving</title>
-							<packages>de.rac.openscenario.v1_0.parameter</packages>
+							<packages>de.rac.openscenario.v1_0.parameter:de.rac.openscenario.parameter</packages>
 						</group>
 						<group>
 							<title>Catalog Resolving</title>
@@ -105,19 +105,27 @@
 						</group>
 						<group>
 							<title>Checker Rules</title>
-							<packages>de.rac.openscenario.v1_0.checker:de.rac.openscenario.v1_0.checker.impl:de.rac.openscenario.v1_0.checker.range</packages>
+							<packages>de.rac.openscenario.v1_0.checker:de.rac.openscenario.v1_0.checker.impl:de.rac.openscenario.v1_0.checker.range::de.rac.openscenario.checker</packages>
 						</group>
 						<group>
 							<title>Loader</title>
-							<packages>de.rac.openscenario.v1_0.loader</packages>
+							<packages>de.rac.openscenario.v1_0.loader:de.rac.openscenario.loader</packages>
 						</group>
 						<group>
 							<title>Parser</title>
-							<packages>de.rac.openscenario.v1_0.parser.*:de.rac.openscenario.v1_0.parser</packages>
+							<packages>de.rac.openscenario.v1_0.parser.*:de.rac.openscenario.v1_0.parser:de.rac.openscenario.parser:de.rac.openscenario.parser.*</packages>
 						</group>
 						<group>
 							<title>Simple Document Structure</title>
-							<packages>de.rac.openscenario.v1_0.simple.struct</packages>
+							<packages>de.rac.openscenario.simple.struct</packages>
+						</group>
+						<group>
+							<title>Indexer</title>
+							<packages>de.rac.xml:de.rac.xml.*</packages>
+						</group>
+						<group>
+							<title>Main</title>
+							<packages>de.rac.openscenario.v1_0.main:de.rac.openscenario.main</packages>
 						</group>
 					</groups>
 				</configuration>

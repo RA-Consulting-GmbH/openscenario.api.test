@@ -26,11 +26,11 @@ import org.junit.jupiter.api.Assertions;
 
 import com.sun.org.apache.xerces.internal.xni.parser.XMLParseException;
 
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.Textmarker;
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.loader.ScenarioLoaderException;
 import de.rac.openscenario.v1_0.impl.OpenScenarioImpl;
-import de.rac.openscenario.v1_0.loader.ScenarioLoaderException;
 
 public class TestFiles extends TestBase{
 

@@ -14,16 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.ITimeReference;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
 import java.util.Hashtable;
 import java.util.List;
@@ -57,7 +59,16 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
 	
 	private INone none;
 	private ITiming timing;
-
+	/**
+	 * Default constructor
+	 */
+	public TimeReferenceImpl()
+	{
+		super();
+		addAdapter(TimeReferenceImpl.class, this);
+		addAdapter(ITimeReference.class, this);
+		
+	}
 	@Override
 	public INone getNone()
 	{
@@ -156,8 +167,107 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
 		}	
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ELEMENT__NONE))
+	{
+		return (IOpenScenarioFlexElement) getNone();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__TIMING))
+	{
+		return (IOpenScenarioFlexElement) getTiming();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "TimeReference";
+  }
+ 	
 }
 

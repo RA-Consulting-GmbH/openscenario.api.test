@@ -14,13 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.checker.impl;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
-import de.rac.openscenario.v1_0.checker.ICheckerRule;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.checker.ICheckerRule;
 import de.rac.openscenario.v1_0.checker.IScenarioChecker;
 
 import de.rac.openscenario.v1_0.api.IAbsoluteSpeed;

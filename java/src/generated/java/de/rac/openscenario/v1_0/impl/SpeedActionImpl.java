@@ -14,16 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.ISpeedAction;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
 import java.util.Hashtable;
 import java.util.List;
@@ -57,7 +59,16 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
 	
 	private ITransitionDynamics speedActionDynamics;
 	private ISpeedActionTarget speedActionTarget;
-
+	/**
+	 * Default constructor
+	 */
+	public SpeedActionImpl()
+	{
+		super();
+		addAdapter(SpeedActionImpl.class, this);
+		addAdapter(ISpeedAction.class, this);
+		
+	}
 	@Override
 	public ITransitionDynamics getSpeedActionDynamics()
 	{
@@ -155,8 +166,107 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
 		}	
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ELEMENT__SPEED_ACTION_DYNAMICS))
+	{
+		return (IOpenScenarioFlexElement) getSpeedActionDynamics();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__SPEED_ACTION_TARGET))
+	{
+		return (IOpenScenarioFlexElement) getSpeedActionTarget();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "SpeedAction";
+  }
+ 	
 }
 

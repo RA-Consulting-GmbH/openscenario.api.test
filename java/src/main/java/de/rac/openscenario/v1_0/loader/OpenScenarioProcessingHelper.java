@@ -19,10 +19,10 @@ package de.rac.openscenario.v1_0.loader;
 
 import java.util.Hashtable;
 
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.api.ICatalogElement;
 import de.rac.openscenario.v1_0.api.IOpenScenario;
 import de.rac.openscenario.v1_0.api.IOpenScenarioCategory;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.impl.OpenScenarioImpl;
 import de.rac.openscenario.v1_0.parameter.ParameterResolver;
 

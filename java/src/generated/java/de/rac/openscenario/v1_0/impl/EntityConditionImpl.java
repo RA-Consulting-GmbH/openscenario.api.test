@@ -14,16 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.IEntityCondition;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
 import java.util.Hashtable;
 import java.util.List;
@@ -79,7 +81,16 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
 	private IReachPositionCondition reachPositionCondition;
 	private IDistanceCondition distanceCondition;
 	private IRelativeDistanceCondition relativeDistanceCondition;
-
+	/**
+	 * Default constructor
+	 */
+	public EntityConditionImpl()
+	{
+		super();
+		addAdapter(EntityConditionImpl.class, this);
+		addAdapter(IEntityCondition.class, this);
+		
+	}
 	@Override
 	public IEndOfRoadCondition getEndOfRoadCondition()
 	{
@@ -497,8 +508,151 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
 		}	
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ELEMENT__END_OF_ROAD_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getEndOfRoadCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__COLLISION_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getCollisionCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__OFFROAD_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getOffroadCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__TIME_HEADWAY_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getTimeHeadwayCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__TIME_TO_COLLISION_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getTimeToCollisionCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__ACCELERATION_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getAccelerationCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__STAND_STILL_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getStandStillCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__SPEED_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getSpeedCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__RELATIVE_SPEED_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getRelativeSpeedCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__TRAVELED_DISTANCE_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getTraveledDistanceCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__REACH_POSITION_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getReachPositionCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__DISTANCE_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getDistanceCondition();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__RELATIVE_DISTANCE_CONDITION))
+	{
+		return (IOpenScenarioFlexElement) getRelativeDistanceCondition();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "EntityCondition";
+  }
+ 	
 }
 

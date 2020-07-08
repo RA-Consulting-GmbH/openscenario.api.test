@@ -14,24 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.parser.xml;
 
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.simple.struct.IndexedElement;
-import de.rac.openscenario.v1_0.parser.ParserContext;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
+import de.rac.openscenario.simple.struct.IndexedElement;
+import de.rac.openscenario.parser.ParserContext;
+import de.rac.openscenario.v1_0.parser.CatalogReferenceParserContext;
+import de.rac.openscenario.common.FileContentMessage;
 import de.rac.xml.indexer.Position;
-import de.rac.openscenario.v1_0.common.Textmarker;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.common.ErrorLevel;
 import java.util.List;
 
 import de.rac.openscenario.v1_0.impl.CustomCommandActionImpl;
 
 import java.util.Map;
 import java.util.Hashtable;
-import de.rac.openscenario.v1_0.parser.type.XmlSimpleContentParser;
+import de.rac.openscenario.parser.type.XmlSimpleContentParser;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0

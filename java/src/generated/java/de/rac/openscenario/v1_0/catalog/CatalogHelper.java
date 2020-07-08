@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.catalog;
 
 import de.rac.openscenario.v1_0.api.ICatalogElement;

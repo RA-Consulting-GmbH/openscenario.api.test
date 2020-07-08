@@ -31,19 +31,23 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.loader.IResourceLocator;
+import de.rac.openscenario.loader.IScenarioLoader;
+import de.rac.openscenario.loader.ScenarioLoaderException;
+import de.rac.openscenario.parser.ParserContext;
+import de.rac.openscenario.simple.struct.IndexedElement;
+import de.rac.openscenario.simple.struct.XmlToSimpleNodeConverter;
 import de.rac.openscenario.v1_0.api.IOpenScenario;
 import de.rac.openscenario.v1_0.catalog.ICatalogReferenceProvider;
 import de.rac.openscenario.v1_0.checker.IScenarioChecker;
 import de.rac.openscenario.v1_0.checker.impl.ScenarioCheckerImpl;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
-import de.rac.openscenario.v1_0.common.Textmarker;
 import de.rac.openscenario.v1_0.impl.OpenScenarioImpl;
-import de.rac.openscenario.v1_0.parser.ParserContext;
+import de.rac.openscenario.v1_0.parser.CatalogReferenceParserContext;
 import de.rac.openscenario.v1_0.parser.xml.OpenScenarioXmlParser;
-import de.rac.openscenario.v1_0.simple.struct.IndexedElement;
-import de.rac.openscenario.v1_0.simple.struct.XmlToSimpleNodeConverter;
 import de.rac.xml.indexer.PositionIndex;
 import de.rac.xml.indexer.grammar.XMLLexer;
 import de.rac.xml.indexer.grammar.XMLParser;
@@ -114,7 +118,7 @@ public class XmlScenarioLoader implements IScenarioLoader{
 					messageLogger, filename);
 			
 			OpenScenarioImpl openScenarioImpl = new OpenScenarioImpl();
-			ParserContext parserContext = new ParserContext();
+			ParserContext parserContext = new CatalogReferenceParserContext();
 			openScenarioXmlParser.parseElement(indexedElement,parserContext,
 					openScenarioImpl);
 			OpenScenarioProcessingHelper.resolve(messageLogger,

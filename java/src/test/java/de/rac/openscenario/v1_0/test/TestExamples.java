@@ -21,6 +21,17 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import de.rac.openscenario.checker.ICheckerRule;
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.loader.FileResourceLocator;
+import de.rac.openscenario.loader.IScenarioLoader;
+import de.rac.openscenario.loader.IScenarioLoaderFactory;
+import de.rac.openscenario.loader.MessageLoggerDecorator;
+import de.rac.openscenario.loader.ScenarioLoaderException;
 import de.rac.openscenario.v1_0.api.ICatalogLocations;
 import de.rac.openscenario.v1_0.api.IEntities;
 import de.rac.openscenario.v1_0.api.IFileHeader;
@@ -31,19 +42,9 @@ import de.rac.openscenario.v1_0.api.IRoadNetwork;
 import de.rac.openscenario.v1_0.api.IScenarioDefinition;
 import de.rac.openscenario.v1_0.api.IStoryboard;
 import de.rac.openscenario.v1_0.api.IVehicle;
-import de.rac.openscenario.v1_0.checker.ICheckerRule;
 import de.rac.openscenario.v1_0.checker.IScenarioChecker;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.Textmarker;
-import de.rac.openscenario.v1_0.loader.FileResourceLocator;
-import de.rac.openscenario.v1_0.loader.IScenarioLoader;
-import de.rac.openscenario.v1_0.loader.IScenarioLoaderFactory;
-import de.rac.openscenario.v1_0.loader.MessageLoggerDecorator;
-import de.rac.openscenario.v1_0.loader.ScenarioLoaderException;
+import de.rac.openscenario.v1_0.impl.OpenScenarioImpl;
 import de.rac.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 
 public class TestExamples extends TestBase{
@@ -63,7 +64,7 @@ public class TestExamples extends TestBase{
 		IScenarioLoader loader = loaderFactory.createLoader(new FileResourceLocator());
 		
 		// Loading 
-		IOpenScenario openScenario = loader.load(messageLogger);
+		IOpenScenario openScenario = (IOpenScenario)  loader.load(messageLogger).getAdapter(IOpenScenario.class);
 		
 		// Check for errors
 		if (!messageLogger.hasErrors())

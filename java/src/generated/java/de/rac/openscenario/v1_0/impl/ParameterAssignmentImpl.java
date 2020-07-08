@@ -14,23 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.IParameterAssignment;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
-import de.rac.openscenario.v1_0.parser.ParserHelper;
+import de.rac.openscenario.parser.ParserHelper;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
-import de.rac.openscenario.v1_0.impl.NamedReferenceProxy;
-import de.rac.openscenario.v1_0.common.INamedReference;
+import de.rac.openscenario.impl.NamedReferenceProxy;
+import de.rac.openscenario.common.INamedReference;
 import de.rac.openscenario.v1_0.api.IParameterDeclaration;
 
 
@@ -60,7 +62,16 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
 	
 	private NamedReferenceProxy<IParameterDeclaration> parameterRef;
 	private String value;
-
+	/**
+	 * Default constructor
+	 */
+	public ParameterAssignmentImpl()
+	{
+		super();
+		addAdapter(ParameterAssignmentImpl.class, this);
+		addAdapter(IParameterAssignment.class, this);
+		
+	}
 	@Override
 	public INamedReference<IParameterDeclaration> getParameterRef()
 	{
@@ -144,8 +155,121 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
 		// clone children
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__PARAMETER_REF))
+	{
+		// Get the Proxy
+		INamedReference<IParameterDeclaration> parameterRef = getParameterRef();
+		return parameterRef!= null? parameterRef.getNameRef():null;
+	}else 
+	if (key.equals(OscConstants.ATTRIBUTE__VALUE))
+	{
+		return getValue();		
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__PARAMETER_REF))
+	{
+		// Get the Proxy
+		INamedReference<IParameterDeclaration> parameterRef = getParameterRef();
+		return parameterRef!= null?(IOpenScenarioFlexElement) parameterRef.getTargetObject():null;
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "ParameterAssignment";
+  }
+ 	
 }
 

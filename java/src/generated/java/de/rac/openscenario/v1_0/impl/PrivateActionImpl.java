@@ -14,16 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.IPrivateAction;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
 import java.util.Hashtable;
 import java.util.List;
@@ -69,7 +71,16 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
 	private IControllerAction controllerAction;
 	private ITeleportAction teleportAction;
 	private IRoutingAction routingAction;
-
+	/**
+	 * Default constructor
+	 */
+	public PrivateActionImpl()
+	{
+		super();
+		addAdapter(PrivateActionImpl.class, this);
+		addAdapter(IPrivateAction.class, this);
+		
+	}
 	@Override
 	public ILongitudinalAction getLongitudinalAction()
 	{
@@ -342,8 +353,131 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
 		}	
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ELEMENT__LONGITUDINAL_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getLongitudinalAction();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__LATERAL_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getLateralAction();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__VISIBILITY_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getVisibilityAction();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__SYNCHRONIZE_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getSynchronizeAction();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__ACTIVATE_CONTROLLER_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getActivateControllerAction();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__CONTROLLER_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getControllerAction();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__TELEPORT_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getTeleportAction();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__ROUTING_ACTION))
+	{
+		return (IOpenScenarioFlexElement) getRoutingAction();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "PrivateAction";
+  }
+ 	
 }
 

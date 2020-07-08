@@ -14,22 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.ITiming;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
-import de.rac.openscenario.v1_0.parser.ParserHelper;
+import de.rac.openscenario.parser.ParserHelper;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
+import de.rac.openscenario.common.ErrorLevel;
 
 import de.rac.openscenario.v1_0.api.ReferenceContext;
 
@@ -62,7 +64,16 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable{
 	private ReferenceContext domainAbsoluteRelative;
 	private Double scale;
 	private Double offset;
-
+	/**
+	 * Default constructor
+	 */
+	public TimingImpl()
+	{
+		super();
+		addAdapter(TimingImpl.class, this);
+		addAdapter(ITiming.class, this);
+		
+	}
 	@Override
 	public ReferenceContext getDomainAbsoluteRelative()
 	{
@@ -187,8 +198,118 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable{
 		// clone children
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__SCALE))
+	{
+		return getScale();
+	}else 
+	if (key.equals(OscConstants.ATTRIBUTE__OFFSET))
+	{
+		return getOffset();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE))
+	{
+	 	ReferenceContext domainAbsoluteRelative = getDomainAbsoluteRelative();
+		return domainAbsoluteRelative != null?domainAbsoluteRelative.getLiteral():null;
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "Timing";
+  }
+ 	
 }
 

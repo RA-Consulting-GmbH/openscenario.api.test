@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.checker;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.checker.ICheckerRule;
 
 import de.rac.openscenario.v1_0.api.IAbsoluteSpeed;
 import de.rac.openscenario.v1_0.api.IAbsoluteTargetLane;

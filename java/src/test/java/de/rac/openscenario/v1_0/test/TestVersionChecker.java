@@ -23,14 +23,14 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.loader.ScenarioLoaderException;
 import de.rac.openscenario.v1_0.api.IOpenScenario;
 import de.rac.openscenario.v1_0.checker.VersionCheckerRule;
 import de.rac.openscenario.v1_0.checker.impl.ScenarioCheckerImpl;
 import de.rac.openscenario.v1_0.checker.range.RangeCheckerHelper;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.Textmarker;
-import de.rac.openscenario.v1_0.loader.ScenarioLoaderException;
 
 public class TestVersionChecker extends TestBase {
 

@@ -21,10 +21,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
-import de.rac.openscenario.v1_0.common.Textmarker;
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.common.Textmarker;
 
 public class MessageLogger implements IParserMessageLogger {
 

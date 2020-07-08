@@ -14,18 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.parser.xml;
 
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.simple.struct.IndexedElement;
-import de.rac.openscenario.v1_0.parser.ParserContext;
-import de.rac.openscenario.v1_0.impl.NamedReferenceProxy;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
+import de.rac.openscenario.simple.struct.IndexedElement;
+import de.rac.openscenario.parser.ParserContext;
+import de.rac.openscenario.v1_0.parser.CatalogReferenceParserContext;
+import de.rac.openscenario.impl.NamedReferenceProxy;
+import de.rac.openscenario.common.FileContentMessage;
 import de.rac.xml.indexer.Position;
-import de.rac.openscenario.v1_0.common.Textmarker;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.common.ErrorLevel;
 import java.util.List;
 import de.rac.openscenario.v1_0.api.IEntity;
 
@@ -33,11 +33,11 @@ import de.rac.openscenario.v1_0.impl.RelativeLanePositionImpl;
 import de.rac.openscenario.v1_0.impl.OrientationImpl;
 
 
-import de.rac.openscenario.v1_0.parser.modelgroup.XmlAllParser;
+import de.rac.openscenario.parser.modelgroup.XmlAllParser;
 import java.util.Map;
 import java.util.Hashtable;
 import java.util.ArrayList;
-import de.rac.openscenario.v1_0.parser.type.XmlComplexTypeParser;
+import de.rac.openscenario.parser.type.XmlComplexTypeParser;
 
 
 /**

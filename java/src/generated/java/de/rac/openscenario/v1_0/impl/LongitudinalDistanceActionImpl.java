@@ -14,23 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.ILongitudinalDistanceAction;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
-import de.rac.openscenario.v1_0.parser.ParserHelper;
+import de.rac.openscenario.parser.ParserHelper;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
-import de.rac.openscenario.v1_0.impl.NamedReferenceProxy;
-import de.rac.openscenario.v1_0.common.INamedReference;
+import de.rac.openscenario.impl.NamedReferenceProxy;
+import de.rac.openscenario.common.INamedReference;
 import de.rac.openscenario.v1_0.api.IDynamicConstraints;
 import de.rac.openscenario.v1_0.api.IEntity;
 
@@ -68,7 +70,16 @@ public class LongitudinalDistanceActionImpl extends BaseImpl implements ILongitu
 	private Boolean freespace;
 	private Boolean continuous;
 	private IDynamicConstraints dynamicConstraints;
-
+	/**
+	 * Default constructor
+	 */
+	public LongitudinalDistanceActionImpl()
+	{
+		super();
+		addAdapter(LongitudinalDistanceActionImpl.class, this);
+		addAdapter(ILongitudinalDistanceAction.class, this);
+		
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{
@@ -260,8 +271,155 @@ public class LongitudinalDistanceActionImpl extends BaseImpl implements ILongitu
 		}	
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__ENTITY_REF))
+	{
+		// Get the Proxy
+		INamedReference<IEntity> entityRef = getEntityRef();
+		return entityRef!= null? entityRef.getNameRef():null;
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__DISTANCE))
+	{
+		return getDistance();
+	}else 
+	if (key.equals(OscConstants.ATTRIBUTE__TIME_GAP))
+	{
+		return getTimeGap();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__FREESPACE))
+	{
+		return getFreespace();
+	}else 
+	if (key.equals(OscConstants.ATTRIBUTE__CONTINUOUS))
+	{
+		return getContinuous();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ELEMENT__DYNAMIC_CONSTRAINTS))
+	{
+		return (IOpenScenarioFlexElement) getDynamicConstraints();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ATTRIBUTE__ENTITY_REF))
+	{
+		// Get the Proxy
+		INamedReference<IEntity> entityRef = getEntityRef();
+		return entityRef!= null?(IOpenScenarioFlexElement) entityRef.getTargetObject():null;
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "LongitudinalDistanceAction";
+  }
+ 	
 }
 

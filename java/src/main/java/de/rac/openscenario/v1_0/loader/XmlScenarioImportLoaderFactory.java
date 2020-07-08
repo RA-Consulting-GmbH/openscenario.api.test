@@ -17,7 +17,10 @@
  
 package de.rac.openscenario.v1_0.loader;
 
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.loader.IResourceLocator;
+import de.rac.openscenario.loader.IScenarioLoader;
+import de.rac.openscenario.loader.IScenarioLoaderFactory;
 
 /**
  * A factory for creating catalog loaders

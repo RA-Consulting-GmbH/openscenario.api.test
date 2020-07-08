@@ -21,6 +21,13 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.loader.IResourceLocator;
+import de.rac.openscenario.loader.IScenarioLoader;
+import de.rac.openscenario.loader.IScenarioLoaderFactory;
+import de.rac.openscenario.loader.MessageLoggerDecorator;
+import de.rac.openscenario.loader.ScenarioLoaderException;
 import de.rac.openscenario.v1_0.api.ICatalog;
 import de.rac.openscenario.v1_0.api.ICatalogDefinition;
 import de.rac.openscenario.v1_0.api.ICatalogElement;
@@ -34,13 +41,6 @@ import de.rac.openscenario.v1_0.api.IPedestrian;
 import de.rac.openscenario.v1_0.api.IRoute;
 import de.rac.openscenario.v1_0.api.ITrajectory;
 import de.rac.openscenario.v1_0.api.IVehicle;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.loader.IResourceLocator;
-import de.rac.openscenario.v1_0.loader.IScenarioLoader;
-import de.rac.openscenario.v1_0.loader.IScenarioLoaderFactory;
-import de.rac.openscenario.v1_0.loader.MessageLoggerDecorator;
-import de.rac.openscenario.v1_0.loader.ScenarioLoaderException;
 
 /**
  * A cache class for a catalog directory. It enables to search for a catalog element in a specific catalog.
@@ -121,7 +121,7 @@ public class CatalogCache {
 			MessageLoggerDecorator messageLogger = new MessageLoggerDecorator(
 					this.messageLogger);
 			try {
-				openScenario = loader.load(messageLogger);
+				openScenario = (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
 			} catch (ScenarioLoaderException e) {
 				// Ignore
 				isSuccessfullyParsed = false;

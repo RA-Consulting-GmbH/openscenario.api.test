@@ -17,16 +17,17 @@
  
 package de.rac.openscenario.v1_0.main;
 
+import de.rac.openscenario.common.ErrorLevel;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.common.IParserMessageLogger;
+import de.rac.openscenario.common.Textmarker;
+import de.rac.openscenario.loader.FileResourceLocator;
+import de.rac.openscenario.loader.IScenarioLoader;
+import de.rac.openscenario.loader.IScenarioLoaderFactory;
+import de.rac.openscenario.loader.ScenarioLoaderException;
+import de.rac.openscenario.main.MessageLogger;
 import de.rac.openscenario.v1_0.api.IOpenScenario;
-import de.rac.openscenario.v1_0.common.ErrorLevel;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
-import de.rac.openscenario.v1_0.common.Textmarker;
 import de.rac.openscenario.v1_0.impl.OpenScenarioImpl;
-import de.rac.openscenario.v1_0.loader.FileResourceLocator;
-import de.rac.openscenario.v1_0.loader.IScenarioLoader;
-import de.rac.openscenario.v1_0.loader.IScenarioLoaderFactory;
-import de.rac.openscenario.v1_0.loader.ScenarioLoaderException;
 import de.rac.openscenario.v1_0.loader.XmlScenarioImportLoaderFactory;
 
 
@@ -120,8 +121,7 @@ public class OpenScenarioChecker {
 
 		IScenarioLoader loader = loaderFactory
 				.createLoader(new FileResourceLocator());
-		IOpenScenario openScenario = loader.load(messageLogger);
-		return (OpenScenarioImpl) openScenario;
+		return (OpenScenarioImpl) loader.load(messageLogger).getAdapter(OpenScenarioImpl.class);
 
 	}
 

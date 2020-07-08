@@ -14,13 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.checker.range;
 
 
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.api.ITraveledDistanceCondition;
-import de.rac.openscenario.v1_0.checker.RangeCheckerRule;
+import de.rac.openscenario.checker.RangeCheckerRule;
 import de.rac.openscenario.v1_0.common.OscConstants;
 
 /**

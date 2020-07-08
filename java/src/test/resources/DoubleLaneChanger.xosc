@@ -126,18 +126,29 @@
             <EntityRef entityRef="$owner"/>
           </Actors>
           <Maneuver name="MyDoubleLaneChangeManeuver">
-            <Event name="MyLaneChangeRightEvent" priority="overwrite">
+            <Event name="MyLaneChangeRightEvent" priority="overwrite" maximumExecutionCount="2">
               <Action name="MyLaneChangeRightAction">
                 <PrivateAction>
                   <LateralAction>
                     <LaneChangeAction>
-                      <LaneChangeActionDynamics dynamicsShape="sinusoidal" value="2" dynamicsDimension="time"/>
+                      <LaneChangeActionDynamics dynamicsShape="sinusoidal" value="2.0" dynamicsDimension="time"/>
                       <LaneChangeTarget>
                         <RelativeTargetLane entityRef="$owner" value="-1"/>
                       </LaneChangeTarget>
                     </LaneChangeAction>
                   </LateralAction>
                 </PrivateAction>
+              </Action>
+              <Action name="AcquirePositionAction">
+                <PrivateAction>
+                  <RoutingAction>
+						<AcquirePositionAction>
+							<Position>
+								<RelativeLanePosition dLane="1" ds="1" entityRef="Ego"/>
+							</Position>
+						</AcquirePositionAction>
+					</RoutingAction>
+					</PrivateAction>
               </Action>
               <StartTrigger>
                 <ConditionGroup>

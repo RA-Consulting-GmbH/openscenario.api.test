@@ -14,16 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
 package de.rac.openscenario.v1_0.impl;
 
 import de.rac.openscenario.v1_0.api.IOverrideControllerValueAction;
-import de.rac.openscenario.v1_0.impl.BaseImpl;
-import de.rac.openscenario.v1_0.common.ILocator;
-import de.rac.openscenario.v1_0.common.IParserMessageLogger;
+import de.rac.openscenario.impl.BaseImpl;
+import de.rac.openscenario.common.ILocator;
+import de.rac.openscenario.common.IParserMessageLogger;
 import de.rac.openscenario.v1_0.common.OscConstants;
-import de.rac.openscenario.v1_0.common.FileContentMessage;
-import de.rac.openscenario.v1_0.api.IOpenScenarioModelElement;
+import de.rac.openscenario.common.FileContentMessage;
+import de.rac.openscenario.api.IOpenScenarioModelElement;
+import de.rac.openscenario.api.IOpenScenarioFlexElement;
+import de.rac.openscenario.api.KeyNotSupportedException;
+import java.util.Date;
 import java.lang.Cloneable;
 import java.util.Hashtable;
 import java.util.List;
@@ -65,7 +67,16 @@ public class OverrideControllerValueActionImpl extends BaseImpl implements IOver
 	private IOverrideParkingBrakeAction parkingBrake;
 	private IOverrideSteeringWheelAction steeringWheel;
 	private IOverrideGearAction gear;
-
+	/**
+	 * Default constructor
+	 */
+	public OverrideControllerValueActionImpl()
+	{
+		super();
+		addAdapter(OverrideControllerValueActionImpl.class, this);
+		addAdapter(IOverrideControllerValueAction.class, this);
+		
+	}
 	@Override
 	public IOverrideThrottleAction getThrottle()
 	{
@@ -275,8 +286,123 @@ public class OverrideControllerValueActionImpl extends BaseImpl implements IOver
 		}	
 		return clonedObject;
 	}
-	
-	
-	
+  
+  // Implement the IOpenScenarioFlexElement interface
+
+  @Override
+  public String getStringProperty(String key) throws KeyNotSupportedException
+  {
+	// proxies and string attributes 
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }  
+  
+  @Override
+  public Integer getIntProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+ 
+  @Override
+  public Double getDoubleProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  		
+  }
+  
+  @Override
+  public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+ 
+  @Override
+  public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  	
+  }
+   
+  @Override
+  public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+  {
+ 	throw new KeyNotSupportedException();
+
+  }
+ 
+  @Override
+  public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+  {
+	if (key == null)
+	{
+		throw new KeyNotSupportedException();
+	}
+	if (key.equals(OscConstants.ELEMENT__THROTTLE))
+	{
+		return (IOpenScenarioFlexElement) getThrottle();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__BRAKE))
+	{
+		return (IOpenScenarioFlexElement) getBrake();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__CLUTCH))
+	{
+		return (IOpenScenarioFlexElement) getClutch();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__PARKING_BRAKE))
+	{
+		return (IOpenScenarioFlexElement) getParkingBrake();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__STEERING_WHEEL))
+	{
+		return (IOpenScenarioFlexElement) getSteeringWheel();
+	}else 
+	if (key.equals(OscConstants.ELEMENT__GEAR))
+	{
+		return (IOpenScenarioFlexElement) getGear();
+	}else 
+	{
+		throw new KeyNotSupportedException();
+	}
+  }
+ 
+  @Override
+  public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+   
+  @Override
+  public IOpenScenarioFlexElement getParentFlexElement()
+  {
+   	return (IOpenScenarioFlexElement) getParent();
+  }
+  
+  @Override
+  public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override 
+  public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+  {
+	throw new KeyNotSupportedException();
+  }
+  
+  @Override
+  public String getModelType()
+  {
+  	return "OverrideControllerValueAction";
+  }
+ 	
 }
 
