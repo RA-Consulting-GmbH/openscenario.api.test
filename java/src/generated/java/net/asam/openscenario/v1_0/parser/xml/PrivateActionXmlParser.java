@@ -27,15 +27,15 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.PrivateActionImpl;
-import net.asam.openscenario.v1_0.impl.VisibilityActionImpl;
-import net.asam.openscenario.v1_0.impl.ControllerActionImpl;
-import net.asam.openscenario.v1_0.impl.RoutingActionImpl;
-import net.asam.openscenario.v1_0.impl.SynchronizeActionImpl;
-import net.asam.openscenario.v1_0.impl.LateralActionImpl;
-import net.asam.openscenario.v1_0.impl.TeleportActionImpl;
-import net.asam.openscenario.v1_0.impl.LongitudinalActionImpl;
 import net.asam.openscenario.v1_0.impl.ActivateControllerActionImpl;
+import net.asam.openscenario.v1_0.impl.TeleportActionImpl;
+import net.asam.openscenario.v1_0.impl.VisibilityActionImpl;
+import net.asam.openscenario.v1_0.impl.RoutingActionImpl;
+import net.asam.openscenario.v1_0.impl.ControllerActionImpl;
+import net.asam.openscenario.v1_0.impl.LateralActionImpl;
+import net.asam.openscenario.v1_0.impl.SynchronizeActionImpl;
+import net.asam.openscenario.v1_0.impl.PrivateActionImpl;
+import net.asam.openscenario.v1_0.impl.LongitudinalActionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

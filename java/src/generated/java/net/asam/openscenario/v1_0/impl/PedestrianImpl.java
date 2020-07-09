@@ -34,10 +34,10 @@ import java.util.ArrayList;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.parameter.ParameterValue;
 
-import net.asam.openscenario.v1_0.api.PedestrianCategory;
 import net.asam.openscenario.v1_0.api.IProperties;
-import net.asam.openscenario.v1_0.api.IBoundingBox;
+import net.asam.openscenario.v1_0.api.PedestrianCategory;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.IBoundingBox;
 
 
 /**

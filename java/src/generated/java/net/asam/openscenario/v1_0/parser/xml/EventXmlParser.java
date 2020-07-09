@@ -30,9 +30,9 @@ import java.util.List;
 import net.asam.openscenario.v1_0.api.IAction;
 import net.asam.openscenario.v1_0.api.Priority;
 
+import net.asam.openscenario.v1_0.impl.EventImpl;
 import net.asam.openscenario.v1_0.impl.TriggerImpl;
 import net.asam.openscenario.v1_0.impl.ActionImpl;
-import net.asam.openscenario.v1_0.impl.EventImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

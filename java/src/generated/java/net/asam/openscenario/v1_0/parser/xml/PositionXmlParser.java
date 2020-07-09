@@ -27,15 +27,15 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.RelativeWorldPositionImpl;
-import net.asam.openscenario.v1_0.impl.RelativeLanePositionImpl;
-import net.asam.openscenario.v1_0.impl.RoutePositionImpl;
-import net.asam.openscenario.v1_0.impl.RelativeRoadPositionImpl;
-import net.asam.openscenario.v1_0.impl.WorldPositionImpl;
+import net.asam.openscenario.v1_0.impl.RoadPositionImpl;
 import net.asam.openscenario.v1_0.impl.LanePositionImpl;
 import net.asam.openscenario.v1_0.impl.RelativeObjectPositionImpl;
 import net.asam.openscenario.v1_0.impl.PositionImpl;
-import net.asam.openscenario.v1_0.impl.RoadPositionImpl;
+import net.asam.openscenario.v1_0.impl.RelativeRoadPositionImpl;
+import net.asam.openscenario.v1_0.impl.RelativeLanePositionImpl;
+import net.asam.openscenario.v1_0.impl.RoutePositionImpl;
+import net.asam.openscenario.v1_0.impl.RelativeWorldPositionImpl;
+import net.asam.openscenario.v1_0.impl.WorldPositionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

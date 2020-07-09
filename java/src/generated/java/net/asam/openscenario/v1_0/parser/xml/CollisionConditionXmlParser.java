@@ -28,8 +28,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
 import net.asam.openscenario.v1_0.impl.EntityRefImpl;
-import net.asam.openscenario.v1_0.impl.CollisionConditionImpl;
 import net.asam.openscenario.v1_0.impl.ByObjectTypeImpl;
+import net.asam.openscenario.v1_0.impl.CollisionConditionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

@@ -28,9 +28,9 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
 import net.asam.openscenario.v1_0.impl.TimeReferenceImpl;
-import net.asam.openscenario.v1_0.impl.TrajectoryImpl;
-import net.asam.openscenario.v1_0.impl.FollowTrajectoryActionImpl;
 import net.asam.openscenario.v1_0.impl.TrajectoryFollowingModeImpl;
+import net.asam.openscenario.v1_0.impl.FollowTrajectoryActionImpl;
+import net.asam.openscenario.v1_0.impl.TrajectoryImpl;
 import net.asam.openscenario.v1_0.impl.CatalogReferenceImpl;
 
 

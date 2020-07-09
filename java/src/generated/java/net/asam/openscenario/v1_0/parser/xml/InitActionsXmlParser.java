@@ -27,13 +27,13 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IPrivate;
-import net.asam.openscenario.v1_0.api.IUserDefinedAction;
 import net.asam.openscenario.v1_0.api.IGlobalAction;
+import net.asam.openscenario.v1_0.api.IUserDefinedAction;
 
 import net.asam.openscenario.v1_0.impl.GlobalActionImpl;
+import net.asam.openscenario.v1_0.impl.PrivateImpl;
 import net.asam.openscenario.v1_0.impl.UserDefinedActionImpl;
 import net.asam.openscenario.v1_0.impl.InitActionsImpl;
-import net.asam.openscenario.v1_0.impl.PrivateImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

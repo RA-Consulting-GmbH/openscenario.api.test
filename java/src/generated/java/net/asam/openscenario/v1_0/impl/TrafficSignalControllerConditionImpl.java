@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.ArrayList;
 import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.common.INamedReference;
-import net.asam.openscenario.v1_0.api.ITrafficSignalController;
 import net.asam.openscenario.v1_0.api.IPhase;
+import net.asam.openscenario.v1_0.api.ITrafficSignalController;
 
 
 /**

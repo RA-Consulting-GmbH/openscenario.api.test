@@ -27,8 +27,8 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.DirectoryImpl;
 import net.asam.openscenario.v1_0.impl.PedestrianCatalogLocationImpl;
+import net.asam.openscenario.v1_0.impl.DirectoryImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

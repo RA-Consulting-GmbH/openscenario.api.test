@@ -31,9 +31,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.ITrigger;
 import net.asam.openscenario.v1_0.api.IInit;
 import net.asam.openscenario.v1_0.api.IStory;
+import net.asam.openscenario.v1_0.api.ITrigger;
 
 
 /**

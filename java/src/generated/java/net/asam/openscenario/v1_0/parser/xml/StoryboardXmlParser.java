@@ -30,8 +30,8 @@ import net.asam.openscenario.v1_0.api.IStory;
 
 import net.asam.openscenario.v1_0.impl.InitImpl;
 import net.asam.openscenario.v1_0.impl.TriggerImpl;
-import net.asam.openscenario.v1_0.impl.StoryboardImpl;
 import net.asam.openscenario.v1_0.impl.StoryImpl;
+import net.asam.openscenario.v1_0.impl.StoryboardImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

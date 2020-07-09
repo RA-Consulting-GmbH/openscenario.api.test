@@ -29,8 +29,8 @@ import net.asam.openscenario.common.ErrorLevel;
 
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IStoryboardElement;
-import net.asam.openscenario.v1_0.api.StoryboardElementState;
 import net.asam.openscenario.v1_0.api.StoryboardElementType;
+import net.asam.openscenario.v1_0.api.StoryboardElementState;
 
 import net.asam.openscenario.v1_0.impl.StoryboardElementStateConditionImpl;
 

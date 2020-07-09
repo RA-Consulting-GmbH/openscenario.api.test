@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.ArrayList;
 import net.asam.openscenario.common.ErrorLevel;
 
-import net.asam.openscenario.v1_0.api.ITrigger;
 import net.asam.openscenario.v1_0.api.IAction;
+import net.asam.openscenario.v1_0.api.ITrigger;
 import net.asam.openscenario.v1_0.api.Priority;
 
 

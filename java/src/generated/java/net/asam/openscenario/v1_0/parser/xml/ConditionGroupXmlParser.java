@@ -28,8 +28,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.ICondition;
 
-import net.asam.openscenario.v1_0.impl.ConditionImpl;
 import net.asam.openscenario.v1_0.impl.ConditionGroupImpl;
+import net.asam.openscenario.v1_0.impl.ConditionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

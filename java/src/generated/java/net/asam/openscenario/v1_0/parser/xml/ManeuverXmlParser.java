@@ -27,12 +27,12 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.parser.WrappedListParser;
 import java.util.List;
-import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.IEvent;
 
+import net.asam.openscenario.v1_0.impl.EventImpl;
 import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
 import net.asam.openscenario.v1_0.impl.ManeuverImpl;
-import net.asam.openscenario.v1_0.impl.EventImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

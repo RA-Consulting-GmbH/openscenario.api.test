@@ -30,8 +30,8 @@ import java.util.List;
 import net.asam.openscenario.v1_0.api.IPrivateAction;
 import net.asam.openscenario.v1_0.api.IEntity;
 
-import net.asam.openscenario.v1_0.impl.PrivateActionImpl;
 import net.asam.openscenario.v1_0.impl.PrivateImpl;
+import net.asam.openscenario.v1_0.impl.PrivateActionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

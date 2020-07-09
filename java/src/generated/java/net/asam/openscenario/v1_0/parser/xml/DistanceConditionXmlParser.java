@@ -29,8 +29,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.Rule;
 
-import net.asam.openscenario.v1_0.impl.PositionImpl;
 import net.asam.openscenario.v1_0.impl.DistanceConditionImpl;
+import net.asam.openscenario.v1_0.impl.PositionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

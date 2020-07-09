@@ -31,9 +31,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
+import net.asam.openscenario.v1_0.api.ITrafficSourceAction;
 import net.asam.openscenario.v1_0.api.ITrafficSinkAction;
 import net.asam.openscenario.v1_0.api.ITrafficSwarmAction;
-import net.asam.openscenario.v1_0.api.ITrafficSourceAction;
 
 
 /**

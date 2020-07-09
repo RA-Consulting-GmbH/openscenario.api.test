@@ -31,14 +31,14 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.ITeleportAction;
-import net.asam.openscenario.v1_0.api.IActivateControllerAction;
-import net.asam.openscenario.v1_0.api.ILongitudinalAction;
-import net.asam.openscenario.v1_0.api.IRoutingAction;
-import net.asam.openscenario.v1_0.api.IVisibilityAction;
 import net.asam.openscenario.v1_0.api.ISynchronizeAction;
-import net.asam.openscenario.v1_0.api.IControllerAction;
+import net.asam.openscenario.v1_0.api.IVisibilityAction;
 import net.asam.openscenario.v1_0.api.ILateralAction;
+import net.asam.openscenario.v1_0.api.ILongitudinalAction;
+import net.asam.openscenario.v1_0.api.IActivateControllerAction;
+import net.asam.openscenario.v1_0.api.ITeleportAction;
+import net.asam.openscenario.v1_0.api.IRoutingAction;
+import net.asam.openscenario.v1_0.api.IControllerAction;
 
 
 /**

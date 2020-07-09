@@ -28,8 +28,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
 import net.asam.openscenario.v1_0.impl.ScenarioObjectImpl;
-import net.asam.openscenario.v1_0.impl.EntityObjectImpl;
 import net.asam.openscenario.v1_0.impl.ObjectControllerImpl;
+import net.asam.openscenario.v1_0.impl.EntityObjectImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

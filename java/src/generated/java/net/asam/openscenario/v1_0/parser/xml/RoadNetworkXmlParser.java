@@ -29,8 +29,8 @@ import net.asam.openscenario.parser.WrappedListParser;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.ITrafficSignalController;
 
-import net.asam.openscenario.v1_0.impl.TrafficSignalControllerImpl;
 import net.asam.openscenario.v1_0.impl.RoadNetworkImpl;
+import net.asam.openscenario.v1_0.impl.TrafficSignalControllerImpl;
 import net.asam.openscenario.v1_0.impl.FileImpl;
 
 

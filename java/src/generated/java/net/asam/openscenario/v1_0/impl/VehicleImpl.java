@@ -34,12 +34,12 @@ import java.util.ArrayList;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.parameter.ParameterValue;
 
-import net.asam.openscenario.v1_0.api.VehicleCategory;
-import net.asam.openscenario.v1_0.api.IPerformance;
-import net.asam.openscenario.v1_0.api.IProperties;
-import net.asam.openscenario.v1_0.api.IBoundingBox;
-import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IAxles;
+import net.asam.openscenario.v1_0.api.IPerformance;
+import net.asam.openscenario.v1_0.api.VehicleCategory;
+import net.asam.openscenario.v1_0.api.IProperties;
+import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.IBoundingBox;
 
 
 /**

@@ -26,8 +26,8 @@ import net.asam.xml.indexer.Position;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
-import net.asam.openscenario.v1_0.api.IByType;
 import net.asam.openscenario.v1_0.api.IEntityRef;
+import net.asam.openscenario.v1_0.api.IByType;
 
 import net.asam.openscenario.v1_0.impl.EntityRefImpl;
 import net.asam.openscenario.v1_0.impl.ByTypeImpl;

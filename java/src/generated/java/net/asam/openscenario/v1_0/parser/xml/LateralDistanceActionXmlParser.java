@@ -29,8 +29,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IEntity;
 
-import net.asam.openscenario.v1_0.impl.LateralDistanceActionImpl;
 import net.asam.openscenario.v1_0.impl.DynamicConstraintsImpl;
+import net.asam.openscenario.v1_0.impl.LateralDistanceActionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

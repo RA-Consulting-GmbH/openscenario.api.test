@@ -27,15 +27,15 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.VehicleCatalogLocationImpl;
 import net.asam.openscenario.v1_0.impl.MiscObjectCatalogLocationImpl;
-import net.asam.openscenario.v1_0.impl.EnvironmentCatalogLocationImpl;
 import net.asam.openscenario.v1_0.impl.TrajectoryCatalogLocationImpl;
-import net.asam.openscenario.v1_0.impl.RouteCatalogLocationImpl;
+import net.asam.openscenario.v1_0.impl.CatalogLocationsImpl;
+import net.asam.openscenario.v1_0.impl.VehicleCatalogLocationImpl;
 import net.asam.openscenario.v1_0.impl.ControllerCatalogLocationImpl;
+import net.asam.openscenario.v1_0.impl.EnvironmentCatalogLocationImpl;
 import net.asam.openscenario.v1_0.impl.ManeuverCatalogLocationImpl;
 import net.asam.openscenario.v1_0.impl.PedestrianCatalogLocationImpl;
-import net.asam.openscenario.v1_0.impl.CatalogLocationsImpl;
+import net.asam.openscenario.v1_0.impl.RouteCatalogLocationImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

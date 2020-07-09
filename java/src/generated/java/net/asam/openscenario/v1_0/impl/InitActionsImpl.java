@@ -32,8 +32,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 import net.asam.openscenario.v1_0.api.IPrivate;
-import net.asam.openscenario.v1_0.api.IUserDefinedAction;
 import net.asam.openscenario.v1_0.api.IGlobalAction;
+import net.asam.openscenario.v1_0.api.IUserDefinedAction;
 
 
 /**

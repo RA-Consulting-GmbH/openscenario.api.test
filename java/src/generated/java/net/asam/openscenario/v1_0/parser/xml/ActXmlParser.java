@@ -28,9 +28,9 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IManeuverGroup;
 
+import net.asam.openscenario.v1_0.impl.ActImpl;
 import net.asam.openscenario.v1_0.impl.TriggerImpl;
 import net.asam.openscenario.v1_0.impl.ManeuverGroupImpl;
-import net.asam.openscenario.v1_0.impl.ActImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

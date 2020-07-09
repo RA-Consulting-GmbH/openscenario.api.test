@@ -29,10 +29,10 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.CloudState;
 
-import net.asam.openscenario.v1_0.impl.SunImpl;
-import net.asam.openscenario.v1_0.impl.WeatherImpl;
 import net.asam.openscenario.v1_0.impl.FogImpl;
+import net.asam.openscenario.v1_0.impl.SunImpl;
 import net.asam.openscenario.v1_0.impl.PrecipitationImpl;
+import net.asam.openscenario.v1_0.impl.WeatherImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

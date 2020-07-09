@@ -27,9 +27,9 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
+import net.asam.openscenario.v1_0.impl.ShapeImpl;
 import net.asam.openscenario.v1_0.impl.ClothoidImpl;
 import net.asam.openscenario.v1_0.impl.NurbsImpl;
-import net.asam.openscenario.v1_0.impl.ShapeImpl;
 import net.asam.openscenario.v1_0.impl.PolylineImpl;
 
 

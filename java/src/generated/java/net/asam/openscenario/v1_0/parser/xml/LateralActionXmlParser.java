@@ -28,8 +28,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
 import net.asam.openscenario.v1_0.impl.LateralDistanceActionImpl;
-import net.asam.openscenario.v1_0.impl.LaneChangeActionImpl;
 import net.asam.openscenario.v1_0.impl.LateralActionImpl;
+import net.asam.openscenario.v1_0.impl.LaneChangeActionImpl;
 import net.asam.openscenario.v1_0.impl.LaneOffsetActionImpl;
 
 

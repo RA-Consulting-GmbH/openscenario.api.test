@@ -27,9 +27,9 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.ControllerDistributionEntryImpl;
 import net.asam.openscenario.v1_0.impl.ControllerImpl;
 import net.asam.openscenario.v1_0.impl.CatalogReferenceImpl;
+import net.asam.openscenario.v1_0.impl.ControllerDistributionEntryImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

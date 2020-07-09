@@ -31,9 +31,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.IInRoutePosition;
-import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRouteRef;
+import net.asam.openscenario.v1_0.api.IOrientation;
+import net.asam.openscenario.v1_0.api.IInRoutePosition;
 
 
 /**

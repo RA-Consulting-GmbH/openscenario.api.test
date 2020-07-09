@@ -35,8 +35,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IStoryboardElement;
-import net.asam.openscenario.v1_0.api.StoryboardElementState;
 import net.asam.openscenario.v1_0.api.StoryboardElementType;
+import net.asam.openscenario.v1_0.api.StoryboardElementState;
 
 
 /**

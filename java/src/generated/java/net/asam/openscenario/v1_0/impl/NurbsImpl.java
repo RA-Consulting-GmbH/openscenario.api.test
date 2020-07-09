@@ -32,8 +32,8 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.IKnot;
 import net.asam.openscenario.v1_0.api.IControlPoint;
+import net.asam.openscenario.v1_0.api.IKnot;
 
 
 /**

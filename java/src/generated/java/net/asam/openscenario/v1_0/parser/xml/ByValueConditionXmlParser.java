@@ -27,14 +27,14 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.TimeOfDayConditionImpl;
 import net.asam.openscenario.v1_0.impl.StoryboardElementStateConditionImpl;
-import net.asam.openscenario.v1_0.impl.ByValueConditionImpl;
-import net.asam.openscenario.v1_0.impl.ParameterConditionImpl;
+import net.asam.openscenario.v1_0.impl.TimeOfDayConditionImpl;
+import net.asam.openscenario.v1_0.impl.TrafficSignalConditionImpl;
 import net.asam.openscenario.v1_0.impl.SimulationTimeConditionImpl;
 import net.asam.openscenario.v1_0.impl.UserDefinedValueConditionImpl;
+import net.asam.openscenario.v1_0.impl.ByValueConditionImpl;
 import net.asam.openscenario.v1_0.impl.TrafficSignalControllerConditionImpl;
-import net.asam.openscenario.v1_0.impl.TrafficSignalConditionImpl;
+import net.asam.openscenario.v1_0.impl.ParameterConditionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

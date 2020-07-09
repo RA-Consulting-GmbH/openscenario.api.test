@@ -27,10 +27,10 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.PositionOfCurrentEntityImpl;
 import net.asam.openscenario.v1_0.impl.PositionInLaneCoordinatesImpl;
-import net.asam.openscenario.v1_0.impl.PositionInRoadCoordinatesImpl;
 import net.asam.openscenario.v1_0.impl.InRoutePositionImpl;
+import net.asam.openscenario.v1_0.impl.PositionOfCurrentEntityImpl;
+import net.asam.openscenario.v1_0.impl.PositionInRoadCoordinatesImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

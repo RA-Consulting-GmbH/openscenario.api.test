@@ -31,10 +31,10 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.IVehicle;
 import net.asam.openscenario.v1_0.api.IMiscObject;
 import net.asam.openscenario.v1_0.api.IPedestrian;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
+import net.asam.openscenario.v1_0.api.IVehicle;
 
 
 /**

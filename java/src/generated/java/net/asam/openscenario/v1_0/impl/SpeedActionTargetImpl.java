@@ -31,8 +31,8 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.IRelativeTargetSpeed;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetSpeed;
+import net.asam.openscenario.v1_0.api.IRelativeTargetSpeed;
 
 
 /**
