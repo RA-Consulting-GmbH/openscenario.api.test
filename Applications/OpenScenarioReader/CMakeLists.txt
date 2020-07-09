@@ -13,6 +13,9 @@ endif( WIN32 )
 
 
 ################################################################
+# This is needed because of the way the cmakefiles for AntlrCpp-src are written
+unset(CMAKE_BUILD_TYPE CACHE)
+################################################################
 # Set compile output folder
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")

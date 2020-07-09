@@ -300,8 +300,11 @@ add_library ( ${PROJECT_NAME} ${SOURCES} ${SOURCES_GENERATED_API} ${SOURCES_GENE
               ${HEADERS_GENERATED_CHECKER} ${HEADERS_GENERATED_CHECKER_IMPL} ${HEADERS_GENERATED_CHECKER_RANGE} ${HEADERS_GENERATED_CATALOG}
               ${HEADERS_GENERATED_IMPL} ${HEADERS_GENERATED_XMLPARSER})
 
-find_library(ANTLR4_RUNTIME antlr4-runtime ${CMAKE_BINARY_DIR})
-target_link_libraries( ${PROJECT_NAME} ${ANTLR4_RUNTIME})
+if( BUILD_STATIC_LIBS )
+  target_link_libraries( ${PROJECT_NAME} antlr4_static )
+else()
+  target_link_libraries( ${PROJECT_NAME} antlr4_shared )
+endif()
 
 ################################################################
 # Visual Studio solution folders

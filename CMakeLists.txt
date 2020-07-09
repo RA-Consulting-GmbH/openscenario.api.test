@@ -27,19 +27,19 @@ set( MASTER_PROJECT FALSE )
 message("Subprojects:")
 
 # Set compile output folder for DiagRA Portable core libs
-# This is needed because of the way the make files for AntlrCpp-src are written
+# This is needed because of the way the makefiles for AntlrCpp-src are written
 unset(CMAKE_BUILD_TYPE CACHE)
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
 
 # Dependencies
-#add_subdirectory( ../AntlrCpp-src ${PROJECT_BINARY_DIR}/AntlrCpp-src)
+add_subdirectory( ../AntlrCpp-src ${PROJECT_BINARY_DIR}/AntlrCpp-src)
 
 # CoreLibraries
-add_subdirectory( OpenScenarioLib )
+add_subdirectory( OpenScenarioLib ${PROJECT_BINARY_DIR}/OpenScenarioLib )
 
 # Applications
-add_subdirectory( Applications/OpenScenarioReader )
+add_subdirectory( Applications/OpenScenarioReader ${PROJECT_BINARY_DIR}/Applications/OpenScenarioReader )
 
 ################################################################
 # Visual Studio Startup Project and debug cmd line args
