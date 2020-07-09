@@ -30,9 +30,9 @@ import net.asam.openscenario.v1_0.api.IManeuver;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 
 import net.asam.openscenario.v1_0.impl.ActorsImpl;
-import net.asam.openscenario.v1_0.impl.ManeuverGroupImpl;
 import net.asam.openscenario.v1_0.impl.ManeuverImpl;
 import net.asam.openscenario.v1_0.impl.CatalogReferenceImpl;
+import net.asam.openscenario.v1_0.impl.ManeuverGroupImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

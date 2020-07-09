@@ -26,8 +26,8 @@ import net.asam.xml.indexer.Position;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
-import net.asam.openscenario.v1_0.api.IKnot;
 import net.asam.openscenario.v1_0.api.IControlPoint;
+import net.asam.openscenario.v1_0.api.IKnot;
 
 import net.asam.openscenario.v1_0.impl.KnotImpl;
 import net.asam.openscenario.v1_0.impl.ControlPointImpl;

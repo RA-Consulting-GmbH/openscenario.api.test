@@ -31,10 +31,10 @@ import java.util.List;
 import net.asam.openscenario.v1_0.api.PedestrianCategory;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 
-import net.asam.openscenario.v1_0.impl.PedestrianImpl;
+import net.asam.openscenario.v1_0.impl.PropertiesImpl;
 import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
 import net.asam.openscenario.v1_0.impl.BoundingBoxImpl;
-import net.asam.openscenario.v1_0.impl.PropertiesImpl;
+import net.asam.openscenario.v1_0.impl.PedestrianImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

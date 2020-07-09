@@ -29,9 +29,9 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.ConditionEdge;
 
-import net.asam.openscenario.v1_0.impl.ConditionImpl;
-import net.asam.openscenario.v1_0.impl.ByValueConditionImpl;
 import net.asam.openscenario.v1_0.impl.ByEntityConditionImpl;
+import net.asam.openscenario.v1_0.impl.ByValueConditionImpl;
+import net.asam.openscenario.v1_0.impl.ConditionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

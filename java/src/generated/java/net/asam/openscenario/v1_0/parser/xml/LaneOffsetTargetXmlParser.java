@@ -27,9 +27,9 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
+import net.asam.openscenario.v1_0.impl.AbsoluteTargetLaneOffsetImpl;
 import net.asam.openscenario.v1_0.impl.LaneOffsetTargetImpl;
 import net.asam.openscenario.v1_0.impl.RelativeTargetLaneOffsetImpl;
-import net.asam.openscenario.v1_0.impl.AbsoluteTargetLaneOffsetImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

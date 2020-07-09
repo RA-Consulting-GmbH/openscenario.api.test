@@ -26,11 +26,11 @@ import net.asam.xml.indexer.Position;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
-import net.asam.openscenario.v1_0.api.IScenarioObject;
 import net.asam.openscenario.v1_0.api.IEntitySelection;
+import net.asam.openscenario.v1_0.api.IScenarioObject;
 
-import net.asam.openscenario.v1_0.impl.EntitySelectionImpl;
 import net.asam.openscenario.v1_0.impl.ScenarioObjectImpl;
+import net.asam.openscenario.v1_0.impl.EntitySelectionImpl;
 import net.asam.openscenario.v1_0.impl.EntitiesImpl;
 
 

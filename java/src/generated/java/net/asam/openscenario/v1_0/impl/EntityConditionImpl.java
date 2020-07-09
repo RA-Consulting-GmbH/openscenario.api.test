@@ -31,19 +31,19 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.IEndOfRoadCondition;
-import net.asam.openscenario.v1_0.api.IDistanceCondition;
-import net.asam.openscenario.v1_0.api.IAccelerationCondition;
 import net.asam.openscenario.v1_0.api.IReachPositionCondition;
-import net.asam.openscenario.v1_0.api.IRelativeSpeedCondition;
-import net.asam.openscenario.v1_0.api.ITimeHeadwayCondition;
-import net.asam.openscenario.v1_0.api.ITimeToCollisionCondition;
-import net.asam.openscenario.v1_0.api.ICollisionCondition;
-import net.asam.openscenario.v1_0.api.IStandStillCondition;
-import net.asam.openscenario.v1_0.api.ISpeedCondition;
 import net.asam.openscenario.v1_0.api.IOffroadCondition;
+import net.asam.openscenario.v1_0.api.IStandStillCondition;
+import net.asam.openscenario.v1_0.api.IRelativeSpeedCondition;
+import net.asam.openscenario.v1_0.api.IDistanceCondition;
+import net.asam.openscenario.v1_0.api.ISpeedCondition;
+import net.asam.openscenario.v1_0.api.ITimeHeadwayCondition;
 import net.asam.openscenario.v1_0.api.IRelativeDistanceCondition;
+import net.asam.openscenario.v1_0.api.ICollisionCondition;
+import net.asam.openscenario.v1_0.api.IAccelerationCondition;
+import net.asam.openscenario.v1_0.api.ITimeToCollisionCondition;
 import net.asam.openscenario.v1_0.api.ITraveledDistanceCondition;
+import net.asam.openscenario.v1_0.api.IEndOfRoadCondition;
 
 
 /**

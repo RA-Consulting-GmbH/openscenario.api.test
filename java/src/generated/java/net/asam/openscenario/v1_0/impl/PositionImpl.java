@@ -31,14 +31,14 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.IRelativeLanePosition;
-import net.asam.openscenario.v1_0.api.IRoutePosition;
-import net.asam.openscenario.v1_0.api.ILanePosition;
-import net.asam.openscenario.v1_0.api.IRelativeRoadPosition;
 import net.asam.openscenario.v1_0.api.IWorldPosition;
-import net.asam.openscenario.v1_0.api.IRoadPosition;
+import net.asam.openscenario.v1_0.api.IRelativeRoadPosition;
 import net.asam.openscenario.v1_0.api.IRelativeWorldPosition;
+import net.asam.openscenario.v1_0.api.IRelativeLanePosition;
+import net.asam.openscenario.v1_0.api.IRoadPosition;
+import net.asam.openscenario.v1_0.api.ILanePosition;
 import net.asam.openscenario.v1_0.api.IRelativeObjectPosition;
+import net.asam.openscenario.v1_0.api.IRoutePosition;
 
 
 /**

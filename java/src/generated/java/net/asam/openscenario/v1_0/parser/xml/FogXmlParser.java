@@ -27,8 +27,8 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.FogImpl;
 import net.asam.openscenario.v1_0.impl.BoundingBoxImpl;
+import net.asam.openscenario.v1_0.impl.FogImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

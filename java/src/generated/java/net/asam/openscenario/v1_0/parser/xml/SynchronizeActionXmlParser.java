@@ -29,9 +29,9 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IEntity;
 
-import net.asam.openscenario.v1_0.impl.SynchronizeActionImpl;
-import net.asam.openscenario.v1_0.impl.PositionImpl;
 import net.asam.openscenario.v1_0.impl.FinalSpeedImpl;
+import net.asam.openscenario.v1_0.impl.PositionImpl;
+import net.asam.openscenario.v1_0.impl.SynchronizeActionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

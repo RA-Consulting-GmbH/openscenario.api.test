@@ -31,14 +31,14 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
+import net.asam.openscenario.v1_0.api.IEnvironmentCatalogLocation;
+import net.asam.openscenario.v1_0.api.IPedestrianCatalogLocation;
 import net.asam.openscenario.v1_0.api.IRouteCatalogLocation;
 import net.asam.openscenario.v1_0.api.IMiscObjectCatalogLocation;
-import net.asam.openscenario.v1_0.api.IControllerCatalogLocation;
-import net.asam.openscenario.v1_0.api.IVehicleCatalogLocation;
-import net.asam.openscenario.v1_0.api.IEnvironmentCatalogLocation;
-import net.asam.openscenario.v1_0.api.ITrajectoryCatalogLocation;
 import net.asam.openscenario.v1_0.api.IManeuverCatalogLocation;
-import net.asam.openscenario.v1_0.api.IPedestrianCatalogLocation;
+import net.asam.openscenario.v1_0.api.ITrajectoryCatalogLocation;
+import net.asam.openscenario.v1_0.api.IVehicleCatalogLocation;
+import net.asam.openscenario.v1_0.api.IControllerCatalogLocation;
 
 
 /**

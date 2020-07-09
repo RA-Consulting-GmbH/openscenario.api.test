@@ -27,20 +27,20 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
+import net.asam.openscenario.v1_0.impl.SpeedConditionImpl;
+import net.asam.openscenario.v1_0.impl.DistanceConditionImpl;
+import net.asam.openscenario.v1_0.impl.EntityConditionImpl;
+import net.asam.openscenario.v1_0.impl.ReachPositionConditionImpl;
 import net.asam.openscenario.v1_0.impl.RelativeDistanceConditionImpl;
+import net.asam.openscenario.v1_0.impl.TimeToCollisionConditionImpl;
+import net.asam.openscenario.v1_0.impl.AccelerationConditionImpl;
+import net.asam.openscenario.v1_0.impl.OffroadConditionImpl;
+import net.asam.openscenario.v1_0.impl.TimeHeadwayConditionImpl;
+import net.asam.openscenario.v1_0.impl.TraveledDistanceConditionImpl;
+import net.asam.openscenario.v1_0.impl.RelativeSpeedConditionImpl;
 import net.asam.openscenario.v1_0.impl.CollisionConditionImpl;
 import net.asam.openscenario.v1_0.impl.StandStillConditionImpl;
-import net.asam.openscenario.v1_0.impl.AccelerationConditionImpl;
 import net.asam.openscenario.v1_0.impl.EndOfRoadConditionImpl;
-import net.asam.openscenario.v1_0.impl.OffroadConditionImpl;
-import net.asam.openscenario.v1_0.impl.DistanceConditionImpl;
-import net.asam.openscenario.v1_0.impl.RelativeSpeedConditionImpl;
-import net.asam.openscenario.v1_0.impl.TraveledDistanceConditionImpl;
-import net.asam.openscenario.v1_0.impl.EntityConditionImpl;
-import net.asam.openscenario.v1_0.impl.TimeHeadwayConditionImpl;
-import net.asam.openscenario.v1_0.impl.TimeToCollisionConditionImpl;
-import net.asam.openscenario.v1_0.impl.SpeedConditionImpl;
-import net.asam.openscenario.v1_0.impl.ReachPositionConditionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

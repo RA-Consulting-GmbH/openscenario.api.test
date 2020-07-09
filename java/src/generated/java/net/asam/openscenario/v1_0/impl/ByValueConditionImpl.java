@@ -31,13 +31,13 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
+import net.asam.openscenario.v1_0.api.ITrafficSignalCondition;
+import net.asam.openscenario.v1_0.api.ITrafficSignalControllerCondition;
 import net.asam.openscenario.v1_0.api.IParameterCondition;
+import net.asam.openscenario.v1_0.api.IUserDefinedValueCondition;
 import net.asam.openscenario.v1_0.api.ISimulationTimeCondition;
 import net.asam.openscenario.v1_0.api.IStoryboardElementStateCondition;
 import net.asam.openscenario.v1_0.api.ITimeOfDayCondition;
-import net.asam.openscenario.v1_0.api.IUserDefinedValueCondition;
-import net.asam.openscenario.v1_0.api.ITrafficSignalControllerCondition;
-import net.asam.openscenario.v1_0.api.ITrafficSignalCondition;
 
 
 /**

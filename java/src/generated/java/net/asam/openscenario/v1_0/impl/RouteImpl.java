@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.ArrayList;
 import net.asam.openscenario.parameter.ParameterValue;
 
-import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IWaypoint;
+import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 
 
 /**

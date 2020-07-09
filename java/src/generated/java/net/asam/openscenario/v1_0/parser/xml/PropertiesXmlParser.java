@@ -30,8 +30,8 @@ import net.asam.openscenario.v1_0.api.IFile;
 import net.asam.openscenario.v1_0.api.IProperty;
 
 import net.asam.openscenario.v1_0.impl.PropertiesImpl;
-import net.asam.openscenario.v1_0.impl.PropertyImpl;
 import net.asam.openscenario.v1_0.impl.FileImpl;
+import net.asam.openscenario.v1_0.impl.PropertyImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

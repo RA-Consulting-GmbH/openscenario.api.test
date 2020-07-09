@@ -31,12 +31,12 @@ import java.util.List;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 
-import net.asam.openscenario.v1_0.impl.VehicleImpl;
-import net.asam.openscenario.v1_0.impl.AxlesImpl;
+import net.asam.openscenario.v1_0.impl.PropertiesImpl;
 import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
 import net.asam.openscenario.v1_0.impl.BoundingBoxImpl;
 import net.asam.openscenario.v1_0.impl.PerformanceImpl;
-import net.asam.openscenario.v1_0.impl.PropertiesImpl;
+import net.asam.openscenario.v1_0.impl.AxlesImpl;
+import net.asam.openscenario.v1_0.impl.VehicleImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

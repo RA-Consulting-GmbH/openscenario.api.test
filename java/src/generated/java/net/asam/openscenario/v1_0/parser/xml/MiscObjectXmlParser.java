@@ -28,13 +28,13 @@ import net.asam.openscenario.common.ErrorLevel;
 
 import net.asam.openscenario.parser.WrappedListParser;
 import java.util.List;
-import net.asam.openscenario.v1_0.api.MiscObjectCategory;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.MiscObjectCategory;
 
-import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
-import net.asam.openscenario.v1_0.impl.BoundingBoxImpl;
 import net.asam.openscenario.v1_0.impl.PropertiesImpl;
 import net.asam.openscenario.v1_0.impl.MiscObjectImpl;
+import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
+import net.asam.openscenario.v1_0.impl.BoundingBoxImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

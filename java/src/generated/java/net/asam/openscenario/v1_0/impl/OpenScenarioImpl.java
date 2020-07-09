@@ -31,8 +31,8 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.IFileHeader;
 import net.asam.openscenario.v1_0.api.IOpenScenarioCategory;
+import net.asam.openscenario.v1_0.api.IFileHeader;
 
 
 /**

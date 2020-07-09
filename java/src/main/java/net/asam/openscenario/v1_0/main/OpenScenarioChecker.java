@@ -17,6 +17,8 @@
  
 package net.asam.openscenario.v1_0.main;
 
+import java.util.Arrays;
+
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
@@ -26,7 +28,6 @@ import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.main.MessageLogger;
-import net.asam.openscenario.v1_0.api.IOpenScenario;
 import net.asam.openscenario.v1_0.impl.OpenScenarioImpl;
 import net.asam.openscenario.v1_0.loader.XmlScenarioImportLoaderFactory;
 
@@ -55,17 +56,22 @@ public class OpenScenarioChecker {
 		// 4. option skip range checker rules -R
 		// 5. Version -v
 		// 8. print import errors
-		System.out.println("**************************************");
-		System.out.println("* ASAM OpenSCENARIO 1.0 Checker (2020)");
-		System.out.println("**************************************");
+	    String header = "* ASAM OpenSCENARIO "+ version + " Checker (2020) *";
+	    String headerFillString = getFilledString(header.length(),'*');
+	    
+		System.out.println(headerFillString);
+		System.out.println(header);
+		System.out.println(headerFillString);
 		if (args == null || args.length == 0) {
 			System.out.println("OpenScenarioChecker [option]");
 			System.out.println("Options:");
 			System.out.println("[input]\tinput file name");
 			System.out.println("-v\tprogram version");
+			return;
 		}
 		if (args[0].equals("-v")) {
 			System.out.println("Program version " + version);
+			return;
 		}
 		
 		System.out.println("Checking '"+args[0]+"'");
@@ -123,6 +129,12 @@ public class OpenScenarioChecker {
 				.createLoader(new FileResourceLocator());
 		return (OpenScenarioImpl) loader.load(messageLogger).getAdapter(OpenScenarioImpl.class);
 
+	}
+	
+	protected static String getFilledString(int length, char charToFill) {
+	    char[] array = new char[length];
+	    Arrays.fill(array, charToFill);
+	    return new String(array);
 	}
 
 }

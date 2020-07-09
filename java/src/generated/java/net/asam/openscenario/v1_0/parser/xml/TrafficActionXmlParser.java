@@ -27,10 +27,10 @@ import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 
-import net.asam.openscenario.v1_0.impl.TrafficActionImpl;
-import net.asam.openscenario.v1_0.impl.TrafficSwarmActionImpl;
 import net.asam.openscenario.v1_0.impl.TrafficSinkActionImpl;
 import net.asam.openscenario.v1_0.impl.TrafficSourceActionImpl;
+import net.asam.openscenario.v1_0.impl.TrafficSwarmActionImpl;
+import net.asam.openscenario.v1_0.impl.TrafficActionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;

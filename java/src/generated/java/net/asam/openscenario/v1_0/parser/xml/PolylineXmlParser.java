@@ -28,8 +28,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IVertex;
 
-import net.asam.openscenario.v1_0.impl.PolylineImpl;
 import net.asam.openscenario.v1_0.impl.VertexImpl;
+import net.asam.openscenario.v1_0.impl.PolylineImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

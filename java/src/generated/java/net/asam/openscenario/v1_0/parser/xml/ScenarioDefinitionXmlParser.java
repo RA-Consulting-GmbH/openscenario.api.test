@@ -29,12 +29,12 @@ import net.asam.openscenario.parser.WrappedListParser;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 
-import net.asam.openscenario.v1_0.impl.StoryboardImpl;
-import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
-import net.asam.openscenario.v1_0.impl.RoadNetworkImpl;
-import net.asam.openscenario.v1_0.impl.EntitiesImpl;
 import net.asam.openscenario.v1_0.impl.ScenarioDefinitionImpl;
+import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
 import net.asam.openscenario.v1_0.impl.CatalogLocationsImpl;
+import net.asam.openscenario.v1_0.impl.RoadNetworkImpl;
+import net.asam.openscenario.v1_0.impl.StoryboardImpl;
+import net.asam.openscenario.v1_0.impl.EntitiesImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;

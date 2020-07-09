@@ -29,8 +29,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import java.util.List;
 import net.asam.openscenario.v1_0.api.IEntity;
 
-import net.asam.openscenario.v1_0.impl.RelativeWorldPositionImpl;
 import net.asam.openscenario.v1_0.impl.OrientationImpl;
+import net.asam.openscenario.v1_0.impl.RelativeWorldPositionImpl;
 
 
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;

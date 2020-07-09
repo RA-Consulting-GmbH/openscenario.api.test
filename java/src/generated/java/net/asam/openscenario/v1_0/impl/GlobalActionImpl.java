@@ -31,11 +31,11 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.asam.openscenario.v1_0.api.ITrafficAction;
+import net.asam.openscenario.v1_0.api.IInfrastructureAction;
 import net.asam.openscenario.v1_0.api.IEnvironmentAction;
+import net.asam.openscenario.v1_0.api.ITrafficAction;
 import net.asam.openscenario.v1_0.api.IEntityAction;
 import net.asam.openscenario.v1_0.api.IParameterAction;
-import net.asam.openscenario.v1_0.api.IInfrastructureAction;
 
 
 /**
