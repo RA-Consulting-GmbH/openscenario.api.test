@@ -23,7 +23,7 @@ namespace RAC_OPENSCENARIO
     public:
         ICheckerRule() = default;
         virtual  ~ICheckerRule() = default;
-        virtual void ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<T> object) {}
+        virtual void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<T> object) {}
     };
 
 }

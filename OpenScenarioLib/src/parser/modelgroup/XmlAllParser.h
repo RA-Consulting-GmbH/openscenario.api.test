@@ -42,7 +42,7 @@ namespace RAC_OPENSCENARIO
                 auto parser = this->FindParser(tagName);
                 auto start = indexedElement->GetStartElementLocation();
 
-                if (parser)
+                if (parser == nullptr)
                 {
                     auto msg = FileContentMessage("Unknown element '" + tagName + "'", ERROR, Textmarker(start.GetLine(), start.GetColumn(), this->_filename));
                     this->_messageLogger.LogMessage(msg);

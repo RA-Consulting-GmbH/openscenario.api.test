@@ -5,6 +5,7 @@
 #include "IParserMessageLogger.h"
 #include "MemLeakDetection.h"
 
+#undef ERROR
 namespace RAC_OPENSCENARIO
 {
     /**

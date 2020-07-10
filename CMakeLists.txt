@@ -40,6 +40,8 @@ add_subdirectory( OpenScenarioLib ${PROJECT_BINARY_DIR}/OpenScenarioLib )
 
 # Applications
 add_subdirectory( Applications/OpenScenarioReader ${PROJECT_BINARY_DIR}/Applications/OpenScenarioReader )
+add_subdirectory( Applications/OpenScenarioTester )
+add_subdirectory( Applications/IndexerTester )
 
 ################################################################
 # Visual Studio Startup Project and debug cmd line args

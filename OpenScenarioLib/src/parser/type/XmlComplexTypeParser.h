@@ -51,17 +51,20 @@ namespace RAC_OPENSCENARIO
          * @param indexedElement the element to be parsed
          * @param object the object that will be filled during the parsing process.
          */
-        void ParseAttributes(std::shared_ptr<IndexedElement>& indexedElement, T& object) 
+        void ParseAttributes(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <T>& object)
         {
             _attributeNameToAttributeParser = GetAttributeNameToAttributeParserMap();
             const auto kElement = indexedElement->GetElement();
             std::vector<const tinyxml2::XMLAttribute *> attributeMap;
-            attributeMap.push_back(kElement->FirstAttribute());
-            while (attributeMap[attributeMap.size()-1]->Next() != nullptr)
-            {
-                attributeMap.push_back(attributeMap[attributeMap.size() - 1]->Next());
-            }
 
+            if (kElement->FirstAttribute() != nullptr)
+            {
+                attributeMap.push_back(kElement->FirstAttribute());
+                while (attributeMap[attributeMap.size() - 1]->Next() != nullptr)
+                {
+                    attributeMap.push_back(attributeMap[attributeMap.size() - 1]->Next());
+                }
+            }
             auto position = indexedElement->GetStartElementLocation();
             for (auto&& attribute: attributeMap)
             {
@@ -87,8 +90,7 @@ namespace RAC_OPENSCENARIO
                 }
                 else
                 {
-                    auto objectPtr = std::make_shared<T>(object);
-                    parser->Parse(attributeStartPosition, attributeEndPosition, attributeName, attributeValue, objectPtr);
+                    parser->Parse(attributeStartPosition, attributeEndPosition, attributeName, attributeValue, object);
                     // Remove 
                    _attributeNameToAttributeParser.erase(attributeName);
                 }
@@ -115,7 +117,7 @@ namespace RAC_OPENSCENARIO
                 auto msg = FileContentMessage("Element '" + kElementName + "' contains text. Only subelements allowed.", ERROR, Textmarker(kPosition.GetLine(), kPosition.GetColumn(), this->_filename));
                 this->_messageLogger.LogMessage(msg);
             }
-            ParseAttributes(indexedElement, *object.get());
+            ParseAttributes(indexedElement, object);
             auto subElements = indexedElement->GetSubElements();
             ParseSubElements(subElements, parserContext, object);
             parserContext->SetLastElementParsed(indexedElement);

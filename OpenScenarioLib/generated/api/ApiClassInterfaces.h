@@ -2747,7 +2747,7 @@ namespace RAC_OPENSCENARIO
 	 * 
 	 * @return value of model property maximumExecutionCount
 	*/
-        virtual unsigned int GetMaximumExecutionCount()
+        virtual long long GetMaximumExecutionCount()
         {
             return 0;
         }
@@ -2836,7 +2836,7 @@ namespace RAC_OPENSCENARIO
 	 * 
 	 * @return value of model property revMajor
 	*/
-        virtual unsigned short GetRevMajor()
+        virtual long GetRevMajor()
         {
             return 0;
         }
@@ -2847,7 +2847,7 @@ namespace RAC_OPENSCENARIO
 	 * 
 	 * @return value of model property revMinor
 	*/
-        virtual unsigned short GetRevMinor()
+        virtual long GetRevMinor()
         {
             return 0;
         }
@@ -3944,7 +3944,7 @@ namespace RAC_OPENSCENARIO
 	 * 
 	 * @return value of model property maximumExecutionCount
 	*/
-        virtual unsigned int GetMaximumExecutionCount()
+        virtual long long GetMaximumExecutionCount()
         {
             return 0;
         }
@@ -4185,7 +4185,7 @@ namespace RAC_OPENSCENARIO
 	 * 
 	 * @return value of model property order
 	*/
-        virtual unsigned int GetOrder()
+        virtual long long GetOrder()
         {
             return 0;
         }
@@ -8507,7 +8507,7 @@ namespace RAC_OPENSCENARIO
 	 * 
 	 * @return value of model property numberOfVehicles
 	*/
-        virtual unsigned int GetNumberOfVehicles()
+        virtual long long GetNumberOfVehicles()
         {
             return 0;
         }

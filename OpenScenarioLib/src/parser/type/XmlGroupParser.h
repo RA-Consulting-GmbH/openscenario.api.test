@@ -44,7 +44,13 @@ namespace RAC_OPENSCENARIO
             if (kIt != parentSubElements.end())
                 index = std::distance(parentSubElements.begin(), kIt);
 
-            ParseSubElements(parentSubElements, parserContext, object);
+            std::vector<std::shared_ptr<IndexedElement>> elementsToParse;
+            for (unsigned int i = index; i < parentSubElements.size(); i++)
+            {
+                elementsToParse.push_back(parentSubElements[i]);
+            }
+
+            ParseSubElements(elementsToParse, parserContext, object);
             const auto kEndPosition = parserContext->GetLastElementParsed()->GetEndElementLocation();
             object->SetStartMarker(Textmarker(kEndPosition.GetLine(), kEndPosition.GetColumn(), this->_filename));
         }

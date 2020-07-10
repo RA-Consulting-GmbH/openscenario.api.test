@@ -17,7 +17,7 @@ namespace RAC_OPENSCENARIO
     public:
         IScenarioChecker() = default;
         virtual  ~IScenarioChecker() = default;
-        virtual void CheckScenario(IParserMessageLogger& messageLogger, std::shared_ptr<IOpenScenario> openScenario) {}
+        virtual void CheckScenario(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) {}
         virtual void AddAbsoluteSpeedCheckerRule(std::shared_ptr<ICheckerRule<IAbsoluteSpeed>> checkerRule) {};
         virtual void AddAbsoluteTargetLaneCheckerRule(std::shared_ptr<ICheckerRule<IAbsoluteTargetLane>> checkerRule) {};
         virtual void AddAbsoluteTargetLaneOffsetCheckerRule(std::shared_ptr<ICheckerRule<IAbsoluteTargetLaneOffset>> checkerRule) {};

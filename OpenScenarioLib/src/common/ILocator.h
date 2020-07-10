@@ -33,7 +33,7 @@ namespace RAC_OPENSCENARIO
          * @param propertyKey the property (attribute) in xml
          * @return the start marker
          */
-         virtual Textmarker GetStartMarkerOfProperty(std::string& propertyKey) = 0;
+         virtual Textmarker GetStartMarkerOfProperty(const std::string& propertyKey) = 0;
 
         /**
          * Locates the end of an property that belongs to an object in a text file

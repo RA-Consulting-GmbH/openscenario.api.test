@@ -51,11 +51,11 @@ namespace RAC_OPENSCENARIO
          * @param textMarker text marker
          * @return the parsed value or null if value cannot be parsed
          */
-        static unsigned long ParseUnsignedInt(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
+        static long long ParseUnsignedInt(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
         {
             try 
             {
-                const auto kResult = std::stoul(xmlValue, nullptr, 0);
+                const auto kResult = std::stoll(xmlValue, nullptr, 0);
                 if (kResult > UNSIGNED_INT_MAX_VALUE || kResult < 0)
                 {
                     auto msg = FileContentMessage("Cannot convert '" + xmlValue + "' to an unsignedInteger. Value must be in [0.." + 
@@ -119,7 +119,7 @@ namespace RAC_OPENSCENARIO
             catch (std::invalid_argument& e) 
             {
                 (void)e;
-                auto msg = FileContentMessage("Cannot convert '" + xmlValue + "' to an double. Number format error.", ERROR, textMarker);
+                auto msg = FileContentMessage("Cannot convert '" + xmlValue + "' to a double. Number format error.", ERROR, textMarker);
                 messageLogger.LogMessage(msg);
             }
             return 0;
@@ -133,11 +133,11 @@ namespace RAC_OPENSCENARIO
          * @param textMarker text marker
          * @return the parsed value or null if value cannot be parsed
          */
-        static unsigned int ParseUnsignedShort(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
+        static long ParseUnsignedShort(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
         {
             try 
             {
-                const auto kResult = std::stoul(xmlValue, nullptr, 0);
+                const auto kResult = std::stol(xmlValue, nullptr, 0);
                 if (kResult > 2 * UNSIGNED_SHORT_MAX_VALUE || kResult < 0)
                 {
                     auto msg = FileContentMessage("Cannot convert '" + xmlValue + "' to an unsignedShort. Value must be in [0.." +

@@ -2,7 +2,7 @@
 
 namespace RAC_OPENSCENARIO
 {
-    void ScenarioCheckerImpl::CheckScenario(IParserMessageLogger& messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
+    void ScenarioCheckerImpl::CheckScenario(std::shared_ptr<IParserMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
     {
         ApplyOpenScenarioCheckerRules(messageLogger, openScenario);
     }
@@ -11,1125 +11,1312 @@ namespace RAC_OPENSCENARIO
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteSpeed).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAbsoluteSpeed).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAbsoluteTargetLaneCheckerRule(const std::shared_ptr<ICheckerRule<IAbsoluteTargetLane>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLane).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAbsoluteTargetLane).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAbsoluteTargetLaneOffsetCheckerRule(const std::shared_ptr<ICheckerRule<IAbsoluteTargetLaneOffset>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLaneOffset).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAbsoluteTargetLaneOffset).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAbsoluteTargetSpeedCheckerRule(const std::shared_ptr<ICheckerRule<IAbsoluteTargetSpeed>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetSpeed).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAbsoluteTargetSpeed).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAccelerationConditionCheckerRule(const std::shared_ptr<ICheckerRule<IAccelerationCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAccelerationCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAccelerationCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAcquirePositionActionCheckerRule(const std::shared_ptr<ICheckerRule<IAcquirePositionAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAcquirePositionAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAcquirePositionAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddActCheckerRule(const std::shared_ptr<ICheckerRule<IAct>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAct).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAct).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddActionCheckerRule(const std::shared_ptr<ICheckerRule<IAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddActivateControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<IActivateControllerAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActivateControllerAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IActivateControllerAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddActorsCheckerRule(const std::shared_ptr<ICheckerRule<IActors>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActors).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IActors).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAddEntityActionCheckerRule(const std::shared_ptr<ICheckerRule<IAddEntityAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAddEntityAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAddEntityAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAssignControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<IAssignControllerAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignControllerAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAssignControllerAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAssignRouteActionCheckerRule(const std::shared_ptr<ICheckerRule<IAssignRouteAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignRouteAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAssignRouteAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAxleCheckerRule(const std::shared_ptr<ICheckerRule<IAxle>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxle).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAxle).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddAxlesCheckerRule(const std::shared_ptr<ICheckerRule<IAxles>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxles).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IAxles).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddBoundingBoxCheckerRule(const std::shared_ptr<ICheckerRule<IBoundingBox>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IBoundingBox).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IBoundingBox).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddByEntityConditionCheckerRule(const std::shared_ptr<ICheckerRule<IByEntityCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByEntityCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IByEntityCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddByObjectTypeCheckerRule(const std::shared_ptr<ICheckerRule<IByObjectType>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByObjectType).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IByObjectType).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddByTypeCheckerRule(const std::shared_ptr<ICheckerRule<IByType>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByType).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IByType).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddByValueConditionCheckerRule(const std::shared_ptr<ICheckerRule<IByValueCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByValueCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IByValueCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCatalogCheckerRule(const std::shared_ptr<ICheckerRule<ICatalog>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalog).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICatalog).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCatalogDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<ICatalogDefinition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogDefinition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICatalogDefinition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCatalogLocationsCheckerRule(const std::shared_ptr<ICheckerRule<ICatalogLocations>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogLocations).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICatalogLocations).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCatalogReferenceCheckerRule(const std::shared_ptr<ICheckerRule<ICatalogReference>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogReference).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICatalogReference).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCenterCheckerRule(const std::shared_ptr<ICheckerRule<ICenter>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICenter).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICenter).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCentralSwarmObjectCheckerRule(const std::shared_ptr<ICheckerRule<ICentralSwarmObject>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICentralSwarmObject).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICentralSwarmObject).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddClothoidCheckerRule(const std::shared_ptr<ICheckerRule<IClothoid>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IClothoid).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IClothoid).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCollisionConditionCheckerRule(const std::shared_ptr<ICheckerRule<ICollisionCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICollisionCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICollisionCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddConditionCheckerRule(const std::shared_ptr<ICheckerRule<ICondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddConditionGroupCheckerRule(const std::shared_ptr<ICheckerRule<IConditionGroup>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IConditionGroup).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IConditionGroup).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddControlPointCheckerRule(const std::shared_ptr<ICheckerRule<IControlPoint>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControlPoint).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IControlPoint).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddControllerCheckerRule(const std::shared_ptr<ICheckerRule<IController>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IController).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IController).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<IControllerAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IControllerAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddControllerCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IControllerCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IControllerCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddControllerDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IControllerDistribution>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistribution).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IControllerDistribution).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddControllerDistributionEntryCheckerRule(const std::shared_ptr<ICheckerRule<IControllerDistributionEntry>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistributionEntry).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IControllerDistributionEntry).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddCustomCommandActionCheckerRule(const std::shared_ptr<ICheckerRule<ICustomCommandAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICustomCommandAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ICustomCommandAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddDeleteEntityActionCheckerRule(const std::shared_ptr<ICheckerRule<IDeleteEntityAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeleteEntityAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IDeleteEntityAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddDimensionsCheckerRule(const std::shared_ptr<ICheckerRule<IDimensions>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDimensions).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IDimensions).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddDirectoryCheckerRule(const std::shared_ptr<ICheckerRule<IDirectory>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDirectory).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IDirectory).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule<IDistanceCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistanceCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IDistanceCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddDynamicConstraintsCheckerRule(const std::shared_ptr<ICheckerRule<IDynamicConstraints>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDynamicConstraints).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IDynamicConstraints).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEndOfRoadConditionCheckerRule(const std::shared_ptr<ICheckerRule<IEndOfRoadCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEndOfRoadCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEndOfRoadCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEntitiesCheckerRule(const std::shared_ptr<ICheckerRule<IEntities>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntities).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEntities).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEntityActionCheckerRule(const std::shared_ptr<ICheckerRule<IEntityAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEntityAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEntityConditionCheckerRule(const std::shared_ptr<ICheckerRule<IEntityCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEntityCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEntityObjectCheckerRule(const std::shared_ptr<ICheckerRule<IEntityObject>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityObject).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEntityObject).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEntityRefCheckerRule(const std::shared_ptr<ICheckerRule<IEntityRef>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityRef).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEntityRef).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEntitySelectionCheckerRule(const std::shared_ptr<ICheckerRule<IEntitySelection>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntitySelection).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEntitySelection).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEnvironmentCheckerRule(const std::shared_ptr<ICheckerRule<IEnvironment>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironment).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEnvironment).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEnvironmentActionCheckerRule(const std::shared_ptr<ICheckerRule<IEnvironmentAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEnvironmentAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEnvironmentCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IEnvironmentCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEnvironmentCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddEventCheckerRule(const std::shared_ptr<ICheckerRule<IEvent>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEvent).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IEvent).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddFileCheckerRule(const std::shared_ptr<ICheckerRule<IFile>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFile).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IFile).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddFileHeaderCheckerRule(const std::shared_ptr<ICheckerRule<IFileHeader>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFileHeader).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IFileHeader).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddFinalSpeedCheckerRule(const std::shared_ptr<ICheckerRule<IFinalSpeed>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFinalSpeed).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IFinalSpeed).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddFogCheckerRule(const std::shared_ptr<ICheckerRule<IFog>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFog).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IFog).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddFollowTrajectoryActionCheckerRule(const std::shared_ptr<ICheckerRule<IFollowTrajectoryAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFollowTrajectoryAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IFollowTrajectoryAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddGlobalActionCheckerRule(const std::shared_ptr<ICheckerRule<IGlobalAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IGlobalAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IGlobalAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddInRoutePositionCheckerRule(const std::shared_ptr<ICheckerRule<IInRoutePosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInRoutePosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IInRoutePosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddInfrastructureActionCheckerRule(const std::shared_ptr<ICheckerRule<IInfrastructureAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInfrastructureAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IInfrastructureAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddInitCheckerRule(const std::shared_ptr<ICheckerRule<IInit>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInit).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IInit).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddInitActionsCheckerRule(const std::shared_ptr<ICheckerRule<IInitActions>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInitActions).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IInitActions).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddKnotCheckerRule(const std::shared_ptr<ICheckerRule<IKnot>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IKnot).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IKnot).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLaneChangeActionCheckerRule(const std::shared_ptr<ICheckerRule<ILaneChangeAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILaneChangeAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLaneChangeTargetCheckerRule(const std::shared_ptr<ICheckerRule<ILaneChangeTarget>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeTarget).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILaneChangeTarget).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLaneOffsetActionCheckerRule(const std::shared_ptr<ICheckerRule<ILaneOffsetAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILaneOffsetAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLaneOffsetActionDynamicsCheckerRule(const std::shared_ptr<ICheckerRule<ILaneOffsetActionDynamics>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetActionDynamics).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILaneOffsetActionDynamics).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLaneOffsetTargetCheckerRule(const std::shared_ptr<ICheckerRule<ILaneOffsetTarget>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetTarget).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILaneOffsetTarget).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLanePositionCheckerRule(const std::shared_ptr<ICheckerRule<ILanePosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILanePosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILanePosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLateralActionCheckerRule(const std::shared_ptr<ICheckerRule<ILateralAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILateralAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLateralDistanceActionCheckerRule(const std::shared_ptr<ICheckerRule<ILateralDistanceAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralDistanceAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILateralDistanceAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLongitudinalActionCheckerRule(const std::shared_ptr<ICheckerRule<ILongitudinalAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILongitudinalAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddLongitudinalDistanceActionCheckerRule(const std::shared_ptr<ICheckerRule<ILongitudinalDistanceAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalDistanceAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ILongitudinalDistanceAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddManeuverCheckerRule(const std::shared_ptr<ICheckerRule<IManeuver>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuver).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IManeuver).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddManeuverCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IManeuverCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IManeuverCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddManeuverGroupCheckerRule(const std::shared_ptr<ICheckerRule<IManeuverGroup>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverGroup).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IManeuverGroup).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddMiscObjectCheckerRule(const std::shared_ptr<ICheckerRule<IMiscObject>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObject).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IMiscObject).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddMiscObjectCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IMiscObjectCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObjectCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IMiscObjectCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddModifyRuleCheckerRule(const std::shared_ptr<ICheckerRule<IModifyRule>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IModifyRule).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IModifyRule).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddNoneCheckerRule(const std::shared_ptr<ICheckerRule<INone>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(INone).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(INone).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddNurbsCheckerRule(const std::shared_ptr<ICheckerRule<INurbs>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(INurbs).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(INurbs).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddObjectControllerCheckerRule(const std::shared_ptr<ICheckerRule<IObjectController>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IObjectController).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IObjectController).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOffroadConditionCheckerRule(const std::shared_ptr<ICheckerRule<IOffroadCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOffroadCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOffroadCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOpenScenarioCheckerRule(const std::shared_ptr<ICheckerRule<IOpenScenario>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenario).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOpenScenario).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOpenScenarioCategoryCheckerRule(const std::shared_ptr<ICheckerRule<IOpenScenarioCategory>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenarioCategory).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOpenScenarioCategory).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOrientationCheckerRule(const std::shared_ptr<ICheckerRule<IOrientation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOrientation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOrientation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOverrideBrakeActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideBrakeAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideBrakeAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOverrideBrakeAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOverrideClutchActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideClutchAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideClutchAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOverrideClutchAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOverrideControllerValueActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideControllerValueAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideControllerValueAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOverrideControllerValueAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOverrideGearActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideGearAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideGearAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOverrideGearAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOverrideParkingBrakeActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideParkingBrakeAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideParkingBrakeAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOverrideParkingBrakeAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOverrideSteeringWheelActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideSteeringWheelAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideSteeringWheelAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOverrideSteeringWheelAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddOverrideThrottleActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideThrottleAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideThrottleAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IOverrideThrottleAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterActionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterAddValueRuleCheckerRule(const std::shared_ptr<ICheckerRule<IParameterAddValueRule>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAddValueRule).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterAddValueRule).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterAssignmentCheckerRule(const std::shared_ptr<ICheckerRule<IParameterAssignment>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAssignment).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterAssignment).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterConditionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterDeclarationCheckerRule(const std::shared_ptr<ICheckerRule<IParameterDeclaration>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterDeclaration).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterDeclaration).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterModifyActionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterModifyAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterModifyAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterModifyAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterMultiplyByValueRuleCheckerRule(const std::shared_ptr<ICheckerRule<IParameterMultiplyByValueRule>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterMultiplyByValueRule).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterMultiplyByValueRule).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddParameterSetActionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterSetAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterSetAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IParameterSetAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPedestrianCheckerRule(const std::shared_ptr<ICheckerRule<IPedestrian>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrian).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPedestrian).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPedestrianCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IPedestrianCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrianCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPedestrianCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPerformanceCheckerRule(const std::shared_ptr<ICheckerRule<IPerformance>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPerformance).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPerformance).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPhaseCheckerRule(const std::shared_ptr<ICheckerRule<IPhase>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPhase).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPhase).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPolylineCheckerRule(const std::shared_ptr<ICheckerRule<IPolyline>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPolyline).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPolyline).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPositionCheckerRule(const std::shared_ptr<ICheckerRule<IPosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPositionInLaneCoordinatesCheckerRule(const std::shared_ptr<ICheckerRule<IPositionInLaneCoordinates>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInLaneCoordinates).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPositionInLaneCoordinates).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPositionInRoadCoordinatesCheckerRule(const std::shared_ptr<ICheckerRule<IPositionInRoadCoordinates>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInRoadCoordinates).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPositionInRoadCoordinates).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPositionOfCurrentEntityCheckerRule(const std::shared_ptr<ICheckerRule<IPositionOfCurrentEntity>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionOfCurrentEntity).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPositionOfCurrentEntity).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPrecipitationCheckerRule(const std::shared_ptr<ICheckerRule<IPrecipitation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrecipitation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPrecipitation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPrivateCheckerRule(const std::shared_ptr<ICheckerRule<IPrivate>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivate).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPrivate).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPrivateActionCheckerRule(const std::shared_ptr<ICheckerRule<IPrivateAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivateAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IPrivateAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPropertiesCheckerRule(const std::shared_ptr<ICheckerRule<IProperties>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperties).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IProperties).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddPropertyCheckerRule(const std::shared_ptr<ICheckerRule<IProperty>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperty).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IProperty).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddReachPositionConditionCheckerRule(const std::shared_ptr<ICheckerRule<IReachPositionCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IReachPositionCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IReachPositionCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeDistanceCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeDistanceCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeDistanceCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeLanePositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeLanePosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeLanePosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeLanePosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeObjectPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeObjectPosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeObjectPosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeObjectPosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeRoadPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeRoadPosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeRoadPosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeRoadPosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeSpeedConditionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeSpeedCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeSpeedCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeSpeedToMasterCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeSpeedToMaster>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedToMaster).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeSpeedToMaster).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeTargetLaneCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeTargetLane>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLane).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeTargetLane).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeTargetLaneOffsetCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeTargetLaneOffset>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLaneOffset).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeTargetLaneOffset).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeTargetSpeedCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeTargetSpeed>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetSpeed).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeTargetSpeed).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRelativeWorldPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeWorldPosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeWorldPosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRelativeWorldPosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRoadConditionCheckerRule(const std::shared_ptr<ICheckerRule<IRoadCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRoadCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRoadNetworkCheckerRule(const std::shared_ptr<ICheckerRule<IRoadNetwork>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadNetwork).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRoadNetwork).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRoadPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRoadPosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadPosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRoadPosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRouteCheckerRule(const std::shared_ptr<ICheckerRule<IRoute>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoute).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRoute).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRouteCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IRouteCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRouteCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRoutePositionCheckerRule(const std::shared_ptr<ICheckerRule<IRoutePosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutePosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRoutePosition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRouteRefCheckerRule(const std::shared_ptr<ICheckerRule<IRouteRef>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteRef).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRouteRef).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddRoutingActionCheckerRule(const std::shared_ptr<ICheckerRule<IRoutingAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutingAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IRoutingAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddScenarioDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<IScenarioDefinition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioDefinition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IScenarioDefinition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddScenarioObjectCheckerRule(const std::shared_ptr<ICheckerRule<IScenarioObject>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioObject).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IScenarioObject).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddSelectedEntitiesCheckerRule(const std::shared_ptr<ICheckerRule<ISelectedEntities>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISelectedEntities).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ISelectedEntities).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddShapeCheckerRule(const std::shared_ptr<ICheckerRule<IShape>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IShape).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IShape).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddSimulationTimeConditionCheckerRule(const std::shared_ptr<ICheckerRule<ISimulationTimeCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISimulationTimeCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ISimulationTimeCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddSpeedActionCheckerRule(const std::shared_ptr<ICheckerRule<ISpeedAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ISpeedAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddSpeedActionTargetCheckerRule(const std::shared_ptr<ICheckerRule<ISpeedActionTarget>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedActionTarget).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ISpeedActionTarget).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddSpeedConditionCheckerRule(const std::shared_ptr<ICheckerRule<ISpeedCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ISpeedCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddStandStillConditionCheckerRule(const std::shared_ptr<ICheckerRule<IStandStillCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStandStillCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IStandStillCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddStoryCheckerRule(const std::shared_ptr<ICheckerRule<IStory>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStory).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IStory).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddStoryboardCheckerRule(const std::shared_ptr<ICheckerRule<IStoryboard>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboard).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IStoryboard).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddStoryboardElementStateConditionCheckerRule(const std::shared_ptr<ICheckerRule<IStoryboardElementStateCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboardElementStateCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IStoryboardElementStateCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddSunCheckerRule(const std::shared_ptr<ICheckerRule<ISun>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISun).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ISun).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddSynchronizeActionCheckerRule(const std::shared_ptr<ICheckerRule<ISynchronizeAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISynchronizeAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ISynchronizeAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTeleportActionCheckerRule(const std::shared_ptr<ICheckerRule<ITeleportAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITeleportAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITeleportAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTimeHeadwayConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITimeHeadwayCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeHeadwayCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITimeHeadwayCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTimeOfDayCheckerRule(const std::shared_ptr<ICheckerRule<ITimeOfDay>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDay).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITimeOfDay).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTimeOfDayConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITimeOfDayCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDayCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITimeOfDayCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTimeReferenceCheckerRule(const std::shared_ptr<ICheckerRule<ITimeReference>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeReference).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITimeReference).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTimeToCollisionConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITimeToCollisionCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITimeToCollisionCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTimeToCollisionConditionTargetCheckerRule(const std::shared_ptr<ICheckerRule<ITimeToCollisionConditionTarget>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionConditionTarget).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITimeToCollisionConditionTarget).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTimingCheckerRule(const std::shared_ptr<ICheckerRule<ITiming>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITiming).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITiming).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficDefinition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficDefinition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficDefinition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSignalActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSignalAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSignalConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSignalCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSignalControllerCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalController>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalController).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSignalController).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSignalControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalControllerAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSignalControllerAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSignalControllerConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalControllerCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSignalControllerCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSignalStateCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalState>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalState).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSignalState).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSignalStateActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalStateAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalStateAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSignalStateAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSinkActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSinkAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSinkAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSinkAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSourceActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSourceAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSourceAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSourceAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrafficSwarmActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSwarmAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSwarmAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrafficSwarmAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrajectoryCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectory>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectory).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrajectory).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrajectoryCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectoryCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrajectoryCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTrajectoryFollowingModeCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectoryFollowingMode>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryFollowingMode).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrajectoryFollowingMode).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTransitionDynamicsCheckerRule(const std::shared_ptr<ICheckerRule<ITransitionDynamics>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITransitionDynamics).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITransitionDynamics).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTraveledDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITraveledDistanceCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITraveledDistanceCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITraveledDistanceCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTriggerCheckerRule(const std::shared_ptr<ICheckerRule<ITrigger>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrigger).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITrigger).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddTriggeringEntitiesCheckerRule(const std::shared_ptr<ICheckerRule<ITriggeringEntities>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITriggeringEntities).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(ITriggeringEntities).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddUserDefinedActionCheckerRule(const std::shared_ptr<ICheckerRule<IUserDefinedAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IUserDefinedAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddUserDefinedValueConditionCheckerRule(const std::shared_ptr<ICheckerRule<IUserDefinedValueCondition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedValueCondition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IUserDefinedValueCondition).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddVehicleCheckerRule(const std::shared_ptr<ICheckerRule<IVehicle>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicle).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IVehicle).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddVehicleCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IVehicleCatalogLocation>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCatalogLocation).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IVehicleCatalogLocation).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddVehicleCategoryDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IVehicleCategoryDistribution>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistribution).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IVehicleCategoryDistribution).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddVehicleCategoryDistributionEntryCheckerRule(const std::shared_ptr<ICheckerRule<IVehicleCategoryDistributionEntry>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistributionEntry).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IVehicleCategoryDistributionEntry).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddVertexCheckerRule(const std::shared_ptr<ICheckerRule<IVertex>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVertex).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IVertex).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddVisibilityActionCheckerRule(const std::shared_ptr<ICheckerRule<IVisibilityAction>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVisibilityAction).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IVisibilityAction).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddWaypointCheckerRule(const std::shared_ptr<ICheckerRule<IWaypoint>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWaypoint).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IWaypoint).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddWeatherCheckerRule(const std::shared_ptr<ICheckerRule<IWeather>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWeather).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IWeather).name()] = checkerRulesForType;
     }
 
     void ScenarioCheckerImpl::AddWorldPositionCheckerRule(const std::shared_ptr<ICheckerRule<IWorldPosition>> checkerRule)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWorldPosition).name()];
         checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
+        _typeToCheckerRuleList[typeid(IWorldPosition).name()] = checkerRulesForType;
     }
 
-    void ScenarioCheckerImpl::ApplyAbsoluteSpeedCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAbsoluteSpeed> object)
+    void ScenarioCheckerImpl::ApplyAbsoluteSpeedCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAbsoluteSpeed> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteSpeed).name()];
         if ( !checkerRulesForType.empty() )
@@ -1144,7 +1331,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyAbsoluteTargetLaneCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAbsoluteTargetLane> object)
+    void ScenarioCheckerImpl::ApplyAbsoluteTargetLaneCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAbsoluteTargetLane> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLane).name()];
         if ( !checkerRulesForType.empty() )
@@ -1159,7 +1346,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyAbsoluteTargetLaneOffsetCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAbsoluteTargetLaneOffset> object)
+    void ScenarioCheckerImpl::ApplyAbsoluteTargetLaneOffsetCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAbsoluteTargetLaneOffset> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLaneOffset).name()];
         if ( !checkerRulesForType.empty() )
@@ -1174,7 +1361,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyAbsoluteTargetSpeedCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAbsoluteTargetSpeed> object)
+    void ScenarioCheckerImpl::ApplyAbsoluteTargetSpeedCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAbsoluteTargetSpeed> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetSpeed).name()];
         if ( !checkerRulesForType.empty() )
@@ -1189,7 +1376,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyAccelerationConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAccelerationCondition> object)
+    void ScenarioCheckerImpl::ApplyAccelerationConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAccelerationCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAccelerationCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -1204,7 +1391,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyAcquirePositionActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAcquirePositionAction> object)
+    void ScenarioCheckerImpl::ApplyAcquirePositionActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAcquirePositionAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAcquirePositionAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1224,7 +1411,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyActCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAct> object)
+    void ScenarioCheckerImpl::ApplyActCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAct> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAct).name()];
         if ( !checkerRulesForType.empty() )
@@ -1255,7 +1442,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAction> object)
+    void ScenarioCheckerImpl::ApplyActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1285,7 +1472,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyActivateControllerActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IActivateControllerAction> object)
+    void ScenarioCheckerImpl::ApplyActivateControllerActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IActivateControllerAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActivateControllerAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1300,7 +1487,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyActorsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IActors> object)
+    void ScenarioCheckerImpl::ApplyActorsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IActors> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActors).name()];
         if ( !checkerRulesForType.empty() )
@@ -1321,7 +1508,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyAddEntityActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAddEntityAction> object)
+    void ScenarioCheckerImpl::ApplyAddEntityActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAddEntityAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAddEntityAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1341,7 +1528,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyAssignControllerActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAssignControllerAction> object)
+    void ScenarioCheckerImpl::ApplyAssignControllerActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAssignControllerAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignControllerAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1366,7 +1553,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyAssignRouteActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAssignRouteAction> object)
+    void ScenarioCheckerImpl::ApplyAssignRouteActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAssignRouteAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignRouteAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1391,7 +1578,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyAxleCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAxle> object)
+    void ScenarioCheckerImpl::ApplyAxleCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAxle> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxle).name()];
         if ( !checkerRulesForType.empty() )
@@ -1406,7 +1593,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyAxlesCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IAxles> object)
+    void ScenarioCheckerImpl::ApplyAxlesCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IAxles> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxles).name()];
         if ( !checkerRulesForType.empty() )
@@ -1437,7 +1624,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyBoundingBoxCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IBoundingBox> object)
+    void ScenarioCheckerImpl::ApplyBoundingBoxCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IBoundingBox> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IBoundingBox).name()];
         if ( !checkerRulesForType.empty() )
@@ -1462,7 +1649,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyByEntityConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IByEntityCondition> object)
+    void ScenarioCheckerImpl::ApplyByEntityConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IByEntityCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByEntityCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -1487,7 +1674,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyByObjectTypeCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IByObjectType> object)
+    void ScenarioCheckerImpl::ApplyByObjectTypeCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IByObjectType> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByObjectType).name()];
         if ( !checkerRulesForType.empty() )
@@ -1502,7 +1689,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyByTypeCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IByType> object)
+    void ScenarioCheckerImpl::ApplyByTypeCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IByType> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByType).name()];
         if ( !checkerRulesForType.empty() )
@@ -1517,7 +1704,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyByValueConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IByValueCondition> object)
+    void ScenarioCheckerImpl::ApplyByValueConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IByValueCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByValueCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -1567,7 +1754,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyCatalogCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICatalog> object)
+    void ScenarioCheckerImpl::ApplyCatalogCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICatalog> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalog).name()];
         if ( !checkerRulesForType.empty() )
@@ -1630,7 +1817,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyCatalogDefinitionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICatalogDefinition> object)
+    void ScenarioCheckerImpl::ApplyCatalogDefinitionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICatalogDefinition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogDefinition).name()];
         if ( !checkerRulesForType.empty() )
@@ -1650,7 +1837,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyCatalogLocationsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICatalogLocations> object)
+    void ScenarioCheckerImpl::ApplyCatalogLocationsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICatalogLocations> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogLocations).name()];
         if ( !checkerRulesForType.empty() )
@@ -1705,7 +1892,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyCatalogReferenceCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICatalogReference> object)
+    void ScenarioCheckerImpl::ApplyCatalogReferenceCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICatalogReference> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogReference).name()];
         if ( !checkerRulesForType.empty() )
@@ -1726,7 +1913,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyCenterCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICenter> object)
+    void ScenarioCheckerImpl::ApplyCenterCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICenter> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICenter).name()];
         if ( !checkerRulesForType.empty() )
@@ -1741,7 +1928,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyCentralSwarmObjectCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICentralSwarmObject> object)
+    void ScenarioCheckerImpl::ApplyCentralSwarmObjectCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICentralSwarmObject> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICentralSwarmObject).name()];
         if ( !checkerRulesForType.empty() )
@@ -1756,7 +1943,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyClothoidCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IClothoid> object)
+    void ScenarioCheckerImpl::ApplyClothoidCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IClothoid> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IClothoid).name()];
         if ( !checkerRulesForType.empty() )
@@ -1776,7 +1963,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyCollisionConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICollisionCondition> object)
+    void ScenarioCheckerImpl::ApplyCollisionConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICollisionCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICollisionCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -1801,7 +1988,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICondition> object)
+    void ScenarioCheckerImpl::ApplyConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -1826,7 +2013,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyConditionGroupCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IConditionGroup> object)
+    void ScenarioCheckerImpl::ApplyConditionGroupCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IConditionGroup> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IConditionGroup).name()];
         if ( !checkerRulesForType.empty() )
@@ -1847,7 +2034,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyControlPointCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IControlPoint> object)
+    void ScenarioCheckerImpl::ApplyControlPointCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IControlPoint> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControlPoint).name()];
         if ( !checkerRulesForType.empty() )
@@ -1867,7 +2054,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyControllerCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IController> object)
+    void ScenarioCheckerImpl::ApplyControllerCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IController> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IController).name()];
         if ( !checkerRulesForType.empty() )
@@ -1893,7 +2080,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyControllerActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IControllerAction> object)
+    void ScenarioCheckerImpl::ApplyControllerActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IControllerAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1918,7 +2105,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyControllerCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IControllerCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyControllerCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IControllerCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -1938,7 +2125,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyControllerDistributionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IControllerDistribution> object)
+    void ScenarioCheckerImpl::ApplyControllerDistributionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IControllerDistribution> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistribution).name()];
         if ( !checkerRulesForType.empty() )
@@ -1959,7 +2146,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyControllerDistributionEntryCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IControllerDistributionEntry> object)
+    void ScenarioCheckerImpl::ApplyControllerDistributionEntryCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IControllerDistributionEntry> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistributionEntry).name()];
         if ( !checkerRulesForType.empty() )
@@ -1984,7 +2171,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyCustomCommandActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ICustomCommandAction> object)
+    void ScenarioCheckerImpl::ApplyCustomCommandActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ICustomCommandAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICustomCommandAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -1999,7 +2186,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyDeleteEntityActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IDeleteEntityAction> object)
+    void ScenarioCheckerImpl::ApplyDeleteEntityActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IDeleteEntityAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeleteEntityAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2014,7 +2201,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyDimensionsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IDimensions> object)
+    void ScenarioCheckerImpl::ApplyDimensionsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IDimensions> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDimensions).name()];
         if ( !checkerRulesForType.empty() )
@@ -2029,7 +2216,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyDirectoryCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IDirectory> object)
+    void ScenarioCheckerImpl::ApplyDirectoryCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IDirectory> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDirectory).name()];
         if ( !checkerRulesForType.empty() )
@@ -2044,7 +2231,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyDistanceConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IDistanceCondition> object)
+    void ScenarioCheckerImpl::ApplyDistanceConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IDistanceCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistanceCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -2064,7 +2251,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyDynamicConstraintsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IDynamicConstraints> object)
+    void ScenarioCheckerImpl::ApplyDynamicConstraintsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IDynamicConstraints> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDynamicConstraints).name()];
         if ( !checkerRulesForType.empty() )
@@ -2079,7 +2266,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyEndOfRoadConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEndOfRoadCondition> object)
+    void ScenarioCheckerImpl::ApplyEndOfRoadConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEndOfRoadCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEndOfRoadCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -2094,7 +2281,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyEntitiesCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEntities> object)
+    void ScenarioCheckerImpl::ApplyEntitiesCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEntities> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntities).name()];
         if ( !checkerRulesForType.empty() )
@@ -2121,7 +2308,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEntityActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEntityAction> object)
+    void ScenarioCheckerImpl::ApplyEntityActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEntityAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2146,7 +2333,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEntityConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEntityCondition> object)
+    void ScenarioCheckerImpl::ApplyEntityConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEntityCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -2226,7 +2413,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEntityObjectCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEntityObject> object)
+    void ScenarioCheckerImpl::ApplyEntityObjectCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEntityObject> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityObject).name()];
         if ( !checkerRulesForType.empty() )
@@ -2261,7 +2448,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEntityRefCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEntityRef> object)
+    void ScenarioCheckerImpl::ApplyEntityRefCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEntityRef> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityRef).name()];
         if ( !checkerRulesForType.empty() )
@@ -2276,7 +2463,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyEntitySelectionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEntitySelection> object)
+    void ScenarioCheckerImpl::ApplyEntitySelectionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEntitySelection> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntitySelection).name()];
         if ( !checkerRulesForType.empty() )
@@ -2296,7 +2483,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEnvironmentCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEnvironment> object)
+    void ScenarioCheckerImpl::ApplyEnvironmentCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEnvironment> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironment).name()];
         if ( !checkerRulesForType.empty() )
@@ -2332,7 +2519,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEnvironmentActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEnvironmentAction> object)
+    void ScenarioCheckerImpl::ApplyEnvironmentActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEnvironmentAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2357,7 +2544,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEnvironmentCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEnvironmentCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyEnvironmentCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEnvironmentCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -2377,7 +2564,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyEventCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IEvent> object)
+    void ScenarioCheckerImpl::ApplyEventCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IEvent> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEvent).name()];
         if ( !checkerRulesForType.empty() )
@@ -2403,7 +2590,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyFileCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IFile> object)
+    void ScenarioCheckerImpl::ApplyFileCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IFile> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFile).name()];
         if ( !checkerRulesForType.empty() )
@@ -2418,7 +2605,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyFileHeaderCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IFileHeader> object)
+    void ScenarioCheckerImpl::ApplyFileHeaderCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IFileHeader> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFileHeader).name()];
         if ( !checkerRulesForType.empty() )
@@ -2433,7 +2620,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyFinalSpeedCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IFinalSpeed> object)
+    void ScenarioCheckerImpl::ApplyFinalSpeedCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IFinalSpeed> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFinalSpeed).name()];
         if ( !checkerRulesForType.empty() )
@@ -2458,7 +2645,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyFogCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IFog> object)
+    void ScenarioCheckerImpl::ApplyFogCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IFog> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFog).name()];
         if ( !checkerRulesForType.empty() )
@@ -2478,7 +2665,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyFollowTrajectoryActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IFollowTrajectoryAction> object)
+    void ScenarioCheckerImpl::ApplyFollowTrajectoryActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IFollowTrajectoryAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFollowTrajectoryAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2513,7 +2700,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyGlobalActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IGlobalAction> object)
+    void ScenarioCheckerImpl::ApplyGlobalActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IGlobalAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IGlobalAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2553,7 +2740,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyInRoutePositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IInRoutePosition> object)
+    void ScenarioCheckerImpl::ApplyInRoutePositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IInRoutePosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInRoutePosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -2583,7 +2770,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyInfrastructureActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IInfrastructureAction> object)
+    void ScenarioCheckerImpl::ApplyInfrastructureActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IInfrastructureAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInfrastructureAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2603,7 +2790,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyInitCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IInit> object)
+    void ScenarioCheckerImpl::ApplyInitCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IInit> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInit).name()];
         if ( !checkerRulesForType.empty() )
@@ -2623,7 +2810,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyInitActionsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IInitActions> object)
+    void ScenarioCheckerImpl::ApplyInitActionsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IInitActions> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInitActions).name()];
         if ( !checkerRulesForType.empty() )
@@ -2656,7 +2843,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyKnotCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IKnot> object)
+    void ScenarioCheckerImpl::ApplyKnotCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IKnot> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IKnot).name()];
         if ( !checkerRulesForType.empty() )
@@ -2671,7 +2858,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyLaneChangeActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILaneChangeAction> object)
+    void ScenarioCheckerImpl::ApplyLaneChangeActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILaneChangeAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2696,7 +2883,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLaneChangeTargetCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILaneChangeTarget> object)
+    void ScenarioCheckerImpl::ApplyLaneChangeTargetCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILaneChangeTarget> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeTarget).name()];
         if ( !checkerRulesForType.empty() )
@@ -2721,7 +2908,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLaneOffsetActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILaneOffsetAction> object)
+    void ScenarioCheckerImpl::ApplyLaneOffsetActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILaneOffsetAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2746,7 +2933,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLaneOffsetActionDynamicsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILaneOffsetActionDynamics> object)
+    void ScenarioCheckerImpl::ApplyLaneOffsetActionDynamicsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILaneOffsetActionDynamics> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetActionDynamics).name()];
         if ( !checkerRulesForType.empty() )
@@ -2761,7 +2948,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyLaneOffsetTargetCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILaneOffsetTarget> object)
+    void ScenarioCheckerImpl::ApplyLaneOffsetTargetCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILaneOffsetTarget> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetTarget).name()];
         if ( !checkerRulesForType.empty() )
@@ -2786,7 +2973,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLanePositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILanePosition> object)
+    void ScenarioCheckerImpl::ApplyLanePositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILanePosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILanePosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -2806,7 +2993,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLateralActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILateralAction> object)
+    void ScenarioCheckerImpl::ApplyLateralActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILateralAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2836,7 +3023,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLateralDistanceActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILateralDistanceAction> object)
+    void ScenarioCheckerImpl::ApplyLateralDistanceActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILateralDistanceAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralDistanceAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2856,7 +3043,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLongitudinalActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILongitudinalAction> object)
+    void ScenarioCheckerImpl::ApplyLongitudinalActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILongitudinalAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2881,7 +3068,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyLongitudinalDistanceActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ILongitudinalDistanceAction> object)
+    void ScenarioCheckerImpl::ApplyLongitudinalDistanceActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ILongitudinalDistanceAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalDistanceAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -2901,7 +3088,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyManeuverCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IManeuver> object)
+    void ScenarioCheckerImpl::ApplyManeuverCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IManeuver> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuver).name()];
         if ( !checkerRulesForType.empty() )
@@ -2928,7 +3115,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyManeuverCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IManeuverCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyManeuverCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IManeuverCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -2948,7 +3135,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyManeuverGroupCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IManeuverGroup> object)
+    void ScenarioCheckerImpl::ApplyManeuverGroupCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IManeuverGroup> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverGroup).name()];
         if ( !checkerRulesForType.empty() )
@@ -2980,7 +3167,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyMiscObjectCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IMiscObject> object)
+    void ScenarioCheckerImpl::ApplyMiscObjectCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IMiscObject> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObject).name()];
         if ( !checkerRulesForType.empty() )
@@ -3011,7 +3198,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyMiscObjectCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IMiscObjectCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyMiscObjectCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IMiscObjectCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObjectCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -3031,7 +3218,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyModifyRuleCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IModifyRule> object)
+    void ScenarioCheckerImpl::ApplyModifyRuleCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IModifyRule> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IModifyRule).name()];
         if ( !checkerRulesForType.empty() )
@@ -3056,7 +3243,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyNoneCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<INone> object)
+    void ScenarioCheckerImpl::ApplyNoneCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<INone> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(INone).name()];
         if ( !checkerRulesForType.empty() )
@@ -3071,7 +3258,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyNurbsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<INurbs> object)
+    void ScenarioCheckerImpl::ApplyNurbsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<INurbs> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(INurbs).name()];
         if ( !checkerRulesForType.empty() )
@@ -3098,7 +3285,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyObjectControllerCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IObjectController> object)
+    void ScenarioCheckerImpl::ApplyObjectControllerCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IObjectController> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IObjectController).name()];
         if ( !checkerRulesForType.empty() )
@@ -3123,7 +3310,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyOffroadConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOffroadCondition> object)
+    void ScenarioCheckerImpl::ApplyOffroadConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOffroadCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOffroadCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3138,7 +3325,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyOpenScenarioCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOpenScenario> object)
+    void ScenarioCheckerImpl::ApplyOpenScenarioCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOpenScenario> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenario).name()];
         if ( !checkerRulesForType.empty() )
@@ -3163,7 +3350,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyOpenScenarioCategoryCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOpenScenarioCategory> object)
+    void ScenarioCheckerImpl::ApplyOpenScenarioCategoryCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOpenScenarioCategory> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenarioCategory).name()];
         if ( !checkerRulesForType.empty() )
@@ -3188,7 +3375,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyOrientationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOrientation> object)
+    void ScenarioCheckerImpl::ApplyOrientationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOrientation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOrientation).name()];
         if ( !checkerRulesForType.empty() )
@@ -3203,7 +3390,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyOverrideBrakeActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOverrideBrakeAction> object)
+    void ScenarioCheckerImpl::ApplyOverrideBrakeActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOverrideBrakeAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideBrakeAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3218,7 +3405,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyOverrideClutchActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOverrideClutchAction> object)
+    void ScenarioCheckerImpl::ApplyOverrideClutchActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOverrideClutchAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideClutchAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3233,7 +3420,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyOverrideControllerValueActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOverrideControllerValueAction> object)
+    void ScenarioCheckerImpl::ApplyOverrideControllerValueActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOverrideControllerValueAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideControllerValueAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3278,7 +3465,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyOverrideGearActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOverrideGearAction> object)
+    void ScenarioCheckerImpl::ApplyOverrideGearActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOverrideGearAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideGearAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3293,7 +3480,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyOverrideParkingBrakeActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOverrideParkingBrakeAction> object)
+    void ScenarioCheckerImpl::ApplyOverrideParkingBrakeActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOverrideParkingBrakeAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideParkingBrakeAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3308,7 +3495,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyOverrideSteeringWheelActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOverrideSteeringWheelAction> object)
+    void ScenarioCheckerImpl::ApplyOverrideSteeringWheelActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOverrideSteeringWheelAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideSteeringWheelAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3323,7 +3510,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyOverrideThrottleActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IOverrideThrottleAction> object)
+    void ScenarioCheckerImpl::ApplyOverrideThrottleActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IOverrideThrottleAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideThrottleAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3338,7 +3525,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyParameterActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterAction> object)
+    void ScenarioCheckerImpl::ApplyParameterActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3363,7 +3550,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyParameterAddValueRuleCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterAddValueRule> object)
+    void ScenarioCheckerImpl::ApplyParameterAddValueRuleCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterAddValueRule> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAddValueRule).name()];
         if ( !checkerRulesForType.empty() )
@@ -3378,7 +3565,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyParameterAssignmentCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterAssignment> object)
+    void ScenarioCheckerImpl::ApplyParameterAssignmentCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterAssignment> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAssignment).name()];
         if ( !checkerRulesForType.empty() )
@@ -3393,7 +3580,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyParameterConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterCondition> object)
+    void ScenarioCheckerImpl::ApplyParameterConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3408,7 +3595,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyParameterDeclarationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterDeclaration> object)
+    void ScenarioCheckerImpl::ApplyParameterDeclarationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterDeclaration> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterDeclaration).name()];
         if ( !checkerRulesForType.empty() )
@@ -3423,7 +3610,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyParameterModifyActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterModifyAction> object)
+    void ScenarioCheckerImpl::ApplyParameterModifyActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterModifyAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterModifyAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3443,7 +3630,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyParameterMultiplyByValueRuleCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterMultiplyByValueRule> object)
+    void ScenarioCheckerImpl::ApplyParameterMultiplyByValueRuleCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterMultiplyByValueRule> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterMultiplyByValueRule).name()];
         if ( !checkerRulesForType.empty() )
@@ -3458,7 +3645,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyParameterSetActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IParameterSetAction> object)
+    void ScenarioCheckerImpl::ApplyParameterSetActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IParameterSetAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterSetAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3473,7 +3660,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyPedestrianCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPedestrian> object)
+    void ScenarioCheckerImpl::ApplyPedestrianCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPedestrian> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrian).name()];
         if ( !checkerRulesForType.empty() )
@@ -3504,7 +3691,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPedestrianCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPedestrianCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyPedestrianCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPedestrianCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrianCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -3524,7 +3711,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPerformanceCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPerformance> object)
+    void ScenarioCheckerImpl::ApplyPerformanceCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPerformance> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPerformance).name()];
         if ( !checkerRulesForType.empty() )
@@ -3539,7 +3726,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyPhaseCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPhase> object)
+    void ScenarioCheckerImpl::ApplyPhaseCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPhase> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPhase).name()];
         if ( !checkerRulesForType.empty() )
@@ -3560,7 +3747,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPolylineCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPolyline> object)
+    void ScenarioCheckerImpl::ApplyPolylineCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPolyline> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPolyline).name()];
         if ( !checkerRulesForType.empty() )
@@ -3581,7 +3768,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPosition> object)
+    void ScenarioCheckerImpl::ApplyPositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3636,7 +3823,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPositionInLaneCoordinatesCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPositionInLaneCoordinates> object)
+    void ScenarioCheckerImpl::ApplyPositionInLaneCoordinatesCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPositionInLaneCoordinates> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInLaneCoordinates).name()];
         if ( !checkerRulesForType.empty() )
@@ -3651,7 +3838,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyPositionInRoadCoordinatesCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPositionInRoadCoordinates> object)
+    void ScenarioCheckerImpl::ApplyPositionInRoadCoordinatesCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPositionInRoadCoordinates> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInRoadCoordinates).name()];
         if ( !checkerRulesForType.empty() )
@@ -3666,7 +3853,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyPositionOfCurrentEntityCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPositionOfCurrentEntity> object)
+    void ScenarioCheckerImpl::ApplyPositionOfCurrentEntityCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPositionOfCurrentEntity> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionOfCurrentEntity).name()];
         if ( !checkerRulesForType.empty() )
@@ -3681,7 +3868,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyPrecipitationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPrecipitation> object)
+    void ScenarioCheckerImpl::ApplyPrecipitationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPrecipitation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrecipitation).name()];
         if ( !checkerRulesForType.empty() )
@@ -3696,7 +3883,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyPrivateCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPrivate> object)
+    void ScenarioCheckerImpl::ApplyPrivateCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPrivate> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivate).name()];
         if ( !checkerRulesForType.empty() )
@@ -3717,7 +3904,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPrivateActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IPrivateAction> object)
+    void ScenarioCheckerImpl::ApplyPrivateActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IPrivateAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivateAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -3772,7 +3959,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPropertiesCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IProperties> object)
+    void ScenarioCheckerImpl::ApplyPropertiesCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IProperties> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperties).name()];
         if ( !checkerRulesForType.empty() )
@@ -3799,7 +3986,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyPropertyCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IProperty> object)
+    void ScenarioCheckerImpl::ApplyPropertyCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IProperty> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperty).name()];
         if ( !checkerRulesForType.empty() )
@@ -3814,7 +4001,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyReachPositionConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IReachPositionCondition> object)
+    void ScenarioCheckerImpl::ApplyReachPositionConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IReachPositionCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IReachPositionCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3834,7 +4021,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeDistanceConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeDistanceCondition> object)
+    void ScenarioCheckerImpl::ApplyRelativeDistanceConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeDistanceCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeDistanceCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3849,7 +4036,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeLanePositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeLanePosition> object)
+    void ScenarioCheckerImpl::ApplyRelativeLanePositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeLanePosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeLanePosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3869,7 +4056,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeObjectPositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeObjectPosition> object)
+    void ScenarioCheckerImpl::ApplyRelativeObjectPositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeObjectPosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeObjectPosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3889,7 +4076,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeRoadPositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeRoadPosition> object)
+    void ScenarioCheckerImpl::ApplyRelativeRoadPositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeRoadPosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeRoadPosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3909,7 +4096,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeSpeedConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeSpeedCondition> object)
+    void ScenarioCheckerImpl::ApplyRelativeSpeedConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeSpeedCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -3924,7 +4111,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeSpeedToMasterCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeSpeedToMaster> object)
+    void ScenarioCheckerImpl::ApplyRelativeSpeedToMasterCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeSpeedToMaster> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedToMaster).name()];
         if ( !checkerRulesForType.empty() )
@@ -3939,7 +4126,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeTargetLaneCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeTargetLane> object)
+    void ScenarioCheckerImpl::ApplyRelativeTargetLaneCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeTargetLane> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLane).name()];
         if ( !checkerRulesForType.empty() )
@@ -3954,7 +4141,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeTargetLaneOffsetCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeTargetLaneOffset> object)
+    void ScenarioCheckerImpl::ApplyRelativeTargetLaneOffsetCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeTargetLaneOffset> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLaneOffset).name()];
         if ( !checkerRulesForType.empty() )
@@ -3969,7 +4156,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeTargetSpeedCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeTargetSpeed> object)
+    void ScenarioCheckerImpl::ApplyRelativeTargetSpeedCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeTargetSpeed> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetSpeed).name()];
         if ( !checkerRulesForType.empty() )
@@ -3984,7 +4171,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyRelativeWorldPositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRelativeWorldPosition> object)
+    void ScenarioCheckerImpl::ApplyRelativeWorldPositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRelativeWorldPosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeWorldPosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4004,7 +4191,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRoadConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRoadCondition> object)
+    void ScenarioCheckerImpl::ApplyRoadConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRoadCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4024,7 +4211,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRoadNetworkCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRoadNetwork> object)
+    void ScenarioCheckerImpl::ApplyRoadNetworkCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRoadNetwork> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadNetwork).name()];
         if ( !checkerRulesForType.empty() )
@@ -4055,7 +4242,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRoadPositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRoadPosition> object)
+    void ScenarioCheckerImpl::ApplyRoadPositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRoadPosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadPosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4075,7 +4262,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRouteCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRoute> object)
+    void ScenarioCheckerImpl::ApplyRouteCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRoute> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoute).name()];
         if ( !checkerRulesForType.empty() )
@@ -4102,7 +4289,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRouteCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRouteCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyRouteCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRouteCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -4122,7 +4309,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRoutePositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRoutePosition> object)
+    void ScenarioCheckerImpl::ApplyRoutePositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRoutePosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutePosition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4152,7 +4339,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRouteRefCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRouteRef> object)
+    void ScenarioCheckerImpl::ApplyRouteRefCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRouteRef> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteRef).name()];
         if ( !checkerRulesForType.empty() )
@@ -4177,7 +4364,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyRoutingActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IRoutingAction> object)
+    void ScenarioCheckerImpl::ApplyRoutingActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IRoutingAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutingAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4207,7 +4394,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyScenarioDefinitionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IScenarioDefinition> object)
+    void ScenarioCheckerImpl::ApplyScenarioDefinitionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IScenarioDefinition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioDefinition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4248,7 +4435,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyScenarioObjectCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IScenarioObject> object)
+    void ScenarioCheckerImpl::ApplyScenarioObjectCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IScenarioObject> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioObject).name()];
         if ( !checkerRulesForType.empty() )
@@ -4273,7 +4460,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplySelectedEntitiesCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ISelectedEntities> object)
+    void ScenarioCheckerImpl::ApplySelectedEntitiesCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ISelectedEntities> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISelectedEntities).name()];
         if ( !checkerRulesForType.empty() )
@@ -4300,7 +4487,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyShapeCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IShape> object)
+    void ScenarioCheckerImpl::ApplyShapeCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IShape> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IShape).name()];
         if ( !checkerRulesForType.empty() )
@@ -4330,7 +4517,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplySimulationTimeConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ISimulationTimeCondition> object)
+    void ScenarioCheckerImpl::ApplySimulationTimeConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ISimulationTimeCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISimulationTimeCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4345,7 +4532,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplySpeedActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ISpeedAction> object)
+    void ScenarioCheckerImpl::ApplySpeedActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ISpeedAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4370,7 +4557,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplySpeedActionTargetCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ISpeedActionTarget> object)
+    void ScenarioCheckerImpl::ApplySpeedActionTargetCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ISpeedActionTarget> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedActionTarget).name()];
         if ( !checkerRulesForType.empty() )
@@ -4395,7 +4582,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplySpeedConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ISpeedCondition> object)
+    void ScenarioCheckerImpl::ApplySpeedConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ISpeedCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4410,7 +4597,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyStandStillConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IStandStillCondition> object)
+    void ScenarioCheckerImpl::ApplyStandStillConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IStandStillCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStandStillCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4425,7 +4612,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyStoryCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IStory> object)
+    void ScenarioCheckerImpl::ApplyStoryCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IStory> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStory).name()];
         if ( !checkerRulesForType.empty() )
@@ -4452,7 +4639,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyStoryboardCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IStoryboard> object)
+    void ScenarioCheckerImpl::ApplyStoryboardCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IStoryboard> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboard).name()];
         if ( !checkerRulesForType.empty() )
@@ -4483,7 +4670,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyStoryboardElementStateConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IStoryboardElementStateCondition> object)
+    void ScenarioCheckerImpl::ApplyStoryboardElementStateConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IStoryboardElementStateCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboardElementStateCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4498,7 +4685,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplySunCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ISun> object)
+    void ScenarioCheckerImpl::ApplySunCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ISun> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISun).name()];
         if ( !checkerRulesForType.empty() )
@@ -4513,7 +4700,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplySynchronizeActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ISynchronizeAction> object)
+    void ScenarioCheckerImpl::ApplySynchronizeActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ISynchronizeAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISynchronizeAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4543,7 +4730,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTeleportActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITeleportAction> object)
+    void ScenarioCheckerImpl::ApplyTeleportActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITeleportAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITeleportAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4563,7 +4750,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTimeHeadwayConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITimeHeadwayCondition> object)
+    void ScenarioCheckerImpl::ApplyTimeHeadwayConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITimeHeadwayCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeHeadwayCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4578,7 +4765,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTimeOfDayCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITimeOfDay> object)
+    void ScenarioCheckerImpl::ApplyTimeOfDayCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITimeOfDay> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDay).name()];
         if ( !checkerRulesForType.empty() )
@@ -4593,7 +4780,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTimeOfDayConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITimeOfDayCondition> object)
+    void ScenarioCheckerImpl::ApplyTimeOfDayConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITimeOfDayCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDayCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4608,7 +4795,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTimeReferenceCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITimeReference> object)
+    void ScenarioCheckerImpl::ApplyTimeReferenceCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITimeReference> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeReference).name()];
         if ( !checkerRulesForType.empty() )
@@ -4633,7 +4820,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTimeToCollisionConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITimeToCollisionCondition> object)
+    void ScenarioCheckerImpl::ApplyTimeToCollisionConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITimeToCollisionCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4653,7 +4840,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTimeToCollisionConditionTargetCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITimeToCollisionConditionTarget> object)
+    void ScenarioCheckerImpl::ApplyTimeToCollisionConditionTargetCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITimeToCollisionConditionTarget> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionConditionTarget).name()];
         if ( !checkerRulesForType.empty() )
@@ -4678,7 +4865,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTimingCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITiming> object)
+    void ScenarioCheckerImpl::ApplyTimingCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITiming> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITiming).name()];
         if ( !checkerRulesForType.empty() )
@@ -4693,7 +4880,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficAction> object)
+    void ScenarioCheckerImpl::ApplyTrafficActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4723,7 +4910,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficDefinitionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficDefinition> object)
+    void ScenarioCheckerImpl::ApplyTrafficDefinitionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficDefinition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficDefinition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4748,7 +4935,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSignalActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSignalAction> object)
+    void ScenarioCheckerImpl::ApplyTrafficSignalActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSignalAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4773,7 +4960,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSignalConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSignalCondition> object)
+    void ScenarioCheckerImpl::ApplyTrafficSignalConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSignalCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4788,7 +4975,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSignalControllerCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSignalController> object)
+    void ScenarioCheckerImpl::ApplyTrafficSignalControllerCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSignalController> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalController).name()];
         if ( !checkerRulesForType.empty() )
@@ -4809,7 +4996,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSignalControllerActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSignalControllerAction> object)
+    void ScenarioCheckerImpl::ApplyTrafficSignalControllerActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSignalControllerAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4824,7 +5011,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSignalControllerConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSignalControllerCondition> object)
+    void ScenarioCheckerImpl::ApplyTrafficSignalControllerConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSignalControllerCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -4839,7 +5026,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSignalStateCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSignalState> object)
+    void ScenarioCheckerImpl::ApplyTrafficSignalStateCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSignalState> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalState).name()];
         if ( !checkerRulesForType.empty() )
@@ -4854,7 +5041,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSignalStateActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSignalStateAction> object)
+    void ScenarioCheckerImpl::ApplyTrafficSignalStateActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSignalStateAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalStateAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4869,7 +5056,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSinkActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSinkAction> object)
+    void ScenarioCheckerImpl::ApplyTrafficSinkActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSinkAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSinkAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4894,7 +5081,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSourceActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSourceAction> object)
+    void ScenarioCheckerImpl::ApplyTrafficSourceActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSourceAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSourceAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4919,7 +5106,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrafficSwarmActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrafficSwarmAction> object)
+    void ScenarioCheckerImpl::ApplyTrafficSwarmActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrafficSwarmAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSwarmAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -4944,7 +5131,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrajectoryCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrajectory> object)
+    void ScenarioCheckerImpl::ApplyTrajectoryCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrajectory> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectory).name()];
         if ( !checkerRulesForType.empty() )
@@ -4970,7 +5157,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrajectoryCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrajectoryCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyTrajectoryCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrajectoryCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -4990,7 +5177,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTrajectoryFollowingModeCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrajectoryFollowingMode> object)
+    void ScenarioCheckerImpl::ApplyTrajectoryFollowingModeCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrajectoryFollowingMode> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryFollowingMode).name()];
         if ( !checkerRulesForType.empty() )
@@ -5005,7 +5192,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTransitionDynamicsCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITransitionDynamics> object)
+    void ScenarioCheckerImpl::ApplyTransitionDynamicsCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITransitionDynamics> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITransitionDynamics).name()];
         if ( !checkerRulesForType.empty() )
@@ -5020,7 +5207,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTraveledDistanceConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITraveledDistanceCondition> object)
+    void ScenarioCheckerImpl::ApplyTraveledDistanceConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITraveledDistanceCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITraveledDistanceCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -5035,7 +5222,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyTriggerCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITrigger> object)
+    void ScenarioCheckerImpl::ApplyTriggerCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITrigger> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrigger).name()];
         if ( !checkerRulesForType.empty() )
@@ -5056,7 +5243,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyTriggeringEntitiesCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<ITriggeringEntities> object)
+    void ScenarioCheckerImpl::ApplyTriggeringEntitiesCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<ITriggeringEntities> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITriggeringEntities).name()];
         if ( !checkerRulesForType.empty() )
@@ -5077,7 +5264,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyUserDefinedActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IUserDefinedAction> object)
+    void ScenarioCheckerImpl::ApplyUserDefinedActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IUserDefinedAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -5097,7 +5284,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyUserDefinedValueConditionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IUserDefinedValueCondition> object)
+    void ScenarioCheckerImpl::ApplyUserDefinedValueConditionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IUserDefinedValueCondition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedValueCondition).name()];
         if ( !checkerRulesForType.empty() )
@@ -5112,7 +5299,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyVehicleCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IVehicle> object)
+    void ScenarioCheckerImpl::ApplyVehicleCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IVehicle> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicle).name()];
         if ( !checkerRulesForType.empty() )
@@ -5153,7 +5340,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyVehicleCatalogLocationCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IVehicleCatalogLocation> object)
+    void ScenarioCheckerImpl::ApplyVehicleCatalogLocationCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IVehicleCatalogLocation> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCatalogLocation).name()];
         if ( !checkerRulesForType.empty() )
@@ -5173,7 +5360,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyVehicleCategoryDistributionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IVehicleCategoryDistribution> object)
+    void ScenarioCheckerImpl::ApplyVehicleCategoryDistributionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IVehicleCategoryDistribution> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistribution).name()];
         if ( !checkerRulesForType.empty() )
@@ -5194,7 +5381,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyVehicleCategoryDistributionEntryCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IVehicleCategoryDistributionEntry> object)
+    void ScenarioCheckerImpl::ApplyVehicleCategoryDistributionEntryCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IVehicleCategoryDistributionEntry> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistributionEntry).name()];
         if ( !checkerRulesForType.empty() )
@@ -5209,7 +5396,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyVertexCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IVertex> object)
+    void ScenarioCheckerImpl::ApplyVertexCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IVertex> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVertex).name()];
         if ( !checkerRulesForType.empty() )
@@ -5229,7 +5416,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyVisibilityActionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IVisibilityAction> object)
+    void ScenarioCheckerImpl::ApplyVisibilityActionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IVisibilityAction> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVisibilityAction).name()];
         if ( !checkerRulesForType.empty() )
@@ -5244,7 +5431,7 @@ namespace RAC_OPENSCENARIO
         // getChildren
     }
 
-    void ScenarioCheckerImpl::ApplyWaypointCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IWaypoint> object)
+    void ScenarioCheckerImpl::ApplyWaypointCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IWaypoint> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWaypoint).name()];
         if ( !checkerRulesForType.empty() )
@@ -5264,7 +5451,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyWeatherCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IWeather> object)
+    void ScenarioCheckerImpl::ApplyWeatherCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IWeather> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWeather).name()];
         if ( !checkerRulesForType.empty() )
@@ -5294,7 +5481,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ScenarioCheckerImpl::ApplyWorldPositionCheckerRules(IParserMessageLogger& messageLogger, const std::shared_ptr<IWorldPosition> object)
+    void ScenarioCheckerImpl::ApplyWorldPositionCheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<IWorldPosition> object)
     {
         auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWorldPosition).name()];
         if ( !checkerRulesForType.empty() )

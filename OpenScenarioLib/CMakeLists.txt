@@ -3,6 +3,7 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenarioLib )
 message("${PROJECT_NAME}")
 
+message("antlr1: ${CMAKE_BINARY_DIR}")
 
 ################################################################
 # Preprocessor settings
@@ -263,7 +264,7 @@ if( MSVC )
   source_group( Sources\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_CHECKER_RANGE} )
   source_group( Sources\\Generated\\Impl FILES ${SOURCES_GENERATED_IMPL} )
   source_group( Sources\\Generated\\XmlParser FILES ${SOURCES_GENERATED_XMLPARSER} )
-  source_group( Sources\\Generated\\Loader FILES ${SOURCES_LOADER} )
+  source_group( Sources\\Loader FILES ${SOURCES_LOADER} )
 
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
@@ -305,6 +306,7 @@ if( BUILD_STATIC_LIBS )
 else()
   target_link_libraries( ${PROJECT_NAME} antlr4_shared )
 endif()
+message("var: ${ANTLR4_RUNTIME}")
 
 ################################################################
 # Visual Studio solution folders

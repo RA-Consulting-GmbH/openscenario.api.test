@@ -67,7 +67,7 @@ namespace RAC_OPENSCENARIO
                 const auto kIt = parameterNameToParameterValue.find(parameterName);
                 if (kIt != parameterNameToParameterValue.end() && kIt->second->GetType() == expectedParameterType)
                 {
-                    return kIt->second->GetType();
+                    return kIt->second->GetValue();
                 }
             }
             return "";

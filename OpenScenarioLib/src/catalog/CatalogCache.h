@@ -25,7 +25,7 @@ namespace RAC_OPENSCENARIO
     private:
         std::map<std::string, std::map<std::string, std::shared_ptr<ICatalogElement>>> _catalogElements;
         bool _isAnyCatalogToParse = false;
-        std::vector<IScenarioLoaderFactory> _catalogFiles;
+        std::vector<std::shared_ptr<IScenarioLoaderFactory>> _catalogFiles;
         std::shared_ptr<IResourceLocator> _resourceLocator;
         unsigned int _currentLoaderFactoryIndex = 0;
         std::shared_ptr<IParserMessageLogger> _messageLogger;
@@ -42,7 +42,7 @@ namespace RAC_OPENSCENARIO
          * Adds a catalog file in its own loader factory.
          * @param scenarioLoaderFactory the loader factory that is initialized with this file.
          */
-        void AddCatalogFile(IScenarioLoaderFactory& scenarioLoaderFactory) 
+        void AddCatalogFile(std::shared_ptr<IScenarioLoaderFactory> scenarioLoaderFactory) 
         {
             _catalogFiles.push_back(scenarioLoaderFactory);
             _isAnyCatalogToParse = true;
@@ -53,7 +53,7 @@ namespace RAC_OPENSCENARIO
          * @param catalogReference the catalog reference that represents the catalog element to be searched.
          * @return the found catalog element or null if the catalog element is not faound in the directory
          */
-        std::shared_ptr<ICatalogElement> ImportCatalogElement(ICatalogReference& catalogReference) 
+        std::shared_ptr<ICatalogElement> ImportCatalogElement(std::shared_ptr <ICatalogReference>& catalogReference)
         {
             std::shared_ptr<ICatalogElement> catalogElement = nullptr;
             while (catalogElement == nullptr) 
@@ -84,7 +84,7 @@ namespace RAC_OPENSCENARIO
             {
                 // Parse Catalog
                 auto scenarioLoaderFactory = _catalogFiles[_currentLoaderFactoryIndex++];
-                auto loader = scenarioLoaderFactory.CreateLoader(_resourceLocator);
+                auto loader = scenarioLoaderFactory->CreateLoader(_resourceLocator);
                 std::shared_ptr<IOpenScenario> openScenario = nullptr;
                 bool isSuccessfullyParsed = true;
 
@@ -121,6 +121,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, controller));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
 
                             auto vehicles = catalog->GetVehicles();
@@ -132,6 +133,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, vehicle));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
 
                             auto miscObjects = catalog->GetMiscObjects();
@@ -143,6 +145,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, miscObject));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
 
                             auto routes = catalog->GetRoutes();
@@ -154,6 +157,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, route));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
 
                             auto environments = catalog->GetEnvironments();
@@ -165,6 +169,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, environment));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
 
                             auto pedestrians = catalog->GetPedestrians();
@@ -176,6 +181,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, pedestrian));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
 
                             auto trajectories = catalog->GetTrajectories();
@@ -187,6 +193,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, trajectory));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
 
                             auto maneuvers = catalog->GetManeuvers();
@@ -198,6 +205,7 @@ namespace RAC_OPENSCENARIO
                                     if (!name.empty())
                                         catalogMap.emplace(std::make_pair(name, maneuver));
                                 }
+                                _catalogElements[kCatalogName] = catalogMap;
                             }
                         }
 
@@ -213,17 +221,17 @@ namespace RAC_OPENSCENARIO
          * @param catalogReference the catalog reference that represents the catalog element to be searched.
          * @return the cloned catalog element or null if element is not in cache.
          */
-         std::shared_ptr<ICatalogElement> GetCatalogElementInternal(ICatalogReference& catalogReference) 
+         std::shared_ptr<ICatalogElement> GetCatalogElementInternal(std::shared_ptr <ICatalogReference> catalogReference)
         {
-            auto catalog = _catalogElements[catalogReference.GetCatalogName()];
-            if (!catalog.empty()) 
+            auto catalog = _catalogElements[catalogReference->GetCatalogName()];
+            if (!catalog.empty())
             {
-                auto catalogElement = catalog[catalogReference.GetEntryName()];
+                auto catalogElement = catalog[catalogReference->GetEntryName()];
 
                 if (catalogElement) 
                 {
                     // Clone it for import
-                    return catalogElement;
+                    return std::dynamic_pointer_cast<ICatalogElement>(std::dynamic_pointer_cast<BaseImpl>(catalogElement)->Clone());
                 }
 
             }

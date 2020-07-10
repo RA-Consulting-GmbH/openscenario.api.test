@@ -30,13 +30,13 @@ namespace RAC_OPENSCENARIO
         void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
         {
 
-            this->ParseAttributes(indexedElement, *object.get());
+            this->ParseAttributes(indexedElement, object);
             // Read element. Make sure it is a Character Tag
             auto content = indexedElement->GetCharacters();
             if (!content.empty())
-                SetContentProperty(content, *object.get());
+                SetContentProperty(content, object);
             else if (IsContentRequired())
-                SetContentProperty("", *object.get());
+                SetContentProperty("", object);
 
             auto subElements = indexedElement->GetSubElements();
             for (auto&& elem : subElements)
@@ -60,7 +60,7 @@ namespace RAC_OPENSCENARIO
          * @param content the content of the simpleContent
          * @param object the model object for that the property is assigned with the content
          */
-        virtual void SetContentProperty( const std::string content, T& object) {}
+        virtual void SetContentProperty( const std::string content, std::shared_ptr<T>& object) {}
 
         /**
          * is the content a required property.

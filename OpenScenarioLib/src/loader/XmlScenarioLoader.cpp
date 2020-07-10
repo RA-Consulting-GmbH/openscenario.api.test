@@ -5,6 +5,7 @@
 #include "XMLLexer.h"
 #include <XMLParserListener.h>
 #include "ScenarioCheckerImpl.h"
+#include "XmlParsers.h"
 
 //#include <ANTLRInputStream.h>
 //#include "XMLLexer.h"
@@ -31,7 +32,50 @@ namespace RAC_OPENSCENARIO
             delete[] buffer;
             inputStream->close();
 
-            doc.Parse(fileData.c_str());
+            auto errorCode = doc.Parse(fileData.c_str());
+            switch (errorCode)
+            {
+                case tinyxml2::XML_SUCCESS: break;
+                case tinyxml2::XML_NO_ATTRIBUTE:
+                    throw ScenarioLoaderException("XML_NO_ATTRIBUTE");
+                case tinyxml2::XML_WRONG_ATTRIBUTE_TYPE:
+                    throw ScenarioLoaderException("XML_WRONG_ATTRIBUTE_TYPE");
+                case tinyxml2::XML_ERROR_FILE_NOT_FOUND:
+                    throw ScenarioLoaderException("XML_ERROR_FILE_NOT_FOUND");
+                case tinyxml2::XML_ERROR_FILE_COULD_NOT_BE_OPENED:
+                    throw ScenarioLoaderException("XML_ERROR_FILE_COULD_NOT_BE_OPENED");
+                case tinyxml2::XML_ERROR_FILE_READ_ERROR:
+                    throw ScenarioLoaderException("XML_ERROR_FILE_READ_ERROR");
+                case tinyxml2::XML_ERROR_PARSING_ELEMENT:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING_ELEMENT");
+                case tinyxml2::XML_ERROR_PARSING_ATTRIBUTE:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING_ATTRIBUTE");
+                case tinyxml2::XML_ERROR_PARSING_TEXT:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING_TEXT");
+                case tinyxml2::XML_ERROR_PARSING_CDATA:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING_CDATA");
+                case tinyxml2::XML_ERROR_PARSING_COMMENT:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING_COMMENT");
+                case tinyxml2::XML_ERROR_PARSING_DECLARATION:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING_DECLARATION");
+                case tinyxml2::XML_ERROR_PARSING_UNKNOWN:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING_UNKNOWN");
+                case tinyxml2::XML_ERROR_EMPTY_DOCUMENT:
+                    throw ScenarioLoaderException("XML_ERROR_EMPTY_DOCUMENT");
+                case tinyxml2::XML_ERROR_MISMATCHED_ELEMENT:
+                    throw ScenarioLoaderException("XML_ERROR_MISMATCHED_ELEMENT");
+                case tinyxml2::XML_ERROR_PARSING:
+                    throw ScenarioLoaderException("XML_ERROR_PARSING");
+                case tinyxml2::XML_CAN_NOT_CONVERT_TEXT:
+                    throw ScenarioLoaderException("XML_CAN_NOT_CONVERT_TEXT");
+                case tinyxml2::XML_NO_TEXT_NODE:
+                    throw ScenarioLoaderException("XML_NO_TEXT_NODE");
+                case tinyxml2::XML_ELEMENT_DEPTH_EXCEEDED:
+                    throw ScenarioLoaderException("XML_ELEMENT_DEPTH_EXCEEDED");
+                case tinyxml2::XML_ERROR_COUNT:
+                    throw ScenarioLoaderException("XML_ERROR_COUNT");
+                default: ;
+            }
 
             // antlr indexing
             antlr4::ANTLRInputStream input(fileData);

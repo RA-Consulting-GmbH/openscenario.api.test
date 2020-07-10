@@ -18,7 +18,7 @@ namespace RAC_OPENSCENARIO
     template <class T>
     class XmlParserBase
     {
-    protected:
+    public:
         IParserMessageLogger& _messageLogger;
         std::string _filename;
 

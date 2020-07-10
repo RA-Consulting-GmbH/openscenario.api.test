@@ -53,21 +53,18 @@ namespace RAC_OPENSCENARIO
             }
 
             bool hasChildren = false;
-            //bool hasNonIgnorableText = false;
+            bool hasNonIgnorableText = false;
             std::string buffer;
             for (auto node: childNodes)
             {
-
-            //TODO:: if this is needed
-/*                if (node->ToText() != nullptr || nodeType == Node.CDATA_SECTION_NODE)
+                //in tiny xml Text could be CData node->ToText()->CData()
+                if (node->ToText() != nullptr) 
                 {
-                    std::string text = node.GetTextContent();
-                    hasNonIgnorableText = hasNonIgnorableText | !isIgnorableWhitespace(text);
+                    std::string text = node->ToText()->Value();
+                    hasNonIgnorableText = hasNonIgnorableText | !IsIgnorableWhitespace(text);
                     buffer.append(text);
-
                 }
-                else */
-                if (node->ToElement() != nullptr)
+                else if (node->ToElement() != nullptr)
                 {
                     hasChildren = true;
                     auto indexedSubElement = std::make_shared<IndexedElement>(node->ToElement(), _positionIndex.GetElementNode(_counter++), indexedElement);
@@ -76,14 +73,14 @@ namespace RAC_OPENSCENARIO
                 }
             }
 
-            //if (!hasChildren && hasNonIgnorableText)
-            //{
-            //    indexedElement.setCharacters(buffer.toString());
-            //}
-            //else if (hasChildren && hasNonIgnorableText)
-            //{
-            //    indexedElement.setMixedNode(true);
-            //}
+            if (!hasChildren && hasNonIgnorableText)
+            {
+                indexedElement->SetCharacters(buffer);
+            }
+            else if (hasChildren && hasNonIgnorableText)
+            {
+                indexedElement->SetMixedNode(true);
+            }
         }
 
     private:
@@ -92,10 +89,11 @@ namespace RAC_OPENSCENARIO
          * @param data data to test
          * @return true if characters are all ignorable whitespace characters
          */
-        //bool IsIgnorableWhitespace(std::string& data) 
-        //{
-        //    return false;// .matches("^(\\r\\n| \\n|\\s)+$");
-        //}
+        bool IsIgnorableWhitespace(std::string& data) const
+        {
+            // .matches("^(\\r\\n| \\n|\\s)+$");
+            return std::regex_match(data, std::regex("^(\\r\\n| \\n|\\s)+$"));
+        }
 
 
     };

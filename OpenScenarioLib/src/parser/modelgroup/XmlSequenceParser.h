@@ -25,6 +25,7 @@ namespace RAC_OPENSCENARIO
         std::map<std::shared_ptr<IElementParser<T>>, int> _occuredElementList;
 
     public:
+
         /**
          * Constructor
          * @param messageLogger to log messages during parsing process
@@ -37,6 +38,7 @@ namespace RAC_OPENSCENARIO
             unsigned int currentListIndex = 0;
             int currentParserIndex = 0;
             std::shared_ptr<IndexedElement> lastElementParsed = nullptr;
+            _occuredElementList.clear();
             while (currentListIndex < indexedElements.size()) 
             {
                 auto indexedElement = indexedElements[currentListIndex];
@@ -45,7 +47,7 @@ namespace RAC_OPENSCENARIO
                 auto parser = this->FindParser(tagName);
                 auto start = indexedElement->GetStartElementLocation();
 
-                if (parser)
+                if (parser == nullptr)
                 {
                     auto msg = FileContentMessage("Unknown element '" + tagName + "'", ERROR, Textmarker(start.GetLine(), start.GetColumn(), this->_filename));
                     this->_messageLogger.LogMessage(msg);
@@ -72,6 +74,7 @@ namespace RAC_OPENSCENARIO
                                 currentOccurs = it->second;
                                 break;
                             }
+                            it++;
                         }
                         if (currentOccurs < parser->GetMaxOccur() || parser->GetMaxOccur() == -1)
                         {
@@ -121,7 +124,7 @@ namespace RAC_OPENSCENARIO
                     auto parser = this->_parsers[i];
                     int occured = 0;
                     const auto kIt = _occuredElementList.find(parser);
-                    if (kIt != _occuredElementList.end() && this->_parsers.size() == 1 && kIt->second >= this->_parsers[0]->GetMinOccur())
+                    if (kIt != _occuredElementList.end())
                     {
                         occured = kIt->second;
                     }

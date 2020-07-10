@@ -83,6 +83,7 @@ namespace RAC_OPENSCENARIO
     public:
        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
         {
+            _parsers.clear();
             _parsers = CreateParserList();
             ParseSubElementsInternal(indexedElements, parserContext, object);
         }

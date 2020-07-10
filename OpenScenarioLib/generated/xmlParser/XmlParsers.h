@@ -502,8 +502,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AcquirePositionActionImpl>& object) override;
 
@@ -592,8 +591,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementManeuverGroupsParser(std::shared_ptr<ManeuverGroupXmlParser>& maneuverGroupXmlParser): 
-                        _maneuverGroupXmlParser(maneuverGroupXmlParser) {}
+            SubElementManeuverGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
 
@@ -632,8 +630,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStartTriggerParser(std::shared_ptr<TriggerXmlParser>& triggerXmlParser): 
-                        _triggerXmlParser(triggerXmlParser) {}
+            SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
 
@@ -672,8 +669,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStopTriggerParser(std::shared_ptr<TriggerXmlParser>& triggerXmlParser): 
-                        _triggerXmlParser(triggerXmlParser) {}
+            SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
 
@@ -763,8 +759,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementGlobalActionParser(std::shared_ptr<GlobalActionXmlParser>& globalActionXmlParser): 
-                        _globalActionXmlParser(globalActionXmlParser) {}
+            SubElementGlobalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
 
@@ -803,8 +798,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementUserDefinedActionParser(std::shared_ptr<UserDefinedActionXmlParser>& userDefinedActionXmlParser): 
-                        _userDefinedActionXmlParser(userDefinedActionXmlParser) {}
+            SubElementUserDefinedActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
 
@@ -843,8 +837,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPrivateActionParser(std::shared_ptr<PrivateActionXmlParser>& privateActionXmlParser): 
-                        _privateActionXmlParser(privateActionXmlParser) {}
+            SubElementPrivateActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
 
@@ -983,8 +976,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityRefsParser(std::shared_ptr<EntityRefXmlParser>& entityRefXmlParser): 
-                        _entityRefXmlParser(entityRefXmlParser) {}
+            SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActorsImpl>& object) override;
 
@@ -1074,8 +1066,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AddEntityActionImpl>& object) override;
 
@@ -1165,8 +1156,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllerParser(std::shared_ptr<ControllerXmlParser>& controllerXmlParser): 
-                        _controllerXmlParser(controllerXmlParser) {}
+            SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
 
@@ -1205,8 +1195,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
 
@@ -1296,8 +1285,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRouteParser(std::shared_ptr<RouteXmlParser>& routeXmlParser): 
-                        _routeXmlParser(routeXmlParser) {}
+            SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
 
@@ -1336,8 +1324,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
 
@@ -1476,8 +1463,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFrontAxleParser(std::shared_ptr<AxleXmlParser>& axleXmlParser): 
-                        _axleXmlParser(axleXmlParser) {}
+            SubElementFrontAxleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
 
@@ -1516,8 +1502,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRearAxleParser(std::shared_ptr<AxleXmlParser>& axleXmlParser): 
-                        _axleXmlParser(axleXmlParser) {}
+            SubElementRearAxleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
 
@@ -1556,8 +1541,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAdditionalAxlesParser(std::shared_ptr<AxleXmlParser>& axleXmlParser): 
-                        _axleXmlParser(axleXmlParser) {}
+            SubElementAdditionalAxlesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
 
@@ -1647,8 +1631,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCenterParser(std::shared_ptr<CenterXmlParser>& centerXmlParser): 
-                        _centerXmlParser(centerXmlParser) {}
+            SubElementCenterParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
 
@@ -1687,8 +1670,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDimensionsParser(std::shared_ptr<DimensionsXmlParser>& dimensionsXmlParser): 
-                        _dimensionsXmlParser(dimensionsXmlParser) {}
+            SubElementDimensionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
 
@@ -1778,8 +1760,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTriggeringEntitiesParser(std::shared_ptr<TriggeringEntitiesXmlParser>& triggeringEntitiesXmlParser): 
-                        _triggeringEntitiesXmlParser(triggeringEntitiesXmlParser) {}
+            SubElementTriggeringEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
 
@@ -1818,8 +1799,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityConditionParser(std::shared_ptr<EntityConditionXmlParser>& entityConditionXmlParser): 
-                        _entityConditionXmlParser(entityConditionXmlParser) {}
+            SubElementEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
 
@@ -2009,8 +1989,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterConditionParser(std::shared_ptr<ParameterConditionXmlParser>& parameterConditionXmlParser): 
-                        _parameterConditionXmlParser(parameterConditionXmlParser) {}
+            SubElementParameterConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
@@ -2049,8 +2028,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTimeOfDayConditionParser(std::shared_ptr<TimeOfDayConditionXmlParser>& timeOfDayConditionXmlParser): 
-                        _timeOfDayConditionXmlParser(timeOfDayConditionXmlParser) {}
+            SubElementTimeOfDayConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
@@ -2089,8 +2067,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSimulationTimeConditionParser(std::shared_ptr<SimulationTimeConditionXmlParser>& simulationTimeConditionXmlParser): 
-                        _simulationTimeConditionXmlParser(simulationTimeConditionXmlParser) {}
+            SubElementSimulationTimeConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
@@ -2129,8 +2106,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStoryboardElementStateConditionParser(std::shared_ptr<StoryboardElementStateConditionXmlParser>& storyboardElementStateConditionXmlParser): 
-                        _storyboardElementStateConditionXmlParser(storyboardElementStateConditionXmlParser) {}
+            SubElementStoryboardElementStateConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
@@ -2169,8 +2145,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementUserDefinedValueConditionParser(std::shared_ptr<UserDefinedValueConditionXmlParser>& userDefinedValueConditionXmlParser): 
-                        _userDefinedValueConditionXmlParser(userDefinedValueConditionXmlParser) {}
+            SubElementUserDefinedValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
@@ -2209,8 +2184,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSignalConditionParser(std::shared_ptr<TrafficSignalConditionXmlParser>& trafficSignalConditionXmlParser): 
-                        _trafficSignalConditionXmlParser(trafficSignalConditionXmlParser) {}
+            SubElementTrafficSignalConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
@@ -2249,8 +2223,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSignalControllerConditionParser(std::shared_ptr<TrafficSignalControllerConditionXmlParser>& trafficSignalControllerConditionXmlParser): 
-                        _trafficSignalControllerConditionXmlParser(trafficSignalControllerConditionXmlParser) {}
+            SubElementTrafficSignalControllerConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
@@ -2339,8 +2312,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementVehiclesParser(std::shared_ptr<VehicleXmlParser>& vehicleXmlParser): 
-                        _vehicleXmlParser(vehicleXmlParser) {}
+            SubElementVehiclesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2379,8 +2351,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllersParser(std::shared_ptr<ControllerXmlParser>& controllerXmlParser): 
-                        _controllerXmlParser(controllerXmlParser) {}
+            SubElementControllersParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2419,8 +2390,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPedestriansParser(std::shared_ptr<PedestrianXmlParser>& pedestrianXmlParser): 
-                        _pedestrianXmlParser(pedestrianXmlParser) {}
+            SubElementPedestriansParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2459,8 +2429,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementMiscObjectsParser(std::shared_ptr<MiscObjectXmlParser>& miscObjectXmlParser): 
-                        _miscObjectXmlParser(miscObjectXmlParser) {}
+            SubElementMiscObjectsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2499,8 +2468,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEnvironmentsParser(std::shared_ptr<EnvironmentXmlParser>& environmentXmlParser): 
-                        _environmentXmlParser(environmentXmlParser) {}
+            SubElementEnvironmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2539,8 +2507,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementManeuversParser(std::shared_ptr<ManeuverXmlParser>& maneuverXmlParser): 
-                        _maneuverXmlParser(maneuverXmlParser) {}
+            SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2579,8 +2546,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrajectoriesParser(std::shared_ptr<TrajectoryXmlParser>& trajectoryXmlParser): 
-                        _trajectoryXmlParser(trajectoryXmlParser) {}
+            SubElementTrajectoriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2619,8 +2585,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRoutesParser(std::shared_ptr<RouteXmlParser>& routeXmlParser): 
-                        _routeXmlParser(routeXmlParser) {}
+            SubElementRoutesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
@@ -2708,8 +2673,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogParser(std::shared_ptr<CatalogXmlParser>& catalogXmlParser): 
-                        _catalogXmlParser(catalogXmlParser) {}
+            SubElementCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogDefinitionImpl>& object) override;
 
@@ -2799,8 +2763,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementVehicleCatalogParser(std::shared_ptr<VehicleCatalogLocationXmlParser>& vehicleCatalogLocationXmlParser): 
-                        _vehicleCatalogLocationXmlParser(vehicleCatalogLocationXmlParser) {}
+            SubElementVehicleCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -2839,8 +2802,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllerCatalogParser(std::shared_ptr<ControllerCatalogLocationXmlParser>& controllerCatalogLocationXmlParser): 
-                        _controllerCatalogLocationXmlParser(controllerCatalogLocationXmlParser) {}
+            SubElementControllerCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -2879,8 +2841,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPedestrianCatalogParser(std::shared_ptr<PedestrianCatalogLocationXmlParser>& pedestrianCatalogLocationXmlParser): 
-                        _pedestrianCatalogLocationXmlParser(pedestrianCatalogLocationXmlParser) {}
+            SubElementPedestrianCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -2919,8 +2880,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementMiscObjectCatalogParser(std::shared_ptr<MiscObjectCatalogLocationXmlParser>& miscObjectCatalogLocationXmlParser): 
-                        _miscObjectCatalogLocationXmlParser(miscObjectCatalogLocationXmlParser) {}
+            SubElementMiscObjectCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -2959,8 +2919,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEnvironmentCatalogParser(std::shared_ptr<EnvironmentCatalogLocationXmlParser>& environmentCatalogLocationXmlParser): 
-                        _environmentCatalogLocationXmlParser(environmentCatalogLocationXmlParser) {}
+            SubElementEnvironmentCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -2999,8 +2958,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementManeuverCatalogParser(std::shared_ptr<ManeuverCatalogLocationXmlParser>& maneuverCatalogLocationXmlParser): 
-                        _maneuverCatalogLocationXmlParser(maneuverCatalogLocationXmlParser) {}
+            SubElementManeuverCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -3039,8 +2997,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrajectoryCatalogParser(std::shared_ptr<TrajectoryCatalogLocationXmlParser>& trajectoryCatalogLocationXmlParser): 
-                        _trajectoryCatalogLocationXmlParser(trajectoryCatalogLocationXmlParser) {}
+            SubElementTrajectoryCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -3079,8 +3036,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRouteCatalogParser(std::shared_ptr<RouteCatalogLocationXmlParser>& routeCatalogLocationXmlParser): 
-                        _routeCatalogLocationXmlParser(routeCatalogLocationXmlParser) {}
+            SubElementRouteCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
@@ -3169,8 +3125,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterAssignmentsParser(std::shared_ptr<ParameterAssignmentXmlParser>& parameterAssignmentXmlParser): 
-                        _parameterAssignmentXmlParser(parameterAssignmentXmlParser) {}
+            SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogReferenceImpl>& object) override;
 
@@ -3356,8 +3311,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ClothoidImpl>& object) override;
 
@@ -3447,8 +3401,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityRefParser(std::shared_ptr<EntityRefXmlParser>& entityRefXmlParser): 
-                        _entityRefXmlParser(entityRefXmlParser) {}
+            SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
 
@@ -3487,8 +3440,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementByTypeParser(std::shared_ptr<ByObjectTypeXmlParser>& byObjectTypeXmlParser): 
-                        _byObjectTypeXmlParser(byObjectTypeXmlParser) {}
+            SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
 
@@ -3578,8 +3530,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementByEntityConditionParser(std::shared_ptr<ByEntityConditionXmlParser>& byEntityConditionXmlParser): 
-                        _byEntityConditionXmlParser(byEntityConditionXmlParser) {}
+            SubElementByEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
 
@@ -3618,8 +3569,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementByValueConditionParser(std::shared_ptr<ByValueConditionXmlParser>& byValueConditionXmlParser): 
-                        _byValueConditionXmlParser(byValueConditionXmlParser) {}
+            SubElementByValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
 
@@ -3708,8 +3658,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementConditionsParser(std::shared_ptr<ConditionXmlParser>& conditionXmlParser): 
-                        _conditionXmlParser(conditionXmlParser) {}
+            SubElementConditionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionGroupImpl>& object) override;
 
@@ -3798,8 +3747,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControlPointImpl>& object) override;
 
@@ -3889,8 +3837,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
 
@@ -3926,8 +3873,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPropertiesParser(std::shared_ptr<PropertiesXmlParser>& propertiesXmlParser): 
-                        _propertiesXmlParser(propertiesXmlParser) {}
+            SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
 
@@ -4017,8 +3963,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAssignControllerActionParser(std::shared_ptr<AssignControllerActionXmlParser>& assignControllerActionXmlParser): 
-                        _assignControllerActionXmlParser(assignControllerActionXmlParser) {}
+            SubElementAssignControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
 
@@ -4057,8 +4002,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOverrideControllerValueActionParser(std::shared_ptr<OverrideControllerValueActionXmlParser>& overrideControllerValueActionXmlParser): 
-                        _overrideControllerValueActionXmlParser(overrideControllerValueActionXmlParser) {}
+            SubElementOverrideControllerValueActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
 
@@ -4148,8 +4092,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerCatalogLocationImpl>& object) override;
 
@@ -4238,8 +4181,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllerDistributionEntriesParser(std::shared_ptr<ControllerDistributionEntryXmlParser>& controllerDistributionEntryXmlParser): 
-                        _controllerDistributionEntryXmlParser(controllerDistributionEntryXmlParser) {}
+            SubElementControllerDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionImpl>& object) override;
 
@@ -4329,8 +4271,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllerParser(std::shared_ptr<ControllerXmlParser>& controllerXmlParser): 
-                        _controllerXmlParser(controllerXmlParser) {}
+            SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
 
@@ -4369,8 +4310,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
 
@@ -4428,8 +4368,8 @@ namespace RAC_OPENSCENARIO
     protected:
         std::map<std::string, std::shared_ptr<IAttributeParser<CustomCommandActionImpl>>> GetAttributeNameToAttributeParserMap() override;
     protected:
-        void SetContentProperty(std::string& content, CustomCommandActionImpl& object);
-        bool IsContentRequired()
+        void SetContentProperty(const std::string content, std::shared_ptr<CustomCommandActionImpl>& object) override;
+        bool IsContentRequired() override
         {
             return false;
         }
@@ -4644,8 +4584,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistanceConditionImpl>& object) override;
 
@@ -4834,8 +4773,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementScenarioObjectsParser(std::shared_ptr<ScenarioObjectXmlParser>& scenarioObjectXmlParser): 
-                        _scenarioObjectXmlParser(scenarioObjectXmlParser) {}
+            SubElementScenarioObjectsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
 
@@ -4874,8 +4812,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntitySelectionsParser(std::shared_ptr<EntitySelectionXmlParser>& entitySelectionXmlParser): 
-                        _entitySelectionXmlParser(entitySelectionXmlParser) {}
+            SubElementEntitySelectionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
 
@@ -4965,8 +4902,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAddEntityActionParser(std::shared_ptr<AddEntityActionXmlParser>& addEntityActionXmlParser): 
-                        _addEntityActionXmlParser(addEntityActionXmlParser) {}
+            SubElementAddEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
 
@@ -5005,8 +4941,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDeleteEntityActionParser(std::shared_ptr<DeleteEntityActionXmlParser>& deleteEntityActionXmlParser): 
-                        _deleteEntityActionXmlParser(deleteEntityActionXmlParser) {}
+            SubElementDeleteEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
 
@@ -5096,8 +5031,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEndOfRoadConditionParser(std::shared_ptr<EndOfRoadConditionXmlParser>& endOfRoadConditionXmlParser): 
-                        _endOfRoadConditionXmlParser(endOfRoadConditionXmlParser) {}
+            SubElementEndOfRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5136,8 +5070,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCollisionConditionParser(std::shared_ptr<CollisionConditionXmlParser>& collisionConditionXmlParser): 
-                        _collisionConditionXmlParser(collisionConditionXmlParser) {}
+            SubElementCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5176,8 +5109,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOffroadConditionParser(std::shared_ptr<OffroadConditionXmlParser>& offroadConditionXmlParser): 
-                        _offroadConditionXmlParser(offroadConditionXmlParser) {}
+            SubElementOffroadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5216,8 +5148,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTimeHeadwayConditionParser(std::shared_ptr<TimeHeadwayConditionXmlParser>& timeHeadwayConditionXmlParser): 
-                        _timeHeadwayConditionXmlParser(timeHeadwayConditionXmlParser) {}
+            SubElementTimeHeadwayConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5256,8 +5187,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTimeToCollisionConditionParser(std::shared_ptr<TimeToCollisionConditionXmlParser>& timeToCollisionConditionXmlParser): 
-                        _timeToCollisionConditionXmlParser(timeToCollisionConditionXmlParser) {}
+            SubElementTimeToCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5296,8 +5226,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAccelerationConditionParser(std::shared_ptr<AccelerationConditionXmlParser>& accelerationConditionXmlParser): 
-                        _accelerationConditionXmlParser(accelerationConditionXmlParser) {}
+            SubElementAccelerationConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5336,8 +5265,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStandStillConditionParser(std::shared_ptr<StandStillConditionXmlParser>& standStillConditionXmlParser): 
-                        _standStillConditionXmlParser(standStillConditionXmlParser) {}
+            SubElementStandStillConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5376,8 +5304,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSpeedConditionParser(std::shared_ptr<SpeedConditionXmlParser>& speedConditionXmlParser): 
-                        _speedConditionXmlParser(speedConditionXmlParser) {}
+            SubElementSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5416,8 +5343,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeSpeedConditionParser(std::shared_ptr<RelativeSpeedConditionXmlParser>& relativeSpeedConditionXmlParser): 
-                        _relativeSpeedConditionXmlParser(relativeSpeedConditionXmlParser) {}
+            SubElementRelativeSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5456,8 +5382,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTraveledDistanceConditionParser(std::shared_ptr<TraveledDistanceConditionXmlParser>& traveledDistanceConditionXmlParser): 
-                        _traveledDistanceConditionXmlParser(traveledDistanceConditionXmlParser) {}
+            SubElementTraveledDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5496,8 +5421,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementReachPositionConditionParser(std::shared_ptr<ReachPositionConditionXmlParser>& reachPositionConditionXmlParser): 
-                        _reachPositionConditionXmlParser(reachPositionConditionXmlParser) {}
+            SubElementReachPositionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5536,8 +5460,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDistanceConditionParser(std::shared_ptr<DistanceConditionXmlParser>& distanceConditionXmlParser): 
-                        _distanceConditionXmlParser(distanceConditionXmlParser) {}
+            SubElementDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5576,8 +5499,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeDistanceConditionParser(std::shared_ptr<RelativeDistanceConditionXmlParser>& relativeDistanceConditionXmlParser): 
-                        _relativeDistanceConditionXmlParser(relativeDistanceConditionXmlParser) {}
+            SubElementRelativeDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
@@ -5666,8 +5588,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
@@ -5706,8 +5627,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementVehicleParser(std::shared_ptr<VehicleXmlParser>& vehicleXmlParser): 
-                        _vehicleXmlParser(vehicleXmlParser) {}
+            SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
@@ -5746,8 +5666,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPedestrianParser(std::shared_ptr<PedestrianXmlParser>& pedestrianXmlParser): 
-                        _pedestrianXmlParser(pedestrianXmlParser) {}
+            SubElementPedestrianParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
@@ -5786,8 +5705,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementMiscObjectParser(std::shared_ptr<MiscObjectXmlParser>& miscObjectXmlParser): 
-                        _miscObjectXmlParser(miscObjectXmlParser) {}
+            SubElementMiscObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
@@ -5926,8 +5844,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementMembersParser(std::shared_ptr<SelectedEntitiesXmlParser>& selectedEntitiesXmlParser): 
-                        _selectedEntitiesXmlParser(selectedEntitiesXmlParser) {}
+            SubElementMembersParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitySelectionImpl>& object) override;
 
@@ -6017,8 +5934,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
@@ -6054,8 +5970,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTimeOfDayParser(std::shared_ptr<TimeOfDayXmlParser>& timeOfDayXmlParser): 
-                        _timeOfDayXmlParser(timeOfDayXmlParser) {}
+            SubElementTimeOfDayParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
@@ -6094,8 +6009,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementWeatherParser(std::shared_ptr<WeatherXmlParser>& weatherXmlParser): 
-                        _weatherXmlParser(weatherXmlParser) {}
+            SubElementWeatherParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
@@ -6134,8 +6048,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRoadConditionParser(std::shared_ptr<RoadConditionXmlParser>& roadConditionXmlParser): 
-                        _roadConditionXmlParser(roadConditionXmlParser) {}
+            SubElementRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
@@ -6225,8 +6138,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEnvironmentParser(std::shared_ptr<EnvironmentXmlParser>& environmentXmlParser): 
-                        _environmentXmlParser(environmentXmlParser) {}
+            SubElementEnvironmentParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
 
@@ -6265,8 +6177,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
 
@@ -6356,8 +6267,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentCatalogLocationImpl>& object) override;
 
@@ -6446,8 +6356,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementActionsParser(std::shared_ptr<ActionXmlParser>& actionXmlParser): 
-                        _actionXmlParser(actionXmlParser) {}
+            SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
 
@@ -6486,8 +6395,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStartTriggerParser(std::shared_ptr<TriggerXmlParser>& triggerXmlParser): 
-                        _triggerXmlParser(triggerXmlParser) {}
+            SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
 
@@ -6677,8 +6585,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAbsoluteSpeedParser(std::shared_ptr<AbsoluteSpeedXmlParser>& absoluteSpeedXmlParser): 
-                        _absoluteSpeedXmlParser(absoluteSpeedXmlParser) {}
+            SubElementAbsoluteSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
 
@@ -6717,8 +6624,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeSpeedToMasterParser(std::shared_ptr<RelativeSpeedToMasterXmlParser>& relativeSpeedToMasterXmlParser): 
-                        _relativeSpeedToMasterXmlParser(relativeSpeedToMasterXmlParser) {}
+            SubElementRelativeSpeedToMasterParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
 
@@ -6808,8 +6714,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementBoundingBoxParser(std::shared_ptr<BoundingBoxXmlParser>& boundingBoxXmlParser): 
-                        _boundingBoxXmlParser(boundingBoxXmlParser) {}
+            SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FogImpl>& object) override;
 
@@ -6899,8 +6804,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrajectoryParser(std::shared_ptr<TrajectoryXmlParser>& trajectoryXmlParser): 
-                        _trajectoryXmlParser(trajectoryXmlParser) {}
+            SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
@@ -6939,8 +6843,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
@@ -6979,8 +6882,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTimeReferenceParser(std::shared_ptr<TimeReferenceXmlParser>& timeReferenceXmlParser): 
-                        _timeReferenceXmlParser(timeReferenceXmlParser) {}
+            SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
@@ -7019,8 +6921,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrajectoryFollowingModeParser(std::shared_ptr<TrajectoryFollowingModeXmlParser>& trajectoryFollowingModeXmlParser): 
-                        _trajectoryFollowingModeXmlParser(trajectoryFollowingModeXmlParser) {}
+            SubElementTrajectoryFollowingModeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
@@ -7110,8 +7011,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEnvironmentActionParser(std::shared_ptr<EnvironmentActionXmlParser>& environmentActionXmlParser): 
-                        _environmentActionXmlParser(environmentActionXmlParser) {}
+            SubElementEnvironmentActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
@@ -7150,8 +7050,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityActionParser(std::shared_ptr<EntityActionXmlParser>& entityActionXmlParser): 
-                        _entityActionXmlParser(entityActionXmlParser) {}
+            SubElementEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
@@ -7190,8 +7089,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterActionParser(std::shared_ptr<ParameterActionXmlParser>& parameterActionXmlParser): 
-                        _parameterActionXmlParser(parameterActionXmlParser) {}
+            SubElementParameterActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
@@ -7230,8 +7128,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementInfrastructureActionParser(std::shared_ptr<InfrastructureActionXmlParser>& infrastructureActionXmlParser): 
-                        _infrastructureActionXmlParser(infrastructureActionXmlParser) {}
+            SubElementInfrastructureActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
@@ -7270,8 +7167,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficActionParser(std::shared_ptr<TrafficActionXmlParser>& trafficActionXmlParser): 
-                        _trafficActionXmlParser(trafficActionXmlParser) {}
+            SubElementTrafficActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
@@ -7361,8 +7257,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFromCurrentEntityParser(std::shared_ptr<PositionOfCurrentEntityXmlParser>& positionOfCurrentEntityXmlParser): 
-                        _positionOfCurrentEntityXmlParser(positionOfCurrentEntityXmlParser) {}
+            SubElementFromCurrentEntityParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
 
@@ -7401,8 +7296,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFromRoadCoordinatesParser(std::shared_ptr<PositionInRoadCoordinatesXmlParser>& positionInRoadCoordinatesXmlParser): 
-                        _positionInRoadCoordinatesXmlParser(positionInRoadCoordinatesXmlParser) {}
+            SubElementFromRoadCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
 
@@ -7441,8 +7335,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFromLaneCoordinatesParser(std::shared_ptr<PositionInLaneCoordinatesXmlParser>& positionInLaneCoordinatesXmlParser): 
-                        _positionInLaneCoordinatesXmlParser(positionInLaneCoordinatesXmlParser) {}
+            SubElementFromLaneCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
 
@@ -7532,8 +7425,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSignalActionParser(std::shared_ptr<TrafficSignalActionXmlParser>& trafficSignalActionXmlParser): 
-                        _trafficSignalActionXmlParser(trafficSignalActionXmlParser) {}
+            SubElementTrafficSignalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InfrastructureActionImpl>& object) override;
 
@@ -7622,8 +7514,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementActionsParser(std::shared_ptr<InitActionsXmlParser>& initActionsXmlParser): 
-                        _initActionsXmlParser(initActionsXmlParser) {}
+            SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitImpl>& object) override;
 
@@ -7712,8 +7603,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementGlobalActionsParser(std::shared_ptr<GlobalActionXmlParser>& globalActionXmlParser): 
-                        _globalActionXmlParser(globalActionXmlParser) {}
+            SubElementGlobalActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
 
@@ -7752,8 +7642,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementUserDefinedActionsParser(std::shared_ptr<UserDefinedActionXmlParser>& userDefinedActionXmlParser): 
-                        _userDefinedActionXmlParser(userDefinedActionXmlParser) {}
+            SubElementUserDefinedActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
 
@@ -7792,8 +7681,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPrivatesParser(std::shared_ptr<PrivateXmlParser>& privateXmlParser): 
-                        _privateXmlParser(privateXmlParser) {}
+            SubElementPrivatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
 
@@ -7933,8 +7821,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLaneChangeActionDynamicsParser(std::shared_ptr<TransitionDynamicsXmlParser>& transitionDynamicsXmlParser): 
-                        _transitionDynamicsXmlParser(transitionDynamicsXmlParser) {}
+            SubElementLaneChangeActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
 
@@ -7973,8 +7860,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLaneChangeTargetParser(std::shared_ptr<LaneChangeTargetXmlParser>& laneChangeTargetXmlParser): 
-                        _laneChangeTargetXmlParser(laneChangeTargetXmlParser) {}
+            SubElementLaneChangeTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
 
@@ -8064,8 +7950,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeTargetLaneParser(std::shared_ptr<RelativeTargetLaneXmlParser>& relativeTargetLaneXmlParser): 
-                        _relativeTargetLaneXmlParser(relativeTargetLaneXmlParser) {}
+            SubElementRelativeTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
 
@@ -8104,8 +7989,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAbsoluteTargetLaneParser(std::shared_ptr<AbsoluteTargetLaneXmlParser>& absoluteTargetLaneXmlParser): 
-                        _absoluteTargetLaneXmlParser(absoluteTargetLaneXmlParser) {}
+            SubElementAbsoluteTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
 
@@ -8195,8 +8079,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLaneOffsetActionDynamicsParser(std::shared_ptr<LaneOffsetActionDynamicsXmlParser>& laneOffsetActionDynamicsXmlParser): 
-                        _laneOffsetActionDynamicsXmlParser(laneOffsetActionDynamicsXmlParser) {}
+            SubElementLaneOffsetActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
 
@@ -8235,8 +8118,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLaneOffsetTargetParser(std::shared_ptr<LaneOffsetTargetXmlParser>& laneOffsetTargetXmlParser): 
-                        _laneOffsetTargetXmlParser(laneOffsetTargetXmlParser) {}
+            SubElementLaneOffsetTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
 
@@ -8376,8 +8258,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeTargetLaneOffsetParser(std::shared_ptr<RelativeTargetLaneOffsetXmlParser>& relativeTargetLaneOffsetXmlParser): 
-                        _relativeTargetLaneOffsetXmlParser(relativeTargetLaneOffsetXmlParser) {}
+            SubElementRelativeTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
 
@@ -8416,8 +8297,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAbsoluteTargetLaneOffsetParser(std::shared_ptr<AbsoluteTargetLaneOffsetXmlParser>& absoluteTargetLaneOffsetXmlParser): 
-                        _absoluteTargetLaneOffsetXmlParser(absoluteTargetLaneOffsetXmlParser) {}
+            SubElementAbsoluteTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
 
@@ -8507,8 +8387,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOrientationParser(std::shared_ptr<OrientationXmlParser>& orientationXmlParser): 
-                        _orientationXmlParser(orientationXmlParser) {}
+            SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LanePositionImpl>& object) override;
 
@@ -8598,8 +8477,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLaneChangeActionParser(std::shared_ptr<LaneChangeActionXmlParser>& laneChangeActionXmlParser): 
-                        _laneChangeActionXmlParser(laneChangeActionXmlParser) {}
+            SubElementLaneChangeActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
 
@@ -8638,8 +8516,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLaneOffsetActionParser(std::shared_ptr<LaneOffsetActionXmlParser>& laneOffsetActionXmlParser): 
-                        _laneOffsetActionXmlParser(laneOffsetActionXmlParser) {}
+            SubElementLaneOffsetActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
 
@@ -8678,8 +8555,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLateralDistanceActionParser(std::shared_ptr<LateralDistanceActionXmlParser>& lateralDistanceActionXmlParser): 
-                        _lateralDistanceActionXmlParser(lateralDistanceActionXmlParser) {}
+            SubElementLateralDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
 
@@ -8769,8 +8645,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDynamicConstraintsParser(std::shared_ptr<DynamicConstraintsXmlParser>& dynamicConstraintsXmlParser): 
-                        _dynamicConstraintsXmlParser(dynamicConstraintsXmlParser) {}
+            SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralDistanceActionImpl>& object) override;
 
@@ -8860,8 +8735,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSpeedActionParser(std::shared_ptr<SpeedActionXmlParser>& speedActionXmlParser): 
-                        _speedActionXmlParser(speedActionXmlParser) {}
+            SubElementSpeedActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
 
@@ -8900,8 +8774,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLongitudinalDistanceActionParser(std::shared_ptr<LongitudinalDistanceActionXmlParser>& longitudinalDistanceActionXmlParser): 
-                        _longitudinalDistanceActionXmlParser(longitudinalDistanceActionXmlParser) {}
+            SubElementLongitudinalDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
 
@@ -8991,8 +8864,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDynamicConstraintsParser(std::shared_ptr<DynamicConstraintsXmlParser>& dynamicConstraintsXmlParser): 
-                        _dynamicConstraintsXmlParser(dynamicConstraintsXmlParser) {}
+            SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override;
 
@@ -9081,8 +8953,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
 
@@ -9118,8 +8989,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEventsParser(std::shared_ptr<EventXmlParser>& eventXmlParser): 
-                        _eventXmlParser(eventXmlParser) {}
+            SubElementEventsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
 
@@ -9209,8 +9079,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverCatalogLocationImpl>& object) override;
 
@@ -9299,8 +9168,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementActorsParser(std::shared_ptr<ActorsXmlParser>& actorsXmlParser): 
-                        _actorsXmlParser(actorsXmlParser) {}
+            SubElementActorsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
 
@@ -9339,8 +9207,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferencesParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferencesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
 
@@ -9379,8 +9246,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementManeuversParser(std::shared_ptr<ManeuverXmlParser>& maneuverXmlParser): 
-                        _maneuverXmlParser(maneuverXmlParser) {}
+            SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
 
@@ -9470,8 +9336,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
 
@@ -9507,8 +9372,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementBoundingBoxParser(std::shared_ptr<BoundingBoxXmlParser>& boundingBoxXmlParser): 
-                        _boundingBoxXmlParser(boundingBoxXmlParser) {}
+            SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
 
@@ -9547,8 +9411,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPropertiesParser(std::shared_ptr<PropertiesXmlParser>& propertiesXmlParser): 
-                        _propertiesXmlParser(propertiesXmlParser) {}
+            SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
 
@@ -9638,8 +9501,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectCatalogLocationImpl>& object) override;
 
@@ -9729,8 +9591,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAddValueParser(std::shared_ptr<ParameterAddValueRuleXmlParser>& parameterAddValueRuleXmlParser): 
-                        _parameterAddValueRuleXmlParser(parameterAddValueRuleXmlParser) {}
+            SubElementAddValueParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
 
@@ -9769,8 +9630,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementMultiplyByValueParser(std::shared_ptr<ParameterMultiplyByValueRuleXmlParser>& parameterMultiplyByValueRuleXmlParser): 
-                        _parameterMultiplyByValueRuleXmlParser(parameterMultiplyByValueRuleXmlParser) {}
+            SubElementMultiplyByValueParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
 
@@ -9909,8 +9769,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControlPointsParser(std::shared_ptr<ControlPointXmlParser>& controlPointXmlParser): 
-                        _controlPointXmlParser(controlPointXmlParser) {}
+            SubElementControlPointsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
 
@@ -9949,8 +9808,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementKnotsParser(std::shared_ptr<KnotXmlParser>& knotXmlParser): 
-                        _knotXmlParser(knotXmlParser) {}
+            SubElementKnotsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
 
@@ -10040,8 +9898,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
 
@@ -10080,8 +9937,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllerParser(std::shared_ptr<ControllerXmlParser>& controllerXmlParser): 
-                        _controllerXmlParser(controllerXmlParser) {}
+            SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
 
@@ -10220,8 +10076,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFileHeaderParser(std::shared_ptr<FileHeaderXmlParser>& fileHeaderXmlParser): 
-                        _fileHeaderXmlParser(fileHeaderXmlParser) {}
+            SubElementFileHeaderParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
 
@@ -10260,8 +10115,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOpenScenarioCategoryParser(std::shared_ptr<OpenScenarioCategoryXmlParser>& openScenarioCategoryXmlParser): 
-                        _openScenarioCategoryXmlParser(openScenarioCategoryXmlParser) {}
+            SubElementOpenScenarioCategoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
 
@@ -10354,8 +10208,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementScenarioDefinitionParser(std::shared_ptr<ScenarioDefinitionXmlParser>& scenarioDefinitionXmlParser): 
-                        _scenarioDefinitionXmlParser(scenarioDefinitionXmlParser) {}
+            SubElementScenarioDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
 
@@ -10396,8 +10249,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogDefinitionParser(std::shared_ptr<CatalogDefinitionXmlParser>& catalogDefinitionXmlParser): 
-                        _catalogDefinitionXmlParser(catalogDefinitionXmlParser) {}
+            SubElementCatalogDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
 
@@ -10637,8 +10489,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementThrottleParser(std::shared_ptr<OverrideThrottleActionXmlParser>& overrideThrottleActionXmlParser): 
-                        _overrideThrottleActionXmlParser(overrideThrottleActionXmlParser) {}
+            SubElementThrottleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
@@ -10677,8 +10528,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementBrakeParser(std::shared_ptr<OverrideBrakeActionXmlParser>& overrideBrakeActionXmlParser): 
-                        _overrideBrakeActionXmlParser(overrideBrakeActionXmlParser) {}
+            SubElementBrakeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
@@ -10717,8 +10567,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementClutchParser(std::shared_ptr<OverrideClutchActionXmlParser>& overrideClutchActionXmlParser): 
-                        _overrideClutchActionXmlParser(overrideClutchActionXmlParser) {}
+            SubElementClutchParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
@@ -10757,8 +10606,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParkingBrakeParser(std::shared_ptr<OverrideParkingBrakeActionXmlParser>& overrideParkingBrakeActionXmlParser): 
-                        _overrideParkingBrakeActionXmlParser(overrideParkingBrakeActionXmlParser) {}
+            SubElementParkingBrakeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
@@ -10797,8 +10645,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSteeringWheelParser(std::shared_ptr<OverrideSteeringWheelActionXmlParser>& overrideSteeringWheelActionXmlParser): 
-                        _overrideSteeringWheelActionXmlParser(overrideSteeringWheelActionXmlParser) {}
+            SubElementSteeringWheelParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
@@ -10837,8 +10684,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementGearParser(std::shared_ptr<OverrideGearActionXmlParser>& overrideGearActionXmlParser): 
-                        _overrideGearActionXmlParser(overrideGearActionXmlParser) {}
+            SubElementGearParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
@@ -11128,8 +10974,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSetActionParser(std::shared_ptr<ParameterSetActionXmlParser>& parameterSetActionXmlParser): 
-                        _parameterSetActionXmlParser(parameterSetActionXmlParser) {}
+            SubElementSetActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
 
@@ -11168,8 +11013,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementModifyActionParser(std::shared_ptr<ParameterModifyActionXmlParser>& parameterModifyActionXmlParser): 
-                        _parameterModifyActionXmlParser(parameterModifyActionXmlParser) {}
+            SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
 
@@ -11459,8 +11303,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRuleParser(std::shared_ptr<ModifyRuleXmlParser>& modifyRuleXmlParser): 
-                        _modifyRuleXmlParser(modifyRuleXmlParser) {}
+            SubElementRuleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterModifyActionImpl>& object) override;
 
@@ -11650,8 +11493,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
 
@@ -11687,8 +11529,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementBoundingBoxParser(std::shared_ptr<BoundingBoxXmlParser>& boundingBoxXmlParser): 
-                        _boundingBoxXmlParser(boundingBoxXmlParser) {}
+            SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
 
@@ -11727,8 +11568,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPropertiesParser(std::shared_ptr<PropertiesXmlParser>& propertiesXmlParser): 
-                        _propertiesXmlParser(propertiesXmlParser) {}
+            SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
 
@@ -11818,8 +11658,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianCatalogLocationImpl>& object) override;
 
@@ -11958,8 +11797,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSignalStatesParser(std::shared_ptr<TrafficSignalStateXmlParser>& trafficSignalStateXmlParser): 
-                        _trafficSignalStateXmlParser(trafficSignalStateXmlParser) {}
+            SubElementTrafficSignalStatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PhaseImpl>& object) override;
 
@@ -12048,8 +11886,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementVerticesParser(std::shared_ptr<VertexXmlParser>& vertexXmlParser): 
-                        _vertexXmlParser(vertexXmlParser) {}
+            SubElementVerticesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PolylineImpl>& object) override;
 
@@ -12139,8 +11976,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementWorldPositionParser(std::shared_ptr<WorldPositionXmlParser>& worldPositionXmlParser): 
-                        _worldPositionXmlParser(worldPositionXmlParser) {}
+            SubElementWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12179,8 +12015,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeWorldPositionParser(std::shared_ptr<RelativeWorldPositionXmlParser>& relativeWorldPositionXmlParser): 
-                        _relativeWorldPositionXmlParser(relativeWorldPositionXmlParser) {}
+            SubElementRelativeWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12219,8 +12054,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeObjectPositionParser(std::shared_ptr<RelativeObjectPositionXmlParser>& relativeObjectPositionXmlParser): 
-                        _relativeObjectPositionXmlParser(relativeObjectPositionXmlParser) {}
+            SubElementRelativeObjectPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12259,8 +12093,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRoadPositionParser(std::shared_ptr<RoadPositionXmlParser>& roadPositionXmlParser): 
-                        _roadPositionXmlParser(roadPositionXmlParser) {}
+            SubElementRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12299,8 +12132,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeRoadPositionParser(std::shared_ptr<RelativeRoadPositionXmlParser>& relativeRoadPositionXmlParser): 
-                        _relativeRoadPositionXmlParser(relativeRoadPositionXmlParser) {}
+            SubElementRelativeRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12339,8 +12171,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLanePositionParser(std::shared_ptr<LanePositionXmlParser>& lanePositionXmlParser): 
-                        _lanePositionXmlParser(lanePositionXmlParser) {}
+            SubElementLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12379,8 +12210,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeLanePositionParser(std::shared_ptr<RelativeLanePositionXmlParser>& relativeLanePositionXmlParser): 
-                        _relativeLanePositionXmlParser(relativeLanePositionXmlParser) {}
+            SubElementRelativeLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12419,8 +12249,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRoutePositionParser(std::shared_ptr<RoutePositionXmlParser>& routePositionXmlParser): 
-                        _routePositionXmlParser(routePositionXmlParser) {}
+            SubElementRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
@@ -12709,8 +12538,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPrivateActionsParser(std::shared_ptr<PrivateActionXmlParser>& privateActionXmlParser): 
-                        _privateActionXmlParser(privateActionXmlParser) {}
+            SubElementPrivateActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateImpl>& object) override;
 
@@ -12800,8 +12628,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLongitudinalActionParser(std::shared_ptr<LongitudinalActionXmlParser>& longitudinalActionXmlParser): 
-                        _longitudinalActionXmlParser(longitudinalActionXmlParser) {}
+            SubElementLongitudinalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -12840,8 +12667,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLateralActionParser(std::shared_ptr<LateralActionXmlParser>& lateralActionXmlParser): 
-                        _lateralActionXmlParser(lateralActionXmlParser) {}
+            SubElementLateralActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -12880,8 +12706,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementVisibilityActionParser(std::shared_ptr<VisibilityActionXmlParser>& visibilityActionXmlParser): 
-                        _visibilityActionXmlParser(visibilityActionXmlParser) {}
+            SubElementVisibilityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -12920,8 +12745,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSynchronizeActionParser(std::shared_ptr<SynchronizeActionXmlParser>& synchronizeActionXmlParser): 
-                        _synchronizeActionXmlParser(synchronizeActionXmlParser) {}
+            SubElementSynchronizeActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -12960,8 +12784,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementActivateControllerActionParser(std::shared_ptr<ActivateControllerActionXmlParser>& activateControllerActionXmlParser): 
-                        _activateControllerActionXmlParser(activateControllerActionXmlParser) {}
+            SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -13000,8 +12823,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllerActionParser(std::shared_ptr<ControllerActionXmlParser>& controllerActionXmlParser): 
-                        _controllerActionXmlParser(controllerActionXmlParser) {}
+            SubElementControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -13040,8 +12862,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTeleportActionParser(std::shared_ptr<TeleportActionXmlParser>& teleportActionXmlParser): 
-                        _teleportActionXmlParser(teleportActionXmlParser) {}
+            SubElementTeleportActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -13080,8 +12901,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRoutingActionParser(std::shared_ptr<RoutingActionXmlParser>& routingActionXmlParser): 
-                        _routingActionXmlParser(routingActionXmlParser) {}
+            SubElementRoutingActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
@@ -13170,8 +12990,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPropertiesParser(std::shared_ptr<PropertyXmlParser>& propertyXmlParser): 
-                        _propertyXmlParser(propertyXmlParser) {}
+            SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
 
@@ -13210,8 +13029,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFilesParser(std::shared_ptr<FileXmlParser>& fileXmlParser): 
-                        _fileXmlParser(fileXmlParser) {}
+            SubElementFilesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
 
@@ -13351,8 +13169,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ReachPositionConditionImpl>& object) override;
 
@@ -13492,8 +13309,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOrientationParser(std::shared_ptr<OrientationXmlParser>& orientationXmlParser): 
-                        _orientationXmlParser(orientationXmlParser) {}
+            SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeLanePositionImpl>& object) override;
 
@@ -13583,8 +13399,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOrientationParser(std::shared_ptr<OrientationXmlParser>& orientationXmlParser): 
-                        _orientationXmlParser(orientationXmlParser) {}
+            SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeObjectPositionImpl>& object) override;
 
@@ -13674,8 +13489,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOrientationParser(std::shared_ptr<OrientationXmlParser>& orientationXmlParser): 
-                        _orientationXmlParser(orientationXmlParser) {}
+            SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeRoadPositionImpl>& object) override;
 
@@ -14015,8 +13829,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOrientationParser(std::shared_ptr<OrientationXmlParser>& orientationXmlParser): 
-                        _orientationXmlParser(orientationXmlParser) {}
+            SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeWorldPositionImpl>& object) override;
 
@@ -14105,8 +13918,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPropertiesParser(std::shared_ptr<PropertiesXmlParser>& propertiesXmlParser): 
-                        _propertiesXmlParser(propertiesXmlParser) {}
+            SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadConditionImpl>& object) override;
 
@@ -14195,8 +14007,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementLogicFileParser(std::shared_ptr<FileXmlParser>& fileXmlParser): 
-                        _fileXmlParser(fileXmlParser) {}
+            SubElementLogicFileParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
 
@@ -14235,8 +14046,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSceneGraphFileParser(std::shared_ptr<FileXmlParser>& fileXmlParser): 
-                        _fileXmlParser(fileXmlParser) {}
+            SubElementSceneGraphFileParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
 
@@ -14275,8 +14085,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSignalsParser(std::shared_ptr<TrafficSignalControllerXmlParser>& trafficSignalControllerXmlParser): 
-                        _trafficSignalControllerXmlParser(trafficSignalControllerXmlParser) {}
+            SubElementTrafficSignalsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
 
@@ -14363,8 +14172,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOrientationParser(std::shared_ptr<OrientationXmlParser>& orientationXmlParser): 
-                        _orientationXmlParser(orientationXmlParser) {}
+            SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadPositionImpl>& object) override;
 
@@ -14453,8 +14261,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
 
@@ -14490,8 +14297,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementWaypointsParser(std::shared_ptr<WaypointXmlParser>& waypointXmlParser): 
-                        _waypointXmlParser(waypointXmlParser) {}
+            SubElementWaypointsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
 
@@ -14581,8 +14387,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteCatalogLocationImpl>& object) override;
 
@@ -14672,8 +14477,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRouteRefParser(std::shared_ptr<RouteRefXmlParser>& routeRefXmlParser): 
-                        _routeRefXmlParser(routeRefXmlParser) {}
+            SubElementRouteRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
 
@@ -14712,8 +14516,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementOrientationParser(std::shared_ptr<OrientationXmlParser>& orientationXmlParser): 
-                        _orientationXmlParser(orientationXmlParser) {}
+            SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
 
@@ -14752,8 +14555,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementInRoutePositionParser(std::shared_ptr<InRoutePositionXmlParser>& inRoutePositionXmlParser): 
-                        _inRoutePositionXmlParser(inRoutePositionXmlParser) {}
+            SubElementInRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
 
@@ -14843,8 +14645,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRouteParser(std::shared_ptr<RouteXmlParser>& routeXmlParser): 
-                        _routeXmlParser(routeXmlParser) {}
+            SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
 
@@ -14883,8 +14684,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogReferenceParser(std::shared_ptr<CatalogReferenceXmlParser>& catalogReferenceXmlParser): 
-                        _catalogReferenceXmlParser(catalogReferenceXmlParser) {}
+            SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
 
@@ -14974,8 +14774,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAssignRouteActionParser(std::shared_ptr<AssignRouteActionXmlParser>& assignRouteActionXmlParser): 
-                        _assignRouteActionXmlParser(assignRouteActionXmlParser) {}
+            SubElementAssignRouteActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
 
@@ -15014,8 +14813,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFollowTrajectoryActionParser(std::shared_ptr<FollowTrajectoryActionXmlParser>& followTrajectoryActionXmlParser): 
-                        _followTrajectoryActionXmlParser(followTrajectoryActionXmlParser) {}
+            SubElementFollowTrajectoryActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
 
@@ -15054,8 +14852,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAcquirePositionActionParser(std::shared_ptr<AcquirePositionActionXmlParser>& acquirePositionActionXmlParser): 
-                        _acquirePositionActionXmlParser(acquirePositionActionXmlParser) {}
+            SubElementAcquirePositionActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
 
@@ -15143,8 +14940,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
@@ -15180,8 +14976,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCatalogLocationsParser(std::shared_ptr<CatalogLocationsXmlParser>& catalogLocationsXmlParser): 
-                        _catalogLocationsXmlParser(catalogLocationsXmlParser) {}
+            SubElementCatalogLocationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
@@ -15220,8 +15015,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRoadNetworkParser(std::shared_ptr<RoadNetworkXmlParser>& roadNetworkXmlParser): 
-                        _roadNetworkXmlParser(roadNetworkXmlParser) {}
+            SubElementRoadNetworkParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
@@ -15260,8 +15054,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntitiesParser(std::shared_ptr<EntitiesXmlParser>& entitiesXmlParser): 
-                        _entitiesXmlParser(entitiesXmlParser) {}
+            SubElementEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
@@ -15300,8 +15093,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStoryboardParser(std::shared_ptr<StoryboardXmlParser>& storyboardXmlParser): 
-                        _storyboardXmlParser(storyboardXmlParser) {}
+            SubElementStoryboardParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
@@ -15390,8 +15182,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityObjectParser(std::shared_ptr<EntityObjectXmlParser>& entityObjectXmlParser): 
-                        _entityObjectXmlParser(entityObjectXmlParser) {}
+            SubElementEntityObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
 
@@ -15436,8 +15227,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementObjectControllerParser(std::shared_ptr<ObjectControllerXmlParser>& objectControllerXmlParser): 
-                        _objectControllerXmlParser(objectControllerXmlParser) {}
+            SubElementObjectControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
 
@@ -15527,8 +15317,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityRefParser(std::shared_ptr<EntityRefXmlParser>& entityRefXmlParser): 
-                        _entityRefXmlParser(entityRefXmlParser) {}
+            SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
 
@@ -15567,8 +15356,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementByTypeParser(std::shared_ptr<ByTypeXmlParser>& byTypeXmlParser): 
-                        _byTypeXmlParser(byTypeXmlParser) {}
+            SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
 
@@ -15658,8 +15446,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPolylineParser(std::shared_ptr<PolylineXmlParser>& polylineXmlParser): 
-                        _polylineXmlParser(polylineXmlParser) {}
+            SubElementPolylineParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
 
@@ -15698,8 +15485,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementClothoidParser(std::shared_ptr<ClothoidXmlParser>& clothoidXmlParser): 
-                        _clothoidXmlParser(clothoidXmlParser) {}
+            SubElementClothoidParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
 
@@ -15738,8 +15524,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementNurbsParser(std::shared_ptr<NurbsXmlParser>& nurbsXmlParser): 
-                        _nurbsXmlParser(nurbsXmlParser) {}
+            SubElementNurbsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
 
@@ -15879,8 +15664,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSpeedActionDynamicsParser(std::shared_ptr<TransitionDynamicsXmlParser>& transitionDynamicsXmlParser): 
-                        _transitionDynamicsXmlParser(transitionDynamicsXmlParser) {}
+            SubElementSpeedActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
 
@@ -15919,8 +15703,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSpeedActionTargetParser(std::shared_ptr<SpeedActionTargetXmlParser>& speedActionTargetXmlParser): 
-                        _speedActionTargetXmlParser(speedActionTargetXmlParser) {}
+            SubElementSpeedActionTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
 
@@ -16010,8 +15793,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementRelativeTargetSpeedParser(std::shared_ptr<RelativeTargetSpeedXmlParser>& relativeTargetSpeedXmlParser): 
-                        _relativeTargetSpeedXmlParser(relativeTargetSpeedXmlParser) {}
+            SubElementRelativeTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
 
@@ -16050,8 +15832,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAbsoluteTargetSpeedParser(std::shared_ptr<AbsoluteTargetSpeedXmlParser>& absoluteTargetSpeedXmlParser): 
-                        _absoluteTargetSpeedXmlParser(absoluteTargetSpeedXmlParser) {}
+            SubElementAbsoluteTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
 
@@ -16240,8 +16021,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
 
@@ -16277,8 +16057,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementActsParser(std::shared_ptr<ActXmlParser>& actXmlParser): 
-                        _actXmlParser(actXmlParser) {}
+            SubElementActsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
 
@@ -16367,8 +16146,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementInitParser(std::shared_ptr<InitXmlParser>& initXmlParser): 
-                        _initXmlParser(initXmlParser) {}
+            SubElementInitParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
 
@@ -16407,8 +16185,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStoriesParser(std::shared_ptr<StoryXmlParser>& storyXmlParser): 
-                        _storyXmlParser(storyXmlParser) {}
+            SubElementStoriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
 
@@ -16447,8 +16224,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementStopTriggerParser(std::shared_ptr<TriggerXmlParser>& triggerXmlParser): 
-                        _triggerXmlParser(triggerXmlParser) {}
+            SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
 
@@ -16638,8 +16414,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTargetPositionMasterParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementTargetPositionMasterParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
 
@@ -16678,8 +16453,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTargetPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementTargetPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
 
@@ -16718,8 +16492,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFinalSpeedParser(std::shared_ptr<FinalSpeedXmlParser>& finalSpeedXmlParser): 
-                        _finalSpeedXmlParser(finalSpeedXmlParser) {}
+            SubElementFinalSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
 
@@ -16808,8 +16581,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TeleportActionImpl>& object) override;
 
@@ -17049,8 +16821,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementNoneParser(std::shared_ptr<NoneXmlParser>& noneXmlParser): 
-                        _noneXmlParser(noneXmlParser) {}
+            SubElementNoneParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
 
@@ -17089,8 +16860,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTimingParser(std::shared_ptr<TimingXmlParser>& timingXmlParser): 
-                        _timingXmlParser(timingXmlParser) {}
+            SubElementTimingParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
 
@@ -17180,8 +16950,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTimeToCollisionConditionTargetParser(std::shared_ptr<TimeToCollisionConditionTargetXmlParser>& timeToCollisionConditionTargetXmlParser): 
-                        _timeToCollisionConditionTargetXmlParser(timeToCollisionConditionTargetXmlParser) {}
+            SubElementTimeToCollisionConditionTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionImpl>& object) override;
 
@@ -17271,8 +17040,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
 
@@ -17311,8 +17079,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityRefParser(std::shared_ptr<EntityRefXmlParser>& entityRefXmlParser): 
-                        _entityRefXmlParser(entityRefXmlParser) {}
+            SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
 
@@ -17452,8 +17219,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSourceActionParser(std::shared_ptr<TrafficSourceActionXmlParser>& trafficSourceActionXmlParser): 
-                        _trafficSourceActionXmlParser(trafficSourceActionXmlParser) {}
+            SubElementTrafficSourceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
 
@@ -17492,8 +17258,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSinkActionParser(std::shared_ptr<TrafficSinkActionXmlParser>& trafficSinkActionXmlParser): 
-                        _trafficSinkActionXmlParser(trafficSinkActionXmlParser) {}
+            SubElementTrafficSinkActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
 
@@ -17532,8 +17297,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSwarmActionParser(std::shared_ptr<TrafficSwarmActionXmlParser>& trafficSwarmActionXmlParser): 
-                        _trafficSwarmActionXmlParser(trafficSwarmActionXmlParser) {}
+            SubElementTrafficSwarmActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
 
@@ -17623,8 +17387,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementVehicleCategoryDistributionParser(std::shared_ptr<VehicleCategoryDistributionXmlParser>& vehicleCategoryDistributionXmlParser): 
-                        _vehicleCategoryDistributionXmlParser(vehicleCategoryDistributionXmlParser) {}
+            SubElementVehicleCategoryDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
 
@@ -17663,8 +17426,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementControllerDistributionParser(std::shared_ptr<ControllerDistributionXmlParser>& controllerDistributionXmlParser): 
-                        _controllerDistributionXmlParser(controllerDistributionXmlParser) {}
+            SubElementControllerDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
 
@@ -17754,8 +17516,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSignalControllerActionParser(std::shared_ptr<TrafficSignalControllerActionXmlParser>& trafficSignalControllerActionXmlParser): 
-                        _trafficSignalControllerActionXmlParser(trafficSignalControllerActionXmlParser) {}
+            SubElementTrafficSignalControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
 
@@ -17794,8 +17555,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficSignalStateActionParser(std::shared_ptr<TrafficSignalStateActionXmlParser>& trafficSignalStateActionXmlParser): 
-                        _trafficSignalStateActionXmlParser(trafficSignalStateActionXmlParser) {}
+            SubElementTrafficSignalStateActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
 
@@ -17934,8 +17694,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPhasesParser(std::shared_ptr<PhaseXmlParser>& phaseXmlParser): 
-                        _phaseXmlParser(phaseXmlParser) {}
+            SubElementPhasesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerImpl>& object) override;
 
@@ -18225,8 +17984,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
 
@@ -18265,8 +18023,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficDefinitionParser(std::shared_ptr<TrafficDefinitionXmlParser>& trafficDefinitionXmlParser): 
-                        _trafficDefinitionXmlParser(trafficDefinitionXmlParser) {}
+            SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
 
@@ -18356,8 +18113,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
 
@@ -18396,8 +18152,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficDefinitionParser(std::shared_ptr<TrafficDefinitionXmlParser>& trafficDefinitionXmlParser): 
-                        _trafficDefinitionXmlParser(trafficDefinitionXmlParser) {}
+            SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
 
@@ -18487,8 +18242,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCentralObjectParser(std::shared_ptr<CentralSwarmObjectXmlParser>& centralSwarmObjectXmlParser): 
-                        _centralSwarmObjectXmlParser(centralSwarmObjectXmlParser) {}
+            SubElementCentralObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
 
@@ -18527,8 +18281,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementTrafficDefinitionParser(std::shared_ptr<TrafficDefinitionXmlParser>& trafficDefinitionXmlParser): 
-                        _trafficDefinitionXmlParser(trafficDefinitionXmlParser) {}
+            SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
 
@@ -18617,8 +18370,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
 
@@ -18654,8 +18406,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementShapeParser(std::shared_ptr<ShapeXmlParser>& shapeXmlParser): 
-                        _shapeXmlParser(shapeXmlParser) {}
+            SubElementShapeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
 
@@ -18745,8 +18496,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryCatalogLocationImpl>& object) override;
 
@@ -18985,8 +18735,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementConditionGroupsParser(std::shared_ptr<ConditionGroupXmlParser>& conditionGroupXmlParser): 
-                        _conditionGroupXmlParser(conditionGroupXmlParser) {}
+            SubElementConditionGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggerImpl>& object) override;
 
@@ -19075,8 +18824,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementEntityRefsParser(std::shared_ptr<EntityRefXmlParser>& entityRefXmlParser): 
-                        _entityRefXmlParser(entityRefXmlParser) {}
+            SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggeringEntitiesImpl>& object) override;
 
@@ -19165,8 +18913,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementCustomCommandActionParser(std::shared_ptr<CustomCommandActionXmlParser>& customCommandActionXmlParser): 
-                        _customCommandActionXmlParser(customCommandActionXmlParser) {}
+            SubElementCustomCommandActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedActionImpl>& object) override;
 
@@ -19306,8 +19053,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementParameterDeclarationsParser(std::shared_ptr<ParameterDeclarationXmlParser>& parameterDeclarationXmlParser): 
-                        _parameterDeclarationXmlParser(parameterDeclarationXmlParser) {}
+            SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
@@ -19343,8 +19089,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementBoundingBoxParser(std::shared_ptr<BoundingBoxXmlParser>& boundingBoxXmlParser): 
-                        _boundingBoxXmlParser(boundingBoxXmlParser) {}
+            SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
@@ -19383,8 +19128,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPerformanceParser(std::shared_ptr<PerformanceXmlParser>& performanceXmlParser): 
-                        _performanceXmlParser(performanceXmlParser) {}
+            SubElementPerformanceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
@@ -19423,8 +19167,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementAxlesParser(std::shared_ptr<AxlesXmlParser>& axlesXmlParser): 
-                        _axlesXmlParser(axlesXmlParser) {}
+            SubElementAxlesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
@@ -19463,8 +19206,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPropertiesParser(std::shared_ptr<PropertiesXmlParser>& propertiesXmlParser): 
-                        _propertiesXmlParser(propertiesXmlParser) {}
+            SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
@@ -19554,8 +19296,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementDirectoryParser(std::shared_ptr<DirectoryXmlParser>& directoryXmlParser): 
-                        _directoryXmlParser(directoryXmlParser) {}
+            SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCatalogLocationImpl>& object) override;
 
@@ -19644,8 +19385,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementVehicleCategoryDistributionEntriesParser(std::shared_ptr<VehicleCategoryDistributionEntryXmlParser>& vehicleCategoryDistributionEntryXmlParser): 
-                        _vehicleCategoryDistributionEntryXmlParser(vehicleCategoryDistributionEntryXmlParser) {}
+            SubElementVehicleCategoryDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionImpl>& object) override;
 
@@ -19784,8 +19524,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VertexImpl>& object) override;
 
@@ -19924,8 +19663,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPositionParser(std::shared_ptr<PositionXmlParser>& positionXmlParser): 
-                        _positionXmlParser(positionXmlParser) {}
+            SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WaypointImpl>& object) override;
 
@@ -20015,8 +19753,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementSunParser(std::shared_ptr<SunXmlParser>& sunXmlParser): 
-                        _sunXmlParser(sunXmlParser) {}
+            SubElementSunParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
 
@@ -20055,8 +19792,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementFogParser(std::shared_ptr<FogXmlParser>& fogXmlParser): 
-                        _fogXmlParser(fogXmlParser) {}
+            SubElementFogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
 
@@ -20095,8 +19831,7 @@ namespace RAC_OPENSCENARIO
             /**
             * Constructor
             */
-            SubElementPrecipitationParser(std::shared_ptr<PrecipitationXmlParser>& precipitationXmlParser): 
-                        _precipitationXmlParser(precipitationXmlParser) {}
+            SubElementPrecipitationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
 

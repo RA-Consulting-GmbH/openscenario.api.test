@@ -1,6 +1,6 @@
 ################################################################
 cmake_minimum_required( VERSION 3.8.2 )
-project( OpenScenarioReader )
+project( OpenScenarioTester )
 message("${PROJECT_NAME}")
 
 ################################################################
@@ -12,9 +12,6 @@ else( WIN32 )
 endif( WIN32 )
 
 
-################################################################
-# This is needed because of the way the cmakefiles for AntlrCpp-src are written
-unset(CMAKE_BUILD_TYPE CACHE)
 ################################################################
 # Set compile output folder
 RAC_SET_FOLDERS()
@@ -54,11 +51,13 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/generated
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/generated/xmlParser )
 
 
+
+
 ################################################################
 # Source files
 set( SOURCES
   ${SOURCES}
-  "src/OpenScenarioReader.cpp"
+  "src/OpenScenarioTester.cpp"
   "../../../TinyXML2/tinyxml2.cpp"
 )
 
@@ -66,6 +65,12 @@ set( SOURCES
 # Header files
 set( HEADERS
   ${HEADERS}
+  "src/TestExamples.h"
+  "src/TestBase.h"
+  "src/TestFiles.h"
+  "src/TestReader.h"
+  "src/TestImports.h"
+  "src/TestRangeChecker.h"
   "src/MessageLogger.h"
 )
 
@@ -79,34 +84,6 @@ if( MSVC )
   source_group( Headers FILES ${HEADERS} )
 
 endif()
-
-
-################################################################
-# Visual Studio debug cmd line args
-if( MSVC )
-FILE( WRITE "${CMAKE_CURRENT_BINARY_DIR}/OpenScenarioReader.vcxproj.user"
-  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-  "<Project ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\n"
-  "  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='Debug|${PLATFORM_PARAM}'\">\n"
-  "    <LocalDebuggerCommandArguments>-i ../../../../../Applications/OpenScenarioReader/res/simpleImport/simpleImport.xosc</LocalDebuggerCommandArguments>\n"
-  "    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>\n"
-  "  </PropertyGroup>\n"
-  "  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='MinSizeRel|${PLATFORM_PARAM}'\">\n"
-  "    <LocalDebuggerCommandArguments>-i ../../../../../Applications/OpenScenarioReader/res/simpleImport/simpleImport.xosc</LocalDebuggerCommandArguments>\n"
-  "    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>\n"
-  "  </PropertyGroup>\n"
-  "  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='Release|${PLATFORM_PARAM}'\">\n"
-  "    <LocalDebuggerCommandArguments>-i ../../../../../Applications/OpenScenarioReader/res/simpleImport/simpleImport.xosc</LocalDebuggerCommandArguments>\n"
-  "    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>\n"
-  "  </PropertyGroup>\n"
-  "  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='RelWithDebInfo|${PLATFORM_PARAM}'\">\n"
-  "    <LocalDebuggerCommandArguments>-i ../../../../../Applications/OpenScenarioReader/res/simpleImport/simpleImport.xosc</LocalDebuggerCommandArguments>\n"
-  "    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>\n"
-  "  </PropertyGroup>\n"
-  "</Project>\n"
-)
-endif()
-
 
 ################################################################
 # Generate executable

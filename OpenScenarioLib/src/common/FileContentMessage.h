@@ -58,7 +58,7 @@ namespace RAC_OPENSCENARIO
         bool operator==(const FileContentMessage& rhs) const
         {
             //TODO: check if the dyncamic cast is necessary or if this will already be ensured
-            return strcmp(rhs.ToString().c_str(), this->ToString().c_str());
+            return rhs.ToString() == this->ToString();
         }
 
         int HashCode() const { return std::hash<std::string>{}(this->ToString()); }

@@ -46,13 +46,16 @@ namespace RAC_OPENSCENARIO
                 auto parser = this->FindParser(tagName);
                 auto start = indexedElement->GetStartElementLocation();
 
-                if (parser)
+                if (parser == nullptr)
                 {
-                    const auto kIt = _occuredElementList.find(this->_parsers[0]);
-                    if (kIt != _occuredElementList.end() && this->_parsers.size() == 1 && kIt->second >= this->_parsers[0]->GetMinOccur())
+                    if (this->_parsers.size() >= 1)
                     {
-                        // We are done
-                        break;
+                        const auto kIt = _occuredElementList.find(this->_parsers[0]);
+                        if (kIt != _occuredElementList.end() && kIt->second >= this->_parsers[0]->GetMinOccur())
+                        {
+                            // We are done
+                            break;
+                        }
                     }
                     else
                     {
@@ -73,6 +76,7 @@ namespace RAC_OPENSCENARIO
                             currentOccurs = it->second;
                             break;
                         }
+                        it++;
                     }
                     if (currentOccurs < parser->GetMaxOccur())
                     {

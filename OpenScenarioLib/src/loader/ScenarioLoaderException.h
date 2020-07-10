@@ -19,7 +19,7 @@ namespace RAC_OPENSCENARIO
          * Constructor
          * @param message text message
          */
-        ScenarioLoaderException(std::string& message) :_msg(message) {}
+        ScenarioLoaderException(std::string message) :_msg(message) {}
 
         char const * what() const override
         {

@@ -61,7 +61,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AbsoluteSpeedImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -121,7 +121,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AbsoluteTargetLaneImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -182,7 +182,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AbsoluteTargetLaneOffsetImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -242,7 +242,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AbsoluteTargetSpeedImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -310,7 +310,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AccelerationConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -370,7 +370,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AcquirePositionActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -454,7 +454,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ActImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -541,7 +541,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -611,7 +611,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ActivateControllerActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -680,7 +680,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ActorsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -740,7 +740,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AddEntityActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -809,7 +809,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AssignControllerActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -878,7 +878,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AssignRouteActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -975,7 +975,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AxleImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1051,7 +1051,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<AxlesImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1120,7 +1120,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<BoundingBoxImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1189,7 +1189,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ByEntityConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1249,7 +1249,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ByObjectTypeImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1310,7 +1310,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ByTypeImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1425,7 +1425,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ByValueConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1555,7 +1555,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CatalogImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1615,7 +1615,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CatalogDefinitionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1739,7 +1739,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CatalogLocationsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1825,7 +1825,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CatalogReferenceImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1901,7 +1901,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CenterImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -1962,7 +1962,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CentralSwarmObjectImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2065,7 +2065,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ClothoidImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2134,7 +2134,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CollisionConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2228,7 +2228,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2288,7 +2288,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ConditionGroupImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2366,7 +2366,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ControlPointImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2444,7 +2444,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ControllerImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2513,7 +2513,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ControllerActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2573,7 +2573,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ControllerCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2634,7 +2634,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ControllerDistributionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2710,7 +2710,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ControllerDistributionEntryImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2780,7 +2780,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<CustomCommandActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2832,7 +2832,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<DeleteEntityActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2911,7 +2911,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<DimensionsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -2971,7 +2971,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<DirectoryImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3065,7 +3065,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<DistanceConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3144,7 +3144,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<DynamicConstraintsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3204,7 +3204,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EndOfRoadConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3273,7 +3273,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EntitiesImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3351,7 +3351,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EntityActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3520,7 +3520,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EntityConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3605,7 +3605,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EntityObjectImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3665,7 +3665,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EntityRefImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3734,7 +3734,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EntitySelectionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3828,7 +3828,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EnvironmentImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3896,7 +3896,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EnvironmentActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3956,7 +3956,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EnvironmentCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -3987,7 +3987,7 @@ namespace RAC_OPENSCENARIO
     {
     private:
         Priority _priority {};
-        unsigned int _maximumExecutionCount {};
+        long long _maximumExecutionCount {};
         std::string _name {};
         std::vector<std::shared_ptr<IAction>> _actions {};
         std::shared_ptr<ITrigger> _startTrigger {};
@@ -3996,7 +3996,7 @@ namespace RAC_OPENSCENARIO
         EventImpl();
 
         Priority GetPriority() override;
-        unsigned int GetMaximumExecutionCount() override;
+        long long GetMaximumExecutionCount() override;
         std::string GetName() override;
         std::vector<std::shared_ptr<IAction>> GetActions() override;
         std::shared_ptr<ITrigger> GetStartTrigger() override;
@@ -4013,7 +4013,7 @@ namespace RAC_OPENSCENARIO
 	 * is 1. Range: [1..inf[.]
 	 * 
 	*/
-        void SetMaximumExecutionCount (unsigned int maximumExecutionCount );
+        void SetMaximumExecutionCount (long long maximumExecutionCount );
 	/**
 	 * Sets the value of model property name
 	 * @param name from OpenSCENARIO class model specification: [Name of the event.]
@@ -4050,7 +4050,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<EventImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4111,7 +4111,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<FileImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4141,8 +4141,8 @@ namespace RAC_OPENSCENARIO
     class FileHeaderImpl: public BaseImpl, public IFileHeader
     {
     private:
-        unsigned short _revMajor {};
-        unsigned short _revMinor {};
+        long _revMajor {};
+        long _revMinor {};
         DateTime _date {};
         std::string _description {};
         std::string _author {};
@@ -4150,8 +4150,8 @@ namespace RAC_OPENSCENARIO
     public:
         FileHeaderImpl();
 
-        unsigned short GetRevMajor() override;
-        unsigned short GetRevMinor() override;
+        long GetRevMajor() override;
+        long GetRevMinor() override;
         DateTime GetDate() override;
         std::string GetDescription() override;
         std::string GetAuthor() override;
@@ -4162,14 +4162,14 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void SetRevMajor (unsigned short revMajor );
+        void SetRevMajor (long revMajor );
 	/**
 	 * Sets the value of model property revMinor
 	 * @param revMinor from OpenSCENARIO class model specification: [Minor OpenSCENARIO revision, this file conforms to Range: 
 	 * [0..inf[.]
 	 * 
 	*/
-        void SetRevMinor (unsigned short revMinor );
+        void SetRevMinor (long revMinor );
 	/**
 	 * Sets the value of model property date
 	 * @param date from OpenSCENARIO class model specification: [User specific date and time recommended: YYYY-MM-DDThh:mm:ss.]
@@ -4205,7 +4205,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<FileHeaderImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4275,7 +4275,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<FinalSpeedImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4343,7 +4343,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<FogImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4430,7 +4430,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<FollowTrajectoryActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4523,7 +4523,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<GlobalActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4600,7 +4600,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<InRoutePositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4661,7 +4661,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<InfrastructureActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4722,7 +4722,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<InitImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4798,7 +4798,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<InitActionsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4858,7 +4858,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<KnotImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -4935,7 +4935,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LaneChangeActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5004,7 +5004,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LaneChangeTargetImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5083,7 +5083,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LaneOffsetActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5153,7 +5153,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LaneOffsetActionDynamicsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5223,7 +5223,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LaneOffsetTargetImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5318,7 +5318,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LanePositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5395,7 +5395,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LateralActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5491,7 +5491,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LateralDistanceActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5561,7 +5561,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LongitudinalActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5666,7 +5666,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<LongitudinalDistanceActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5744,7 +5744,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ManeuverImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5804,7 +5804,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ManeuverCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -5834,7 +5834,7 @@ namespace RAC_OPENSCENARIO
     class ManeuverGroupImpl: public BaseImpl, public IManeuverGroup
     {
     private:
-        unsigned int _maximumExecutionCount {};
+        long long _maximumExecutionCount {};
         std::string _name {};
         std::shared_ptr<IActors> _actors {};
         std::vector<std::shared_ptr<ICatalogReference>> _catalogReferences {};
@@ -5843,7 +5843,7 @@ namespace RAC_OPENSCENARIO
     public:
         ManeuverGroupImpl();
 
-        unsigned int GetMaximumExecutionCount() override;
+        long long GetMaximumExecutionCount() override;
         std::string GetName() override;
         std::shared_ptr<IActors> GetActors() override;
         std::vector<std::shared_ptr<ICatalogReference>> GetCatalogReferences() override;
@@ -5855,7 +5855,7 @@ namespace RAC_OPENSCENARIO
 	 * group. Default value is 1. Range: [1..inf[.]
 	 * 
 	*/
-        void SetMaximumExecutionCount (unsigned int maximumExecutionCount );
+        void SetMaximumExecutionCount (long long maximumExecutionCount );
 	/**
 	 * Sets the value of model property name
 	 * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
@@ -5898,7 +5898,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ManeuverGroupImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6000,7 +6000,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<MiscObjectImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6060,7 +6060,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<MiscObjectCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6128,7 +6128,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ModifyRuleImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6180,7 +6180,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<NoneImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6210,14 +6210,14 @@ namespace RAC_OPENSCENARIO
     class NurbsImpl: public BaseImpl, public INurbs
     {
     private:
-        unsigned int _order {};
+        long long _order {};
         std::vector<std::shared_ptr<IControlPoint>> _controlPoints {};
         std::vector<std::shared_ptr<IKnot>> _knots {};
 
     public:
         NurbsImpl();
 
-        unsigned int GetOrder() override;
+        long long GetOrder() override;
         std::vector<std::shared_ptr<IControlPoint>> GetControlPoints() override;
         std::vector<std::shared_ptr<IKnot>> GetKnots() override;
 
@@ -6227,7 +6227,7 @@ namespace RAC_OPENSCENARIO
 	 * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
 	 * 
 	*/
-        void SetOrder (unsigned int order );
+        void SetOrder (long long order );
 	/**
 	 * Sets the value of model property controlPoints
 	 * @param controlPoints from OpenSCENARIO class model specification: [Control point vector of the NURBS trajectory. The 
@@ -6260,7 +6260,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<NurbsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6328,7 +6328,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ObjectControllerImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6389,7 +6389,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OffroadConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6458,7 +6458,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OpenScenarioImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6526,7 +6526,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OpenScenarioCategoryImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6610,7 +6610,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OrientationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6679,7 +6679,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OverrideBrakeActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6748,7 +6748,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OverrideClutchActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6849,7 +6849,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OverrideControllerValueActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6917,7 +6917,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OverrideGearActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -6986,7 +6986,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OverrideParkingBrakeActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7054,7 +7054,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OverrideSteeringWheelActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7123,7 +7123,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<OverrideThrottleActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7200,7 +7200,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7260,7 +7260,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterAddValueRuleImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7330,7 +7330,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterAssignmentImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7406,7 +7406,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7482,7 +7482,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterDeclarationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7543,7 +7543,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterModifyActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7604,7 +7604,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterMultiplyByValueRuleImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7664,7 +7664,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ParameterSetActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7774,7 +7774,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PedestrianImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7834,7 +7834,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PedestrianCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7912,7 +7912,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PerformanceImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -7990,7 +7990,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PhaseImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8050,7 +8050,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PolylineImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8171,7 +8171,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8249,7 +8249,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PositionInLaneCoordinatesImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8319,7 +8319,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PositionInRoadCoordinatesImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8379,7 +8379,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PositionOfCurrentEntityImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8447,7 +8447,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PrecipitationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8516,7 +8516,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PrivateImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8640,7 +8640,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PrivateActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8711,7 +8711,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PropertiesImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8779,7 +8779,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<PropertyImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8848,7 +8848,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ReachPositionConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -8941,7 +8941,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeDistanceConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9035,7 +9035,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeLanePositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9131,7 +9131,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeObjectPositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9218,7 +9218,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeRoadPositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9294,7 +9294,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeSpeedConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9363,7 +9363,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeSpeedToMasterImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9432,7 +9432,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeTargetLaneImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9501,7 +9501,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeTargetLaneOffsetImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9591,7 +9591,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeTargetSpeedImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9685,7 +9685,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RelativeWorldPositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9753,7 +9753,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RoadConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9832,7 +9832,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RoadNetworkImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -9919,7 +9919,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RoadPositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10006,7 +10006,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RouteImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10066,7 +10066,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RouteCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10144,7 +10144,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RoutePositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10212,7 +10212,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RouteRefImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10290,7 +10290,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<RoutingActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10388,7 +10388,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ScenarioDefinitionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10465,7 +10465,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ScenarioObjectImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10534,7 +10534,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<SelectedEntitiesImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10610,7 +10610,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<ShapeImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10678,7 +10678,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<SimulationTimeConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10747,7 +10747,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<SpeedActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10817,7 +10817,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<SpeedActionTargetImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10885,7 +10885,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<SpeedConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -10946,7 +10946,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<StandStillConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11025,7 +11025,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<StoryImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11102,7 +11102,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<StoryboardImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11179,7 +11179,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<StoryboardElementStateConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11258,7 +11258,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<SunImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11344,7 +11344,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<SynchronizeActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11404,7 +11404,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TeleportActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11498,7 +11498,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TimeHeadwayConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11567,7 +11567,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TimeOfDayImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11635,7 +11635,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TimeOfDayConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11705,7 +11705,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TimeReferenceImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11800,7 +11800,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TimeToCollisionConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11868,7 +11868,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TimeToCollisionConditionTargetImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -11948,7 +11948,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TimingImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12027,7 +12027,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12105,7 +12105,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficDefinitionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12175,7 +12175,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSignalActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12245,7 +12245,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSignalConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12334,7 +12334,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSignalControllerImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12413,7 +12413,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSignalControllerActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12493,7 +12493,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSignalControllerConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12563,7 +12563,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSignalStateImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12633,7 +12633,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSignalStateActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12720,7 +12720,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSinkActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12816,7 +12816,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSourceActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -12850,7 +12850,7 @@ namespace RAC_OPENSCENARIO
         double _semiMinorAxis {};
         double _innerRadius {};
         double _offset {};
-        unsigned int _numberOfVehicles {};
+        long long _numberOfVehicles {};
         double _velocity {};
         std::shared_ptr<ICentralSwarmObject> _centralObject {};
         std::shared_ptr<ITrafficDefinition> _trafficDefinition {};
@@ -12862,7 +12862,7 @@ namespace RAC_OPENSCENARIO
         double GetSemiMinorAxis() override;
         double GetInnerRadius() override;
         double GetOffset() override;
-        unsigned int GetNumberOfVehicles() override;
+        long long GetNumberOfVehicles() override;
         double GetVelocity() override;
         std::shared_ptr<ICentralSwarmObject> GetCentralObject() override;
         std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() override;
@@ -12903,7 +12903,7 @@ namespace RAC_OPENSCENARIO
 	 * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
 	 * 
 	*/
-        void SetNumberOfVehicles (unsigned int numberOfVehicles );
+        void SetNumberOfVehicles (long long numberOfVehicles );
 	/**
 	 * Sets the value of model property velocity
 	 * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a created entity. Unit: 
@@ -12941,7 +12941,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrafficSwarmActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13027,7 +13027,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrajectoryImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13087,7 +13087,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrajectoryCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13150,7 +13150,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TrajectoryFollowingModeImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13229,7 +13229,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TransitionDynamicsImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13289,7 +13289,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TraveledDistanceConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13350,7 +13350,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TriggerImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13418,7 +13418,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<TriggeringEntitiesImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13479,7 +13479,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<UserDefinedActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13555,7 +13555,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<UserDefinedValueConditionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13667,7 +13667,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<VehicleImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13727,7 +13727,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<VehicleCatalogLocationImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13788,7 +13788,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<VehicleCategoryDistributionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13857,7 +13857,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<VehicleCategoryDistributionEntryImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -13925,7 +13925,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<VertexImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -14004,7 +14004,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<VisibilityActionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -14073,7 +14073,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<WaypointImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -14159,7 +14159,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<WeatherImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {
@@ -14262,7 +14262,7 @@ namespace RAC_OPENSCENARIO
         * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
         * @return a deep copy of the object.
         */
-        std::shared_ptr<WorldPositionImpl> Clone();
+        std::shared_ptr<BaseImpl> Clone() override;
 
         std::shared_ptr<Object> GetAdapter(const std::string classifier) override
         {

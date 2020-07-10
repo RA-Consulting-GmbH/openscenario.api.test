@@ -65,7 +65,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AbsoluteSpeedImpl> AbsoluteSpeedImpl::Clone()
+    std::shared_ptr<BaseImpl> AbsoluteSpeedImpl::Clone()
     {
         auto clonedObject = std::make_shared<AbsoluteSpeedImpl>();
         CloneStartMarker(*clonedObject);
@@ -142,7 +142,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AbsoluteTargetLaneImpl> AbsoluteTargetLaneImpl::Clone()
+    std::shared_ptr<BaseImpl> AbsoluteTargetLaneImpl::Clone()
     {
         auto clonedObject = std::make_shared<AbsoluteTargetLaneImpl>();
         CloneStartMarker(*clonedObject);
@@ -220,7 +220,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AbsoluteTargetLaneOffsetImpl> AbsoluteTargetLaneOffsetImpl::Clone()
+    std::shared_ptr<BaseImpl> AbsoluteTargetLaneOffsetImpl::Clone()
     {
         auto clonedObject = std::make_shared<AbsoluteTargetLaneOffsetImpl>();
         CloneStartMarker(*clonedObject);
@@ -297,7 +297,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AbsoluteTargetSpeedImpl> AbsoluteTargetSpeedImpl::Clone()
+    std::shared_ptr<BaseImpl> AbsoluteTargetSpeedImpl::Clone()
     {
         auto clonedObject = std::make_shared<AbsoluteTargetSpeedImpl>();
         CloneStartMarker(*clonedObject);
@@ -403,7 +403,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AccelerationConditionImpl> AccelerationConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> AccelerationConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<AccelerationConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -480,7 +480,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AcquirePositionActionImpl> AcquirePositionActionImpl::Clone()
+    std::shared_ptr<BaseImpl> AcquirePositionActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<AcquirePositionActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -620,7 +620,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ActImpl> ActImpl::Clone()
+    std::shared_ptr<BaseImpl> ActImpl::Clone()
     {
         auto clonedObject = std::make_shared<ActImpl>();
         CloneStartMarker(*clonedObject);
@@ -641,7 +641,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ManeuverGroupImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ManeuverGroupImpl>(clonedChild));
             }
             clonedObject->SetManeuverGroups(clonedList);
         }
@@ -782,7 +782,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ActionImpl> ActionImpl::Clone()
+    std::shared_ptr<BaseImpl> ActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -905,7 +905,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ActivateControllerActionImpl> ActivateControllerActionImpl::Clone()
+    std::shared_ptr<BaseImpl> ActivateControllerActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ActivateControllerActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -1006,7 +1006,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ActorsImpl> ActorsImpl::Clone()
+    std::shared_ptr<BaseImpl> ActorsImpl::Clone()
     {
         auto clonedObject = std::make_shared<ActorsImpl>();
         CloneStartMarker(*clonedObject);
@@ -1027,7 +1027,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<EntityRefImpl>(clonedChild));
             }
             clonedObject->SetEntityRefs(clonedList);
         }
@@ -1093,7 +1093,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AddEntityActionImpl> AddEntityActionImpl::Clone()
+    std::shared_ptr<BaseImpl> AddEntityActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<AddEntityActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -1193,7 +1193,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AssignControllerActionImpl> AssignControllerActionImpl::Clone()
+    std::shared_ptr<BaseImpl> AssignControllerActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<AssignControllerActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -1301,7 +1301,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AssignRouteActionImpl> AssignRouteActionImpl::Clone()
+    std::shared_ptr<BaseImpl> AssignRouteActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<AssignRouteActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -1477,7 +1477,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AxleImpl> AxleImpl::Clone()
+    std::shared_ptr<BaseImpl> AxleImpl::Clone()
     {
         auto clonedObject = std::make_shared<AxleImpl>();
         CloneStartMarker(*clonedObject);
@@ -1599,7 +1599,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<AxlesImpl> AxlesImpl::Clone()
+    std::shared_ptr<BaseImpl> AxlesImpl::Clone()
     {
         auto clonedObject = std::make_shared<AxlesImpl>();
         CloneStartMarker(*clonedObject);
@@ -1634,7 +1634,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<AxleImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<AxleImpl>(clonedChild));
             }
             clonedObject->SetAdditionalAxles(clonedList);
         }
@@ -1719,7 +1719,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<BoundingBoxImpl> BoundingBoxImpl::Clone()
+    std::shared_ptr<BaseImpl> BoundingBoxImpl::Clone()
     {
         auto clonedObject = std::make_shared<BoundingBoxImpl>();
         CloneStartMarker(*clonedObject);
@@ -1827,7 +1827,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ByEntityConditionImpl> ByEntityConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> ByEntityConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ByEntityConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -1927,7 +1927,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ByObjectTypeImpl> ByObjectTypeImpl::Clone()
+    std::shared_ptr<BaseImpl> ByObjectTypeImpl::Clone()
     {
         auto clonedObject = std::make_shared<ByObjectTypeImpl>();
         CloneStartMarker(*clonedObject);
@@ -2014,7 +2014,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ByTypeImpl> ByTypeImpl::Clone()
+    std::shared_ptr<BaseImpl> ByTypeImpl::Clone()
     {
         auto clonedObject = std::make_shared<ByTypeImpl>();
         CloneStartMarker(*clonedObject);
@@ -2204,7 +2204,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ByValueConditionImpl> ByValueConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> ByValueConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ByValueConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -2509,7 +2509,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CatalogImpl> CatalogImpl::Clone()
+    std::shared_ptr<BaseImpl> CatalogImpl::Clone()
     {
         auto clonedObject = std::make_shared<CatalogImpl>();
         CloneStartMarker(*clonedObject);
@@ -2530,7 +2530,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<VehicleImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<VehicleImpl>(clonedChild));
             }
             clonedObject->SetVehicles(clonedList);
         }
@@ -2542,7 +2542,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ControllerImpl>(clonedChild));
             }
             clonedObject->SetControllers(clonedList);
         }
@@ -2554,7 +2554,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<PedestrianImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<PedestrianImpl>(clonedChild));
             }
             clonedObject->SetPedestrians(clonedList);
         }
@@ -2566,7 +2566,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<MiscObjectImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<MiscObjectImpl>(clonedChild));
             }
             clonedObject->SetMiscObjects(clonedList);
         }
@@ -2578,7 +2578,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<EnvironmentImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<EnvironmentImpl>(clonedChild));
             }
             clonedObject->SetEnvironments(clonedList);
         }
@@ -2590,7 +2590,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ManeuverImpl>(clonedChild));
             }
             clonedObject->SetManeuvers(clonedList);
         }
@@ -2602,7 +2602,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrajectoryImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<TrajectoryImpl>(clonedChild));
             }
             clonedObject->SetTrajectories(clonedList);
         }
@@ -2614,7 +2614,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<RouteImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<RouteImpl>(clonedChild));
             }
             clonedObject->SetRoutes(clonedList);
         }
@@ -2680,7 +2680,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CatalogDefinitionImpl> CatalogDefinitionImpl::Clone()
+    std::shared_ptr<BaseImpl> CatalogDefinitionImpl::Clone()
     {
         auto clonedObject = std::make_shared<CatalogDefinitionImpl>();
         CloneStartMarker(*clonedObject);
@@ -2895,7 +2895,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CatalogLocationsImpl> CatalogLocationsImpl::Clone()
+    std::shared_ptr<BaseImpl> CatalogLocationsImpl::Clone()
     {
         auto clonedObject = std::make_shared<CatalogLocationsImpl>();
         CloneStartMarker(*clonedObject);
@@ -3090,7 +3090,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CatalogReferenceImpl> CatalogReferenceImpl::Clone()
+    std::shared_ptr<BaseImpl> CatalogReferenceImpl::Clone()
     {
         auto clonedObject = std::make_shared<CatalogReferenceImpl>();
         CloneStartMarker(*clonedObject);
@@ -3113,7 +3113,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterAssignmentImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterAssignmentImpl>(clonedChild));
             }
             clonedObject->SetParameterAssignments(clonedList);
         }
@@ -3221,7 +3221,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CenterImpl> CenterImpl::Clone()
+    std::shared_ptr<BaseImpl> CenterImpl::Clone()
     {
         auto clonedObject = std::make_shared<CenterImpl>();
         CloneStartMarker(*clonedObject);
@@ -3303,7 +3303,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CentralSwarmObjectImpl> CentralSwarmObjectImpl::Clone()
+    std::shared_ptr<BaseImpl> CentralSwarmObjectImpl::Clone()
     {
         auto clonedObject = std::make_shared<CentralSwarmObjectImpl>();
         CloneStartMarker(*clonedObject);
@@ -3483,7 +3483,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ClothoidImpl> ClothoidImpl::Clone()
+    std::shared_ptr<BaseImpl> ClothoidImpl::Clone()
     {
         auto clonedObject = std::make_shared<ClothoidImpl>();
         CloneStartMarker(*clonedObject);
@@ -3593,7 +3593,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CollisionConditionImpl> CollisionConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> CollisionConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<CollisionConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -3771,7 +3771,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ConditionImpl> ConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> ConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -3869,7 +3869,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ConditionGroupImpl> ConditionGroupImpl::Clone()
+    std::shared_ptr<BaseImpl> ConditionGroupImpl::Clone()
     {
         auto clonedObject = std::make_shared<ConditionGroupImpl>();
         CloneStartMarker(*clonedObject);
@@ -3888,7 +3888,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ConditionImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ConditionImpl>(clonedChild));
             }
             clonedObject->SetConditions(clonedList);
         }
@@ -3996,7 +3996,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ControlPointImpl> ControlPointImpl::Clone()
+    std::shared_ptr<BaseImpl> ControlPointImpl::Clone()
     {
         auto clonedObject = std::make_shared<ControlPointImpl>();
         CloneStartMarker(*clonedObject);
@@ -4142,7 +4142,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ControllerImpl> ControllerImpl::Clone()
+    std::shared_ptr<BaseImpl> ControllerImpl::Clone()
     {
         auto clonedObject = std::make_shared<ControllerImpl>();
         CloneStartMarker(*clonedObject);
@@ -4163,7 +4163,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -4256,7 +4256,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ControllerActionImpl> ControllerActionImpl::Clone()
+    std::shared_ptr<BaseImpl> ControllerActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ControllerActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -4345,7 +4345,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ControllerCatalogLocationImpl> ControllerCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> ControllerCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<ControllerCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -4430,7 +4430,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ControllerDistributionImpl> ControllerDistributionImpl::Clone()
+    std::shared_ptr<BaseImpl> ControllerDistributionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ControllerDistributionImpl>();
         CloneStartMarker(*clonedObject);
@@ -4449,7 +4449,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerDistributionEntryImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ControllerDistributionEntryImpl>(clonedChild));
             }
             clonedObject->SetControllerDistributionEntries(clonedList);
         }
@@ -4553,7 +4553,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ControllerDistributionEntryImpl> ControllerDistributionEntryImpl::Clone()
+    std::shared_ptr<BaseImpl> ControllerDistributionEntryImpl::Clone()
     {
         auto clonedObject = std::make_shared<ControllerDistributionEntryImpl>();
         CloneStartMarker(*clonedObject);
@@ -4668,7 +4668,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<CustomCommandActionImpl> CustomCommandActionImpl::Clone()
+    std::shared_ptr<BaseImpl> CustomCommandActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<CustomCommandActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -4725,7 +4725,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<DeleteEntityActionImpl> DeleteEntityActionImpl::Clone()
+    std::shared_ptr<BaseImpl> DeleteEntityActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<DeleteEntityActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -4843,7 +4843,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<DimensionsImpl> DimensionsImpl::Clone()
+    std::shared_ptr<BaseImpl> DimensionsImpl::Clone()
     {
         auto clonedObject = std::make_shared<DimensionsImpl>();
         CloneStartMarker(*clonedObject);
@@ -4924,7 +4924,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<DirectoryImpl> DirectoryImpl::Clone()
+    std::shared_ptr<BaseImpl> DirectoryImpl::Clone()
     {
         auto clonedObject = std::make_shared<DirectoryImpl>();
         CloneStartMarker(*clonedObject);
@@ -5090,7 +5090,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<DistanceConditionImpl> DistanceConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> DistanceConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<DistanceConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -5224,7 +5224,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<DynamicConstraintsImpl> DynamicConstraintsImpl::Clone()
+    std::shared_ptr<BaseImpl> DynamicConstraintsImpl::Clone()
     {
         auto clonedObject = std::make_shared<DynamicConstraintsImpl>();
         CloneStartMarker(*clonedObject);
@@ -5305,7 +5305,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EndOfRoadConditionImpl> EndOfRoadConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> EndOfRoadConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<EndOfRoadConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -5405,7 +5405,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EntitiesImpl> EntitiesImpl::Clone()
+    std::shared_ptr<BaseImpl> EntitiesImpl::Clone()
     {
         auto clonedObject = std::make_shared<EntitiesImpl>();
         CloneStartMarker(*clonedObject);
@@ -5424,7 +5424,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ScenarioObjectImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ScenarioObjectImpl>(clonedChild));
             }
             clonedObject->SetScenarioObjects(clonedList);
         }
@@ -5436,7 +5436,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntitySelectionImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<EntitySelectionImpl>(clonedChild));
             }
             clonedObject->SetEntitySelections(clonedList);
         }
@@ -5542,7 +5542,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EntityActionImpl> EntityActionImpl::Clone()
+    std::shared_ptr<BaseImpl> EntityActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<EntityActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -5864,7 +5864,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EntityConditionImpl> EntityConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> EntityConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<EntityConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -6096,7 +6096,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EntityObjectImpl> EntityObjectImpl::Clone()
+    std::shared_ptr<BaseImpl> EntityObjectImpl::Clone()
     {
         auto clonedObject = std::make_shared<EntityObjectImpl>();
         CloneStartMarker(*clonedObject);
@@ -6203,7 +6203,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EntityRefImpl> EntityRefImpl::Clone()
+    std::shared_ptr<BaseImpl> EntityRefImpl::Clone()
     {
         auto clonedObject = std::make_shared<EntityRefImpl>();
         CloneStartMarker(*clonedObject);
@@ -6301,7 +6301,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EntitySelectionImpl> EntitySelectionImpl::Clone()
+    std::shared_ptr<BaseImpl> EntitySelectionImpl::Clone()
     {
         auto clonedObject = std::make_shared<EntitySelectionImpl>();
         CloneStartMarker(*clonedObject);
@@ -6481,7 +6481,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EnvironmentImpl> EnvironmentImpl::Clone()
+    std::shared_ptr<BaseImpl> EnvironmentImpl::Clone()
     {
         auto clonedObject = std::make_shared<EnvironmentImpl>();
         CloneStartMarker(*clonedObject);
@@ -6502,7 +6502,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -6610,7 +6610,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EnvironmentActionImpl> EnvironmentActionImpl::Clone()
+    std::shared_ptr<BaseImpl> EnvironmentActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<EnvironmentActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -6699,7 +6699,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EnvironmentCatalogLocationImpl> EnvironmentCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> EnvironmentCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<EnvironmentCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -6730,7 +6730,7 @@ namespace RAC_OPENSCENARIO
         * Filling the property to type map
         */
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, typeid(std::string).name());
-        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(unsigned int).name());
+        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(long long).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
     }
 
@@ -6738,7 +6738,7 @@ namespace RAC_OPENSCENARIO
     {
         return _priority;
     }
-    unsigned int EventImpl::GetMaximumExecutionCount()
+    long long EventImpl::GetMaximumExecutionCount()
     {
         return _maximumExecutionCount;
     }
@@ -6770,7 +6770,7 @@ namespace RAC_OPENSCENARIO
 	 * is 1. Range: [1..inf[.]
 	 * 
 	*/
-    void EventImpl::SetMaximumExecutionCount(const unsigned int maximumExecutionCount )
+    void EventImpl::SetMaximumExecutionCount(const long long maximumExecutionCount )
     {
         _maximumExecutionCount = maximumExecutionCount;
     }
@@ -6872,7 +6872,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<EventImpl> EventImpl::Clone()
+    std::shared_ptr<BaseImpl> EventImpl::Clone()
     {
         auto clonedObject = std::make_shared<EventImpl>();
         CloneStartMarker(*clonedObject);
@@ -6897,7 +6897,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ActionImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ActionImpl>(clonedChild));
             }
             clonedObject->SetActions(clonedList);
         }
@@ -6974,7 +6974,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<FileImpl> FileImpl::Clone()
+    std::shared_ptr<BaseImpl> FileImpl::Clone()
     {
         auto clonedObject = std::make_shared<FileImpl>();
         CloneStartMarker(*clonedObject);
@@ -6998,18 +6998,18 @@ namespace RAC_OPENSCENARIO
         /**
         * Filling the property to type map
         */
-        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, typeid(unsigned short).name());
-        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, typeid(unsigned short).name());
+        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, typeid(long).name());
+        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, typeid(long).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE, typeid(DateTime).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, typeid(std::string).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, typeid(std::string).name());
     }
 
-    unsigned short FileHeaderImpl::GetRevMajor()
+    long FileHeaderImpl::GetRevMajor()
     {
         return _revMajor;
     }
-    unsigned short FileHeaderImpl::GetRevMinor()
+    long FileHeaderImpl::GetRevMinor()
     {
         return _revMinor;
     }
@@ -7032,7 +7032,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void FileHeaderImpl::SetRevMajor(const unsigned short revMajor )
+    void FileHeaderImpl::SetRevMajor(const long revMajor )
     {
         _revMajor = revMajor;
     }
@@ -7042,7 +7042,7 @@ namespace RAC_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-    void FileHeaderImpl::SetRevMinor(const unsigned short revMinor )
+    void FileHeaderImpl::SetRevMinor(const long revMinor )
     {
         _revMinor = revMinor;
     }
@@ -7133,7 +7133,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<FileHeaderImpl> FileHeaderImpl::Clone()
+    std::shared_ptr<BaseImpl> FileHeaderImpl::Clone()
     {
         auto clonedObject = std::make_shared<FileHeaderImpl>();
         CloneStartMarker(*clonedObject);
@@ -7236,7 +7236,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<FinalSpeedImpl> FinalSpeedImpl::Clone()
+    std::shared_ptr<BaseImpl> FinalSpeedImpl::Clone()
     {
         auto clonedObject = std::make_shared<FinalSpeedImpl>();
         CloneStartMarker(*clonedObject);
@@ -7345,7 +7345,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<FogImpl> FogImpl::Clone()
+    std::shared_ptr<BaseImpl> FogImpl::Clone()
     {
         auto clonedObject = std::make_shared<FogImpl>();
         CloneStartMarker(*clonedObject);
@@ -7485,7 +7485,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<FollowTrajectoryActionImpl> FollowTrajectoryActionImpl::Clone()
+    std::shared_ptr<BaseImpl> FollowTrajectoryActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<FollowTrajectoryActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -7663,7 +7663,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<GlobalActionImpl> GlobalActionImpl::Clone()
+    std::shared_ptr<BaseImpl> GlobalActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<GlobalActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -7813,7 +7813,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<InRoutePositionImpl> InRoutePositionImpl::Clone()
+    std::shared_ptr<BaseImpl> InRoutePositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<InRoutePositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -7911,7 +7911,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<InfrastructureActionImpl> InfrastructureActionImpl::Clone()
+    std::shared_ptr<BaseImpl> InfrastructureActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<InfrastructureActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -7993,7 +7993,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<InitImpl> InitImpl::Clone()
+    std::shared_ptr<BaseImpl> InitImpl::Clone()
     {
         auto clonedObject = std::make_shared<InitImpl>();
         CloneStartMarker(*clonedObject);
@@ -8119,7 +8119,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<InitActionsImpl> InitActionsImpl::Clone()
+    std::shared_ptr<BaseImpl> InitActionsImpl::Clone()
     {
         auto clonedObject = std::make_shared<InitActionsImpl>();
         CloneStartMarker(*clonedObject);
@@ -8138,7 +8138,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<GlobalActionImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<GlobalActionImpl>(clonedChild));
             }
             clonedObject->SetGlobalActions(clonedList);
         }
@@ -8150,7 +8150,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<UserDefinedActionImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<UserDefinedActionImpl>(clonedChild));
             }
             clonedObject->SetUserDefinedActions(clonedList);
         }
@@ -8162,7 +8162,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<PrivateImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<PrivateImpl>(clonedChild));
             }
             clonedObject->SetPrivates(clonedList);
         }
@@ -8230,7 +8230,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<KnotImpl> KnotImpl::Clone()
+    std::shared_ptr<BaseImpl> KnotImpl::Clone()
     {
         auto clonedObject = std::make_shared<KnotImpl>();
         CloneStartMarker(*clonedObject);
@@ -8344,7 +8344,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LaneChangeActionImpl> LaneChangeActionImpl::Clone()
+    std::shared_ptr<BaseImpl> LaneChangeActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<LaneChangeActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -8454,7 +8454,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LaneChangeTargetImpl> LaneChangeTargetImpl::Clone()
+    std::shared_ptr<BaseImpl> LaneChangeTargetImpl::Clone()
     {
         auto clonedObject = std::make_shared<LaneChangeTargetImpl>();
         CloneStartMarker(*clonedObject);
@@ -8584,7 +8584,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LaneOffsetActionImpl> LaneOffsetActionImpl::Clone()
+    std::shared_ptr<BaseImpl> LaneOffsetActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<LaneOffsetActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -8708,7 +8708,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LaneOffsetActionDynamicsImpl> LaneOffsetActionDynamicsImpl::Clone()
+    std::shared_ptr<BaseImpl> LaneOffsetActionDynamicsImpl::Clone()
     {
         auto clonedObject = std::make_shared<LaneOffsetActionDynamicsImpl>();
         CloneStartMarker(*clonedObject);
@@ -8805,7 +8805,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LaneOffsetTargetImpl> LaneOffsetTargetImpl::Clone()
+    std::shared_ptr<BaseImpl> LaneOffsetTargetImpl::Clone()
     {
         auto clonedObject = std::make_shared<LaneOffsetTargetImpl>();
         CloneStartMarker(*clonedObject);
@@ -8977,7 +8977,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LanePositionImpl> LanePositionImpl::Clone()
+    std::shared_ptr<BaseImpl> LanePositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<LanePositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -9103,7 +9103,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LateralActionImpl> LateralActionImpl::Clone()
+    std::shared_ptr<BaseImpl> LateralActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<LateralActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -9284,7 +9284,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LateralDistanceActionImpl> LateralDistanceActionImpl::Clone()
+    std::shared_ptr<BaseImpl> LateralDistanceActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<LateralDistanceActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -9395,7 +9395,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LongitudinalActionImpl> LongitudinalActionImpl::Clone()
+    std::shared_ptr<BaseImpl> LongitudinalActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<LongitudinalActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -9589,7 +9589,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<LongitudinalDistanceActionImpl> LongitudinalDistanceActionImpl::Clone()
+    std::shared_ptr<BaseImpl> LongitudinalDistanceActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<LongitudinalDistanceActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -9746,7 +9746,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ManeuverImpl> ManeuverImpl::Clone()
+    std::shared_ptr<BaseImpl> ManeuverImpl::Clone()
     {
         auto clonedObject = std::make_shared<ManeuverImpl>();
         CloneStartMarker(*clonedObject);
@@ -9767,7 +9767,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -9779,7 +9779,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<EventImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<EventImpl>(clonedChild));
             }
             clonedObject->SetEvents(clonedList);
         }
@@ -9845,7 +9845,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ManeuverCatalogLocationImpl> ManeuverCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> ManeuverCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<ManeuverCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -9875,11 +9875,11 @@ namespace RAC_OPENSCENARIO
         /**
         * Filling the property to type map
         */
-        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(unsigned int).name());
+        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(long long).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
     }
 
-    unsigned int ManeuverGroupImpl::GetMaximumExecutionCount()
+    long long ManeuverGroupImpl::GetMaximumExecutionCount()
     {
         return _maximumExecutionCount;
     }
@@ -9906,7 +9906,7 @@ namespace RAC_OPENSCENARIO
 	 * group. Default value is 1. Range: [1..inf[.]
 	 * 
 	*/
-    void ManeuverGroupImpl::SetMaximumExecutionCount(const unsigned int maximumExecutionCount )
+    void ManeuverGroupImpl::SetMaximumExecutionCount(const long long maximumExecutionCount )
     {
         _maximumExecutionCount = maximumExecutionCount;
     }
@@ -10010,7 +10010,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ManeuverGroupImpl> ManeuverGroupImpl::Clone()
+    std::shared_ptr<BaseImpl> ManeuverGroupImpl::Clone()
     {
         auto clonedObject = std::make_shared<ManeuverGroupImpl>();
         CloneStartMarker(*clonedObject);
@@ -10041,7 +10041,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<CatalogReferenceImpl>(clonedChild));
             }
             clonedObject->SetCatalogReferences(clonedList);
         }
@@ -10053,7 +10053,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ManeuverImpl>(clonedChild));
             }
             clonedObject->SetManeuvers(clonedList);
         }
@@ -10247,7 +10247,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<MiscObjectImpl> MiscObjectImpl::Clone()
+    std::shared_ptr<BaseImpl> MiscObjectImpl::Clone()
     {
         auto clonedObject = std::make_shared<MiscObjectImpl>();
         CloneStartMarker(*clonedObject);
@@ -10272,7 +10272,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -10354,7 +10354,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<MiscObjectCatalogLocationImpl> MiscObjectCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> MiscObjectCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<MiscObjectCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -10453,7 +10453,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ModifyRuleImpl> ModifyRuleImpl::Clone()
+    std::shared_ptr<BaseImpl> ModifyRuleImpl::Clone()
     {
         auto clonedObject = std::make_shared<ModifyRuleImpl>();
         CloneStartMarker(*clonedObject);
@@ -10524,7 +10524,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<NoneImpl> NoneImpl::Clone()
+    std::shared_ptr<BaseImpl> NoneImpl::Clone()
     {
         auto clonedObject = std::make_shared<NoneImpl>();
         CloneStartMarker(*clonedObject);
@@ -10546,10 +10546,10 @@ namespace RAC_OPENSCENARIO
         /**
         * Filling the property to type map
         */
-        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ORDER, typeid(unsigned int).name());
+        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ORDER, typeid(long long).name());
     }
 
-    unsigned int NurbsImpl::GetOrder()
+    long long NurbsImpl::GetOrder()
     {
         return _order;
     }
@@ -10568,7 +10568,7 @@ namespace RAC_OPENSCENARIO
 	 * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
 	 * 
 	*/
-    void NurbsImpl::SetOrder(const unsigned int order )
+    void NurbsImpl::SetOrder(const long long order )
     {
         _order = order;
     }
@@ -10645,7 +10645,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<NurbsImpl> NurbsImpl::Clone()
+    std::shared_ptr<BaseImpl> NurbsImpl::Clone()
     {
         auto clonedObject = std::make_shared<NurbsImpl>();
         CloneStartMarker(*clonedObject);
@@ -10666,7 +10666,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControlPointImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ControlPointImpl>(clonedChild));
             }
             clonedObject->SetControlPoints(clonedList);
         }
@@ -10678,7 +10678,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<KnotImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<KnotImpl>(clonedChild));
             }
             clonedObject->SetKnots(clonedList);
         }
@@ -10762,7 +10762,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ObjectControllerImpl> ObjectControllerImpl::Clone()
+    std::shared_ptr<BaseImpl> ObjectControllerImpl::Clone()
     {
         auto clonedObject = std::make_shared<ObjectControllerImpl>();
         CloneStartMarker(*clonedObject);
@@ -10854,7 +10854,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OffroadConditionImpl> OffroadConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> OffroadConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OffroadConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -10948,7 +10948,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OpenScenarioImpl> OpenScenarioImpl::Clone()
+    std::shared_ptr<BaseImpl> OpenScenarioImpl::Clone()
     {
         auto clonedObject = std::make_shared<OpenScenarioImpl>();
         CloneStartMarker(*clonedObject);
@@ -11055,7 +11055,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OpenScenarioCategoryImpl> OpenScenarioCategoryImpl::Clone()
+    std::shared_ptr<BaseImpl> OpenScenarioCategoryImpl::Clone()
     {
         auto clonedObject = std::make_shared<OpenScenarioCategoryImpl>();
         CloneStartMarker(*clonedObject);
@@ -11215,7 +11215,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OrientationImpl> OrientationImpl::Clone()
+    std::shared_ptr<BaseImpl> OrientationImpl::Clone()
     {
         auto clonedObject = std::make_shared<OrientationImpl>();
         CloneStartMarker(*clonedObject);
@@ -11319,7 +11319,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OverrideBrakeActionImpl> OverrideBrakeActionImpl::Clone()
+    std::shared_ptr<BaseImpl> OverrideBrakeActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OverrideBrakeActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -11419,7 +11419,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OverrideClutchActionImpl> OverrideClutchActionImpl::Clone()
+    std::shared_ptr<BaseImpl> OverrideClutchActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OverrideClutchActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -11587,7 +11587,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OverrideControllerValueActionImpl> OverrideControllerValueActionImpl::Clone()
+    std::shared_ptr<BaseImpl> OverrideControllerValueActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OverrideControllerValueActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -11730,7 +11730,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OverrideGearActionImpl> OverrideGearActionImpl::Clone()
+    std::shared_ptr<BaseImpl> OverrideGearActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OverrideGearActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -11830,7 +11830,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OverrideParkingBrakeActionImpl> OverrideParkingBrakeActionImpl::Clone()
+    std::shared_ptr<BaseImpl> OverrideParkingBrakeActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OverrideParkingBrakeActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -11929,7 +11929,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OverrideSteeringWheelActionImpl> OverrideSteeringWheelActionImpl::Clone()
+    std::shared_ptr<BaseImpl> OverrideSteeringWheelActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OverrideSteeringWheelActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -12029,7 +12029,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<OverrideThrottleActionImpl> OverrideThrottleActionImpl::Clone()
+    std::shared_ptr<BaseImpl> OverrideThrottleActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<OverrideThrottleActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -12145,7 +12145,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterActionImpl> ParameterActionImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -12240,7 +12240,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterAddValueRuleImpl> ParameterAddValueRuleImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterAddValueRuleImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterAddValueRuleImpl>();
         CloneStartMarker(*clonedObject);
@@ -12333,7 +12333,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterAssignmentImpl> ParameterAssignmentImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterAssignmentImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterAssignmentImpl>();
         CloneStartMarker(*clonedObject);
@@ -12463,7 +12463,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterConditionImpl> ParameterConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -12589,7 +12589,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterDeclarationImpl> ParameterDeclarationImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterDeclarationImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterDeclarationImpl>();
         CloneStartMarker(*clonedObject);
@@ -12669,7 +12669,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterModifyActionImpl> ParameterModifyActionImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterModifyActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterModifyActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -12753,7 +12753,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterMultiplyByValueRuleImpl> ParameterMultiplyByValueRuleImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterMultiplyByValueRuleImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterMultiplyByValueRuleImpl>();
         CloneStartMarker(*clonedObject);
@@ -12830,7 +12830,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ParameterSetActionImpl> ParameterSetActionImpl::Clone()
+    std::shared_ptr<BaseImpl> ParameterSetActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ParameterSetActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -13053,7 +13053,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PedestrianImpl> PedestrianImpl::Clone()
+    std::shared_ptr<BaseImpl> PedestrianImpl::Clone()
     {
         auto clonedObject = std::make_shared<PedestrianImpl>();
         CloneStartMarker(*clonedObject);
@@ -13080,7 +13080,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -13162,7 +13162,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PedestrianCatalogLocationImpl> PedestrianCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> PedestrianCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<PedestrianCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -13287,7 +13287,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PerformanceImpl> PerformanceImpl::Clone()
+    std::shared_ptr<BaseImpl> PerformanceImpl::Clone()
     {
         auto clonedObject = std::make_shared<PerformanceImpl>();
         CloneStartMarker(*clonedObject);
@@ -13411,7 +13411,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PhaseImpl> PhaseImpl::Clone()
+    std::shared_ptr<BaseImpl> PhaseImpl::Clone()
     {
         auto clonedObject = std::make_shared<PhaseImpl>();
         CloneStartMarker(*clonedObject);
@@ -13434,7 +13434,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSignalStateImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<TrafficSignalStateImpl>(clonedChild));
             }
             clonedObject->SetTrafficSignalStates(clonedList);
         }
@@ -13503,7 +13503,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PolylineImpl> PolylineImpl::Clone()
+    std::shared_ptr<BaseImpl> PolylineImpl::Clone()
     {
         auto clonedObject = std::make_shared<PolylineImpl>();
         CloneStartMarker(*clonedObject);
@@ -13522,7 +13522,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<VertexImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<VertexImpl>(clonedChild));
             }
             clonedObject->SetVertices(clonedList);
         }
@@ -13719,7 +13719,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PositionImpl> PositionImpl::Clone()
+    std::shared_ptr<BaseImpl> PositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<PositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -13900,7 +13900,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PositionInLaneCoordinatesImpl> PositionInLaneCoordinatesImpl::Clone()
+    std::shared_ptr<BaseImpl> PositionInLaneCoordinatesImpl::Clone()
     {
         auto clonedObject = std::make_shared<PositionInLaneCoordinatesImpl>();
         CloneStartMarker(*clonedObject);
@@ -14003,7 +14003,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PositionInRoadCoordinatesImpl> PositionInRoadCoordinatesImpl::Clone()
+    std::shared_ptr<BaseImpl> PositionInRoadCoordinatesImpl::Clone()
     {
         auto clonedObject = std::make_shared<PositionInRoadCoordinatesImpl>();
         CloneStartMarker(*clonedObject);
@@ -14082,7 +14082,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PositionOfCurrentEntityImpl> PositionOfCurrentEntityImpl::Clone()
+    std::shared_ptr<BaseImpl> PositionOfCurrentEntityImpl::Clone()
     {
         auto clonedObject = std::make_shared<PositionOfCurrentEntityImpl>();
         CloneStartMarker(*clonedObject);
@@ -14190,7 +14190,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PrecipitationImpl> PrecipitationImpl::Clone()
+    std::shared_ptr<BaseImpl> PrecipitationImpl::Clone()
     {
         auto clonedObject = std::make_shared<PrecipitationImpl>();
         CloneStartMarker(*clonedObject);
@@ -14291,7 +14291,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PrivateImpl> PrivateImpl::Clone()
+    std::shared_ptr<BaseImpl> PrivateImpl::Clone()
     {
         auto clonedObject = std::make_shared<PrivateImpl>();
         CloneStartMarker(*clonedObject);
@@ -14314,7 +14314,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<PrivateActionImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<PrivateActionImpl>(clonedChild));
             }
             clonedObject->SetPrivateActions(clonedList);
         }
@@ -14514,7 +14514,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PrivateActionImpl> PrivateActionImpl::Clone()
+    std::shared_ptr<BaseImpl> PrivateActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<PrivateActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -14678,7 +14678,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PropertiesImpl> PropertiesImpl::Clone()
+    std::shared_ptr<BaseImpl> PropertiesImpl::Clone()
     {
         auto clonedObject = std::make_shared<PropertiesImpl>();
         CloneStartMarker(*clonedObject);
@@ -14697,7 +14697,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<PropertyImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<PropertyImpl>(clonedChild));
             }
             clonedObject->SetProperties(clonedList);
         }
@@ -14709,7 +14709,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<FileImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<FileImpl>(clonedChild));
             }
             clonedObject->SetFiles(clonedList);
         }
@@ -14797,7 +14797,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<PropertyImpl> PropertyImpl::Clone()
+    std::shared_ptr<BaseImpl> PropertyImpl::Clone()
     {
         auto clonedObject = std::make_shared<PropertyImpl>();
         CloneStartMarker(*clonedObject);
@@ -14895,7 +14895,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ReachPositionConditionImpl> ReachPositionConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> ReachPositionConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ReachPositionConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -15079,7 +15079,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeDistanceConditionImpl> RelativeDistanceConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeDistanceConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeDistanceConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -15246,7 +15246,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeLanePositionImpl> RelativeLanePositionImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeLanePositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeLanePositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -15421,7 +15421,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeObjectPositionImpl> RelativeObjectPositionImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeObjectPositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeObjectPositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -15575,7 +15575,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeRoadPositionImpl> RelativeRoadPositionImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeRoadPositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeRoadPositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -15715,7 +15715,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeSpeedConditionImpl> RelativeSpeedConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeSpeedConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeSpeedConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -15828,7 +15828,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeSpeedToMasterImpl> RelativeSpeedToMasterImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeSpeedToMasterImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeSpeedToMasterImpl>();
         CloneStartMarker(*clonedObject);
@@ -15928,7 +15928,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeTargetLaneImpl> RelativeTargetLaneImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeTargetLaneImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeTargetLaneImpl>();
         CloneStartMarker(*clonedObject);
@@ -16030,7 +16030,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeTargetLaneOffsetImpl> RelativeTargetLaneOffsetImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeTargetLaneOffsetImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeTargetLaneOffsetImpl>();
         CloneStartMarker(*clonedObject);
@@ -16186,7 +16186,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeTargetSpeedImpl> RelativeTargetSpeedImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeTargetSpeedImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeTargetSpeedImpl>();
         CloneStartMarker(*clonedObject);
@@ -16351,7 +16351,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RelativeWorldPositionImpl> RelativeWorldPositionImpl::Clone()
+    std::shared_ptr<BaseImpl> RelativeWorldPositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RelativeWorldPositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -16462,7 +16462,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RoadConditionImpl> RoadConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> RoadConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RoadConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -16587,7 +16587,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RoadNetworkImpl> RoadNetworkImpl::Clone()
+    std::shared_ptr<BaseImpl> RoadNetworkImpl::Clone()
     {
         auto clonedObject = std::make_shared<RoadNetworkImpl>();
         CloneStartMarker(*clonedObject);
@@ -16622,7 +16622,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSignalControllerImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<TrafficSignalControllerImpl>(clonedChild));
             }
             clonedObject->SetTrafficSignals(clonedList);
         }
@@ -16751,7 +16751,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RoadPositionImpl> RoadPositionImpl::Clone()
+    std::shared_ptr<BaseImpl> RoadPositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RoadPositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -16923,7 +16923,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RouteImpl> RouteImpl::Clone()
+    std::shared_ptr<BaseImpl> RouteImpl::Clone()
     {
         auto clonedObject = std::make_shared<RouteImpl>();
         CloneStartMarker(*clonedObject);
@@ -16946,7 +16946,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -16958,7 +16958,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<WaypointImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<WaypointImpl>(clonedChild));
             }
             clonedObject->SetWaypoints(clonedList);
         }
@@ -17024,7 +17024,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RouteCatalogLocationImpl> RouteCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> RouteCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<RouteCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -17143,7 +17143,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RoutePositionImpl> RoutePositionImpl::Clone()
+    std::shared_ptr<BaseImpl> RoutePositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RoutePositionImpl>();
         CloneStartMarker(*clonedObject);
@@ -17258,7 +17258,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RouteRefImpl> RouteRefImpl::Clone()
+    std::shared_ptr<BaseImpl> RouteRefImpl::Clone()
     {
         auto clonedObject = std::make_shared<RouteRefImpl>();
         CloneStartMarker(*clonedObject);
@@ -17385,7 +17385,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<RoutingActionImpl> RoutingActionImpl::Clone()
+    std::shared_ptr<BaseImpl> RoutingActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<RoutingActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -17581,7 +17581,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ScenarioDefinitionImpl> ScenarioDefinitionImpl::Clone()
+    std::shared_ptr<BaseImpl> ScenarioDefinitionImpl::Clone()
     {
         auto clonedObject = std::make_shared<ScenarioDefinitionImpl>();
         CloneStartMarker(*clonedObject);
@@ -17600,7 +17600,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -17737,7 +17737,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ScenarioObjectImpl> ScenarioObjectImpl::Clone()
+    std::shared_ptr<BaseImpl> ScenarioObjectImpl::Clone()
     {
         auto clonedObject = std::make_shared<ScenarioObjectImpl>();
         CloneStartMarker(*clonedObject);
@@ -17853,7 +17853,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<SelectedEntitiesImpl> SelectedEntitiesImpl::Clone()
+    std::shared_ptr<BaseImpl> SelectedEntitiesImpl::Clone()
     {
         auto clonedObject = std::make_shared<SelectedEntitiesImpl>();
         CloneStartMarker(*clonedObject);
@@ -17872,7 +17872,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<EntityRefImpl>(clonedChild));
             }
             clonedObject->SetEntityRef(clonedList);
         }
@@ -17884,7 +17884,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ByTypeImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ByTypeImpl>(clonedChild));
             }
             clonedObject->SetByType(clonedList);
         }
@@ -17986,7 +17986,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<ShapeImpl> ShapeImpl::Clone()
+    std::shared_ptr<BaseImpl> ShapeImpl::Clone()
     {
         auto clonedObject = std::make_shared<ShapeImpl>();
         CloneStartMarker(*clonedObject);
@@ -18114,7 +18114,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<SimulationTimeConditionImpl> SimulationTimeConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> SimulationTimeConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<SimulationTimeConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -18210,7 +18210,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<SpeedActionImpl> SpeedActionImpl::Clone()
+    std::shared_ptr<BaseImpl> SpeedActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<SpeedActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -18319,7 +18319,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<SpeedActionTargetImpl> SpeedActionTargetImpl::Clone()
+    std::shared_ptr<BaseImpl> SpeedActionTargetImpl::Clone()
     {
         auto clonedObject = std::make_shared<SpeedActionTargetImpl>();
         CloneStartMarker(*clonedObject);
@@ -18439,7 +18439,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<SpeedConditionImpl> SpeedConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> SpeedConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<SpeedConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -18519,7 +18519,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<StandStillConditionImpl> StandStillConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> StandStillConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<StandStillConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -18659,7 +18659,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<StoryImpl> StoryImpl::Clone()
+    std::shared_ptr<BaseImpl> StoryImpl::Clone()
     {
         auto clonedObject = std::make_shared<StoryImpl>();
         CloneStartMarker(*clonedObject);
@@ -18680,7 +18680,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -18692,7 +18692,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ActImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ActImpl>(clonedChild));
             }
             clonedObject->SetActs(clonedList);
         }
@@ -18798,7 +18798,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<StoryboardImpl> StoryboardImpl::Clone()
+    std::shared_ptr<BaseImpl> StoryboardImpl::Clone()
     {
         auto clonedObject = std::make_shared<StoryboardImpl>();
         CloneStartMarker(*clonedObject);
@@ -18825,7 +18825,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<StoryImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<StoryImpl>(clonedChild));
             }
             clonedObject->SetStories(clonedList);
         }
@@ -18960,7 +18960,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<StoryboardElementStateConditionImpl> StoryboardElementStateConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> StoryboardElementStateConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<StoryboardElementStateConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -19086,7 +19086,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<SunImpl> SunImpl::Clone()
+    std::shared_ptr<BaseImpl> SunImpl::Clone()
     {
         auto clonedObject = std::make_shared<SunImpl>();
         CloneStartMarker(*clonedObject);
@@ -19223,7 +19223,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<SynchronizeActionImpl> SynchronizeActionImpl::Clone()
+    std::shared_ptr<BaseImpl> SynchronizeActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<SynchronizeActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -19324,7 +19324,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TeleportActionImpl> TeleportActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TeleportActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TeleportActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -19498,7 +19498,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TimeHeadwayConditionImpl> TimeHeadwayConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> TimeHeadwayConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TimeHeadwayConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -19606,7 +19606,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TimeOfDayImpl> TimeOfDayImpl::Clone()
+    std::shared_ptr<BaseImpl> TimeOfDayImpl::Clone()
     {
         auto clonedObject = std::make_shared<TimeOfDayImpl>();
         CloneStartMarker(*clonedObject);
@@ -19714,7 +19714,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TimeOfDayConditionImpl> TimeOfDayConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> TimeOfDayConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TimeOfDayConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -19811,7 +19811,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TimeReferenceImpl> TimeReferenceImpl::Clone()
+    std::shared_ptr<BaseImpl> TimeReferenceImpl::Clone()
     {
         auto clonedObject = std::make_shared<TimeReferenceImpl>();
         CloneStartMarker(*clonedObject);
@@ -19992,7 +19992,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TimeToCollisionConditionImpl> TimeToCollisionConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> TimeToCollisionConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TimeToCollisionConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -20099,7 +20099,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TimeToCollisionConditionTargetImpl> TimeToCollisionConditionTargetImpl::Clone()
+    std::shared_ptr<BaseImpl> TimeToCollisionConditionTargetImpl::Clone()
     {
         auto clonedObject = std::make_shared<TimeToCollisionConditionTargetImpl>();
         CloneStartMarker(*clonedObject);
@@ -20243,7 +20243,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TimingImpl> TimingImpl::Clone()
+    std::shared_ptr<BaseImpl> TimingImpl::Clone()
     {
         auto clonedObject = std::make_shared<TimingImpl>();
         CloneStartMarker(*clonedObject);
@@ -20361,7 +20361,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficActionImpl> TrafficActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -20498,7 +20498,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficDefinitionImpl> TrafficDefinitionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficDefinitionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficDefinitionImpl>();
         CloneStartMarker(*clonedObject);
@@ -20609,7 +20609,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSignalActionImpl> TrafficSignalActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSignalActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSignalActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -20722,7 +20722,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSignalConditionImpl> TrafficSignalConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSignalConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSignalConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -20867,7 +20867,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSignalControllerImpl> TrafficSignalControllerImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSignalControllerImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSignalControllerImpl>();
         CloneStartMarker(*clonedObject);
@@ -20892,7 +20892,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<PhaseImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<PhaseImpl>(clonedChild));
             }
             clonedObject->SetPhases(clonedList);
         }
@@ -20996,7 +20996,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSignalControllerActionImpl> TrafficSignalControllerActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSignalControllerActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSignalControllerActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -21114,7 +21114,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSignalControllerConditionImpl> TrafficSignalControllerConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSignalControllerConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSignalControllerConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -21217,7 +21217,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSignalStateImpl> TrafficSignalStateImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSignalStateImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSignalStateImpl>();
         CloneStartMarker(*clonedObject);
@@ -21318,7 +21318,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSignalStateActionImpl> TrafficSignalStateActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSignalStateActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSignalStateActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -21456,7 +21456,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSinkActionImpl> TrafficSinkActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSinkActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSinkActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -21631,7 +21631,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSourceActionImpl> TrafficSourceActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSourceActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSourceActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -21679,7 +21679,7 @@ namespace RAC_OPENSCENARIO
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, typeid(double).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, typeid(double).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, typeid(double).name());
-        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, typeid(unsigned int).name());
+        _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, typeid(long long).name());
         _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, typeid(double).name());
     }
 
@@ -21699,7 +21699,7 @@ namespace RAC_OPENSCENARIO
     {
         return _offset;
     }
-    unsigned int TrafficSwarmActionImpl::GetNumberOfVehicles()
+    long long TrafficSwarmActionImpl::GetNumberOfVehicles()
     {
         return _numberOfVehicles;
     }
@@ -21764,7 +21764,7 @@ namespace RAC_OPENSCENARIO
 	 * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
 	 * 
 	*/
-    void TrafficSwarmActionImpl::SetNumberOfVehicles(const unsigned int numberOfVehicles )
+    void TrafficSwarmActionImpl::SetNumberOfVehicles(const long long numberOfVehicles )
     {
         _numberOfVehicles = numberOfVehicles;
     }
@@ -21873,7 +21873,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrafficSwarmActionImpl> TrafficSwarmActionImpl::Clone()
+    std::shared_ptr<BaseImpl> TrafficSwarmActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrafficSwarmActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -22055,7 +22055,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrajectoryImpl> TrajectoryImpl::Clone()
+    std::shared_ptr<BaseImpl> TrajectoryImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrajectoryImpl>();
         CloneStartMarker(*clonedObject);
@@ -22078,7 +22078,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -22152,7 +22152,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrajectoryCatalogLocationImpl> TrajectoryCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> TrajectoryCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrajectoryCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -22247,7 +22247,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TrajectoryFollowingModeImpl> TrajectoryFollowingModeImpl::Clone()
+    std::shared_ptr<BaseImpl> TrajectoryFollowingModeImpl::Clone()
     {
         auto clonedObject = std::make_shared<TrajectoryFollowingModeImpl>();
         CloneStartMarker(*clonedObject);
@@ -22385,7 +22385,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TransitionDynamicsImpl> TransitionDynamicsImpl::Clone()
+    std::shared_ptr<BaseImpl> TransitionDynamicsImpl::Clone()
     {
         auto clonedObject = std::make_shared<TransitionDynamicsImpl>();
         CloneStartMarker(*clonedObject);
@@ -22466,7 +22466,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TraveledDistanceConditionImpl> TraveledDistanceConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> TraveledDistanceConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<TraveledDistanceConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -22545,7 +22545,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TriggerImpl> TriggerImpl::Clone()
+    std::shared_ptr<BaseImpl> TriggerImpl::Clone()
     {
         auto clonedObject = std::make_shared<TriggerImpl>();
         CloneStartMarker(*clonedObject);
@@ -22564,7 +22564,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ConditionGroupImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ConditionGroupImpl>(clonedChild));
             }
             clonedObject->SetConditionGroups(clonedList);
         }
@@ -22662,7 +22662,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<TriggeringEntitiesImpl> TriggeringEntitiesImpl::Clone()
+    std::shared_ptr<BaseImpl> TriggeringEntitiesImpl::Clone()
     {
         auto clonedObject = std::make_shared<TriggeringEntitiesImpl>();
         CloneStartMarker(*clonedObject);
@@ -22683,7 +22683,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<EntityRefImpl>(clonedChild));
             }
             clonedObject->SetEntityRefs(clonedList);
         }
@@ -22750,7 +22750,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<UserDefinedActionImpl> UserDefinedActionImpl::Clone()
+    std::shared_ptr<BaseImpl> UserDefinedActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<UserDefinedActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -22882,7 +22882,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<UserDefinedValueConditionImpl> UserDefinedValueConditionImpl::Clone()
+    std::shared_ptr<BaseImpl> UserDefinedValueConditionImpl::Clone()
     {
         auto clonedObject = std::make_shared<UserDefinedValueConditionImpl>();
         CloneStartMarker(*clonedObject);
@@ -23107,7 +23107,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<VehicleImpl> VehicleImpl::Clone()
+    std::shared_ptr<BaseImpl> VehicleImpl::Clone()
     {
         auto clonedObject = std::make_shared<VehicleImpl>();
         CloneStartMarker(*clonedObject);
@@ -23130,7 +23130,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
             }
             clonedObject->SetParameterDeclarations(clonedList);
         }
@@ -23228,7 +23228,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<VehicleCatalogLocationImpl> VehicleCatalogLocationImpl::Clone()
+    std::shared_ptr<BaseImpl> VehicleCatalogLocationImpl::Clone()
     {
         auto clonedObject = std::make_shared<VehicleCatalogLocationImpl>();
         CloneStartMarker(*clonedObject);
@@ -23313,7 +23313,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<VehicleCategoryDistributionImpl> VehicleCategoryDistributionImpl::Clone()
+    std::shared_ptr<BaseImpl> VehicleCategoryDistributionImpl::Clone()
     {
         auto clonedObject = std::make_shared<VehicleCategoryDistributionImpl>();
         CloneStartMarker(*clonedObject);
@@ -23332,7 +23332,7 @@ namespace RAC_OPENSCENARIO
             {
                 auto clonedChild = std::dynamic_pointer_cast<VehicleCategoryDistributionEntryImpl>(kItem)->Clone();
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedList.push_back(clonedChild);
+                clonedList.push_back(std::dynamic_pointer_cast<VehicleCategoryDistributionEntryImpl>(clonedChild));
             }
             clonedObject->SetVehicleCategoryDistributionEntries(clonedList);
         }
@@ -23430,7 +23430,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<VehicleCategoryDistributionEntryImpl> VehicleCategoryDistributionEntryImpl::Clone()
+    std::shared_ptr<BaseImpl> VehicleCategoryDistributionEntryImpl::Clone()
     {
         auto clonedObject = std::make_shared<VehicleCategoryDistributionEntryImpl>();
         CloneStartMarker(*clonedObject);
@@ -23527,7 +23527,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<VertexImpl> VertexImpl::Clone()
+    std::shared_ptr<BaseImpl> VertexImpl::Clone()
     {
         auto clonedObject = std::make_shared<VertexImpl>();
         CloneStartMarker(*clonedObject);
@@ -23655,7 +23655,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<VisibilityActionImpl> VisibilityActionImpl::Clone()
+    std::shared_ptr<BaseImpl> VisibilityActionImpl::Clone()
     {
         auto clonedObject = std::make_shared<VisibilityActionImpl>();
         CloneStartMarker(*clonedObject);
@@ -23764,7 +23764,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<WaypointImpl> WaypointImpl::Clone()
+    std::shared_ptr<BaseImpl> WaypointImpl::Clone()
     {
         auto clonedObject = std::make_shared<WaypointImpl>();
         CloneStartMarker(*clonedObject);
@@ -23914,7 +23914,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<WeatherImpl> WeatherImpl::Clone()
+    std::shared_ptr<BaseImpl> WeatherImpl::Clone()
     {
         auto clonedObject = std::make_shared<WeatherImpl>();
         CloneStartMarker(*clonedObject);
@@ -24118,7 +24118,7 @@ namespace RAC_OPENSCENARIO
     * Making a (deep) clone this object. This is useful and used for importing elements from catalogs.
     * @return a deep copy of the object.
     */
-    std::shared_ptr<WorldPositionImpl> WorldPositionImpl::Clone()
+    std::shared_ptr<BaseImpl> WorldPositionImpl::Clone()
     {
         auto clonedObject = std::make_shared<WorldPositionImpl>();
         CloneStartMarker(*clonedObject);

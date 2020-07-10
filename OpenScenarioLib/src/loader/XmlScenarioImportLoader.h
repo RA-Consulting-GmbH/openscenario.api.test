@@ -16,6 +16,7 @@
 #include "OpenScenarioProcessingHelper.h"
 #include "MemLeakDetection.h"
 
+#undef ERROR
 namespace RAC_OPENSCENARIO
 {
 
@@ -57,8 +58,7 @@ namespace RAC_OPENSCENARIO
                     auto filenames = resourceLocator->GetSymbolicFilenamesInSymbolicDir(catalogLocationPath);
                     for (auto symbolicFilename : filenames)
                     {
-                        XmlScenarioLoaderFactory xmlScenarioLoaderFactory(symbolicFilename);
-                        catalogCache.AddCatalogFile(xmlScenarioLoaderFactory);
+                        catalogCache.AddCatalogFile(std::make_shared<XmlScenarioLoaderFactory>(symbolicFilename));
                     }
                 }
                 // Get the CatalogLocations
@@ -71,7 +71,7 @@ namespace RAC_OPENSCENARIO
                 // get the catalogRefences
                 for (auto&& catalogReference : catalogReferences)
                 {
-                    auto catalogElement = catalogCache.ImportCatalogElement(*catalogReference.get());
+                    auto catalogElement = catalogCache.ImportCatalogElement(catalogReference);
                     if (catalogElement)
                     {
                         auto refImpl = std::dynamic_pointer_cast<CatalogReferenceImpl>(catalogReference);

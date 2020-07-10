@@ -50,9 +50,11 @@ namespace RAC_OPENSCENARIO
             {
             }
 
-            Textmarker GetStartMarkerOfProperty(std::string& propertyKey) override
+            Textmarker GetStartMarkerOfProperty(const std::string& propertyKey) override
             {
-                return *_attributeKeyToStartMarker[propertyKey];
+                if (_attributeKeyToStartMarker[propertyKey] != nullptr)
+                    return *_attributeKeyToStartMarker[propertyKey];
+                return Textmarker(-1,-1,"");
             }
 
             Textmarker GetStartMarker() override
@@ -328,7 +330,10 @@ namespace RAC_OPENSCENARIO
         /**
          * Indicating that all subclasses must implement the the Clonable interface.
          */
-        //virtual std::shared_ptr<BaseImpl> Clone() = 0;
+        virtual std::shared_ptr<BaseImpl> Clone()
+        {
+            return nullptr;
+        }
 
         std::shared_ptr<IOpenScenarioModelElement> GetParent() override
         {

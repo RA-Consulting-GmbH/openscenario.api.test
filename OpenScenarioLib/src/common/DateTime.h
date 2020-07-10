@@ -51,7 +51,7 @@ namespace RAC_OPENSCENARIO
 
         static bool ToDateTime(std::string& dateTimeString, DateTime& dateTime)
         {
-            if (std::regex_match(dateTimeString, std::regex("(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.?\\d*(\\+|\\-)?\\d{0,2}:?\\d{0,2})")))
+            if (std::regex_match(dateTimeString, std::regex("(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.?\\d*(\\+|\\-)?\\d{0,2}:?\\d{0,2}Z?)")))
             {
                 std::istringstream value(dateTimeString);
                 value.imbue(std::locale());

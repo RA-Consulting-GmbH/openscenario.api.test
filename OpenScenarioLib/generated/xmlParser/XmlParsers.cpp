@@ -374,11 +374,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<AcquirePositionActionImpl>>> AcquirePositionActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<AcquirePositionActionImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    AcquirePositionActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void AcquirePositionActionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AcquirePositionActionImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -445,15 +449,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ActImpl>>> ActXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ActImpl>>> result;
-        auto maneuverGroupsXmlParser = std::make_shared<ManeuverGroupXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementManeuverGroupsParser>(maneuverGroupsXmlParser));
-        auto startTriggerXmlParser = std::make_shared<TriggerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStartTriggerParser>(startTriggerXmlParser));
-        auto stopTriggerXmlParser = std::make_shared<TriggerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStopTriggerParser>(stopTriggerXmlParser));
+        result.push_back(std::make_shared<SubElementManeuverGroupsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStartTriggerParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStopTriggerParser>(_messageLogger, _filename));
         return result;
     }
 
+    ActXmlParser::SubElementManeuverGroupsParser::SubElementManeuverGroupsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _maneuverGroupXmlParser = std::make_shared<ManeuverGroupXmlParser>(messageLogger, filename);
+    }
+    
     void ActXmlParser::SubElementManeuverGroupsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object)
     {
         auto maneuverGroups = std::make_shared<ManeuverGroupImpl>();
@@ -462,7 +468,13 @@ namespace RAC_OPENSCENARIO
         _maneuverGroupXmlParser->ParseElement(indexedElement, parserContext, maneuverGroups);
         auto maneuverGroupsList = object->GetManeuverGroups();
         maneuverGroupsList.push_back(maneuverGroups);
+        object->SetManeuverGroups(maneuverGroupsList);
     }
+    ActXmlParser::SubElementStartTriggerParser::SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
+    }
+    
     void ActXmlParser::SubElementStartTriggerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object)
     {
         auto startTrigger = std::make_shared<TriggerImpl>();
@@ -472,6 +484,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetStartTrigger(startTrigger);
     }
+    ActXmlParser::SubElementStopTriggerParser::SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
+    }
+    
     void ActXmlParser::SubElementStopTriggerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object)
     {
         auto stopTrigger = std::make_shared<TriggerImpl>();
@@ -538,15 +555,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ActionImpl>>> ActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ActionImpl>>> result;
-        auto globalActionXmlParser = std::make_shared<GlobalActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementGlobalActionParser>(globalActionXmlParser));
-        auto userDefinedActionXmlParser = std::make_shared<UserDefinedActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementUserDefinedActionParser>(userDefinedActionXmlParser));
-        auto privateActionXmlParser = std::make_shared<PrivateActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPrivateActionParser>(privateActionXmlParser));
+        result.push_back(std::make_shared<SubElementGlobalActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementUserDefinedActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPrivateActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ActionXmlParser::SubElementGlobalActionParser::SubElementGlobalActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _globalActionXmlParser = std::make_shared<GlobalActionXmlParser>(messageLogger, filename);
+    }
+    
     void ActionXmlParser::SubElementGlobalActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object)
     {
         auto globalAction = std::make_shared<GlobalActionImpl>();
@@ -556,6 +575,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetGlobalAction(globalAction);
     }
+    ActionXmlParser::SubElementUserDefinedActionParser::SubElementUserDefinedActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _userDefinedActionXmlParser = std::make_shared<UserDefinedActionXmlParser>(messageLogger, filename);
+    }
+    
     void ActionXmlParser::SubElementUserDefinedActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object)
     {
         auto userDefinedAction = std::make_shared<UserDefinedActionImpl>();
@@ -565,6 +589,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetUserDefinedAction(userDefinedAction);
     }
+    ActionXmlParser::SubElementPrivateActionParser::SubElementPrivateActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _privateActionXmlParser = std::make_shared<PrivateActionXmlParser>(messageLogger, filename);
+    }
+    
     void ActionXmlParser::SubElementPrivateActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object)
     {
         auto privateAction = std::make_shared<PrivateActionImpl>();
@@ -721,11 +750,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ActorsImpl>>> ActorsXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ActorsImpl>>> result;
-        auto entityRefsXmlParser = std::make_shared<EntityRefXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityRefsParser>(entityRefsXmlParser));
+        result.push_back(std::make_shared<SubElementEntityRefsParser>(_messageLogger, _filename));
         return result;
     }
 
+    ActorsXmlParser::SubElementEntityRefsParser::SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
+    }
+    
     void ActorsXmlParser::SubElementEntityRefsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActorsImpl>& object)
     {
         auto entityRefs = std::make_shared<EntityRefImpl>();
@@ -734,6 +767,7 @@ namespace RAC_OPENSCENARIO
         _entityRefXmlParser->ParseElement(indexedElement, parserContext, entityRefs);
         auto entityRefsList = object->GetEntityRefs();
         entityRefsList.push_back(entityRefs);
+        object->SetEntityRefs(entityRefsList);
     }
 
 /**
@@ -762,11 +796,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<AddEntityActionImpl>>> AddEntityActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<AddEntityActionImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    AddEntityActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void AddEntityActionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AddEntityActionImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -803,13 +841,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<AssignControllerActionImpl>>> AssignControllerActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<AssignControllerActionImpl>>> result;
-        auto controllerXmlParser = std::make_shared<ControllerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllerParser>(controllerXmlParser));
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
+        result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
         return result;
     }
 
+    AssignControllerActionXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+    }
+    
     void AssignControllerActionXmlParser::SubElementControllerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object)
     {
         auto controller = std::make_shared<ControllerImpl>();
@@ -819,6 +860,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetController(controller);
     }
+    AssignControllerActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void AssignControllerActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -856,13 +902,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<AssignRouteActionImpl>>> AssignRouteActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<AssignRouteActionImpl>>> result;
-        auto routeXmlParser = std::make_shared<RouteXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRouteParser>(routeXmlParser));
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
+        result.push_back(std::make_shared<SubElementRouteParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
         return result;
     }
 
+    AssignRouteActionXmlParser::SubElementRouteParser::SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _routeXmlParser = std::make_shared<RouteXmlParser>(messageLogger, filename);
+    }
+    
     void AssignRouteActionXmlParser::SubElementRouteParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object)
     {
         auto route = std::make_shared<RouteImpl>();
@@ -872,6 +921,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRoute(route);
     }
+    AssignRouteActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void AssignRouteActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -1089,15 +1143,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<AxlesImpl>>> AxlesXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<AxlesImpl>>> result;
-        auto frontAxleXmlParser = std::make_shared<AxleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFrontAxleParser>(frontAxleXmlParser));
-        auto rearAxleXmlParser = std::make_shared<AxleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRearAxleParser>(rearAxleXmlParser));
-        auto additionalAxlesXmlParser = std::make_shared<AxleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAdditionalAxlesParser>(additionalAxlesXmlParser));
+        result.push_back(std::make_shared<SubElementFrontAxleParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRearAxleParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementAdditionalAxlesParser>(_messageLogger, _filename));
         return result;
     }
 
+    AxlesXmlParser::SubElementFrontAxleParser::SubElementFrontAxleParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename);
+    }
+    
     void AxlesXmlParser::SubElementFrontAxleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object)
     {
         auto frontAxle = std::make_shared<AxleImpl>();
@@ -1107,6 +1163,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetFrontAxle(frontAxle);
     }
+    AxlesXmlParser::SubElementRearAxleParser::SubElementRearAxleParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename);
+    }
+    
     void AxlesXmlParser::SubElementRearAxleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object)
     {
         auto rearAxle = std::make_shared<AxleImpl>();
@@ -1116,6 +1177,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRearAxle(rearAxle);
     }
+    AxlesXmlParser::SubElementAdditionalAxlesParser::SubElementAdditionalAxlesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename);
+    }
+    
     void AxlesXmlParser::SubElementAdditionalAxlesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object)
     {
         auto additionalAxles = std::make_shared<AxleImpl>();
@@ -1124,6 +1190,7 @@ namespace RAC_OPENSCENARIO
         _axleXmlParser->ParseElement(indexedElement, parserContext, additionalAxles);
         auto additionalAxlesList = object->GetAdditionalAxles();
         additionalAxlesList.push_back(additionalAxles);
+        object->SetAdditionalAxles(additionalAxlesList);
     }
 
 /**
@@ -1152,13 +1219,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<BoundingBoxImpl>>> BoundingBoxXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<BoundingBoxImpl>>> result;
-        auto centerXmlParser = std::make_shared<CenterXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCenterParser>(centerXmlParser));
-        auto dimensionsXmlParser = std::make_shared<DimensionsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDimensionsParser>(dimensionsXmlParser));
+        result.push_back(std::make_shared<SubElementCenterParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementDimensionsParser>(_messageLogger, _filename));
         return result;
     }
 
+    BoundingBoxXmlParser::SubElementCenterParser::SubElementCenterParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _centerXmlParser = std::make_shared<CenterXmlParser>(messageLogger, filename);
+    }
+    
     void BoundingBoxXmlParser::SubElementCenterParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object)
     {
         auto center = std::make_shared<CenterImpl>();
@@ -1168,6 +1238,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetCenter(center);
     }
+    BoundingBoxXmlParser::SubElementDimensionsParser::SubElementDimensionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _dimensionsXmlParser = std::make_shared<DimensionsXmlParser>(messageLogger, filename);
+    }
+    
     void BoundingBoxXmlParser::SubElementDimensionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object)
     {
         auto dimensions = std::make_shared<DimensionsImpl>();
@@ -1204,13 +1279,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ByEntityConditionImpl>>> ByEntityConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ByEntityConditionImpl>>> result;
-        auto triggeringEntitiesXmlParser = std::make_shared<TriggeringEntitiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTriggeringEntitiesParser>(triggeringEntitiesXmlParser));
-        auto entityConditionXmlParser = std::make_shared<EntityConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityConditionParser>(entityConditionXmlParser));
+        result.push_back(std::make_shared<SubElementTriggeringEntitiesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementEntityConditionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ByEntityConditionXmlParser::SubElementTriggeringEntitiesParser::SubElementTriggeringEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _triggeringEntitiesXmlParser = std::make_shared<TriggeringEntitiesXmlParser>(messageLogger, filename);
+    }
+    
     void ByEntityConditionXmlParser::SubElementTriggeringEntitiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object)
     {
         auto triggeringEntities = std::make_shared<TriggeringEntitiesImpl>();
@@ -1220,6 +1298,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTriggeringEntities(triggeringEntities);
     }
+    ByEntityConditionXmlParser::SubElementEntityConditionParser::SubElementEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityConditionXmlParser = std::make_shared<EntityConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByEntityConditionXmlParser::SubElementEntityConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object)
     {
         auto entityCondition = std::make_shared<EntityConditionImpl>();
@@ -1394,23 +1477,21 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ByValueConditionImpl>>> ByValueConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ByValueConditionImpl>>> result;
-        auto parameterConditionXmlParser = std::make_shared<ParameterConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementParameterConditionParser>(parameterConditionXmlParser));
-        auto timeOfDayConditionXmlParser = std::make_shared<TimeOfDayConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTimeOfDayConditionParser>(timeOfDayConditionXmlParser));
-        auto simulationTimeConditionXmlParser = std::make_shared<SimulationTimeConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSimulationTimeConditionParser>(simulationTimeConditionXmlParser));
-        auto storyboardElementStateConditionXmlParser = std::make_shared<StoryboardElementStateConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStoryboardElementStateConditionParser>(storyboardElementStateConditionXmlParser));
-        auto userDefinedValueConditionXmlParser = std::make_shared<UserDefinedValueConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementUserDefinedValueConditionParser>(userDefinedValueConditionXmlParser));
-        auto trafficSignalConditionXmlParser = std::make_shared<TrafficSignalConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSignalConditionParser>(trafficSignalConditionXmlParser));
-        auto trafficSignalControllerConditionXmlParser = std::make_shared<TrafficSignalControllerConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSignalControllerConditionParser>(trafficSignalControllerConditionXmlParser));
+        result.push_back(std::make_shared<SubElementParameterConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTimeOfDayConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementSimulationTimeConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStoryboardElementStateConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementUserDefinedValueConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficSignalConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficSignalControllerConditionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ByValueConditionXmlParser::SubElementParameterConditionParser::SubElementParameterConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterConditionXmlParser = std::make_shared<ParameterConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByValueConditionXmlParser::SubElementParameterConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
     {
         auto parameterCondition = std::make_shared<ParameterConditionImpl>();
@@ -1420,6 +1501,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetParameterCondition(parameterCondition);
     }
+    ByValueConditionXmlParser::SubElementTimeOfDayConditionParser::SubElementTimeOfDayConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _timeOfDayConditionXmlParser = std::make_shared<TimeOfDayConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByValueConditionXmlParser::SubElementTimeOfDayConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
     {
         auto timeOfDayCondition = std::make_shared<TimeOfDayConditionImpl>();
@@ -1429,6 +1515,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTimeOfDayCondition(timeOfDayCondition);
     }
+    ByValueConditionXmlParser::SubElementSimulationTimeConditionParser::SubElementSimulationTimeConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _simulationTimeConditionXmlParser = std::make_shared<SimulationTimeConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByValueConditionXmlParser::SubElementSimulationTimeConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
     {
         auto simulationTimeCondition = std::make_shared<SimulationTimeConditionImpl>();
@@ -1438,6 +1529,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSimulationTimeCondition(simulationTimeCondition);
     }
+    ByValueConditionXmlParser::SubElementStoryboardElementStateConditionParser::SubElementStoryboardElementStateConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _storyboardElementStateConditionXmlParser = std::make_shared<StoryboardElementStateConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByValueConditionXmlParser::SubElementStoryboardElementStateConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
     {
         auto storyboardElementStateCondition = std::make_shared<StoryboardElementStateConditionImpl>();
@@ -1447,6 +1543,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetStoryboardElementStateCondition(storyboardElementStateCondition);
     }
+    ByValueConditionXmlParser::SubElementUserDefinedValueConditionParser::SubElementUserDefinedValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _userDefinedValueConditionXmlParser = std::make_shared<UserDefinedValueConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByValueConditionXmlParser::SubElementUserDefinedValueConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
     {
         auto userDefinedValueCondition = std::make_shared<UserDefinedValueConditionImpl>();
@@ -1456,6 +1557,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetUserDefinedValueCondition(userDefinedValueCondition);
     }
+    ByValueConditionXmlParser::SubElementTrafficSignalConditionParser::SubElementTrafficSignalConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSignalConditionXmlParser = std::make_shared<TrafficSignalConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByValueConditionXmlParser::SubElementTrafficSignalConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
     {
         auto trafficSignalCondition = std::make_shared<TrafficSignalConditionImpl>();
@@ -1465,6 +1571,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTrafficSignalCondition(trafficSignalCondition);
     }
+    ByValueConditionXmlParser::SubElementTrafficSignalControllerConditionParser::SubElementTrafficSignalControllerConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSignalControllerConditionXmlParser = std::make_shared<TrafficSignalControllerConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ByValueConditionXmlParser::SubElementTrafficSignalControllerConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
     {
         auto trafficSignalControllerCondition = std::make_shared<TrafficSignalControllerConditionImpl>();
@@ -1531,25 +1642,22 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<CatalogImpl>>> CatalogXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<CatalogImpl>>> result;
-        auto vehiclesXmlParser = std::make_shared<VehicleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementVehiclesParser>(vehiclesXmlParser));
-        auto controllersXmlParser = std::make_shared<ControllerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllersParser>(controllersXmlParser));
-        auto pedestriansXmlParser = std::make_shared<PedestrianXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPedestriansParser>(pedestriansXmlParser));
-        auto miscObjectsXmlParser = std::make_shared<MiscObjectXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementMiscObjectsParser>(miscObjectsXmlParser));
-        auto environmentsXmlParser = std::make_shared<EnvironmentXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEnvironmentsParser>(environmentsXmlParser));
-        auto maneuversXmlParser = std::make_shared<ManeuverXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementManeuversParser>(maneuversXmlParser));
-        auto trajectoriesXmlParser = std::make_shared<TrajectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrajectoriesParser>(trajectoriesXmlParser));
-        auto routesXmlParser = std::make_shared<RouteXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRoutesParser>(routesXmlParser));
+        result.push_back(std::make_shared<SubElementVehiclesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementControllersParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPedestriansParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementMiscObjectsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementEnvironmentsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementManeuversParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrajectoriesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRoutesParser>(_messageLogger, _filename));
         return result;
     }
 
+    CatalogXmlParser::SubElementVehiclesParser::SubElementVehiclesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _vehicleXmlParser = std::make_shared<VehicleXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementVehiclesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto vehicles = std::make_shared<VehicleImpl>();
@@ -1558,7 +1666,13 @@ namespace RAC_OPENSCENARIO
         _vehicleXmlParser->ParseElement(indexedElement, parserContext, vehicles);
         auto vehiclesList = object->GetVehicles();
         vehiclesList.push_back(vehicles);
+        object->SetVehicles(vehiclesList);
     }
+    CatalogXmlParser::SubElementControllersParser::SubElementControllersParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementControllersParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto controllers = std::make_shared<ControllerImpl>();
@@ -1567,7 +1681,13 @@ namespace RAC_OPENSCENARIO
         _controllerXmlParser->ParseElement(indexedElement, parserContext, controllers);
         auto controllersList = object->GetControllers();
         controllersList.push_back(controllers);
+        object->SetControllers(controllersList);
     }
+    CatalogXmlParser::SubElementPedestriansParser::SubElementPedestriansParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _pedestrianXmlParser = std::make_shared<PedestrianXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementPedestriansParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto pedestrians = std::make_shared<PedestrianImpl>();
@@ -1576,7 +1696,13 @@ namespace RAC_OPENSCENARIO
         _pedestrianXmlParser->ParseElement(indexedElement, parserContext, pedestrians);
         auto pedestriansList = object->GetPedestrians();
         pedestriansList.push_back(pedestrians);
+        object->SetPedestrians(pedestriansList);
     }
+    CatalogXmlParser::SubElementMiscObjectsParser::SubElementMiscObjectsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _miscObjectXmlParser = std::make_shared<MiscObjectXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementMiscObjectsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto miscObjects = std::make_shared<MiscObjectImpl>();
@@ -1585,7 +1711,13 @@ namespace RAC_OPENSCENARIO
         _miscObjectXmlParser->ParseElement(indexedElement, parserContext, miscObjects);
         auto miscObjectsList = object->GetMiscObjects();
         miscObjectsList.push_back(miscObjects);
+        object->SetMiscObjects(miscObjectsList);
     }
+    CatalogXmlParser::SubElementEnvironmentsParser::SubElementEnvironmentsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _environmentXmlParser = std::make_shared<EnvironmentXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementEnvironmentsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto environments = std::make_shared<EnvironmentImpl>();
@@ -1594,7 +1726,13 @@ namespace RAC_OPENSCENARIO
         _environmentXmlParser->ParseElement(indexedElement, parserContext, environments);
         auto environmentsList = object->GetEnvironments();
         environmentsList.push_back(environments);
+        object->SetEnvironments(environmentsList);
     }
+    CatalogXmlParser::SubElementManeuversParser::SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _maneuverXmlParser = std::make_shared<ManeuverXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementManeuversParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto maneuvers = std::make_shared<ManeuverImpl>();
@@ -1603,7 +1741,13 @@ namespace RAC_OPENSCENARIO
         _maneuverXmlParser->ParseElement(indexedElement, parserContext, maneuvers);
         auto maneuversList = object->GetManeuvers();
         maneuversList.push_back(maneuvers);
+        object->SetManeuvers(maneuversList);
     }
+    CatalogXmlParser::SubElementTrajectoriesParser::SubElementTrajectoriesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trajectoryXmlParser = std::make_shared<TrajectoryXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementTrajectoriesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto trajectories = std::make_shared<TrajectoryImpl>();
@@ -1612,7 +1756,13 @@ namespace RAC_OPENSCENARIO
         _trajectoryXmlParser->ParseElement(indexedElement, parserContext, trajectories);
         auto trajectoriesList = object->GetTrajectories();
         trajectoriesList.push_back(trajectories);
+        object->SetTrajectories(trajectoriesList);
     }
+    CatalogXmlParser::SubElementRoutesParser::SubElementRoutesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _routeXmlParser = std::make_shared<RouteXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogXmlParser::SubElementRoutesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
     {
         auto routes = std::make_shared<RouteImpl>();
@@ -1621,6 +1771,7 @@ namespace RAC_OPENSCENARIO
         _routeXmlParser->ParseElement(indexedElement, parserContext, routes);
         auto routesList = object->GetRoutes();
         routesList.push_back(routes);
+        object->SetRoutes(routesList);
     }
 
 /**
@@ -1643,11 +1794,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<CatalogDefinitionImpl>>> CatalogDefinitionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<CatalogDefinitionImpl>>> result;
-        auto catalogXmlParser = std::make_shared<CatalogXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogParser>(catalogXmlParser));
+        result.push_back(std::make_shared<SubElementCatalogParser>(_messageLogger, _filename));
         return result;
     }
 
+    CatalogDefinitionXmlParser::SubElementCatalogParser::SubElementCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogXmlParser = std::make_shared<CatalogXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogDefinitionXmlParser::SubElementCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogDefinitionImpl>& object)
     {
         auto catalog = std::make_shared<CatalogImpl>();
@@ -1684,25 +1839,22 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<CatalogLocationsImpl>>> CatalogLocationsXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<CatalogLocationsImpl>>> result;
-        auto vehicleCatalogXmlParser = std::make_shared<VehicleCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementVehicleCatalogParser>(vehicleCatalogXmlParser));
-        auto controllerCatalogXmlParser = std::make_shared<ControllerCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllerCatalogParser>(controllerCatalogXmlParser));
-        auto pedestrianCatalogXmlParser = std::make_shared<PedestrianCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPedestrianCatalogParser>(pedestrianCatalogXmlParser));
-        auto miscObjectCatalogXmlParser = std::make_shared<MiscObjectCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementMiscObjectCatalogParser>(miscObjectCatalogXmlParser));
-        auto environmentCatalogXmlParser = std::make_shared<EnvironmentCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEnvironmentCatalogParser>(environmentCatalogXmlParser));
-        auto maneuverCatalogXmlParser = std::make_shared<ManeuverCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementManeuverCatalogParser>(maneuverCatalogXmlParser));
-        auto trajectoryCatalogXmlParser = std::make_shared<TrajectoryCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrajectoryCatalogParser>(trajectoryCatalogXmlParser));
-        auto routeCatalogXmlParser = std::make_shared<RouteCatalogLocationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRouteCatalogParser>(routeCatalogXmlParser));
+        result.push_back(std::make_shared<SubElementVehicleCatalogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementControllerCatalogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPedestrianCatalogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementMiscObjectCatalogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementEnvironmentCatalogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementManeuverCatalogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrajectoryCatalogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRouteCatalogParser>(_messageLogger, _filename));
         return result;
     }
 
+    CatalogLocationsXmlParser::SubElementVehicleCatalogParser::SubElementVehicleCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _vehicleCatalogLocationXmlParser = std::make_shared<VehicleCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementVehicleCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto vehicleCatalog = std::make_shared<VehicleCatalogLocationImpl>();
@@ -1712,6 +1864,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetVehicleCatalog(vehicleCatalog);
     }
+    CatalogLocationsXmlParser::SubElementControllerCatalogParser::SubElementControllerCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerCatalogLocationXmlParser = std::make_shared<ControllerCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementControllerCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto controllerCatalog = std::make_shared<ControllerCatalogLocationImpl>();
@@ -1721,6 +1878,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetControllerCatalog(controllerCatalog);
     }
+    CatalogLocationsXmlParser::SubElementPedestrianCatalogParser::SubElementPedestrianCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _pedestrianCatalogLocationXmlParser = std::make_shared<PedestrianCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementPedestrianCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto pedestrianCatalog = std::make_shared<PedestrianCatalogLocationImpl>();
@@ -1730,6 +1892,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetPedestrianCatalog(pedestrianCatalog);
     }
+    CatalogLocationsXmlParser::SubElementMiscObjectCatalogParser::SubElementMiscObjectCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _miscObjectCatalogLocationXmlParser = std::make_shared<MiscObjectCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementMiscObjectCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto miscObjectCatalog = std::make_shared<MiscObjectCatalogLocationImpl>();
@@ -1739,6 +1906,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetMiscObjectCatalog(miscObjectCatalog);
     }
+    CatalogLocationsXmlParser::SubElementEnvironmentCatalogParser::SubElementEnvironmentCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _environmentCatalogLocationXmlParser = std::make_shared<EnvironmentCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementEnvironmentCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto environmentCatalog = std::make_shared<EnvironmentCatalogLocationImpl>();
@@ -1748,6 +1920,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEnvironmentCatalog(environmentCatalog);
     }
+    CatalogLocationsXmlParser::SubElementManeuverCatalogParser::SubElementManeuverCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _maneuverCatalogLocationXmlParser = std::make_shared<ManeuverCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementManeuverCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto maneuverCatalog = std::make_shared<ManeuverCatalogLocationImpl>();
@@ -1757,6 +1934,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetManeuverCatalog(maneuverCatalog);
     }
+    CatalogLocationsXmlParser::SubElementTrajectoryCatalogParser::SubElementTrajectoryCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trajectoryCatalogLocationXmlParser = std::make_shared<TrajectoryCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementTrajectoryCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto trajectoryCatalog = std::make_shared<TrajectoryCatalogLocationImpl>();
@@ -1766,6 +1948,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTrajectoryCatalog(trajectoryCatalog);
     }
+    CatalogLocationsXmlParser::SubElementRouteCatalogParser::SubElementRouteCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _routeCatalogLocationXmlParser = std::make_shared<RouteCatalogLocationXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogLocationsXmlParser::SubElementRouteCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
     {
         auto routeCatalog = std::make_shared<RouteCatalogLocationImpl>();
@@ -1862,11 +2049,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<CatalogReferenceImpl>>> CatalogReferenceXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<CatalogReferenceImpl>>> result;
-        auto parameterAssignmentsXmlParser = std::make_shared<ParameterAssignmentXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<CatalogReferenceImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterAssignmentsParser>(parameterAssignmentsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENTS) );
+        result.push_back(std::make_shared<WrappedListParser<CatalogReferenceImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterAssignmentsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENTS) );
         return result;
     }
 
+    CatalogReferenceXmlParser::SubElementParameterAssignmentsParser::SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterAssignmentXmlParser = std::make_shared<ParameterAssignmentXmlParser>(messageLogger, filename);
+    }
+    
     void CatalogReferenceXmlParser::SubElementParameterAssignmentsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogReferenceImpl>& object)
     {
         auto parameterAssignments = std::make_shared<ParameterAssignmentImpl>();
@@ -1875,6 +2066,7 @@ namespace RAC_OPENSCENARIO
         _parameterAssignmentXmlParser->ParseElement(indexedElement, parserContext, parameterAssignments);
         auto parameterAssignmentsList = object->GetParameterAssignments();
         parameterAssignmentsList.push_back(parameterAssignments);
+        object->SetParameterAssignments(parameterAssignmentsList);
     }
 
 /**
@@ -2235,11 +2427,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ClothoidImpl>>> ClothoidXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ClothoidImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ClothoidXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void ClothoidXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ClothoidImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -2276,13 +2472,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<CollisionConditionImpl>>> CollisionConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<CollisionConditionImpl>>> result;
-        auto entityRefXmlParser = std::make_shared<EntityRefXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityRefParser>(entityRefXmlParser));
-        auto byTypeXmlParser = std::make_shared<ByObjectTypeXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementByTypeParser>(byTypeXmlParser));
+        result.push_back(std::make_shared<SubElementEntityRefParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementByTypeParser>(_messageLogger, _filename));
         return result;
     }
 
+    CollisionConditionXmlParser::SubElementEntityRefParser::SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
+    }
+    
     void CollisionConditionXmlParser::SubElementEntityRefParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object)
     {
         auto entityRef = std::make_shared<EntityRefImpl>();
@@ -2292,6 +2491,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEntityRef(entityRef);
     }
+    CollisionConditionXmlParser::SubElementByTypeParser::SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _byObjectTypeXmlParser = std::make_shared<ByObjectTypeXmlParser>(messageLogger, filename);
+    }
+    
     void CollisionConditionXmlParser::SubElementByTypeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object)
     {
         auto byType = std::make_shared<ByObjectTypeImpl>();
@@ -2427,13 +2631,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ConditionImpl>>> ConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ConditionImpl>>> result;
-        auto byEntityConditionXmlParser = std::make_shared<ByEntityConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementByEntityConditionParser>(byEntityConditionXmlParser));
-        auto byValueConditionXmlParser = std::make_shared<ByValueConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementByValueConditionParser>(byValueConditionXmlParser));
+        result.push_back(std::make_shared<SubElementByEntityConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementByValueConditionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ConditionXmlParser::SubElementByEntityConditionParser::SubElementByEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _byEntityConditionXmlParser = std::make_shared<ByEntityConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ConditionXmlParser::SubElementByEntityConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object)
     {
         auto byEntityCondition = std::make_shared<ByEntityConditionImpl>();
@@ -2443,6 +2650,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetByEntityCondition(byEntityCondition);
     }
+    ConditionXmlParser::SubElementByValueConditionParser::SubElementByValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _byValueConditionXmlParser = std::make_shared<ByValueConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ConditionXmlParser::SubElementByValueConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object)
     {
         auto byValueCondition = std::make_shared<ByValueConditionImpl>();
@@ -2479,11 +2691,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ConditionGroupImpl>>> ConditionGroupXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ConditionGroupImpl>>> result;
-        auto conditionsXmlParser = std::make_shared<ConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementConditionsParser>(conditionsXmlParser));
+        result.push_back(std::make_shared<SubElementConditionsParser>(_messageLogger, _filename));
         return result;
     }
 
+    ConditionGroupXmlParser::SubElementConditionsParser::SubElementConditionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _conditionXmlParser = std::make_shared<ConditionXmlParser>(messageLogger, filename);
+    }
+    
     void ConditionGroupXmlParser::SubElementConditionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionGroupImpl>& object)
     {
         auto conditions = std::make_shared<ConditionImpl>();
@@ -2492,6 +2708,7 @@ namespace RAC_OPENSCENARIO
         _conditionXmlParser->ParseElement(indexedElement, parserContext, conditions);
         auto conditionsList = object->GetConditions();
         conditionsList.push_back(conditions);
+        object->SetConditions(conditionsList);
     }
 
 /**
@@ -2580,11 +2797,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ControlPointImpl>>> ControlPointXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ControlPointImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ControlPointXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void ControlPointXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControlPointImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -2651,13 +2872,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ControllerImpl>>> ControllerXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ControllerImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<ControllerImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto propertiesXmlParser = std::make_shared<PropertiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPropertiesParser>(propertiesXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<ControllerImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
         return result;
     }
 
+    ControllerXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -2666,7 +2890,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    ControllerXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object)
     {
         auto properties = std::make_shared<PropertiesImpl>();
@@ -2703,13 +2933,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ControllerActionImpl>>> ControllerActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ControllerActionImpl>>> result;
-        auto assignControllerActionXmlParser = std::make_shared<AssignControllerActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAssignControllerActionParser>(assignControllerActionXmlParser));
-        auto overrideControllerValueActionXmlParser = std::make_shared<OverrideControllerValueActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOverrideControllerValueActionParser>(overrideControllerValueActionXmlParser));
+        result.push_back(std::make_shared<SubElementAssignControllerActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementOverrideControllerValueActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ControllerActionXmlParser::SubElementAssignControllerActionParser::SubElementAssignControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _assignControllerActionXmlParser = std::make_shared<AssignControllerActionXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerActionXmlParser::SubElementAssignControllerActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object)
     {
         auto assignControllerAction = std::make_shared<AssignControllerActionImpl>();
@@ -2719,6 +2952,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetAssignControllerAction(assignControllerAction);
     }
+    ControllerActionXmlParser::SubElementOverrideControllerValueActionParser::SubElementOverrideControllerValueActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _overrideControllerValueActionXmlParser = std::make_shared<OverrideControllerValueActionXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerActionXmlParser::SubElementOverrideControllerValueActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object)
     {
         auto overrideControllerValueAction = std::make_shared<OverrideControllerValueActionImpl>();
@@ -2755,11 +2993,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ControllerCatalogLocationImpl>>> ControllerCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ControllerCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    ControllerCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -2796,11 +3038,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ControllerDistributionImpl>>> ControllerDistributionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ControllerDistributionImpl>>> result;
-        auto controllerDistributionEntriesXmlParser = std::make_shared<ControllerDistributionEntryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllerDistributionEntriesParser>(controllerDistributionEntriesXmlParser));
+        result.push_back(std::make_shared<SubElementControllerDistributionEntriesParser>(_messageLogger, _filename));
         return result;
     }
 
+    ControllerDistributionXmlParser::SubElementControllerDistributionEntriesParser::SubElementControllerDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerDistributionEntryXmlParser = std::make_shared<ControllerDistributionEntryXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerDistributionXmlParser::SubElementControllerDistributionEntriesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionImpl>& object)
     {
         auto controllerDistributionEntries = std::make_shared<ControllerDistributionEntryImpl>();
@@ -2809,6 +3055,7 @@ namespace RAC_OPENSCENARIO
         _controllerDistributionEntryXmlParser->ParseElement(indexedElement, parserContext, controllerDistributionEntries);
         auto controllerDistributionEntriesList = object->GetControllerDistributionEntries();
         controllerDistributionEntriesList.push_back(controllerDistributionEntries);
+        object->SetControllerDistributionEntries(controllerDistributionEntriesList);
     }
 
 /**
@@ -2867,13 +3114,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ControllerDistributionEntryImpl>>> ControllerDistributionEntryXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ControllerDistributionEntryImpl>>> result;
-        auto controllerXmlParser = std::make_shared<ControllerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllerParser>(controllerXmlParser));
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
+        result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
         return result;
     }
 
+    ControllerDistributionEntryXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerDistributionEntryXmlParser::SubElementControllerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object)
     {
         auto controller = std::make_shared<ControllerImpl>();
@@ -2883,6 +3133,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetController(controller);
     }
+    ControllerDistributionEntryXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void ControllerDistributionEntryXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -2946,9 +3201,9 @@ namespace RAC_OPENSCENARIO
         result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename)));
         return result;
     }
-    void CustomCommandActionXmlParser::SetContentProperty(std::string& content, CustomCommandActionImpl& object)
+    void CustomCommandActionXmlParser::SetContentProperty(const std::string content, std::shared_ptr<CustomCommandActionImpl>& object)
     {
-        object.SetContent(content);
+        object->SetContent(content);
     }
 
 /**
@@ -3316,11 +3571,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<DistanceConditionImpl>>> DistanceConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<DistanceConditionImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    DistanceConditionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void DistanceConditionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistanceConditionImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -3537,13 +3796,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EntitiesImpl>>> EntitiesXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EntitiesImpl>>> result;
-        auto scenarioObjectsXmlParser = std::make_shared<ScenarioObjectXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementScenarioObjectsParser>(scenarioObjectsXmlParser));
-        auto entitySelectionsXmlParser = std::make_shared<EntitySelectionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntitySelectionsParser>(entitySelectionsXmlParser));
+        result.push_back(std::make_shared<SubElementScenarioObjectsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementEntitySelectionsParser>(_messageLogger, _filename));
         return result;
     }
 
+    EntitiesXmlParser::SubElementScenarioObjectsParser::SubElementScenarioObjectsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _scenarioObjectXmlParser = std::make_shared<ScenarioObjectXmlParser>(messageLogger, filename);
+    }
+    
     void EntitiesXmlParser::SubElementScenarioObjectsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object)
     {
         auto scenarioObjects = std::make_shared<ScenarioObjectImpl>();
@@ -3552,7 +3814,13 @@ namespace RAC_OPENSCENARIO
         _scenarioObjectXmlParser->ParseElement(indexedElement, parserContext, scenarioObjects);
         auto scenarioObjectsList = object->GetScenarioObjects();
         scenarioObjectsList.push_back(scenarioObjects);
+        object->SetScenarioObjects(scenarioObjectsList);
     }
+    EntitiesXmlParser::SubElementEntitySelectionsParser::SubElementEntitySelectionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entitySelectionXmlParser = std::make_shared<EntitySelectionXmlParser>(messageLogger, filename);
+    }
+    
     void EntitiesXmlParser::SubElementEntitySelectionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object)
     {
         auto entitySelections = std::make_shared<EntitySelectionImpl>();
@@ -3561,6 +3829,7 @@ namespace RAC_OPENSCENARIO
         _entitySelectionXmlParser->ParseElement(indexedElement, parserContext, entitySelections);
         auto entitySelectionsList = object->GetEntitySelections();
         entitySelectionsList.push_back(entitySelections);
+        object->SetEntitySelections(entitySelectionsList);
     }
 
 /**
@@ -3621,13 +3890,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EntityActionImpl>>> EntityActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EntityActionImpl>>> result;
-        auto addEntityActionXmlParser = std::make_shared<AddEntityActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAddEntityActionParser>(addEntityActionXmlParser));
-        auto deleteEntityActionXmlParser = std::make_shared<DeleteEntityActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDeleteEntityActionParser>(deleteEntityActionXmlParser));
+        result.push_back(std::make_shared<SubElementAddEntityActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementDeleteEntityActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    EntityActionXmlParser::SubElementAddEntityActionParser::SubElementAddEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _addEntityActionXmlParser = std::make_shared<AddEntityActionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityActionXmlParser::SubElementAddEntityActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object)
     {
         auto addEntityAction = std::make_shared<AddEntityActionImpl>();
@@ -3637,6 +3909,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetAddEntityAction(addEntityAction);
     }
+    EntityActionXmlParser::SubElementDeleteEntityActionParser::SubElementDeleteEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _deleteEntityActionXmlParser = std::make_shared<DeleteEntityActionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityActionXmlParser::SubElementDeleteEntityActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object)
     {
         auto deleteEntityAction = std::make_shared<DeleteEntityActionImpl>();
@@ -3673,35 +3950,27 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EntityConditionImpl>>> EntityConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EntityConditionImpl>>> result;
-        auto endOfRoadConditionXmlParser = std::make_shared<EndOfRoadConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEndOfRoadConditionParser>(endOfRoadConditionXmlParser));
-        auto collisionConditionXmlParser = std::make_shared<CollisionConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCollisionConditionParser>(collisionConditionXmlParser));
-        auto offroadConditionXmlParser = std::make_shared<OffroadConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOffroadConditionParser>(offroadConditionXmlParser));
-        auto timeHeadwayConditionXmlParser = std::make_shared<TimeHeadwayConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTimeHeadwayConditionParser>(timeHeadwayConditionXmlParser));
-        auto timeToCollisionConditionXmlParser = std::make_shared<TimeToCollisionConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTimeToCollisionConditionParser>(timeToCollisionConditionXmlParser));
-        auto accelerationConditionXmlParser = std::make_shared<AccelerationConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAccelerationConditionParser>(accelerationConditionXmlParser));
-        auto standStillConditionXmlParser = std::make_shared<StandStillConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStandStillConditionParser>(standStillConditionXmlParser));
-        auto speedConditionXmlParser = std::make_shared<SpeedConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSpeedConditionParser>(speedConditionXmlParser));
-        auto relativeSpeedConditionXmlParser = std::make_shared<RelativeSpeedConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeSpeedConditionParser>(relativeSpeedConditionXmlParser));
-        auto traveledDistanceConditionXmlParser = std::make_shared<TraveledDistanceConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTraveledDistanceConditionParser>(traveledDistanceConditionXmlParser));
-        auto reachPositionConditionXmlParser = std::make_shared<ReachPositionConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementReachPositionConditionParser>(reachPositionConditionXmlParser));
-        auto distanceConditionXmlParser = std::make_shared<DistanceConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDistanceConditionParser>(distanceConditionXmlParser));
-        auto relativeDistanceConditionXmlParser = std::make_shared<RelativeDistanceConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeDistanceConditionParser>(relativeDistanceConditionXmlParser));
+        result.push_back(std::make_shared<SubElementEndOfRoadConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCollisionConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementOffroadConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTimeHeadwayConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTimeToCollisionConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementAccelerationConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStandStillConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementSpeedConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRelativeSpeedConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTraveledDistanceConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementReachPositionConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementDistanceConditionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRelativeDistanceConditionParser>(_messageLogger, _filename));
         return result;
     }
 
+    EntityConditionXmlParser::SubElementEndOfRoadConditionParser::SubElementEndOfRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _endOfRoadConditionXmlParser = std::make_shared<EndOfRoadConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementEndOfRoadConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto endOfRoadCondition = std::make_shared<EndOfRoadConditionImpl>();
@@ -3711,6 +3980,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEndOfRoadCondition(endOfRoadCondition);
     }
+    EntityConditionXmlParser::SubElementCollisionConditionParser::SubElementCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _collisionConditionXmlParser = std::make_shared<CollisionConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementCollisionConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto collisionCondition = std::make_shared<CollisionConditionImpl>();
@@ -3720,6 +3994,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetCollisionCondition(collisionCondition);
     }
+    EntityConditionXmlParser::SubElementOffroadConditionParser::SubElementOffroadConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _offroadConditionXmlParser = std::make_shared<OffroadConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementOffroadConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto offroadCondition = std::make_shared<OffroadConditionImpl>();
@@ -3729,6 +4008,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetOffroadCondition(offroadCondition);
     }
+    EntityConditionXmlParser::SubElementTimeHeadwayConditionParser::SubElementTimeHeadwayConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _timeHeadwayConditionXmlParser = std::make_shared<TimeHeadwayConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementTimeHeadwayConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto timeHeadwayCondition = std::make_shared<TimeHeadwayConditionImpl>();
@@ -3738,6 +4022,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTimeHeadwayCondition(timeHeadwayCondition);
     }
+    EntityConditionXmlParser::SubElementTimeToCollisionConditionParser::SubElementTimeToCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _timeToCollisionConditionXmlParser = std::make_shared<TimeToCollisionConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementTimeToCollisionConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto timeToCollisionCondition = std::make_shared<TimeToCollisionConditionImpl>();
@@ -3747,6 +4036,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTimeToCollisionCondition(timeToCollisionCondition);
     }
+    EntityConditionXmlParser::SubElementAccelerationConditionParser::SubElementAccelerationConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _accelerationConditionXmlParser = std::make_shared<AccelerationConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementAccelerationConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto accelerationCondition = std::make_shared<AccelerationConditionImpl>();
@@ -3756,6 +4050,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetAccelerationCondition(accelerationCondition);
     }
+    EntityConditionXmlParser::SubElementStandStillConditionParser::SubElementStandStillConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _standStillConditionXmlParser = std::make_shared<StandStillConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementStandStillConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto standStillCondition = std::make_shared<StandStillConditionImpl>();
@@ -3765,6 +4064,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetStandStillCondition(standStillCondition);
     }
+    EntityConditionXmlParser::SubElementSpeedConditionParser::SubElementSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _speedConditionXmlParser = std::make_shared<SpeedConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementSpeedConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto speedCondition = std::make_shared<SpeedConditionImpl>();
@@ -3774,6 +4078,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSpeedCondition(speedCondition);
     }
+    EntityConditionXmlParser::SubElementRelativeSpeedConditionParser::SubElementRelativeSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeSpeedConditionXmlParser = std::make_shared<RelativeSpeedConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementRelativeSpeedConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto relativeSpeedCondition = std::make_shared<RelativeSpeedConditionImpl>();
@@ -3783,6 +4092,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeSpeedCondition(relativeSpeedCondition);
     }
+    EntityConditionXmlParser::SubElementTraveledDistanceConditionParser::SubElementTraveledDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _traveledDistanceConditionXmlParser = std::make_shared<TraveledDistanceConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementTraveledDistanceConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto traveledDistanceCondition = std::make_shared<TraveledDistanceConditionImpl>();
@@ -3792,6 +4106,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTraveledDistanceCondition(traveledDistanceCondition);
     }
+    EntityConditionXmlParser::SubElementReachPositionConditionParser::SubElementReachPositionConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _reachPositionConditionXmlParser = std::make_shared<ReachPositionConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementReachPositionConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto reachPositionCondition = std::make_shared<ReachPositionConditionImpl>();
@@ -3801,6 +4120,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetReachPositionCondition(reachPositionCondition);
     }
+    EntityConditionXmlParser::SubElementDistanceConditionParser::SubElementDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _distanceConditionXmlParser = std::make_shared<DistanceConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementDistanceConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto distanceCondition = std::make_shared<DistanceConditionImpl>();
@@ -3810,6 +4134,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetDistanceCondition(distanceCondition);
     }
+    EntityConditionXmlParser::SubElementRelativeDistanceConditionParser::SubElementRelativeDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeDistanceConditionXmlParser = std::make_shared<RelativeDistanceConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EntityConditionXmlParser::SubElementRelativeDistanceConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
     {
         auto relativeDistanceCondition = std::make_shared<RelativeDistanceConditionImpl>();
@@ -3840,17 +4169,18 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EntityObjectImpl>>> EntityObjectXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EntityObjectImpl>>> result;
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
-        auto vehicleXmlParser = std::make_shared<VehicleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementVehicleParser>(vehicleXmlParser));
-        auto pedestrianXmlParser = std::make_shared<PedestrianXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPedestrianParser>(pedestrianXmlParser));
-        auto miscObjectXmlParser = std::make_shared<MiscObjectXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementMiscObjectParser>(miscObjectXmlParser));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementVehicleParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPedestrianParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementMiscObjectParser>(_messageLogger, _filename));
         return result;
     }
 
+    EntityObjectXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void EntityObjectXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -3861,6 +4191,11 @@ namespace RAC_OPENSCENARIO
         object->SetCatalogReference(catalogReference);
         parserContext->AddCatalogReference(catalogReference);
     }
+    EntityObjectXmlParser::SubElementVehicleParser::SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _vehicleXmlParser = std::make_shared<VehicleXmlParser>(messageLogger, filename);
+    }
+    
     void EntityObjectXmlParser::SubElementVehicleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object)
     {
         auto vehicle = std::make_shared<VehicleImpl>();
@@ -3870,6 +4205,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetVehicle(vehicle);
     }
+    EntityObjectXmlParser::SubElementPedestrianParser::SubElementPedestrianParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _pedestrianXmlParser = std::make_shared<PedestrianXmlParser>(messageLogger, filename);
+    }
+    
     void EntityObjectXmlParser::SubElementPedestrianParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object)
     {
         auto pedestrian = std::make_shared<PedestrianImpl>();
@@ -3879,6 +4219,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetPedestrian(pedestrian);
     }
+    EntityObjectXmlParser::SubElementMiscObjectParser::SubElementMiscObjectParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _miscObjectXmlParser = std::make_shared<MiscObjectXmlParser>(messageLogger, filename);
+    }
+    
     void EntityObjectXmlParser::SubElementMiscObjectParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object)
     {
         auto miscObject = std::make_shared<MiscObjectImpl>();
@@ -4007,11 +4352,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EntitySelectionImpl>>> EntitySelectionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EntitySelectionImpl>>> result;
-        auto membersXmlParser = std::make_shared<SelectedEntitiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementMembersParser>(membersXmlParser));
+        result.push_back(std::make_shared<SubElementMembersParser>(_messageLogger, _filename));
         return result;
     }
 
+    EntitySelectionXmlParser::SubElementMembersParser::SubElementMembersParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _selectedEntitiesXmlParser = std::make_shared<SelectedEntitiesXmlParser>(messageLogger, filename);
+    }
+    
     void EntitySelectionXmlParser::SubElementMembersParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitySelectionImpl>& object)
     {
         auto members = std::make_shared<SelectedEntitiesImpl>();
@@ -4078,17 +4427,18 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EnvironmentImpl>>> EnvironmentXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EnvironmentImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<EnvironmentImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto timeOfDayXmlParser = std::make_shared<TimeOfDayXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTimeOfDayParser>(timeOfDayXmlParser));
-        auto weatherXmlParser = std::make_shared<WeatherXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementWeatherParser>(weatherXmlParser));
-        auto roadConditionXmlParser = std::make_shared<RoadConditionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRoadConditionParser>(roadConditionXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<EnvironmentImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementTimeOfDayParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementWeatherParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRoadConditionParser>(_messageLogger, _filename));
         return result;
     }
 
+    EnvironmentXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void EnvironmentXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -4097,7 +4447,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    EnvironmentXmlParser::SubElementTimeOfDayParser::SubElementTimeOfDayParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _timeOfDayXmlParser = std::make_shared<TimeOfDayXmlParser>(messageLogger, filename);
+    }
+    
     void EnvironmentXmlParser::SubElementTimeOfDayParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object)
     {
         auto timeOfDay = std::make_shared<TimeOfDayImpl>();
@@ -4107,6 +4463,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTimeOfDay(timeOfDay);
     }
+    EnvironmentXmlParser::SubElementWeatherParser::SubElementWeatherParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _weatherXmlParser = std::make_shared<WeatherXmlParser>(messageLogger, filename);
+    }
+    
     void EnvironmentXmlParser::SubElementWeatherParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object)
     {
         auto weather = std::make_shared<WeatherImpl>();
@@ -4116,6 +4477,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetWeather(weather);
     }
+    EnvironmentXmlParser::SubElementRoadConditionParser::SubElementRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _roadConditionXmlParser = std::make_shared<RoadConditionXmlParser>(messageLogger, filename);
+    }
+    
     void EnvironmentXmlParser::SubElementRoadConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object)
     {
         auto roadCondition = std::make_shared<RoadConditionImpl>();
@@ -4152,13 +4518,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EnvironmentActionImpl>>> EnvironmentActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EnvironmentActionImpl>>> result;
-        auto environmentXmlParser = std::make_shared<EnvironmentXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEnvironmentParser>(environmentXmlParser));
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
+        result.push_back(std::make_shared<SubElementEnvironmentParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
         return result;
     }
 
+    EnvironmentActionXmlParser::SubElementEnvironmentParser::SubElementEnvironmentParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _environmentXmlParser = std::make_shared<EnvironmentXmlParser>(messageLogger, filename);
+    }
+    
     void EnvironmentActionXmlParser::SubElementEnvironmentParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object)
     {
         auto environment = std::make_shared<EnvironmentImpl>();
@@ -4168,6 +4537,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEnvironment(environment);
     }
+    EnvironmentActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void EnvironmentActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -4205,11 +4579,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EnvironmentCatalogLocationImpl>>> EnvironmentCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EnvironmentCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    EnvironmentCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void EnvironmentCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -4345,13 +4723,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<EventImpl>>> EventXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<EventImpl>>> result;
-        auto actionsXmlParser = std::make_shared<ActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementActionsParser>(actionsXmlParser));
-        auto startTriggerXmlParser = std::make_shared<TriggerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStartTriggerParser>(startTriggerXmlParser));
+        result.push_back(std::make_shared<SubElementActionsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStartTriggerParser>(_messageLogger, _filename));
         return result;
     }
 
+    EventXmlParser::SubElementActionsParser::SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _actionXmlParser = std::make_shared<ActionXmlParser>(messageLogger, filename);
+    }
+    
     void EventXmlParser::SubElementActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object)
     {
         auto actions = std::make_shared<ActionImpl>();
@@ -4360,7 +4741,13 @@ namespace RAC_OPENSCENARIO
         _actionXmlParser->ParseElement(indexedElement, parserContext, actions);
         auto actionsList = object->GetActions();
         actionsList.push_back(actions);
+        object->SetActions(actionsList);
     }
+    EventXmlParser::SubElementStartTriggerParser::SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
+    }
+    
     void EventXmlParser::SubElementStartTriggerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object)
     {
         auto startTrigger = std::make_shared<TriggerImpl>();
@@ -4637,13 +5024,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<FinalSpeedImpl>>> FinalSpeedXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<FinalSpeedImpl>>> result;
-        auto absoluteSpeedXmlParser = std::make_shared<AbsoluteSpeedXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAbsoluteSpeedParser>(absoluteSpeedXmlParser));
-        auto relativeSpeedToMasterXmlParser = std::make_shared<RelativeSpeedToMasterXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeSpeedToMasterParser>(relativeSpeedToMasterXmlParser));
+        result.push_back(std::make_shared<SubElementAbsoluteSpeedParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRelativeSpeedToMasterParser>(_messageLogger, _filename));
         return result;
     }
 
+    FinalSpeedXmlParser::SubElementAbsoluteSpeedParser::SubElementAbsoluteSpeedParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _absoluteSpeedXmlParser = std::make_shared<AbsoluteSpeedXmlParser>(messageLogger, filename);
+    }
+    
     void FinalSpeedXmlParser::SubElementAbsoluteSpeedParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object)
     {
         auto absoluteSpeed = std::make_shared<AbsoluteSpeedImpl>();
@@ -4653,6 +5043,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetAbsoluteSpeed(absoluteSpeed);
     }
+    FinalSpeedXmlParser::SubElementRelativeSpeedToMasterParser::SubElementRelativeSpeedToMasterParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeSpeedToMasterXmlParser = std::make_shared<RelativeSpeedToMasterXmlParser>(messageLogger, filename);
+    }
+    
     void FinalSpeedXmlParser::SubElementRelativeSpeedToMasterParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object)
     {
         auto relativeSpeedToMaster = std::make_shared<RelativeSpeedToMasterImpl>();
@@ -4719,11 +5114,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<FogImpl>>> FogXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<FogImpl>>> result;
-        auto boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementBoundingBoxParser>(boundingBoxXmlParser));
+        result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename));
         return result;
     }
 
+    FogXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
+    }
+    
     void FogXmlParser::SubElementBoundingBoxParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FogImpl>& object)
     {
         auto boundingBox = std::make_shared<BoundingBoxImpl>();
@@ -4760,17 +5159,18 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<FollowTrajectoryActionImpl>>> FollowTrajectoryActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<FollowTrajectoryActionImpl>>> result;
-        auto trajectoryXmlParser = std::make_shared<TrajectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrajectoryParser>(trajectoryXmlParser));
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
-        auto timeReferenceXmlParser = std::make_shared<TimeReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTimeReferenceParser>(timeReferenceXmlParser));
-        auto trajectoryFollowingModeXmlParser = std::make_shared<TrajectoryFollowingModeXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrajectoryFollowingModeParser>(trajectoryFollowingModeXmlParser));
+        result.push_back(std::make_shared<SubElementTrajectoryParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTimeReferenceParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrajectoryFollowingModeParser>(_messageLogger, _filename));
         return result;
     }
 
+    FollowTrajectoryActionXmlParser::SubElementTrajectoryParser::SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trajectoryXmlParser = std::make_shared<TrajectoryXmlParser>(messageLogger, filename);
+    }
+    
     void FollowTrajectoryActionXmlParser::SubElementTrajectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object)
     {
         auto trajectory = std::make_shared<TrajectoryImpl>();
@@ -4780,6 +5180,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTrajectory(trajectory);
     }
+    FollowTrajectoryActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void FollowTrajectoryActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -4790,6 +5195,11 @@ namespace RAC_OPENSCENARIO
         object->SetCatalogReference(catalogReference);
         parserContext->AddCatalogReference(catalogReference);
     }
+    FollowTrajectoryActionXmlParser::SubElementTimeReferenceParser::SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _timeReferenceXmlParser = std::make_shared<TimeReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void FollowTrajectoryActionXmlParser::SubElementTimeReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object)
     {
         auto timeReference = std::make_shared<TimeReferenceImpl>();
@@ -4799,6 +5209,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTimeReference(timeReference);
     }
+    FollowTrajectoryActionXmlParser::SubElementTrajectoryFollowingModeParser::SubElementTrajectoryFollowingModeParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trajectoryFollowingModeXmlParser = std::make_shared<TrajectoryFollowingModeXmlParser>(messageLogger, filename);
+    }
+    
     void FollowTrajectoryActionXmlParser::SubElementTrajectoryFollowingModeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object)
     {
         auto trajectoryFollowingMode = std::make_shared<TrajectoryFollowingModeImpl>();
@@ -4835,19 +5250,19 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<GlobalActionImpl>>> GlobalActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<GlobalActionImpl>>> result;
-        auto environmentActionXmlParser = std::make_shared<EnvironmentActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEnvironmentActionParser>(environmentActionXmlParser));
-        auto entityActionXmlParser = std::make_shared<EntityActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityActionParser>(entityActionXmlParser));
-        auto parameterActionXmlParser = std::make_shared<ParameterActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementParameterActionParser>(parameterActionXmlParser));
-        auto infrastructureActionXmlParser = std::make_shared<InfrastructureActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementInfrastructureActionParser>(infrastructureActionXmlParser));
-        auto trafficActionXmlParser = std::make_shared<TrafficActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficActionParser>(trafficActionXmlParser));
+        result.push_back(std::make_shared<SubElementEnvironmentActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementEntityActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementParameterActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementInfrastructureActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    GlobalActionXmlParser::SubElementEnvironmentActionParser::SubElementEnvironmentActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _environmentActionXmlParser = std::make_shared<EnvironmentActionXmlParser>(messageLogger, filename);
+    }
+    
     void GlobalActionXmlParser::SubElementEnvironmentActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object)
     {
         auto environmentAction = std::make_shared<EnvironmentActionImpl>();
@@ -4857,6 +5272,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEnvironmentAction(environmentAction);
     }
+    GlobalActionXmlParser::SubElementEntityActionParser::SubElementEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityActionXmlParser = std::make_shared<EntityActionXmlParser>(messageLogger, filename);
+    }
+    
     void GlobalActionXmlParser::SubElementEntityActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object)
     {
         auto entityAction = std::make_shared<EntityActionImpl>();
@@ -4866,6 +5286,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEntityAction(entityAction);
     }
+    GlobalActionXmlParser::SubElementParameterActionParser::SubElementParameterActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterActionXmlParser = std::make_shared<ParameterActionXmlParser>(messageLogger, filename);
+    }
+    
     void GlobalActionXmlParser::SubElementParameterActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object)
     {
         auto parameterAction = std::make_shared<ParameterActionImpl>();
@@ -4875,6 +5300,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetParameterAction(parameterAction);
     }
+    GlobalActionXmlParser::SubElementInfrastructureActionParser::SubElementInfrastructureActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _infrastructureActionXmlParser = std::make_shared<InfrastructureActionXmlParser>(messageLogger, filename);
+    }
+    
     void GlobalActionXmlParser::SubElementInfrastructureActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object)
     {
         auto infrastructureAction = std::make_shared<InfrastructureActionImpl>();
@@ -4884,6 +5314,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetInfrastructureAction(infrastructureAction);
     }
+    GlobalActionXmlParser::SubElementTrafficActionParser::SubElementTrafficActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficActionXmlParser = std::make_shared<TrafficActionXmlParser>(messageLogger, filename);
+    }
+    
     void GlobalActionXmlParser::SubElementTrafficActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object)
     {
         auto trafficAction = std::make_shared<TrafficActionImpl>();
@@ -4920,15 +5355,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<InRoutePositionImpl>>> InRoutePositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<InRoutePositionImpl>>> result;
-        auto fromCurrentEntityXmlParser = std::make_shared<PositionOfCurrentEntityXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFromCurrentEntityParser>(fromCurrentEntityXmlParser));
-        auto fromRoadCoordinatesXmlParser = std::make_shared<PositionInRoadCoordinatesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFromRoadCoordinatesParser>(fromRoadCoordinatesXmlParser));
-        auto fromLaneCoordinatesXmlParser = std::make_shared<PositionInLaneCoordinatesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFromLaneCoordinatesParser>(fromLaneCoordinatesXmlParser));
+        result.push_back(std::make_shared<SubElementFromCurrentEntityParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementFromRoadCoordinatesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementFromLaneCoordinatesParser>(_messageLogger, _filename));
         return result;
     }
 
+    InRoutePositionXmlParser::SubElementFromCurrentEntityParser::SubElementFromCurrentEntityParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionOfCurrentEntityXmlParser = std::make_shared<PositionOfCurrentEntityXmlParser>(messageLogger, filename);
+    }
+    
     void InRoutePositionXmlParser::SubElementFromCurrentEntityParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object)
     {
         auto fromCurrentEntity = std::make_shared<PositionOfCurrentEntityImpl>();
@@ -4938,6 +5375,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetFromCurrentEntity(fromCurrentEntity);
     }
+    InRoutePositionXmlParser::SubElementFromRoadCoordinatesParser::SubElementFromRoadCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionInRoadCoordinatesXmlParser = std::make_shared<PositionInRoadCoordinatesXmlParser>(messageLogger, filename);
+    }
+    
     void InRoutePositionXmlParser::SubElementFromRoadCoordinatesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object)
     {
         auto fromRoadCoordinates = std::make_shared<PositionInRoadCoordinatesImpl>();
@@ -4947,6 +5389,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetFromRoadCoordinates(fromRoadCoordinates);
     }
+    InRoutePositionXmlParser::SubElementFromLaneCoordinatesParser::SubElementFromLaneCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionInLaneCoordinatesXmlParser = std::make_shared<PositionInLaneCoordinatesXmlParser>(messageLogger, filename);
+    }
+    
     void InRoutePositionXmlParser::SubElementFromLaneCoordinatesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object)
     {
         auto fromLaneCoordinates = std::make_shared<PositionInLaneCoordinatesImpl>();
@@ -4983,11 +5430,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<InfrastructureActionImpl>>> InfrastructureActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<InfrastructureActionImpl>>> result;
-        auto trafficSignalActionXmlParser = std::make_shared<TrafficSignalActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSignalActionParser>(trafficSignalActionXmlParser));
+        result.push_back(std::make_shared<SubElementTrafficSignalActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    InfrastructureActionXmlParser::SubElementTrafficSignalActionParser::SubElementTrafficSignalActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSignalActionXmlParser = std::make_shared<TrafficSignalActionXmlParser>(messageLogger, filename);
+    }
+    
     void InfrastructureActionXmlParser::SubElementTrafficSignalActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InfrastructureActionImpl>& object)
     {
         auto trafficSignalAction = std::make_shared<TrafficSignalActionImpl>();
@@ -5024,11 +5475,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<InitImpl>>> InitXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<InitImpl>>> result;
-        auto actionsXmlParser = std::make_shared<InitActionsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementActionsParser>(actionsXmlParser));
+        result.push_back(std::make_shared<SubElementActionsParser>(_messageLogger, _filename));
         return result;
     }
 
+    InitXmlParser::SubElementActionsParser::SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _initActionsXmlParser = std::make_shared<InitActionsXmlParser>(messageLogger, filename);
+    }
+    
     void InitXmlParser::SubElementActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitImpl>& object)
     {
         auto actions = std::make_shared<InitActionsImpl>();
@@ -5065,15 +5520,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<InitActionsImpl>>> InitActionsXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<InitActionsImpl>>> result;
-        auto globalActionsXmlParser = std::make_shared<GlobalActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementGlobalActionsParser>(globalActionsXmlParser));
-        auto userDefinedActionsXmlParser = std::make_shared<UserDefinedActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementUserDefinedActionsParser>(userDefinedActionsXmlParser));
-        auto privatesXmlParser = std::make_shared<PrivateXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPrivatesParser>(privatesXmlParser));
+        result.push_back(std::make_shared<SubElementGlobalActionsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementUserDefinedActionsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPrivatesParser>(_messageLogger, _filename));
         return result;
     }
 
+    InitActionsXmlParser::SubElementGlobalActionsParser::SubElementGlobalActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _globalActionXmlParser = std::make_shared<GlobalActionXmlParser>(messageLogger, filename);
+    }
+    
     void InitActionsXmlParser::SubElementGlobalActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object)
     {
         auto globalActions = std::make_shared<GlobalActionImpl>();
@@ -5082,7 +5539,13 @@ namespace RAC_OPENSCENARIO
         _globalActionXmlParser->ParseElement(indexedElement, parserContext, globalActions);
         auto globalActionsList = object->GetGlobalActions();
         globalActionsList.push_back(globalActions);
+        object->SetGlobalActions(globalActionsList);
     }
+    InitActionsXmlParser::SubElementUserDefinedActionsParser::SubElementUserDefinedActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _userDefinedActionXmlParser = std::make_shared<UserDefinedActionXmlParser>(messageLogger, filename);
+    }
+    
     void InitActionsXmlParser::SubElementUserDefinedActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object)
     {
         auto userDefinedActions = std::make_shared<UserDefinedActionImpl>();
@@ -5091,7 +5554,13 @@ namespace RAC_OPENSCENARIO
         _userDefinedActionXmlParser->ParseElement(indexedElement, parserContext, userDefinedActions);
         auto userDefinedActionsList = object->GetUserDefinedActions();
         userDefinedActionsList.push_back(userDefinedActions);
+        object->SetUserDefinedActions(userDefinedActionsList);
     }
+    InitActionsXmlParser::SubElementPrivatesParser::SubElementPrivatesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _privateXmlParser = std::make_shared<PrivateXmlParser>(messageLogger, filename);
+    }
+    
     void InitActionsXmlParser::SubElementPrivatesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object)
     {
         auto privates = std::make_shared<PrivateImpl>();
@@ -5100,6 +5569,7 @@ namespace RAC_OPENSCENARIO
         _privateXmlParser->ParseElement(indexedElement, parserContext, privates);
         auto privatesList = object->GetPrivates();
         privatesList.push_back(privates);
+        object->SetPrivates(privatesList);
     }
 
 /**
@@ -5218,13 +5688,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LaneChangeActionImpl>>> LaneChangeActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LaneChangeActionImpl>>> result;
-        auto laneChangeActionDynamicsXmlParser = std::make_shared<TransitionDynamicsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLaneChangeActionDynamicsParser>(laneChangeActionDynamicsXmlParser));
-        auto laneChangeTargetXmlParser = std::make_shared<LaneChangeTargetXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLaneChangeTargetParser>(laneChangeTargetXmlParser));
+        result.push_back(std::make_shared<SubElementLaneChangeActionDynamicsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementLaneChangeTargetParser>(_messageLogger, _filename));
         return result;
     }
 
+    LaneChangeActionXmlParser::SubElementLaneChangeActionDynamicsParser::SubElementLaneChangeActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _transitionDynamicsXmlParser = std::make_shared<TransitionDynamicsXmlParser>(messageLogger, filename);
+    }
+    
     void LaneChangeActionXmlParser::SubElementLaneChangeActionDynamicsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object)
     {
         auto laneChangeActionDynamics = std::make_shared<TransitionDynamicsImpl>();
@@ -5234,6 +5707,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLaneChangeActionDynamics(laneChangeActionDynamics);
     }
+    LaneChangeActionXmlParser::SubElementLaneChangeTargetParser::SubElementLaneChangeTargetParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _laneChangeTargetXmlParser = std::make_shared<LaneChangeTargetXmlParser>(messageLogger, filename);
+    }
+    
     void LaneChangeActionXmlParser::SubElementLaneChangeTargetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object)
     {
         auto laneChangeTarget = std::make_shared<LaneChangeTargetImpl>();
@@ -5270,13 +5748,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LaneChangeTargetImpl>>> LaneChangeTargetXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LaneChangeTargetImpl>>> result;
-        auto relativeTargetLaneXmlParser = std::make_shared<RelativeTargetLaneXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeTargetLaneParser>(relativeTargetLaneXmlParser));
-        auto absoluteTargetLaneXmlParser = std::make_shared<AbsoluteTargetLaneXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAbsoluteTargetLaneParser>(absoluteTargetLaneXmlParser));
+        result.push_back(std::make_shared<SubElementRelativeTargetLaneParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementAbsoluteTargetLaneParser>(_messageLogger, _filename));
         return result;
     }
 
+    LaneChangeTargetXmlParser::SubElementRelativeTargetLaneParser::SubElementRelativeTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeTargetLaneXmlParser = std::make_shared<RelativeTargetLaneXmlParser>(messageLogger, filename);
+    }
+    
     void LaneChangeTargetXmlParser::SubElementRelativeTargetLaneParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object)
     {
         auto relativeTargetLane = std::make_shared<RelativeTargetLaneImpl>();
@@ -5286,6 +5767,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeTargetLane(relativeTargetLane);
     }
+    LaneChangeTargetXmlParser::SubElementAbsoluteTargetLaneParser::SubElementAbsoluteTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _absoluteTargetLaneXmlParser = std::make_shared<AbsoluteTargetLaneXmlParser>(messageLogger, filename);
+    }
+    
     void LaneChangeTargetXmlParser::SubElementAbsoluteTargetLaneParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object)
     {
         auto absoluteTargetLane = std::make_shared<AbsoluteTargetLaneImpl>();
@@ -5352,13 +5838,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LaneOffsetActionImpl>>> LaneOffsetActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LaneOffsetActionImpl>>> result;
-        auto laneOffsetActionDynamicsXmlParser = std::make_shared<LaneOffsetActionDynamicsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLaneOffsetActionDynamicsParser>(laneOffsetActionDynamicsXmlParser));
-        auto laneOffsetTargetXmlParser = std::make_shared<LaneOffsetTargetXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLaneOffsetTargetParser>(laneOffsetTargetXmlParser));
+        result.push_back(std::make_shared<SubElementLaneOffsetActionDynamicsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementLaneOffsetTargetParser>(_messageLogger, _filename));
         return result;
     }
 
+    LaneOffsetActionXmlParser::SubElementLaneOffsetActionDynamicsParser::SubElementLaneOffsetActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _laneOffsetActionDynamicsXmlParser = std::make_shared<LaneOffsetActionDynamicsXmlParser>(messageLogger, filename);
+    }
+    
     void LaneOffsetActionXmlParser::SubElementLaneOffsetActionDynamicsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object)
     {
         auto laneOffsetActionDynamics = std::make_shared<LaneOffsetActionDynamicsImpl>();
@@ -5368,6 +5857,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLaneOffsetActionDynamics(laneOffsetActionDynamics);
     }
+    LaneOffsetActionXmlParser::SubElementLaneOffsetTargetParser::SubElementLaneOffsetTargetParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _laneOffsetTargetXmlParser = std::make_shared<LaneOffsetTargetXmlParser>(messageLogger, filename);
+    }
+    
     void LaneOffsetActionXmlParser::SubElementLaneOffsetTargetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object)
     {
         auto laneOffsetTarget = std::make_shared<LaneOffsetTargetImpl>();
@@ -5503,13 +5997,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LaneOffsetTargetImpl>>> LaneOffsetTargetXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LaneOffsetTargetImpl>>> result;
-        auto relativeTargetLaneOffsetXmlParser = std::make_shared<RelativeTargetLaneOffsetXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeTargetLaneOffsetParser>(relativeTargetLaneOffsetXmlParser));
-        auto absoluteTargetLaneOffsetXmlParser = std::make_shared<AbsoluteTargetLaneOffsetXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAbsoluteTargetLaneOffsetParser>(absoluteTargetLaneOffsetXmlParser));
+        result.push_back(std::make_shared<SubElementRelativeTargetLaneOffsetParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementAbsoluteTargetLaneOffsetParser>(_messageLogger, _filename));
         return result;
     }
 
+    LaneOffsetTargetXmlParser::SubElementRelativeTargetLaneOffsetParser::SubElementRelativeTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeTargetLaneOffsetXmlParser = std::make_shared<RelativeTargetLaneOffsetXmlParser>(messageLogger, filename);
+    }
+    
     void LaneOffsetTargetXmlParser::SubElementRelativeTargetLaneOffsetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object)
     {
         auto relativeTargetLaneOffset = std::make_shared<RelativeTargetLaneOffsetImpl>();
@@ -5519,6 +6016,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeTargetLaneOffset(relativeTargetLaneOffset);
     }
+    LaneOffsetTargetXmlParser::SubElementAbsoluteTargetLaneOffsetParser::SubElementAbsoluteTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _absoluteTargetLaneOffsetXmlParser = std::make_shared<AbsoluteTargetLaneOffsetXmlParser>(messageLogger, filename);
+    }
+    
     void LaneOffsetTargetXmlParser::SubElementAbsoluteTargetLaneOffsetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object)
     {
         auto absoluteTargetLaneOffset = std::make_shared<AbsoluteTargetLaneOffsetImpl>();
@@ -5675,11 +6177,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LanePositionImpl>>> LanePositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LanePositionImpl>>> result;
-        auto orientationXmlParser = std::make_shared<OrientationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOrientationParser>(orientationXmlParser));
+        result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
         return result;
     }
 
+    LanePositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+    }
+    
     void LanePositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LanePositionImpl>& object)
     {
         auto orientation = std::make_shared<OrientationImpl>();
@@ -5716,15 +6222,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LateralActionImpl>>> LateralActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LateralActionImpl>>> result;
-        auto laneChangeActionXmlParser = std::make_shared<LaneChangeActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLaneChangeActionParser>(laneChangeActionXmlParser));
-        auto laneOffsetActionXmlParser = std::make_shared<LaneOffsetActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLaneOffsetActionParser>(laneOffsetActionXmlParser));
-        auto lateralDistanceActionXmlParser = std::make_shared<LateralDistanceActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLateralDistanceActionParser>(lateralDistanceActionXmlParser));
+        result.push_back(std::make_shared<SubElementLaneChangeActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementLaneOffsetActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementLateralDistanceActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    LateralActionXmlParser::SubElementLaneChangeActionParser::SubElementLaneChangeActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _laneChangeActionXmlParser = std::make_shared<LaneChangeActionXmlParser>(messageLogger, filename);
+    }
+    
     void LateralActionXmlParser::SubElementLaneChangeActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object)
     {
         auto laneChangeAction = std::make_shared<LaneChangeActionImpl>();
@@ -5734,6 +6242,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLaneChangeAction(laneChangeAction);
     }
+    LateralActionXmlParser::SubElementLaneOffsetActionParser::SubElementLaneOffsetActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _laneOffsetActionXmlParser = std::make_shared<LaneOffsetActionXmlParser>(messageLogger, filename);
+    }
+    
     void LateralActionXmlParser::SubElementLaneOffsetActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object)
     {
         auto laneOffsetAction = std::make_shared<LaneOffsetActionImpl>();
@@ -5743,6 +6256,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLaneOffsetAction(laneOffsetAction);
     }
+    LateralActionXmlParser::SubElementLateralDistanceActionParser::SubElementLateralDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _lateralDistanceActionXmlParser = std::make_shared<LateralDistanceActionXmlParser>(messageLogger, filename);
+    }
+    
     void LateralActionXmlParser::SubElementLateralDistanceActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object)
     {
         auto lateralDistanceAction = std::make_shared<LateralDistanceActionImpl>();
@@ -5901,11 +6419,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LateralDistanceActionImpl>>> LateralDistanceActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LateralDistanceActionImpl>>> result;
-        auto dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(dynamicConstraintsXmlParser));
+        result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(_messageLogger, _filename));
         return result;
     }
 
+    LateralDistanceActionXmlParser::SubElementDynamicConstraintsParser::SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(messageLogger, filename);
+    }
+    
     void LateralDistanceActionXmlParser::SubElementDynamicConstraintsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralDistanceActionImpl>& object)
     {
         auto dynamicConstraints = std::make_shared<DynamicConstraintsImpl>();
@@ -5942,13 +6464,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LongitudinalActionImpl>>> LongitudinalActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LongitudinalActionImpl>>> result;
-        auto speedActionXmlParser = std::make_shared<SpeedActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSpeedActionParser>(speedActionXmlParser));
-        auto longitudinalDistanceActionXmlParser = std::make_shared<LongitudinalDistanceActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLongitudinalDistanceActionParser>(longitudinalDistanceActionXmlParser));
+        result.push_back(std::make_shared<SubElementSpeedActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementLongitudinalDistanceActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    LongitudinalActionXmlParser::SubElementSpeedActionParser::SubElementSpeedActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _speedActionXmlParser = std::make_shared<SpeedActionXmlParser>(messageLogger, filename);
+    }
+    
     void LongitudinalActionXmlParser::SubElementSpeedActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object)
     {
         auto speedAction = std::make_shared<SpeedActionImpl>();
@@ -5958,6 +6483,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSpeedAction(speedAction);
     }
+    LongitudinalActionXmlParser::SubElementLongitudinalDistanceActionParser::SubElementLongitudinalDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _longitudinalDistanceActionXmlParser = std::make_shared<LongitudinalDistanceActionXmlParser>(messageLogger, filename);
+    }
+    
     void LongitudinalActionXmlParser::SubElementLongitudinalDistanceActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object)
     {
         auto longitudinalDistanceAction = std::make_shared<LongitudinalDistanceActionImpl>();
@@ -6146,11 +6676,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<LongitudinalDistanceActionImpl>>> LongitudinalDistanceActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<LongitudinalDistanceActionImpl>>> result;
-        auto dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(dynamicConstraintsXmlParser));
+        result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(_messageLogger, _filename));
         return result;
     }
 
+    LongitudinalDistanceActionXmlParser::SubElementDynamicConstraintsParser::SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(messageLogger, filename);
+    }
+    
     void LongitudinalDistanceActionXmlParser::SubElementDynamicConstraintsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalDistanceActionImpl>& object)
     {
         auto dynamicConstraints = std::make_shared<DynamicConstraintsImpl>();
@@ -6217,13 +6751,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ManeuverImpl>>> ManeuverXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ManeuverImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<ManeuverImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto eventsXmlParser = std::make_shared<EventXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEventsParser>(eventsXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<ManeuverImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementEventsParser>(_messageLogger, _filename));
         return result;
     }
 
+    ManeuverXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void ManeuverXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -6232,7 +6769,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    ManeuverXmlParser::SubElementEventsParser::SubElementEventsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _eventXmlParser = std::make_shared<EventXmlParser>(messageLogger, filename);
+    }
+    
     void ManeuverXmlParser::SubElementEventsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object)
     {
         auto events = std::make_shared<EventImpl>();
@@ -6241,6 +6784,7 @@ namespace RAC_OPENSCENARIO
         _eventXmlParser->ParseElement(indexedElement, parserContext, events);
         auto eventsList = object->GetEvents();
         eventsList.push_back(events);
+        object->SetEvents(eventsList);
     }
 
 /**
@@ -6269,11 +6813,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ManeuverCatalogLocationImpl>>> ManeuverCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ManeuverCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    ManeuverCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void ManeuverCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -6370,15 +6918,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ManeuverGroupImpl>>> ManeuverGroupXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ManeuverGroupImpl>>> result;
-        auto actorsXmlParser = std::make_shared<ActorsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementActorsParser>(actorsXmlParser));
-        auto catalogReferencesXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferencesParser>(catalogReferencesXmlParser));
-        auto maneuversXmlParser = std::make_shared<ManeuverXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementManeuversParser>(maneuversXmlParser));
+        result.push_back(std::make_shared<SubElementActorsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogReferencesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementManeuversParser>(_messageLogger, _filename));
         return result;
     }
 
+    ManeuverGroupXmlParser::SubElementActorsParser::SubElementActorsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _actorsXmlParser = std::make_shared<ActorsXmlParser>(messageLogger, filename);
+    }
+    
     void ManeuverGroupXmlParser::SubElementActorsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object)
     {
         auto actors = std::make_shared<ActorsImpl>();
@@ -6388,6 +6938,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetActors(actors);
     }
+    ManeuverGroupXmlParser::SubElementCatalogReferencesParser::SubElementCatalogReferencesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void ManeuverGroupXmlParser::SubElementCatalogReferencesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object)
     {
         auto catalogReferences = std::make_shared<CatalogReferenceImpl>();
@@ -6396,8 +6951,14 @@ namespace RAC_OPENSCENARIO
         _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReferences);
         auto catalogReferencesList = object->GetCatalogReferences();
         catalogReferencesList.push_back(catalogReferences);
+        object->SetCatalogReferences(catalogReferencesList);
         parserContext->AddCatalogReference(catalogReferences);
     }
+    ManeuverGroupXmlParser::SubElementManeuversParser::SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _maneuverXmlParser = std::make_shared<ManeuverXmlParser>(messageLogger, filename);
+    }
+    
     void ManeuverGroupXmlParser::SubElementManeuversParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object)
     {
         auto maneuvers = std::make_shared<ManeuverImpl>();
@@ -6406,6 +6967,7 @@ namespace RAC_OPENSCENARIO
         _maneuverXmlParser->ParseElement(indexedElement, parserContext, maneuvers);
         auto maneuversList = object->GetManeuvers();
         maneuversList.push_back(maneuvers);
+        object->SetManeuvers(maneuversList);
     }
 
 /**
@@ -6533,15 +7095,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<MiscObjectImpl>>> MiscObjectXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<MiscObjectImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<MiscObjectImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementBoundingBoxParser>(boundingBoxXmlParser));
-        auto propertiesXmlParser = std::make_shared<PropertiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPropertiesParser>(propertiesXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<MiscObjectImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
         return result;
     }
 
+    MiscObjectXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void MiscObjectXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -6550,7 +7114,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    MiscObjectXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
+    }
+    
     void MiscObjectXmlParser::SubElementBoundingBoxParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object)
     {
         auto boundingBox = std::make_shared<BoundingBoxImpl>();
@@ -6560,6 +7130,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetBoundingBox(boundingBox);
     }
+    MiscObjectXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename);
+    }
+    
     void MiscObjectXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object)
     {
         auto properties = std::make_shared<PropertiesImpl>();
@@ -6596,11 +7171,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<MiscObjectCatalogLocationImpl>>> MiscObjectCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<MiscObjectCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    MiscObjectCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void MiscObjectCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -6637,13 +7216,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ModifyRuleImpl>>> ModifyRuleXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ModifyRuleImpl>>> result;
-        auto addValueXmlParser = std::make_shared<ParameterAddValueRuleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAddValueParser>(addValueXmlParser));
-        auto multiplyByValueXmlParser = std::make_shared<ParameterMultiplyByValueRuleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementMultiplyByValueParser>(multiplyByValueXmlParser));
+        result.push_back(std::make_shared<SubElementAddValueParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementMultiplyByValueParser>(_messageLogger, _filename));
         return result;
     }
 
+    ModifyRuleXmlParser::SubElementAddValueParser::SubElementAddValueParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterAddValueRuleXmlParser = std::make_shared<ParameterAddValueRuleXmlParser>(messageLogger, filename);
+    }
+    
     void ModifyRuleXmlParser::SubElementAddValueParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object)
     {
         auto addValue = std::make_shared<ParameterAddValueRuleImpl>();
@@ -6653,6 +7235,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetAddValue(addValue);
     }
+    ModifyRuleXmlParser::SubElementMultiplyByValueParser::SubElementMultiplyByValueParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterMultiplyByValueRuleXmlParser = std::make_shared<ParameterMultiplyByValueRuleXmlParser>(messageLogger, filename);
+    }
+    
     void ModifyRuleXmlParser::SubElementMultiplyByValueParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object)
     {
         auto multiplyByValue = std::make_shared<ParameterMultiplyByValueRuleImpl>();
@@ -6749,13 +7336,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<NurbsImpl>>> NurbsXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<NurbsImpl>>> result;
-        auto controlPointsXmlParser = std::make_shared<ControlPointXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControlPointsParser>(controlPointsXmlParser));
-        auto knotsXmlParser = std::make_shared<KnotXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementKnotsParser>(knotsXmlParser));
+        result.push_back(std::make_shared<SubElementControlPointsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementKnotsParser>(_messageLogger, _filename));
         return result;
     }
 
+    NurbsXmlParser::SubElementControlPointsParser::SubElementControlPointsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controlPointXmlParser = std::make_shared<ControlPointXmlParser>(messageLogger, filename);
+    }
+    
     void NurbsXmlParser::SubElementControlPointsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object)
     {
         auto controlPoints = std::make_shared<ControlPointImpl>();
@@ -6764,7 +7354,13 @@ namespace RAC_OPENSCENARIO
         _controlPointXmlParser->ParseElement(indexedElement, parserContext, controlPoints);
         auto controlPointsList = object->GetControlPoints();
         controlPointsList.push_back(controlPoints);
+        object->SetControlPoints(controlPointsList);
     }
+    NurbsXmlParser::SubElementKnotsParser::SubElementKnotsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _knotXmlParser = std::make_shared<KnotXmlParser>(messageLogger, filename);
+    }
+    
     void NurbsXmlParser::SubElementKnotsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object)
     {
         auto knots = std::make_shared<KnotImpl>();
@@ -6773,6 +7369,7 @@ namespace RAC_OPENSCENARIO
         _knotXmlParser->ParseElement(indexedElement, parserContext, knots);
         auto knotsList = object->GetKnots();
         knotsList.push_back(knots);
+        object->SetKnots(knotsList);
     }
 
 /**
@@ -6801,13 +7398,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ObjectControllerImpl>>> ObjectControllerXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ObjectControllerImpl>>> result;
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
-        auto controllerXmlParser = std::make_shared<ControllerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllerParser>(controllerXmlParser));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename));
         return result;
     }
 
+    ObjectControllerXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void ObjectControllerXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -6818,6 +7418,11 @@ namespace RAC_OPENSCENARIO
         object->SetCatalogReference(catalogReference);
         parserContext->AddCatalogReference(catalogReference);
     }
+    ObjectControllerXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+    }
+    
     void ObjectControllerXmlParser::SubElementControllerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object)
     {
         auto controller = std::make_shared<ControllerImpl>();
@@ -6914,13 +7519,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<OpenScenarioImpl>>> OpenScenarioXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<OpenScenarioImpl>>> result;
-        auto fileHeaderXmlParser = std::make_shared<FileHeaderXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFileHeaderParser>(fileHeaderXmlParser));
-        auto openScenarioCategoryXmlParser = std::make_shared<OpenScenarioCategoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOpenScenarioCategoryParser>(openScenarioCategoryXmlParser));
+        result.push_back(std::make_shared<SubElementFileHeaderParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementOpenScenarioCategoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    OpenScenarioXmlParser::SubElementFileHeaderParser::SubElementFileHeaderParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _fileHeaderXmlParser = std::make_shared<FileHeaderXmlParser>(messageLogger, filename);
+    }
+    
     void OpenScenarioXmlParser::SubElementFileHeaderParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object)
     {
         auto fileHeader = std::make_shared<FileHeaderImpl>();
@@ -6930,6 +7538,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetFileHeader(fileHeader);
     }
+    OpenScenarioXmlParser::SubElementOpenScenarioCategoryParser::SubElementOpenScenarioCategoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _openScenarioCategoryXmlParser = std::make_shared<OpenScenarioCategoryXmlParser>(messageLogger, filename);
+    }
+    
     void OpenScenarioXmlParser::SubElementOpenScenarioCategoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object)
     {
         auto openScenarioCategory = std::make_shared<OpenScenarioCategoryImpl>();
@@ -6960,13 +7573,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<OpenScenarioCategoryImpl>>> OpenScenarioCategoryXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<OpenScenarioCategoryImpl>>> result;
-        auto scenarioDefinitionXmlParser = std::make_shared<ScenarioDefinitionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementScenarioDefinitionParser>(scenarioDefinitionXmlParser));
-        auto catalogDefinitionXmlParser = std::make_shared<CatalogDefinitionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogDefinitionParser>(catalogDefinitionXmlParser));
+        result.push_back(std::make_shared<SubElementScenarioDefinitionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogDefinitionParser>(_messageLogger, _filename));
         return result;
     }
 
+    OpenScenarioCategoryXmlParser::SubElementScenarioDefinitionParser::SubElementScenarioDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _scenarioDefinitionXmlParser = std::make_shared<ScenarioDefinitionXmlParser>(messageLogger, filename);
+    }
+    
     void OpenScenarioCategoryXmlParser::SubElementScenarioDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object)
     {
         auto scenarioDefinition = std::make_shared<ScenarioDefinitionImpl>();
@@ -6976,6 +7592,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetScenarioDefinition(scenarioDefinition);
     }
+    OpenScenarioCategoryXmlParser::SubElementCatalogDefinitionParser::SubElementCatalogDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogDefinitionXmlParser = std::make_shared<CatalogDefinitionXmlParser>(messageLogger, filename);
+    }
+    
     void OpenScenarioCategoryXmlParser::SubElementCatalogDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object)
     {
         auto catalogDefinition = std::make_shared<CatalogDefinitionImpl>();
@@ -7351,21 +7972,20 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<OverrideControllerValueActionImpl>>> OverrideControllerValueActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<OverrideControllerValueActionImpl>>> result;
-        auto throttleXmlParser = std::make_shared<OverrideThrottleActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementThrottleParser>(throttleXmlParser));
-        auto brakeXmlParser = std::make_shared<OverrideBrakeActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementBrakeParser>(brakeXmlParser));
-        auto clutchXmlParser = std::make_shared<OverrideClutchActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementClutchParser>(clutchXmlParser));
-        auto parkingBrakeXmlParser = std::make_shared<OverrideParkingBrakeActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementParkingBrakeParser>(parkingBrakeXmlParser));
-        auto steeringWheelXmlParser = std::make_shared<OverrideSteeringWheelActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSteeringWheelParser>(steeringWheelXmlParser));
-        auto gearXmlParser = std::make_shared<OverrideGearActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementGearParser>(gearXmlParser));
+        result.push_back(std::make_shared<SubElementThrottleParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementBrakeParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementClutchParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementParkingBrakeParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementSteeringWheelParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementGearParser>(_messageLogger, _filename));
         return result;
     }
 
+    OverrideControllerValueActionXmlParser::SubElementThrottleParser::SubElementThrottleParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _overrideThrottleActionXmlParser = std::make_shared<OverrideThrottleActionXmlParser>(messageLogger, filename);
+    }
+    
     void OverrideControllerValueActionXmlParser::SubElementThrottleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object)
     {
         auto throttle = std::make_shared<OverrideThrottleActionImpl>();
@@ -7375,6 +7995,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetThrottle(throttle);
     }
+    OverrideControllerValueActionXmlParser::SubElementBrakeParser::SubElementBrakeParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _overrideBrakeActionXmlParser = std::make_shared<OverrideBrakeActionXmlParser>(messageLogger, filename);
+    }
+    
     void OverrideControllerValueActionXmlParser::SubElementBrakeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object)
     {
         auto brake = std::make_shared<OverrideBrakeActionImpl>();
@@ -7384,6 +8009,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetBrake(brake);
     }
+    OverrideControllerValueActionXmlParser::SubElementClutchParser::SubElementClutchParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _overrideClutchActionXmlParser = std::make_shared<OverrideClutchActionXmlParser>(messageLogger, filename);
+    }
+    
     void OverrideControllerValueActionXmlParser::SubElementClutchParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object)
     {
         auto clutch = std::make_shared<OverrideClutchActionImpl>();
@@ -7393,6 +8023,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetClutch(clutch);
     }
+    OverrideControllerValueActionXmlParser::SubElementParkingBrakeParser::SubElementParkingBrakeParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _overrideParkingBrakeActionXmlParser = std::make_shared<OverrideParkingBrakeActionXmlParser>(messageLogger, filename);
+    }
+    
     void OverrideControllerValueActionXmlParser::SubElementParkingBrakeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object)
     {
         auto parkingBrake = std::make_shared<OverrideParkingBrakeActionImpl>();
@@ -7402,6 +8037,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetParkingBrake(parkingBrake);
     }
+    OverrideControllerValueActionXmlParser::SubElementSteeringWheelParser::SubElementSteeringWheelParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _overrideSteeringWheelActionXmlParser = std::make_shared<OverrideSteeringWheelActionXmlParser>(messageLogger, filename);
+    }
+    
     void OverrideControllerValueActionXmlParser::SubElementSteeringWheelParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object)
     {
         auto steeringWheel = std::make_shared<OverrideSteeringWheelActionImpl>();
@@ -7411,6 +8051,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSteeringWheel(steeringWheel);
     }
+    OverrideControllerValueActionXmlParser::SubElementGearParser::SubElementGearParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _overrideGearActionXmlParser = std::make_shared<OverrideGearActionXmlParser>(messageLogger, filename);
+    }
+    
     void OverrideControllerValueActionXmlParser::SubElementGearParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object)
     {
         auto gear = std::make_shared<OverrideGearActionImpl>();
@@ -7839,13 +8484,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ParameterActionImpl>>> ParameterActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ParameterActionImpl>>> result;
-        auto setActionXmlParser = std::make_shared<ParameterSetActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSetActionParser>(setActionXmlParser));
-        auto modifyActionXmlParser = std::make_shared<ParameterModifyActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementModifyActionParser>(modifyActionXmlParser));
+        result.push_back(std::make_shared<SubElementSetActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementModifyActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ParameterActionXmlParser::SubElementSetActionParser::SubElementSetActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterSetActionXmlParser = std::make_shared<ParameterSetActionXmlParser>(messageLogger, filename);
+    }
+    
     void ParameterActionXmlParser::SubElementSetActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object)
     {
         auto setAction = std::make_shared<ParameterSetActionImpl>();
@@ -7855,6 +8503,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSetAction(setAction);
     }
+    ParameterActionXmlParser::SubElementModifyActionParser::SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterModifyActionXmlParser = std::make_shared<ParameterModifyActionXmlParser>(messageLogger, filename);
+    }
+    
     void ParameterActionXmlParser::SubElementModifyActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object)
     {
         auto modifyAction = std::make_shared<ParameterModifyActionImpl>();
@@ -8283,11 +8936,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ParameterModifyActionImpl>>> ParameterModifyActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ParameterModifyActionImpl>>> result;
-        auto ruleXmlParser = std::make_shared<ModifyRuleXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRuleParser>(ruleXmlParser));
+        result.push_back(std::make_shared<SubElementRuleParser>(_messageLogger, _filename));
         return result;
     }
 
+    ParameterModifyActionXmlParser::SubElementRuleParser::SubElementRuleParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _modifyRuleXmlParser = std::make_shared<ModifyRuleXmlParser>(messageLogger, filename);
+    }
+    
     void ParameterModifyActionXmlParser::SubElementRuleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterModifyActionImpl>& object)
     {
         auto rule = std::make_shared<ModifyRuleImpl>();
@@ -8573,15 +9230,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PedestrianImpl>>> PedestrianXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PedestrianImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<PedestrianImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementBoundingBoxParser>(boundingBoxXmlParser));
-        auto propertiesXmlParser = std::make_shared<PropertiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPropertiesParser>(propertiesXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<PedestrianImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
         return result;
     }
 
+    PedestrianXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void PedestrianXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -8590,7 +9249,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    PedestrianXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
+    }
+    
     void PedestrianXmlParser::SubElementBoundingBoxParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object)
     {
         auto boundingBox = std::make_shared<BoundingBoxImpl>();
@@ -8600,6 +9265,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetBoundingBox(boundingBox);
     }
+    PedestrianXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename);
+    }
+    
     void PedestrianXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object)
     {
         auto properties = std::make_shared<PropertiesImpl>();
@@ -8636,11 +9306,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PedestrianCatalogLocationImpl>>> PedestrianCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PedestrianCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    PedestrianCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void PedestrianCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -8857,11 +9531,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PhaseImpl>>> PhaseXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PhaseImpl>>> result;
-        auto trafficSignalStatesXmlParser = std::make_shared<TrafficSignalStateXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSignalStatesParser>(trafficSignalStatesXmlParser));
+        result.push_back(std::make_shared<SubElementTrafficSignalStatesParser>(_messageLogger, _filename));
         return result;
     }
 
+    PhaseXmlParser::SubElementTrafficSignalStatesParser::SubElementTrafficSignalStatesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSignalStateXmlParser = std::make_shared<TrafficSignalStateXmlParser>(messageLogger, filename);
+    }
+    
     void PhaseXmlParser::SubElementTrafficSignalStatesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PhaseImpl>& object)
     {
         auto trafficSignalStates = std::make_shared<TrafficSignalStateImpl>();
@@ -8870,6 +9548,7 @@ namespace RAC_OPENSCENARIO
         _trafficSignalStateXmlParser->ParseElement(indexedElement, parserContext, trafficSignalStates);
         auto trafficSignalStatesList = object->GetTrafficSignalStates();
         trafficSignalStatesList.push_back(trafficSignalStates);
+        object->SetTrafficSignalStates(trafficSignalStatesList);
     }
 
 /**
@@ -8898,11 +9577,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PolylineImpl>>> PolylineXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PolylineImpl>>> result;
-        auto verticesXmlParser = std::make_shared<VertexXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementVerticesParser>(verticesXmlParser));
+        result.push_back(std::make_shared<SubElementVerticesParser>(_messageLogger, _filename));
         return result;
     }
 
+    PolylineXmlParser::SubElementVerticesParser::SubElementVerticesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _vertexXmlParser = std::make_shared<VertexXmlParser>(messageLogger, filename);
+    }
+    
     void PolylineXmlParser::SubElementVerticesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PolylineImpl>& object)
     {
         auto vertices = std::make_shared<VertexImpl>();
@@ -8911,6 +9594,7 @@ namespace RAC_OPENSCENARIO
         _vertexXmlParser->ParseElement(indexedElement, parserContext, vertices);
         auto verticesList = object->GetVertices();
         verticesList.push_back(vertices);
+        object->SetVertices(verticesList);
     }
 
 /**
@@ -8939,25 +9623,22 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PositionImpl>>> PositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PositionImpl>>> result;
-        auto worldPositionXmlParser = std::make_shared<WorldPositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementWorldPositionParser>(worldPositionXmlParser));
-        auto relativeWorldPositionXmlParser = std::make_shared<RelativeWorldPositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeWorldPositionParser>(relativeWorldPositionXmlParser));
-        auto relativeObjectPositionXmlParser = std::make_shared<RelativeObjectPositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeObjectPositionParser>(relativeObjectPositionXmlParser));
-        auto roadPositionXmlParser = std::make_shared<RoadPositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRoadPositionParser>(roadPositionXmlParser));
-        auto relativeRoadPositionXmlParser = std::make_shared<RelativeRoadPositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeRoadPositionParser>(relativeRoadPositionXmlParser));
-        auto lanePositionXmlParser = std::make_shared<LanePositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLanePositionParser>(lanePositionXmlParser));
-        auto relativeLanePositionXmlParser = std::make_shared<RelativeLanePositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeLanePositionParser>(relativeLanePositionXmlParser));
-        auto routePositionXmlParser = std::make_shared<RoutePositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRoutePositionParser>(routePositionXmlParser));
+        result.push_back(std::make_shared<SubElementWorldPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRelativeWorldPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRelativeObjectPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRoadPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRelativeRoadPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementLanePositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRelativeLanePositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRoutePositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    PositionXmlParser::SubElementWorldPositionParser::SubElementWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _worldPositionXmlParser = std::make_shared<WorldPositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementWorldPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto worldPosition = std::make_shared<WorldPositionImpl>();
@@ -8967,6 +9648,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetWorldPosition(worldPosition);
     }
+    PositionXmlParser::SubElementRelativeWorldPositionParser::SubElementRelativeWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeWorldPositionXmlParser = std::make_shared<RelativeWorldPositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementRelativeWorldPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto relativeWorldPosition = std::make_shared<RelativeWorldPositionImpl>();
@@ -8976,6 +9662,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeWorldPosition(relativeWorldPosition);
     }
+    PositionXmlParser::SubElementRelativeObjectPositionParser::SubElementRelativeObjectPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeObjectPositionXmlParser = std::make_shared<RelativeObjectPositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementRelativeObjectPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto relativeObjectPosition = std::make_shared<RelativeObjectPositionImpl>();
@@ -8985,6 +9676,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeObjectPosition(relativeObjectPosition);
     }
+    PositionXmlParser::SubElementRoadPositionParser::SubElementRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _roadPositionXmlParser = std::make_shared<RoadPositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementRoadPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto roadPosition = std::make_shared<RoadPositionImpl>();
@@ -8994,6 +9690,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRoadPosition(roadPosition);
     }
+    PositionXmlParser::SubElementRelativeRoadPositionParser::SubElementRelativeRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeRoadPositionXmlParser = std::make_shared<RelativeRoadPositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementRelativeRoadPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto relativeRoadPosition = std::make_shared<RelativeRoadPositionImpl>();
@@ -9003,6 +9704,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeRoadPosition(relativeRoadPosition);
     }
+    PositionXmlParser::SubElementLanePositionParser::SubElementLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _lanePositionXmlParser = std::make_shared<LanePositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementLanePositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto lanePosition = std::make_shared<LanePositionImpl>();
@@ -9012,6 +9718,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLanePosition(lanePosition);
     }
+    PositionXmlParser::SubElementRelativeLanePositionParser::SubElementRelativeLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeLanePositionXmlParser = std::make_shared<RelativeLanePositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementRelativeLanePositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto relativeLanePosition = std::make_shared<RelativeLanePositionImpl>();
@@ -9021,6 +9732,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeLanePosition(relativeLanePosition);
     }
+    PositionXmlParser::SubElementRoutePositionParser::SubElementRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _routePositionXmlParser = std::make_shared<RoutePositionXmlParser>(messageLogger, filename);
+    }
+    
     void PositionXmlParser::SubElementRoutePositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
     {
         auto routePosition = std::make_shared<RoutePositionImpl>();
@@ -9460,11 +10176,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PrivateImpl>>> PrivateXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PrivateImpl>>> result;
-        auto privateActionsXmlParser = std::make_shared<PrivateActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPrivateActionsParser>(privateActionsXmlParser));
+        result.push_back(std::make_shared<SubElementPrivateActionsParser>(_messageLogger, _filename));
         return result;
     }
 
+    PrivateXmlParser::SubElementPrivateActionsParser::SubElementPrivateActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _privateActionXmlParser = std::make_shared<PrivateActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateXmlParser::SubElementPrivateActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateImpl>& object)
     {
         auto privateActions = std::make_shared<PrivateActionImpl>();
@@ -9473,6 +10193,7 @@ namespace RAC_OPENSCENARIO
         _privateActionXmlParser->ParseElement(indexedElement, parserContext, privateActions);
         auto privateActionsList = object->GetPrivateActions();
         privateActionsList.push_back(privateActions);
+        object->SetPrivateActions(privateActionsList);
     }
 
 /**
@@ -9501,25 +10222,22 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PrivateActionImpl>>> PrivateActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PrivateActionImpl>>> result;
-        auto longitudinalActionXmlParser = std::make_shared<LongitudinalActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLongitudinalActionParser>(longitudinalActionXmlParser));
-        auto lateralActionXmlParser = std::make_shared<LateralActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLateralActionParser>(lateralActionXmlParser));
-        auto visibilityActionXmlParser = std::make_shared<VisibilityActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementVisibilityActionParser>(visibilityActionXmlParser));
-        auto synchronizeActionXmlParser = std::make_shared<SynchronizeActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSynchronizeActionParser>(synchronizeActionXmlParser));
-        auto activateControllerActionXmlParser = std::make_shared<ActivateControllerActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementActivateControllerActionParser>(activateControllerActionXmlParser));
-        auto controllerActionXmlParser = std::make_shared<ControllerActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllerActionParser>(controllerActionXmlParser));
-        auto teleportActionXmlParser = std::make_shared<TeleportActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTeleportActionParser>(teleportActionXmlParser));
-        auto routingActionXmlParser = std::make_shared<RoutingActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRoutingActionParser>(routingActionXmlParser));
+        result.push_back(std::make_shared<SubElementLongitudinalActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementLateralActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementVisibilityActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementSynchronizeActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementActivateControllerActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementControllerActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTeleportActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRoutingActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    PrivateActionXmlParser::SubElementLongitudinalActionParser::SubElementLongitudinalActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _longitudinalActionXmlParser = std::make_shared<LongitudinalActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementLongitudinalActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto longitudinalAction = std::make_shared<LongitudinalActionImpl>();
@@ -9529,6 +10247,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLongitudinalAction(longitudinalAction);
     }
+    PrivateActionXmlParser::SubElementLateralActionParser::SubElementLateralActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _lateralActionXmlParser = std::make_shared<LateralActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementLateralActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto lateralAction = std::make_shared<LateralActionImpl>();
@@ -9538,6 +10261,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLateralAction(lateralAction);
     }
+    PrivateActionXmlParser::SubElementVisibilityActionParser::SubElementVisibilityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _visibilityActionXmlParser = std::make_shared<VisibilityActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementVisibilityActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto visibilityAction = std::make_shared<VisibilityActionImpl>();
@@ -9547,6 +10275,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetVisibilityAction(visibilityAction);
     }
+    PrivateActionXmlParser::SubElementSynchronizeActionParser::SubElementSynchronizeActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _synchronizeActionXmlParser = std::make_shared<SynchronizeActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementSynchronizeActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto synchronizeAction = std::make_shared<SynchronizeActionImpl>();
@@ -9556,6 +10289,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSynchronizeAction(synchronizeAction);
     }
+    PrivateActionXmlParser::SubElementActivateControllerActionParser::SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _activateControllerActionXmlParser = std::make_shared<ActivateControllerActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementActivateControllerActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto activateControllerAction = std::make_shared<ActivateControllerActionImpl>();
@@ -9565,6 +10303,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetActivateControllerAction(activateControllerAction);
     }
+    PrivateActionXmlParser::SubElementControllerActionParser::SubElementControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerActionXmlParser = std::make_shared<ControllerActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementControllerActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto controllerAction = std::make_shared<ControllerActionImpl>();
@@ -9574,6 +10317,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetControllerAction(controllerAction);
     }
+    PrivateActionXmlParser::SubElementTeleportActionParser::SubElementTeleportActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _teleportActionXmlParser = std::make_shared<TeleportActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementTeleportActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto teleportAction = std::make_shared<TeleportActionImpl>();
@@ -9583,6 +10331,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTeleportAction(teleportAction);
     }
+    PrivateActionXmlParser::SubElementRoutingActionParser::SubElementRoutingActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _routingActionXmlParser = std::make_shared<RoutingActionXmlParser>(messageLogger, filename);
+    }
+    
     void PrivateActionXmlParser::SubElementRoutingActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
     {
         auto routingAction = std::make_shared<RoutingActionImpl>();
@@ -9619,13 +10372,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<PropertiesImpl>>> PropertiesXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<PropertiesImpl>>> result;
-        auto propertiesXmlParser = std::make_shared<PropertyXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPropertiesParser>(propertiesXmlParser));
-        auto filesXmlParser = std::make_shared<FileXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFilesParser>(filesXmlParser));
+        result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementFilesParser>(_messageLogger, _filename));
         return result;
     }
 
+    PropertiesXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _propertyXmlParser = std::make_shared<PropertyXmlParser>(messageLogger, filename);
+    }
+    
     void PropertiesXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object)
     {
         auto properties = std::make_shared<PropertyImpl>();
@@ -9634,7 +10390,13 @@ namespace RAC_OPENSCENARIO
         _propertyXmlParser->ParseElement(indexedElement, parserContext, properties);
         auto propertiesList = object->GetProperties();
         propertiesList.push_back(properties);
+        object->SetProperties(propertiesList);
     }
+    PropertiesXmlParser::SubElementFilesParser::SubElementFilesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _fileXmlParser = std::make_shared<FileXmlParser>(messageLogger, filename);
+    }
+    
     void PropertiesXmlParser::SubElementFilesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object)
     {
         auto files = std::make_shared<FileImpl>();
@@ -9643,6 +10405,7 @@ namespace RAC_OPENSCENARIO
         _fileXmlParser->ParseElement(indexedElement, parserContext, files);
         auto filesList = object->GetFiles();
         filesList.push_back(files);
+        object->SetFiles(filesList);
     }
 
 /**
@@ -9791,11 +10554,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ReachPositionConditionImpl>>> ReachPositionConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ReachPositionConditionImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    ReachPositionConditionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void ReachPositionConditionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ReachPositionConditionImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -10154,11 +10921,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RelativeLanePositionImpl>>> RelativeLanePositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RelativeLanePositionImpl>>> result;
-        auto orientationXmlParser = std::make_shared<OrientationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOrientationParser>(orientationXmlParser));
+        result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
         return result;
     }
 
+    RelativeLanePositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+    }
+    
     void RelativeLanePositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeLanePositionImpl>& object)
     {
         auto orientation = std::make_shared<OrientationImpl>();
@@ -10317,11 +11088,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RelativeObjectPositionImpl>>> RelativeObjectPositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RelativeObjectPositionImpl>>> result;
-        auto orientationXmlParser = std::make_shared<OrientationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOrientationParser>(orientationXmlParser));
+        result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
         return result;
     }
 
+    RelativeObjectPositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+    }
+    
     void RelativeObjectPositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeObjectPositionImpl>& object)
     {
         auto orientation = std::make_shared<OrientationImpl>();
@@ -10450,11 +11225,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RelativeRoadPositionImpl>>> RelativeRoadPositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RelativeRoadPositionImpl>>> result;
-        auto orientationXmlParser = std::make_shared<OrientationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOrientationParser>(orientationXmlParser));
+        result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
         return result;
     }
 
+    RelativeRoadPositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+    }
+    
     void RelativeRoadPositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeRoadPositionImpl>& object)
     {
         auto orientation = std::make_shared<OrientationImpl>();
@@ -11188,11 +11967,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RelativeWorldPositionImpl>>> RelativeWorldPositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RelativeWorldPositionImpl>>> result;
-        auto orientationXmlParser = std::make_shared<OrientationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOrientationParser>(orientationXmlParser));
+        result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
         return result;
     }
 
+    RelativeWorldPositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+    }
+    
     void RelativeWorldPositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeWorldPositionImpl>& object)
     {
         auto orientation = std::make_shared<OrientationImpl>();
@@ -11259,11 +12042,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RoadConditionImpl>>> RoadConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RoadConditionImpl>>> result;
-        auto propertiesXmlParser = std::make_shared<PropertiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPropertiesParser>(propertiesXmlParser));
+        result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
         return result;
     }
 
+    RoadConditionXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename);
+    }
+    
     void RoadConditionXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadConditionImpl>& object)
     {
         auto properties = std::make_shared<PropertiesImpl>();
@@ -11300,15 +12087,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RoadNetworkImpl>>> RoadNetworkXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RoadNetworkImpl>>> result;
-        auto logicFileXmlParser = std::make_shared<FileXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementLogicFileParser>(logicFileXmlParser));
-        auto sceneGraphFileXmlParser = std::make_shared<FileXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSceneGraphFileParser>(sceneGraphFileXmlParser));
-        auto trafficSignalsXmlParser = std::make_shared<TrafficSignalControllerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<RoadNetworkImpl>>(_messageLogger, _filename, std::make_shared<SubElementTrafficSignalsParser>(trafficSignalsXmlParser), OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNALS) );
+        result.push_back(std::make_shared<SubElementLogicFileParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementSceneGraphFileParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<WrappedListParser<RoadNetworkImpl>>(_messageLogger, _filename, std::make_shared<SubElementTrafficSignalsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNALS) );
         return result;
     }
 
+    RoadNetworkXmlParser::SubElementLogicFileParser::SubElementLogicFileParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _fileXmlParser = std::make_shared<FileXmlParser>(messageLogger, filename);
+    }
+    
     void RoadNetworkXmlParser::SubElementLogicFileParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object)
     {
         auto logicFile = std::make_shared<FileImpl>();
@@ -11318,6 +12107,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetLogicFile(logicFile);
     }
+    RoadNetworkXmlParser::SubElementSceneGraphFileParser::SubElementSceneGraphFileParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _fileXmlParser = std::make_shared<FileXmlParser>(messageLogger, filename);
+    }
+    
     void RoadNetworkXmlParser::SubElementSceneGraphFileParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object)
     {
         auto sceneGraphFile = std::make_shared<FileImpl>();
@@ -11327,6 +12121,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSceneGraphFile(sceneGraphFile);
     }
+    RoadNetworkXmlParser::SubElementTrafficSignalsParser::SubElementTrafficSignalsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSignalControllerXmlParser = std::make_shared<TrafficSignalControllerXmlParser>(messageLogger, filename);
+    }
+    
     void RoadNetworkXmlParser::SubElementTrafficSignalsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object)
     {
         auto trafficSignals = std::make_shared<TrafficSignalControllerImpl>();
@@ -11335,6 +12134,7 @@ namespace RAC_OPENSCENARIO
         _trafficSignalControllerXmlParser->ParseElement(indexedElement, parserContext, trafficSignals);
         auto trafficSignalsList = object->GetTrafficSignals();
         trafficSignalsList.push_back(trafficSignals);
+        object->SetTrafficSignals(trafficSignalsList);
     }
 
 /**
@@ -11453,11 +12253,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RoadPositionImpl>>> RoadPositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RoadPositionImpl>>> result;
-        auto orientationXmlParser = std::make_shared<OrientationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOrientationParser>(orientationXmlParser));
+        result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
         return result;
     }
 
+    RoadPositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+    }
+    
     void RoadPositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadPositionImpl>& object)
     {
         auto orientation = std::make_shared<OrientationImpl>();
@@ -11554,13 +12358,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RouteImpl>>> RouteXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RouteImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<RouteImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto waypointsXmlParser = std::make_shared<WaypointXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementWaypointsParser>(waypointsXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<RouteImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementWaypointsParser>(_messageLogger, _filename));
         return result;
     }
 
+    RouteXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void RouteXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -11569,7 +12376,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    RouteXmlParser::SubElementWaypointsParser::SubElementWaypointsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _waypointXmlParser = std::make_shared<WaypointXmlParser>(messageLogger, filename);
+    }
+    
     void RouteXmlParser::SubElementWaypointsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object)
     {
         auto waypoints = std::make_shared<WaypointImpl>();
@@ -11578,6 +12391,7 @@ namespace RAC_OPENSCENARIO
         _waypointXmlParser->ParseElement(indexedElement, parserContext, waypoints);
         auto waypointsList = object->GetWaypoints();
         waypointsList.push_back(waypoints);
+        object->SetWaypoints(waypointsList);
     }
 
 /**
@@ -11606,11 +12420,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RouteCatalogLocationImpl>>> RouteCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RouteCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    RouteCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void RouteCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -11647,15 +12465,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RoutePositionImpl>>> RoutePositionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RoutePositionImpl>>> result;
-        auto routeRefXmlParser = std::make_shared<RouteRefXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRouteRefParser>(routeRefXmlParser));
-        auto orientationXmlParser = std::make_shared<OrientationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementOrientationParser>(orientationXmlParser));
-        auto inRoutePositionXmlParser = std::make_shared<InRoutePositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementInRoutePositionParser>(inRoutePositionXmlParser));
+        result.push_back(std::make_shared<SubElementRouteRefParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementInRoutePositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    RoutePositionXmlParser::SubElementRouteRefParser::SubElementRouteRefParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _routeRefXmlParser = std::make_shared<RouteRefXmlParser>(messageLogger, filename);
+    }
+    
     void RoutePositionXmlParser::SubElementRouteRefParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object)
     {
         auto routeRef = std::make_shared<RouteRefImpl>();
@@ -11665,6 +12485,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRouteRef(routeRef);
     }
+    RoutePositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+    }
+    
     void RoutePositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object)
     {
         auto orientation = std::make_shared<OrientationImpl>();
@@ -11674,6 +12499,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetOrientation(orientation);
     }
+    RoutePositionXmlParser::SubElementInRoutePositionParser::SubElementInRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _inRoutePositionXmlParser = std::make_shared<InRoutePositionXmlParser>(messageLogger, filename);
+    }
+    
     void RoutePositionXmlParser::SubElementInRoutePositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object)
     {
         auto inRoutePosition = std::make_shared<InRoutePositionImpl>();
@@ -11710,13 +12540,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RouteRefImpl>>> RouteRefXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RouteRefImpl>>> result;
-        auto routeXmlParser = std::make_shared<RouteXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRouteParser>(routeXmlParser));
-        auto catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(catalogReferenceXmlParser));
+        result.push_back(std::make_shared<SubElementRouteParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
         return result;
     }
 
+    RouteRefXmlParser::SubElementRouteParser::SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _routeXmlParser = std::make_shared<RouteXmlParser>(messageLogger, filename);
+    }
+    
     void RouteRefXmlParser::SubElementRouteParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object)
     {
         auto route = std::make_shared<RouteImpl>();
@@ -11726,6 +12559,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRoute(route);
     }
+    RouteRefXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+    }
+    
     void RouteRefXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object)
     {
         auto catalogReference = std::make_shared<CatalogReferenceImpl>();
@@ -11763,15 +12601,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<RoutingActionImpl>>> RoutingActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<RoutingActionImpl>>> result;
-        auto assignRouteActionXmlParser = std::make_shared<AssignRouteActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAssignRouteActionParser>(assignRouteActionXmlParser));
-        auto followTrajectoryActionXmlParser = std::make_shared<FollowTrajectoryActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFollowTrajectoryActionParser>(followTrajectoryActionXmlParser));
-        auto acquirePositionActionXmlParser = std::make_shared<AcquirePositionActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAcquirePositionActionParser>(acquirePositionActionXmlParser));
+        result.push_back(std::make_shared<SubElementAssignRouteActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementFollowTrajectoryActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementAcquirePositionActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    RoutingActionXmlParser::SubElementAssignRouteActionParser::SubElementAssignRouteActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _assignRouteActionXmlParser = std::make_shared<AssignRouteActionXmlParser>(messageLogger, filename);
+    }
+    
     void RoutingActionXmlParser::SubElementAssignRouteActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object)
     {
         auto assignRouteAction = std::make_shared<AssignRouteActionImpl>();
@@ -11781,6 +12621,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetAssignRouteAction(assignRouteAction);
     }
+    RoutingActionXmlParser::SubElementFollowTrajectoryActionParser::SubElementFollowTrajectoryActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _followTrajectoryActionXmlParser = std::make_shared<FollowTrajectoryActionXmlParser>(messageLogger, filename);
+    }
+    
     void RoutingActionXmlParser::SubElementFollowTrajectoryActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object)
     {
         auto followTrajectoryAction = std::make_shared<FollowTrajectoryActionImpl>();
@@ -11790,6 +12635,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetFollowTrajectoryAction(followTrajectoryAction);
     }
+    RoutingActionXmlParser::SubElementAcquirePositionActionParser::SubElementAcquirePositionActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _acquirePositionActionXmlParser = std::make_shared<AcquirePositionActionXmlParser>(messageLogger, filename);
+    }
+    
     void RoutingActionXmlParser::SubElementAcquirePositionActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object)
     {
         auto acquirePositionAction = std::make_shared<AcquirePositionActionImpl>();
@@ -11820,19 +12670,19 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ScenarioDefinitionImpl>>> ScenarioDefinitionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ScenarioDefinitionImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<ScenarioDefinitionImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto catalogLocationsXmlParser = std::make_shared<CatalogLocationsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCatalogLocationsParser>(catalogLocationsXmlParser));
-        auto roadNetworkXmlParser = std::make_shared<RoadNetworkXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRoadNetworkParser>(roadNetworkXmlParser));
-        auto entitiesXmlParser = std::make_shared<EntitiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntitiesParser>(entitiesXmlParser));
-        auto storyboardXmlParser = std::make_shared<StoryboardXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStoryboardParser>(storyboardXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<ScenarioDefinitionImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementCatalogLocationsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementRoadNetworkParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementEntitiesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStoryboardParser>(_messageLogger, _filename));
         return result;
     }
 
+    ScenarioDefinitionXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void ScenarioDefinitionXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -11841,7 +12691,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    ScenarioDefinitionXmlParser::SubElementCatalogLocationsParser::SubElementCatalogLocationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _catalogLocationsXmlParser = std::make_shared<CatalogLocationsXmlParser>(messageLogger, filename);
+    }
+    
     void ScenarioDefinitionXmlParser::SubElementCatalogLocationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object)
     {
         auto catalogLocations = std::make_shared<CatalogLocationsImpl>();
@@ -11851,6 +12707,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetCatalogLocations(catalogLocations);
     }
+    ScenarioDefinitionXmlParser::SubElementRoadNetworkParser::SubElementRoadNetworkParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _roadNetworkXmlParser = std::make_shared<RoadNetworkXmlParser>(messageLogger, filename);
+    }
+    
     void ScenarioDefinitionXmlParser::SubElementRoadNetworkParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object)
     {
         auto roadNetwork = std::make_shared<RoadNetworkImpl>();
@@ -11860,6 +12721,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRoadNetwork(roadNetwork);
     }
+    ScenarioDefinitionXmlParser::SubElementEntitiesParser::SubElementEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entitiesXmlParser = std::make_shared<EntitiesXmlParser>(messageLogger, filename);
+    }
+    
     void ScenarioDefinitionXmlParser::SubElementEntitiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object)
     {
         auto entities = std::make_shared<EntitiesImpl>();
@@ -11869,6 +12735,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEntities(entities);
     }
+    ScenarioDefinitionXmlParser::SubElementStoryboardParser::SubElementStoryboardParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _storyboardXmlParser = std::make_shared<StoryboardXmlParser>(messageLogger, filename);
+    }
+    
     void ScenarioDefinitionXmlParser::SubElementStoryboardParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object)
     {
         auto storyboard = std::make_shared<StoryboardImpl>();
@@ -11935,13 +12806,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ScenarioObjectImpl>>> ScenarioObjectXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ScenarioObjectImpl>>> result;
-        auto entityObjectXmlParser = std::make_shared<EntityObjectXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityObjectParser>(entityObjectXmlParser));
-        auto objectControllerXmlParser = std::make_shared<ObjectControllerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementObjectControllerParser>(objectControllerXmlParser));
+        result.push_back(std::make_shared<SubElementEntityObjectParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementObjectControllerParser>(_messageLogger, _filename));
         return result;
     }
 
+    ScenarioObjectXmlParser::SubElementEntityObjectParser::SubElementEntityObjectParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityObjectXmlParser = std::make_shared<EntityObjectXmlParser>(messageLogger, filename);
+    }
+    
     void ScenarioObjectXmlParser::SubElementEntityObjectParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object)
     {
         auto entityObject = std::make_shared<EntityObjectImpl>();
@@ -11951,6 +12825,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetEntityObject(entityObject);
     }
+    ScenarioObjectXmlParser::SubElementObjectControllerParser::SubElementObjectControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _objectControllerXmlParser = std::make_shared<ObjectControllerXmlParser>(messageLogger, filename);
+    }
+    
     void ScenarioObjectXmlParser::SubElementObjectControllerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object)
     {
         auto objectController = std::make_shared<ObjectControllerImpl>();
@@ -11987,13 +12866,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<SelectedEntitiesImpl>>> SelectedEntitiesXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<SelectedEntitiesImpl>>> result;
-        auto entityRefXmlParser = std::make_shared<EntityRefXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityRefParser>(entityRefXmlParser));
-        auto byTypeXmlParser = std::make_shared<ByTypeXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementByTypeParser>(byTypeXmlParser));
+        result.push_back(std::make_shared<SubElementEntityRefParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementByTypeParser>(_messageLogger, _filename));
         return result;
     }
 
+    SelectedEntitiesXmlParser::SubElementEntityRefParser::SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
+    }
+    
     void SelectedEntitiesXmlParser::SubElementEntityRefParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object)
     {
         auto entityRef = std::make_shared<EntityRefImpl>();
@@ -12002,7 +12884,13 @@ namespace RAC_OPENSCENARIO
         _entityRefXmlParser->ParseElement(indexedElement, parserContext, entityRef);
         auto entityRefList = object->GetEntityRef();
         entityRefList.push_back(entityRef);
+        object->SetEntityRef(entityRefList);
     }
+    SelectedEntitiesXmlParser::SubElementByTypeParser::SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _byTypeXmlParser = std::make_shared<ByTypeXmlParser>(messageLogger, filename);
+    }
+    
     void SelectedEntitiesXmlParser::SubElementByTypeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object)
     {
         auto byType = std::make_shared<ByTypeImpl>();
@@ -12011,6 +12899,7 @@ namespace RAC_OPENSCENARIO
         _byTypeXmlParser->ParseElement(indexedElement, parserContext, byType);
         auto byTypeList = object->GetByType();
         byTypeList.push_back(byType);
+        object->SetByType(byTypeList);
     }
 
 /**
@@ -12039,15 +12928,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<ShapeImpl>>> ShapeXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<ShapeImpl>>> result;
-        auto polylineXmlParser = std::make_shared<PolylineXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPolylineParser>(polylineXmlParser));
-        auto clothoidXmlParser = std::make_shared<ClothoidXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementClothoidParser>(clothoidXmlParser));
-        auto nurbsXmlParser = std::make_shared<NurbsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementNurbsParser>(nurbsXmlParser));
+        result.push_back(std::make_shared<SubElementPolylineParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementClothoidParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementNurbsParser>(_messageLogger, _filename));
         return result;
     }
 
+    ShapeXmlParser::SubElementPolylineParser::SubElementPolylineParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _polylineXmlParser = std::make_shared<PolylineXmlParser>(messageLogger, filename);
+    }
+    
     void ShapeXmlParser::SubElementPolylineParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object)
     {
         auto polyline = std::make_shared<PolylineImpl>();
@@ -12057,6 +12948,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetPolyline(polyline);
     }
+    ShapeXmlParser::SubElementClothoidParser::SubElementClothoidParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _clothoidXmlParser = std::make_shared<ClothoidXmlParser>(messageLogger, filename);
+    }
+    
     void ShapeXmlParser::SubElementClothoidParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object)
     {
         auto clothoid = std::make_shared<ClothoidImpl>();
@@ -12066,6 +12962,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetClothoid(clothoid);
     }
+    ShapeXmlParser::SubElementNurbsParser::SubElementNurbsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _nurbsXmlParser = std::make_shared<NurbsXmlParser>(messageLogger, filename);
+    }
+    
     void ShapeXmlParser::SubElementNurbsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object)
     {
         auto nurbs = std::make_shared<NurbsImpl>();
@@ -12201,13 +13102,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<SpeedActionImpl>>> SpeedActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<SpeedActionImpl>>> result;
-        auto speedActionDynamicsXmlParser = std::make_shared<TransitionDynamicsXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSpeedActionDynamicsParser>(speedActionDynamicsXmlParser));
-        auto speedActionTargetXmlParser = std::make_shared<SpeedActionTargetXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSpeedActionTargetParser>(speedActionTargetXmlParser));
+        result.push_back(std::make_shared<SubElementSpeedActionDynamicsParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementSpeedActionTargetParser>(_messageLogger, _filename));
         return result;
     }
 
+    SpeedActionXmlParser::SubElementSpeedActionDynamicsParser::SubElementSpeedActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _transitionDynamicsXmlParser = std::make_shared<TransitionDynamicsXmlParser>(messageLogger, filename);
+    }
+    
     void SpeedActionXmlParser::SubElementSpeedActionDynamicsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object)
     {
         auto speedActionDynamics = std::make_shared<TransitionDynamicsImpl>();
@@ -12217,6 +13121,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSpeedActionDynamics(speedActionDynamics);
     }
+    SpeedActionXmlParser::SubElementSpeedActionTargetParser::SubElementSpeedActionTargetParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _speedActionTargetXmlParser = std::make_shared<SpeedActionTargetXmlParser>(messageLogger, filename);
+    }
+    
     void SpeedActionXmlParser::SubElementSpeedActionTargetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object)
     {
         auto speedActionTarget = std::make_shared<SpeedActionTargetImpl>();
@@ -12253,13 +13162,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<SpeedActionTargetImpl>>> SpeedActionTargetXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<SpeedActionTargetImpl>>> result;
-        auto relativeTargetSpeedXmlParser = std::make_shared<RelativeTargetSpeedXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementRelativeTargetSpeedParser>(relativeTargetSpeedXmlParser));
-        auto absoluteTargetSpeedXmlParser = std::make_shared<AbsoluteTargetSpeedXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAbsoluteTargetSpeedParser>(absoluteTargetSpeedXmlParser));
+        result.push_back(std::make_shared<SubElementRelativeTargetSpeedParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementAbsoluteTargetSpeedParser>(_messageLogger, _filename));
         return result;
     }
 
+    SpeedActionTargetXmlParser::SubElementRelativeTargetSpeedParser::SubElementRelativeTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _relativeTargetSpeedXmlParser = std::make_shared<RelativeTargetSpeedXmlParser>(messageLogger, filename);
+    }
+    
     void SpeedActionTargetXmlParser::SubElementRelativeTargetSpeedParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object)
     {
         auto relativeTargetSpeed = std::make_shared<RelativeTargetSpeedImpl>();
@@ -12269,6 +13181,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetRelativeTargetSpeed(relativeTargetSpeed);
     }
+    SpeedActionTargetXmlParser::SubElementAbsoluteTargetSpeedParser::SubElementAbsoluteTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _absoluteTargetSpeedXmlParser = std::make_shared<AbsoluteTargetSpeedXmlParser>(messageLogger, filename);
+    }
+    
     void SpeedActionTargetXmlParser::SubElementAbsoluteTargetSpeedParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object)
     {
         auto absoluteTargetSpeed = std::make_shared<AbsoluteTargetSpeedImpl>();
@@ -12494,13 +13411,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<StoryImpl>>> StoryXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<StoryImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<StoryImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto actsXmlParser = std::make_shared<ActXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementActsParser>(actsXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<StoryImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementActsParser>(_messageLogger, _filename));
         return result;
     }
 
+    StoryXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void StoryXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -12509,7 +13429,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    StoryXmlParser::SubElementActsParser::SubElementActsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _actXmlParser = std::make_shared<ActXmlParser>(messageLogger, filename);
+    }
+    
     void StoryXmlParser::SubElementActsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object)
     {
         auto acts = std::make_shared<ActImpl>();
@@ -12518,6 +13444,7 @@ namespace RAC_OPENSCENARIO
         _actXmlParser->ParseElement(indexedElement, parserContext, acts);
         auto actsList = object->GetActs();
         actsList.push_back(acts);
+        object->SetActs(actsList);
     }
 
 /**
@@ -12546,15 +13473,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<StoryboardImpl>>> StoryboardXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<StoryboardImpl>>> result;
-        auto initXmlParser = std::make_shared<InitXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementInitParser>(initXmlParser));
-        auto storiesXmlParser = std::make_shared<StoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStoriesParser>(storiesXmlParser));
-        auto stopTriggerXmlParser = std::make_shared<TriggerXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementStopTriggerParser>(stopTriggerXmlParser));
+        result.push_back(std::make_shared<SubElementInitParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStoriesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementStopTriggerParser>(_messageLogger, _filename));
         return result;
     }
 
+    StoryboardXmlParser::SubElementInitParser::SubElementInitParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _initXmlParser = std::make_shared<InitXmlParser>(messageLogger, filename);
+    }
+    
     void StoryboardXmlParser::SubElementInitParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object)
     {
         auto init = std::make_shared<InitImpl>();
@@ -12564,6 +13493,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetInit(init);
     }
+    StoryboardXmlParser::SubElementStoriesParser::SubElementStoriesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _storyXmlParser = std::make_shared<StoryXmlParser>(messageLogger, filename);
+    }
+    
     void StoryboardXmlParser::SubElementStoriesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object)
     {
         auto stories = std::make_shared<StoryImpl>();
@@ -12572,7 +13506,13 @@ namespace RAC_OPENSCENARIO
         _storyXmlParser->ParseElement(indexedElement, parserContext, stories);
         auto storiesList = object->GetStories();
         storiesList.push_back(stories);
+        object->SetStories(storiesList);
     }
+    StoryboardXmlParser::SubElementStopTriggerParser::SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
+    }
+    
     void StoryboardXmlParser::SubElementStopTriggerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object)
     {
         auto stopTrigger = std::make_shared<TriggerImpl>();
@@ -12901,15 +13841,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<SynchronizeActionImpl>>> SynchronizeActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<SynchronizeActionImpl>>> result;
-        auto targetPositionMasterXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTargetPositionMasterParser>(targetPositionMasterXmlParser));
-        auto targetPositionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTargetPositionParser>(targetPositionXmlParser));
-        auto finalSpeedXmlParser = std::make_shared<FinalSpeedXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFinalSpeedParser>(finalSpeedXmlParser));
+        result.push_back(std::make_shared<SubElementTargetPositionMasterParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTargetPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementFinalSpeedParser>(_messageLogger, _filename));
         return result;
     }
 
+    SynchronizeActionXmlParser::SubElementTargetPositionMasterParser::SubElementTargetPositionMasterParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void SynchronizeActionXmlParser::SubElementTargetPositionMasterParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object)
     {
         auto targetPositionMaster = std::make_shared<PositionImpl>();
@@ -12919,6 +13861,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTargetPositionMaster(targetPositionMaster);
     }
+    SynchronizeActionXmlParser::SubElementTargetPositionParser::SubElementTargetPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void SynchronizeActionXmlParser::SubElementTargetPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object)
     {
         auto targetPosition = std::make_shared<PositionImpl>();
@@ -12928,6 +13875,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTargetPosition(targetPosition);
     }
+    SynchronizeActionXmlParser::SubElementFinalSpeedParser::SubElementFinalSpeedParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _finalSpeedXmlParser = std::make_shared<FinalSpeedXmlParser>(messageLogger, filename);
+    }
+    
     void SynchronizeActionXmlParser::SubElementFinalSpeedParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object)
     {
         auto finalSpeed = std::make_shared<FinalSpeedImpl>();
@@ -12964,11 +13916,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TeleportActionImpl>>> TeleportActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TeleportActionImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    TeleportActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void TeleportActionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TeleportActionImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -13385,13 +14341,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TimeReferenceImpl>>> TimeReferenceXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TimeReferenceImpl>>> result;
-        auto noneXmlParser = std::make_shared<NoneXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementNoneParser>(noneXmlParser));
-        auto timingXmlParser = std::make_shared<TimingXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTimingParser>(timingXmlParser));
+        result.push_back(std::make_shared<SubElementNoneParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTimingParser>(_messageLogger, _filename));
         return result;
     }
 
+    TimeReferenceXmlParser::SubElementNoneParser::SubElementNoneParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _noneXmlParser = std::make_shared<NoneXmlParser>(messageLogger, filename);
+    }
+    
     void TimeReferenceXmlParser::SubElementNoneParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object)
     {
         auto none = std::make_shared<NoneImpl>();
@@ -13401,6 +14360,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetNone(none);
     }
+    TimeReferenceXmlParser::SubElementTimingParser::SubElementTimingParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _timingXmlParser = std::make_shared<TimingXmlParser>(messageLogger, filename);
+    }
+    
     void TimeReferenceXmlParser::SubElementTimingParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object)
     {
         auto timing = std::make_shared<TimingImpl>();
@@ -13566,11 +14530,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TimeToCollisionConditionImpl>>> TimeToCollisionConditionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TimeToCollisionConditionImpl>>> result;
-        auto timeToCollisionConditionTargetXmlParser = std::make_shared<TimeToCollisionConditionTargetXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTimeToCollisionConditionTargetParser>(timeToCollisionConditionTargetXmlParser));
+        result.push_back(std::make_shared<SubElementTimeToCollisionConditionTargetParser>(_messageLogger, _filename));
         return result;
     }
 
+    TimeToCollisionConditionXmlParser::SubElementTimeToCollisionConditionTargetParser::SubElementTimeToCollisionConditionTargetParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _timeToCollisionConditionTargetXmlParser = std::make_shared<TimeToCollisionConditionTargetXmlParser>(messageLogger, filename);
+    }
+    
     void TimeToCollisionConditionXmlParser::SubElementTimeToCollisionConditionTargetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionImpl>& object)
     {
         auto timeToCollisionConditionTarget = std::make_shared<TimeToCollisionConditionTargetImpl>();
@@ -13607,13 +14575,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TimeToCollisionConditionTargetImpl>>> TimeToCollisionConditionTargetXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TimeToCollisionConditionTargetImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
-        auto entityRefXmlParser = std::make_shared<EntityRefXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityRefParser>(entityRefXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementEntityRefParser>(_messageLogger, _filename));
         return result;
     }
 
+    TimeToCollisionConditionTargetXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void TimeToCollisionConditionTargetXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -13623,6 +14594,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetPosition(position);
     }
+    TimeToCollisionConditionTargetXmlParser::SubElementEntityRefParser::SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
+    }
+    
     void TimeToCollisionConditionTargetXmlParser::SubElementEntityRefParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object)
     {
         auto entityRef = std::make_shared<EntityRefImpl>();
@@ -13788,15 +14764,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrafficActionImpl>>> TrafficActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrafficActionImpl>>> result;
-        auto trafficSourceActionXmlParser = std::make_shared<TrafficSourceActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSourceActionParser>(trafficSourceActionXmlParser));
-        auto trafficSinkActionXmlParser = std::make_shared<TrafficSinkActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSinkActionParser>(trafficSinkActionXmlParser));
-        auto trafficSwarmActionXmlParser = std::make_shared<TrafficSwarmActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSwarmActionParser>(trafficSwarmActionXmlParser));
+        result.push_back(std::make_shared<SubElementTrafficSourceActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficSinkActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficSwarmActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrafficActionXmlParser::SubElementTrafficSourceActionParser::SubElementTrafficSourceActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSourceActionXmlParser = std::make_shared<TrafficSourceActionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficActionXmlParser::SubElementTrafficSourceActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object)
     {
         auto trafficSourceAction = std::make_shared<TrafficSourceActionImpl>();
@@ -13806,6 +14784,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTrafficSourceAction(trafficSourceAction);
     }
+    TrafficActionXmlParser::SubElementTrafficSinkActionParser::SubElementTrafficSinkActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSinkActionXmlParser = std::make_shared<TrafficSinkActionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficActionXmlParser::SubElementTrafficSinkActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object)
     {
         auto trafficSinkAction = std::make_shared<TrafficSinkActionImpl>();
@@ -13815,6 +14798,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTrafficSinkAction(trafficSinkAction);
     }
+    TrafficActionXmlParser::SubElementTrafficSwarmActionParser::SubElementTrafficSwarmActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSwarmActionXmlParser = std::make_shared<TrafficSwarmActionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficActionXmlParser::SubElementTrafficSwarmActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object)
     {
         auto trafficSwarmAction = std::make_shared<TrafficSwarmActionImpl>();
@@ -13881,13 +14869,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrafficDefinitionImpl>>> TrafficDefinitionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrafficDefinitionImpl>>> result;
-        auto vehicleCategoryDistributionXmlParser = std::make_shared<VehicleCategoryDistributionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementVehicleCategoryDistributionParser>(vehicleCategoryDistributionXmlParser));
-        auto controllerDistributionXmlParser = std::make_shared<ControllerDistributionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementControllerDistributionParser>(controllerDistributionXmlParser));
+        result.push_back(std::make_shared<SubElementVehicleCategoryDistributionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementControllerDistributionParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrafficDefinitionXmlParser::SubElementVehicleCategoryDistributionParser::SubElementVehicleCategoryDistributionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _vehicleCategoryDistributionXmlParser = std::make_shared<VehicleCategoryDistributionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficDefinitionXmlParser::SubElementVehicleCategoryDistributionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object)
     {
         auto vehicleCategoryDistribution = std::make_shared<VehicleCategoryDistributionImpl>();
@@ -13897,6 +14888,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetVehicleCategoryDistribution(vehicleCategoryDistribution);
     }
+    TrafficDefinitionXmlParser::SubElementControllerDistributionParser::SubElementControllerDistributionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _controllerDistributionXmlParser = std::make_shared<ControllerDistributionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficDefinitionXmlParser::SubElementControllerDistributionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object)
     {
         auto controllerDistribution = std::make_shared<ControllerDistributionImpl>();
@@ -13933,13 +14929,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrafficSignalActionImpl>>> TrafficSignalActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrafficSignalActionImpl>>> result;
-        auto trafficSignalControllerActionXmlParser = std::make_shared<TrafficSignalControllerActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSignalControllerActionParser>(trafficSignalControllerActionXmlParser));
-        auto trafficSignalStateActionXmlParser = std::make_shared<TrafficSignalStateActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficSignalStateActionParser>(trafficSignalStateActionXmlParser));
+        result.push_back(std::make_shared<SubElementTrafficSignalControllerActionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficSignalStateActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrafficSignalActionXmlParser::SubElementTrafficSignalControllerActionParser::SubElementTrafficSignalControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSignalControllerActionXmlParser = std::make_shared<TrafficSignalControllerActionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSignalActionXmlParser::SubElementTrafficSignalControllerActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object)
     {
         auto trafficSignalControllerAction = std::make_shared<TrafficSignalControllerActionImpl>();
@@ -13949,6 +14948,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetTrafficSignalControllerAction(trafficSignalControllerAction);
     }
+    TrafficSignalActionXmlParser::SubElementTrafficSignalStateActionParser::SubElementTrafficSignalStateActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficSignalStateActionXmlParser = std::make_shared<TrafficSignalStateActionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSignalActionXmlParser::SubElementTrafficSignalStateActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object)
     {
         auto trafficSignalStateAction = std::make_shared<TrafficSignalStateActionImpl>();
@@ -14165,11 +15169,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrafficSignalControllerImpl>>> TrafficSignalControllerXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrafficSignalControllerImpl>>> result;
-        auto phasesXmlParser = std::make_shared<PhaseXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPhasesParser>(phasesXmlParser));
+        result.push_back(std::make_shared<SubElementPhasesParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrafficSignalControllerXmlParser::SubElementPhasesParser::SubElementPhasesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _phaseXmlParser = std::make_shared<PhaseXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSignalControllerXmlParser::SubElementPhasesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerImpl>& object)
     {
         auto phases = std::make_shared<PhaseImpl>();
@@ -14178,6 +15186,7 @@ namespace RAC_OPENSCENARIO
         _phaseXmlParser->ParseElement(indexedElement, parserContext, phases);
         auto phasesList = object->GetPhases();
         phasesList.push_back(phases);
+        object->SetPhases(phasesList);
     }
 
 /**
@@ -14630,13 +15639,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrafficSinkActionImpl>>> TrafficSinkActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrafficSinkActionImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
-        auto trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficDefinitionParser>(trafficDefinitionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficDefinitionParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrafficSinkActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSinkActionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -14646,6 +15658,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetPosition(position);
     }
+    TrafficSinkActionXmlParser::SubElementTrafficDefinitionParser::SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSinkActionXmlParser::SubElementTrafficDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object)
     {
         auto trafficDefinition = std::make_shared<TrafficDefinitionImpl>();
@@ -14772,13 +15789,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrafficSourceActionImpl>>> TrafficSourceActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrafficSourceActionImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
-        auto trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficDefinitionParser>(trafficDefinitionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficDefinitionParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrafficSourceActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSourceActionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -14788,6 +15808,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetPosition(position);
     }
+    TrafficSourceActionXmlParser::SubElementTrafficDefinitionParser::SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSourceActionXmlParser::SubElementTrafficDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object)
     {
         auto trafficDefinition = std::make_shared<TrafficDefinitionImpl>();
@@ -15004,13 +16029,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrafficSwarmActionImpl>>> TrafficSwarmActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrafficSwarmActionImpl>>> result;
-        auto centralObjectXmlParser = std::make_shared<CentralSwarmObjectXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCentralObjectParser>(centralObjectXmlParser));
-        auto trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementTrafficDefinitionParser>(trafficDefinitionXmlParser));
+        result.push_back(std::make_shared<SubElementCentralObjectParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementTrafficDefinitionParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrafficSwarmActionXmlParser::SubElementCentralObjectParser::SubElementCentralObjectParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _centralSwarmObjectXmlParser = std::make_shared<CentralSwarmObjectXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSwarmActionXmlParser::SubElementCentralObjectParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object)
     {
         auto centralObject = std::make_shared<CentralSwarmObjectImpl>();
@@ -15020,6 +16048,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetCentralObject(centralObject);
     }
+    TrafficSwarmActionXmlParser::SubElementTrafficDefinitionParser::SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(messageLogger, filename);
+    }
+    
     void TrafficSwarmActionXmlParser::SubElementTrafficDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object)
     {
         auto trafficDefinition = std::make_shared<TrafficDefinitionImpl>();
@@ -15116,13 +16149,16 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrajectoryImpl>>> TrajectoryXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrajectoryImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<TrajectoryImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto shapeXmlParser = std::make_shared<ShapeXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementShapeParser>(shapeXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<TrajectoryImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementShapeParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrajectoryXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void TrajectoryXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -15131,7 +16167,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    TrajectoryXmlParser::SubElementShapeParser::SubElementShapeParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _shapeXmlParser = std::make_shared<ShapeXmlParser>(messageLogger, filename);
+    }
+    
     void TrajectoryXmlParser::SubElementShapeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object)
     {
         auto shape = std::make_shared<ShapeImpl>();
@@ -15168,11 +16210,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TrajectoryCatalogLocationImpl>>> TrajectoryCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TrajectoryCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    TrajectoryCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void TrajectoryCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -15476,11 +16522,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TriggerImpl>>> TriggerXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TriggerImpl>>> result;
-        auto conditionGroupsXmlParser = std::make_shared<ConditionGroupXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementConditionGroupsParser>(conditionGroupsXmlParser));
+        result.push_back(std::make_shared<SubElementConditionGroupsParser>(_messageLogger, _filename));
         return result;
     }
 
+    TriggerXmlParser::SubElementConditionGroupsParser::SubElementConditionGroupsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _conditionGroupXmlParser = std::make_shared<ConditionGroupXmlParser>(messageLogger, filename);
+    }
+    
     void TriggerXmlParser::SubElementConditionGroupsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggerImpl>& object)
     {
         auto conditionGroups = std::make_shared<ConditionGroupImpl>();
@@ -15489,6 +16539,7 @@ namespace RAC_OPENSCENARIO
         _conditionGroupXmlParser->ParseElement(indexedElement, parserContext, conditionGroups);
         auto conditionGroupsList = object->GetConditionGroups();
         conditionGroupsList.push_back(conditionGroups);
+        object->SetConditionGroups(conditionGroupsList);
     }
 
 /**
@@ -15556,11 +16607,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<TriggeringEntitiesImpl>>> TriggeringEntitiesXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<TriggeringEntitiesImpl>>> result;
-        auto entityRefsXmlParser = std::make_shared<EntityRefXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementEntityRefsParser>(entityRefsXmlParser));
+        result.push_back(std::make_shared<SubElementEntityRefsParser>(_messageLogger, _filename));
         return result;
     }
 
+    TriggeringEntitiesXmlParser::SubElementEntityRefsParser::SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
+    }
+    
     void TriggeringEntitiesXmlParser::SubElementEntityRefsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggeringEntitiesImpl>& object)
     {
         auto entityRefs = std::make_shared<EntityRefImpl>();
@@ -15569,6 +16624,7 @@ namespace RAC_OPENSCENARIO
         _entityRefXmlParser->ParseElement(indexedElement, parserContext, entityRefs);
         auto entityRefsList = object->GetEntityRefs();
         entityRefsList.push_back(entityRefs);
+        object->SetEntityRefs(entityRefsList);
     }
 
 /**
@@ -15597,11 +16653,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<UserDefinedActionImpl>>> UserDefinedActionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<UserDefinedActionImpl>>> result;
-        auto customCommandActionXmlParser = std::make_shared<CustomCommandActionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementCustomCommandActionParser>(customCommandActionXmlParser));
+        result.push_back(std::make_shared<SubElementCustomCommandActionParser>(_messageLogger, _filename));
         return result;
     }
 
+    UserDefinedActionXmlParser::SubElementCustomCommandActionParser::SubElementCustomCommandActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _customCommandActionXmlParser = std::make_shared<CustomCommandActionXmlParser>(messageLogger, filename);
+    }
+    
     void UserDefinedActionXmlParser::SubElementCustomCommandActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedActionImpl>& object)
     {
         auto customCommandAction = std::make_shared<CustomCommandActionImpl>();
@@ -15836,19 +16896,19 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<VehicleImpl>>> VehicleXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<VehicleImpl>>> result;
-        auto parameterDeclarationsXmlParser = std::make_shared<ParameterDeclarationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<WrappedListParser<VehicleImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(parameterDeclarationsXmlParser), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-        auto boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementBoundingBoxParser>(boundingBoxXmlParser));
-        auto performanceXmlParser = std::make_shared<PerformanceXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPerformanceParser>(performanceXmlParser));
-        auto axlesXmlParser = std::make_shared<AxlesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementAxlesParser>(axlesXmlParser));
-        auto propertiesXmlParser = std::make_shared<PropertiesXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPropertiesParser>(propertiesXmlParser));
+        result.push_back(std::make_shared<WrappedListParser<VehicleImpl>>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
+        result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPerformanceParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementAxlesParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
         return result;
     }
 
+    VehicleXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+    }
+    
     void VehicleXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object)
     {
         auto parameterDeclarations = std::make_shared<ParameterDeclarationImpl>();
@@ -15857,7 +16917,13 @@ namespace RAC_OPENSCENARIO
         _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
         auto parameterDeclarationsList = object->GetParameterDeclarations();
         parameterDeclarationsList.push_back(parameterDeclarations);
+        object->SetParameterDeclarations(parameterDeclarationsList);
     }
+    VehicleXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
+    }
+    
     void VehicleXmlParser::SubElementBoundingBoxParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object)
     {
         auto boundingBox = std::make_shared<BoundingBoxImpl>();
@@ -15867,6 +16933,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetBoundingBox(boundingBox);
     }
+    VehicleXmlParser::SubElementPerformanceParser::SubElementPerformanceParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _performanceXmlParser = std::make_shared<PerformanceXmlParser>(messageLogger, filename);
+    }
+    
     void VehicleXmlParser::SubElementPerformanceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object)
     {
         auto performance = std::make_shared<PerformanceImpl>();
@@ -15876,6 +16947,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetPerformance(performance);
     }
+    VehicleXmlParser::SubElementAxlesParser::SubElementAxlesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _axlesXmlParser = std::make_shared<AxlesXmlParser>(messageLogger, filename);
+    }
+    
     void VehicleXmlParser::SubElementAxlesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object)
     {
         auto axles = std::make_shared<AxlesImpl>();
@@ -15885,6 +16961,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetAxles(axles);
     }
+    VehicleXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename);
+    }
+    
     void VehicleXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object)
     {
         auto properties = std::make_shared<PropertiesImpl>();
@@ -15921,11 +17002,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<VehicleCatalogLocationImpl>>> VehicleCatalogLocationXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<VehicleCatalogLocationImpl>>> result;
-        auto directoryXmlParser = std::make_shared<DirectoryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementDirectoryParser>(directoryXmlParser));
+        result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
         return result;
     }
 
+    VehicleCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+    }
+    
     void VehicleCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCatalogLocationImpl>& object)
     {
         auto directory = std::make_shared<DirectoryImpl>();
@@ -15962,11 +17047,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<VehicleCategoryDistributionImpl>>> VehicleCategoryDistributionXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<VehicleCategoryDistributionImpl>>> result;
-        auto vehicleCategoryDistributionEntriesXmlParser = std::make_shared<VehicleCategoryDistributionEntryXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementVehicleCategoryDistributionEntriesParser>(vehicleCategoryDistributionEntriesXmlParser));
+        result.push_back(std::make_shared<SubElementVehicleCategoryDistributionEntriesParser>(_messageLogger, _filename));
         return result;
     }
 
+    VehicleCategoryDistributionXmlParser::SubElementVehicleCategoryDistributionEntriesParser::SubElementVehicleCategoryDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _vehicleCategoryDistributionEntryXmlParser = std::make_shared<VehicleCategoryDistributionEntryXmlParser>(messageLogger, filename);
+    }
+    
     void VehicleCategoryDistributionXmlParser::SubElementVehicleCategoryDistributionEntriesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionImpl>& object)
     {
         auto vehicleCategoryDistributionEntries = std::make_shared<VehicleCategoryDistributionEntryImpl>();
@@ -15975,6 +17064,7 @@ namespace RAC_OPENSCENARIO
         _vehicleCategoryDistributionEntryXmlParser->ParseElement(indexedElement, parserContext, vehicleCategoryDistributionEntries);
         auto vehicleCategoryDistributionEntriesList = object->GetVehicleCategoryDistributionEntries();
         vehicleCategoryDistributionEntriesList.push_back(vehicleCategoryDistributionEntries);
+        object->SetVehicleCategoryDistributionEntries(vehicleCategoryDistributionEntriesList);
     }
 
 /**
@@ -16132,11 +17222,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<VertexImpl>>> VertexXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<VertexImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    VertexXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void VertexXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VertexImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -16332,11 +17426,15 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<WaypointImpl>>> WaypointXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<WaypointImpl>>> result;
-        auto positionXmlParser = std::make_shared<PositionXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPositionParser>(positionXmlParser));
+        result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
         return result;
     }
 
+    WaypointXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+    }
+    
     void WaypointXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WaypointImpl>& object)
     {
         auto position = std::make_shared<PositionImpl>();
@@ -16412,15 +17510,17 @@ namespace RAC_OPENSCENARIO
     std::vector<std::shared_ptr<IElementParser<WeatherImpl>>> WeatherXmlParser::SubElementParser::CreateParserList()
     {
         std::vector<std::shared_ptr<IElementParser<WeatherImpl>>> result;
-        auto sunXmlParser = std::make_shared<SunXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementSunParser>(sunXmlParser));
-        auto fogXmlParser = std::make_shared<FogXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementFogParser>(fogXmlParser));
-        auto precipitationXmlParser = std::make_shared<PrecipitationXmlParser>(_messageLogger, _filename);
-        result.push_back(std::make_shared<SubElementPrecipitationParser>(precipitationXmlParser));
+        result.push_back(std::make_shared<SubElementSunParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementFogParser>(_messageLogger, _filename));
+        result.push_back(std::make_shared<SubElementPrecipitationParser>(_messageLogger, _filename));
         return result;
     }
 
+    WeatherXmlParser::SubElementSunParser::SubElementSunParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _sunXmlParser = std::make_shared<SunXmlParser>(messageLogger, filename);
+    }
+    
     void WeatherXmlParser::SubElementSunParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object)
     {
         auto sun = std::make_shared<SunImpl>();
@@ -16430,6 +17530,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetSun(sun);
     }
+    WeatherXmlParser::SubElementFogParser::SubElementFogParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _fogXmlParser = std::make_shared<FogXmlParser>(messageLogger, filename);
+    }
+    
     void WeatherXmlParser::SubElementFogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object)
     {
         auto fog = std::make_shared<FogImpl>();
@@ -16439,6 +17544,11 @@ namespace RAC_OPENSCENARIO
 
         object->SetFog(fog);
     }
+    WeatherXmlParser::SubElementPrecipitationParser::SubElementPrecipitationParser(IParserMessageLogger& messageLogger, std::string& filename)
+    {
+        _precipitationXmlParser = std::make_shared<PrecipitationXmlParser>(messageLogger, filename);
+    }
+    
     void WeatherXmlParser::SubElementPrecipitationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object)
     {
         auto precipitation = std::make_shared<PrecipitationImpl>();

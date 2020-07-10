@@ -5,7 +5,7 @@
 
 namespace RAC_OPENSCENARIO
 {
-    void AbsoluteSpeedRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IAbsoluteSpeed> object)
+    void AbsoluteSpeedRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAbsoluteSpeed> object)
     {
         if (object)
         {
@@ -17,7 +17,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void AxleRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IAxle> object)
+    void AxleRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAxle> object)
     {
         if (object)
         {
@@ -66,7 +66,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ClothoidRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IClothoid> object)
+    void ClothoidRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IClothoid> object)
     {
         if (object)
         {
@@ -94,7 +94,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ICondition> object)
+    void ConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ICondition> object)
     {
         if (object)
         {
@@ -106,7 +106,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ControlPointRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IControlPoint> object)
+    void ControlPointRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControlPoint> object)
     {
         if (object)
         {
@@ -118,7 +118,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ControllerDistributionEntryRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IControllerDistributionEntry> object)
+    void ControllerDistributionEntryRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControllerDistributionEntry> object)
     {
         if (object)
         {
@@ -130,7 +130,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void DimensionsRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IDimensions> object)
+    void DimensionsRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDimensions> object)
     {
         if (object)
         {
@@ -158,7 +158,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void DistanceConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IDistanceCondition> object)
+    void DistanceConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDistanceCondition> object)
     {
         if (object)
         {
@@ -170,7 +170,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void DynamicConstraintsRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IDynamicConstraints> object)
+    void DynamicConstraintsRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDynamicConstraints> object)
     {
         if (object)
         {
@@ -198,7 +198,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void EndOfRoadConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IEndOfRoadCondition> object)
+    void EndOfRoadConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEndOfRoadCondition> object)
     {
         if (object)
         {
@@ -210,7 +210,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void EventRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IEvent> object)
+    void EventRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEvent> object)
     {
         if (object)
         {
@@ -222,7 +222,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void FogRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IFog> object)
+    void FogRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IFog> object)
     {
         if (object)
         {
@@ -234,7 +234,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void LaneOffsetActionDynamicsRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object)
+    void LaneOffsetActionDynamicsRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object)
     {
         if (object)
         {
@@ -246,7 +246,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void LanePositionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ILanePosition> object)
+    void LanePositionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILanePosition> object)
     {
         if (object)
         {
@@ -258,7 +258,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void LateralDistanceActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ILateralDistanceAction> object)
+    void LateralDistanceActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILateralDistanceAction> object)
     {
         if (object)
         {
@@ -270,7 +270,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void LongitudinalDistanceActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object)
+    void LongitudinalDistanceActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object)
     {
         if (object)
         {
@@ -290,7 +290,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ManeuverGroupRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IManeuverGroup> object)
+    void ManeuverGroupRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IManeuverGroup> object)
     {
         if (object)
         {
@@ -302,7 +302,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void MiscObjectRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IMiscObject> object)
+    void MiscObjectRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IMiscObject> object)
     {
         if (object)
         {
@@ -314,7 +314,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void NurbsRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<INurbs> object)
+    void NurbsRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<INurbs> object)
     {
         if (object)
         {
@@ -326,7 +326,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void OffroadConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IOffroadCondition> object)
+    void OffroadConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOffroadCondition> object)
     {
         if (object)
         {
@@ -338,7 +338,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void OverrideBrakeActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IOverrideBrakeAction> object)
+    void OverrideBrakeActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideBrakeAction> object)
     {
         if (object)
         {
@@ -355,7 +355,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void OverrideClutchActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IOverrideClutchAction> object)
+    void OverrideClutchActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideClutchAction> object)
     {
         if (object)
         {
@@ -372,7 +372,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void OverrideParkingBrakeActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object)
+    void OverrideParkingBrakeActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object)
     {
         if (object)
         {
@@ -389,7 +389,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void OverrideThrottleActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IOverrideThrottleAction> object)
+    void OverrideThrottleActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideThrottleAction> object)
     {
         if (object)
         {
@@ -406,7 +406,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void PerformanceRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IPerformance> object)
+    void PerformanceRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPerformance> object)
     {
         if (object)
         {
@@ -426,7 +426,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void PhaseRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IPhase> object)
+    void PhaseRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPhase> object)
     {
         if (object)
         {
@@ -438,7 +438,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void PositionInLaneCoordinatesRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object)
+    void PositionInLaneCoordinatesRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object)
     {
         if (object)
         {
@@ -450,7 +450,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void PrecipitationRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IPrecipitation> object)
+    void PrecipitationRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPrecipitation> object)
     {
         if (object)
         {
@@ -467,7 +467,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void ReachPositionConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IReachPositionCondition> object)
+    void ReachPositionConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IReachPositionCondition> object)
     {
         if (object)
         {
@@ -479,7 +479,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void RelativeDistanceConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IRelativeDistanceCondition> object)
+    void RelativeDistanceConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRelativeDistanceCondition> object)
     {
         if (object)
         {
@@ -491,7 +491,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void RoadConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IRoadCondition> object)
+    void RoadConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRoadCondition> object)
     {
         if (object)
         {
@@ -503,7 +503,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void StandStillConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IStandStillCondition> object)
+    void StandStillConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IStandStillCondition> object)
     {
         if (object)
         {
@@ -515,7 +515,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void SunRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ISun> object)
+    void SunRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ISun> object)
     {
         if (object)
         {
@@ -553,7 +553,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TimeHeadwayConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITimeHeadwayCondition> object)
+    void TimeHeadwayConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeHeadwayCondition> object)
     {
         if (object)
         {
@@ -565,7 +565,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TimeToCollisionConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITimeToCollisionCondition> object)
+    void TimeToCollisionConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeToCollisionCondition> object)
     {
         if (object)
         {
@@ -577,7 +577,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TimingRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITiming> object)
+    void TimingRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITiming> object)
     {
         if (object)
         {
@@ -589,7 +589,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TrafficSignalControllerRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITrafficSignalController> object)
+    void TrafficSignalControllerRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSignalController> object)
     {
         if (object)
         {
@@ -601,7 +601,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TrafficSinkActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITrafficSinkAction> object)
+    void TrafficSinkActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSinkAction> object)
     {
         if (object)
         {
@@ -621,7 +621,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TrafficSourceActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITrafficSourceAction> object)
+    void TrafficSourceActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSourceAction> object)
     {
         if (object)
         {
@@ -649,7 +649,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TrafficSwarmActionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITrafficSwarmAction> object)
+    void TrafficSwarmActionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSwarmAction> object)
     {
         if (object)
         {
@@ -685,7 +685,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TransitionDynamicsRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITransitionDynamics> object)
+    void TransitionDynamicsRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITransitionDynamics> object)
     {
         if (object)
         {
@@ -697,7 +697,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void TraveledDistanceConditionRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<ITraveledDistanceCondition> object)
+    void TraveledDistanceConditionRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITraveledDistanceCondition> object)
     {
         if (object)
         {
@@ -709,7 +709,7 @@ namespace RAC_OPENSCENARIO
         }
     }
 
-    void VehicleCategoryDistributionEntryRangeCheckerRule::ApplyRule(IParserMessageLogger& messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object)
+    void VehicleCategoryDistributionEntryRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object)
     {
         if (object)
         {

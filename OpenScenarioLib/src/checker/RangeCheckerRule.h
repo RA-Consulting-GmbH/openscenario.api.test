@@ -33,7 +33,7 @@ namespace RAC_OPENSCENARIO
          * @param comparedValue the value the actual value is compared to.
          * @param attributeKey the attribute key that is used to locate the violation.
          */
-        void LogMessage(std::shared_ptr<IOpenScenarioModelElement> object, IParserMessageLogger& messageLogger, std::string propertyName, std::string propertyValue, std::string operatorString, std::string comparedValue, std::string attributeKey) const
+        void LogMessage(std::shared_ptr<IOpenScenarioModelElement> object, std::shared_ptr<IParserMessageLogger>& messageLogger, std::string propertyName, std::string propertyValue, std::string operatorString, std::string comparedValue, std::string attributeKey) const
         {
 
             auto locator = std::dynamic_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
@@ -41,9 +41,13 @@ namespace RAC_OPENSCENARIO
             if (locator)
             {
                 auto textmarker = locator->GetStartMarkerOfProperty(attributeKey);
-                auto msg = GetMessage(propertyName, propertyValue, operatorString, comparedValue);
-                FileContentMessage fcm(msg, ERROR, textmarker);
-                messageLogger.LogMessage( fcm );
+
+                if (textmarker.GetLine() > -1)
+                {
+                    auto msg = GetMessage(propertyName, propertyValue, operatorString, comparedValue);
+                    FileContentMessage fcm(msg, ERROR, textmarker);
+                    messageLogger->LogMessage(fcm);
+                }
             }
         }
 
