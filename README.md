@@ -50,9 +50,9 @@ Three packages are built in the `target` folder.
 
 | package | description |
 |-|-|
-| de.rac.openscenario.v1_0.reader-X.Y.Z-SNAPSHOT.jar | A package that includes the compiled source code |
-| de.rac.openscenario.v1_0.reader-X.Y.Z-SNAPSHOT-jar-with-dependencies.jar | A package that includes the compiled source code with any dependency embedded. |
-| de.rac.openscenario.v1_0.reader-X.Y.Z-SNAPSHOT-javadoc.jar | The javadoc documentation|
+| de.rac.openscenario.v1_0.reader-X.Y.Z.jar | A package that includes the compiled source code |
+| de.rac.openscenario.v1_0.reader-X.Y.Z-jar-with-dependencies.jar | A package that includes the compiled source code with any dependency embedded. |
+| de.rac.openscenario.v1_0.reader-X.Y.Z-javadoc.jar | The javadoc documentation|
 
 
 
