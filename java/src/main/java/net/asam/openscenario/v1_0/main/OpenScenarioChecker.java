@@ -17,7 +17,9 @@
  
 package net.asam.openscenario.v1_0.main;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Properties;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
@@ -46,17 +48,28 @@ import net.asam.openscenario.v1_0.loader.XmlScenarioImportLoaderFactory;
  *
  */
 public class OpenScenarioChecker {
-	public static String version = "1.0";
 	public static boolean isDebug = false;
 
 	public static void main(String[] args) {
-		// 1. input file
+	    Properties properties = new Properties();
+	    try
+        {
+          properties.load(OpenScenarioChecker.class.getClassLoader().getResourceAsStream("version.properties"));
+        }
+        catch (IOException e)
+        {
+          System.err.println("Internal error Ocuured");
+          return;
+        }
+		
+	    String version = properties.getProperty("version");
+	    // 1. input file
 		// 2. option skip parameter checking -P
 		// 3. option skip import -Y
 		// 4. option skip range checker rules -R
 		// 5. Version -v
 		// 8. print import errors
-	    String header = "* ASAM OpenSCENARIO "+ version + " Checker (2020) *";
+	    String header = "* ASAM OpenSCENARIO 1.0 Checker (2020) *";
 	    String headerFillString = getFilledString(header.length(),'*');
 	    
 		System.out.println(headerFillString);
