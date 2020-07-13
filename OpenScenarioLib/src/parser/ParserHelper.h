@@ -29,8 +29,8 @@ namespace RAC_OPENSCENARIO
     class ParserHelper 
     {
     public:
-        const static int UNSIGNED_SHORT_MAX_VALUE = USHRT_MAX;
-        const static long UNSIGNED_INT_MAX_VALUE = UINT_MAX;
+        const static long UNSIGNED_SHORT_MAX_VALUE = USHRT_MAX;
+        const static long long UNSIGNED_INT_MAX_VALUE = UINT_MAX;
 
         /**
          * Parsing a string value into a string value.
