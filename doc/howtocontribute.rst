@@ -115,7 +115,7 @@ Become a github guru :).
 Where to start
 --------------
 
-While you familiarize yourself with the basics as suggested above, you can have a look at the javadoc of the API (see `README.md <https://github.com/ahege/openscenario.api.test/blob/master/README.md>`_ for instructions how to build javadocs for the project). It will give you an overview of the API classes, their main components and their meaning.
+While you familiarize yourself with the basics as suggested above, you can have a look at the javadoc of the API (see `README.md <<https://github.com/ahege/openscenario.api.test/blob/master/README.md>`_ for instructions how to build javadocs for the project). It will give you an overview of the API classes, their main components and their meaning.
 
 Our git workflow
 ----------------
