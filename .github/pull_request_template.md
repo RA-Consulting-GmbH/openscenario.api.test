@@ -15,7 +15,7 @@ Add @mentions of the person or team responsible for reviewing proposed changes.
 
 #### Check the checklist
 
-- [ ] My code and comments follow the [style guidelines](https://github.com/ahege/openscenario.api.test/blob/master/doc/commenting.rst) and [contributors guidelines](https://github.com/ahege/openscenario.api.test/blob/master/doc/howtocontribute.rst) of this project.
+- [ ] My code follows the [contributors guidelines](https://github.com/ahege/openscenario.api.test/blob/master/doc/howtocontribute.rst) of this project.
 - [ ] I have performed a self-review of my own code.
 - [ ] I have made corresponding changes to the [documentation](https://github.com/ahege/openscenario.api.test/blob/master/doc).
 - [ ] My changes generate no new warnings.
