@@ -38,14 +38,16 @@ public:
             auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
             assert(catalogReference != nullptr);
             assert(catalogReference->GetRef() != nullptr);
-            auto vehicleImportEgo = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(catalogReference->GetRef());
+            auto ref = catalogReference->GetRef();
+            auto vehicleImportEgo = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(ref);
             assert(vehicleImportEgo != nullptr);
             assert(vehicleImportEgo->GetPerformance()->GetMaxSpeed() == 69.0);
 
             catalogReference = GetVehicleImport(openScenario, "OverTaker", "car_red");
             assert(catalogReference != nullptr);
             assert(catalogReference->GetRef() != nullptr);
-            auto vehicleImportOvertaker = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(catalogReference->GetRef());
+            ref = catalogReference->GetRef();
+            auto vehicleImportOvertaker = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(ref);
             assert(vehicleImportOvertaker != nullptr);
             assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 70.0);
             assert(vehicleImportOvertaker != vehicleImportEgo);
@@ -72,7 +74,8 @@ public:
             auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
             assert(catalogReference != nullptr);
             assert(catalogReference->GetRef() != nullptr);
-            auto vehicleImportEgo = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(catalogReference->GetRef());
+            auto ref = catalogReference->GetRef();
+            auto vehicleImportEgo = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(ref);
             assert(vehicleImportEgo != nullptr);
             assert(vehicleImportEgo->GetPerformance()->GetMaxSpeed() == 70.0);
 
@@ -80,7 +83,8 @@ public:
             catalogReference = GetVehicleImport(openScenario, "OverTaker", "car_white");
             assert(catalogReference != nullptr);
             assert(catalogReference->GetRef() != nullptr);
-            auto vehicleImportOvertaker = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(catalogReference->GetRef());
+            ref = catalogReference->GetRef();
+            auto vehicleImportOvertaker = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(ref);
             assert(vehicleImportOvertaker != nullptr);
             assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 31.0);
             assert(vehicleImportOvertaker != vehicleImportEgo);
@@ -89,7 +93,8 @@ public:
             catalogReference = GetVehicleImport(openScenario, "ThirdEntity", "car_white");
             assert(catalogReference != nullptr);
             assert(catalogReference->GetRef() != nullptr);
-            auto vehicleImportThirdVehicle = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(catalogReference->GetRef());
+            ref = catalogReference->GetRef();
+            auto vehicleImportThirdVehicle = RAC_OPENSCENARIO::CatalogHelper::AsVehicle(ref);
             assert(vehicleImportThirdVehicle != nullptr);
             assert(vehicleImportThirdVehicle->GetPerformance()->GetMaxSpeed() == 60.0);
 

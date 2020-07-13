@@ -21,7 +21,7 @@ namespace RAC_OPENSCENARIO
          */
         ScenarioLoaderException(std::string message) :_msg(message) {}
 
-        char const * what() const override
+        const char* what() const throw() override
         {
             return _msg.c_str();
         }

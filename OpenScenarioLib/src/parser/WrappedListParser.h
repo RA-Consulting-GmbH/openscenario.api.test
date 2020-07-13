@@ -35,7 +35,7 @@ namespace RAC_OPENSCENARIO
          * @param wrapperTagName the tagname that wrapps the list.
          */
         WrappedListParser(IParserMessageLogger& messageLogger, std::string& filename, const std::shared_ptr<IElementParser<T>> innerParser, const std::string wrapperTagName):
-            XmlParserBase(messageLogger, filename), _innerElementParser(innerParser), _wrapperTagName(wrapperTagName), _wrapperTagNameEndPosition(-1,-1) {}
+            XmlParserBase<T>(messageLogger, filename), _innerElementParser(innerParser), _wrapperTagName(wrapperTagName), _wrapperTagNameEndPosition(-1,-1) {}
 
         void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& parentElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
         {

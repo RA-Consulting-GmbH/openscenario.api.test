@@ -295,7 +295,7 @@ namespace RAC_OPENSCENARIO
          * Assigns the start marker
          * @param startMarker the start marker
          */
-        void SetStartMarker(Textmarker& startMarker)
+        void SetStartMarker(Textmarker startMarker)
         {
             _startMarker = startMarker;
         }
@@ -313,7 +313,7 @@ namespace RAC_OPENSCENARIO
          * Assigns the end marker
          * @param endMarker the end marker
          */
-        void SetEndMarker(Textmarker& endMarker)
+        void SetEndMarker(Textmarker endMarker)
         {
             _endMarker = endMarker;
         }

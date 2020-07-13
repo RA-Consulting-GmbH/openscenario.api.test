@@ -1,4 +1,3 @@
-#pragma once
 #include "XmlScenarioLoader.h"
 #include "ResourceNotFoundException.h"
 #include <ANTLRInputStream.h>
@@ -6,10 +5,6 @@
 #include <XMLParserListener.h>
 #include "ScenarioCheckerImpl.h"
 #include "XmlParsers.h"
-
-//#include <ANTLRInputStream.h>
-//#include "XMLLexer.h"
-//#include "XMLParser.h"
 
 
 namespace RAC_OPENSCENARIO

@@ -30,7 +30,7 @@ namespace RAC_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase(messageLogger, filename) {}
+        XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase<T>(messageLogger, filename) {}
 
         void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
         {

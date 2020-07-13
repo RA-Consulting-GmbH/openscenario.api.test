@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "MemLeakDetection.h"
+#include <memory>
 
 namespace RAC_OPENSCENARIO
 {

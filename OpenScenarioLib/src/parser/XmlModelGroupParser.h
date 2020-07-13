@@ -30,7 +30,7 @@ namespace RAC_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operationg on.
          */
-        XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename) :XmlParserBase(messageLogger, filename) {}
+        XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename) :XmlParserBase<T>(messageLogger, filename) {}
         virtual ~XmlModelGroupParser() = default;
 
     protected:
@@ -67,7 +67,7 @@ namespace RAC_OPENSCENARIO
          * @param lastParsedElement the last element that was parsed
          * @return the new list index or the size of the indexed elements list
          */
-        static int MoveForwardToLastElementParsed(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, const int currentIndex, std::shared_ptr<IndexedElement>& lastParsedElement)
+        static int MoveForwardToLastElementParsed(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, const int currentIndex, std::shared_ptr<IndexedElement> lastParsedElement)
         {
             //TODO: check if this comparison is sufficient
             for (unsigned int i = currentIndex; i < indexedElements.size(); i++)

@@ -4,6 +4,7 @@
 #include <vector>
 #include "AttributeNode.h"
 #include "MemLeakDetection.h"
+#include <memory>
 
 
 namespace RAC_XML_INDEXER

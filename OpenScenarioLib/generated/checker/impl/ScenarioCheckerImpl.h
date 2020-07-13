@@ -7,6 +7,7 @@
 #include "IScenarioChecker.h"
 #include "ApiClassInterfaces.h"
 #include "MemLeakDetection.h"
+#include <memory>
 
 namespace RAC_OPENSCENARIO
 {

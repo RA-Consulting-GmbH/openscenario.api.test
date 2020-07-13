@@ -73,7 +73,7 @@ namespace RAC_OPENSCENARIO
         int CompareTo(const FileContentMessage& rhs) const
         {
             //TODO: not exactly the java equivalent 
-            return strcmp(rhs.ToString().c_str(), this->ToString().c_str());
+            return rhs.ToString() == this->ToString().c_str();
         };
     };
 }

@@ -149,8 +149,8 @@ set( HEADERS_PARSER
   "src/parser/ParserHelper.h"
   "src/parser/ParserContext.h"
   "src/parser/WrappedListParser.h"
-  "src/parser/XMLParserBase.h"
-  "src/parser/XMLParserException.h"
+  "src/parser/XmlParserBase.h"
+  "src/parser/XmlParserException.h"
   "src/parser/XmlModelGroupParser.h"
 )
 

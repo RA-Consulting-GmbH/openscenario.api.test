@@ -21,7 +21,7 @@ namespace RAC_OPENSCENARIO
          * @param type the type of a parameter as class
          * @param value the value of a parameter
          */
-        ParameterValue(std::string& name, std::string& type, std::string& value) : _name(name), _type(type), _value(value) {}
+        ParameterValue(const std::string name, const std::string type, const std::string value) : _name(name), _type(type), _value(value) {}
 
         /**
          * The name of the parameter

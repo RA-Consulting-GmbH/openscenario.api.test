@@ -15,7 +15,15 @@ class TestBase
 
 protected:
     std::shared_ptr<RAC_OPENSCENARIO::MessageLogger> _messageLogger = std::make_shared<RAC_OPENSCENARIO::MessageLogger>();
+
+#ifdef _WINDOWS
     const std::string kInputDir = "../../../../../Applications/OpenScenarioReader/res/";
+#elif defined(__unix__) && defined(__linux__)
+    const std::string kInputDir = "../../../Applications/OpenScenarioReader/res/";
+#else
+# error "CAN: Unknown OS"
+#endif
+
 
 public:
     std::shared_ptr<RAC_OPENSCENARIO::OpenScenarioImpl> ExecuteParsing(std::string filename) const

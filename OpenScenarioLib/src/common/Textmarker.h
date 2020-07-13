@@ -40,7 +40,7 @@ namespace RAC_OPENSCENARIO
         bool operator==(const Textmarker& rhs) const
         {
             //TODO: check if the dyncamic cast is necessary or if this will already be ensured
-            return strcmp(rhs._filename.c_str(), this->_filename.c_str()) && rhs._line == this->_line && rhs._column == this->_column;
+            return rhs._filename == this->_filename && rhs._line == this->_line && rhs._column == this->_column;
         }
 
         int HashCode() const { return std::hash<std::string>{}(this->ToString()); }

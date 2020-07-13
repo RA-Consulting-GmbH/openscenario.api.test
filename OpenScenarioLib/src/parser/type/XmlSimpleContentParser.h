@@ -25,7 +25,7 @@ namespace RAC_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlSimpleContentParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlComplexTypeParser(messageLogger, filename) {}
+        XmlSimpleContentParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlComplexTypeParser<T>(messageLogger, filename) {}
 
         void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
         {

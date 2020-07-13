@@ -21,7 +21,7 @@ namespace RAC_OPENSCENARIO
          */
         ResourceNotFoundException(std::string& fileName) :_msg("Resource not found '" + fileName + "'") {}
 
-        char const * what() const override
+        const char* what() const throw() override
         {
             return _msg.c_str();
         }

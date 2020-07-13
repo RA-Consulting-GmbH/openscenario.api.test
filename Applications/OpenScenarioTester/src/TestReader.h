@@ -9,7 +9,7 @@ private:
     std::string version = "1.0";
     bool isDebug = false;
 
-    int ReadOpenScenarioFile(int argc, char** argv) const
+    int ReadOpenScenarioFile(int argc, const char** argv) const
     {
         std::cout << "**************************************" << std::endl;
         std::cout << " ASAM OpenSCENARIO 1.0 Checker (2020) " << std::endl;
@@ -88,16 +88,16 @@ public:
 
     void TestImportSuccess() const
     {
-        std::string filePath = kInputDir + "simpleImport/simpleImport.xosc";
-        char* argv[3] = { "TestReader", "-i", &filePath[0] };
+        const std::string kFilePath = kInputDir + "simpleImport/simpleImport.xosc";
+        const char* argv[3] = { "TestReader", "-i", &kFilePath[0] };
 
         ReadOpenScenarioFile(3, argv);
     }
 
     void TestWithErrors() const
     {
-        std::string filePath = kInputDir + "DoubleLaneChangerParamsError.xosc";
-        char* argv[3] = { "TestReader", "-i", &filePath[0] };
+        const std::string kFilePath = kInputDir + "DoubleLaneChangerParamsError.xosc";
+        const char* argv[3] = { "TestReader", "-i", &kFilePath[0] };
 
         ReadOpenScenarioFile(3, argv);
     }
