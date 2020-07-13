@@ -16,7 +16,7 @@ This document explains how to participate in project conversations, log bugs and
 Licensing
 ---------
 
-OpenSCEANRIO API uses the Apache License v. 2.0. (as found in the `LICENSE <https://github.com/ahege/openscenario.api.test/LICENSE>`_ file in the project’s GitHub repo).
+OpenSCEANRIO API uses the Apache License v. 2.0. (as found in the `LICENSE <https://github.com/ahege/openscenario.api.test/blob/master/LICENSE>`_ file in the project’s GitHub repo).
 
 The license tells you what rights you have as a developer, provided by the copyright holder. It is important that the contributor fully understands the licensing rights and agrees to them. Sometimes the copyright holder isn’t the contributor, such as when the contributor is doing work on behalf of a company.
 
