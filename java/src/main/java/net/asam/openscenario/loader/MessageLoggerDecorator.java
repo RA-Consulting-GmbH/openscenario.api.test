@@ -36,7 +36,7 @@ public class MessageLoggerDecorator implements IParserMessageLogger {
 
 	/**
 	 * Constructor
-	 * @param innerMessageLogger decrated message logger
+	 * @param innerMessageLogger decorated message logger
 	 */
 	public MessageLoggerDecorator(IParserMessageLogger innerMessageLogger) {
 		super();

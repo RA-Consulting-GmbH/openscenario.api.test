@@ -14,24 +14,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package net.asam.openscenario.common;
 
 /**
  * Error Levels for Parsing and checking
  * <ul>
- * <li> FATAL - Fatal error that stops the whole loading process
- * <li> ERROR - Error that makes the loading results unusable but the loading process can continue to find 
- * additional errors and warnings.
- * <li> WARNING - Warnings are errors that most likely have been corrected by the loader.
- * <li> INFO - Informations for the loader process.
- * <li> DEBUG - Debug information to trace the loading process.
- *  
+ * <li>FATAL - Fatal error that stops the whole loading process
+ * <li>ERROR - Error that makes the loading results unusable but the loading
+ * process can continue to find additional errors and warnings.
+ * <li>WARNING - Warnings are errors that most likely have been corrected by the
+ * loader.
+ * <li>INFO - Informations for the loader process.
+ * <li>DEBUG - Debug information to trace the loading process.
+ * 
  * </ul>
+ * 
  * @author Andreas Hege - RA Consulting
  *
  */
-public enum ErrorLevel {
+public enum ErrorLevel implements Comparable<ErrorLevel>
+{
 
-	FATAL, ERROR, WARNING, INFO, DEBUG;
+  FATAL(5), ERROR(4), WARNING(3), INFO(2), DEBUG(1);
+
+  public  int severity;
+
+  private ErrorLevel(int severity)
+  {
+    this.severity = severity;
+  }
+  
+  /**
+   * Compares two error levels
+   * @param other error level
+   * @return true if this errorLevel is worse than other error level
+   */
+  public boolean isWorseOrEqualThan(ErrorLevel other) {
+    return this.severity >= other.severity;
+  }
+
+  
 }
