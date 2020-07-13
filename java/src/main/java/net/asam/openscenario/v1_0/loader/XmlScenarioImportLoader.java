@@ -282,7 +282,7 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
 					Textmarker textmarker = locator
 							.getStartMarkerOfProperty(OscConstants.ATTRIBUTE__PATH);
 					messageLogger.logMessage(new FileContentMessage(
-							"Cannot resolve catalog directory '" + path + "' (" + symbolicDirname+ ")",
+							"Cannot resolve catalog directory '" + filename +  path + "' (" + symbolicDirname+ ")",
 							ErrorLevel.ERROR, textmarker));
 				}
 			}
