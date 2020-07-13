@@ -3,7 +3,7 @@
 ## Abstract
 * Extensive library for reading and checking scenarios.
 * Fully compliant to [OpenSCENARIO 1.0.](https://www.asam.net/standards/detail/openscenario/)
-* Includes an executable checker (See example).
+* Includes an executable checker (See [Getting Started](https://github.com/ahege/openscenario.api.test/wiki/Getting-started)).
 * Implementation platforms JAVA (C++ in progress).
 
 ## Features
@@ -13,13 +13,13 @@
 
 ### More Features
 * Resolving $notated parameters
-* Resoving catalog references
-* Resolving object refrences
+* Resolving catalog references
+* Resolving object references
 * Checking model constraints from the standard (Range checker rules)
 
 ### Architectural features and extension points
 
-* **Abstracting the model from its implementation** Feature: Providing an API to browse the tree.
+* **Abstracting the model from its implementation** Feature: Providing an API to browse the tree.Hiding the implementations.
 * **Abstracting from storage media** Extension Point: Reading from zipped files, from databases or from the cloud by writing your own resource locator classes.
 * **Abstracting from storage formats** Extension Point: Write your own loader class to read from binary files or from JSON etc.
 * **Checker rule API** Extension Point: Write your own checker rules. E.g. for your company‘s set of authoring guidelines.
