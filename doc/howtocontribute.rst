@@ -93,7 +93,7 @@ find with the project on `github <https://github.com/ahege/openscenario.api.test
 Always make sure to search the existing issues before reporting a new one.
 Issues may be created to discuss:
 
-- `Feature <https://github.com/ahege/openscenario.api.test/issues/new?assignees=&labels=feature&template=feature_report.md&title=>`_
+- `Feature <https://github.com/ahege/openscenario.api.test/issues/new?assignees=&labels=feature&template=feature_request.md&title=>`_
 - `Bugs <https://github.com/ahege/openscenario.api.test/issues/new?assignees=&labels=bug&template=bug_report.md&title=>`_
 - `Questions <https://github.com/ahege/openscenario.api.test/issues/new?assignees=&labels=question&template=question.md&title=>`_
 - `Other <https://github.com/ahege/openscenario.api.test/issues/new>`_
