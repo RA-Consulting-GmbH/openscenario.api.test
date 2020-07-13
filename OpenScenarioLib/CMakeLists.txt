@@ -3,8 +3,6 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenarioLib )
 message("${PROJECT_NAME}")
 
-message("antlr1: ${CMAKE_BINARY_DIR}")
-
 ################################################################
 # Preprocessor settings
 if( WIN32 )
@@ -43,14 +41,14 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/xmlIndexer )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../ExternalLibs/Filesystem)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../TinyXML2 )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src/atn )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src/dfa )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src/misc )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src/support )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src/tree/pattern )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../AntlrCpp-src/runtime/src/tree/xpath )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src/atn )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src/dfa )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src/misc )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src/support )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src/tree )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src/tree/pattern )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ANTLR4-Cpp-src/runtime/src/tree/xpath )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/api )
@@ -306,7 +304,6 @@ if( BUILD_STATIC_LIBS )
 else()
   target_link_libraries( ${PROJECT_NAME} antlr4_shared )
 endif()
-message("var: ${ANTLR4_RUNTIME}")
 
 ################################################################
 # Visual Studio solution folders

@@ -6,6 +6,18 @@
   ],
   "components": [
     {
+      "name": "Externals/ANTLR4-Cpp-src",
+      "version": "4.8",
+      "features": {
+        "Linux": [
+          "Linux"
+        ],
+        "Windows": [
+          "Windows"
+        ]
+      }
+    },
+    {
       "name": "Externals/CMake",
       "version": "3.8.2",
       "features": {
@@ -40,10 +52,10 @@
       "version": "r21",
       "features": {
         "Linux": [
-          "@all"
+          "Linux"
         ],
         "Windows": [
-          "@all"
+          "Windows"
         ]
       }
     },

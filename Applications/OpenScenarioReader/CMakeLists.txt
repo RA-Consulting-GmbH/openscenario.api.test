@@ -13,7 +13,7 @@ endif( WIN32 )
 
 
 ################################################################
-# This is needed because of the way the cmakefiles for AntlrCpp-src are written
+# This is needed because of the way the cmakefiles for ANTLR4-Cpp-src are written
 unset(CMAKE_BUILD_TYPE CACHE)
 ################################################################
 # Set compile output folder

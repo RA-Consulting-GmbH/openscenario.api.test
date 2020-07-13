@@ -26,14 +26,14 @@ RAC_SET_BUILD_PARAM()
 set( MASTER_PROJECT FALSE )
 message("Subprojects:")
 
-# Set compile output folder for DiagRA Portable core libs
-# This is needed because of the way the makefiles for AntlrCpp-src are written
+# Set compile output folder for OpenSCENARIO core libs
+# This is needed because of the way the makefiles for ANTLR4-Cpp-src are written
 unset(CMAKE_BUILD_TYPE CACHE)
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
 
 # Dependencies
-add_subdirectory( ../AntlrCpp-src ${PROJECT_BINARY_DIR}/AntlrCpp-src)
+add_subdirectory( ../ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/ANTLR4-Cpp-src)
 
 # CoreLibraries
 add_subdirectory( OpenScenarioLib ${PROJECT_BINARY_DIR}/OpenScenarioLib )
