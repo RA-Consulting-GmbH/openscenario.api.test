@@ -144,9 +144,6 @@ maintain a streamlined Git history. Pull requests without a Sign-Off message (se
 -  Don’t mix refactoring and new features.
 -  Never mix re indentation, whitespace deletion, or other style changes
    with actual code changes.
--  If you add new osi messages into a \*.proto file, don’t forget to
-   extend the documentation and comment on the message and on each field (for more information see :ref:`commenting`).
--  Don't forget to run the unit tests for comment compliance in the folder `tests <https://github.com/ahege/openscenario.api.test/tree/master/tests>`_ with ``python -m unittest discover tests`` to check if you followed the correct syntax guidelines for \*.proto files
 -  Try and mimic the style of commit messages, and for non trivial
    commits, add an extended commit message.
 
@@ -164,8 +161,8 @@ maintain a streamlined Git history. Pull requests without a Sign-Off message (se
 - Clone repository on your local machine
 - Create a branch with a meaningful name: ``prefix/name``, ``feature/new-environmental-conditions``
 - prefixes: feature, experimental, bug, etc.
-- Add your suggestions to the code Do not use: ``*git add -A *git commit -A``
-- The code should compile and pass all `unit tests <https://github.com/ahege/openscenario.api.test/tree/master/tests>`_ for a pull-request!
+- Add your suggestions to the code. Do not use: ``*git add -A *git commit -A``
+- The code should compile and pass all `unit tests <https://github.com/ahege/openscenario.api.test/tree/master/java/src/test>`_  for a pull-request!
 - Try to make small changes for easier discussions
 - The person willing to merge needs to adjust the version according to :ref:`versioning` before hitting merge
 
@@ -182,13 +179,12 @@ maintain a streamlined Git history. Pull requests without a Sign-Off message (se
 **Documentation changes**:
 
 - Can be performed by anyone.
-- Consider adding stuff to the `OpenSCENARIAO API-documentation <https://github.com/ahege/openscenario.api.test/java>`_ or directly to the `doc <https://github.com/ahege/openscenario.api.test/tree/master/doc>`_ folder in the repository.
-- When new changes are made directly to the osi-documentation repo the documentation will be rebuild and the new changes can be seen. When making documentation changes in the doc folder of the osi repository the changes will be visible when the daily chron job of osi-documentation is executed.
+- Consider adding stuff to the `doc <https://github.com/ahege/openscenario.api.test/tree/master/doc>`_ folder in the repository.
 
 Code Review
 -----------
 
-At OSI all the code is peer reviewed before getting committed in the
+At our project all the code is peer reviewed before getting committed in the
 master branch. Briefly, a code review is a discussion between two or
 more developers about changes to the code to address an issue.
 
