@@ -72,6 +72,11 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
 		addAdapter(ITrafficDefinition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

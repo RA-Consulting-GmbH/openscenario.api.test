@@ -70,6 +70,11 @@ public class OverrideSteeringWheelActionImpl extends BaseImpl implements IOverri
 		addAdapter(IOverrideSteeringWheelAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

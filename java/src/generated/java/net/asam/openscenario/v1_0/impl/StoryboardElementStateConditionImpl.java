@@ -77,6 +77,11 @@ public class StoryboardElementStateConditionImpl extends BaseImpl implements ISt
 		addAdapter(IStoryboardElementStateCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public StoryboardElementType getStoryboardElementType()
 	{

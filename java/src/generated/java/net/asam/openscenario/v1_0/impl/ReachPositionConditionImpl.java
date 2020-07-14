@@ -70,6 +70,11 @@ public class ReachPositionConditionImpl extends BaseImpl implements IReachPositi
 		addAdapter(IReachPositionCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getTolerance()
 	{

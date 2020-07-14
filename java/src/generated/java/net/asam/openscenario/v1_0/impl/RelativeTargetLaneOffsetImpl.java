@@ -72,6 +72,11 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl implements IRelativeT
 		addAdapter(IRelativeTargetLaneOffset.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

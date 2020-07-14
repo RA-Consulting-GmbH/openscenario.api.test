@@ -67,6 +67,11 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
 		addAdapter(IInfrastructureAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ITrafficSignalAction getTrafficSignalAction()
 	{

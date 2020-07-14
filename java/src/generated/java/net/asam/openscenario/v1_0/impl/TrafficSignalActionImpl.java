@@ -69,6 +69,11 @@ public class TrafficSignalActionImpl extends BaseImpl implements ITrafficSignalA
 		addAdapter(ITrafficSignalAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ITrafficSignalControllerAction getTrafficSignalControllerAction()
 	{

@@ -69,6 +69,11 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable{
 		addAdapter(IEntities.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IScenarioObject> getScenarioObjects()
 	{

@@ -71,6 +71,11 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition, Clone
 		addAdapter(IRoutePosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IRouteRef getRouteRef()
 	{

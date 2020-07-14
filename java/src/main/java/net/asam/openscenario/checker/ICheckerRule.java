@@ -31,7 +31,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
  */
 public interface ICheckerRule<T extends IOpenScenarioModelElement > {
    /**
-   * Applys validation to a specific type.
+   * Applies validation to a specific type.
    * @param messageLogger logger to pick up the violations
    * @param object the object to validate
    */

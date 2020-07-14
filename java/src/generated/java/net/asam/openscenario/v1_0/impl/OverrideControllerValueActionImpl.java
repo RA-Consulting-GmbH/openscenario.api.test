@@ -77,6 +77,11 @@ public class OverrideControllerValueActionImpl extends BaseImpl implements IOver
 		addAdapter(IOverrideControllerValueAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IOverrideThrottleAction getThrottle()
 	{

@@ -73,6 +73,11 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable{
 		addAdapter(IAct.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

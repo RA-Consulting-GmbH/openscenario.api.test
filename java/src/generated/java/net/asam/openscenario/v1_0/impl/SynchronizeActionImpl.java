@@ -74,6 +74,11 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
 		addAdapter(ISynchronizeAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getMasterEntityRef()
 	{

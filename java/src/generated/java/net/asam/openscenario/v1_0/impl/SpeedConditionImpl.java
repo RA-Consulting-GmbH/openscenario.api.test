@@ -72,6 +72,11 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
 		addAdapter(ISpeedCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

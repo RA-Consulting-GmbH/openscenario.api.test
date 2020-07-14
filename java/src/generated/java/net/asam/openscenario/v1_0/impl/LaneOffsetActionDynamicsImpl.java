@@ -72,6 +72,11 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
 		addAdapter(ILaneOffsetActionDynamics.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getMaxLateralAcc()
 	{

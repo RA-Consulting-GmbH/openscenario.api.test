@@ -67,6 +67,11 @@ public class ParameterModifyActionImpl extends BaseImpl implements IParameterMod
 		addAdapter(IParameterModifyAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IModifyRule getRule()
 	{

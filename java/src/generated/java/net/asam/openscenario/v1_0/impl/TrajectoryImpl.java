@@ -75,6 +75,11 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectory, Cloneable{
 		addAdapter(ITrajectory.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

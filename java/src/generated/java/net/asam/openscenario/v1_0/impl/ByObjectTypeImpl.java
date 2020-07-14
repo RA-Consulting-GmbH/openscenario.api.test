@@ -70,6 +70,11 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType, Cloneab
 		addAdapter(IByObjectType.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ObjectType getType()
 	{

@@ -67,6 +67,11 @@ public class TrajectoryCatalogLocationImpl extends BaseImpl implements ITrajecto
 		addAdapter(ITrajectoryCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

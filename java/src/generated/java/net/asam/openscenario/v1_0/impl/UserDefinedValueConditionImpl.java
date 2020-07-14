@@ -74,6 +74,11 @@ public class UserDefinedValueConditionImpl extends BaseImpl implements IUserDefi
 		addAdapter(IUserDefinedValueCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

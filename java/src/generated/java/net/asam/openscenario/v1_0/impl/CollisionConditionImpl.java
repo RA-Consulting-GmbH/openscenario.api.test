@@ -69,6 +69,11 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
 		addAdapter(ICollisionCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IEntityRef getEntityRef()
 	{

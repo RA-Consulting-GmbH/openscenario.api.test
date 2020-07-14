@@ -69,6 +69,11 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction,
 		addAdapter(IControllerAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IAssignControllerAction getAssignControllerAction()
 	{

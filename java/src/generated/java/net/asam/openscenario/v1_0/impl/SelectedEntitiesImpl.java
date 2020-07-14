@@ -69,6 +69,11 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
 		addAdapter(ISelectedEntities.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IEntityRef> getEntityRef()
 	{

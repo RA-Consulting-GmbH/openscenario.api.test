@@ -72,6 +72,11 @@ public class SunImpl extends BaseImpl implements ISun, Cloneable{
 		addAdapter(ISun.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getIntensity()
 	{

@@ -70,6 +70,11 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Clone
 		addAdapter(IRoadCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getFrictionScaleFactor()
 	{

@@ -75,6 +75,11 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
 		addAdapter(ITransitionDynamics.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public DynamicsShape getDynamicsShape()
 	{

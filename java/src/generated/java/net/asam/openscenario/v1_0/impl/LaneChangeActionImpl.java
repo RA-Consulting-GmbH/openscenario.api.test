@@ -72,6 +72,11 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction,
 		addAdapter(ILaneChangeAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getTargetLaneOffset()
 	{

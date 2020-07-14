@@ -72,6 +72,11 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
 		addAdapter(IRelativeSpeedToMaster.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

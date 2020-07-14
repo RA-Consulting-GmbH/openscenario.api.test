@@ -73,6 +73,11 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
 		addAdapter(IEntityAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

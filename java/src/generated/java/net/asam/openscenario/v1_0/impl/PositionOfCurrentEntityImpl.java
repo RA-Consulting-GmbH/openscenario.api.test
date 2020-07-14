@@ -69,6 +69,11 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
 		addAdapter(IPositionOfCurrentEntity.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

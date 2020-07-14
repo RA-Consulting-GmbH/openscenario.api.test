@@ -74,6 +74,11 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
 		addAdapter(IParameterDeclaration.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

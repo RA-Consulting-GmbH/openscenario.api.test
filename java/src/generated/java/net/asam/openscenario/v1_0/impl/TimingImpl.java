@@ -74,6 +74,11 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable{
 		addAdapter(ITiming.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ReferenceContext getDomainAbsoluteRelative()
 	{

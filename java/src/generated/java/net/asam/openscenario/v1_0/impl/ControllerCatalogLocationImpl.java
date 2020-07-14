@@ -67,6 +67,11 @@ public class ControllerCatalogLocationImpl extends BaseImpl implements IControll
 		addAdapter(IControllerCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

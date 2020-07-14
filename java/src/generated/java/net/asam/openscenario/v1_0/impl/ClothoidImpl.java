@@ -78,6 +78,11 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable{
 		addAdapter(IClothoid.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getCurvature()
 	{

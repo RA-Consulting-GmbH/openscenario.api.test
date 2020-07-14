@@ -73,6 +73,11 @@ public class FollowTrajectoryActionImpl extends BaseImpl implements IFollowTraje
 		addAdapter(IFollowTrajectoryAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ITrajectory getTrajectory()
 	{

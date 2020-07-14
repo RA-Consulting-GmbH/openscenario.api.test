@@ -69,6 +69,11 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, Cloneab
 		addAdapter(IOpenScenario.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IFileHeader getFileHeader()
 	{

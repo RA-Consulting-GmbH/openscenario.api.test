@@ -72,6 +72,11 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction,
 		addAdapter(IVisibilityAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Boolean getGraphics()
 	{

@@ -70,6 +70,11 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable{
 		addAdapter(IActors.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Boolean getSelectTriggeringEntities()
 	{

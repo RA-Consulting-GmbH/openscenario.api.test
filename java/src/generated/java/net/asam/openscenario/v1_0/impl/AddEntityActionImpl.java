@@ -67,6 +67,11 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction, C
 		addAdapter(IAddEntityAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IPosition getPosition()
 	{

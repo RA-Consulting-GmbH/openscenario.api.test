@@ -68,6 +68,11 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl implements IParam
 		addAdapter(IParameterMultiplyByValueRule.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

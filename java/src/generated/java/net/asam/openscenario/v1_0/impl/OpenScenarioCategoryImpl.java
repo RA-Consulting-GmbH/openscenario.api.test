@@ -69,6 +69,11 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
 		addAdapter(IOpenScenarioCategory.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IScenarioDefinition getScenarioDefinition()
 	{

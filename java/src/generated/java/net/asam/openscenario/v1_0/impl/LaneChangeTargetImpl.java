@@ -69,6 +69,11 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget,
 		addAdapter(ILaneChangeTarget.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IRelativeTargetLane getRelativeTargetLane()
 	{

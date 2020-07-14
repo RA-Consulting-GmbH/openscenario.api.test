@@ -78,6 +78,11 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable{
 		addAdapter(ICondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

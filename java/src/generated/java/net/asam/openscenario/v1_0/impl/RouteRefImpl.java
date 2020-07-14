@@ -69,6 +69,11 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef, Cloneable{
 		addAdapter(IRouteRef.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IRoute getRoute()
 	{

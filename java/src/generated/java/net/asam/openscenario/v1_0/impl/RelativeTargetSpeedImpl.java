@@ -78,6 +78,11 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
 		addAdapter(IRelativeTargetSpeed.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

@@ -68,6 +68,11 @@ public class AbsoluteSpeedImpl extends BaseImpl implements IAbsoluteSpeed, Clone
 		addAdapter(IAbsoluteSpeed.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

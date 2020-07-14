@@ -74,6 +74,11 @@ public class ActionImpl extends BaseImpl implements IAction, Cloneable{
 		addAdapter(IAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

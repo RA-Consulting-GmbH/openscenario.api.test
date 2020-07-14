@@ -68,6 +68,11 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition,
 		addAdapter(IOffroadCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getDuration()
 	{

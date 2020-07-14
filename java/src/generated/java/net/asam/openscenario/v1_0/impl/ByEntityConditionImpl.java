@@ -69,6 +69,11 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
 		addAdapter(IByEntityCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ITriggeringEntities getTriggeringEntities()
 	{

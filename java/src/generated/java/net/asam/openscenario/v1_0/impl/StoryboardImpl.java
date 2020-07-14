@@ -71,6 +71,11 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable{
 		addAdapter(IStoryboard.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IInit getInit()
 	{

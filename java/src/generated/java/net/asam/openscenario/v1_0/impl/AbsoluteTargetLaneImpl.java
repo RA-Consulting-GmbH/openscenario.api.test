@@ -68,6 +68,11 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
 		addAdapter(IAbsoluteTargetLane.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getValue()
 	{

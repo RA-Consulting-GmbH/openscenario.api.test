@@ -67,6 +67,11 @@ public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObje
 		addAdapter(IMiscObjectCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

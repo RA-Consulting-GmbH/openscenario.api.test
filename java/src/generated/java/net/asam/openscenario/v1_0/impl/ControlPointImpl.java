@@ -72,6 +72,11 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneab
 		addAdapter(IControlPoint.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getTime()
 	{

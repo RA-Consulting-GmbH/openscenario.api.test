@@ -69,6 +69,11 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable{
 		addAdapter(IEntityRef.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

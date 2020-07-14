@@ -74,6 +74,11 @@ public class TrafficSignalControllerConditionImpl extends BaseImpl implements IT
 		addAdapter(ITrafficSignalControllerCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<ITrafficSignalController> getTrafficSignalControllerRef()
 	{

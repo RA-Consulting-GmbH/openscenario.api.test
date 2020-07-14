@@ -76,6 +76,11 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
 		addAdapter(ITrafficSourceAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getRate()
 	{

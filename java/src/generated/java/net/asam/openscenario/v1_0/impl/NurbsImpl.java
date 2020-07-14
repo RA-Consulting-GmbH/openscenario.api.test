@@ -72,6 +72,11 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable{
 		addAdapter(INurbs.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Long getOrder()
 	{

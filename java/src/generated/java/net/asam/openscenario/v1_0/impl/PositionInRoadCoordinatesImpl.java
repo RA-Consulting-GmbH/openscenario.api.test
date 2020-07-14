@@ -70,6 +70,11 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPosition
 		addAdapter(IPositionInRoadCoordinates.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getPathS()
 	{

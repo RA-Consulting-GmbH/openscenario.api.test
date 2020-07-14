@@ -73,6 +73,11 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable{
 		addAdapter(IStory.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

@@ -68,6 +68,11 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable{
 		addAdapter(IDirectory.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getPath()
 	{

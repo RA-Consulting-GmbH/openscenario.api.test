@@ -69,6 +69,11 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable{
 		addAdapter(IProperties.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IProperty> getProperties()
 	{

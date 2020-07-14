@@ -69,6 +69,11 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
 		addAdapter(ISpeedActionTarget.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IRelativeTargetSpeed getRelativeTargetSpeed()
 	{

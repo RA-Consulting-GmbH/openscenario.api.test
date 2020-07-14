@@ -69,6 +69,11 @@ public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteActio
 		addAdapter(IAssignRouteAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IRoute getRoute()
 	{

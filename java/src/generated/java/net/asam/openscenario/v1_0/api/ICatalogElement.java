@@ -16,6 +16,7 @@
  */
 package net.asam.openscenario.v1_0.api;
 
+import net.asam.openscenario.api.IOpenScenarioModelElement;
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  * <p>
@@ -27,6 +28,6 @@ package net.asam.openscenario.v1_0.api;
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-public interface ICatalogElement {
+public interface ICatalogElement extends IOpenScenarioModelElement{
 
 }

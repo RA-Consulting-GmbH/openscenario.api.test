@@ -75,6 +75,11 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneab
 		addAdapter(IGlobalAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IEnvironmentAction getEnvironmentAction()
 	{

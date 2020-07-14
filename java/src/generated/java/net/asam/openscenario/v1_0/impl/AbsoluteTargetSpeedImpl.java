@@ -68,6 +68,11 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
 		addAdapter(IAbsoluteTargetSpeed.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

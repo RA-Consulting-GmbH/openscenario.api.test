@@ -69,6 +69,11 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget,
 		addAdapter(ILaneOffsetTarget.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IRelativeTargetLaneOffset getRelativeTargetLaneOffset()
 	{

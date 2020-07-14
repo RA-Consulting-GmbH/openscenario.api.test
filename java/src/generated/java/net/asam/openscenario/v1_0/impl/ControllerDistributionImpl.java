@@ -67,6 +67,11 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
 		addAdapter(IControllerDistribution.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IControllerDistributionEntry> getControllerDistributionEntries()
 	{

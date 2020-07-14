@@ -71,6 +71,11 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
 		addAdapter(IInitActions.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IGlobalAction> getGlobalActions()
 	{

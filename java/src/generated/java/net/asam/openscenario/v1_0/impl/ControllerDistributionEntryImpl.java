@@ -72,6 +72,11 @@ public class ControllerDistributionEntryImpl extends BaseImpl implements IContro
 		addAdapter(IControllerDistributionEntry.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getWeight()
 	{

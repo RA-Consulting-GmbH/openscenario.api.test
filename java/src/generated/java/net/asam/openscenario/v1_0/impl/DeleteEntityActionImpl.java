@@ -65,6 +65,11 @@ public class DeleteEntityActionImpl extends BaseImpl implements IDeleteEntityAct
 		addAdapter(IDeleteEntityAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 
 	@Override
 	public  void resolveParameterInternal(IParserMessageLogger logger,String attributeKey, String parameterLiteralValue)

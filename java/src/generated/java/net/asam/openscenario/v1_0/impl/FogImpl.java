@@ -70,6 +70,11 @@ public class FogImpl extends BaseImpl implements IFog, Cloneable{
 		addAdapter(IFog.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getVisualRange()
 	{

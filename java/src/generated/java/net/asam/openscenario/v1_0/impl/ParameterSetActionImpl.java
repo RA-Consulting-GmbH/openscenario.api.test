@@ -68,6 +68,11 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
 		addAdapter(IParameterSetAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getValue()
 	{

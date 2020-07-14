@@ -69,6 +69,11 @@ public class AxlesImpl extends BaseImpl implements IAxles, Cloneable{
 		addAdapter(IAxles.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IAxle getFrontAxle()
 	{

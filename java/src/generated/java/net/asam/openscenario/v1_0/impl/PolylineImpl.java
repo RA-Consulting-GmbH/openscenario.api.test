@@ -67,6 +67,11 @@ public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable{
 		addAdapter(IPolyline.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IVertex> getVertices()
 	{

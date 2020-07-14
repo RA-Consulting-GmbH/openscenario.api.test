@@ -72,6 +72,11 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
 		addAdapter(IRelativeTargetLane.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

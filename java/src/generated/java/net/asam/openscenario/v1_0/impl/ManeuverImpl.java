@@ -73,6 +73,11 @@ public class ManeuverImpl extends BaseImpl implements IManeuver, Cloneable{
 		addAdapter(IManeuver.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

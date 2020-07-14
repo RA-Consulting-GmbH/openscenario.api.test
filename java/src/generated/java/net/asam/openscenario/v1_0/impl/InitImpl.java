@@ -67,6 +67,11 @@ public class InitImpl extends BaseImpl implements IInit, Cloneable{
 		addAdapter(IInit.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IInitActions getActions()
 	{

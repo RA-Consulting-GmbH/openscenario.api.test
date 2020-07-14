@@ -72,6 +72,11 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
 		addAdapter(IPrecipitation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public PrecipitationType getPrecipitationType()
 	{

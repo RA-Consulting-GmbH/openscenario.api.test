@@ -69,6 +69,11 @@ public class CentralSwarmObjectImpl extends BaseImpl implements ICentralSwarmObj
 		addAdapter(ICentralSwarmObject.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

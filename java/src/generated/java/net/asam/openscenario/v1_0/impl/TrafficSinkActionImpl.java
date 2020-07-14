@@ -74,6 +74,11 @@ public class TrafficSinkActionImpl extends BaseImpl implements ITrafficSinkActio
 		addAdapter(ITrafficSinkAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getRate()
 	{

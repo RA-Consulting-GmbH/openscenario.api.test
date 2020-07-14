@@ -81,6 +81,11 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
 		addAdapter(IPrivateAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ILongitudinalAction getLongitudinalAction()
 	{

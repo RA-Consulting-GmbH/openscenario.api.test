@@ -69,6 +69,11 @@ public class ObjectControllerImpl extends BaseImpl implements IObjectController,
 		addAdapter(IObjectController.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ICatalogReference getCatalogReference()
 	{

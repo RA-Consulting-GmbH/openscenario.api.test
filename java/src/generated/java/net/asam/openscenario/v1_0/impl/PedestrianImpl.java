@@ -83,6 +83,11 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian, Cloneable{
 		addAdapter(IPedestrian.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getModel()
 	{

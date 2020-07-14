@@ -81,6 +81,11 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations,
 		addAdapter(ICatalogLocations.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IVehicleCatalogLocation getVehicleCatalog()
 	{

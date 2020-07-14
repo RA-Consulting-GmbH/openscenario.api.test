@@ -82,6 +82,11 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
 		addAdapter(ITrafficSwarmAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getSemiMajorAxis()
 	{

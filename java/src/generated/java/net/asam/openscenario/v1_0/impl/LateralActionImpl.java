@@ -71,6 +71,11 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, Clone
 		addAdapter(ILateralAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ILaneChangeAction getLaneChangeAction()
 	{

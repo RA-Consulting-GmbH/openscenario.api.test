@@ -70,6 +70,11 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable
 		addAdapter(IRoadNetwork.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IFile getLogicFile()
 	{

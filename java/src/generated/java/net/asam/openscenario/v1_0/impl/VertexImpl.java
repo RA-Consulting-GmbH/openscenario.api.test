@@ -70,6 +70,11 @@ public class VertexImpl extends BaseImpl implements IVertex, Cloneable{
 		addAdapter(IVertex.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getTime()
 	{

@@ -81,6 +81,11 @@ public class RelativeDistanceConditionImpl extends BaseImpl implements IRelative
 		addAdapter(IRelativeDistanceCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

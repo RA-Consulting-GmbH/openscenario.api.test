@@ -78,6 +78,11 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable{
 		addAdapter(IEvent.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Priority getPriority()
 	{

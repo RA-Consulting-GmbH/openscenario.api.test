@@ -72,6 +72,11 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
 		addAdapter(ITriggeringEntities.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public TriggeringEntitiesRule getTriggeringEntitiesRule()
 	{

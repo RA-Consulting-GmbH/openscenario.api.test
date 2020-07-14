@@ -68,6 +68,11 @@ public class ParameterAddValueRuleImpl extends BaseImpl implements IParameterAdd
 		addAdapter(IParameterAddValueRule.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

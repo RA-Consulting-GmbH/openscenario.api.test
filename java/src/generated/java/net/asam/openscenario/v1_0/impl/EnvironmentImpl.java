@@ -77,6 +77,11 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment, Cloneable
 		addAdapter(IEnvironment.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

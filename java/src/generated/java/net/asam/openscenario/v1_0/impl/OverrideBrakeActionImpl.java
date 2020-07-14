@@ -70,6 +70,11 @@ public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeA
 		addAdapter(IOverrideBrakeAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

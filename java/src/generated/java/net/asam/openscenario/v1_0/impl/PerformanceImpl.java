@@ -72,6 +72,11 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable
 		addAdapter(IPerformance.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getMaxSpeed()
 	{

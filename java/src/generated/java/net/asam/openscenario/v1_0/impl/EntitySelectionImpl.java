@@ -70,6 +70,11 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection, C
 		addAdapter(IEntitySelection.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

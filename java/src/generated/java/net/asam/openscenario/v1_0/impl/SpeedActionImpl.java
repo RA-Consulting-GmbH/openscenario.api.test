@@ -69,6 +69,11 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
 		addAdapter(ISpeedAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ITransitionDynamics getSpeedActionDynamics()
 	{

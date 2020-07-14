@@ -72,6 +72,11 @@ public class CenterImpl extends BaseImpl implements ICenter, Cloneable{
 		addAdapter(ICenter.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getX()
 	{

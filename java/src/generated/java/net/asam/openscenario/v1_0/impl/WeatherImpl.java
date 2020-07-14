@@ -76,6 +76,11 @@ public class WeatherImpl extends BaseImpl implements IWeather, Cloneable{
 		addAdapter(IWeather.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public CloudState getCloudState()
 	{

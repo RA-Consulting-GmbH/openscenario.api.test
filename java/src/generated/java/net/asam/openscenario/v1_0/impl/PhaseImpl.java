@@ -72,6 +72,11 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable{
 		addAdapter(IPhase.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

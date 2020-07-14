@@ -69,6 +69,11 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, Cloneable
 		addAdapter(IBoundingBox.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ICenter getCenter()
 	{

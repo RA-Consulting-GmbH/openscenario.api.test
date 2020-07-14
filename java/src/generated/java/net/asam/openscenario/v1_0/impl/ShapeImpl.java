@@ -71,6 +71,11 @@ public class ShapeImpl extends BaseImpl implements IShape, Cloneable{
 		addAdapter(IShape.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IPolyline getPolyline()
 	{

@@ -71,6 +71,11 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition, C
 		addAdapter(IInRoutePosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IPositionOfCurrentEntity getFromCurrentEntity()
 	{

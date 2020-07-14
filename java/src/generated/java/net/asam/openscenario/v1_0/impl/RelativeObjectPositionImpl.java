@@ -78,6 +78,11 @@ public class RelativeObjectPositionImpl extends BaseImpl implements IRelativeObj
 		addAdapter(IRelativeObjectPosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

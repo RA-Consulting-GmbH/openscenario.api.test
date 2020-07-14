@@ -67,6 +67,11 @@ public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable{
 		addAdapter(ITrigger.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IConditionGroup> getConditionGroups()
 	{

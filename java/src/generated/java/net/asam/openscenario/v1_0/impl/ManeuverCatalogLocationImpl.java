@@ -67,6 +67,11 @@ public class ManeuverCatalogLocationImpl extends BaseImpl implements IManeuverCa
 		addAdapter(IManeuverCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

@@ -68,6 +68,11 @@ public class FileImpl extends BaseImpl implements IFile, Cloneable{
 		addAdapter(IFile.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getFilepath()
 	{

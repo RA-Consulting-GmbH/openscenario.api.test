@@ -70,6 +70,11 @@ public class OverrideThrottleActionImpl extends BaseImpl implements IOverrideThr
 		addAdapter(IOverrideThrottleAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

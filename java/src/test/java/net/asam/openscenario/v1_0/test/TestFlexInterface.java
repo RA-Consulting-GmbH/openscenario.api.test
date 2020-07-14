@@ -76,7 +76,7 @@ public class TestFlexInterface extends TestBase
     IFileHeader fileHeader = openScenario.getFileHeader();
     IOpenScenarioFlexElement fileHeaderFlex = null;
       
-    IOpenScenarioFlexElement flexElement = (IOpenScenarioFlexElement) fileHeader;
+    IOpenScenarioFlexElement flexElement = fileHeader.getOpenScenarioFlexElement();
     
     try
     {
@@ -96,38 +96,38 @@ public class TestFlexInterface extends TestBase
       
       // test Enumeration
       ITransitionDynamics speedActionDynamics = getSpeedActionDynamics(openScenario);
-      String enmuerationValue = speedActionDynamics.getEnumerationLiteral(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
+      String enmuerationValue = speedActionDynamics.getOpenScenarioFlexElement().getEnumerationLiteral(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
       Assertions.assertEquals("step", enmuerationValue);
       
       // test Unsigned integer
       IEvent event = getEvent(openScenario);
-      Long maximumExecutionCount = event.getUnsignedIntProperty(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+      Long maximumExecutionCount = event.getOpenScenarioFlexElement().getUnsignedIntProperty(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
       Assertions.assertEquals(2, maximumExecutionCount);
      
       // test Double
-      Double value = speedActionDynamics.getDoubleProperty(OscConstants.ATTRIBUTE__VALUE);
+      Double value = speedActionDynamics.getOpenScenarioFlexElement().getDoubleProperty(OscConstants.ATTRIBUTE__VALUE);
       Assertions.assertEquals(2.0D, value);
       
       // testInteger
       IRelativeLanePosition relativeLanePosition = getRelativeLanePosition(event);
-      Integer dLane = relativeLanePosition.getIntProperty(OscConstants.ATTRIBUTE__D_LANE);
+      Integer dLane = relativeLanePosition.getOpenScenarioFlexElement().getIntProperty(OscConstants.ATTRIBUTE__D_LANE);
       Assertions.assertEquals(1, dLane);
       
       // test Boolean
       IActors actors = getActors(openScenario);
-      Boolean alongRoute = actors.getBooleanProperty(OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES);
+      Boolean alongRoute = actors.getOpenScenarioFlexElement().getBooleanProperty(OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES);
       Assertions.assertEquals(Boolean.FALSE, alongRoute);
      
       
       // Test Proxy (Name only)
-      String entityRef = relativeLanePosition.getStringProperty(OscConstants.ATTRIBUTE__ENTITY_REF);
+      String entityRef = relativeLanePosition.getOpenScenarioFlexElement().getStringProperty(OscConstants.ATTRIBUTE__ENTITY_REF);
       Assertions.assertEquals("Ego", entityRef);
       
       // testParent
-      Assertions.assertTrue(event.getParentFlexElement() instanceof IManeuver);
+      Assertions.assertTrue(event.getOpenScenarioFlexElement().getParentFlexElement() instanceof IManeuver);
       
       // test type
-      Assertions.assertEquals("Event", event.getModelType());
+      Assertions.assertEquals("Event", event.getOpenScenarioFlexElement().getModelType());
       
       // Exceptions
       Assertions.assertThrows(KeyNotSupportedException.class, () -> {

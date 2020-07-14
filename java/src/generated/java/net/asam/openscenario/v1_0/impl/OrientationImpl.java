@@ -76,6 +76,11 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
 		addAdapter(IOrientation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ReferenceContext getType()
 	{

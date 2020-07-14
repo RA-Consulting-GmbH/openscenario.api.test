@@ -91,6 +91,11 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
 		addAdapter(IEntityCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IEndOfRoadCondition getEndOfRoadCondition()
 	{

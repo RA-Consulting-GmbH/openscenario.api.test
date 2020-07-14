@@ -81,6 +81,11 @@ public class PositionImpl extends BaseImpl implements IPosition, Cloneable{
 		addAdapter(IPosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IWorldPosition getWorldPosition()
 	{

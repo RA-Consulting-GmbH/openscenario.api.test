@@ -67,6 +67,11 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl implements IEnviron
 		addAdapter(IEnvironmentCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

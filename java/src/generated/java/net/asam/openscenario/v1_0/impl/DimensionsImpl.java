@@ -72,6 +72,11 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable{
 		addAdapter(IDimensions.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getWidth()
 	{

@@ -67,6 +67,11 @@ public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogL
 		addAdapter(IRouteCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

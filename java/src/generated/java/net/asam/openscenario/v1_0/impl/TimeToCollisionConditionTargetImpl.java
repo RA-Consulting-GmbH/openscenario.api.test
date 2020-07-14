@@ -69,6 +69,11 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl implements ITim
 		addAdapter(ITimeToCollisionConditionTarget.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IPosition getPosition()
 	{

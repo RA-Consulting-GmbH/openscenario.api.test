@@ -70,6 +70,11 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable{
 		addAdapter(ITimeOfDay.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Boolean getAnimation()
 	{

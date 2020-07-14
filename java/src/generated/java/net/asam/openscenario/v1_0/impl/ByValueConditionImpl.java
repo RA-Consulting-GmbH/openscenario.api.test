@@ -79,6 +79,11 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition,
 		addAdapter(IByValueCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IParameterCondition getParameterCondition()
 	{

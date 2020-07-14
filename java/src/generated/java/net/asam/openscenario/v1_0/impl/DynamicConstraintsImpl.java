@@ -72,6 +72,11 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
 		addAdapter(IDynamicConstraints.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getMaxAcceleration()
 	{

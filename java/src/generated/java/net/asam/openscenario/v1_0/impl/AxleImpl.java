@@ -76,6 +76,11 @@ public class AxleImpl extends BaseImpl implements IAxle, Cloneable{
 		addAdapter(IAxle.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getMaxSteering()
 	{

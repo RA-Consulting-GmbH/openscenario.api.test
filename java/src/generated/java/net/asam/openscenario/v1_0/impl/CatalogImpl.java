@@ -84,6 +84,11 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable{
 		addAdapter(ICatalog.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

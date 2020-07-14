@@ -27,7 +27,7 @@ import java.util.List;
  * @author Andreas Hege - RA Consulting
  *
  */
-public interface IOpenScenarioFlexElement extends IOpenScenarioModelElement
+public interface IOpenScenarioFlexElement
 {
   /**
    * Getting a string property 

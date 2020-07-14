@@ -73,6 +73,11 @@ public class ControllerImpl extends BaseImpl implements IController, Cloneable{
 		addAdapter(IController.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

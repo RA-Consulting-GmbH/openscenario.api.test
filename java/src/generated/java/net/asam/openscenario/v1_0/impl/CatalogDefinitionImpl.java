@@ -67,6 +67,11 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
 		addAdapter(ICatalogDefinition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ICatalog getCatalog()
 	{

@@ -76,6 +76,11 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
 		addAdapter(IScenarioDefinition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IParameterDeclaration> getParameterDeclarations()
 	{

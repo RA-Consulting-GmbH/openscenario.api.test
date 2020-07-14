@@ -81,6 +81,11 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, Cloneable{
 		addAdapter(IMiscObject.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public MiscObjectCategory getMiscObjectCategory()
 	{

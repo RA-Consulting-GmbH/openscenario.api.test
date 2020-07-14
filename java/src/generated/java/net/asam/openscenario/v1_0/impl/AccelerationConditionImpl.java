@@ -72,6 +72,11 @@ public class AccelerationConditionImpl extends BaseImpl implements IAcceleration
 		addAdapter(IAccelerationCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

@@ -76,6 +76,11 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
 		addAdapter(IParameterCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IParameterDeclaration> getParameterRef()
 	{

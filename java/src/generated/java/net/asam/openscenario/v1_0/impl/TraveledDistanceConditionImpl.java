@@ -68,6 +68,11 @@ public class TraveledDistanceConditionImpl extends BaseImpl implements ITraveled
 		addAdapter(ITraveledDistanceCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

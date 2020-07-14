@@ -67,6 +67,11 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction, Clo
 		addAdapter(ITeleportAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IPosition getPosition()
 	{

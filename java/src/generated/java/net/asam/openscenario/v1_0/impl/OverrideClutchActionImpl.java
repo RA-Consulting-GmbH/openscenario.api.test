@@ -70,6 +70,11 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
 		addAdapter(IOverrideClutchAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

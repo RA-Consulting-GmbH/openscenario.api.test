@@ -69,6 +69,11 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
 		addAdapter(IEnvironmentAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IEnvironment getEnvironment()
 	{

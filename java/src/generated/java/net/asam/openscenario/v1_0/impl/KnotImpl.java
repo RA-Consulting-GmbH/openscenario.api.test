@@ -68,6 +68,11 @@ public class KnotImpl extends BaseImpl implements IKnot, Cloneable{
 		addAdapter(IKnot.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

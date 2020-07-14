@@ -78,6 +78,11 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
 		addAdapter(IDistanceCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

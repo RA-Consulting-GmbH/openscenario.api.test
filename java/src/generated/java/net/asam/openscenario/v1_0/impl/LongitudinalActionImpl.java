@@ -69,6 +69,11 @@ public class LongitudinalActionImpl extends BaseImpl implements ILongitudinalAct
 		addAdapter(ILongitudinalAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ISpeedAction getSpeedAction()
 	{

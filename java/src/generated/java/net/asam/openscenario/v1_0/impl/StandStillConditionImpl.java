@@ -68,6 +68,11 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
 		addAdapter(IStandStillCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getDuration()
 	{

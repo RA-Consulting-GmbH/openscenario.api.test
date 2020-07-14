@@ -25,15 +25,11 @@ public class EgoCheckerRule implements ICheckerRule<IEntities>
   public void applyRule(IParserMessageLogger messageLogger, IEntities object)
   {
     boolean isEgoDefined = false;
-    
+
     // We are adding the validation code here
     List<IScenarioObject> scenarioObjects = object.getScenarioObjects();
-    if (scenarioObjects == null || scenarioObjects.isEmpty())
+    if (scenarioObjects != null && !scenarioObjects.isEmpty())
     {
-      
-    }else
-    {
-
       for (IScenarioObject scenarioObject : scenarioObjects)
       {
         if (scenarioObject.getName().toLowerCase().contentEquals("ego"))
@@ -43,20 +39,20 @@ public class EgoCheckerRule implements ICheckerRule<IEntities>
         }
       }
     }
-    // Obviously there is no ego defined: issue an error
+
     if (!isEgoDefined)
     {
       ILocator locator = (ILocator) object.getAdapter(ILocator.class);
       Textmarker textmarker = null;
-      
+
       if (locator != null)
       {
-          textmarker = locator.getStartMarker();
-          
+        textmarker = locator.getStartMarker();
+
       }
-      messageLogger.logMessage(new FileContentMessage( "No ego vehicle defined", ErrorLevel.ERROR, textmarker));
+      messageLogger.logMessage(new FileContentMessage("No ego vehicle defined", ErrorLevel.ERROR, textmarker));
     }
-    
+
   }
 
 }

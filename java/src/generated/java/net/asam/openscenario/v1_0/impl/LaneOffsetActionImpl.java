@@ -72,6 +72,11 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction,
 		addAdapter(ILaneOffsetAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Boolean getContinuous()
 	{

@@ -69,6 +69,11 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable{
 		addAdapter(IModifyRule.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IParameterAddValueRule getAddValue()
 	{

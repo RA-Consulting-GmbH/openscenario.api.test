@@ -76,6 +76,11 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition, Cloneab
 		addAdapter(ILanePosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getRoadId()
 	{

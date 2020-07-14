@@ -67,6 +67,11 @@ public class AcquirePositionActionImpl extends BaseImpl implements IAcquirePosit
 		addAdapter(IAcquirePositionAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IPosition getPosition()
 	{

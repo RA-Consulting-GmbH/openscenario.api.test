@@ -70,6 +70,11 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
 		addAdapter(ITrafficSignalCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

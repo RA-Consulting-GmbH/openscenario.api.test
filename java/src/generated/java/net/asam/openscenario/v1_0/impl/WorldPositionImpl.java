@@ -78,6 +78,11 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Clone
 		addAdapter(IWorldPosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getX()
 	{

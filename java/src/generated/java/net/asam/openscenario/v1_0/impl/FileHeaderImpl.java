@@ -76,6 +76,11 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable{
 		addAdapter(IFileHeader.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Integer getRevMajor()
 	{

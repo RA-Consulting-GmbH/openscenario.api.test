@@ -72,6 +72,11 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPosition
 		addAdapter(IPositionInLaneCoordinates.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getPathS()
 	{

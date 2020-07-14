@@ -76,6 +76,11 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
 		addAdapter(IManeuverGroup.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Long getMaximumExecutionCount()
 	{

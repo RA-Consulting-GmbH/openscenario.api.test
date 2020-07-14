@@ -67,6 +67,11 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Clo
 		addAdapter(IConditionGroup.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<ICondition> getConditions()
 	{

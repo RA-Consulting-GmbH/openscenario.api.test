@@ -68,6 +68,11 @@ public class EndOfRoadConditionImpl extends BaseImpl implements IEndOfRoadCondit
 		addAdapter(IEndOfRoadCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getDuration()
 	{

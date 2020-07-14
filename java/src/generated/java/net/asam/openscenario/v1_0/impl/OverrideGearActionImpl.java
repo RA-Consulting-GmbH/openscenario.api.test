@@ -70,6 +70,11 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
 		addAdapter(IOverrideGearAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getNumber()
 	{

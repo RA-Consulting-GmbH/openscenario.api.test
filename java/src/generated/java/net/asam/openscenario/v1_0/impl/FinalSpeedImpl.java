@@ -69,6 +69,11 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, Cloneable{
 		addAdapter(IFinalSpeed.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IAbsoluteSpeed getAbsoluteSpeed()
 	{

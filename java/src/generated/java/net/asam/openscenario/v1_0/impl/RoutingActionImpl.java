@@ -71,6 +71,11 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Clone
 		addAdapter(IRoutingAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IAssignRouteAction getAssignRouteAction()
 	{

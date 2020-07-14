@@ -17,7 +17,12 @@
  
 package net.asam.openscenario.impl;
 
+import java.util.Date;
+import java.util.List;
+
+import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.KeyNotSupportedException;
 import net.asam.openscenario.common.INamedReference;
 
 /**
@@ -26,7 +31,7 @@ import net.asam.openscenario.common.INamedReference;
  * @author Andreas Hege - RA Consulting
  *
  */
-public class NamedReferenceProxy<T> implements INamedReference<T>
+public class NamedReferenceProxy<T extends IOpenScenarioModelElement> implements INamedReference<T>
 {
 
   private T targetObject;
@@ -106,6 +111,92 @@ public class NamedReferenceProxy<T> implements INamedReference<T>
   {
     this.parent = parent;
     
+  }
+
+  @Override
+  public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+  {
+    return new IOpenScenarioFlexElement()
+    {
+      
+      @Override
+      public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
+      {
+        throw  new KeyNotSupportedException();
+      }
+      
+      @Override
+      public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
+      {
+        throw  new KeyNotSupportedException();
+      }
+      
+      @Override
+      public String getStringProperty(String key) throws KeyNotSupportedException
+      {
+        throw  new KeyNotSupportedException();
+      }
+      
+      @Override
+      public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+      
+      @Override
+      public IOpenScenarioFlexElement getParentFlexElement()
+      {
+        return parent!=null?parent.getOpenScenarioFlexElement(): null;
+      }
+      
+      @Override
+      public String getModelType()
+      {
+        return targetObject!=null?targetObject.getOpenScenarioFlexElement().getModelType(): null;
+      }
+      
+      @Override
+      public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+      
+      @Override
+      public Integer getIntProperty(String key) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+      
+      @Override
+      public String getEnumerationLiteral(String key) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+      
+      @Override
+      public Double getDoubleProperty(String key) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+      
+      @Override
+      public Date getDateTimeProperty(String key) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+      
+      @Override
+      public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+      
+      @Override
+      public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
+      {
+        throw new KeyNotSupportedException();
+      }
+    };
   }
 
 }

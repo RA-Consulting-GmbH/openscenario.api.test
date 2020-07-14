@@ -74,6 +74,11 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
 		addAdapter(ICatalogReference.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getCatalogName()
 	{

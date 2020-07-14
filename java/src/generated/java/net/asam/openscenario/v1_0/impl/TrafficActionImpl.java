@@ -71,6 +71,11 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, Clone
 		addAdapter(ITrafficAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ITrafficSourceAction getTrafficSourceAction()
 	{

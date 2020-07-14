@@ -72,6 +72,11 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable{
 		addAdapter(IWaypoint.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public RouteStrategy getRouteStrategy()
 	{

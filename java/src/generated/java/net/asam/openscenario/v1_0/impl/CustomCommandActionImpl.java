@@ -70,6 +70,11 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
 		addAdapter(ICustomCommandAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getType()
 	{

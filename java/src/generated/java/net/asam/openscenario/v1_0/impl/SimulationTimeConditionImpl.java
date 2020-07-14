@@ -72,6 +72,11 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
 		addAdapter(ISimulationTimeCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

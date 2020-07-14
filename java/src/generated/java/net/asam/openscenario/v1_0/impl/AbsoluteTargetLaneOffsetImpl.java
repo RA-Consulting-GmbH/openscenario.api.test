@@ -68,6 +68,11 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteT
 		addAdapter(IAbsoluteTargetLaneOffset.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Double getValue()
 	{

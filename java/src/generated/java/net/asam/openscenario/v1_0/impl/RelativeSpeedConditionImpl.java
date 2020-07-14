@@ -76,6 +76,11 @@ public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpe
 		addAdapter(IRelativeSpeedCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

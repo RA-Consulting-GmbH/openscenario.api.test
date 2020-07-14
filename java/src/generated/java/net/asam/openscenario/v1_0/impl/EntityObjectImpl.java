@@ -73,6 +73,11 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, Cloneab
 		addAdapter(IEntityObject.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ICatalogReference getCatalogReference()
 	{

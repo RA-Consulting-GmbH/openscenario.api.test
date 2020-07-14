@@ -70,6 +70,11 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
 		addAdapter(IActivateControllerAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Boolean getLateral()
 	{

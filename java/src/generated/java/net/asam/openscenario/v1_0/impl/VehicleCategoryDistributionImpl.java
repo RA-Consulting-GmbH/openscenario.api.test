@@ -67,6 +67,11 @@ public class VehicleCategoryDistributionImpl extends BaseImpl implements IVehicl
 		addAdapter(IVehicleCategoryDistribution.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public List<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries()
 	{

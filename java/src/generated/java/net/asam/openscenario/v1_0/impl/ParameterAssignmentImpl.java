@@ -72,6 +72,11 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
 		addAdapter(IParameterAssignment.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IParameterDeclaration> getParameterRef()
 	{

@@ -72,6 +72,11 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Clo
 		addAdapter(IScenarioObject.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

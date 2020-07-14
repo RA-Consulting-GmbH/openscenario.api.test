@@ -67,6 +67,11 @@ public class PedestrianCatalogLocationImpl extends BaseImpl implements IPedestri
 		addAdapter(IPedestrianCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

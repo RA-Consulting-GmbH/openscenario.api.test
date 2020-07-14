@@ -80,6 +80,11 @@ public class LongitudinalDistanceActionImpl extends BaseImpl implements ILongitu
 		addAdapter(ILongitudinalDistanceAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

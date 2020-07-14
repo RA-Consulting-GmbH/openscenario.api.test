@@ -69,6 +69,11 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
 		addAdapter(ITimeReference.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INone getNone()
 	{

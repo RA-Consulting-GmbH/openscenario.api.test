@@ -67,6 +67,11 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
 		addAdapter(IUserDefinedAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public ICustomCommandAction getCustomCommandAction()
 	{

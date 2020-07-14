@@ -78,6 +78,11 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
 		addAdapter(IRelativeWorldPosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

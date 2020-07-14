@@ -67,6 +67,11 @@ public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCata
 		addAdapter(IVehicleCatalogLocation.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public IDirectory getDirectory()
 	{

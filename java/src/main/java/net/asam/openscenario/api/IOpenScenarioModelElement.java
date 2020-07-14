@@ -36,5 +36,11 @@ public interface IOpenScenarioModelElement {
 	 * @return the model parent of this object
 	 */
 	public IOpenScenarioModelElement getParent();
+	
+	/**
+	 * Return the flexible interface 
+	 * @return the flexible interface
+	 */
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement();
 
 }

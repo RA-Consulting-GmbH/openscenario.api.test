@@ -76,6 +76,11 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
 		addAdapter(IRelativeRoadPosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IEntity> getEntityRef()
 	{

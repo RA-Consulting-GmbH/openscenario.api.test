@@ -83,6 +83,11 @@ public class VehicleImpl extends BaseImpl implements IVehicle, Cloneable{
 		addAdapter(IVehicle.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getName()
 	{

@@ -70,6 +70,11 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
 		addAdapter(ITrajectoryFollowingMode.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public FollowingMode getFollowingMode()
 	{

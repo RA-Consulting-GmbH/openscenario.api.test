@@ -72,6 +72,11 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
 		addAdapter(ITimeOfDayCondition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public Rule getRule()
 	{

@@ -73,6 +73,11 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
 		addAdapter(IParameterAction.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public INamedReference<IParameterDeclaration> getParameterRef()
 	{

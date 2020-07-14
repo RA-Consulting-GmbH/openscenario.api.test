@@ -74,6 +74,11 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
 		addAdapter(IRoadPosition.class, this);
 		
 	}
+	
+	public IOpenScenarioFlexElement getOpenScenarioFlexElement()
+	{
+		return this;
+	}
 	@Override
 	public String getRoadId()
 	{
