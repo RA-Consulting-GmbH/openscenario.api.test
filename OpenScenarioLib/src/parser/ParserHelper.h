@@ -169,8 +169,10 @@ namespace RAC_OPENSCENARIO
         {
             bool result;
 
-            std::transform(xmlValue.begin(), xmlValue.end(), xmlValue.begin(),
-                           [](const unsigned char c) { return std::tolower(c, std::locale()); });
+//            std::transform(xmlValue.begin(), xmlValue.end(), xmlValue.begin(), [](unsigned char c) { return std::tolower(c, std::locale()); });
+            for ( std::string::iterator it=xmlValue.begin(); it!=xmlValue.end(); ++it)
+               *it = std::tolower(*it, std::locale());
+
             if (xmlValue == "1" || xmlValue == "true")
                 result = true;
             else if (xmlValue == "0" || xmlValue == "false")

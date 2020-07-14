@@ -19,7 +19,7 @@ protected:
 #ifdef _WINDOWS
     const std::string kInputDir = "../../../../../Applications/OpenScenarioReader/res/";
 #elif defined(__unix__) && defined(__linux__)
-    const std::string kInputDir = "../../../Applications/OpenScenarioReader/res/";
+    const std::string kInputDir = "../../../../Applications/OpenScenarioReader/res/";
 #else
 # error "CAN: Unknown OS"
 #endif

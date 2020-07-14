@@ -17,7 +17,14 @@ void TestBooks()
 {
     try 
     {
-        std::string filePath = "../../../../../Applications/OpenScenarioReader/res/indexer/books.xml";
+#ifdef _WINDOWS
+     std::string filePath = "../../../../../Applications/OpenScenarioReader/res/indexer/books.xml";
+#elif defined(__unix__) && defined(__linux__)
+     std::string filePath = "../../../../Applications/OpenScenarioReader/res/indexer/books.xml";
+#else
+# error "CAN: Unknown OS"l
+#endif
+
         std::ifstream infile(filePath, std::ios::binary);
         if (infile.bad() || infile.fail())
         {

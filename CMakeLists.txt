@@ -14,6 +14,8 @@ include( RaCMakeHelper )
 # Build as static or shared lib
 option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
 
+set(CMAKE_BUILD_PARALLEL_LEVEL 4)
+
 ################################################################
 # Set common, C++, and build params
 RAC_SET_COMMON_PARAM()
