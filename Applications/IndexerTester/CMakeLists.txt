@@ -72,5 +72,6 @@ target_link_libraries( ${PROJECT_NAME} OpenScenarioLib )
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
 endif()

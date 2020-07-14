@@ -308,6 +308,6 @@ endif()
 ################################################################
 # Visual Studio solution folders
 if( MSVC )
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Core )
 endif()
