@@ -16,11 +16,6 @@ public class SimpleMessageLogger implements IParserMessageLogger
 
   private List<FileContentMessage> messages = new ArrayList<>();
   private ErrorLevel logLevel = ErrorLevel.INFO;
-  private boolean hasFatal = false;
-  private boolean hasError = false;
-  private boolean hasWarning = false;
-  private boolean hasDebug = false;
-  private boolean hasInfo = false;
   
 
   /**
@@ -36,7 +31,6 @@ public class SimpleMessageLogger implements IParserMessageLogger
 
   @Override
   public void logMessage(FileContentMessage message) {
-      this.messages.add(message);
       if (message.getErrorLevel().isWorseOrEqualThan(logLevel)) {
             this.messages.add(message);
       }
