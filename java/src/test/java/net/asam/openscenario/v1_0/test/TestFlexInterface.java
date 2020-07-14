@@ -74,6 +74,7 @@ public class TestFlexInterface extends TestBase
     
     // Browse through the results
     IFileHeader fileHeader = openScenario.getFileHeader();
+    IOpenScenarioFlexElement fileHeaderFlex = null;
       
     IOpenScenarioFlexElement flexElement = (IOpenScenarioFlexElement) fileHeader;
     

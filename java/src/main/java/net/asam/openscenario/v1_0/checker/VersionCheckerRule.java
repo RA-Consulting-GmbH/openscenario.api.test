@@ -37,8 +37,7 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader>
   private int majorRev;
   private int minorRev;
   
-  
-
+ 
   /**
    * @param majorRev The expected major revision
    * @param minorRev The expected minor revision

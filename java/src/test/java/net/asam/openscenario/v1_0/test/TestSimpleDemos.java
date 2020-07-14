@@ -17,12 +17,16 @@
  
 package net.asam.openscenario.v1_0.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.common.ErrorLevel;
+import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.SimpleMessageLogger;
+import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
@@ -35,8 +39,11 @@ import net.asam.openscenario.v1_0.api.IOpenScenario;
 import net.asam.openscenario.v1_0.api.IScenarioObject;
 import net.asam.openscenario.v1_0.api.IVehicle;
 import net.asam.openscenario.v1_0.catalog.CatalogHelper;
+import net.asam.openscenario.v1_0.checker.VersionCheckerRule;
+import net.asam.openscenario.v1_0.checker.impl.ScenarioCheckerImpl;
 import net.asam.openscenario.v1_0.loader.XmlScenarioImportLoaderFactory;
 import net.asam.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
+import net.asam.openscenario.v1_0.test.helper.EgoCheckerRule;
 
 public class TestSimpleDemos extends TestBase{
 
@@ -118,14 +125,79 @@ public class TestSimpleDemos extends TestBase{
                     {
                       System.out.println("Ego has "+ (2+additionalAxles.size()) +" axles (front, rear and "+ additionalAxles.size()+" addtional axles");
                     }
-                    
-                    
                   }
               }
           }
       }
 
         
+    }
+
+
+    @Test
+    public void testCheckerRuleDemo() {
+        try {
+            String filename = getResourceFile( "DoubleLaneChanger.xosc").getAbsolutePath();
+            IOpenScenario openScenario=executeParsing(filename);
+            
+            // the root of the tree is available in the IOpenScenario openScenario variable
+            
+            // Instantiate a checker now
+            ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
+            
+            // The sceanrio checker provided a method for every model type (here IFileHeader) to add CheckerRule
+            scenarioChecker.addFileHeaderCheckerRule(new VersionCheckerRule(1, 0));
+            
+            // Create a message logger to pick up the messages
+            SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+            
+            // Now call the checkScenario method to check the tree
+            scenarioChecker.checkScenario(simpleMessageLogger, openScenario);
+            
+            // Now check the picked up messages
+            for (FileContentMessage message : simpleMessageLogger.getMessages())
+            {
+              // do somethong with the messaged that are picked up during the check
+            }
+            
+
+        } catch (ScenarioLoaderException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
+    public void testCheckerRuleEgoDemo() {
+        try {
+            String filename = getResourceFile( "DoubleLaneChanger.xosc").getAbsolutePath();
+            IOpenScenario openScenario=executeParsing(filename);
+            
+            // the root of the tree is available in the IOpenScenario openScenario variable
+            
+            // Instantiate a checker now
+            ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
+            
+            // The sceanrio checker provided a method for every model type (here IFileHeader) to add CheckerRule
+            scenarioChecker.addEntitiesCheckerRule(new EgoCheckerRule());
+            
+            // Create a message logger to pick up the messages
+            SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+            
+            // Now call the checkScenario method to check the tree
+            scenarioChecker.checkScenario(simpleMessageLogger, openScenario);
+            
+            // Now check the picked up messages
+            for (FileContentMessage message : simpleMessageLogger.getMessages())
+            {
+              // do somethong with the messaged that are picked up during the check
+            }
+            
+
+        } catch (ScenarioLoaderException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 	

@@ -17,16 +17,23 @@
  
 package net.asam.openscenario.checker;
 
+import net.asam.openscenario.api.IOpenScenarioModelElement;
 import net.asam.openscenario.common.IParserMessageLogger;
 
 /**
  * This represents a rule that can be applied to any model object instance.
  * It implements the command pattern. The rule is added to the type and applyRule 
- * is executed when the object has been filled.
+ * is executed during runtime for every instance of a specific type.
  * 
  * @author Andreas Hege - RA Consulting
+ * @param <T> An object type that is validated
  *
  */
-public interface ICheckerRule<T> {
-	public void applyRule(IParserMessageLogger messageLoger, T object);
+public interface ICheckerRule<T extends IOpenScenarioModelElement > {
+   /**
+   * Applys validation to a specific type.
+   * @param messageLogger logger to pick up the violations
+   * @param object the object to validate
+   */
+   public void applyRule(IParserMessageLogger messageLogger, T object);
 }
