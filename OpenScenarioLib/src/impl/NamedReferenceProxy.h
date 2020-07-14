@@ -17,7 +17,7 @@ namespace RAC_OPENSCENARIO
     private:
         std::shared_ptr<T> _targetObject;
         std::string _nameRef;
-        std::shared_ptr<IOpenScenarioModelElement> _parent = nullptr;
+        std::weak_ptr<IOpenScenarioModelElement> _parent;
 
 
     public:
@@ -68,12 +68,12 @@ namespace RAC_OPENSCENARIO
             return nullptr;
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return _parent;
         }
 
-        void SetParent(const std::shared_ptr<IOpenScenarioModelElement> parent) override
+        void SetParent(const std::weak_ptr<IOpenScenarioModelElement> parent) override
         {
             _parent = parent;
         }

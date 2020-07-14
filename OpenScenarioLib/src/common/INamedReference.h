@@ -31,7 +31,7 @@ namespace RAC_OPENSCENARIO
          * Setting the parent of this named reference
          * @param parent parent in the tree.
          */
-        virtual void SetParent(const std::shared_ptr<IOpenScenarioModelElement> parent) {}
+        virtual void SetParent(const std::weak_ptr<IOpenScenarioModelElement> parent) {}
 
     };
 }

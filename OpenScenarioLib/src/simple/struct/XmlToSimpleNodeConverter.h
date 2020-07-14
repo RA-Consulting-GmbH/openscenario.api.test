@@ -30,7 +30,7 @@ namespace RAC_OPENSCENARIO
          */
         std::shared_ptr<IndexedElement> Convert(tinyxml2::XMLDocument& document)
         {
-            auto indexedElement = std::make_shared<IndexedElement>(document.RootElement(), _positionIndex.GetElementNode(_counter++), nullptr);
+            auto indexedElement = std::make_shared<IndexedElement>(document.RootElement(), _positionIndex.GetElementNode(_counter++), std::weak_ptr<IndexedElement>());
             ConvertInternal(indexedElement);
             return indexedElement;
         }

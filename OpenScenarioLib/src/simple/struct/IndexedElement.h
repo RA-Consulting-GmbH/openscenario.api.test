@@ -19,12 +19,12 @@ namespace RAC_OPENSCENARIO
         std::shared_ptr<RAC_XML_INDEXER::ElementNode> _elementNode;
         std::string _characters;
         tinyxml2::XMLElement* _element;
-        std::shared_ptr<IndexedElement> _parent;
+        std::weak_ptr<IndexedElement> _parent;
         bool _isMixedNode = false;
 
     public:
 
-        IndexedElement(): _elementNode(nullptr), _element(nullptr), _parent(nullptr) {}
+        IndexedElement(): _elementNode(nullptr), _element(nullptr), _parent() {}
 
         /**
          * Constructor
@@ -32,7 +32,7 @@ namespace RAC_OPENSCENARIO
          * @param elementNode the ElementNode from the ANTLR parser
          * @param parent parent element from the ANTLR parser
         */
-        IndexedElement(tinyxml2::XMLElement* element, const std::shared_ptr<RAC_XML_INDEXER::ElementNode> elementNode, const std::shared_ptr<IndexedElement> parent) :
+        IndexedElement(tinyxml2::XMLElement* element, const std::shared_ptr<RAC_XML_INDEXER::ElementNode> elementNode, const std::weak_ptr<IndexedElement> parent) :
                       _elementNode(elementNode), _element(element), _parent(parent) {}
         
         /**
@@ -48,7 +48,7 @@ namespace RAC_OPENSCENARIO
          * The parent of this element (from ANTLR element)
          * @return the parent
          */
-        std::shared_ptr<IndexedElement> GetParent() const
+        std::weak_ptr<IndexedElement> GetParent() const
         {
             return _parent;
         }

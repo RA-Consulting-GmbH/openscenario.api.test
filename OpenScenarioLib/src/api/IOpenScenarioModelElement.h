@@ -5,8 +5,6 @@
 
 namespace RAC_OPENSCENARIO
 {
-    //TODO: modify this class when you use it later based on usage
-
     class Object
     {
         /*Empty base class for all objects*/
@@ -33,7 +31,7 @@ namespace RAC_OPENSCENARIO
          * (which is the root)
          * @return the model parent of this object
          */
-        virtual std::shared_ptr<IOpenScenarioModelElement> GetParent() { return nullptr; }
+        virtual std::weak_ptr<IOpenScenarioModelElement> GetParent() { return {}; }
 
     };
 

@@ -68,7 +68,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -128,7 +128,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -189,7 +189,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -249,7 +249,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -317,7 +317,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -377,7 +377,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -461,7 +461,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -548,7 +548,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -618,7 +618,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -687,7 +687,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -747,7 +747,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -816,7 +816,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -885,7 +885,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -982,7 +982,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1058,7 +1058,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1127,7 +1127,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1196,7 +1196,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1256,7 +1256,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1317,7 +1317,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1432,7 +1432,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1562,7 +1562,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1622,7 +1622,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1746,7 +1746,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1832,7 +1832,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1908,7 +1908,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -1969,7 +1969,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2072,7 +2072,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2141,7 +2141,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2235,7 +2235,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2295,7 +2295,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2373,7 +2373,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2451,7 +2451,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2520,7 +2520,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2580,7 +2580,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2641,7 +2641,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2717,7 +2717,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2787,7 +2787,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2839,7 +2839,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2918,7 +2918,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -2978,7 +2978,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3072,7 +3072,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3151,7 +3151,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3211,7 +3211,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3280,7 +3280,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3358,7 +3358,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3527,7 +3527,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3612,7 +3612,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3672,7 +3672,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3741,7 +3741,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3835,7 +3835,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3903,7 +3903,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -3963,7 +3963,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4057,7 +4057,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4118,7 +4118,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4212,7 +4212,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4282,7 +4282,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4350,7 +4350,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4437,7 +4437,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4530,7 +4530,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4607,7 +4607,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4668,7 +4668,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4729,7 +4729,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4805,7 +4805,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4865,7 +4865,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -4942,7 +4942,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5011,7 +5011,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5090,7 +5090,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5160,7 +5160,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5230,7 +5230,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5325,7 +5325,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5402,7 +5402,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5498,7 +5498,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5568,7 +5568,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5673,7 +5673,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5751,7 +5751,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5811,7 +5811,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -5905,7 +5905,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6007,7 +6007,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6067,7 +6067,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6135,7 +6135,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6187,7 +6187,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6267,7 +6267,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6335,7 +6335,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6396,7 +6396,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6465,7 +6465,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6533,7 +6533,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6617,7 +6617,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6686,7 +6686,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6755,7 +6755,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6856,7 +6856,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6924,7 +6924,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -6993,7 +6993,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7061,7 +7061,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7130,7 +7130,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7207,7 +7207,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7267,7 +7267,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7337,7 +7337,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7413,7 +7413,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7489,7 +7489,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7550,7 +7550,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7611,7 +7611,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7671,7 +7671,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7781,7 +7781,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7841,7 +7841,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7919,7 +7919,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -7997,7 +7997,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8057,7 +8057,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8178,7 +8178,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8256,7 +8256,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8326,7 +8326,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8386,7 +8386,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8454,7 +8454,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8523,7 +8523,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8647,7 +8647,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8718,7 +8718,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8786,7 +8786,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8855,7 +8855,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -8948,7 +8948,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9042,7 +9042,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9138,7 +9138,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9225,7 +9225,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9301,7 +9301,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9370,7 +9370,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9439,7 +9439,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9508,7 +9508,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9598,7 +9598,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9692,7 +9692,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9760,7 +9760,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9839,7 +9839,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -9926,7 +9926,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10013,7 +10013,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10073,7 +10073,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10151,7 +10151,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10219,7 +10219,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10297,7 +10297,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10395,7 +10395,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10472,7 +10472,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10541,7 +10541,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10617,7 +10617,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10685,7 +10685,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10754,7 +10754,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10824,7 +10824,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10892,7 +10892,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -10953,7 +10953,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11032,7 +11032,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11109,7 +11109,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11186,7 +11186,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11265,7 +11265,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11351,7 +11351,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11411,7 +11411,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11505,7 +11505,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11574,7 +11574,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11642,7 +11642,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11712,7 +11712,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11807,7 +11807,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11875,7 +11875,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -11955,7 +11955,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12034,7 +12034,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12112,7 +12112,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12182,7 +12182,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12252,7 +12252,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12341,7 +12341,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12420,7 +12420,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12500,7 +12500,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12570,7 +12570,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12640,7 +12640,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12727,7 +12727,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12823,7 +12823,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -12948,7 +12948,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13034,7 +13034,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13094,7 +13094,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13157,7 +13157,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13236,7 +13236,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13296,7 +13296,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13357,7 +13357,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13425,7 +13425,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13486,7 +13486,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13562,7 +13562,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13674,7 +13674,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13734,7 +13734,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13795,7 +13795,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13864,7 +13864,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -13932,7 +13932,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -14011,7 +14011,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -14080,7 +14080,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -14166,7 +14166,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }
@@ -14269,7 +14269,7 @@ namespace RAC_OPENSCENARIO
             return BaseImpl::GetAdapter(classifier);
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return BaseImpl::GetParent();
         }

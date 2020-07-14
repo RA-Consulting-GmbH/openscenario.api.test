@@ -39,7 +39,6 @@ namespace RAC_OPENSCENARIO
 
         bool operator==(const Textmarker& rhs) const
         {
-            //TODO: check if the dyncamic cast is necessary or if this will already be ensured
             return rhs._filename == this->_filename && rhs._line == this->_line && rhs._column == this->_column;
         }
 

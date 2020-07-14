@@ -38,7 +38,7 @@ namespace RAC_OPENSCENARIO
             object->SetStartMarker(Textmarker(kStartPosition.GetLine(), kStartPosition.GetColumn(), this->_filename));
 
             // Prepare a list
-            auto parentSubElements = indexedElement->GetParent()->GetSubElements();
+            auto parentSubElements = indexedElement->GetParent().lock()->GetSubElements();
             const auto kIt = std::find(parentSubElements.begin(), parentSubElements.end(), indexedElement);
             int index = 0;
             if (kIt != parentSubElements.end())

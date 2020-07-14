@@ -57,7 +57,6 @@ namespace RAC_OPENSCENARIO
 
         bool operator==(const FileContentMessage& rhs) const
         {
-            //TODO: check if the dyncamic cast is necessary or if this will already be ensured
             return rhs.ToString() == this->ToString();
         }
 
@@ -72,7 +71,7 @@ namespace RAC_OPENSCENARIO
 
         int CompareTo(const FileContentMessage& rhs) const
         {
-            //TODO: not exactly the java equivalent 
+            //not exactly the java equivalent 
             return rhs.ToString() == this->ToString().c_str();
         };
     };

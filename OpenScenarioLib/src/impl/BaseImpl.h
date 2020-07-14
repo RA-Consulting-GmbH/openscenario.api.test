@@ -79,7 +79,7 @@ namespace RAC_OPENSCENARIO
         std::map<std::string, std::shared_ptr<Object>> _adapters{};
         Textmarker _startMarker;
         Textmarker _endMarker;
-        std::shared_ptr<IOpenScenarioModelElement> _parent;
+        std::weak_ptr<IOpenScenarioModelElement> _parent;
 
     protected:
         std::map<std::string, std::string> _propertyToType;
@@ -335,7 +335,7 @@ namespace RAC_OPENSCENARIO
             return nullptr;
         }
 
-        std::shared_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
         {
             return _parent;
         }
@@ -344,7 +344,7 @@ namespace RAC_OPENSCENARIO
          * Setting the object's parent
          * @param parent the parent of the object in the model tree.
          */
-        void SetParent(const std::shared_ptr<IOpenScenarioModelElement> parent)
+        void SetParent(const std::weak_ptr<IOpenScenarioModelElement> parent)
         {
             _parent = parent;
         }

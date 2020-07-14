@@ -69,7 +69,6 @@ namespace RAC_OPENSCENARIO
          */
         static int MoveForwardToLastElementParsed(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, const int currentIndex, std::shared_ptr<IndexedElement> lastParsedElement)
         {
-            //TODO: check if this comparison is sufficient
             for (unsigned int i = currentIndex; i < indexedElements.size(); i++)
             {
                 if (indexedElements[i] == lastParsedElement)

@@ -52,7 +52,6 @@ public:
         }
         catch ( RAC_OPENSCENARIO::ScenarioLoaderException& e) 
         {
-            // TODO Auto-generated catch block
             std::cout << e.what();
         }
     }
