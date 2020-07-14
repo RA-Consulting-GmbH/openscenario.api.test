@@ -49,7 +49,7 @@
     },
     {
       "name": "RA/Cpp/Rac.Core.Cpp",
-      "version": "r21",
+      "version": "r50",
       "features": {
         "Linux": [
           "Linux"
