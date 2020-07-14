@@ -63,7 +63,7 @@ namespace RAC_OPENSCENARIO
                 }
                 // Get the CatalogLocations
 
-                auto catRefProvider = std::dynamic_pointer_cast<ICatalogReferenceProvider>(openScenario->GetAdapter(typeid(ICatalogReferenceProvider).name()));
+                auto catRefProvider = std::static_pointer_cast<ICatalogReferenceProvider>(openScenario->GetAdapter(typeid(ICatalogReferenceProvider).name()));
                 if (!catRefProvider)
                     return openScenario;
 
@@ -219,7 +219,7 @@ namespace RAC_OPENSCENARIO
                         result.push_back(kSymbolicDirname);
                     }
                     else {
-                        auto locator = std::dynamic_pointer_cast<ILocator>(directory->GetAdapter(typeid(ILocator).name()));
+                        auto locator = std::static_pointer_cast<ILocator>(directory->GetAdapter(typeid(ILocator).name()));
                         auto attributeString = OSC_CONSTANTS::ATTRIBUTE__PATH;
                         const auto kTextmarker = locator->GetStartMarkerOfProperty(attributeString);
 

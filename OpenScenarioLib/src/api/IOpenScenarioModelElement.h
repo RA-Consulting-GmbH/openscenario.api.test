@@ -5,14 +5,6 @@
 
 namespace RAC_OPENSCENARIO
 {
-    class Object
-    {
-        /*Empty base class for all objects*/
-    public:
-        Object() = default;
-        virtual  ~Object() = default;
-    };
-
     class IOpenScenarioModelElement
     {
     public:
@@ -24,7 +16,7 @@ namespace RAC_OPENSCENARIO
          * @param classifier the class an adapter is requested for class name as string
          * @return an adapter or null, if the specified adapter class is not supported.
          */
-        virtual std::shared_ptr<Object> GetAdapter(const std::string classifier) { return nullptr; };
+        virtual std::shared_ptr<void> GetAdapter(const std::string classifier) { return nullptr; };
 
         /**
          * Provides the parent of this object. It is null for any Object that is not of type IOpenScenario

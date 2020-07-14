@@ -17,7 +17,7 @@ namespace RAC_OPENSCENARIO
  * 
  * @author RA Consulting OpenSCENARIO generation facility
 */
-    class ScenarioCheckerImpl: public IScenarioChecker, public Object
+    class ScenarioCheckerImpl: public IScenarioChecker
     {
     private:
         //string is typeid(class).name()

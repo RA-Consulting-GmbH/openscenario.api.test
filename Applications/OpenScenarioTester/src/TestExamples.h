@@ -58,7 +58,7 @@ public:
         auto checkerRuleLogger = std::make_shared<RAC_OPENSCENARIO::MessageLogger>();
 
         // Using the adapter interface to get the checker
-        auto scenarioChecker = std::dynamic_pointer_cast<RAC_OPENSCENARIO::IScenarioChecker>( openScenario->GetAdapter(typeid(RAC_OPENSCENARIO::IScenarioChecker).name()));
+        auto scenarioChecker = std::static_pointer_cast<RAC_OPENSCENARIO::IScenarioChecker>( openScenario->GetAdapter(typeid(RAC_OPENSCENARIO::IScenarioChecker).name()));
 
         class CheckerRule: public RAC_OPENSCENARIO::ICheckerRule<RAC_OPENSCENARIO::IVehicle>
         {
@@ -71,7 +71,7 @@ public:
                 if(std::regex_match(kName, std::regex("^[A-Z].*")))
                 {
                     // Get the textmarker at the error
-                    auto locator = std::dynamic_pointer_cast<RAC_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(RAC_OPENSCENARIO::ILocator).name()));
+                    auto locator = std::static_pointer_cast<RAC_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(RAC_OPENSCENARIO::ILocator).name()));
                     const auto kTextmarker = locator->GetStartMarkerOfProperty(RAC_OPENSCENARIO::OSC_CONSTANTS::ATTRIBUTE__NAME);
 
                     // Add a message to the logger

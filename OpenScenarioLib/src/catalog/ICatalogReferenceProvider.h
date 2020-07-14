@@ -5,7 +5,7 @@
 
 namespace RAC_OPENSCENARIO
 {
-    class ICatalogReferenceProvider: public Object
+    class ICatalogReferenceProvider
     {
     public:
         ICatalogReferenceProvider() = default;

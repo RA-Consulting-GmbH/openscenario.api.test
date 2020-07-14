@@ -62,7 +62,7 @@ namespace RAC_OPENSCENARIO
 
         NamedReferenceProxy(const NamedReferenceProxy& rhs):_targetObject(rhs._targetObject), _nameRef(rhs._nameRef), _parent(rhs._parent) {}
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             // No adapter returned
             return nullptr;

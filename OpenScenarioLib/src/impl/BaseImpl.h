@@ -76,7 +76,7 @@ namespace RAC_OPENSCENARIO
         std::map<std::string, std::shared_ptr<ParameterizedAttribute>> _attributeKeyToParameterName{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToStartMarker{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToEndMarker{};
-        std::map<std::string, std::shared_ptr<Object>> _adapters{};
+        std::map<std::string, std::shared_ptr<void>> _adapters{};
         Textmarker _startMarker;
         Textmarker _endMarker;
         std::weak_ptr<IOpenScenarioModelElement> _parent;
@@ -197,7 +197,7 @@ namespace RAC_OPENSCENARIO
                                                                                                          _attributeKeyToEndMarker, _startMarker, _endMarker)));
         }
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return _adapters[classifier];
         }
@@ -207,7 +207,7 @@ namespace RAC_OPENSCENARIO
          * @param classifier The adapter class
          * @param object the adapter object
          */
-        void AddAdapter(std::string classifier, std::shared_ptr<Object> object)
+        void AddAdapter(std::string classifier, std::shared_ptr<void> object)
         {
             _adapters.emplace(std::make_pair(classifier, object));
         }

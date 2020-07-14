@@ -10,7 +10,7 @@ namespace RAC_OPENSCENARIO
     * A locator for objects in a text file.
     *
     */
-     class ILocator: public Object
+     class ILocator
     {
      public:
 

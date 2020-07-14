@@ -63,7 +63,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -123,7 +123,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -184,7 +184,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -244,7 +244,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -312,7 +312,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -372,7 +372,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -456,7 +456,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -543,7 +543,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -613,7 +613,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -682,7 +682,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -742,7 +742,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -811,7 +811,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -880,7 +880,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -977,7 +977,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1053,7 +1053,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1122,7 +1122,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1191,7 +1191,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1251,7 +1251,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1312,7 +1312,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1427,7 +1427,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1557,7 +1557,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1617,7 +1617,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1741,7 +1741,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1827,7 +1827,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1903,7 +1903,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -1964,7 +1964,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2067,7 +2067,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2136,7 +2136,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2230,7 +2230,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2290,7 +2290,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2368,7 +2368,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2446,7 +2446,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2515,7 +2515,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2575,7 +2575,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2636,7 +2636,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2712,7 +2712,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2782,7 +2782,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2834,7 +2834,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2913,7 +2913,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -2973,7 +2973,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3067,7 +3067,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3146,7 +3146,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3206,7 +3206,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3275,7 +3275,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3353,7 +3353,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3522,7 +3522,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3607,7 +3607,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3667,7 +3667,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3736,7 +3736,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3830,7 +3830,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3898,7 +3898,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -3958,7 +3958,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4052,7 +4052,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4113,7 +4113,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4207,7 +4207,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4277,7 +4277,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4345,7 +4345,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4432,7 +4432,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4525,7 +4525,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4602,7 +4602,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4663,7 +4663,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4724,7 +4724,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4800,7 +4800,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4860,7 +4860,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -4937,7 +4937,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5006,7 +5006,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5085,7 +5085,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5155,7 +5155,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5225,7 +5225,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5320,7 +5320,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5397,7 +5397,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5493,7 +5493,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5563,7 +5563,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5668,7 +5668,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5746,7 +5746,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5806,7 +5806,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -5900,7 +5900,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6002,7 +6002,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6062,7 +6062,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6130,7 +6130,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6182,7 +6182,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6262,7 +6262,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6330,7 +6330,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6391,7 +6391,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6460,7 +6460,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6528,7 +6528,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6612,7 +6612,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6681,7 +6681,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6750,7 +6750,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6851,7 +6851,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6919,7 +6919,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -6988,7 +6988,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7056,7 +7056,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7125,7 +7125,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7202,7 +7202,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7262,7 +7262,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7332,7 +7332,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7408,7 +7408,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7484,7 +7484,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7545,7 +7545,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7606,7 +7606,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7666,7 +7666,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7776,7 +7776,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7836,7 +7836,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7914,7 +7914,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -7992,7 +7992,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8052,7 +8052,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8173,7 +8173,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8251,7 +8251,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8321,7 +8321,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8381,7 +8381,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8449,7 +8449,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8518,7 +8518,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8642,7 +8642,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8713,7 +8713,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8781,7 +8781,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8850,7 +8850,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -8943,7 +8943,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9037,7 +9037,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9133,7 +9133,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9220,7 +9220,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9296,7 +9296,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9365,7 +9365,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9434,7 +9434,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9503,7 +9503,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9593,7 +9593,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9687,7 +9687,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9755,7 +9755,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9834,7 +9834,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -9921,7 +9921,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10008,7 +10008,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10068,7 +10068,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10146,7 +10146,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10214,7 +10214,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10292,7 +10292,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10390,7 +10390,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10467,7 +10467,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10536,7 +10536,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10612,7 +10612,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10680,7 +10680,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10749,7 +10749,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10819,7 +10819,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10887,7 +10887,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -10948,7 +10948,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11027,7 +11027,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11104,7 +11104,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11181,7 +11181,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11260,7 +11260,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11346,7 +11346,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11406,7 +11406,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11500,7 +11500,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11569,7 +11569,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11637,7 +11637,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11707,7 +11707,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11802,7 +11802,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11870,7 +11870,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -11950,7 +11950,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12029,7 +12029,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12107,7 +12107,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12177,7 +12177,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12247,7 +12247,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12336,7 +12336,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12415,7 +12415,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12495,7 +12495,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12565,7 +12565,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12635,7 +12635,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12722,7 +12722,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12818,7 +12818,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -12943,7 +12943,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13029,7 +13029,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13089,7 +13089,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13152,7 +13152,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13231,7 +13231,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13291,7 +13291,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13352,7 +13352,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13420,7 +13420,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13481,7 +13481,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13557,7 +13557,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13669,7 +13669,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13729,7 +13729,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13790,7 +13790,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13859,7 +13859,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -13927,7 +13927,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -14006,7 +14006,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -14075,7 +14075,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -14161,7 +14161,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }
@@ -14264,7 +14264,7 @@ namespace RAC_OPENSCENARIO
         */
         std::shared_ptr<BaseImpl> Clone() override;
 
-        std::shared_ptr<Object> GetAdapter(const std::string classifier) override
+        std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
             return BaseImpl::GetAdapter(classifier);
         }

@@ -36,7 +36,7 @@ namespace RAC_OPENSCENARIO
         void LogMessage(std::shared_ptr<IOpenScenarioModelElement> object, std::shared_ptr<IParserMessageLogger>& messageLogger, std::string propertyName, std::string propertyValue, std::string operatorString, std::string comparedValue, std::string attributeKey) const
         {
 
-            auto locator = std::dynamic_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
+            auto locator = std::static_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
 
             if (locator)
             {
