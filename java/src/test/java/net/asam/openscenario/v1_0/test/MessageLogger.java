@@ -34,8 +34,9 @@ public class MessageLogger implements IParserMessageLogger {
 	public void logMessage(FileContentMessage message) {
 		messages.add(message);
 		if (message.getErrorLevel() == ErrorLevel.ERROR
-				|| message.getErrorLevel() == ErrorLevel.INFO
-				|| message.getErrorLevel() == ErrorLevel.FATAL) {
+		        || message.getErrorLevel() == ErrorLevel.INFO
+		        || message.getErrorLevel() == ErrorLevel.WARNING
+                || message.getErrorLevel() == ErrorLevel.FATAL) {
 			Textmarker textmarker = message.getTextmarker();
 			System.out.println(message.getMessage() + " ("
 					+ textmarker.getLine() + "," + textmarker.getColumn()

@@ -50,6 +50,8 @@ import net.asam.openscenario.v1_0.api.ITrafficSignalState;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class PhaseImpl extends BaseImpl implements IPhase, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

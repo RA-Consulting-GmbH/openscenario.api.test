@@ -61,6 +61,8 @@ import net.asam.openscenario.v1_0.api.IEndOfRoadCondition;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class EntityConditionImpl extends BaseImpl implements IEntityCondition, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

@@ -49,6 +49,8 @@ import java.util.ArrayList;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class OverrideParkingBrakeActionImpl extends BaseImpl implements IOverrideParkingBrakeAction, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

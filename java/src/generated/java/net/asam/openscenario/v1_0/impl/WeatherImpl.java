@@ -54,6 +54,8 @@ import net.asam.openscenario.v1_0.api.CloudState;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class WeatherImpl extends BaseImpl implements IWeather, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

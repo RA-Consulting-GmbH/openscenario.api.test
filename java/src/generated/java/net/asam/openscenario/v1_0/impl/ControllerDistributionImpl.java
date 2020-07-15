@@ -49,6 +49,8 @@ import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class ControllerDistributionImpl extends BaseImpl implements IControllerDistribution, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

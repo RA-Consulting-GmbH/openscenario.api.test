@@ -49,6 +49,8 @@ import java.util.ArrayList;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class AxleImpl extends BaseImpl implements IAxle, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

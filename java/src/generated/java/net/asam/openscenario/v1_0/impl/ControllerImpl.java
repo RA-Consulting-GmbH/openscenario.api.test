@@ -52,6 +52,8 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class ControllerImpl extends BaseImpl implements IController, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

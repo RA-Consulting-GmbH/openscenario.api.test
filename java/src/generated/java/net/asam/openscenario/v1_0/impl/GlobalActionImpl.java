@@ -53,6 +53,8 @@ import net.asam.openscenario.v1_0.api.IParameterAction;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

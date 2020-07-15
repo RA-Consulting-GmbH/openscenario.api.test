@@ -50,6 +50,8 @@ import net.asam.openscenario.v1_0.api.IPosition;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class TimeToCollisionConditionTargetImpl extends BaseImpl implements ITimeToCollisionConditionTarget, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

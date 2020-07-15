@@ -18,6 +18,7 @@
 package net.asam.openscenario.v1_0.loader;
 
 import java.util.Hashtable;
+import java.util.Map;
 
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.v1_0.api.ICatalogElement;
@@ -48,13 +49,14 @@ public class OpenScenarioProcessingHelper {
 	 * Resolve all parameters in the loaded instance of IOpenScenario
 	 * @param logger to log messages
 	 * @param openScenario the loaded instance of IOpenScenario
+	 * @param injectedParameters name value pair the is injected to override global parameters
 	 */
-	public static void resolve(IParserMessageLogger logger,  OpenScenarioImpl openScenario)
+	public static void resolve(IParserMessageLogger logger,  OpenScenarioImpl openScenario, Map<String,String> injectedParameters)
 	{
 		if (!isCatalog(openScenario))
 		{
 			ParameterResolver parameterResolver = new ParameterResolver();
-			parameterResolver.resolve(logger, openScenario, true);
+			parameterResolver.resolve(logger, openScenario,injectedParameters, true);
 		}
 	
 	}

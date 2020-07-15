@@ -57,6 +57,8 @@ import net.asam.openscenario.v1_0.api.IBoundingBox;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class VehicleImpl extends BaseImpl implements IVehicle, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

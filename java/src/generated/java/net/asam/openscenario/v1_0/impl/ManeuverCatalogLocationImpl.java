@@ -49,6 +49,8 @@ import net.asam.openscenario.v1_0.api.IDirectory;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class ManeuverCatalogLocationImpl extends BaseImpl implements IManeuverCatalogLocation, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

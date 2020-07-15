@@ -51,6 +51,8 @@ import net.asam.openscenario.v1_0.api.IAcquirePositionAction;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

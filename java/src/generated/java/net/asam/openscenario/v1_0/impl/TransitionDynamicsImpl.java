@@ -52,6 +52,8 @@ import net.asam.openscenario.v1_0.api.DynamicsDimension;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynamics, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

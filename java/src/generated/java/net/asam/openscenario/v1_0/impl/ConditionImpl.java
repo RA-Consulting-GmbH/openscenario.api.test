@@ -53,6 +53,8 @@ import net.asam.openscenario.v1_0.api.IByEntityCondition;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class ConditionImpl extends BaseImpl implements ICondition, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

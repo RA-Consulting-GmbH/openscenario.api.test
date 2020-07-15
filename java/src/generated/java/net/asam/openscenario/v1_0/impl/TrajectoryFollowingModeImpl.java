@@ -51,6 +51,8 @@ import net.asam.openscenario.v1_0.api.FollowingMode;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectoryFollowingMode, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

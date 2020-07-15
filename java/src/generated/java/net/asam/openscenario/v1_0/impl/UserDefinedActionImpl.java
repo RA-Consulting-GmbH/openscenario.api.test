@@ -49,6 +49,8 @@ import net.asam.openscenario.v1_0.api.ICustomCommandAction;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedAction, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

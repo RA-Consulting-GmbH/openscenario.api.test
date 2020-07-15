@@ -55,6 +55,8 @@ import net.asam.openscenario.v1_0.api.ITimeOfDayCondition;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class ByValueConditionImpl extends BaseImpl implements IByValueCondition, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

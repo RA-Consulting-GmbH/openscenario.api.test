@@ -49,6 +49,8 @@ import net.asam.openscenario.v1_0.api.IModifyRule;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class ParameterModifyActionImpl extends BaseImpl implements IParameterModifyAction, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

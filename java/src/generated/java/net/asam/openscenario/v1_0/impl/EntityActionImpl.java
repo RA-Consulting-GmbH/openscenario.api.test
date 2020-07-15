@@ -52,6 +52,8 @@ import net.asam.openscenario.v1_0.api.IDeleteEntityAction;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

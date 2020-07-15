@@ -48,6 +48,8 @@ import java.util.ArrayList;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class NoneImpl extends BaseImpl implements INone, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

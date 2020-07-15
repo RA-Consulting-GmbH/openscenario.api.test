@@ -54,6 +54,8 @@ import net.asam.openscenario.v1_0.api.IOverrideClutchAction;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class OverrideControllerValueActionImpl extends BaseImpl implements IOverrideControllerValueAction, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

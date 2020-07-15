@@ -45,7 +45,6 @@ public abstract class BaseImpl implements IParameterizedObject,  IOpenScenarioMo
 	private Textmarker startMarker;
 	private Textmarker endMarker;
 	private IOpenScenarioModelElement parent = null;
-	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
 	
 	/**
 	 * Constructor
@@ -178,7 +177,7 @@ public abstract class BaseImpl implements IParameterizedObject,  IOpenScenarioMo
 	 */
 	protected void removeResolvedParameter(String attributeKey)
 	{
-		attributeKeyToParameterName.remove(attributeKey);
+		//attributeKeyToParameterName.remove(attributeKey);
 	}
 
 	@Override

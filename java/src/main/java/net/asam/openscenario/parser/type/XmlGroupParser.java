@@ -66,7 +66,7 @@ public class XmlGroupParser<T extends BaseImpl> extends XmlParserBase<T> impleme
 		}
 		parseSubElements(elementsToParse, parserContext, object);
 		Position endPosition = parserContext.getLastElementParsed().getEndElementLocation();
-		object.setStartMarker(new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename));
+		object.setEndMarker(new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename));
 	}
 
 	@Override

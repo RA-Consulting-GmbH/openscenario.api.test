@@ -53,6 +53,8 @@ import net.asam.openscenario.v1_0.api.Priority;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class EventImpl extends BaseImpl implements IEvent, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

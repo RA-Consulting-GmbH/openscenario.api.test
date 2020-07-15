@@ -50,6 +50,8 @@ import net.asam.openscenario.v1_0.api.IByType;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map

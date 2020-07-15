@@ -50,6 +50,8 @@ import net.asam.openscenario.v1_0.api.IParameterMultiplyByValueRule;
  * @author RA Consulting OpenSCENARIO generation facility
 */
 public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable{
+	protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+	
 	
 	/**
 	 * Filling the property to type map
