@@ -17,10 +17,17 @@
 
 package net.asam.openscenario.v1_0.main;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
@@ -61,7 +68,7 @@ public class OpenScenarioChecker
     }
     catch (IOException e)
     {
-      System.err.println("Internal error Ocuured");
+      System.out.println("Internal error Ocuured");
       return;
     }
 
@@ -75,27 +82,94 @@ public class OpenScenarioChecker
     System.out.println(headerFillString);
     System.out.println(header);
     System.out.println(headerFillString);
-    if (args == null || args.length == 0)
-    {
-      System.out.println("OpenScenarioChecker [option]");
-      System.out.println("Options:");
-      System.out.println("[input]\tinput file name");
-      System.out.println("-v\tprogram version");
-      return;
-    }
-    if (args[0].equals("-v"))
+    boolean isCommandLineParsable = false;
+
+    if (args.length == 1 && args[0].equals("-v"))
     {
       System.out.println("Program version " + version);
       return;
     }
+    String inputFileName = null;
+    String paramFileName = null;
+    if (args.length == 1)
+    {
+      inputFileName = args[0];
+      isCommandLineParsable = true;
+    }
+    else if (args.length == 3 && args[1].equals("-paramsfile"))
+    {
+      inputFileName = args[0];
+      paramFileName = args[2];
+      isCommandLineParsable = true;
+    }
 
-    System.out.println("Checking '" + args[0] + "'");
+    if (!isCommandLineParsable)
+    {
+      System.out.println("Usage: [inputfile] [-paramsfile injectedParameterFile]|[-v]");
+      System.out.println("inputfile\tthe file to be validated");
+      System.out.println("injectedParameterFile\ta file with name value pairs. One line per name/value pair. tab separated");
+      System.out.println("-v\tprogram version");
+      return;
+    }
+    Hashtable<String, String> nameValuePairs = new Hashtable<String, String>();
+    if (paramFileName != null)
+    {
+      try
+      {
+        File paramFile = new File(paramFileName);
+        Scanner paramReader = new Scanner(paramFile);
+        int counter = 0;
+        while (paramReader.hasNextLine())
+        {
+          String data = paramReader.nextLine();
+          counter++;
+          if(!data.matches("\\s*$"))
+          {
+            Pattern pattern = Pattern.compile("([^\\t]*)\\t([^\\t]*)$");         
+            Matcher matcher = pattern.matcher(data);
+            if (matcher.find())
+            {
+              String name = matcher.group(1).trim();
+              String value = matcher.group(2).trim();
+              if (!name.isEmpty() && !value.isEmpty())
+              {
+                nameValuePairs.put(name, value);
+              }else
+              {
+                System.out.println("Syntax error in parameter file: line " + counter);
+                return;
+              }
+              
+            }else
+            {
+              System.out.println("Syntax error in parameter file: line " + counter);
+              return;
+            }
+          }
+        }
+        paramReader.close();
+      }
+      catch (FileNotFoundException e)
+      {
+        System.out.println("paramsfile not found");
+        return;
+      }
+    }
+    if (!new File(inputFileName).exists())
+    {
+      System.out.println("Scenario file not found '" + inputFileName + "'");
+      return;
+    }
+    System.out.println("Checking '" + inputFileName + "'");
+
     SimpleMessageLogger catalogMessageLogger = new SimpleMessageLogger(logLevel);
+
     SimpleMessageLogger messageLogger = new SimpleMessageLogger(logLevel);
 
     try
     {
-      executeImportParsing(args[0], messageLogger, catalogMessageLogger);
+      
+      executeImportParsing(args[0], messageLogger, catalogMessageLogger,nameValuePairs);
       for (FileContentMessage message : messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(logLevel))
       {
         Textmarker textmarker = message.getTextmarker();
@@ -104,16 +178,18 @@ public class OpenScenarioChecker
 
       }
       List<FileContentMessage> warningMessages = messageLogger.getMessagesFilteredByErrorLevel(ErrorLevel.WARNING);
-      
+
       if (messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty())
       {
-        System.out.println("Validation succeeded with 0 errors and "+warningMessages.size()+" warnings.");
-        
-      }else
+        System.out.println("Validation succeeded with 0 errors and " + warningMessages.size() + " warnings.");
+
+      }
+      else
       {
         List<FileContentMessage> errorMessages = messageLogger.getMessagesFilteredByErrorLevel(ErrorLevel.ERROR);
-        System.out.println("Validation failed with "+errorMessages.size()+" errors and "+warningMessages.size()+" warnings.");
-        
+        System.out
+            .println("Validation failed with " + errorMessages.size() + " errors and " + warningMessages.size() + " warnings.");
+
       }
 
       List<FileContentMessage> catalogMessages = catalogMessageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(logLevel);
@@ -136,7 +212,9 @@ public class OpenScenarioChecker
       }
 
     }
-    catch (ScenarioLoaderException e)
+    catch (
+
+    ScenarioLoaderException e)
     {
       System.err.println(e.getMessage());
     }
@@ -144,13 +222,13 @@ public class OpenScenarioChecker
   }
 
   private static OpenScenarioImpl executeImportParsing(String filename, IParserMessageLogger messageLogger,
-      IParserMessageLogger catalogMessageLogger) throws ScenarioLoaderException
+      IParserMessageLogger catalogMessageLogger, Map<String,String> injectedParameters) throws ScenarioLoaderException
   {
 
     IScenarioLoaderFactory loaderFactory = new XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 
     IScenarioLoader loader = loaderFactory.createLoader(new FileResourceLocator());
-    return (OpenScenarioImpl) loader.load(messageLogger).getAdapter(OpenScenarioImpl.class);
+    return (OpenScenarioImpl) loader.load(messageLogger,injectedParameters).getAdapter(OpenScenarioImpl.class);
 
   }
 

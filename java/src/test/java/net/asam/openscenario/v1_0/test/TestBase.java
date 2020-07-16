@@ -17,12 +17,16 @@
 
 package net.asam.openscenario.v1_0.test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import net.asam.openscenario.api.IOpenScenarioModelElement;
@@ -42,6 +46,9 @@ public class TestBase
 
   protected MessageLogger messageLogger = new MessageLogger();
   // protected static String inputDir = "./src/test/Resources/";
+  protected ByteArrayOutputStream testOut = new ByteArrayOutputStream();
+  protected PrintStream stdout;
+ 
 
   public OpenScenarioImpl executeParsing(String filename) throws ScenarioLoaderException
   {
@@ -72,9 +79,18 @@ public class TestBase
   }
 
   @BeforeEach
-  public void clearMessageLogger()
+  public void init()
   {
     messageLogger.clear();
+    stdout= System.out;
+    System.setOut(new PrintStream(testOut));
+  }
+  
+  @AfterEach
+  public void cleanUp()
+  {
+    System.setOut(stdout);
+    
   }
 
   protected boolean hasErrors(MessageLogger messageLogger)
@@ -117,5 +133,18 @@ public class TestBase
     Collections.sort(result);
     return result;
   }
-
+  protected String getLine(String buffer, int line )
+  {
+    Scanner paramReader = new Scanner(buffer);
+    int counter = 0;
+    while (paramReader.hasNextLine()) {
+      counter++;
+      String result = paramReader.nextLine();
+      if (counter == line)
+      {
+        return result;
+      }
+    }
+    return null;
+  }
 }
