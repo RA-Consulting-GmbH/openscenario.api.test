@@ -1,4 +1,4 @@
-# OpenScenarioApi
+# OpenSCENARIO API
 
 ## Abstract
 * Extensive library for reading and checking scenarios.
