@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -107,7 +108,7 @@ public class OpenScenarioChecker
     {
       System.out.println("Usage: [inputfile] [-paramsfile injectedParameterFile]|[-v]");
       System.out.println("inputfile\tthe file to be validated");
-      System.out.println("injectedParameterFile\ta file with name value pairs. One line per name/value pair. tab separated");
+      System.out.println("injectedParameterFile\ta file with name/value pairs. One line per name/value pair. tab separated");
       System.out.println("-v\tprogram version");
       return;
     }
@@ -123,7 +124,7 @@ public class OpenScenarioChecker
         {
           String data = paramReader.nextLine();
           counter++;
-          if(!data.matches("\\s*$"))
+          if(!data.matches("\\s*$") && !data.matches("\\s*#.*$"))
           {
             Pattern pattern = Pattern.compile("([^\\t]*)\\t([^\\t]*)$");         
             Matcher matcher = pattern.matcher(data);
@@ -153,6 +154,14 @@ public class OpenScenarioChecker
       {
         System.out.println("paramsfile not found");
         return;
+      }
+      if (!nameValuePairs.isEmpty())
+      {
+        System.out.println("Used Parameters:");
+        for (String key : new TreeSet<String>(nameValuePairs.keySet()))
+        {
+          System.out.println("\t"+ key + "\t" +  nameValuePairs.get(key));
+        }
       }
     }
     if (!new File(inputFileName).exists())

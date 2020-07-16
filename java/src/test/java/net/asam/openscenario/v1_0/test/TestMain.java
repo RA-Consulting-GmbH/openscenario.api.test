@@ -68,8 +68,13 @@ public class TestMain extends TestBase {
         String paramFileName = getResourceFile("params.conf").getAbsolutePath();
         OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName}
         );
-        Assertions.assertTrue(getLine(testOut.toString(), 4).startsWith("Checking"));
-        
+        Assertions.assertEquals("\ttestBoolean\ttrue", getLine(testOut.toString(), 5));
+        Assertions.assertEquals("\ttestDateTime\t2018-02-24T10:00:00", getLine(testOut.toString(), 6));
+        Assertions.assertEquals("\ttestDouble\t2.0", getLine(testOut.toString(), 7));
+        Assertions.assertEquals("\ttestInteger\t2", getLine(testOut.toString(), 8));
+        Assertions.assertEquals("\ttestString\tinjected", getLine(testOut.toString(), 9));
+        Assertions.assertEquals( "\ttestUnsignedInt\t2", getLine(testOut.toString(), 10));
+        Assertions.assertEquals( "\ttestUnsignedShort\t2", getLine(testOut.toString(), 11));
 
     }
 	
