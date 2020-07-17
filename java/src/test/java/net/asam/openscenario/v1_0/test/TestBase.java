@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -41,107 +41,92 @@ import net.asam.openscenario.v1_0.impl.OpenScenarioImpl;
 import net.asam.openscenario.v1_0.loader.XmlScenarioImportLoaderFactory;
 import net.asam.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 
-public class TestBase
-{
+public class TestBase {
 
   protected MessageLogger messageLogger = new MessageLogger();
   // protected static String inputDir = "./src/test/Resources/";
   protected ByteArrayOutputStream testOut = new ByteArrayOutputStream();
   protected PrintStream stdout;
- 
 
-  public OpenScenarioImpl executeParsing(String filename) throws ScenarioLoaderException
-  {
+  public OpenScenarioImpl executeParsing(String filename) throws ScenarioLoaderException {
     return executeParsing(filename, null);
-
   }
 
-  public OpenScenarioImpl executeParsing(String filename, Map<String, String> injectedProperties) throws ScenarioLoaderException
-  {
+  public OpenScenarioImpl executeParsing(String filename, Map<String, String> injectedProperties)
+      throws ScenarioLoaderException {
     IScenarioLoaderFactory loaderFactory = new XmlScenarioLoaderFactory(filename);
 
     IScenarioLoader loader = loaderFactory.createLoader(new FileResourceLocator());
 
     IOpenScenarioModelElement load = loader.load(messageLogger, injectedProperties);
     return load != null ? (OpenScenarioImpl) load.getAdapter(OpenScenarioImpl.class) : null;
-
   }
 
-  public OpenScenarioImpl executeImportParsing(String filename, IParserMessageLogger catalogMessageLogger)
-      throws ScenarioLoaderException
-  {
+  public OpenScenarioImpl executeImportParsing(
+      String filename, IParserMessageLogger catalogMessageLogger) throws ScenarioLoaderException {
 
-    IScenarioLoaderFactory loaderFactory = new XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
+    IScenarioLoaderFactory loaderFactory =
+        new XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 
     IScenarioLoader loader = loaderFactory.createLoader(new FileResourceLocator());
     return (OpenScenarioImpl) loader.load(messageLogger).getAdapter(OpenScenarioImpl.class);
-
   }
 
   @BeforeEach
-  public void init()
-  {
+  public void init() {
     messageLogger.clear();
-    stdout= System.out;
+    stdout = System.out;
     System.setOut(new PrintStream(testOut));
   }
-  
+
   @AfterEach
-  public void cleanUp()
-  {
+  public void cleanUp() {
     System.setOut(stdout);
-    
   }
 
-  protected boolean hasErrors(MessageLogger messageLogger)
-  {
-    for (FileContentMessage message : messageLogger.getMessages())
-    {
-      if (message.getErrorLevel() == ErrorLevel.ERROR || message.getErrorLevel() == ErrorLevel.FATAL)
-      {
+  protected boolean hasErrors(MessageLogger messageLogger) {
+    for (FileContentMessage message : messageLogger.getMessages()) {
+      if (message.getErrorLevel() == ErrorLevel.ERROR
+          || message.getErrorLevel() == ErrorLevel.FATAL) {
         return true;
       }
     }
     return false;
   }
 
-  protected File getResourceFile(String resourceName)
-  {
+  protected File getResourceFile(String resourceName) {
     ClassLoader classLoader = getClass().getClassLoader();
     return new File(classLoader.getResource(resourceName).getFile());
   }
 
-  protected boolean assertMessages(List<FileContentMessage> messages, ErrorLevel errorLevel, MessageLogger logger)
-  {
+  protected boolean assertMessages(
+      List<FileContentMessage> messages, ErrorLevel errorLevel, MessageLogger logger) {
     List<FileContentMessage> filterByErrorLevelMessages = filterByErrorLevel(messages, errorLevel);
-    List<FileContentMessage> filterByErrorLevelLogger = filterByErrorLevel(logger.getMessages(), errorLevel);
+    List<FileContentMessage> filterByErrorLevelLogger =
+        filterByErrorLevel(logger.getMessages(), errorLevel);
     return filterByErrorLevelMessages.equals(filterByErrorLevelLogger)
         && filterByErrorLevelMessages.size() == filterByErrorLevelLogger.size();
-
   }
 
-  protected List<FileContentMessage> filterByErrorLevel(List<FileContentMessage> messages, ErrorLevel errorLevel)
-  {
+  protected List<FileContentMessage> filterByErrorLevel(
+      List<FileContentMessage> messages, ErrorLevel errorLevel) {
     List<FileContentMessage> result = new ArrayList<FileContentMessage>();
-    for (FileContentMessage message : messages)
-    {
-      if (errorLevel == message.getErrorLevel())
-      {
+    for (FileContentMessage message : messages) {
+      if (errorLevel == message.getErrorLevel()) {
         result.add(message);
       }
     }
     Collections.sort(result);
     return result;
   }
-  protected String getLine(String buffer, int line )
-  {
+
+  protected String getLine(String buffer, int line) {
     Scanner paramReader = new Scanner(buffer);
     int counter = 0;
     while (paramReader.hasNextLine()) {
       counter++;
       String result = paramReader.nextLine();
-      if (counter == line)
-      {
+      if (counter == line) {
         return result;
       }
     }

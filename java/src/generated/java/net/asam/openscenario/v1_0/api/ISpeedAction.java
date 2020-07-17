@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,32 +16,30 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * This action describes the transition of an entity's longitudinal speed to a target longitudinal speed.
- * SpeedActionDynamics specifies the transition with respects to time or distance combined with a shape.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: This action describes the transition of an
+ * entity's longitudinal speed to a target longitudinal speed. SpeedActionDynamics specifies the
+ * transition with respects to time or distance combined with a shape.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface ISpeedAction extends IOpenScenarioModelElement{
+ */
+public interface ISpeedAction extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Defines how the target speed is reached.
-	 * 
-	 * @return value of model property speedActionDynamics
-	*/
-	public ITransitionDynamics getSpeedActionDynamics();
+  /**
+   * From OpenSCENARIO class model specification: Defines how the target speed is reached.
+   *
+   * @return value of model property speedActionDynamics
+   */
+  public ITransitionDynamics getSpeedActionDynamics();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Defines the target speed which should be reached.
-	 * 
-	 * @return value of model property speedActionTarget
-	*/
-	public ISpeedActionTarget getSpeedActionTarget();
+  /**
+   * From OpenSCENARIO class model specification: Defines the target speed which should be reached.
+   *
+   * @return value of model property speedActionTarget
+   */
+  public ISpeedActionTarget getSpeedActionTarget();
 }

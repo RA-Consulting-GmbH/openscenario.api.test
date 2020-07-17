@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package net.asam.xml.indexer.test;
 
 import java.io.File;
@@ -36,7 +36,7 @@ import net.asam.xml.indexer.grammar.XMLParser;
 
 public class MainTest {
 
-private static final String[]  expectedOutput = {
+  private static final String[] expectedOutput = {
     "0: (18, 1) - (58, 15)",
     "1: (19, 2) - (19, 113)",
     "2: (20, 2) - (57, 12)",
@@ -60,42 +60,46 @@ private static final String[]  expectedOutput = {
     "20: (48, 10) - (48, 65)",
     "21: (51, 6) - (55, 17)",
     "22: (52, 8) - (54, 19)",
-    "23: (53, 10) - (53, 64)"};
+    "23: (53, 10) - (53, 64)"
+  };
 
-    @Test
-	public  void testBooks() {
-		
-		CharStream stream;
-		try {
-		    ClassLoader classLoader = getClass().getClassLoader();
-	        File file =  new File(classLoader.getResource("indexer/RouteCatalog.xosc").getFile());
-		    InputStream  in = new FileInputStream(file);
-			stream = CharStreams.fromStream(in);
-			
-			
-		XMLLexer lexer = new XMLLexer(stream);
-		
-	    CommonTokenStream tokens = new CommonTokenStream(lexer);
-	    XMLParser parser = new XMLParser(tokens);
-	    parser.document();
-	    
-	    PositionIndex positionIndex =  parser.getPositionIndex();
-	    for (int i = 0; i< positionIndex.getSize(); i++)
-	    {
-	      System.out.println(dump(positionIndex, i));
-	    }
-	    for (int i = 0; i< positionIndex.getSize(); i++)
-	    {
-	      Assertions.assertEquals(expectedOutput[i],  dump(positionIndex, i));
-	    }
-	    } catch (IOException e) {
-			Assertions.fail();
-		}
-	}
-	public static String dump(PositionIndex positionIndex, int index)
-	{
-		ElementNode elementNode = positionIndex.getElementNode(index);
-		return  index + ": " + "(" + elementNode.getStartPosition().getLine() + ", " + elementNode.getStartPosition().getColumn() + ") - ("
-				+ elementNode.getEndPosition().getLine() + ", " + elementNode.getEndPosition().getColumn() + ")";
-	}
+  @Test
+  public void testBooks() {
+
+    CharStream stream;
+    try {
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file = new File(classLoader.getResource("indexer/RouteCatalog.xosc").getFile());
+      InputStream in = new FileInputStream(file);
+      stream = CharStreams.fromStream(in);
+
+      XMLLexer lexer = new XMLLexer(stream);
+
+      CommonTokenStream tokens = new CommonTokenStream(lexer);
+      XMLParser parser = new XMLParser(tokens);
+      parser.document();
+
+      PositionIndex positionIndex = parser.getPositionIndex();
+      for (int i = 0; i < positionIndex.getSize(); i++) {
+        Assertions.assertEquals(expectedOutput[i], dump(positionIndex, i));
+      }
+    } catch (IOException e) {
+      Assertions.fail();
+    }
+  }
+
+  public static String dump(PositionIndex positionIndex, int index) {
+    ElementNode elementNode = positionIndex.getElementNode(index);
+    return index
+        + ": "
+        + "("
+        + elementNode.getStartPosition().getLine()
+        + ", "
+        + elementNode.getStartPosition().getColumn()
+        + ") - ("
+        + elementNode.getEndPosition().getLine()
+        + ", "
+        + elementNode.getEndPosition().getColumn()
+        + ")";
+  }
 }

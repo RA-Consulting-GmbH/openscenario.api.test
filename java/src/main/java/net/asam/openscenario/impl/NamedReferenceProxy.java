@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package net.asam.openscenario.impl;
 
 import java.util.Date;
@@ -27,12 +27,11 @@ import net.asam.openscenario.common.INamedReference;
 
 /**
  * A generic implementation of INamedReference
- * 
- * @author Andreas Hege - RA Consulting
  *
+ * @author Andreas Hege - RA Consulting
  */
-public class NamedReferenceProxy<T extends IOpenScenarioModelElement> implements INamedReference<T>
-{
+public class NamedReferenceProxy<T extends IOpenScenarioModelElement>
+    implements INamedReference<T> {
 
   private T targetObject;
 
@@ -42,12 +41,11 @@ public class NamedReferenceProxy<T extends IOpenScenarioModelElement> implements
 
   /**
    * Constructor using both, target object and nameRef
-   * 
+   *
    * @param targetObject The object that is hidden by the proxy
    * @param nameRef The name reference that represents the proxied object
    */
-  public NamedReferenceProxy(T targetObject, String nameRef)
-  {
+  public NamedReferenceProxy(T targetObject, String nameRef) {
     super();
     this.targetObject = targetObject;
     this.nameRef = nameRef;
@@ -55,148 +53,127 @@ public class NamedReferenceProxy<T extends IOpenScenarioModelElement> implements
 
   /**
    * Constructor using only the name that represents the target object
-   * 
+   *
    * @param nameRef name that represents the reference to a real object
    */
-  public NamedReferenceProxy(String nameRef)
-  {
-    this( null,nameRef);
+  public NamedReferenceProxy(String nameRef) {
+    this(null, nameRef);
   }
 
   @Override
-  public T getTargetObject()
-  {
+  public T getTargetObject() {
     return targetObject;
   }
 
   /**
    * Sets the target object (resolving the reference)
-   * 
+   *
    * @param targetObject the target object
    */
-  public void setTargetObject(T targetObject)
-  {
+  public void setTargetObject(T targetObject) {
     this.targetObject = targetObject;
   }
 
   @Override
-  public String getNameRef()
-  {
+  public String getNameRef() {
     return nameRef;
   }
 
   @Override
-  public NamedReferenceProxy<T> clone()
-  {
+  public NamedReferenceProxy<T> clone() {
     NamedReferenceProxy<T> proxy = new NamedReferenceProxy<T>(nameRef);
     proxy.setTargetObject(targetObject);
     return proxy;
   }
 
   @Override
-  public Object getAdapter(Class<?> classifier)
-  {
+  public Object getAdapter(Class<?> classifier) {
     // No adapter returned
     return null;
   }
 
   @Override
-  public IOpenScenarioModelElement getParent()
-  {
+  public IOpenScenarioModelElement getParent() {
     return this.parent;
   }
 
   @Override
-  public void setParent(IOpenScenarioModelElement parent)
-  {
+  public void setParent(IOpenScenarioModelElement parent) {
     this.parent = parent;
-    
   }
 
   @Override
-  public IOpenScenarioFlexElement getOpenScenarioFlexElement()
-  {
-    return new IOpenScenarioFlexElement()
-    {
-      
+  public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
+    return new IOpenScenarioFlexElement() {
+
       @Override
-      public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException
-      {
-        throw  new KeyNotSupportedException();
-      }
-      
-      @Override
-      public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException
-      {
-        throw  new KeyNotSupportedException();
-      }
-      
-      @Override
-      public String getStringProperty(String key) throws KeyNotSupportedException
-      {
-        throw  new KeyNotSupportedException();
-      }
-      
-      @Override
-      public IOpenScenarioFlexElement getReferencedElement(String key, String name) throws KeyNotSupportedException
-      {
+      public Integer getUnsignedShortProperty(String key) throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
-      
+
       @Override
-      public IOpenScenarioFlexElement getParentFlexElement()
-      {
-        return parent!=null?parent.getOpenScenarioFlexElement(): null;
-      }
-      
-      @Override
-      public String getModelType()
-      {
-        return targetObject!=null?targetObject.getOpenScenarioFlexElement().getModelType(): null;
-      }
-      
-      @Override
-      public List<IOpenScenarioFlexElement> getListChildElement(String key) throws KeyNotSupportedException
-      {
+      public Long getUnsignedIntProperty(String key) throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
-      
+
       @Override
-      public Integer getIntProperty(String key) throws KeyNotSupportedException
-      {
+      public String getStringProperty(String key) throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
-      
+
       @Override
-      public String getEnumerationLiteral(String key) throws KeyNotSupportedException
-      {
+      public IOpenScenarioFlexElement getReferencedElement(String key, String name)
+          throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
-      
+
       @Override
-      public Double getDoubleProperty(String key) throws KeyNotSupportedException
-      {
+      public IOpenScenarioFlexElement getParentFlexElement() {
+        return parent != null ? parent.getOpenScenarioFlexElement() : null;
+      }
+
+      @Override
+      public String getModelType() {
+        return targetObject != null
+            ? targetObject.getOpenScenarioFlexElement().getModelType()
+            : null;
+      }
+
+      @Override
+      public List<IOpenScenarioFlexElement> getListChildElement(String key)
+          throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
-      
+
       @Override
-      public Date getDateTimeProperty(String key) throws KeyNotSupportedException
-      {
+      public Integer getIntProperty(String key) throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
-      
+
       @Override
-      public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException
-      {
+      public String getEnumerationLiteral(String key) throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
-      
+
       @Override
-      public Boolean getBooleanProperty(String key) throws KeyNotSupportedException
-      {
+      public Double getDoubleProperty(String key) throws KeyNotSupportedException {
+        throw new KeyNotSupportedException();
+      }
+
+      @Override
+      public Date getDateTimeProperty(String key) throws KeyNotSupportedException {
+        throw new KeyNotSupportedException();
+      }
+
+      @Override
+      public IOpenScenarioFlexElement getChildElement(String key) throws KeyNotSupportedException {
+        throw new KeyNotSupportedException();
+      }
+
+      @Override
+      public Boolean getBooleanProperty(String key) throws KeyNotSupportedException {
         throw new KeyNotSupportedException();
       }
     };
   }
-
 }

@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,33 +16,32 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Conditions referring an entity need to know which entity shall trigger the condition. TriggeringEntities is a collection
- * of entities whose states are used to verify the given condition. An additional attribute needs to specify if one of the
+ *
+ * <p>From OpenSCENARIO class model specification: Conditions referring an entity need to know which
+ * entity shall trigger the condition. TriggeringEntities is a collection of entities whose states
+ * are used to verify the given condition. An additional attribute needs to specify if one of the
  * entities is enough for the condition to become true, or if all of them are required.
- * 
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface IByEntityCondition extends IOpenScenarioModelElement{
+ */
+public interface IByEntityCondition extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * A list of entities triggering this condition.
-	 * 
-	 * @return value of model property triggeringEntities
-	*/
-	public ITriggeringEntities getTriggeringEntities();
+  /**
+   * From OpenSCENARIO class model specification: A list of entities triggering this condition.
+   *
+   * @return value of model property triggeringEntities
+   */
+  public ITriggeringEntities getTriggeringEntities();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * The condition which is related to the triggering entities.
-	 * 
-	 * @return value of model property entityCondition
-	*/
-	public IEntityCondition getEntityCondition();
+  /**
+   * From OpenSCENARIO class model specification: The condition which is related to the triggering
+   * entities.
+   *
+   * @return value of model property entityCondition
+   */
+  public IEntityCondition getEntityCondition();
 }

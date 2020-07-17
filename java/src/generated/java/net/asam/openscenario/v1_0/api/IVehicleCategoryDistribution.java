@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -15,25 +15,26 @@
  * limitations under the License.
  */
 package net.asam.openscenario.v1_0.api;
-import java.util.List;
 
+import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * A distribution for vehicle in traffic. Category of vehicles and their weight (measure of relative likelihood, check
+ *
+ * <p>From OpenSCENARIO class model specification: A distribution for vehicle in traffic. Category
+ * of vehicles and their weight (measure of relative likelihood, check
  * VehicleCategoryDistributionEntry).
- * 
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface IVehicleCategoryDistribution extends IOpenScenarioModelElement{
+ */
+public interface IVehicleCategoryDistribution extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * List of elements that pair vehicle categories and their weight within the distribution.
-	 * 
-	 * @return value of model property vehicleCategoryDistributionEntries
-	*/
-	public List<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries();
+  /**
+   * From OpenSCENARIO class model specification: List of elements that pair vehicle categories and
+   * their weight within the distribution.
+   *
+   * @return value of model property vehicleCategoryDistributionEntries
+   */
+  public List<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries();
 }

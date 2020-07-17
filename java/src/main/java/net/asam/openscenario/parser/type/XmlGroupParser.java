@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package net.asam.openscenario.parser.type;
 
 import java.util.ArrayList;
@@ -32,47 +32,46 @@ import net.asam.xml.indexer.Position;
 
 /**
  * Parser for XSD:group types
- * 
- * @author Andreas Hege - RA Consulting
  *
+ * @author Andreas Hege - RA Consulting
  */
-public class XmlGroupParser<T extends BaseImpl> extends XmlParserBase<T> implements  IXmlTypeParser<T> {
+public class XmlGroupParser<T extends BaseImpl> extends XmlParserBase<T>
+    implements IXmlTypeParser<T> {
 
-	protected String elementName;
-	protected XmlModelGroupParser<T> subElementParser;
+  protected String elementName;
+  protected XmlModelGroupParser<T> subElementParser;
 
-	/**
-	 * Constructor
-	 * @param messageLogger to log messages during parsing process
-	 * @param filename of the file the parser is operating on.
-	 */
-	public XmlGroupParser(IParserMessageLogger messageLogger, String filename) {
-		super(messageLogger, filename);
-	}
+  /**
+   * Constructor
+   *
+   * @param messageLogger to log messages during parsing process
+   * @param filename of the file the parser is operating on.
+   */
+  public XmlGroupParser(IParserMessageLogger messageLogger, String filename) {
+    super(messageLogger, filename);
+  }
 
-	@Override
-	public void parseElement(IndexedElement indexedElement, ParserContext parserContext, T object) 
-	{
-		Position startPosition = indexedElement.getStartElementLocation();
-		object.setStartMarker(new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename));
-		
-		// Prepare a list
-		List<IndexedElement> parentSubElements = indexedElement.getParent().getSubElements();
-		int index = parentSubElements.indexOf(indexedElement);
-		List<IndexedElement> elementsToParse = new ArrayList<IndexedElement>();
-		for (int i = index; i<parentSubElements.size(); i++)
-		{
-			elementsToParse.add(parentSubElements.get(i));
-		}
-		parseSubElements(elementsToParse, parserContext, object);
-		Position endPosition = parserContext.getLastElementParsed().getEndElementLocation();
-		object.setEndMarker(new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename));
-	}
+  @Override
+  public void parseElement(IndexedElement indexedElement, ParserContext parserContext, T object) {
+    Position startPosition = indexedElement.getStartElementLocation();
+    object.setStartMarker(
+        new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename));
 
-	@Override
-	public void parseSubElements(List<IndexedElement> indexedElement,ParserContext parserContext, T object) {
-		subElementParser.parseSubElements(indexedElement, parserContext, object);
-		
-	}
+    // Prepare a list
+    List<IndexedElement> parentSubElements = indexedElement.getParent().getSubElements();
+    int index = parentSubElements.indexOf(indexedElement);
+    List<IndexedElement> elementsToParse = new ArrayList<IndexedElement>();
+    for (int i = index; i < parentSubElements.size(); i++) {
+      elementsToParse.add(parentSubElements.get(i));
+    }
+    parseSubElements(elementsToParse, parserContext, object);
+    Position endPosition = parserContext.getLastElementParsed().getEndElementLocation();
+    object.setEndMarker(new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename));
+  }
 
+  @Override
+  public void parseSubElements(
+      List<IndexedElement> indexedElement, ParserContext parserContext, T object) {
+    subElementParser.parseSubElements(indexedElement, parserContext, object);
+  }
 }

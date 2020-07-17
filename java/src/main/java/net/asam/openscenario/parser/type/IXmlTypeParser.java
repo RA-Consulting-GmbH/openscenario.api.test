@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package net.asam.openscenario.parser.type;
 
 import net.asam.openscenario.parser.ParserContext;
@@ -23,19 +23,19 @@ import net.asam.openscenario.simple.struct.IndexedElement;
 
 /**
  * Parser interface for types (XSD:group, XSD:complexType, XSD:simpleContent)
- * 
- * @author Andreas Hege - RA Consulting
  *
+ * @author Andreas Hege - RA Consulting
  */
 public interface IXmlTypeParser<T> {
 
-	/**
-	 * Parsing the XSD type
-	 * @param indexedElement the element to be parsed
-	 * @param parserContext a parser context to store dynamic information in.
-	 * @param object the object that will be filled during the parsing process.
-	 * @throws XmlParserException if an exception occurs.
-	 */
-	public  void parseElement(IndexedElement indexedElement, ParserContext parserContext, T object) throws XmlParserException;
-
+  /**
+   * Parsing the XSD type
+   *
+   * @param indexedElement the element to be parsed
+   * @param parserContext a parser context to store dynamic information in.
+   * @param object the object that will be filled during the parsing process.
+   * @throws XmlParserException if an exception occurs.
+   */
+  public void parseElement(IndexedElement indexedElement, ParserContext parserContext, T object)
+      throws XmlParserException;
 }

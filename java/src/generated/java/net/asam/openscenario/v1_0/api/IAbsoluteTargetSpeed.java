@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,23 +16,22 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Absolute speed defined as a target for a SpeedAction.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: Absolute speed defined as a target for a
+ * SpeedAction.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface IAbsoluteTargetSpeed extends IOpenScenarioModelElement{
+ */
+public interface IAbsoluteTargetSpeed extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Target speed in m/s the vehicle should change to.
-	 * 
-	 * @return value of model property value
-	*/
-	public Double getValue();
+  /**
+   * From OpenSCENARIO class model specification: Target speed in m/s the vehicle should change to.
+   *
+   * @return value of model property value
+   */
+  public Double getValue();
 }

@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -15,32 +15,32 @@
  * limitations under the License.
  */
 package net.asam.openscenario.v1_0.api;
-import java.util.List;
 
+import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Definition of entities (scenario objects or entity selections) in a scenario.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: Definition of entities (scenario objects or
+ * entity selections) in a scenario.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface IEntities extends IOpenScenarioModelElement{
+ */
+public interface IEntities extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * A list of scenario object definitions that pairs an entity object and a controller.
-	 * 
-	 * @return value of model property scenarioObjects
-	*/
-	public List<IScenarioObject> getScenarioObjects();
+  /**
+   * From OpenSCENARIO class model specification: A list of scenario object definitions that pairs
+   * an entity object and a controller.
+   *
+   * @return value of model property scenarioObjects
+   */
+  public List<IScenarioObject> getScenarioObjects();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * A list of entity selection definitions.
-	 * 
-	 * @return value of model property entitySelections
-	*/
-	public List<IEntitySelection> getEntitySelections();
+  /**
+   * From OpenSCENARIO class model specification: A list of entity selection definitions.
+   *
+   * @return value of model property entitySelections
+   */
+  public List<IEntitySelection> getEntitySelections();
 }

@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,163 +16,170 @@
  */
 package net.asam.openscenario.v1_0.parser.xml;
 
-import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.v1_0.common.OscConstants;
-import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.parser.ParserContext;
-import net.asam.openscenario.v1_0.parser.CatalogReferenceParserContext;
-import net.asam.openscenario.common.FileContentMessage;
-import net.asam.xml.indexer.Position;
-import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.common.ErrorLevel;
-import java.util.List;
-
-import net.asam.openscenario.v1_0.impl.ReachPositionConditionImpl;
-import net.asam.openscenario.v1_0.impl.PositionImpl;
-
-
-import net.asam.openscenario.parser.modelgroup.XmlAllParser;
-import java.util.Map;
-import java.util.Hashtable;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+import net.asam.openscenario.common.ErrorLevel;
+import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.parser.ParserContext;
+import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-
+import net.asam.openscenario.simple.struct.IndexedElement;
+import net.asam.openscenario.v1_0.common.OscConstants;
+import net.asam.openscenario.v1_0.impl.PositionImpl;
+import net.asam.openscenario.v1_0.impl.ReachPositionConditionImpl;
+import net.asam.xml.indexer.Position;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  * Filling a ReachPositionConditionImpl instance from an xml tree.
- * 
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public class ReachPositionConditionXmlParser extends XmlComplexTypeParser<ReachPositionConditionImpl> {
+ */
+public class ReachPositionConditionXmlParser
+    extends XmlComplexTypeParser<ReachPositionConditionImpl> {
 
-	/**
-	 * Constructor
-	 * @param messageLogger to log messages during parsing
-	 * @param filename to locate the messages in a file
-	 */
-	public ReachPositionConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
-		super(messageLogger, filename);
-		subElementParser = new SubElementParser(messageLogger, filename);
-	}
-	@Override
-	public void parseElement(IndexedElement indexedElement, ParserContext parserContext,ReachPositionConditionImpl object) {
-		messageLogger.logMessage(new FileContentMessage("Start Parsing ReachPositionCondition", ErrorLevel.DEBUG, new Textmarker(indexedElement.getStartElementLocation().getLine(), indexedElement.getStartElementLocation().getColumn(), filename))); 
-		super.parseElement(indexedElement,  parserContext, object);
-		messageLogger.logMessage(new FileContentMessage("End Parsing ReachPositionCondition", ErrorLevel.DEBUG, new Textmarker(indexedElement.getEndElementLocation().getLine(), indexedElement.getEndElementLocation().getColumn(), filename))); 
-	
-	}			
-	
-	@Override
-	protected  Map<String, IAttributeParser<ReachPositionConditionImpl>> getAttributeNameToAttributeParserMap()
-	{
-		Map<String, IAttributeParser<ReachPositionConditionImpl>> result  = new Hashtable<String, IAttributeParser<ReachPositionConditionImpl>>();
-		result.put(OscConstants.ATTRIBUTE__TOLERANCE, new IAttributeParser<ReachPositionConditionImpl>() {
-			@Override
-			public void parse(Position startPosition, Position endPosition, String attributeName, String attributeValue, ReachPositionConditionImpl object)
-			{
-				
-				Textmarker startMarker = new Textmarker(startPosition.getLine(), startPosition.getColumn(),filename);
-				Textmarker endMarker = new Textmarker(endPosition.getLine(), endPosition.getColumn(),filename);
-				if (isParametrized(attributeValue))
-				{
-					object.setAttributeParameter(OscConstants.ATTRIBUTE__TOLERANCE, stripDollarSign(attributeValue), startMarker); 
-				}else
-				{
-					// Parse value
-					// Simple type
-					object.setTolerance(parseDouble(attributeValue,startMarker));
-				}
-				object.putPropertyStartMarker(OscConstants.ATTRIBUTE__TOLERANCE, startMarker);
-				object.putPropertyEndMarker(OscConstants.ATTRIBUTE__TOLERANCE, endMarker);
-				
-			}
-			
+  /**
+   * Constructor
+   *
+   * @param messageLogger to log messages during parsing
+   * @param filename to locate the messages in a file
+   */
+  public ReachPositionConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
+    super(messageLogger, filename);
+    subElementParser = new SubElementParser(messageLogger, filename);
+  }
 
-			@Override
-			public int getMinOccur() {
-				return 1;
-			}
-			
-		});
-		return result;
-	}
+  @Override
+  public void parseElement(
+      IndexedElement indexedElement,
+      ParserContext parserContext,
+      ReachPositionConditionImpl object) {
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "Start Parsing ReachPositionCondition",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getStartElementLocation().getLine(),
+                indexedElement.getStartElementLocation().getColumn(),
+                filename)));
+    super.parseElement(indexedElement, parserContext, object);
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "End Parsing ReachPositionCondition",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getEndElementLocation().getLine(),
+                indexedElement.getEndElementLocation().getColumn(),
+                filename)));
+  }
 
-	/**
-	 * Parser for all subelements
-	 */
-	private class SubElementParser extends XmlAllParser<ReachPositionConditionImpl>{
-		/**
-		 * Constructor
-		 * @param messageLogger to log messages during parsing
-		 * @param filename to locate the messages in a file
-		 */
-		public SubElementParser (IParserMessageLogger messageLogger, String filename) {
-			super(messageLogger,filename);	
-		}
-		/*
-		 * Creates a list of parser
-		 */
-		protected  List<IElementParser<ReachPositionConditionImpl>> createParserList()
-		{
-			List<IElementParser<ReachPositionConditionImpl>> result = new ArrayList<IElementParser<ReachPositionConditionImpl>>();
-			result.add(new SubElementPositionParser());
-			return result;
-		
-		}	
-	}
-	/**
-	 * A parser for subelement position
-	 */
-	private class SubElementPositionParser implements IElementParser<ReachPositionConditionImpl> {
-	
-		/**
-		 * Constructor
-		 */
-		public SubElementPositionParser()
-		{
-			super();
-			positionXmlParser = new PositionXmlParser(messageLogger, filename);
-		}
-		private PositionXmlParser positionXmlParser;
-		
-		@Override
-		public void parse(IndexedElement indexedElement, ParserContext parserContext,ReachPositionConditionImpl object)
-		{
-			PositionImpl position = new PositionImpl();
-			// Setting the parent
-			position.setParent(object);
-			positionXmlParser.parseElement(indexedElement,parserContext, position);
+  @Override
+  protected Map<String, IAttributeParser<ReachPositionConditionImpl>>
+      getAttributeNameToAttributeParserMap() {
+    Map<String, IAttributeParser<ReachPositionConditionImpl>> result =
+        new Hashtable<String, IAttributeParser<ReachPositionConditionImpl>>();
+    result.put(
+        OscConstants.ATTRIBUTE__TOLERANCE,
+        new IAttributeParser<ReachPositionConditionImpl>() {
+          @Override
+          public void parse(
+              Position startPosition,
+              Position endPosition,
+              String attributeName,
+              String attributeValue,
+              ReachPositionConditionImpl object) {
 
-			object.setPosition( position);
-			
-		}
+            Textmarker startMarker =
+                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+            Textmarker endMarker =
+                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+            if (isParametrized(attributeValue)) {
+              object.setAttributeParameter(
+                  OscConstants.ATTRIBUTE__TOLERANCE, stripDollarSign(attributeValue), startMarker);
+            } else {
+              // Parse value
+              // Simple type
+              object.setTolerance(parseDouble(attributeValue, startMarker));
+            }
+            object.putPropertyStartMarker(OscConstants.ATTRIBUTE__TOLERANCE, startMarker);
+            object.putPropertyEndMarker(OscConstants.ATTRIBUTE__TOLERANCE, endMarker);
+          }
 
-		@Override
-		public int getMinOccur()
-		{
-			return 1;
-		}
-		
-		@Override
-		public int getMaxOccur()
-		{
-			return 1;
-		}
-		
-		@Override
-		public boolean doesMatch(String elementName)
-		{
-			return
-				elementName.equals(OscConstants.ELEMENT__POSITION) ;
-		}
-		
-		@Override
-		public String[] getExpectedTagNames()
-		{		 	return new String[]{
-				OscConstants.ELEMENT__POSITION
-					};
-		}
-	}
+          @Override
+          public int getMinOccur() {
+            return 1;
+          }
+        });
+    return result;
+  }
+
+  /** Parser for all subelements */
+  private class SubElementParser extends XmlAllParser<ReachPositionConditionImpl> {
+    /**
+     * Constructor
+     *
+     * @param messageLogger to log messages during parsing
+     * @param filename to locate the messages in a file
+     */
+    public SubElementParser(IParserMessageLogger messageLogger, String filename) {
+      super(messageLogger, filename);
+    }
+    /*
+     * Creates a list of parser
+     */
+    protected List<IElementParser<ReachPositionConditionImpl>> createParserList() {
+      List<IElementParser<ReachPositionConditionImpl>> result =
+          new ArrayList<IElementParser<ReachPositionConditionImpl>>();
+      result.add(new SubElementPositionParser());
+      return result;
+    }
+  }
+  /** A parser for subelement position */
+  private class SubElementPositionParser implements IElementParser<ReachPositionConditionImpl> {
+
+    /** Constructor */
+    public SubElementPositionParser() {
+      super();
+      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+    }
+
+    private PositionXmlParser positionXmlParser;
+
+    @Override
+    public void parse(
+        IndexedElement indexedElement,
+        ParserContext parserContext,
+        ReachPositionConditionImpl object) {
+      PositionImpl position = new PositionImpl();
+      // Setting the parent
+      position.setParent(object);
+      positionXmlParser.parseElement(indexedElement, parserContext, position);
+
+      object.setPosition(position);
+    }
+
+    @Override
+    public int getMinOccur() {
+      return 1;
+    }
+
+    @Override
+    public int getMaxOccur() {
+      return 1;
+    }
+
+    @Override
+    public boolean doesMatch(String elementName) {
+      return elementName.equals(OscConstants.ELEMENT__POSITION);
+    }
+
+    @Override
+    public String[] getExpectedTagNames() {
+      return new String[] {OscConstants.ELEMENT__POSITION};
+    }
+  }
 }
-

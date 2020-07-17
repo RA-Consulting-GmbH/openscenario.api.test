@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 package net.asam.openscenario.v1_0.checker;
-import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.checker.ICheckerRule;
 
+import net.asam.openscenario.checker.ICheckerRule;
+import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.v1_0.api.IAbsoluteSpeed;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLane;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
@@ -205,199 +205,429 @@ import net.asam.openscenario.v1_0.api.IVisibilityAction;
 import net.asam.openscenario.v1_0.api.IWaypoint;
 import net.asam.openscenario.v1_0.api.IWeather;
 import net.asam.openscenario.v1_0.api.IWorldPosition;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  * Provides a method for every type of the osc model to add checker rules.
- * 
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
+ */
 public interface IScenarioChecker {
-	public void checkScenario(IParserMessageLogger messageLogger, IOpenScenario openScenario);
-	public void addAbsoluteSpeedCheckerRule(ICheckerRule<IAbsoluteSpeed>checkerRule);
-	public void addAbsoluteTargetLaneCheckerRule(ICheckerRule<IAbsoluteTargetLane>checkerRule);
-	public void addAbsoluteTargetLaneOffsetCheckerRule(ICheckerRule<IAbsoluteTargetLaneOffset>checkerRule);
-	public void addAbsoluteTargetSpeedCheckerRule(ICheckerRule<IAbsoluteTargetSpeed>checkerRule);
-	public void addAccelerationConditionCheckerRule(ICheckerRule<IAccelerationCondition>checkerRule);
-	public void addAcquirePositionActionCheckerRule(ICheckerRule<IAcquirePositionAction>checkerRule);
-	public void addActCheckerRule(ICheckerRule<IAct>checkerRule);
-	public void addActionCheckerRule(ICheckerRule<IAction>checkerRule);
-	public void addActivateControllerActionCheckerRule(ICheckerRule<IActivateControllerAction>checkerRule);
-	public void addActorsCheckerRule(ICheckerRule<IActors>checkerRule);
-	public void addAddEntityActionCheckerRule(ICheckerRule<IAddEntityAction>checkerRule);
-	public void addAssignControllerActionCheckerRule(ICheckerRule<IAssignControllerAction>checkerRule);
-	public void addAssignRouteActionCheckerRule(ICheckerRule<IAssignRouteAction>checkerRule);
-	public void addAxleCheckerRule(ICheckerRule<IAxle>checkerRule);
-	public void addAxlesCheckerRule(ICheckerRule<IAxles>checkerRule);
-	public void addBoundingBoxCheckerRule(ICheckerRule<IBoundingBox>checkerRule);
-	public void addByEntityConditionCheckerRule(ICheckerRule<IByEntityCondition>checkerRule);
-	public void addByObjectTypeCheckerRule(ICheckerRule<IByObjectType>checkerRule);
-	public void addByTypeCheckerRule(ICheckerRule<IByType>checkerRule);
-	public void addByValueConditionCheckerRule(ICheckerRule<IByValueCondition>checkerRule);
-	public void addCatalogCheckerRule(ICheckerRule<ICatalog>checkerRule);
-	public void addCatalogDefinitionCheckerRule(ICheckerRule<ICatalogDefinition>checkerRule);
-	public void addCatalogLocationsCheckerRule(ICheckerRule<ICatalogLocations>checkerRule);
-	public void addCatalogReferenceCheckerRule(ICheckerRule<ICatalogReference>checkerRule);
-	public void addCenterCheckerRule(ICheckerRule<ICenter>checkerRule);
-	public void addCentralSwarmObjectCheckerRule(ICheckerRule<ICentralSwarmObject>checkerRule);
-	public void addClothoidCheckerRule(ICheckerRule<IClothoid>checkerRule);
-	public void addCollisionConditionCheckerRule(ICheckerRule<ICollisionCondition>checkerRule);
-	public void addConditionCheckerRule(ICheckerRule<ICondition>checkerRule);
-	public void addConditionGroupCheckerRule(ICheckerRule<IConditionGroup>checkerRule);
-	public void addControlPointCheckerRule(ICheckerRule<IControlPoint>checkerRule);
-	public void addControllerCheckerRule(ICheckerRule<IController>checkerRule);
-	public void addControllerActionCheckerRule(ICheckerRule<IControllerAction>checkerRule);
-	public void addControllerCatalogLocationCheckerRule(ICheckerRule<IControllerCatalogLocation>checkerRule);
-	public void addControllerDistributionCheckerRule(ICheckerRule<IControllerDistribution>checkerRule);
-	public void addControllerDistributionEntryCheckerRule(ICheckerRule<IControllerDistributionEntry>checkerRule);
-	public void addCustomCommandActionCheckerRule(ICheckerRule<ICustomCommandAction>checkerRule);
-	public void addDeleteEntityActionCheckerRule(ICheckerRule<IDeleteEntityAction>checkerRule);
-	public void addDimensionsCheckerRule(ICheckerRule<IDimensions>checkerRule);
-	public void addDirectoryCheckerRule(ICheckerRule<IDirectory>checkerRule);
-	public void addDistanceConditionCheckerRule(ICheckerRule<IDistanceCondition>checkerRule);
-	public void addDynamicConstraintsCheckerRule(ICheckerRule<IDynamicConstraints>checkerRule);
-	public void addEndOfRoadConditionCheckerRule(ICheckerRule<IEndOfRoadCondition>checkerRule);
-	public void addEntitiesCheckerRule(ICheckerRule<IEntities>checkerRule);
-	public void addEntityActionCheckerRule(ICheckerRule<IEntityAction>checkerRule);
-	public void addEntityConditionCheckerRule(ICheckerRule<IEntityCondition>checkerRule);
-	public void addEntityObjectCheckerRule(ICheckerRule<IEntityObject>checkerRule);
-	public void addEntityRefCheckerRule(ICheckerRule<IEntityRef>checkerRule);
-	public void addEntitySelectionCheckerRule(ICheckerRule<IEntitySelection>checkerRule);
-	public void addEnvironmentCheckerRule(ICheckerRule<IEnvironment>checkerRule);
-	public void addEnvironmentActionCheckerRule(ICheckerRule<IEnvironmentAction>checkerRule);
-	public void addEnvironmentCatalogLocationCheckerRule(ICheckerRule<IEnvironmentCatalogLocation>checkerRule);
-	public void addEventCheckerRule(ICheckerRule<IEvent>checkerRule);
-	public void addFileCheckerRule(ICheckerRule<IFile>checkerRule);
-	public void addFileHeaderCheckerRule(ICheckerRule<IFileHeader>checkerRule);
-	public void addFinalSpeedCheckerRule(ICheckerRule<IFinalSpeed>checkerRule);
-	public void addFogCheckerRule(ICheckerRule<IFog>checkerRule);
-	public void addFollowTrajectoryActionCheckerRule(ICheckerRule<IFollowTrajectoryAction>checkerRule);
-	public void addGlobalActionCheckerRule(ICheckerRule<IGlobalAction>checkerRule);
-	public void addInRoutePositionCheckerRule(ICheckerRule<IInRoutePosition>checkerRule);
-	public void addInfrastructureActionCheckerRule(ICheckerRule<IInfrastructureAction>checkerRule);
-	public void addInitCheckerRule(ICheckerRule<IInit>checkerRule);
-	public void addInitActionsCheckerRule(ICheckerRule<IInitActions>checkerRule);
-	public void addKnotCheckerRule(ICheckerRule<IKnot>checkerRule);
-	public void addLaneChangeActionCheckerRule(ICheckerRule<ILaneChangeAction>checkerRule);
-	public void addLaneChangeTargetCheckerRule(ICheckerRule<ILaneChangeTarget>checkerRule);
-	public void addLaneOffsetActionCheckerRule(ICheckerRule<ILaneOffsetAction>checkerRule);
-	public void addLaneOffsetActionDynamicsCheckerRule(ICheckerRule<ILaneOffsetActionDynamics>checkerRule);
-	public void addLaneOffsetTargetCheckerRule(ICheckerRule<ILaneOffsetTarget>checkerRule);
-	public void addLanePositionCheckerRule(ICheckerRule<ILanePosition>checkerRule);
-	public void addLateralActionCheckerRule(ICheckerRule<ILateralAction>checkerRule);
-	public void addLateralDistanceActionCheckerRule(ICheckerRule<ILateralDistanceAction>checkerRule);
-	public void addLongitudinalActionCheckerRule(ICheckerRule<ILongitudinalAction>checkerRule);
-	public void addLongitudinalDistanceActionCheckerRule(ICheckerRule<ILongitudinalDistanceAction>checkerRule);
-	public void addManeuverCheckerRule(ICheckerRule<IManeuver>checkerRule);
-	public void addManeuverCatalogLocationCheckerRule(ICheckerRule<IManeuverCatalogLocation>checkerRule);
-	public void addManeuverGroupCheckerRule(ICheckerRule<IManeuverGroup>checkerRule);
-	public void addMiscObjectCheckerRule(ICheckerRule<IMiscObject>checkerRule);
-	public void addMiscObjectCatalogLocationCheckerRule(ICheckerRule<IMiscObjectCatalogLocation>checkerRule);
-	public void addModifyRuleCheckerRule(ICheckerRule<IModifyRule>checkerRule);
-	public void addNoneCheckerRule(ICheckerRule<INone>checkerRule);
-	public void addNurbsCheckerRule(ICheckerRule<INurbs>checkerRule);
-	public void addObjectControllerCheckerRule(ICheckerRule<IObjectController>checkerRule);
-	public void addOffroadConditionCheckerRule(ICheckerRule<IOffroadCondition>checkerRule);
-	public void addOpenScenarioCheckerRule(ICheckerRule<IOpenScenario>checkerRule);
-	public void addOpenScenarioCategoryCheckerRule(ICheckerRule<IOpenScenarioCategory>checkerRule);
-	public void addOrientationCheckerRule(ICheckerRule<IOrientation>checkerRule);
-	public void addOverrideBrakeActionCheckerRule(ICheckerRule<IOverrideBrakeAction>checkerRule);
-	public void addOverrideClutchActionCheckerRule(ICheckerRule<IOverrideClutchAction>checkerRule);
-	public void addOverrideControllerValueActionCheckerRule(ICheckerRule<IOverrideControllerValueAction>checkerRule);
-	public void addOverrideGearActionCheckerRule(ICheckerRule<IOverrideGearAction>checkerRule);
-	public void addOverrideParkingBrakeActionCheckerRule(ICheckerRule<IOverrideParkingBrakeAction>checkerRule);
-	public void addOverrideSteeringWheelActionCheckerRule(ICheckerRule<IOverrideSteeringWheelAction>checkerRule);
-	public void addOverrideThrottleActionCheckerRule(ICheckerRule<IOverrideThrottleAction>checkerRule);
-	public void addParameterActionCheckerRule(ICheckerRule<IParameterAction>checkerRule);
-	public void addParameterAddValueRuleCheckerRule(ICheckerRule<IParameterAddValueRule>checkerRule);
-	public void addParameterAssignmentCheckerRule(ICheckerRule<IParameterAssignment>checkerRule);
-	public void addParameterConditionCheckerRule(ICheckerRule<IParameterCondition>checkerRule);
-	public void addParameterDeclarationCheckerRule(ICheckerRule<IParameterDeclaration>checkerRule);
-	public void addParameterModifyActionCheckerRule(ICheckerRule<IParameterModifyAction>checkerRule);
-	public void addParameterMultiplyByValueRuleCheckerRule(ICheckerRule<IParameterMultiplyByValueRule>checkerRule);
-	public void addParameterSetActionCheckerRule(ICheckerRule<IParameterSetAction>checkerRule);
-	public void addPedestrianCheckerRule(ICheckerRule<IPedestrian>checkerRule);
-	public void addPedestrianCatalogLocationCheckerRule(ICheckerRule<IPedestrianCatalogLocation>checkerRule);
-	public void addPerformanceCheckerRule(ICheckerRule<IPerformance>checkerRule);
-	public void addPhaseCheckerRule(ICheckerRule<IPhase>checkerRule);
-	public void addPolylineCheckerRule(ICheckerRule<IPolyline>checkerRule);
-	public void addPositionCheckerRule(ICheckerRule<IPosition>checkerRule);
-	public void addPositionInLaneCoordinatesCheckerRule(ICheckerRule<IPositionInLaneCoordinates>checkerRule);
-	public void addPositionInRoadCoordinatesCheckerRule(ICheckerRule<IPositionInRoadCoordinates>checkerRule);
-	public void addPositionOfCurrentEntityCheckerRule(ICheckerRule<IPositionOfCurrentEntity>checkerRule);
-	public void addPrecipitationCheckerRule(ICheckerRule<IPrecipitation>checkerRule);
-	public void addPrivateCheckerRule(ICheckerRule<IPrivate>checkerRule);
-	public void addPrivateActionCheckerRule(ICheckerRule<IPrivateAction>checkerRule);
-	public void addPropertiesCheckerRule(ICheckerRule<IProperties>checkerRule);
-	public void addPropertyCheckerRule(ICheckerRule<IProperty>checkerRule);
-	public void addReachPositionConditionCheckerRule(ICheckerRule<IReachPositionCondition>checkerRule);
-	public void addRelativeDistanceConditionCheckerRule(ICheckerRule<IRelativeDistanceCondition>checkerRule);
-	public void addRelativeLanePositionCheckerRule(ICheckerRule<IRelativeLanePosition>checkerRule);
-	public void addRelativeObjectPositionCheckerRule(ICheckerRule<IRelativeObjectPosition>checkerRule);
-	public void addRelativeRoadPositionCheckerRule(ICheckerRule<IRelativeRoadPosition>checkerRule);
-	public void addRelativeSpeedConditionCheckerRule(ICheckerRule<IRelativeSpeedCondition>checkerRule);
-	public void addRelativeSpeedToMasterCheckerRule(ICheckerRule<IRelativeSpeedToMaster>checkerRule);
-	public void addRelativeTargetLaneCheckerRule(ICheckerRule<IRelativeTargetLane>checkerRule);
-	public void addRelativeTargetLaneOffsetCheckerRule(ICheckerRule<IRelativeTargetLaneOffset>checkerRule);
-	public void addRelativeTargetSpeedCheckerRule(ICheckerRule<IRelativeTargetSpeed>checkerRule);
-	public void addRelativeWorldPositionCheckerRule(ICheckerRule<IRelativeWorldPosition>checkerRule);
-	public void addRoadConditionCheckerRule(ICheckerRule<IRoadCondition>checkerRule);
-	public void addRoadNetworkCheckerRule(ICheckerRule<IRoadNetwork>checkerRule);
-	public void addRoadPositionCheckerRule(ICheckerRule<IRoadPosition>checkerRule);
-	public void addRouteCheckerRule(ICheckerRule<IRoute>checkerRule);
-	public void addRouteCatalogLocationCheckerRule(ICheckerRule<IRouteCatalogLocation>checkerRule);
-	public void addRoutePositionCheckerRule(ICheckerRule<IRoutePosition>checkerRule);
-	public void addRouteRefCheckerRule(ICheckerRule<IRouteRef>checkerRule);
-	public void addRoutingActionCheckerRule(ICheckerRule<IRoutingAction>checkerRule);
-	public void addScenarioDefinitionCheckerRule(ICheckerRule<IScenarioDefinition>checkerRule);
-	public void addScenarioObjectCheckerRule(ICheckerRule<IScenarioObject>checkerRule);
-	public void addSelectedEntitiesCheckerRule(ICheckerRule<ISelectedEntities>checkerRule);
-	public void addShapeCheckerRule(ICheckerRule<IShape>checkerRule);
-	public void addSimulationTimeConditionCheckerRule(ICheckerRule<ISimulationTimeCondition>checkerRule);
-	public void addSpeedActionCheckerRule(ICheckerRule<ISpeedAction>checkerRule);
-	public void addSpeedActionTargetCheckerRule(ICheckerRule<ISpeedActionTarget>checkerRule);
-	public void addSpeedConditionCheckerRule(ICheckerRule<ISpeedCondition>checkerRule);
-	public void addStandStillConditionCheckerRule(ICheckerRule<IStandStillCondition>checkerRule);
-	public void addStoryCheckerRule(ICheckerRule<IStory>checkerRule);
-	public void addStoryboardCheckerRule(ICheckerRule<IStoryboard>checkerRule);
-	public void addStoryboardElementStateConditionCheckerRule(ICheckerRule<IStoryboardElementStateCondition>checkerRule);
-	public void addSunCheckerRule(ICheckerRule<ISun>checkerRule);
-	public void addSynchronizeActionCheckerRule(ICheckerRule<ISynchronizeAction>checkerRule);
-	public void addTeleportActionCheckerRule(ICheckerRule<ITeleportAction>checkerRule);
-	public void addTimeHeadwayConditionCheckerRule(ICheckerRule<ITimeHeadwayCondition>checkerRule);
-	public void addTimeOfDayCheckerRule(ICheckerRule<ITimeOfDay>checkerRule);
-	public void addTimeOfDayConditionCheckerRule(ICheckerRule<ITimeOfDayCondition>checkerRule);
-	public void addTimeReferenceCheckerRule(ICheckerRule<ITimeReference>checkerRule);
-	public void addTimeToCollisionConditionCheckerRule(ICheckerRule<ITimeToCollisionCondition>checkerRule);
-	public void addTimeToCollisionConditionTargetCheckerRule(ICheckerRule<ITimeToCollisionConditionTarget>checkerRule);
-	public void addTimingCheckerRule(ICheckerRule<ITiming>checkerRule);
-	public void addTrafficActionCheckerRule(ICheckerRule<ITrafficAction>checkerRule);
-	public void addTrafficDefinitionCheckerRule(ICheckerRule<ITrafficDefinition>checkerRule);
-	public void addTrafficSignalActionCheckerRule(ICheckerRule<ITrafficSignalAction>checkerRule);
-	public void addTrafficSignalConditionCheckerRule(ICheckerRule<ITrafficSignalCondition>checkerRule);
-	public void addTrafficSignalControllerCheckerRule(ICheckerRule<ITrafficSignalController>checkerRule);
-	public void addTrafficSignalControllerActionCheckerRule(ICheckerRule<ITrafficSignalControllerAction>checkerRule);
-	public void addTrafficSignalControllerConditionCheckerRule(ICheckerRule<ITrafficSignalControllerCondition>checkerRule);
-	public void addTrafficSignalStateCheckerRule(ICheckerRule<ITrafficSignalState>checkerRule);
-	public void addTrafficSignalStateActionCheckerRule(ICheckerRule<ITrafficSignalStateAction>checkerRule);
-	public void addTrafficSinkActionCheckerRule(ICheckerRule<ITrafficSinkAction>checkerRule);
-	public void addTrafficSourceActionCheckerRule(ICheckerRule<ITrafficSourceAction>checkerRule);
-	public void addTrafficSwarmActionCheckerRule(ICheckerRule<ITrafficSwarmAction>checkerRule);
-	public void addTrajectoryCheckerRule(ICheckerRule<ITrajectory>checkerRule);
-	public void addTrajectoryCatalogLocationCheckerRule(ICheckerRule<ITrajectoryCatalogLocation>checkerRule);
-	public void addTrajectoryFollowingModeCheckerRule(ICheckerRule<ITrajectoryFollowingMode>checkerRule);
-	public void addTransitionDynamicsCheckerRule(ICheckerRule<ITransitionDynamics>checkerRule);
-	public void addTraveledDistanceConditionCheckerRule(ICheckerRule<ITraveledDistanceCondition>checkerRule);
-	public void addTriggerCheckerRule(ICheckerRule<ITrigger>checkerRule);
-	public void addTriggeringEntitiesCheckerRule(ICheckerRule<ITriggeringEntities>checkerRule);
-	public void addUserDefinedActionCheckerRule(ICheckerRule<IUserDefinedAction>checkerRule);
-	public void addUserDefinedValueConditionCheckerRule(ICheckerRule<IUserDefinedValueCondition>checkerRule);
-	public void addVehicleCheckerRule(ICheckerRule<IVehicle>checkerRule);
-	public void addVehicleCatalogLocationCheckerRule(ICheckerRule<IVehicleCatalogLocation>checkerRule);
-	public void addVehicleCategoryDistributionCheckerRule(ICheckerRule<IVehicleCategoryDistribution>checkerRule);
-	public void addVehicleCategoryDistributionEntryCheckerRule(ICheckerRule<IVehicleCategoryDistributionEntry>checkerRule);
-	public void addVertexCheckerRule(ICheckerRule<IVertex>checkerRule);
-	public void addVisibilityActionCheckerRule(ICheckerRule<IVisibilityAction>checkerRule);
-	public void addWaypointCheckerRule(ICheckerRule<IWaypoint>checkerRule);
-	public void addWeatherCheckerRule(ICheckerRule<IWeather>checkerRule);
-	public void addWorldPositionCheckerRule(ICheckerRule<IWorldPosition>checkerRule);
+  public void checkScenario(IParserMessageLogger messageLogger, IOpenScenario openScenario);
+
+  public void addAbsoluteSpeedCheckerRule(ICheckerRule<IAbsoluteSpeed> checkerRule);
+
+  public void addAbsoluteTargetLaneCheckerRule(ICheckerRule<IAbsoluteTargetLane> checkerRule);
+
+  public void addAbsoluteTargetLaneOffsetCheckerRule(
+      ICheckerRule<IAbsoluteTargetLaneOffset> checkerRule);
+
+  public void addAbsoluteTargetSpeedCheckerRule(ICheckerRule<IAbsoluteTargetSpeed> checkerRule);
+
+  public void addAccelerationConditionCheckerRule(ICheckerRule<IAccelerationCondition> checkerRule);
+
+  public void addAcquirePositionActionCheckerRule(ICheckerRule<IAcquirePositionAction> checkerRule);
+
+  public void addActCheckerRule(ICheckerRule<IAct> checkerRule);
+
+  public void addActionCheckerRule(ICheckerRule<IAction> checkerRule);
+
+  public void addActivateControllerActionCheckerRule(
+      ICheckerRule<IActivateControllerAction> checkerRule);
+
+  public void addActorsCheckerRule(ICheckerRule<IActors> checkerRule);
+
+  public void addAddEntityActionCheckerRule(ICheckerRule<IAddEntityAction> checkerRule);
+
+  public void addAssignControllerActionCheckerRule(
+      ICheckerRule<IAssignControllerAction> checkerRule);
+
+  public void addAssignRouteActionCheckerRule(ICheckerRule<IAssignRouteAction> checkerRule);
+
+  public void addAxleCheckerRule(ICheckerRule<IAxle> checkerRule);
+
+  public void addAxlesCheckerRule(ICheckerRule<IAxles> checkerRule);
+
+  public void addBoundingBoxCheckerRule(ICheckerRule<IBoundingBox> checkerRule);
+
+  public void addByEntityConditionCheckerRule(ICheckerRule<IByEntityCondition> checkerRule);
+
+  public void addByObjectTypeCheckerRule(ICheckerRule<IByObjectType> checkerRule);
+
+  public void addByTypeCheckerRule(ICheckerRule<IByType> checkerRule);
+
+  public void addByValueConditionCheckerRule(ICheckerRule<IByValueCondition> checkerRule);
+
+  public void addCatalogCheckerRule(ICheckerRule<ICatalog> checkerRule);
+
+  public void addCatalogDefinitionCheckerRule(ICheckerRule<ICatalogDefinition> checkerRule);
+
+  public void addCatalogLocationsCheckerRule(ICheckerRule<ICatalogLocations> checkerRule);
+
+  public void addCatalogReferenceCheckerRule(ICheckerRule<ICatalogReference> checkerRule);
+
+  public void addCenterCheckerRule(ICheckerRule<ICenter> checkerRule);
+
+  public void addCentralSwarmObjectCheckerRule(ICheckerRule<ICentralSwarmObject> checkerRule);
+
+  public void addClothoidCheckerRule(ICheckerRule<IClothoid> checkerRule);
+
+  public void addCollisionConditionCheckerRule(ICheckerRule<ICollisionCondition> checkerRule);
+
+  public void addConditionCheckerRule(ICheckerRule<ICondition> checkerRule);
+
+  public void addConditionGroupCheckerRule(ICheckerRule<IConditionGroup> checkerRule);
+
+  public void addControlPointCheckerRule(ICheckerRule<IControlPoint> checkerRule);
+
+  public void addControllerCheckerRule(ICheckerRule<IController> checkerRule);
+
+  public void addControllerActionCheckerRule(ICheckerRule<IControllerAction> checkerRule);
+
+  public void addControllerCatalogLocationCheckerRule(
+      ICheckerRule<IControllerCatalogLocation> checkerRule);
+
+  public void addControllerDistributionCheckerRule(
+      ICheckerRule<IControllerDistribution> checkerRule);
+
+  public void addControllerDistributionEntryCheckerRule(
+      ICheckerRule<IControllerDistributionEntry> checkerRule);
+
+  public void addCustomCommandActionCheckerRule(ICheckerRule<ICustomCommandAction> checkerRule);
+
+  public void addDeleteEntityActionCheckerRule(ICheckerRule<IDeleteEntityAction> checkerRule);
+
+  public void addDimensionsCheckerRule(ICheckerRule<IDimensions> checkerRule);
+
+  public void addDirectoryCheckerRule(ICheckerRule<IDirectory> checkerRule);
+
+  public void addDistanceConditionCheckerRule(ICheckerRule<IDistanceCondition> checkerRule);
+
+  public void addDynamicConstraintsCheckerRule(ICheckerRule<IDynamicConstraints> checkerRule);
+
+  public void addEndOfRoadConditionCheckerRule(ICheckerRule<IEndOfRoadCondition> checkerRule);
+
+  public void addEntitiesCheckerRule(ICheckerRule<IEntities> checkerRule);
+
+  public void addEntityActionCheckerRule(ICheckerRule<IEntityAction> checkerRule);
+
+  public void addEntityConditionCheckerRule(ICheckerRule<IEntityCondition> checkerRule);
+
+  public void addEntityObjectCheckerRule(ICheckerRule<IEntityObject> checkerRule);
+
+  public void addEntityRefCheckerRule(ICheckerRule<IEntityRef> checkerRule);
+
+  public void addEntitySelectionCheckerRule(ICheckerRule<IEntitySelection> checkerRule);
+
+  public void addEnvironmentCheckerRule(ICheckerRule<IEnvironment> checkerRule);
+
+  public void addEnvironmentActionCheckerRule(ICheckerRule<IEnvironmentAction> checkerRule);
+
+  public void addEnvironmentCatalogLocationCheckerRule(
+      ICheckerRule<IEnvironmentCatalogLocation> checkerRule);
+
+  public void addEventCheckerRule(ICheckerRule<IEvent> checkerRule);
+
+  public void addFileCheckerRule(ICheckerRule<IFile> checkerRule);
+
+  public void addFileHeaderCheckerRule(ICheckerRule<IFileHeader> checkerRule);
+
+  public void addFinalSpeedCheckerRule(ICheckerRule<IFinalSpeed> checkerRule);
+
+  public void addFogCheckerRule(ICheckerRule<IFog> checkerRule);
+
+  public void addFollowTrajectoryActionCheckerRule(
+      ICheckerRule<IFollowTrajectoryAction> checkerRule);
+
+  public void addGlobalActionCheckerRule(ICheckerRule<IGlobalAction> checkerRule);
+
+  public void addInRoutePositionCheckerRule(ICheckerRule<IInRoutePosition> checkerRule);
+
+  public void addInfrastructureActionCheckerRule(ICheckerRule<IInfrastructureAction> checkerRule);
+
+  public void addInitCheckerRule(ICheckerRule<IInit> checkerRule);
+
+  public void addInitActionsCheckerRule(ICheckerRule<IInitActions> checkerRule);
+
+  public void addKnotCheckerRule(ICheckerRule<IKnot> checkerRule);
+
+  public void addLaneChangeActionCheckerRule(ICheckerRule<ILaneChangeAction> checkerRule);
+
+  public void addLaneChangeTargetCheckerRule(ICheckerRule<ILaneChangeTarget> checkerRule);
+
+  public void addLaneOffsetActionCheckerRule(ICheckerRule<ILaneOffsetAction> checkerRule);
+
+  public void addLaneOffsetActionDynamicsCheckerRule(
+      ICheckerRule<ILaneOffsetActionDynamics> checkerRule);
+
+  public void addLaneOffsetTargetCheckerRule(ICheckerRule<ILaneOffsetTarget> checkerRule);
+
+  public void addLanePositionCheckerRule(ICheckerRule<ILanePosition> checkerRule);
+
+  public void addLateralActionCheckerRule(ICheckerRule<ILateralAction> checkerRule);
+
+  public void addLateralDistanceActionCheckerRule(ICheckerRule<ILateralDistanceAction> checkerRule);
+
+  public void addLongitudinalActionCheckerRule(ICheckerRule<ILongitudinalAction> checkerRule);
+
+  public void addLongitudinalDistanceActionCheckerRule(
+      ICheckerRule<ILongitudinalDistanceAction> checkerRule);
+
+  public void addManeuverCheckerRule(ICheckerRule<IManeuver> checkerRule);
+
+  public void addManeuverCatalogLocationCheckerRule(
+      ICheckerRule<IManeuverCatalogLocation> checkerRule);
+
+  public void addManeuverGroupCheckerRule(ICheckerRule<IManeuverGroup> checkerRule);
+
+  public void addMiscObjectCheckerRule(ICheckerRule<IMiscObject> checkerRule);
+
+  public void addMiscObjectCatalogLocationCheckerRule(
+      ICheckerRule<IMiscObjectCatalogLocation> checkerRule);
+
+  public void addModifyRuleCheckerRule(ICheckerRule<IModifyRule> checkerRule);
+
+  public void addNoneCheckerRule(ICheckerRule<INone> checkerRule);
+
+  public void addNurbsCheckerRule(ICheckerRule<INurbs> checkerRule);
+
+  public void addObjectControllerCheckerRule(ICheckerRule<IObjectController> checkerRule);
+
+  public void addOffroadConditionCheckerRule(ICheckerRule<IOffroadCondition> checkerRule);
+
+  public void addOpenScenarioCheckerRule(ICheckerRule<IOpenScenario> checkerRule);
+
+  public void addOpenScenarioCategoryCheckerRule(ICheckerRule<IOpenScenarioCategory> checkerRule);
+
+  public void addOrientationCheckerRule(ICheckerRule<IOrientation> checkerRule);
+
+  public void addOverrideBrakeActionCheckerRule(ICheckerRule<IOverrideBrakeAction> checkerRule);
+
+  public void addOverrideClutchActionCheckerRule(ICheckerRule<IOverrideClutchAction> checkerRule);
+
+  public void addOverrideControllerValueActionCheckerRule(
+      ICheckerRule<IOverrideControllerValueAction> checkerRule);
+
+  public void addOverrideGearActionCheckerRule(ICheckerRule<IOverrideGearAction> checkerRule);
+
+  public void addOverrideParkingBrakeActionCheckerRule(
+      ICheckerRule<IOverrideParkingBrakeAction> checkerRule);
+
+  public void addOverrideSteeringWheelActionCheckerRule(
+      ICheckerRule<IOverrideSteeringWheelAction> checkerRule);
+
+  public void addOverrideThrottleActionCheckerRule(
+      ICheckerRule<IOverrideThrottleAction> checkerRule);
+
+  public void addParameterActionCheckerRule(ICheckerRule<IParameterAction> checkerRule);
+
+  public void addParameterAddValueRuleCheckerRule(ICheckerRule<IParameterAddValueRule> checkerRule);
+
+  public void addParameterAssignmentCheckerRule(ICheckerRule<IParameterAssignment> checkerRule);
+
+  public void addParameterConditionCheckerRule(ICheckerRule<IParameterCondition> checkerRule);
+
+  public void addParameterDeclarationCheckerRule(ICheckerRule<IParameterDeclaration> checkerRule);
+
+  public void addParameterModifyActionCheckerRule(ICheckerRule<IParameterModifyAction> checkerRule);
+
+  public void addParameterMultiplyByValueRuleCheckerRule(
+      ICheckerRule<IParameterMultiplyByValueRule> checkerRule);
+
+  public void addParameterSetActionCheckerRule(ICheckerRule<IParameterSetAction> checkerRule);
+
+  public void addPedestrianCheckerRule(ICheckerRule<IPedestrian> checkerRule);
+
+  public void addPedestrianCatalogLocationCheckerRule(
+      ICheckerRule<IPedestrianCatalogLocation> checkerRule);
+
+  public void addPerformanceCheckerRule(ICheckerRule<IPerformance> checkerRule);
+
+  public void addPhaseCheckerRule(ICheckerRule<IPhase> checkerRule);
+
+  public void addPolylineCheckerRule(ICheckerRule<IPolyline> checkerRule);
+
+  public void addPositionCheckerRule(ICheckerRule<IPosition> checkerRule);
+
+  public void addPositionInLaneCoordinatesCheckerRule(
+      ICheckerRule<IPositionInLaneCoordinates> checkerRule);
+
+  public void addPositionInRoadCoordinatesCheckerRule(
+      ICheckerRule<IPositionInRoadCoordinates> checkerRule);
+
+  public void addPositionOfCurrentEntityCheckerRule(
+      ICheckerRule<IPositionOfCurrentEntity> checkerRule);
+
+  public void addPrecipitationCheckerRule(ICheckerRule<IPrecipitation> checkerRule);
+
+  public void addPrivateCheckerRule(ICheckerRule<IPrivate> checkerRule);
+
+  public void addPrivateActionCheckerRule(ICheckerRule<IPrivateAction> checkerRule);
+
+  public void addPropertiesCheckerRule(ICheckerRule<IProperties> checkerRule);
+
+  public void addPropertyCheckerRule(ICheckerRule<IProperty> checkerRule);
+
+  public void addReachPositionConditionCheckerRule(
+      ICheckerRule<IReachPositionCondition> checkerRule);
+
+  public void addRelativeDistanceConditionCheckerRule(
+      ICheckerRule<IRelativeDistanceCondition> checkerRule);
+
+  public void addRelativeLanePositionCheckerRule(ICheckerRule<IRelativeLanePosition> checkerRule);
+
+  public void addRelativeObjectPositionCheckerRule(
+      ICheckerRule<IRelativeObjectPosition> checkerRule);
+
+  public void addRelativeRoadPositionCheckerRule(ICheckerRule<IRelativeRoadPosition> checkerRule);
+
+  public void addRelativeSpeedConditionCheckerRule(
+      ICheckerRule<IRelativeSpeedCondition> checkerRule);
+
+  public void addRelativeSpeedToMasterCheckerRule(ICheckerRule<IRelativeSpeedToMaster> checkerRule);
+
+  public void addRelativeTargetLaneCheckerRule(ICheckerRule<IRelativeTargetLane> checkerRule);
+
+  public void addRelativeTargetLaneOffsetCheckerRule(
+      ICheckerRule<IRelativeTargetLaneOffset> checkerRule);
+
+  public void addRelativeTargetSpeedCheckerRule(ICheckerRule<IRelativeTargetSpeed> checkerRule);
+
+  public void addRelativeWorldPositionCheckerRule(ICheckerRule<IRelativeWorldPosition> checkerRule);
+
+  public void addRoadConditionCheckerRule(ICheckerRule<IRoadCondition> checkerRule);
+
+  public void addRoadNetworkCheckerRule(ICheckerRule<IRoadNetwork> checkerRule);
+
+  public void addRoadPositionCheckerRule(ICheckerRule<IRoadPosition> checkerRule);
+
+  public void addRouteCheckerRule(ICheckerRule<IRoute> checkerRule);
+
+  public void addRouteCatalogLocationCheckerRule(ICheckerRule<IRouteCatalogLocation> checkerRule);
+
+  public void addRoutePositionCheckerRule(ICheckerRule<IRoutePosition> checkerRule);
+
+  public void addRouteRefCheckerRule(ICheckerRule<IRouteRef> checkerRule);
+
+  public void addRoutingActionCheckerRule(ICheckerRule<IRoutingAction> checkerRule);
+
+  public void addScenarioDefinitionCheckerRule(ICheckerRule<IScenarioDefinition> checkerRule);
+
+  public void addScenarioObjectCheckerRule(ICheckerRule<IScenarioObject> checkerRule);
+
+  public void addSelectedEntitiesCheckerRule(ICheckerRule<ISelectedEntities> checkerRule);
+
+  public void addShapeCheckerRule(ICheckerRule<IShape> checkerRule);
+
+  public void addSimulationTimeConditionCheckerRule(
+      ICheckerRule<ISimulationTimeCondition> checkerRule);
+
+  public void addSpeedActionCheckerRule(ICheckerRule<ISpeedAction> checkerRule);
+
+  public void addSpeedActionTargetCheckerRule(ICheckerRule<ISpeedActionTarget> checkerRule);
+
+  public void addSpeedConditionCheckerRule(ICheckerRule<ISpeedCondition> checkerRule);
+
+  public void addStandStillConditionCheckerRule(ICheckerRule<IStandStillCondition> checkerRule);
+
+  public void addStoryCheckerRule(ICheckerRule<IStory> checkerRule);
+
+  public void addStoryboardCheckerRule(ICheckerRule<IStoryboard> checkerRule);
+
+  public void addStoryboardElementStateConditionCheckerRule(
+      ICheckerRule<IStoryboardElementStateCondition> checkerRule);
+
+  public void addSunCheckerRule(ICheckerRule<ISun> checkerRule);
+
+  public void addSynchronizeActionCheckerRule(ICheckerRule<ISynchronizeAction> checkerRule);
+
+  public void addTeleportActionCheckerRule(ICheckerRule<ITeleportAction> checkerRule);
+
+  public void addTimeHeadwayConditionCheckerRule(ICheckerRule<ITimeHeadwayCondition> checkerRule);
+
+  public void addTimeOfDayCheckerRule(ICheckerRule<ITimeOfDay> checkerRule);
+
+  public void addTimeOfDayConditionCheckerRule(ICheckerRule<ITimeOfDayCondition> checkerRule);
+
+  public void addTimeReferenceCheckerRule(ICheckerRule<ITimeReference> checkerRule);
+
+  public void addTimeToCollisionConditionCheckerRule(
+      ICheckerRule<ITimeToCollisionCondition> checkerRule);
+
+  public void addTimeToCollisionConditionTargetCheckerRule(
+      ICheckerRule<ITimeToCollisionConditionTarget> checkerRule);
+
+  public void addTimingCheckerRule(ICheckerRule<ITiming> checkerRule);
+
+  public void addTrafficActionCheckerRule(ICheckerRule<ITrafficAction> checkerRule);
+
+  public void addTrafficDefinitionCheckerRule(ICheckerRule<ITrafficDefinition> checkerRule);
+
+  public void addTrafficSignalActionCheckerRule(ICheckerRule<ITrafficSignalAction> checkerRule);
+
+  public void addTrafficSignalConditionCheckerRule(
+      ICheckerRule<ITrafficSignalCondition> checkerRule);
+
+  public void addTrafficSignalControllerCheckerRule(
+      ICheckerRule<ITrafficSignalController> checkerRule);
+
+  public void addTrafficSignalControllerActionCheckerRule(
+      ICheckerRule<ITrafficSignalControllerAction> checkerRule);
+
+  public void addTrafficSignalControllerConditionCheckerRule(
+      ICheckerRule<ITrafficSignalControllerCondition> checkerRule);
+
+  public void addTrafficSignalStateCheckerRule(ICheckerRule<ITrafficSignalState> checkerRule);
+
+  public void addTrafficSignalStateActionCheckerRule(
+      ICheckerRule<ITrafficSignalStateAction> checkerRule);
+
+  public void addTrafficSinkActionCheckerRule(ICheckerRule<ITrafficSinkAction> checkerRule);
+
+  public void addTrafficSourceActionCheckerRule(ICheckerRule<ITrafficSourceAction> checkerRule);
+
+  public void addTrafficSwarmActionCheckerRule(ICheckerRule<ITrafficSwarmAction> checkerRule);
+
+  public void addTrajectoryCheckerRule(ICheckerRule<ITrajectory> checkerRule);
+
+  public void addTrajectoryCatalogLocationCheckerRule(
+      ICheckerRule<ITrajectoryCatalogLocation> checkerRule);
+
+  public void addTrajectoryFollowingModeCheckerRule(
+      ICheckerRule<ITrajectoryFollowingMode> checkerRule);
+
+  public void addTransitionDynamicsCheckerRule(ICheckerRule<ITransitionDynamics> checkerRule);
+
+  public void addTraveledDistanceConditionCheckerRule(
+      ICheckerRule<ITraveledDistanceCondition> checkerRule);
+
+  public void addTriggerCheckerRule(ICheckerRule<ITrigger> checkerRule);
+
+  public void addTriggeringEntitiesCheckerRule(ICheckerRule<ITriggeringEntities> checkerRule);
+
+  public void addUserDefinedActionCheckerRule(ICheckerRule<IUserDefinedAction> checkerRule);
+
+  public void addUserDefinedValueConditionCheckerRule(
+      ICheckerRule<IUserDefinedValueCondition> checkerRule);
+
+  public void addVehicleCheckerRule(ICheckerRule<IVehicle> checkerRule);
+
+  public void addVehicleCatalogLocationCheckerRule(
+      ICheckerRule<IVehicleCatalogLocation> checkerRule);
+
+  public void addVehicleCategoryDistributionCheckerRule(
+      ICheckerRule<IVehicleCategoryDistribution> checkerRule);
+
+  public void addVehicleCategoryDistributionEntryCheckerRule(
+      ICheckerRule<IVehicleCategoryDistributionEntry> checkerRule);
+
+  public void addVertexCheckerRule(ICheckerRule<IVertex> checkerRule);
+
+  public void addVisibilityActionCheckerRule(ICheckerRule<IVisibilityAction> checkerRule);
+
+  public void addWaypointCheckerRule(ICheckerRule<IWaypoint> checkerRule);
+
+  public void addWeatherCheckerRule(ICheckerRule<IWeather> checkerRule);
+
+  public void addWorldPositionCheckerRule(ICheckerRule<IWorldPosition> checkerRule);
 }
