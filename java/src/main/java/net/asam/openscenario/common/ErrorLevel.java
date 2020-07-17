@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -19,40 +19,38 @@ package net.asam.openscenario.common;
 
 /**
  * Error Levels for Parsing and checking
- * <ul>
- * <li>FATAL - Fatal error that stops the whole loading process
- * <li>ERROR - Error that makes the loading results unusable but the loading
- * process can continue to find additional errors and warnings.
- * <li>WARNING - Warnings are errors that most likely have been corrected by the
- * loader.
- * <li>INFO - Informations for the loader process.
- * <li>DEBUG - Debug information to trace the loading process.
- * 
- * </ul>
- * 
- * @author Andreas Hege - RA Consulting
  *
+ * <ul>
+ *   <li>FATAL - Fatal error that stops the whole loading process
+ *   <li>ERROR - Error that makes the loading results unusable but the loading process can continue
+ *       to find additional errors and warnings.
+ *   <li>WARNING - Warnings are errors that most likely have been corrected by the loader.
+ *   <li>INFO - Informations for the loader process.
+ *   <li>DEBUG - Debug information to trace the loading process.
+ * </ul>
+ *
+ * @author Andreas Hege - RA Consulting
  */
-public enum ErrorLevel implements Comparable<ErrorLevel>
-{
+public enum ErrorLevel implements Comparable<ErrorLevel> {
+  FATAL(5),
+  ERROR(4),
+  WARNING(3),
+  INFO(2),
+  DEBUG(1);
 
-  FATAL(5), ERROR(4), WARNING(3), INFO(2), DEBUG(1);
+  public int severity;
 
-  public  int severity;
-
-  private ErrorLevel(int severity)
-  {
+  private ErrorLevel(int severity) {
     this.severity = severity;
   }
-  
+
   /**
    * Compares two error levels
+   *
    * @param other error level
    * @return true if this errorLevel is worse than other error level
    */
   public boolean isWorseOrEqualThan(ErrorLevel other) {
     return this.severity >= other.severity;
   }
-
-  
 }

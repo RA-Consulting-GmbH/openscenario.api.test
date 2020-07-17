@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,245 +16,218 @@
  */
 package net.asam.openscenario.v1_0.parser.xml;
 
-import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.v1_0.common.OscConstants;
-import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.parser.ParserContext;
-import net.asam.openscenario.v1_0.parser.CatalogReferenceParserContext;
-import net.asam.openscenario.common.FileContentMessage;
-import net.asam.xml.indexer.Position;
-import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.common.ErrorLevel;
+import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
-
-import net.asam.openscenario.v1_0.impl.ShapeImpl;
+import java.util.Map;
+import net.asam.openscenario.common.ErrorLevel;
+import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.parser.ParserContext;
+import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
+import net.asam.openscenario.parser.type.XmlComplexTypeParser;
+import net.asam.openscenario.simple.struct.IndexedElement;
+import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ClothoidImpl;
 import net.asam.openscenario.v1_0.impl.NurbsImpl;
 import net.asam.openscenario.v1_0.impl.PolylineImpl;
-
-
-import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
-import java.util.Map;
-import java.util.Hashtable;
-import java.util.ArrayList;
-import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-
+import net.asam.openscenario.v1_0.impl.ShapeImpl;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  * Filling a ShapeImpl instance from an xml tree.
- * 
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
+ */
 public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
 
-	/**
-	 * Constructor
-	 * @param messageLogger to log messages during parsing
-	 * @param filename to locate the messages in a file
-	 */
-	public ShapeXmlParser(IParserMessageLogger messageLogger, String filename) {
-		super(messageLogger, filename);
-		subElementParser = new SubElementParser(messageLogger, filename);
-	}
-	@Override
-	public void parseElement(IndexedElement indexedElement, ParserContext parserContext,ShapeImpl object) {
-		messageLogger.logMessage(new FileContentMessage("Start Parsing Shape", ErrorLevel.DEBUG, new Textmarker(indexedElement.getStartElementLocation().getLine(), indexedElement.getStartElementLocation().getColumn(), filename))); 
-		super.parseElement(indexedElement,  parserContext, object);
-		messageLogger.logMessage(new FileContentMessage("End Parsing Shape", ErrorLevel.DEBUG, new Textmarker(indexedElement.getEndElementLocation().getLine(), indexedElement.getEndElementLocation().getColumn(), filename))); 
-	
-	}			
-	
-	@Override
-	protected  Map<String, IAttributeParser<ShapeImpl>> getAttributeNameToAttributeParserMap()
-	{
-		Map<String, IAttributeParser<ShapeImpl>> result  = new Hashtable<String, IAttributeParser<ShapeImpl>>();
-		return result;
-	}
+  /**
+   * Constructor
+   *
+   * @param messageLogger to log messages during parsing
+   * @param filename to locate the messages in a file
+   */
+  public ShapeXmlParser(IParserMessageLogger messageLogger, String filename) {
+    super(messageLogger, filename);
+    subElementParser = new SubElementParser(messageLogger, filename);
+  }
 
-	/**
-	 * Parser for all subelements
-	 */
-	private class SubElementParser extends XmlChoiceParser<ShapeImpl>{
-		/**
-		 * Constructor
-		 * @param messageLogger to log messages during parsing
-		 * @param filename to locate the messages in a file
-		 */
-		public SubElementParser (IParserMessageLogger messageLogger, String filename) {
-			super( messageLogger, filename);	
-		}
-		/*
-		 * Creates a list of parser
-		 */
-		protected  List<IElementParser<ShapeImpl>> createParserList()
-		{
-			List<IElementParser<ShapeImpl>> result = new ArrayList<IElementParser<ShapeImpl>>();
-			result.add(new SubElementPolylineParser());
-			result.add(new SubElementClothoidParser());
-			result.add(new SubElementNurbsParser());
-			return result;
-		
-		}	
-	}
-	/**
-	 * A parser for subelement polyline
-	 */
-	private class SubElementPolylineParser implements IElementParser<ShapeImpl> {
-	
-		/**
-		 * Constructor
-		 */
-		public SubElementPolylineParser()
-		{
-			super();
-			polylineXmlParser = new PolylineXmlParser(messageLogger, filename);
-		}
-		private PolylineXmlParser polylineXmlParser;
-		
-		@Override
-		public void parse(IndexedElement indexedElement, ParserContext parserContext,ShapeImpl object)
-		{
-			PolylineImpl polyline = new PolylineImpl();
-			// Setting the parent
-			polyline.setParent(object);
-			polylineXmlParser.parseElement(indexedElement,parserContext, polyline);
+  @Override
+  public void parseElement(
+      IndexedElement indexedElement, ParserContext parserContext, ShapeImpl object) {
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "Start Parsing Shape",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getStartElementLocation().getLine(),
+                indexedElement.getStartElementLocation().getColumn(),
+                filename)));
+    super.parseElement(indexedElement, parserContext, object);
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "End Parsing Shape",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getEndElementLocation().getLine(),
+                indexedElement.getEndElementLocation().getColumn(),
+                filename)));
+  }
 
-			object.setPolyline( polyline);
-			
-		}
+  @Override
+  protected Map<String, IAttributeParser<ShapeImpl>> getAttributeNameToAttributeParserMap() {
+    Map<String, IAttributeParser<ShapeImpl>> result =
+        new Hashtable<String, IAttributeParser<ShapeImpl>>();
+    return result;
+  }
 
-		@Override
-		public int getMinOccur()
-		{
-			return 0;
-		}
-		
-		@Override
-		public int getMaxOccur()
-		{
-			return 1;
-		}
-		
-		@Override
-		public boolean doesMatch(String elementName)
-		{
-			return
-				elementName.equals(OscConstants.ELEMENT__POLYLINE) ;
-		}
-		
-		@Override
-		public String[] getExpectedTagNames()
-		{		 	return new String[]{
-				OscConstants.ELEMENT__POLYLINE
-					};
-		}
-	}
-	/**
-	 * A parser for subelement clothoid
-	 */
-	private class SubElementClothoidParser implements IElementParser<ShapeImpl> {
-	
-		/**
-		 * Constructor
-		 */
-		public SubElementClothoidParser()
-		{
-			super();
-			clothoidXmlParser = new ClothoidXmlParser(messageLogger, filename);
-		}
-		private ClothoidXmlParser clothoidXmlParser;
-		
-		@Override
-		public void parse(IndexedElement indexedElement, ParserContext parserContext,ShapeImpl object)
-		{
-			ClothoidImpl clothoid = new ClothoidImpl();
-			// Setting the parent
-			clothoid.setParent(object);
-			clothoidXmlParser.parseElement(indexedElement,parserContext, clothoid);
+  /** Parser for all subelements */
+  private class SubElementParser extends XmlChoiceParser<ShapeImpl> {
+    /**
+     * Constructor
+     *
+     * @param messageLogger to log messages during parsing
+     * @param filename to locate the messages in a file
+     */
+    public SubElementParser(IParserMessageLogger messageLogger, String filename) {
+      super(messageLogger, filename);
+    }
+    /*
+     * Creates a list of parser
+     */
+    protected List<IElementParser<ShapeImpl>> createParserList() {
+      List<IElementParser<ShapeImpl>> result = new ArrayList<IElementParser<ShapeImpl>>();
+      result.add(new SubElementPolylineParser());
+      result.add(new SubElementClothoidParser());
+      result.add(new SubElementNurbsParser());
+      return result;
+    }
+  }
+  /** A parser for subelement polyline */
+  private class SubElementPolylineParser implements IElementParser<ShapeImpl> {
 
-			object.setClothoid( clothoid);
-			
-		}
+    /** Constructor */
+    public SubElementPolylineParser() {
+      super();
+      polylineXmlParser = new PolylineXmlParser(messageLogger, filename);
+    }
 
-		@Override
-		public int getMinOccur()
-		{
-			return 0;
-		}
-		
-		@Override
-		public int getMaxOccur()
-		{
-			return 1;
-		}
-		
-		@Override
-		public boolean doesMatch(String elementName)
-		{
-			return
-				elementName.equals(OscConstants.ELEMENT__CLOTHOID) ;
-		}
-		
-		@Override
-		public String[] getExpectedTagNames()
-		{		 	return new String[]{
-				OscConstants.ELEMENT__CLOTHOID
-					};
-		}
-	}
-	/**
-	 * A parser for subelement nurbs
-	 */
-	private class SubElementNurbsParser implements IElementParser<ShapeImpl> {
-	
-		/**
-		 * Constructor
-		 */
-		public SubElementNurbsParser()
-		{
-			super();
-			nurbsXmlParser = new NurbsXmlParser(messageLogger, filename);
-		}
-		private NurbsXmlParser nurbsXmlParser;
-		
-		@Override
-		public void parse(IndexedElement indexedElement, ParserContext parserContext,ShapeImpl object)
-		{
-			NurbsImpl nurbs = new NurbsImpl();
-			// Setting the parent
-			nurbs.setParent(object);
-			nurbsXmlParser.parseElement(indexedElement,parserContext, nurbs);
+    private PolylineXmlParser polylineXmlParser;
 
-			object.setNurbs( nurbs);
-			
-		}
+    @Override
+    public void parse(
+        IndexedElement indexedElement, ParserContext parserContext, ShapeImpl object) {
+      PolylineImpl polyline = new PolylineImpl();
+      // Setting the parent
+      polyline.setParent(object);
+      polylineXmlParser.parseElement(indexedElement, parserContext, polyline);
 
-		@Override
-		public int getMinOccur()
-		{
-			return 0;
-		}
-		
-		@Override
-		public int getMaxOccur()
-		{
-			return 1;
-		}
-		
-		@Override
-		public boolean doesMatch(String elementName)
-		{
-			return
-				elementName.equals(OscConstants.ELEMENT__NURBS) ;
-		}
-		
-		@Override
-		public String[] getExpectedTagNames()
-		{		 	return new String[]{
-				OscConstants.ELEMENT__NURBS
-					};
-		}
-	}
+      object.setPolyline(polyline);
+    }
+
+    @Override
+    public int getMinOccur() {
+      return 0;
+    }
+
+    @Override
+    public int getMaxOccur() {
+      return 1;
+    }
+
+    @Override
+    public boolean doesMatch(String elementName) {
+      return elementName.equals(OscConstants.ELEMENT__POLYLINE);
+    }
+
+    @Override
+    public String[] getExpectedTagNames() {
+      return new String[] {OscConstants.ELEMENT__POLYLINE};
+    }
+  }
+  /** A parser for subelement clothoid */
+  private class SubElementClothoidParser implements IElementParser<ShapeImpl> {
+
+    /** Constructor */
+    public SubElementClothoidParser() {
+      super();
+      clothoidXmlParser = new ClothoidXmlParser(messageLogger, filename);
+    }
+
+    private ClothoidXmlParser clothoidXmlParser;
+
+    @Override
+    public void parse(
+        IndexedElement indexedElement, ParserContext parserContext, ShapeImpl object) {
+      ClothoidImpl clothoid = new ClothoidImpl();
+      // Setting the parent
+      clothoid.setParent(object);
+      clothoidXmlParser.parseElement(indexedElement, parserContext, clothoid);
+
+      object.setClothoid(clothoid);
+    }
+
+    @Override
+    public int getMinOccur() {
+      return 0;
+    }
+
+    @Override
+    public int getMaxOccur() {
+      return 1;
+    }
+
+    @Override
+    public boolean doesMatch(String elementName) {
+      return elementName.equals(OscConstants.ELEMENT__CLOTHOID);
+    }
+
+    @Override
+    public String[] getExpectedTagNames() {
+      return new String[] {OscConstants.ELEMENT__CLOTHOID};
+    }
+  }
+  /** A parser for subelement nurbs */
+  private class SubElementNurbsParser implements IElementParser<ShapeImpl> {
+
+    /** Constructor */
+    public SubElementNurbsParser() {
+      super();
+      nurbsXmlParser = new NurbsXmlParser(messageLogger, filename);
+    }
+
+    private NurbsXmlParser nurbsXmlParser;
+
+    @Override
+    public void parse(
+        IndexedElement indexedElement, ParserContext parserContext, ShapeImpl object) {
+      NurbsImpl nurbs = new NurbsImpl();
+      // Setting the parent
+      nurbs.setParent(object);
+      nurbsXmlParser.parseElement(indexedElement, parserContext, nurbs);
+
+      object.setNurbs(nurbs);
+    }
+
+    @Override
+    public int getMinOccur() {
+      return 0;
+    }
+
+    @Override
+    public int getMaxOccur() {
+      return 1;
+    }
+
+    @Override
+    public boolean doesMatch(String elementName) {
+      return elementName.equals(OscConstants.ELEMENT__NURBS);
+    }
+
+    @Override
+    public String[] getExpectedTagNames() {
+      return new String[] {OscConstants.ELEMENT__NURBS};
+    }
+  }
 }
-

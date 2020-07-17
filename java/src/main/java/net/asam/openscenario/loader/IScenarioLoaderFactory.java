@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -14,20 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package net.asam.openscenario.loader;
 
 /**
- * A factory to create a IScenarioLoader. A factory assembles the parts for a IScenarioLoader implementation.
- * @author Andreas Hege - RA Consulting
+ * A factory to create a IScenarioLoader. A factory assembles the parts for a IScenarioLoader
+ * implementation.
  *
+ * @author Andreas Hege - RA Consulting
  */
 public interface IScenarioLoaderFactory {
 
-	/**
-	 * Assembles a loader with a specific resource locator
-	 * @param resourceLocator a resource locator to resolve the resources.
-	 * @return a assembled loader.
-	 */
-	public IScenarioLoader createLoader(IResourceLocator resourceLocator);
+  /**
+   * Assembles a loader with a specific resource locator
+   *
+   * @param resourceLocator a resource locator to resolve the resources.
+   * @return a assembled loader.
+   */
+  public IScenarioLoader createLoader(IResourceLocator resourceLocator);
 }

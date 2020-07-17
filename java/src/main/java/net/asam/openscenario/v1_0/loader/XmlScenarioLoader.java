@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -55,12 +55,10 @@ import net.asam.xml.indexer.grammar.XMLParser;
 
 /**
  * A loader for a scenario from XML
- * 
- * @author Andreas Hege - RA Consulting
  *
+ * @author Andreas Hege - RA Consulting
  */
-public class XmlScenarioLoader implements IScenarioLoader
-{
+public class XmlScenarioLoader implements IScenarioLoader {
 
   private String filename;
 
@@ -68,12 +66,11 @@ public class XmlScenarioLoader implements IScenarioLoader
 
   /**
    * Constructor
-   * 
+   *
    * @param filename symbolic filename of the scenario
    * @param resourceLocator locator abstracting from storage.
    */
-  protected XmlScenarioLoader(String filename, IResourceLocator resourceLocator)
-  {
+  protected XmlScenarioLoader(String filename, IResourceLocator resourceLocator) {
     super();
     this.filename = filename;
     this.resourceLocator = resourceLocator;
@@ -81,37 +78,34 @@ public class XmlScenarioLoader implements IScenarioLoader
 
   /**
    * The resource locator of the loader
-   * 
+   *
    * @return the resource locator
    */
-  public IResourceLocator getResourceLocator()
-  {
+  public IResourceLocator getResourceLocator() {
     return resourceLocator;
   }
 
   /**
    * The filename od the loader
-   * 
+   *
    * @return the filename
    */
-  public String getFilename()
-  {
+  public String getFilename() {
     return filename;
   }
 
   @Override
-  public IOpenScenarioModelElement load(IParserMessageLogger messageLogger) throws ScenarioLoaderException
-  {
+  public IOpenScenarioModelElement load(IParserMessageLogger messageLogger)
+      throws ScenarioLoaderException {
     return load(messageLogger, null);
   }
 
   @Override
-  public IOpenScenarioModelElement load(IParserMessageLogger messageLogger, Map<String, String> injectedParameters)
-      throws ScenarioLoaderException
-  {
+  public IOpenScenarioModelElement load(
+      IParserMessageLogger messageLogger, Map<String, String> injectedParameters)
+      throws ScenarioLoaderException {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    try
-    {
+    try {
       InputStream inputStream = resourceLocator.getInputStream(filename);
       DocumentBuilder dBuilder;
       dBuilder = factory.newDocumentBuilder();
@@ -129,10 +123,12 @@ public class XmlScenarioLoader implements IScenarioLoader
       parser.document();
       PositionIndex positionIndex = parser.getPositionIndex();
       // Get simple structure from dom and antlr results
-      XmlToSimpleNodeConverter xmlToSimpleNodeConverter = new XmlToSimpleNodeConverter(positionIndex);
+      XmlToSimpleNodeConverter xmlToSimpleNodeConverter =
+          new XmlToSimpleNodeConverter(positionIndex);
       IndexedElement indexedElement = xmlToSimpleNodeConverter.convert(doc);
       // Finally do parsing from dom result
-      OpenScenarioXmlParser openScenarioXmlParser = new OpenScenarioXmlParser(messageLogger, filename);
+      OpenScenarioXmlParser openScenarioXmlParser =
+          new OpenScenarioXmlParser(messageLogger, filename);
 
       OpenScenarioImpl openScenarioImpl = new OpenScenarioImpl();
       ParserContext parserContext = new CatalogReferenceParserContext();
@@ -142,21 +138,17 @@ public class XmlScenarioLoader implements IScenarioLoader
       openScenarioImpl.addAdapter(IScenarioChecker.class, new ScenarioCheckerImpl());
       inputStream.close();
       return openScenarioImpl;
-    }
-    catch (ParserConfigurationException | IOException e)
-    {
+    } catch (ParserConfigurationException | IOException e) {
       throw new ScenarioLoaderException("Internal Parser Exception", e);
-    }
-    catch (SAXParseException e)
-    {
-      messageLogger.logMessage(new FileContentMessage(e.getMessage(), ErrorLevel.FATAL,
-          new Textmarker(e.getLineNumber() - 1, e.getColumnNumber() - 1, filename)));
-    }
-    catch (SAXException e)
-    {
+    } catch (SAXParseException e) {
+      messageLogger.logMessage(
+          new FileContentMessage(
+              e.getMessage(),
+              ErrorLevel.FATAL,
+              new Textmarker(e.getLineNumber() - 1, e.getColumnNumber() - 1, filename)));
+    } catch (SAXException e) {
       throw new ScenarioLoaderException("Severe parser exception", e);
     }
     return null;
   }
-
 }

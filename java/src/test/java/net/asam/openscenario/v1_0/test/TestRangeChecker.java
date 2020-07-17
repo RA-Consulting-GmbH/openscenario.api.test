@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package net.asam.openscenario.v1_0.test;
 
 import java.util.ArrayList;
@@ -33,55 +33,61 @@ import net.asam.openscenario.v1_0.checker.range.RangeCheckerHelper;
 
 public class TestRangeChecker extends TestBase {
 
+  private void applyCheckerRules(IOpenScenario openScenario) {
+    ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
+    RangeCheckerHelper.addAllRangeCheckerRules(scenarioChecker);
+    scenarioChecker.checkScenario(messageLogger, openScenario);
+  }
 
-	private void applyCheckerRules( IOpenScenario openScenario)
-	{
-		ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
-		RangeCheckerHelper.addAllRangeCheckerRules(scenarioChecker);
-		scenarioChecker.checkScenario(messageLogger, openScenario);
-	}
+  @Test
+  public void testParamsFailure() {
+    try {
+      String filename = getResourceFile("DoubleLaneChangerCheckerErrors.xosc").getAbsolutePath();
+      IOpenScenario openScenario = executeParsing(filename);
+      applyCheckerRules(openScenario);
+      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 
-	@Test
-	public void testParamsFailure() {
-		try {
-			String filename = getResourceFile( "DoubleLaneChangerCheckerErrors.xosc").getAbsolutePath();
-			IOpenScenario openScenario=executeParsing(filename);
-			applyCheckerRules(openScenario);
-			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
-	
+      messages.add(
+          new FileContentMessage(
+              "Range error: Rule (maxAcceleration>=0) is violated (value: -2.0)",
+              ErrorLevel.ERROR,
+              new Textmarker(58, 57, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Range error: Rule (maxDeceleration>=0) is violated (value: -10.0)",
+              ErrorLevel.ERROR,
+              new Textmarker(58, 20, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Range error: Rule (maxSteering<=PI) is violated (value: 7.0)",
+              ErrorLevel.ERROR,
+              new Textmarker(60, 75, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Range error: Rule (wheelDiameter>0) is violated (value: -12.0)",
+              ErrorLevel.ERROR,
+              new Textmarker(60, 55, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Range error: Rule (trackWidth>=0) is violated (value: -12.0)",
+              ErrorLevel.ERROR,
+              new Textmarker(60, 38, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Range error: Rule (positionX>=0) is violated (value: -2.0)",
+              ErrorLevel.ERROR,
+              new Textmarker(60, 91, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Range error: Rule (positionZ>=0) is violated (value: -13.0)",
+              ErrorLevel.ERROR,
+              new Textmarker(60, 22, filename)));
 
-			messages.add(new FileContentMessage(
-					"Range error: Rule (maxAcceleration>=0) is violated (value: -2.0)",
-					ErrorLevel.ERROR, new Textmarker(58, 57, filename)));
-			messages.add(new FileContentMessage(
-					"Range error: Rule (maxDeceleration>=0) is violated (value: -10.0)",
-					ErrorLevel.ERROR, new Textmarker(58, 20, filename)));
-			messages.add(new FileContentMessage(
-					"Range error: Rule (maxSteering<=PI) is violated (value: 7.0)",
-					ErrorLevel.ERROR, new Textmarker(60, 75, filename)));
-			messages.add(new FileContentMessage(
-					"Range error: Rule (wheelDiameter>0) is violated (value: -12.0)",
-					ErrorLevel.ERROR, new Textmarker(60, 55, filename)));
-			messages.add(new FileContentMessage(
-					"Range error: Rule (trackWidth>=0) is violated (value: -12.0)",
-					ErrorLevel.ERROR, new Textmarker(60, 38, filename)));
-			messages.add(new FileContentMessage(
-					"Range error: Rule (positionX>=0) is violated (value: -2.0)",
-					ErrorLevel.ERROR, new Textmarker(60, 91, filename)));
-			messages.add(new FileContentMessage(
-					"Range error: Rule (positionZ>=0) is violated (value: -13.0)",
-					ErrorLevel.ERROR, new Textmarker(60,22, filename)));
-			
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
 
-			Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
-
-		} catch (ScenarioLoaderException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	
-
-	
+    } catch (ScenarioLoaderException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
 }

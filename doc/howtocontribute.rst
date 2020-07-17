@@ -84,6 +84,10 @@ If you want to be reminded to add the sign-off for commits in your repository, y
 
 Placing this script into a file called ``.git/hooks/commit-msg`` and making it executable (e.g. using ``chmod a+x .git/hooks/commit-msg`` on unixoid operating systems) will prevent commits without a sign-off.
 
+Formatting issues
+-----------------
+
+For java code, the usage of the `google formatter<https://github.com/google/google-java-format>`_ is mandatory.
 
 Reporting issues
 ----------------

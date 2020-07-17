@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,31 +16,29 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Defines the day and time.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: Defines the day and time.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface ITimeOfDay extends IOpenScenarioModelElement{
+ */
+public interface ITimeOfDay extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * If true, the timeofday is animated with progressing simulation time, e.g. in order to animate the position of the sun.
-	 * 
-	 * @return value of model property animation
-	*/
-	public Boolean getAnimation();
+  /**
+   * From OpenSCENARIO class model specification: If true, the timeofday is animated with
+   * progressing simulation time, e.g. in order to animate the position of the sun.
+   *
+   * @return value of model property animation
+   */
+  public Boolean getAnimation();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Datetime value.
-	 * 
-	 * @return value of model property dateTime
-	*/
-	public java.util.Date getDateTime();
+  /**
+   * From OpenSCENARIO class model specification: Datetime value.
+   *
+   * @return value of model property dateTime
+   */
+  public java.util.Date getDateTime();
 }

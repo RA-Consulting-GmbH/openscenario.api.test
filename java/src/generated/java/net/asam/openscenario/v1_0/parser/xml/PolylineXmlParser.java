@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,141 +16,135 @@
  */
 package net.asam.openscenario.v1_0.parser.xml;
 
-import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.v1_0.common.OscConstants;
-import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.parser.ParserContext;
-import net.asam.openscenario.v1_0.parser.CatalogReferenceParserContext;
-import net.asam.openscenario.common.FileContentMessage;
-import net.asam.xml.indexer.Position;
-import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.common.ErrorLevel;
-import java.util.List;
-import net.asam.openscenario.v1_0.api.IVertex;
-
-import net.asam.openscenario.v1_0.impl.VertexImpl;
-import net.asam.openscenario.v1_0.impl.PolylineImpl;
-
-
-import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
-import java.util.Map;
-import java.util.Hashtable;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+import net.asam.openscenario.common.ErrorLevel;
+import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.parser.ParserContext;
+import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-
+import net.asam.openscenario.simple.struct.IndexedElement;
+import net.asam.openscenario.v1_0.api.IVertex;
+import net.asam.openscenario.v1_0.common.OscConstants;
+import net.asam.openscenario.v1_0.impl.PolylineImpl;
+import net.asam.openscenario.v1_0.impl.VertexImpl;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  * Filling a PolylineImpl instance from an xml tree.
- * 
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
+ */
 public class PolylineXmlParser extends XmlComplexTypeParser<PolylineImpl> {
 
-	/**
-	 * Constructor
-	 * @param messageLogger to log messages during parsing
-	 * @param filename to locate the messages in a file
-	 */
-	public PolylineXmlParser(IParserMessageLogger messageLogger, String filename) {
-		super(messageLogger, filename);
-		subElementParser = new SubElementParser(messageLogger, filename);
-	}
-	@Override
-	public void parseElement(IndexedElement indexedElement, ParserContext parserContext,PolylineImpl object) {
-		messageLogger.logMessage(new FileContentMessage("Start Parsing Polyline", ErrorLevel.DEBUG, new Textmarker(indexedElement.getStartElementLocation().getLine(), indexedElement.getStartElementLocation().getColumn(), filename))); 
-		super.parseElement(indexedElement,  parserContext, object);
-		messageLogger.logMessage(new FileContentMessage("End Parsing Polyline", ErrorLevel.DEBUG, new Textmarker(indexedElement.getEndElementLocation().getLine(), indexedElement.getEndElementLocation().getColumn(), filename))); 
-	
-	}			
-	
-	@Override
-	protected  Map<String, IAttributeParser<PolylineImpl>> getAttributeNameToAttributeParserMap()
-	{
-		Map<String, IAttributeParser<PolylineImpl>> result  = new Hashtable<String, IAttributeParser<PolylineImpl>>();
-		return result;
-	}
+  /**
+   * Constructor
+   *
+   * @param messageLogger to log messages during parsing
+   * @param filename to locate the messages in a file
+   */
+  public PolylineXmlParser(IParserMessageLogger messageLogger, String filename) {
+    super(messageLogger, filename);
+    subElementParser = new SubElementParser(messageLogger, filename);
+  }
 
-	/**
-	 * Parser for all subelements
-	 */
-	private class SubElementParser extends XmlSequenceParser<PolylineImpl>{
-		/**
-		 * Constructor
-		 * @param messageLogger to log messages during parsing
-		 * @param filename to locate the messages in a file
-		 */
-		public SubElementParser (IParserMessageLogger messageLogger, String filename) {
-			super( messageLogger, filename);	
-		}
-		/*
-		 * Creates a list of parser
-		 */
-		protected  List<IElementParser<PolylineImpl>> createParserList()
-		{
-			List<IElementParser<PolylineImpl>> result = new ArrayList<IElementParser<PolylineImpl>>();
-			result.add(new SubElementVerticesParser());
-			return result;
-		
-		}	
-	}
-	/**
-	 * A parser for subelement vertices
-	 */
-	private class SubElementVerticesParser implements IElementParser<PolylineImpl> {
-	
-		/**
-		 * Constructor
-		 */
-		public SubElementVerticesParser()
-		{
-			super();
-			vertexXmlParser = new VertexXmlParser(messageLogger, filename);
-		}
-		private VertexXmlParser vertexXmlParser;
-		
-		@Override
-		public void parse(IndexedElement indexedElement, ParserContext parserContext,PolylineImpl object)
-		{
-			VertexImpl vertices = new VertexImpl();
-			// Setting the parent
-			vertices.setParent(object);
-			vertexXmlParser.parseElement(indexedElement,parserContext, vertices);
-			List<IVertex> verticesList = object.getVertices();
-			if (verticesList == null)
-			{
-				verticesList = new ArrayList<IVertex>();
-				object.setVertices( verticesList);
-			}
-			verticesList.add(vertices);
-			
-		}
+  @Override
+  public void parseElement(
+      IndexedElement indexedElement, ParserContext parserContext, PolylineImpl object) {
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "Start Parsing Polyline",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getStartElementLocation().getLine(),
+                indexedElement.getStartElementLocation().getColumn(),
+                filename)));
+    super.parseElement(indexedElement, parserContext, object);
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "End Parsing Polyline",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getEndElementLocation().getLine(),
+                indexedElement.getEndElementLocation().getColumn(),
+                filename)));
+  }
 
-		@Override
-		public int getMinOccur()
-		{
-			return 2;
-		}
-		
-		@Override
-		public int getMaxOccur()
-		{
-			return -1;
-		}
-		
-		@Override
-		public boolean doesMatch(String elementName)
-		{
-			return
-				elementName.equals(OscConstants.ELEMENT__VERTEX) ;
-		}
-		
-		@Override
-		public String[] getExpectedTagNames()
-		{		 	return new String[]{
-				OscConstants.ELEMENT__VERTEX
-					};
-		}
-	}
+  @Override
+  protected Map<String, IAttributeParser<PolylineImpl>> getAttributeNameToAttributeParserMap() {
+    Map<String, IAttributeParser<PolylineImpl>> result =
+        new Hashtable<String, IAttributeParser<PolylineImpl>>();
+    return result;
+  }
+
+  /** Parser for all subelements */
+  private class SubElementParser extends XmlSequenceParser<PolylineImpl> {
+    /**
+     * Constructor
+     *
+     * @param messageLogger to log messages during parsing
+     * @param filename to locate the messages in a file
+     */
+    public SubElementParser(IParserMessageLogger messageLogger, String filename) {
+      super(messageLogger, filename);
+    }
+    /*
+     * Creates a list of parser
+     */
+    protected List<IElementParser<PolylineImpl>> createParserList() {
+      List<IElementParser<PolylineImpl>> result = new ArrayList<IElementParser<PolylineImpl>>();
+      result.add(new SubElementVerticesParser());
+      return result;
+    }
+  }
+  /** A parser for subelement vertices */
+  private class SubElementVerticesParser implements IElementParser<PolylineImpl> {
+
+    /** Constructor */
+    public SubElementVerticesParser() {
+      super();
+      vertexXmlParser = new VertexXmlParser(messageLogger, filename);
+    }
+
+    private VertexXmlParser vertexXmlParser;
+
+    @Override
+    public void parse(
+        IndexedElement indexedElement, ParserContext parserContext, PolylineImpl object) {
+      VertexImpl vertices = new VertexImpl();
+      // Setting the parent
+      vertices.setParent(object);
+      vertexXmlParser.parseElement(indexedElement, parserContext, vertices);
+      List<IVertex> verticesList = object.getVertices();
+      if (verticesList == null) {
+        verticesList = new ArrayList<IVertex>();
+        object.setVertices(verticesList);
+      }
+      verticesList.add(vertices);
+    }
+
+    @Override
+    public int getMinOccur() {
+      return 2;
+    }
+
+    @Override
+    public int getMaxOccur() {
+      return -1;
+    }
+
+    @Override
+    public boolean doesMatch(String elementName) {
+      return elementName.equals(OscConstants.ELEMENT__VERTEX);
+    }
+
+    @Override
+    public String[] getExpectedTagNames() {
+      return new String[] {OscConstants.ELEMENT__VERTEX};
+    }
+  }
 }
-

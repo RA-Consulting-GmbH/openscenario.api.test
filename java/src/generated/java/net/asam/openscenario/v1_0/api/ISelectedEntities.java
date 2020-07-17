@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -15,32 +15,32 @@
  * limitations under the License.
  */
 package net.asam.openscenario.v1_0.api;
-import java.util.List;
 
+import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Collection of entities that includes entities explicitly by their reference or includes the entities by their type.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: Collection of entities that includes entities
+ * explicitly by their reference or includes the entities by their type.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface ISelectedEntities extends IOpenScenarioModelElement{
+ */
+public interface ISelectedEntities extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * References to the selected entities.
-	 * 
-	 * @return value of model property entityRef
-	*/
-	public List<IEntityRef> getEntityRef();
+  /**
+   * From OpenSCENARIO class model specification: References to the selected entities.
+   *
+   * @return value of model property entityRef
+   */
+  public List<IEntityRef> getEntityRef();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Defines the type to determine that all entities of a specific type are members.
-	 * 
-	 * @return value of model property byType
-	*/
-	public List<IByType> getByType();
+  /**
+   * From OpenSCENARIO class model specification: Defines the type to determine that all entities of
+   * a specific type are members.
+   *
+   * @return value of model property byType
+   */
+  public List<IByType> getByType();
 }

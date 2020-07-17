@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,31 +16,30 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Action used to set or overwrite a signals state or a signal controllers state.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: Action used to set or overwrite a signals state
+ * or a signal controllers state.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface ITrafficSignalAction extends IOpenScenarioModelElement{
+ */
+public interface ITrafficSignalAction extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Action used to control the state of a signal.
-	 * 
-	 * @return value of model property trafficSignalControllerAction
-	*/
-	public ITrafficSignalControllerAction getTrafficSignalControllerAction();
+  /**
+   * From OpenSCENARIO class model specification: Action used to control the state of a signal.
+   *
+   * @return value of model property trafficSignalControllerAction
+   */
+  public ITrafficSignalControllerAction getTrafficSignalControllerAction();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Action used to set a specific phase of a signal controller.
-	 * 
-	 * @return value of model property trafficSignalStateAction
-	*/
-	public ITrafficSignalStateAction getTrafficSignalStateAction();
+  /**
+   * From OpenSCENARIO class model specification: Action used to set a specific phase of a signal
+   * controller.
+   *
+   * @return value of model property trafficSignalStateAction
+   */
+  public ITrafficSignalStateAction getTrafficSignalStateAction();
 }

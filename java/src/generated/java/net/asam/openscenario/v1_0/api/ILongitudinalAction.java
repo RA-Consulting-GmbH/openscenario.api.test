@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,31 +16,30 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Controls the longitudinal behavior of an entity.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: Controls the longitudinal behavior of an entity.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface ILongitudinalAction extends IOpenScenarioModelElement{
+ */
+public interface ILongitudinalAction extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * This action describes the transition between the current longitudinal speed of an entity and its target speed.
-	 * 
-	 * @return value of model property speedAction
-	*/
-	public ISpeedAction getSpeedAction();
+  /**
+   * From OpenSCENARIO class model specification: This action describes the transition between the
+   * current longitudinal speed of an entity and its target speed.
+   *
+   * @return value of model property speedAction
+   */
+  public ISpeedAction getSpeedAction();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * This Action defines a continuously kept longitudinal distance to a specific entity.
-	 * 
-	 * @return value of model property longitudinalDistanceAction
-	*/
-	public ILongitudinalDistanceAction getLongitudinalDistanceAction();
+  /**
+   * From OpenSCENARIO class model specification: This Action defines a continuously kept
+   * longitudinal distance to a specific entity.
+   *
+   * @return value of model property longitudinalDistanceAction
+   */
+  public ILongitudinalDistanceAction getLongitudinalDistanceAction();
 }

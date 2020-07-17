@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,31 +16,30 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Top level container for scenarios or catalogs.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: Top level container for scenarios or catalogs.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface IOpenScenario extends IOpenScenarioModelElement{
+ */
+public interface IOpenScenario extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Header information for the scenario or the catalog.
-	 * 
-	 * @return value of model property fileHeader
-	*/
-	public IFileHeader getFileHeader();
+  /**
+   * From OpenSCENARIO class model specification: Header information for the scenario or the
+   * catalog.
+   *
+   * @return value of model property fileHeader
+   */
+  public IFileHeader getFileHeader();
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * Category (catalog or scenario) of the OpenSCENARIO description.
-	 * 
-	 * @return value of model property openScenarioCategory
-	*/
-	public IOpenScenarioCategory getOpenScenarioCategory();
+  /**
+   * From OpenSCENARIO class model specification: Category (catalog or scenario) of the OpenSCENARIO
+   * description.
+   *
+   * @return value of model property openScenarioCategory
+   */
+  public IOpenScenarioCategory getOpenScenarioCategory();
 }

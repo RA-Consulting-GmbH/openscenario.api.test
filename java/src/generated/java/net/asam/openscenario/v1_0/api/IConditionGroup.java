@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -15,25 +15,25 @@
  * limitations under the License.
  */
 package net.asam.openscenario.v1_0.api;
-import java.util.List;
 
+import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * A condition group is an association of conditions that is assessed during simulation time and signals true when all
- * associated conditions are evaluated to true.
- * 
+ *
+ * <p>From OpenSCENARIO class model specification: A condition group is an association of conditions
+ * that is assessed during simulation time and signals true when all associated conditions are
+ * evaluated to true.
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
-public interface IConditionGroup extends IOpenScenarioModelElement{
+ */
+public interface IConditionGroup extends IOpenScenarioModelElement {
 
-	/**
-	 * From OpenSCENARIO class model specification:
-	 * A associated list of conditions.
-	 * 
-	 * @return value of model property conditions
-	*/
-	public List<ICondition> getConditions();
+  /**
+   * From OpenSCENARIO class model specification: A associated list of conditions.
+   *
+   * @return value of model property conditions
+   */
+  public List<ICondition> getConditions();
 }

@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -16,141 +16,135 @@
  */
 package net.asam.openscenario.v1_0.parser.xml;
 
-import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.v1_0.common.OscConstants;
-import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.parser.ParserContext;
-import net.asam.openscenario.v1_0.parser.CatalogReferenceParserContext;
-import net.asam.openscenario.common.FileContentMessage;
-import net.asam.xml.indexer.Position;
-import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.common.ErrorLevel;
-import java.util.List;
-import net.asam.openscenario.v1_0.api.IConditionGroup;
-
-import net.asam.openscenario.v1_0.impl.TriggerImpl;
-import net.asam.openscenario.v1_0.impl.ConditionGroupImpl;
-
-
-import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
-import java.util.Map;
-import java.util.Hashtable;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+import net.asam.openscenario.common.ErrorLevel;
+import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.parser.ParserContext;
+import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-
+import net.asam.openscenario.simple.struct.IndexedElement;
+import net.asam.openscenario.v1_0.api.IConditionGroup;
+import net.asam.openscenario.v1_0.common.OscConstants;
+import net.asam.openscenario.v1_0.impl.ConditionGroupImpl;
+import net.asam.openscenario.v1_0.impl.TriggerImpl;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  * Filling a TriggerImpl instance from an xml tree.
- * 
+ *
  * @author RA Consulting OpenSCENARIO generation facility
-*/
+ */
 public class TriggerXmlParser extends XmlComplexTypeParser<TriggerImpl> {
 
-	/**
-	 * Constructor
-	 * @param messageLogger to log messages during parsing
-	 * @param filename to locate the messages in a file
-	 */
-	public TriggerXmlParser(IParserMessageLogger messageLogger, String filename) {
-		super(messageLogger, filename);
-		subElementParser = new SubElementParser(messageLogger, filename);
-	}
-	@Override
-	public void parseElement(IndexedElement indexedElement, ParserContext parserContext,TriggerImpl object) {
-		messageLogger.logMessage(new FileContentMessage("Start Parsing Trigger", ErrorLevel.DEBUG, new Textmarker(indexedElement.getStartElementLocation().getLine(), indexedElement.getStartElementLocation().getColumn(), filename))); 
-		super.parseElement(indexedElement,  parserContext, object);
-		messageLogger.logMessage(new FileContentMessage("End Parsing Trigger", ErrorLevel.DEBUG, new Textmarker(indexedElement.getEndElementLocation().getLine(), indexedElement.getEndElementLocation().getColumn(), filename))); 
-	
-	}			
-	
-	@Override
-	protected  Map<String, IAttributeParser<TriggerImpl>> getAttributeNameToAttributeParserMap()
-	{
-		Map<String, IAttributeParser<TriggerImpl>> result  = new Hashtable<String, IAttributeParser<TriggerImpl>>();
-		return result;
-	}
+  /**
+   * Constructor
+   *
+   * @param messageLogger to log messages during parsing
+   * @param filename to locate the messages in a file
+   */
+  public TriggerXmlParser(IParserMessageLogger messageLogger, String filename) {
+    super(messageLogger, filename);
+    subElementParser = new SubElementParser(messageLogger, filename);
+  }
 
-	/**
-	 * Parser for all subelements
-	 */
-	private class SubElementParser extends XmlSequenceParser<TriggerImpl>{
-		/**
-		 * Constructor
-		 * @param messageLogger to log messages during parsing
-		 * @param filename to locate the messages in a file
-		 */
-		public SubElementParser (IParserMessageLogger messageLogger, String filename) {
-			super( messageLogger, filename);	
-		}
-		/*
-		 * Creates a list of parser
-		 */
-		protected  List<IElementParser<TriggerImpl>> createParserList()
-		{
-			List<IElementParser<TriggerImpl>> result = new ArrayList<IElementParser<TriggerImpl>>();
-			result.add(new SubElementConditionGroupsParser());
-			return result;
-		
-		}	
-	}
-	/**
-	 * A parser for subelement conditionGroups
-	 */
-	private class SubElementConditionGroupsParser implements IElementParser<TriggerImpl> {
-	
-		/**
-		 * Constructor
-		 */
-		public SubElementConditionGroupsParser()
-		{
-			super();
-			conditionGroupXmlParser = new ConditionGroupXmlParser(messageLogger, filename);
-		}
-		private ConditionGroupXmlParser conditionGroupXmlParser;
-		
-		@Override
-		public void parse(IndexedElement indexedElement, ParserContext parserContext,TriggerImpl object)
-		{
-			ConditionGroupImpl conditionGroups = new ConditionGroupImpl();
-			// Setting the parent
-			conditionGroups.setParent(object);
-			conditionGroupXmlParser.parseElement(indexedElement,parserContext, conditionGroups);
-			List<IConditionGroup> conditionGroupsList = object.getConditionGroups();
-			if (conditionGroupsList == null)
-			{
-				conditionGroupsList = new ArrayList<IConditionGroup>();
-				object.setConditionGroups( conditionGroupsList);
-			}
-			conditionGroupsList.add(conditionGroups);
-			
-		}
+  @Override
+  public void parseElement(
+      IndexedElement indexedElement, ParserContext parserContext, TriggerImpl object) {
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "Start Parsing Trigger",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getStartElementLocation().getLine(),
+                indexedElement.getStartElementLocation().getColumn(),
+                filename)));
+    super.parseElement(indexedElement, parserContext, object);
+    messageLogger.logMessage(
+        new FileContentMessage(
+            "End Parsing Trigger",
+            ErrorLevel.DEBUG,
+            new Textmarker(
+                indexedElement.getEndElementLocation().getLine(),
+                indexedElement.getEndElementLocation().getColumn(),
+                filename)));
+  }
 
-		@Override
-		public int getMinOccur()
-		{
-			return 0;
-		}
-		
-		@Override
-		public int getMaxOccur()
-		{
-			return -1;
-		}
-		
-		@Override
-		public boolean doesMatch(String elementName)
-		{
-			return
-				elementName.equals(OscConstants.ELEMENT__CONDITION_GROUP) ;
-		}
-		
-		@Override
-		public String[] getExpectedTagNames()
-		{		 	return new String[]{
-				OscConstants.ELEMENT__CONDITION_GROUP
-					};
-		}
-	}
+  @Override
+  protected Map<String, IAttributeParser<TriggerImpl>> getAttributeNameToAttributeParserMap() {
+    Map<String, IAttributeParser<TriggerImpl>> result =
+        new Hashtable<String, IAttributeParser<TriggerImpl>>();
+    return result;
+  }
+
+  /** Parser for all subelements */
+  private class SubElementParser extends XmlSequenceParser<TriggerImpl> {
+    /**
+     * Constructor
+     *
+     * @param messageLogger to log messages during parsing
+     * @param filename to locate the messages in a file
+     */
+    public SubElementParser(IParserMessageLogger messageLogger, String filename) {
+      super(messageLogger, filename);
+    }
+    /*
+     * Creates a list of parser
+     */
+    protected List<IElementParser<TriggerImpl>> createParserList() {
+      List<IElementParser<TriggerImpl>> result = new ArrayList<IElementParser<TriggerImpl>>();
+      result.add(new SubElementConditionGroupsParser());
+      return result;
+    }
+  }
+  /** A parser for subelement conditionGroups */
+  private class SubElementConditionGroupsParser implements IElementParser<TriggerImpl> {
+
+    /** Constructor */
+    public SubElementConditionGroupsParser() {
+      super();
+      conditionGroupXmlParser = new ConditionGroupXmlParser(messageLogger, filename);
+    }
+
+    private ConditionGroupXmlParser conditionGroupXmlParser;
+
+    @Override
+    public void parse(
+        IndexedElement indexedElement, ParserContext parserContext, TriggerImpl object) {
+      ConditionGroupImpl conditionGroups = new ConditionGroupImpl();
+      // Setting the parent
+      conditionGroups.setParent(object);
+      conditionGroupXmlParser.parseElement(indexedElement, parserContext, conditionGroups);
+      List<IConditionGroup> conditionGroupsList = object.getConditionGroups();
+      if (conditionGroupsList == null) {
+        conditionGroupsList = new ArrayList<IConditionGroup>();
+        object.setConditionGroups(conditionGroupsList);
+      }
+      conditionGroupsList.add(conditionGroups);
+    }
+
+    @Override
+    public int getMinOccur() {
+      return 0;
+    }
+
+    @Override
+    public int getMaxOccur() {
+      return -1;
+    }
+
+    @Override
+    public boolean doesMatch(String elementName) {
+      return elementName.equals(OscConstants.ELEMENT__CONDITION_GROUP);
+    }
+
+    @Override
+    public String[] getExpectedTagNames() {
+      return new String[] {OscConstants.ELEMENT__CONDITION_GROUP};
+    }
+  }
 }
-
