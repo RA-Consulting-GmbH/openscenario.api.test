@@ -64,10 +64,10 @@ public class TestFiles extends TestBase{
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
 					"Cannot resolve parameter 'UnknownParameter'",
-					ErrorLevel.ERROR, new Textmarker(35, 17, filename)));
+					ErrorLevel.ERROR, new Textmarker(49, 17, filename)));
 			messages.add(new FileContentMessage(
 					"Cannot convert 'wrongDouble' to a double. Number format error.",
-					ErrorLevel.ERROR, new Textmarker(71, 39, filename)));
+					ErrorLevel.ERROR, new Textmarker(85, 39, filename)));
 
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.ERROR, messageLogger),"Unexpected Errors or Errors missing");
@@ -86,7 +86,7 @@ public class TestFiles extends TestBase{
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
 					"XML document structures must start and end within the same entity.",
-					ErrorLevel.FATAL, new Textmarker(30, 3, filename)));
+					ErrorLevel.FATAL, new Textmarker(47, 3, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.FATAL, messageLogger));
 		} catch (ScenarioLoaderException e) {
@@ -103,9 +103,9 @@ public class TestFiles extends TestBase{
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
 					"Unknown element 'ScenarioObject'", ErrorLevel.ERROR,
-					new Textmarker(33, 4, filename)));
+					new Textmarker(50, 4, filename)));
 			messages.add(new FileContentMessage("Unknown element 'Test'",
-					ErrorLevel.ERROR, new Textmarker(59, 4, filename)));
+					ErrorLevel.ERROR, new Textmarker(76, 4, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.ERROR, messageLogger));
 		} catch (ScenarioLoaderException e) {
@@ -121,19 +121,19 @@ public class TestFiles extends TestBase{
 			executeParsing(filename);
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage("Value 'TTTT' is not allowed.",
-					ErrorLevel.ERROR, new Textmarker(61, 72, filename)));
+					ErrorLevel.ERROR, new Textmarker(78, 72, filename)));
 			messages.add(new FileContentMessage(
 					"Cannot convert 'ezert' to a double. Number format error.",
-					ErrorLevel.ERROR, new Textmarker(61, 58, filename)));
+					ErrorLevel.ERROR, new Textmarker(78, 58, filename)));
 			messages.add(new FileContentMessage(
 					"Cannot convert 'TEST' to a double. Number format error.",
-					ErrorLevel.ERROR, new Textmarker(63, 39, filename)));
+					ErrorLevel.ERROR, new Textmarker(80, 39, filename)));
 			messages.add(new FileContentMessage(
 					"Cannot convert '-56' to an unsignedInteger. Value must be in [0..4294967295].",
-					ErrorLevel.ERROR, new Textmarker(121, 23, filename)));
+					ErrorLevel.ERROR, new Textmarker(138, 23, filename)));
 			messages.add(new FileContentMessage(
 					"Cannot convert '-40' to an unsignedInteger. Value must be in [0..4294967295].",
-					ErrorLevel.ERROR, new Textmarker(158, 69, filename)));
+					ErrorLevel.ERROR, new Textmarker(175, 69, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.ERROR, messageLogger));
 		} catch (ScenarioLoaderException e) {
@@ -150,7 +150,7 @@ public class TestFiles extends TestBase{
 			List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
 			messages.add(new FileContentMessage(
 					"The element type \"PrivateActions\" must be terminated by the matching end-tag \"</PrivateActions>\".",
-					ErrorLevel.FATAL, new Textmarker(73,12, filename)));
+					ErrorLevel.FATAL, new Textmarker(90,12, filename)));
 			Assertions.assertTrue(
 					assertMessages(messages, ErrorLevel.FATAL, messageLogger));
 		} catch (ScenarioLoaderException e) {

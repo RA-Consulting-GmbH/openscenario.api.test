@@ -106,12 +106,12 @@ public class TestInjectedParameters extends TestBase{
             String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
             IOpenScenario openScenario = (IOpenScenario) executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
             List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
-            messages.add(new FileContentMessage("Injected parameter 'testInteger': Cannot convert 'wrongInteger' to an int. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(6,2, filename)));
-            messages.add(new FileContentMessage("Injected parameter 'testUnsignedInt': Cannot convert 'wrongUnsignedIntValue' to an unsignedInteger. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(6,2, filename)));         
-            messages.add(new FileContentMessage("Injected parameter 'testDateTime': Cannot convert 'wrongDateTimeValue' to a dateTime. Illegal dateTime value. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(6,2, filename)));
-            messages.add(new FileContentMessage("Injected parameter 'testUnsignedShort': Cannot convert 'wrongUnsingedShortValue' to an unsignedShort. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(6,2, filename)));
-            messages.add(new FileContentMessage("Injected parameter 'testDouble': Cannot convert 'wrongDoubleValue' to a double. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(6,2, filename)));
-            messages.add(new FileContentMessage("Injected parameter 'testBoolean': Cannot convert 'wrongBoolean' to a boolean. Illegal boolean value. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(6,2, filename)));
+            messages.add(new FileContentMessage("Injected parameter 'testInteger': Cannot convert 'wrongInteger' to an int. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(20,2, filename)));
+            messages.add(new FileContentMessage("Injected parameter 'testUnsignedInt': Cannot convert 'wrongUnsignedIntValue' to an unsignedInteger. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(20,2, filename)));         
+            messages.add(new FileContentMessage("Injected parameter 'testDateTime': Cannot convert 'wrongDateTimeValue' to a dateTime. Illegal dateTime value. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(20,2, filename)));
+            messages.add(new FileContentMessage("Injected parameter 'testUnsignedShort': Cannot convert 'wrongUnsingedShortValue' to an unsignedShort. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(20,2, filename)));
+            messages.add(new FileContentMessage("Injected parameter 'testDouble': Cannot convert 'wrongDoubleValue' to a double. Number format error. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(20,2, filename)));
+            messages.add(new FileContentMessage("Injected parameter 'testBoolean': Cannot convert 'wrongBoolean' to a boolean. Illegal boolean value. Injected parameter is ignored.",ErrorLevel.ERROR, new Textmarker(20,2, filename)));
             
             Assertions.assertTrue(
                     assertMessages(messages, ErrorLevel.ERROR, messageLogger));
@@ -128,7 +128,7 @@ public class TestInjectedParameters extends TestBase{
             String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
             IOpenScenario openScenario = (IOpenScenario) executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
             List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
-            messages.add(new FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",ErrorLevel.WARNING, new Textmarker(6,2, filename)));
+            messages.add(new FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",ErrorLevel.WARNING, new Textmarker(20,2, filename)));
             Assertions.assertTrue(
                 assertMessages(messages, ErrorLevel.WARNING, messageLogger));
         } catch (ScenarioLoaderException e) {
@@ -145,7 +145,7 @@ public class TestInjectedParameters extends TestBase{
             String filename = getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath();
             IOpenScenario openScenario = (IOpenScenario) executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
             List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
-            messages.add(new FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",ErrorLevel.WARNING, new Textmarker(6,2, filename)));
+            messages.add(new FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",ErrorLevel.WARNING, new Textmarker(21,2, filename)));
             Assertions.assertTrue(
                 assertMessages(messages, ErrorLevel.WARNING, messageLogger));
         } catch (ScenarioLoaderException e) {

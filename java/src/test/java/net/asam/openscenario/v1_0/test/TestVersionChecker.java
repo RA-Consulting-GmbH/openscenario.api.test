@@ -53,7 +53,7 @@ public class TestVersionChecker extends TestBase {
 			applyCheckerRules(openScenario, 1,0);
             messages.add(new FileContentMessage(
 			    "Major revision and minor revision are expected to be 1 and 0",
-					ErrorLevel.WARNING, new Textmarker(5, 2, filename)));
+					ErrorLevel.WARNING, new Textmarker(20, 2, filename)));
 
 			Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, messageLogger));
 

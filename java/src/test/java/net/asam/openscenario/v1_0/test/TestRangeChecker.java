@@ -52,25 +52,25 @@ public class TestRangeChecker extends TestBase {
 
 			messages.add(new FileContentMessage(
 					"Range error: Rule (maxAcceleration>=0) is violated (value: -2.0)",
-					ErrorLevel.ERROR, new Textmarker(44, 57, filename)));
+					ErrorLevel.ERROR, new Textmarker(58, 57, filename)));
 			messages.add(new FileContentMessage(
 					"Range error: Rule (maxDeceleration>=0) is violated (value: -10.0)",
-					ErrorLevel.ERROR, new Textmarker(44, 20, filename)));
+					ErrorLevel.ERROR, new Textmarker(58, 20, filename)));
 			messages.add(new FileContentMessage(
 					"Range error: Rule (maxSteering<=PI) is violated (value: 7.0)",
-					ErrorLevel.ERROR, new Textmarker(46, 75, filename)));
+					ErrorLevel.ERROR, new Textmarker(60, 75, filename)));
 			messages.add(new FileContentMessage(
 					"Range error: Rule (wheelDiameter>0) is violated (value: -12.0)",
-					ErrorLevel.ERROR, new Textmarker(46, 55, filename)));
+					ErrorLevel.ERROR, new Textmarker(60, 55, filename)));
 			messages.add(new FileContentMessage(
 					"Range error: Rule (trackWidth>=0) is violated (value: -12.0)",
-					ErrorLevel.ERROR, new Textmarker(46, 38, filename)));
+					ErrorLevel.ERROR, new Textmarker(60, 38, filename)));
 			messages.add(new FileContentMessage(
 					"Range error: Rule (positionX>=0) is violated (value: -2.0)",
-					ErrorLevel.ERROR, new Textmarker(46, 91, filename)));
+					ErrorLevel.ERROR, new Textmarker(60, 91, filename)));
 			messages.add(new FileContentMessage(
 					"Range error: Rule (positionZ>=0) is violated (value: -13.0)",
-					ErrorLevel.ERROR, new Textmarker(46,22, filename)));
+					ErrorLevel.ERROR, new Textmarker(60,22, filename)));
 			
 
 			Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
