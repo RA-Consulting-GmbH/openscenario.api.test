@@ -40,7 +40,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/src/simpl
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/src/xmlIndexer )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/generated/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../TinyXML2 )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/Filesystem)
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/generated )
@@ -59,7 +59,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/generated
 set( SOURCES
   ${SOURCES}
   "src/OpenScenarioReader.cpp"
-  "../../../TinyXML2/tinyxml2.cpp"
+  "../../ExternalLibs/TinyXML2/tinyxml2.cpp"
 )
 
 ################################################################

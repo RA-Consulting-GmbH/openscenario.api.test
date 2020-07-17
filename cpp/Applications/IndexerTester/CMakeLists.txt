@@ -23,17 +23,17 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/inc )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/src/xmlIndexer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../TinyXML2 )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/Filesystem)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src/atn )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src/dfa )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src/misc )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src/support )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src/tree/pattern )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../ANTLR4-Cpp-src/runtime/src/tree/xpath )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/atn )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/dfa )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/misc )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/support )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/tree )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/tree/pattern )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/tree/xpath )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/generated/xmlParser )
 
 
@@ -42,7 +42,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../OpenScenarioLib/generated
 set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
-   "../../../TinyXML2/tinyxml2.cpp"
+   "../../ExternalLibs/TinyXML2/tinyxml2.cpp"
 )
 
 ################################################################

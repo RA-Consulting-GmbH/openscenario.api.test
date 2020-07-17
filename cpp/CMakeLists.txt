@@ -7,14 +7,14 @@ message("${PROJECT_NAME}")
 
 ################################################################
 # Add a module path for cmake modules
-list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/../Rac.Core.Cpp-src/CMake-Helper/" )
-include( RaCMakeHelper )
+list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}" )
+include( CMakeHelpers )
 
 ################################################################
 # Build as static or shared lib
 option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
 
-set(CMAKE_BUILD_PARALLEL_LEVEL 4)
+set(ENV{CMAKE_BUILD_PARALLEL_LEVEL} 4)
 
 ################################################################
 # Set common, C++, and build params
@@ -35,7 +35,7 @@ RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
 
 # Dependencies
-add_subdirectory( ../ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/ANTLR4-Cpp-src)
+add_subdirectory( ExternalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/ExternalLibs/ANTLR4-Cpp-src)
 
 # CoreLibraries
 add_subdirectory( OpenScenarioLib ${PROJECT_BINARY_DIR}/OpenScenarioLib )

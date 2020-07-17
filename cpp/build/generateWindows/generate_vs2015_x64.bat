@@ -8,7 +8,7 @@ call :dequote _me
 
 mkdir "%_cd%\VS2015x64"
 cd /d "%_cd%\VS2015x64"
-..\..\..\CMake\bin\cmake -G "Visual Studio 14 2015 Win64"  "..\..\." -DMASTER_PROJECT=TRUE
+..\..\..\..\..\CMake\bin\cmake -G "Visual Studio 14 2015 Win64"  "..\..\." -DMASTER_PROJECT=TRUE
 if errorlevel 1 (
     pause
     exit /b 1
