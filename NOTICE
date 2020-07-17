@@ -1,9 +1,8 @@
-OpenScenarioApi
-Copyright 2020 RA Consulting GmbH
+OpenSCENARIO API
+Copyright 2020 ASAM e.V.
 
 This software was initially contibuted by RA Consulting GmbH.
-
-This product includes software developed at
+This product includes software developed at RA Consulting GmbH.
 
 This section lists the full license text and copyrights of the third-party software packages or files that are incorporated into this distribution:
 
@@ -16,6 +15,7 @@ See www.asam.net/license.html for further details.
 This license applies to any file instance named: 
 
 OpenSCENARIO.xsd
+
 
 ANTLR 4 LICENSE
 ===============
