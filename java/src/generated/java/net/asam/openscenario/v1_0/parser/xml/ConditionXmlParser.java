@@ -51,38 +51,16 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
    */
   public ConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Condition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Condition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ConditionImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<ConditionImpl>>();
+    Map<String, IAttributeParser<ConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<ConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +70,15 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
               ConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -115,6 +99,7 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
     result.put(
         OscConstants.ATTRIBUTE__DELAY,
         new IAttributeParser<ConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -124,9 +109,15 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
               ConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DELAY, stripDollarSign(attributeValue), startMarker);
@@ -147,6 +138,7 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
     result.put(
         OscConstants.ATTRIBUTE__CONDITION_EDGE,
         new IAttributeParser<ConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -156,9 +148,15 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
               ConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CONDITION_EDGE,
@@ -171,7 +169,7 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
               if (result != null) {
                 object.setConditionEdge(result);
               } else {
-                messageLogger.logMessage(
+                ConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -204,20 +202,24 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ConditionImpl>> createParserList() {
-      List<IElementParser<ConditionImpl>> result = new ArrayList<IElementParser<ConditionImpl>>();
+      List<IElementParser<ConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementByEntityConditionParser());
       result.add(new SubElementByValueConditionParser());
       return result;
     }
   }
   /** A parser for subelement byEntityCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementByEntityConditionParser implements IElementParser<ConditionImpl> {
 
     /** Constructor */
     public SubElementByEntityConditionParser() {
       super();
-      byEntityConditionXmlParser = new ByEntityConditionXmlParser(messageLogger, filename);
+      this.byEntityConditionXmlParser =
+          new ByEntityConditionXmlParser(
+              ConditionXmlParser.this.messageLogger, ConditionXmlParser.this.filename);
     }
 
     private ByEntityConditionXmlParser byEntityConditionXmlParser;
@@ -228,7 +230,8 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
       ByEntityConditionImpl byEntityCondition = new ByEntityConditionImpl();
       // Setting the parent
       byEntityCondition.setParent(object);
-      byEntityConditionXmlParser.parseElement(indexedElement, parserContext, byEntityCondition);
+      this.byEntityConditionXmlParser.parseElement(
+          indexedElement, parserContext, byEntityCondition);
 
       object.setByEntityCondition(byEntityCondition);
     }
@@ -254,12 +257,15 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
     }
   }
   /** A parser for subelement byValueCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementByValueConditionParser implements IElementParser<ConditionImpl> {
 
     /** Constructor */
     public SubElementByValueConditionParser() {
       super();
-      byValueConditionXmlParser = new ByValueConditionXmlParser(messageLogger, filename);
+      this.byValueConditionXmlParser =
+          new ByValueConditionXmlParser(
+              ConditionXmlParser.this.messageLogger, ConditionXmlParser.this.filename);
     }
 
     private ByValueConditionXmlParser byValueConditionXmlParser;
@@ -270,7 +276,7 @@ public class ConditionXmlParser extends XmlComplexTypeParser<ConditionImpl> {
       ByValueConditionImpl byValueCondition = new ByValueConditionImpl();
       // Setting the parent
       byValueCondition.setParent(object);
-      byValueConditionXmlParser.parseElement(indexedElement, parserContext, byValueCondition);
+      this.byValueConditionXmlParser.parseElement(indexedElement, parserContext, byValueCondition);
 
       object.setByValueCondition(byValueCondition);
     }

@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ParameterMultiplyByValueRuleImpl;
 import net.asam.xml.indexer.Position;
@@ -50,41 +46,17 @@ public class ParameterMultiplyByValueRuleXmlParser
   public ParameterMultiplyByValueRuleXmlParser(
       IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      ParameterMultiplyByValueRuleImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ParameterMultiplyByValueRule",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ParameterMultiplyByValueRule",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ParameterMultiplyByValueRuleImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ParameterMultiplyByValueRuleImpl>> result =
-        new Hashtable<String, IAttributeParser<ParameterMultiplyByValueRuleImpl>>();
+    Map<String, IAttributeParser<ParameterMultiplyByValueRuleImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<ParameterMultiplyByValueRuleImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +66,15 @@ public class ParameterMultiplyByValueRuleXmlParser
               ParameterMultiplyByValueRuleImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ParameterMultiplyByValueRuleXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ParameterMultiplyByValueRuleXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -131,9 +109,9 @@ public class ParameterMultiplyByValueRuleXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ParameterMultiplyByValueRuleImpl>> createParserList() {
-      List<IElementParser<ParameterMultiplyByValueRuleImpl>> result =
-          new ArrayList<IElementParser<ParameterMultiplyByValueRuleImpl>>();
+      List<IElementParser<ParameterMultiplyByValueRuleImpl>> result = new ArrayList<>();
       return result;
     }
   }

@@ -42,7 +42,7 @@ public class Textmarker {
    * @return the column (starting with 0)
    */
   public int getColumn() {
-    return column;
+    return this.column;
   }
 
   /**
@@ -51,7 +51,7 @@ public class Textmarker {
    * @return The line number (starting with 0)
    */
   public int getLine() {
-    return line;
+    return this.line;
   }
 
   /**
@@ -60,7 +60,7 @@ public class Textmarker {
    * @return the name of the file.
    */
   public String getFilename() {
-    return filename;
+    return this.filename;
   }
 
   @Override
@@ -81,6 +81,6 @@ public class Textmarker {
 
   @Override
   public String toString() {
-    return filename + "(" + line + "," + column + ")";
+    return this.filename + "(" + this.line + "," + this.column + ")";
   }
 }

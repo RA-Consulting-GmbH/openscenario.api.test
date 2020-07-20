@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRoadCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Friction scale factor. Range: [0..inf[
    *
    * @return value of model property frictionScaleFactor
    */
   public Double getFrictionScaleFactor();
-
   /**
    * From OpenSCENARIO class model specification: Additional properties to describe the road
    * condition.

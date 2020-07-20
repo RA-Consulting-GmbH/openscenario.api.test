@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -51,39 +49,17 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
    */
   public RelativeRoadPositionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RelativeRoadPositionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RelativeRoadPosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RelativeRoadPosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RelativeRoadPositionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RelativeRoadPositionImpl>> result =
-        new Hashtable<String, IAttributeParser<RelativeRoadPositionImpl>>();
+    Map<String, IAttributeParser<RelativeRoadPositionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<RelativeRoadPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,16 +69,22 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
               RelativeRoadPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeRoadPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeRoadPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -118,6 +100,7 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
     result.put(
         OscConstants.ATTRIBUTE__DS,
         new IAttributeParser<RelativeRoadPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -127,9 +110,15 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
               RelativeRoadPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeRoadPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeRoadPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DS, stripDollarSign(attributeValue), startMarker);
@@ -150,6 +139,7 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
     result.put(
         OscConstants.ATTRIBUTE__DT,
         new IAttributeParser<RelativeRoadPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -159,9 +149,15 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
               RelativeRoadPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeRoadPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeRoadPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DT, stripDollarSign(attributeValue), startMarker);
@@ -196,20 +192,24 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RelativeRoadPositionImpl>> createParserList() {
-      List<IElementParser<RelativeRoadPositionImpl>> result =
-          new ArrayList<IElementParser<RelativeRoadPositionImpl>>();
+      List<IElementParser<RelativeRoadPositionImpl>> result = new ArrayList<>();
       result.add(new SubElementOrientationParser());
       return result;
     }
   }
   /** A parser for subelement orientation */
+  @SuppressWarnings("synthetic-access")
   private class SubElementOrientationParser implements IElementParser<RelativeRoadPositionImpl> {
 
     /** Constructor */
     public SubElementOrientationParser() {
       super();
-      orientationXmlParser = new OrientationXmlParser(messageLogger, filename);
+      this.orientationXmlParser =
+          new OrientationXmlParser(
+              RelativeRoadPositionXmlParser.this.messageLogger,
+              RelativeRoadPositionXmlParser.this.filename);
     }
 
     private OrientationXmlParser orientationXmlParser;
@@ -222,7 +222,7 @@ public class RelativeRoadPositionXmlParser extends XmlComplexTypeParser<Relative
       OrientationImpl orientation = new OrientationImpl();
       // Setting the parent
       orientation.setParent(object);
-      orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
+      this.orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
 
       object.setOrientation(orientation);
     }

@@ -48,9 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeToCollisionConditionImpl extends BaseImpl
-    implements ITimeToCollisionCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TimeToCollisionConditionImpl extends BaseImpl implements ITimeToCollisionCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -72,33 +71,34 @@ public class TimeToCollisionConditionImpl extends BaseImpl
     addAdapter(ITimeToCollisionCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Boolean getFreespace() {
-    return freespace;
+    return this.freespace;
   }
 
   @Override
   public Boolean getAlongRoute() {
-    return alongRoute;
+    return this.alongRoute;
   }
 
   @Override
   public Rule getRule() {
-    return rule;
+    return this.rule;
   }
 
   @Override
   public ITimeToCollisionConditionTarget getTimeToCollisionConditionTarget() {
-    return timeToCollisionConditionTarget;
+    return this.timeToCollisionConditionTarget;
   }
   /**
    * Sets the value of model property value
@@ -153,18 +153,19 @@ public class TimeToCollisionConditionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__FREESPACE)) {
       // Simple type
-      freespace =
+      this.freespace =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ALONG_ROUTE)) {
       // Simple type
-      alongRoute =
+      this.alongRoute =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
@@ -172,7 +173,7 @@ public class TimeToCollisionConditionImpl extends BaseImpl
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        rule = result;
+        this.rule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -195,8 +196,9 @@ public class TimeToCollisionConditionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ITimeToCollisionConditionTarget timeToCollisionConditionTarget = null;
     timeToCollisionConditionTarget = getTimeToCollisionConditionTarget();
@@ -212,6 +214,7 @@ public class TimeToCollisionConditionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TimeToCollisionConditionImpl clone() {
     TimeToCollisionConditionImpl clonedObject = new TimeToCollisionConditionImpl();
     cloneStartMarker(clonedObject);
@@ -268,9 +271,8 @@ public class TimeToCollisionConditionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -287,9 +289,8 @@ public class TimeToCollisionConditionImpl extends BaseImpl
       return getFreespace();
     } else if (key.equals(OscConstants.ATTRIBUTE__ALONG_ROUTE)) {
       return getAlongRoute();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -304,14 +305,14 @@ public class TimeToCollisionConditionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET)) {
       return (IOpenScenarioFlexElement) getTimeToCollisionConditionTarget();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -334,9 +335,8 @@ public class TimeToCollisionConditionImpl extends BaseImpl
     if (key.equals(OscConstants.ATTRIBUTE__RULE)) {
       Rule rule = getRule();
       return rule != null ? rule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

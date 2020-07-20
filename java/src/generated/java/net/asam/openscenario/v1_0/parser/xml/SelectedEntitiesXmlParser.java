@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -51,36 +48,13 @@ public class SelectedEntitiesXmlParser extends XmlComplexTypeParser<SelectedEnti
    */
   public SelectedEntitiesXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, SelectedEntitiesImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing SelectedEntities",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing SelectedEntities",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<SelectedEntitiesImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<SelectedEntitiesImpl>> result =
-        new Hashtable<String, IAttributeParser<SelectedEntitiesImpl>>();
+    Map<String, IAttributeParser<SelectedEntitiesImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,21 +72,25 @@ public class SelectedEntitiesXmlParser extends XmlComplexTypeParser<SelectedEnti
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<SelectedEntitiesImpl>> createParserList() {
-      List<IElementParser<SelectedEntitiesImpl>> result =
-          new ArrayList<IElementParser<SelectedEntitiesImpl>>();
+      List<IElementParser<SelectedEntitiesImpl>> result = new ArrayList<>();
       result.add(new SubElementEntityRefParser());
       result.add(new SubElementByTypeParser());
       return result;
     }
   }
   /** A parser for subelement entityRef */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntityRefParser implements IElementParser<SelectedEntitiesImpl> {
 
     /** Constructor */
     public SubElementEntityRefParser() {
       super();
-      entityRefXmlParser = new EntityRefXmlParser(messageLogger, filename);
+      this.entityRefXmlParser =
+          new EntityRefXmlParser(
+              SelectedEntitiesXmlParser.this.messageLogger,
+              SelectedEntitiesXmlParser.this.filename);
     }
 
     private EntityRefXmlParser entityRefXmlParser;
@@ -123,10 +101,10 @@ public class SelectedEntitiesXmlParser extends XmlComplexTypeParser<SelectedEnti
       EntityRefImpl entityRef = new EntityRefImpl();
       // Setting the parent
       entityRef.setParent(object);
-      entityRefXmlParser.parseElement(indexedElement, parserContext, entityRef);
+      this.entityRefXmlParser.parseElement(indexedElement, parserContext, entityRef);
       List<IEntityRef> entityRefList = object.getEntityRef();
       if (entityRefList == null) {
-        entityRefList = new ArrayList<IEntityRef>();
+        entityRefList = new ArrayList<>();
         object.setEntityRef(entityRefList);
       }
       entityRefList.add(entityRef);
@@ -153,12 +131,16 @@ public class SelectedEntitiesXmlParser extends XmlComplexTypeParser<SelectedEnti
     }
   }
   /** A parser for subelement byType */
+  @SuppressWarnings("synthetic-access")
   private class SubElementByTypeParser implements IElementParser<SelectedEntitiesImpl> {
 
     /** Constructor */
     public SubElementByTypeParser() {
       super();
-      byTypeXmlParser = new ByTypeXmlParser(messageLogger, filename);
+      this.byTypeXmlParser =
+          new ByTypeXmlParser(
+              SelectedEntitiesXmlParser.this.messageLogger,
+              SelectedEntitiesXmlParser.this.filename);
     }
 
     private ByTypeXmlParser byTypeXmlParser;
@@ -169,10 +151,10 @@ public class SelectedEntitiesXmlParser extends XmlComplexTypeParser<SelectedEnti
       ByTypeImpl byType = new ByTypeImpl();
       // Setting the parent
       byType.setParent(object);
-      byTypeXmlParser.parseElement(indexedElement, parserContext, byType);
+      this.byTypeXmlParser.parseElement(indexedElement, parserContext, byType);
       List<IByType> byTypeList = object.getByType();
       if (byTypeList == null) {
-        byTypeList = new ArrayList<IByType>();
+        byTypeList = new ArrayList<>();
         object.setByType(byTypeList);
       }
       byTypeList.add(byType);

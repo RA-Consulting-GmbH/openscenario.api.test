@@ -47,8 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterActionImpl extends BaseImpl implements IParameterAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ParameterActionImpl extends BaseImpl implements IParameterAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -65,23 +65,24 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
     addAdapter(IParameterAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IParameterDeclaration> getParameterRef() {
-    return parameterRef;
+    return this.parameterRef;
   }
 
   @Override
   public IParameterSetAction getSetAction() {
-    return setAction;
+    return this.setAction;
   }
 
   @Override
   public IParameterModifyAction getModifyAction() {
-    return modifyAction;
+    return this.modifyAction;
   }
   /**
    * Sets the value of model property parameterRef
@@ -115,8 +116,8 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
     if (attributeKey.equals(OscConstants.ATTRIBUTE__PARAMETER_REF)) {
       // Proxy
       NamedReferenceProxy<IParameterDeclaration> proxy =
-          new NamedReferenceProxy<IParameterDeclaration>(parameterLiteralValue);
-      parameterRef = proxy;
+          new NamedReferenceProxy<>(parameterLiteralValue);
+      this.parameterRef = proxy;
       removeResolvedParameter(attributeKey);
     }
   }
@@ -132,8 +133,9 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IParameterSetAction setAction = null;
     setAction = getSetAction();
@@ -154,6 +156,7 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ParameterActionImpl clone() {
     ParameterActionImpl clonedObject = new ParameterActionImpl();
     cloneStartMarker(clonedObject);
@@ -197,9 +200,8 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
       // Get the Proxy
       INamedReference<IParameterDeclaration> parameterRef = getParameterRef();
       return parameterRef != null ? parameterRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -239,16 +241,17 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
     }
     if (key.equals(OscConstants.ELEMENT__SET_ACTION)) {
       return (IOpenScenarioFlexElement) getSetAction();
-    } else if (key.equals(OscConstants.ELEMENT__MODIFY_ACTION)) {
-      return (IOpenScenarioFlexElement) getModifyAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__MODIFY_ACTION)) {
+      return (IOpenScenarioFlexElement) getModifyAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -269,9 +272,8 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction, C
       return parameterRef != null
           ? (IOpenScenarioFlexElement) parameterRef.getTargetObject()
           : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

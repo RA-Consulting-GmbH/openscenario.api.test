@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -67,33 +67,34 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
     addAdapter(ITrafficSourceAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getRate() {
-    return rate;
+    return this.rate;
   }
 
   @Override
   public Double getRadius() {
-    return radius;
+    return this.radius;
   }
 
   @Override
   public Double getVelocity() {
-    return velocity;
+    return this.velocity;
   }
 
   @Override
   public IPosition getPosition() {
-    return position;
+    return this.position;
   }
 
   @Override
   public ITrafficDefinition getTrafficDefinition() {
-    return trafficDefinition;
+    return this.trafficDefinition;
   }
   /**
    * Sets the value of model property rate
@@ -146,17 +147,19 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__RATE)) {
       // Simple type
-      rate = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.rate =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__RADIUS)) {
       // Simple type
-      radius = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.radius =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VELOCITY)) {
       // Simple type
-      velocity =
+      this.velocity =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -173,8 +176,9 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition position = null;
     position = getPosition();
@@ -195,6 +199,7 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficSourceActionImpl clone() {
     TrafficSourceActionImpl clonedObject = new TrafficSourceActionImpl();
     cloneStartMarker(clonedObject);
@@ -256,9 +261,8 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
       return getRadius();
     } else if (key.equals(OscConstants.ATTRIBUTE__VELOCITY)) {
       return getVelocity();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -283,16 +287,17 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
     }
     if (key.equals(OscConstants.ELEMENT__POSITION)) {
       return (IOpenScenarioFlexElement) getPosition();
-    } else if (key.equals(OscConstants.ELEMENT__TRAFFIC_DEFINITION)) {
-      return (IOpenScenarioFlexElement) getTrafficDefinition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__TRAFFIC_DEFINITION)) {
+      return (IOpenScenarioFlexElement) getTrafficDefinition();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

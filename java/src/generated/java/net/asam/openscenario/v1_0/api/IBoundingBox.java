@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IBoundingBox extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Represents the geometrical center of the bounding
    * box expressed in coordinates that refer to the coordinate system of the entity (e.g. the
@@ -36,7 +35,6 @@ public interface IBoundingBox extends IOpenScenarioModelElement {
    * @return value of model property center
    */
   public ICenter getCenter();
-
   /**
    * From OpenSCENARIO class model specification: Width, length and height of the bounding box.
    *

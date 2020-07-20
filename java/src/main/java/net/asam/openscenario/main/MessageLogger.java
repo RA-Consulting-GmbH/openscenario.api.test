@@ -30,16 +30,16 @@ import net.asam.openscenario.common.IParserMessageLogger;
  */
 public class MessageLogger implements IParserMessageLogger {
 
-  private List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+  private List<FileContentMessage> messages = new ArrayList<>();
 
   @Override
   public void logMessage(FileContentMessage message) {
-    messages.add(message);
+    this.messages.add(message);
   }
 
   @Override
   public void logAllMessages(List<FileContentMessage> logMessages) {
-    messages.addAll(messages);
+    this.messages.addAll(this.messages);
   }
 
   /**
@@ -48,6 +48,6 @@ public class MessageLogger implements IParserMessageLogger {
    * @return buffered messages
    */
   public List<FileContentMessage> getMessages() {
-    return messages;
+    return this.messages;
   }
 }

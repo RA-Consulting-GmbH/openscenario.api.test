@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -59,13 +59,14 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
     addAdapter(IParameterSetAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getValue() {
-    return value;
+    return this.value;
   }
   /**
    * Sets the value of model property value
@@ -81,7 +82,8 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -97,8 +99,9 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -109,6 +112,7 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ParameterSetActionImpl clone() {
     ParameterSetActionImpl clonedObject = new ParameterSetActionImpl();
     cloneStartMarker(clonedObject);
@@ -133,9 +137,8 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -176,6 +179,7 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

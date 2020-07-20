@@ -29,14 +29,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ICondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the condition.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Time elapsed after the edge condition is verified,
    * until the condition returns true to the scenario. Unit: s; Range: [0..inf[.
@@ -44,7 +42,6 @@ public interface ICondition extends IOpenScenarioModelElement {
    * @return value of model property delay
    */
   public Double getDelay();
-
   /**
    * From OpenSCENARIO class model specification: Specifies the edge when the condition is evaluated
    * to true (rising, falling, any).
@@ -52,14 +49,12 @@ public interface ICondition extends IOpenScenarioModelElement {
    * @return value of model property conditionEdge
    */
   public ConditionEdge getConditionEdge();
-
   /**
    * From OpenSCENARIO class model specification: A condition that refers to an entity.
    *
    * @return value of model property byEntityCondition
    */
   public IByEntityCondition getByEntityCondition();
-
   /**
    * From OpenSCENARIO class model specification: A condition that refers to a runtime value.
    *

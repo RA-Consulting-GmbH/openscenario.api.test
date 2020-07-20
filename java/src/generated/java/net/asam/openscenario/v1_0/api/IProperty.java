@@ -26,14 +26,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IProperty extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of a user defined property.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Value of a user defined property.
    *

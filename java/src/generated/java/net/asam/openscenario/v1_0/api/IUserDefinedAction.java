@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IUserDefinedAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The available commands are subject of a contract
    * between simulation environment provider and scenario author.

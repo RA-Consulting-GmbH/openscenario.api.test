@@ -56,38 +56,16 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
    */
   public VehicleXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, VehicleImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Vehicle",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Vehicle",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<VehicleImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<VehicleImpl>> result =
-        new Hashtable<String, IAttributeParser<VehicleImpl>>();
+    Map<String, IAttributeParser<VehicleImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<VehicleImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -97,9 +75,13 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
               VehicleImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    VehicleXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), VehicleXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -120,6 +102,7 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
     result.put(
         OscConstants.ATTRIBUTE__VEHICLE_CATEGORY,
         new IAttributeParser<VehicleImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -129,9 +112,13 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
               VehicleImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    VehicleXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), VehicleXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VEHICLE_CATEGORY,
@@ -144,7 +131,7 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
               if (result != null) {
                 object.setVehicleCategory(result);
               } else {
-                messageLogger.logMessage(
+                VehicleXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -177,12 +164,14 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<VehicleImpl>> createParserList() {
-      List<IElementParser<VehicleImpl>> result = new ArrayList<IElementParser<VehicleImpl>>();
+      List<IElementParser<VehicleImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<VehicleImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              VehicleXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementBoundingBoxParser());
@@ -193,12 +182,15 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser implements IElementParser<VehicleImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              VehicleXmlParser.this.messageLogger, VehicleXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -209,11 +201,11 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -240,12 +232,15 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
     }
   }
   /** A parser for subelement boundingBox */
+  @SuppressWarnings("synthetic-access")
   private class SubElementBoundingBoxParser implements IElementParser<VehicleImpl> {
 
     /** Constructor */
     public SubElementBoundingBoxParser() {
       super();
-      boundingBoxXmlParser = new BoundingBoxXmlParser(messageLogger, filename);
+      this.boundingBoxXmlParser =
+          new BoundingBoxXmlParser(
+              VehicleXmlParser.this.messageLogger, VehicleXmlParser.this.filename);
     }
 
     private BoundingBoxXmlParser boundingBoxXmlParser;
@@ -256,7 +251,7 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
       BoundingBoxImpl boundingBox = new BoundingBoxImpl();
       // Setting the parent
       boundingBox.setParent(object);
-      boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
+      this.boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
 
       object.setBoundingBox(boundingBox);
     }
@@ -282,12 +277,15 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
     }
   }
   /** A parser for subelement performance */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPerformanceParser implements IElementParser<VehicleImpl> {
 
     /** Constructor */
     public SubElementPerformanceParser() {
       super();
-      performanceXmlParser = new PerformanceXmlParser(messageLogger, filename);
+      this.performanceXmlParser =
+          new PerformanceXmlParser(
+              VehicleXmlParser.this.messageLogger, VehicleXmlParser.this.filename);
     }
 
     private PerformanceXmlParser performanceXmlParser;
@@ -298,7 +296,7 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
       PerformanceImpl performance = new PerformanceImpl();
       // Setting the parent
       performance.setParent(object);
-      performanceXmlParser.parseElement(indexedElement, parserContext, performance);
+      this.performanceXmlParser.parseElement(indexedElement, parserContext, performance);
 
       object.setPerformance(performance);
     }
@@ -324,12 +322,14 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
     }
   }
   /** A parser for subelement axles */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAxlesParser implements IElementParser<VehicleImpl> {
 
     /** Constructor */
     public SubElementAxlesParser() {
       super();
-      axlesXmlParser = new AxlesXmlParser(messageLogger, filename);
+      this.axlesXmlParser =
+          new AxlesXmlParser(VehicleXmlParser.this.messageLogger, VehicleXmlParser.this.filename);
     }
 
     private AxlesXmlParser axlesXmlParser;
@@ -340,7 +340,7 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
       AxlesImpl axles = new AxlesImpl();
       // Setting the parent
       axles.setParent(object);
-      axlesXmlParser.parseElement(indexedElement, parserContext, axles);
+      this.axlesXmlParser.parseElement(indexedElement, parserContext, axles);
 
       object.setAxles(axles);
     }
@@ -366,12 +366,15 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
     }
   }
   /** A parser for subelement properties */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPropertiesParser implements IElementParser<VehicleImpl> {
 
     /** Constructor */
     public SubElementPropertiesParser() {
       super();
-      propertiesXmlParser = new PropertiesXmlParser(messageLogger, filename);
+      this.propertiesXmlParser =
+          new PropertiesXmlParser(
+              VehicleXmlParser.this.messageLogger, VehicleXmlParser.this.filename);
     }
 
     private PropertiesXmlParser propertiesXmlParser;
@@ -382,7 +385,7 @@ public class VehicleXmlParser extends XmlComplexTypeParser<VehicleImpl> {
       PropertiesImpl properties = new PropertiesImpl();
       // Setting the parent
       properties.setParent(object);
-      propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
+      this.propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
 
       object.setProperties(properties);
     }

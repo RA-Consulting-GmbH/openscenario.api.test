@@ -52,38 +52,16 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
    */
   public EventXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, EventImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Event",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Event",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<EventImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<EventImpl>> result =
-        new Hashtable<String, IAttributeParser<EventImpl>>();
+    Map<String, IAttributeParser<EventImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__PRIORITY,
         new IAttributeParser<EventImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +71,13 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
               EventImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    EventXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), EventXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__PRIORITY, stripDollarSign(attributeValue), startMarker);
@@ -106,7 +88,7 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
               if (result != null) {
                 object.setPriority(result);
               } else {
-                messageLogger.logMessage(
+                EventXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -125,6 +107,7 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
     result.put(
         OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
         new IAttributeParser<EventImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -134,9 +117,13 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
               EventImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    EventXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), EventXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
@@ -160,6 +147,7 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<EventImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -169,9 +157,13 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
               EventImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    EventXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), EventXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -206,20 +198,23 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<EventImpl>> createParserList() {
-      List<IElementParser<EventImpl>> result = new ArrayList<IElementParser<EventImpl>>();
+      List<IElementParser<EventImpl>> result = new ArrayList<>();
       result.add(new SubElementActionsParser());
       result.add(new SubElementStartTriggerParser());
       return result;
     }
   }
   /** A parser for subelement actions */
+  @SuppressWarnings("synthetic-access")
   private class SubElementActionsParser implements IElementParser<EventImpl> {
 
     /** Constructor */
     public SubElementActionsParser() {
       super();
-      actionXmlParser = new ActionXmlParser(messageLogger, filename);
+      this.actionXmlParser =
+          new ActionXmlParser(EventXmlParser.this.messageLogger, EventXmlParser.this.filename);
     }
 
     private ActionXmlParser actionXmlParser;
@@ -230,10 +225,10 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
       ActionImpl actions = new ActionImpl();
       // Setting the parent
       actions.setParent(object);
-      actionXmlParser.parseElement(indexedElement, parserContext, actions);
+      this.actionXmlParser.parseElement(indexedElement, parserContext, actions);
       List<IAction> actionsList = object.getActions();
       if (actionsList == null) {
-        actionsList = new ArrayList<IAction>();
+        actionsList = new ArrayList<>();
         object.setActions(actionsList);
       }
       actionsList.add(actions);
@@ -260,12 +255,14 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
     }
   }
   /** A parser for subelement startTrigger */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStartTriggerParser implements IElementParser<EventImpl> {
 
     /** Constructor */
     public SubElementStartTriggerParser() {
       super();
-      triggerXmlParser = new TriggerXmlParser(messageLogger, filename);
+      this.triggerXmlParser =
+          new TriggerXmlParser(EventXmlParser.this.messageLogger, EventXmlParser.this.filename);
     }
 
     private TriggerXmlParser triggerXmlParser;
@@ -276,7 +273,7 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
       TriggerImpl startTrigger = new TriggerImpl();
       // Setting the parent
       startTrigger.setParent(object);
-      triggerXmlParser.parseElement(indexedElement, parserContext, startTrigger);
+      this.triggerXmlParser.parseElement(indexedElement, parserContext, startTrigger);
 
       object.setStartTrigger(startTrigger);
     }

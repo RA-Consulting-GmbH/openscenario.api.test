@@ -44,8 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FogImpl extends BaseImpl implements IFog, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class FogImpl extends BaseImpl implements IFog {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,18 +61,19 @@ public class FogImpl extends BaseImpl implements IFog, Cloneable {
     addAdapter(IFog.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getVisualRange() {
-    return visualRange;
+    return this.visualRange;
   }
 
   @Override
   public IBoundingBox getBoundingBox() {
-    return boundingBox;
+    return this.boundingBox;
   }
   /**
    * Sets the value of model property visualRange
@@ -97,7 +98,7 @@ public class FogImpl extends BaseImpl implements IFog, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VISUAL_RANGE)) {
       // Simple type
-      visualRange =
+      this.visualRange =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -114,8 +115,9 @@ public class FogImpl extends BaseImpl implements IFog, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IBoundingBox boundingBox = null;
     boundingBox = getBoundingBox();
@@ -131,6 +133,7 @@ public class FogImpl extends BaseImpl implements IFog, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public FogImpl clone() {
     FogImpl clonedObject = new FogImpl();
     cloneStartMarker(clonedObject);
@@ -177,9 +180,8 @@ public class FogImpl extends BaseImpl implements IFog, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__VISUAL_RANGE)) {
       return getVisualRange();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -204,14 +206,14 @@ public class FogImpl extends BaseImpl implements IFog, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__BOUNDING_BOX)) {
       return (IOpenScenarioFlexElement) getBoundingBox();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

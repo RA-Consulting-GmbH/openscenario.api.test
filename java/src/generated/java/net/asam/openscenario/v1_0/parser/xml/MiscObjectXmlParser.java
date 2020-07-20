@@ -54,38 +54,16 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
    */
   public MiscObjectXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, MiscObjectImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing MiscObject",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing MiscObject",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<MiscObjectImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<MiscObjectImpl>> result =
-        new Hashtable<String, IAttributeParser<MiscObjectImpl>>();
+    Map<String, IAttributeParser<MiscObjectImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY,
         new IAttributeParser<MiscObjectImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -95,9 +73,15 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
               MiscObjectImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    MiscObjectXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    MiscObjectXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY,
@@ -110,7 +94,7 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
               if (result != null) {
                 object.setMiscObjectCategory(result);
               } else {
-                messageLogger.logMessage(
+                MiscObjectXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -130,6 +114,7 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
     result.put(
         OscConstants.ATTRIBUTE__MASS,
         new IAttributeParser<MiscObjectImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -139,9 +124,15 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
               MiscObjectImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    MiscObjectXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    MiscObjectXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MASS, stripDollarSign(attributeValue), startMarker);
@@ -162,6 +153,7 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<MiscObjectImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -171,9 +163,15 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
               MiscObjectImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    MiscObjectXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    MiscObjectXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -208,12 +206,14 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<MiscObjectImpl>> createParserList() {
-      List<IElementParser<MiscObjectImpl>> result = new ArrayList<IElementParser<MiscObjectImpl>>();
+      List<IElementParser<MiscObjectImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<MiscObjectImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              MiscObjectXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementBoundingBoxParser());
@@ -222,12 +222,15 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser implements IElementParser<MiscObjectImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              MiscObjectXmlParser.this.messageLogger, MiscObjectXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -238,11 +241,11 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -269,12 +272,15 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
     }
   }
   /** A parser for subelement boundingBox */
+  @SuppressWarnings("synthetic-access")
   private class SubElementBoundingBoxParser implements IElementParser<MiscObjectImpl> {
 
     /** Constructor */
     public SubElementBoundingBoxParser() {
       super();
-      boundingBoxXmlParser = new BoundingBoxXmlParser(messageLogger, filename);
+      this.boundingBoxXmlParser =
+          new BoundingBoxXmlParser(
+              MiscObjectXmlParser.this.messageLogger, MiscObjectXmlParser.this.filename);
     }
 
     private BoundingBoxXmlParser boundingBoxXmlParser;
@@ -285,7 +291,7 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
       BoundingBoxImpl boundingBox = new BoundingBoxImpl();
       // Setting the parent
       boundingBox.setParent(object);
-      boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
+      this.boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
 
       object.setBoundingBox(boundingBox);
     }
@@ -311,12 +317,15 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
     }
   }
   /** A parser for subelement properties */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPropertiesParser implements IElementParser<MiscObjectImpl> {
 
     /** Constructor */
     public SubElementPropertiesParser() {
       super();
-      propertiesXmlParser = new PropertiesXmlParser(messageLogger, filename);
+      this.propertiesXmlParser =
+          new PropertiesXmlParser(
+              MiscObjectXmlParser.this.messageLogger, MiscObjectXmlParser.this.filename);
     }
 
     private PropertiesXmlParser propertiesXmlParser;
@@ -327,7 +336,7 @@ public class MiscObjectXmlParser extends XmlComplexTypeParser<MiscObjectImpl> {
       PropertiesImpl properties = new PropertiesImpl();
       // Setting the parent
       properties.setParent(object);
-      propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
+      this.propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
 
       object.setProperties(properties);
     }

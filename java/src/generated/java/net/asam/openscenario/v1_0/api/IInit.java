@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IInit extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: A list of actions initially executed when the
    * enclosing storyboard starts.

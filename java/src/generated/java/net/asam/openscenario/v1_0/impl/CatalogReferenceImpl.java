@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -65,28 +65,29 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
     addAdapter(ICatalogReference.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getCatalogName() {
-    return catalogName;
+    return this.catalogName;
   }
 
   @Override
   public String getEntryName() {
-    return entryName;
+    return this.entryName;
   }
 
   @Override
   public List<IParameterAssignment> getParameterAssignments() {
-    return parameterAssignments;
+    return this.parameterAssignments;
   }
 
   @Override
   public ICatalogElement getRef() {
-    return ref;
+    return this.ref;
   }
   /**
    * Sets the value of model property catalogName
@@ -129,13 +130,13 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__CATALOG_NAME)) {
       // Simple type
-      catalogName =
+      this.catalogName =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTRY_NAME)) {
       // Simple type
-      entryName =
+      this.entryName =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -152,8 +153,9 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IParameterAssignment> parameterAssignments = null;
     parameterAssignments = getParameterAssignments();
@@ -171,6 +173,7 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public CatalogReferenceImpl clone() {
     CatalogReferenceImpl clonedObject = new CatalogReferenceImpl();
     cloneStartMarker(clonedObject);
@@ -187,7 +190,7 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
     List<IParameterAssignment> parameterAssignments = null;
     parameterAssignments = getParameterAssignments();
     if (parameterAssignments != null) {
-      List<IParameterAssignment> clonedList = new ArrayList<IParameterAssignment>();
+      List<IParameterAssignment> clonedList = new ArrayList<>();
       for (IParameterAssignment item : parameterAssignments) {
         ParameterAssignmentImpl clonedChild = ((ParameterAssignmentImpl) item).clone();
         clonedList.add(clonedChild);
@@ -210,9 +213,8 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
       return getCatalogName();
     } else if (key.equals(OscConstants.ATTRIBUTE__ENTRY_NAME)) {
       return getEntryName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -250,18 +252,18 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference,
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__PARAMETER_ASSIGNMENT)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getParameterAssignments();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

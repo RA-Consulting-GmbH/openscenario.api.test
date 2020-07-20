@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IDynamicConstraints extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Maximum acceleration the distance controller is
    * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.
@@ -35,7 +34,6 @@ public interface IDynamicConstraints extends IOpenScenarioModelElement {
    * @return value of model property maxAcceleration
    */
   public Double getMaxAcceleration();
-
   /**
    * From OpenSCENARIO class model specification: Maximum deceleration the distance controller is
    * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.
@@ -43,7 +41,6 @@ public interface IDynamicConstraints extends IOpenScenarioModelElement {
    * @return value of model property maxDeceleration
    */
   public Double getMaxDeceleration();
-
   /**
    * From OpenSCENARIO class model specification: Maximum speed the distance controller is allowed
    * to use for keeping the distance. Unit: m/s; Range: [0..inf[.

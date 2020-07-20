@@ -26,14 +26,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILaneChangeTarget extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Lane change direction relative to entity's lane.
    *
    * @return value of model property relativeTargetLane
    */
   public IRelativeTargetLane getRelativeTargetLane();
-
   /**
    * From OpenSCENARIO class model specification: Lane change target lane number.
    *

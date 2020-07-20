@@ -18,10 +18,7 @@ package net.asam.openscenario.v1_0.parser.xml;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlGroupParser;
@@ -47,29 +44,7 @@ public class OpenScenarioCategoryXmlParser extends XmlGroupParser<OpenScenarioCa
    */
   public OpenScenarioCategoryXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, OpenScenarioCategoryImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing OpenScenarioCategory",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing OpenScenarioCategory",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   /** Parser for all subelements */
@@ -86,22 +61,26 @@ public class OpenScenarioCategoryXmlParser extends XmlGroupParser<OpenScenarioCa
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<OpenScenarioCategoryImpl>> createParserList() {
-      List<IElementParser<OpenScenarioCategoryImpl>> result =
-          new ArrayList<IElementParser<OpenScenarioCategoryImpl>>();
+      List<IElementParser<OpenScenarioCategoryImpl>> result = new ArrayList<>();
       result.add(new SubElementScenarioDefinitionParser());
       result.add(new SubElementCatalogDefinitionParser());
       return result;
     }
   }
   /** A parser for subelement scenarioDefinition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementScenarioDefinitionParser
       implements IElementParser<OpenScenarioCategoryImpl> {
 
     /** Constructor */
     public SubElementScenarioDefinitionParser() {
       super();
-      scenarioDefinitionXmlParser = new ScenarioDefinitionXmlParser(messageLogger, filename);
+      this.scenarioDefinitionXmlParser =
+          new ScenarioDefinitionXmlParser(
+              OpenScenarioCategoryXmlParser.this.messageLogger,
+              OpenScenarioCategoryXmlParser.this.filename);
     }
 
     private ScenarioDefinitionXmlParser scenarioDefinitionXmlParser;
@@ -114,7 +93,8 @@ public class OpenScenarioCategoryXmlParser extends XmlGroupParser<OpenScenarioCa
       ScenarioDefinitionImpl scenarioDefinition = new ScenarioDefinitionImpl();
       // Setting the parent
       scenarioDefinition.setParent(object);
-      scenarioDefinitionXmlParser.parseElement(indexedElement, parserContext, scenarioDefinition);
+      this.scenarioDefinitionXmlParser.parseElement(
+          indexedElement, parserContext, scenarioDefinition);
 
       object.setScenarioDefinition(scenarioDefinition);
     }
@@ -143,13 +123,17 @@ public class OpenScenarioCategoryXmlParser extends XmlGroupParser<OpenScenarioCa
     }
   }
   /** A parser for subelement catalogDefinition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogDefinitionParser
       implements IElementParser<OpenScenarioCategoryImpl> {
 
     /** Constructor */
     public SubElementCatalogDefinitionParser() {
       super();
-      catalogDefinitionXmlParser = new CatalogDefinitionXmlParser(messageLogger, filename);
+      this.catalogDefinitionXmlParser =
+          new CatalogDefinitionXmlParser(
+              OpenScenarioCategoryXmlParser.this.messageLogger,
+              OpenScenarioCategoryXmlParser.this.filename);
     }
 
     private CatalogDefinitionXmlParser catalogDefinitionXmlParser;
@@ -162,7 +146,8 @@ public class OpenScenarioCategoryXmlParser extends XmlGroupParser<OpenScenarioCa
       CatalogDefinitionImpl catalogDefinition = new CatalogDefinitionImpl();
       // Setting the parent
       catalogDefinition.setParent(object);
-      catalogDefinitionXmlParser.parseElement(indexedElement, parserContext, catalogDefinition);
+      this.catalogDefinitionXmlParser.parseElement(
+          indexedElement, parserContext, catalogDefinition);
 
       object.setCatalogDefinition(catalogDefinition);
     }

@@ -21,10 +21,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+import javax.management.modelmbean.XMLParseException;
 
-import com.sun.org.apache.xerces.internal.xni.parser.XMLParseException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
@@ -39,8 +39,7 @@ public class TestFiles extends TestBase {
     try {
       executeParsing(getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath());
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 
@@ -48,10 +47,9 @@ public class TestFiles extends TestBase {
   public void testParamsSuccess() {
     try {
       executeParsing(getResourceFile("DoubleLaneChangerParams.xosc").getAbsolutePath());
-      Assertions.assertFalse(hasErrors(messageLogger), "Unexpected error occured");
+      Assertions.assertFalse(hasErrors(this.messageLogger), "Unexpected error occured");
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 
@@ -60,7 +58,7 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Cannot resolve parameter 'UnknownParameter'",
@@ -73,12 +71,11 @@ public class TestFiles extends TestBase {
               new Textmarker(85, 39, filename)));
 
       Assertions.assertTrue(
-          assertMessages(messages, ErrorLevel.ERROR, messageLogger),
+          assertMessages(messages, ErrorLevel.ERROR, this.messageLogger),
           "Unexpected Errors or Errors missing");
 
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 
@@ -87,13 +84,13 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangeExtraHalf.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "XML document structures must start and end within the same entity.",
               ErrorLevel.FATAL,
               new Textmarker(47, 3, filename)));
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.FATAL, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.FATAL, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.assertTrue(e.getCause() instanceof XMLParseException);
     }
@@ -105,7 +102,7 @@ public class TestFiles extends TestBase {
       String filename =
           getResourceFile("DoubleLaneChangeExtraUnknownElement.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Unknown element 'ScenarioObject'",
@@ -114,7 +111,7 @@ public class TestFiles extends TestBase {
       messages.add(
           new FileContentMessage(
               "Unknown element 'Test'", ErrorLevel.ERROR, new Textmarker(76, 4, filename)));
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.assertTrue(e.getCause() instanceof XMLParseException);
     }
@@ -125,7 +122,7 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangerWrongAttributes.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Value 'TTTT' is not allowed.", ErrorLevel.ERROR, new Textmarker(78, 72, filename)));
@@ -149,7 +146,7 @@ public class TestFiles extends TestBase {
               "Cannot convert '-40' to an unsignedInteger. Value must be in [0..4294967295].",
               ErrorLevel.ERROR,
               new Textmarker(175, 69, filename)));
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.assertTrue(e.getCause() instanceof XMLParseException);
     }
@@ -160,13 +157,13 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangerWrongEndElement.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "The element type \"PrivateActions\" must be terminated by the matching end-tag \"</PrivateActions>\".",
               ErrorLevel.FATAL,
               new Textmarker(90, 12, filename)));
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.FATAL, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.FATAL, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       e.printStackTrace();
       Assertions.assertTrue(e.getCause() instanceof XMLParseException);
@@ -180,7 +177,7 @@ public class TestFiles extends TestBase {
           getResourceFile("DoubleLaneChangerCustomCommandAction.xosc").getAbsolutePath();
       OpenScenarioImpl openScenarioImpl = executeParsing(filename);
       List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
       String content =
           openScenarioImpl
               .getOpenScenarioCategory()
@@ -195,8 +192,7 @@ public class TestFiles extends TestBase {
       Assertions.assertEquals("\n				This is text defined  Inhalt\n			", content);
 
     } catch (ScenarioLoaderException e) {
-      e.printStackTrace();
-      Assertions.assertTrue(e.getCause() instanceof XMLParseException);
+      Assertions.fail();
     }
   }
 

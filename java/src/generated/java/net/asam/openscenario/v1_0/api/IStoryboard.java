@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IStoryboard extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Initialization of the storyboard instance. Initial
    * conditions are set and initial actions are applied to entities.
@@ -36,14 +35,12 @@ public interface IStoryboard extends IOpenScenarioModelElement {
    * @return value of model property init
    */
   public IInit getInit();
-
   /**
    * From OpenSCENARIO class model specification: List of stories defined in a story board.
    *
    * @return value of model property stories
    */
   public List<IStory> getStories();
-
   /**
    * From OpenSCENARIO class model specification: Trigger to stop the Storyboard instance.
    *

@@ -49,8 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterConditionImpl extends BaseImpl implements IParameterCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ParameterConditionImpl extends BaseImpl implements IParameterCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -69,23 +69,24 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
     addAdapter(IParameterCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IParameterDeclaration> getParameterRef() {
-    return parameterRef;
+    return this.parameterRef;
   }
 
   @Override
   public String getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Rule getRule() {
-    return rule;
+    return this.rule;
   }
   /**
    * Sets the value of model property parameterRef
@@ -119,20 +120,21 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
     if (attributeKey.equals(OscConstants.ATTRIBUTE__PARAMETER_REF)) {
       // Proxy
       NamedReferenceProxy<IParameterDeclaration> proxy =
-          new NamedReferenceProxy<IParameterDeclaration>(parameterLiteralValue);
-      parameterRef = proxy;
+          new NamedReferenceProxy<>(parameterLiteralValue);
+      this.parameterRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__RULE)) {
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        rule = result;
+        this.rule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -155,8 +157,9 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -167,6 +170,7 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ParameterConditionImpl clone() {
     ParameterConditionImpl clonedObject = new ParameterConditionImpl();
     cloneStartMarker(clonedObject);
@@ -205,9 +209,8 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
       return parameterRef != null ? parameterRef.getNameRef() : null;
     } else if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -248,6 +251,7 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -268,9 +272,8 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
       return parameterRef != null
           ? (IOpenScenarioFlexElement) parameterRef.getTargetObject()
           : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -281,9 +284,8 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
     if (key.equals(OscConstants.ATTRIBUTE__RULE)) {
       Rule rule = getRule();
       return rule != null ? rule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -41,48 +41,49 @@ public abstract class BaseImpl
         IOpenScenarioFlexElement,
         Cloneable {
 
-  private Hashtable<String, ParameterizedAttribute> attributeKeyToParameterName =
-      new Hashtable<String, ParameterizedAttribute>();
-  private Hashtable<String, Textmarker> attributeKeyToStartMarker =
-      new Hashtable<String, Textmarker>();
-  private Hashtable<String, Textmarker> attributeKeyToEndMarker =
-      new Hashtable<String, Textmarker>();
-  private Hashtable<Class<?>, Object> adapters = new Hashtable<Class<?>, Object>();
+  private Hashtable<String, ParameterizedAttribute> attributeKeyToParameterName = new Hashtable<>();
+  private Hashtable<String, Textmarker> attributeKeyToStartMarker = new Hashtable<>();
+  private Hashtable<String, Textmarker> attributeKeyToEndMarker = new Hashtable<>();
+  private Hashtable<Class<?>, Object> adapters = new Hashtable<>();
   private Textmarker startMarker;
   private Textmarker endMarker;
   private IOpenScenarioModelElement parent = null;
 
   /** Constructor */
   public BaseImpl() {
-    adapters.put(
+    this.adapters.put(
         ILocator.class,
         new ILocator() {
 
+          @SuppressWarnings("synthetic-access")
           @Override
           public Textmarker getStartMarkerOfProperty(String propertyKey) {
-            return attributeKeyToStartMarker.get(propertyKey);
+            return BaseImpl.this.attributeKeyToStartMarker.get(propertyKey);
           }
 
+          @SuppressWarnings("synthetic-access")
           @Override
           public Textmarker getStartMarker() {
-            return startMarker;
+            return BaseImpl.this.startMarker;
           }
 
+          @SuppressWarnings("synthetic-access")
           @Override
           public Textmarker getEndMarkerOfProperty(String propertyKey) {
-            return attributeKeyToEndMarker.get(propertyKey);
+            return BaseImpl.this.attributeKeyToEndMarker.get(propertyKey);
           }
 
+          @SuppressWarnings("synthetic-access")
           @Override
           public Textmarker getEndMarker() {
-            return endMarker;
+            return BaseImpl.this.endMarker;
           }
         });
   }
 
   @Override
   public Object getAdapter(Class<?> classifier) {
-    return adapters.get(classifier);
+    return this.adapters.get(classifier);
   }
   /**
    * Adds an adapter object to the instance
@@ -91,7 +92,7 @@ public abstract class BaseImpl
    * @param object the adapter object
    */
   public void addAdapter(Class<?> classifier, Object object) {
-    adapters.put(classifier, object);
+    this.adapters.put(classifier, object);
   }
 
   /**
@@ -101,7 +102,7 @@ public abstract class BaseImpl
    * @param startMarker the start marker
    */
   public void putPropertyStartMarker(String propertyKey, Textmarker startMarker) {
-    attributeKeyToStartMarker.put(propertyKey, startMarker);
+    this.attributeKeyToStartMarker.put(propertyKey, startMarker);
   }
 
   /**
@@ -111,7 +112,7 @@ public abstract class BaseImpl
    * @param endMarker the end marker
    */
   public void putPropertyEndMarker(String propertyKey, Textmarker endMarker) {
-    attributeKeyToEndMarker.put(propertyKey, endMarker);
+    this.attributeKeyToEndMarker.put(propertyKey, endMarker);
   }
 
   /**
@@ -120,7 +121,7 @@ public abstract class BaseImpl
    * @param baseImpl the cloned object to set this object's start marker
    */
   protected void cloneStartMarker(BaseImpl baseImpl) {
-    baseImpl.setStartMarker(startMarker);
+    baseImpl.setStartMarker(this.startMarker);
   }
 
   /**
@@ -129,7 +130,7 @@ public abstract class BaseImpl
    * @param baseImpl the cloned object to set this object's end marker
    */
   protected void cloneEndMarker(BaseImpl baseImpl) {
-    baseImpl.setEndMarker(endMarker);
+    baseImpl.setEndMarker(this.endMarker);
   }
   /**
    * Clone method for the properties start markers
@@ -137,7 +138,7 @@ public abstract class BaseImpl
    * @param baseImpl the cloned object to set this object's property start markers
    */
   protected void cloneAttributeKeyToStartMarker(BaseImpl baseImpl) {
-    baseImpl.attributeKeyToStartMarker.putAll(attributeKeyToStartMarker);
+    baseImpl.attributeKeyToStartMarker.putAll(this.attributeKeyToStartMarker);
   }
 
   /**
@@ -146,7 +147,7 @@ public abstract class BaseImpl
    * @param baseImpl the cloned object to set this object's property end markers
    */
   protected void cloneAttributeKeyToEndMarker(BaseImpl baseImpl) {
-    baseImpl.attributeKeyToEndMarker.putAll(attributeKeyToEndMarker);
+    baseImpl.attributeKeyToEndMarker.putAll(this.attributeKeyToEndMarker);
   }
   /**
    * Clones the attributeKeyToParameterName property of this class into the coled object.
@@ -154,9 +155,9 @@ public abstract class BaseImpl
    * @param baseImpl the cloned object to copy this object's attributeKeyToParameterName into.
    */
   protected void cloneAttributeKeyToParameterNameMap(BaseImpl baseImpl) {
-    for (String key : attributeKeyToParameterName.keySet()) {
+    for (String key : this.attributeKeyToParameterName.keySet()) {
 
-      ParameterizedAttribute parameterizedAttribute = attributeKeyToParameterName.get(key);
+      ParameterizedAttribute parameterizedAttribute = this.attributeKeyToParameterName.get(key);
       baseImpl.attributeKeyToParameterName.put(
           key,
           new ParameterizedAttribute(
@@ -173,7 +174,7 @@ public abstract class BaseImpl
    */
   public void setAttributeParameter(
       String attributeKey, String parameterName, Textmarker textmarker) {
-    attributeKeyToParameterName.put(
+    this.attributeKeyToParameterName.put(
         attributeKey, new ParameterizedAttribute(parameterName, textmarker));
   }
 
@@ -227,24 +228,27 @@ public abstract class BaseImpl
 
   @Override
   public Textmarker getTextmarker(String attributeKey) {
-    ParameterizedAttribute parameterizedAttribute = attributeKeyToParameterName.get(attributeKey);
-    if (parameterizedAttribute == null) return null;
-    else return parameterizedAttribute.textMarker;
+    ParameterizedAttribute parameterizedAttribute =
+        this.attributeKeyToParameterName.get(attributeKey);
+    if (parameterizedAttribute == null) {
+      return null;
+    }
+    return parameterizedAttribute.textMarker;
   }
 
   @Override
   public Set<String> getParameterizedAttributeKeys() {
-    return attributeKeyToParameterName.keySet();
+    return this.attributeKeyToParameterName.keySet();
   }
 
   @Override
   public String getParameterNameFromAttribute(String attributeKey) {
-    ParameterizedAttribute parameterizedAttribute = attributeKeyToParameterName.get(attributeKey);
+    ParameterizedAttribute parameterizedAttribute =
+        this.attributeKeyToParameterName.get(attributeKey);
     if (parameterizedAttribute != null) {
       return parameterizedAttribute.parameterName;
-    } else {
-      return null;
     }
+    return null;
   }
 
   /** An attribute that is paramterized. */
@@ -264,6 +268,7 @@ public abstract class BaseImpl
    * @param attributeKey the key of the attribute
    * @return the type of the attribute
    */
+  @Override
   public abstract Class<?> getTypeFromAttributeName(String attributeKey);
 
   /**
@@ -283,6 +288,7 @@ public abstract class BaseImpl
    * @param attributeKey the key of the property the value should be assigned to
    * @param value the string representation of the value that should be assigned to the property
    */
+  @Override
   public void resolveParameter(IParserMessageLogger logger, String attributeKey, String value) {
     // make sure it is a parameterized attribute
     Class<?> targetClass = getTypeFromAttributeName(attributeKey);
@@ -296,7 +302,7 @@ public abstract class BaseImpl
    * @return start marker or null if not set
    */
   public Textmarker getStartMarker() {
-    return startMarker;
+    return this.startMarker;
   }
 
   /**
@@ -314,7 +320,7 @@ public abstract class BaseImpl
    * @return end marker or null if not set
    */
   public Textmarker getEndMarker() {
-    return endMarker;
+    return this.endMarker;
   }
 
   /**
@@ -334,11 +340,12 @@ public abstract class BaseImpl
   public abstract List<BaseImpl> getChildren();
 
   /** Indicating that all subclasses must implement the the Clonable interface. */
+  @Override
   public abstract BaseImpl clone();
 
   @Override
   public IOpenScenarioModelElement getParent() {
-    return parent;
+    return this.parent;
   }
 
   /**

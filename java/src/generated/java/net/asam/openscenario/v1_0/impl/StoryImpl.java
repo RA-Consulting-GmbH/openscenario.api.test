@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StoryImpl extends BaseImpl implements IStory, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class StoryImpl extends BaseImpl implements IStory {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -64,23 +64,24 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
     addAdapter(IStory.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public List<IParameterDeclaration> getParameterDeclarations() {
-    return parameterDeclarations;
+    return this.parameterDeclarations;
   }
 
   @Override
   public List<IAct> getActs() {
-    return acts;
+    return this.acts;
   }
   /**
    * Sets the value of model property name
@@ -114,7 +115,8 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -131,9 +133,9 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
 
   @Override
   public List<ParameterValue> getParameterDefinitions() {
-    List<ParameterValue> result = new java.util.ArrayList<ParameterValue>();
-    if (parameterDeclarations != null) {
-      for (IParameterDeclaration parameterDeclaration : parameterDeclarations) {
+    List<ParameterValue> result = new java.util.ArrayList<>();
+    if (this.parameterDeclarations != null) {
+      for (IParameterDeclaration parameterDeclaration : this.parameterDeclarations) {
         ParameterValue parameterValue =
             new ParameterValue(
                 parameterDeclaration.getName(),
@@ -151,8 +153,9 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IParameterDeclaration> parameterDeclarations = null;
     parameterDeclarations = getParameterDeclarations();
@@ -177,6 +180,7 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public StoryImpl clone() {
     StoryImpl clonedObject = new StoryImpl();
     cloneStartMarker(clonedObject);
@@ -191,7 +195,7 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
     List<IParameterDeclaration> parameterDeclarations = null;
     parameterDeclarations = getParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<IParameterDeclaration>();
+      List<IParameterDeclaration> clonedList = new ArrayList<>();
       for (IParameterDeclaration item : parameterDeclarations) {
         ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
@@ -202,7 +206,7 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
     List<IAct> acts = null;
     acts = getActs();
     if (acts != null) {
-      List<IAct> clonedList = new ArrayList<IAct>();
+      List<IAct> clonedList = new ArrayList<>();
       for (IAct item : acts) {
         ActImpl clonedChild = ((ActImpl) item).clone();
         clonedList.add(clonedChild);
@@ -223,9 +227,8 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -263,21 +266,21 @@ public class StoryImpl extends BaseImpl implements IStory, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__PARAMETER_DECLARATION)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getParameterDeclarations();
-
-    } else if (key.equals(OscConstants.ELEMENT__ACT)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getActs();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__ACT)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getActs();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -29,7 +29,6 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITimeHeadwayCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference entity to which the time headway is
    * computed.
@@ -37,14 +36,12 @@ public interface ITimeHeadwayCondition extends IOpenScenarioModelElement {
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: The time headway value. Unit: s; Range: [0..inf[.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: True: time headway is measured using the distance
    * between closest bounding box points. False: reference point distance is used.
@@ -52,7 +49,6 @@ public interface ITimeHeadwayCondition extends IOpenScenarioModelElement {
    * @return value of model property freespace
    */
   public Boolean getFreespace();
-
   /**
    * From OpenSCENARIO class model specification: True: routing is taken into account, e.g. turns
    * will increase distance. False: straight line distance is used.
@@ -60,7 +56,6 @@ public interface ITimeHeadwayCondition extends IOpenScenarioModelElement {
    * @return value of model property alongRoute
    */
   public Boolean getAlongRoute();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

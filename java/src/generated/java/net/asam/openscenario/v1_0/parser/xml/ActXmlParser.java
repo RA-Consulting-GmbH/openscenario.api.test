@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -51,38 +49,16 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
    */
   public ActXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ActImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Act",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Act",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ActImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ActImpl>> result =
-        new Hashtable<String, IAttributeParser<ActImpl>>();
+    Map<String, IAttributeParser<ActImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<ActImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,11 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
               ActImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(), startPosition.getColumn(), ActXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), ActXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -129,8 +107,9 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ActImpl>> createParserList() {
-      List<IElementParser<ActImpl>> result = new ArrayList<IElementParser<ActImpl>>();
+      List<IElementParser<ActImpl>> result = new ArrayList<>();
       result.add(new SubElementManeuverGroupsParser());
       result.add(new SubElementStartTriggerParser());
       result.add(new SubElementStopTriggerParser());
@@ -138,12 +117,14 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
     }
   }
   /** A parser for subelement maneuverGroups */
+  @SuppressWarnings("synthetic-access")
   private class SubElementManeuverGroupsParser implements IElementParser<ActImpl> {
 
     /** Constructor */
     public SubElementManeuverGroupsParser() {
       super();
-      maneuverGroupXmlParser = new ManeuverGroupXmlParser(messageLogger, filename);
+      this.maneuverGroupXmlParser =
+          new ManeuverGroupXmlParser(ActXmlParser.this.messageLogger, ActXmlParser.this.filename);
     }
 
     private ManeuverGroupXmlParser maneuverGroupXmlParser;
@@ -153,10 +134,10 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
       ManeuverGroupImpl maneuverGroups = new ManeuverGroupImpl();
       // Setting the parent
       maneuverGroups.setParent(object);
-      maneuverGroupXmlParser.parseElement(indexedElement, parserContext, maneuverGroups);
+      this.maneuverGroupXmlParser.parseElement(indexedElement, parserContext, maneuverGroups);
       List<IManeuverGroup> maneuverGroupsList = object.getManeuverGroups();
       if (maneuverGroupsList == null) {
-        maneuverGroupsList = new ArrayList<IManeuverGroup>();
+        maneuverGroupsList = new ArrayList<>();
         object.setManeuverGroups(maneuverGroupsList);
       }
       maneuverGroupsList.add(maneuverGroups);
@@ -183,12 +164,14 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
     }
   }
   /** A parser for subelement startTrigger */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStartTriggerParser implements IElementParser<ActImpl> {
 
     /** Constructor */
     public SubElementStartTriggerParser() {
       super();
-      triggerXmlParser = new TriggerXmlParser(messageLogger, filename);
+      this.triggerXmlParser =
+          new TriggerXmlParser(ActXmlParser.this.messageLogger, ActXmlParser.this.filename);
     }
 
     private TriggerXmlParser triggerXmlParser;
@@ -198,7 +181,7 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
       TriggerImpl startTrigger = new TriggerImpl();
       // Setting the parent
       startTrigger.setParent(object);
-      triggerXmlParser.parseElement(indexedElement, parserContext, startTrigger);
+      this.triggerXmlParser.parseElement(indexedElement, parserContext, startTrigger);
 
       object.setStartTrigger(startTrigger);
     }
@@ -224,12 +207,14 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
     }
   }
   /** A parser for subelement stopTrigger */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStopTriggerParser implements IElementParser<ActImpl> {
 
     /** Constructor */
     public SubElementStopTriggerParser() {
       super();
-      triggerXmlParser = new TriggerXmlParser(messageLogger, filename);
+      this.triggerXmlParser =
+          new TriggerXmlParser(ActXmlParser.this.messageLogger, ActXmlParser.this.filename);
     }
 
     private TriggerXmlParser triggerXmlParser;
@@ -239,7 +224,7 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
       TriggerImpl stopTrigger = new TriggerImpl();
       // Setting the parent
       stopTrigger.setParent(object);
-      triggerXmlParser.parseElement(indexedElement, parserContext, stopTrigger);
+      this.triggerXmlParser.parseElement(indexedElement, parserContext, stopTrigger);
 
       object.setStopTrigger(stopTrigger);
     }

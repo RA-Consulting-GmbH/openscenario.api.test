@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class PrivateImpl extends BaseImpl implements IPrivate {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +63,19 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
     addAdapter(IPrivate.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public List<IPrivateAction> getPrivateActions() {
-    return privateActions;
+    return this.privateActions;
   }
   /**
    * Sets the value of model property entityRef
@@ -99,8 +100,8 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
     }
   }
@@ -116,8 +117,9 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IPrivateAction> privateActions = null;
     privateActions = getPrivateActions();
@@ -135,6 +137,7 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PrivateImpl clone() {
     PrivateImpl clonedObject = new PrivateImpl();
     cloneStartMarker(clonedObject);
@@ -151,7 +154,7 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
     List<IPrivateAction> privateActions = null;
     privateActions = getPrivateActions();
     if (privateActions != null) {
-      List<IPrivateAction> clonedList = new ArrayList<IPrivateAction>();
+      List<IPrivateAction> clonedList = new ArrayList<>();
       for (IPrivateAction item : privateActions) {
         PrivateActionImpl clonedChild = ((PrivateActionImpl) item).clone();
         clonedList.add(clonedChild);
@@ -174,9 +177,8 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -214,18 +216,18 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__PRIVATE_ACTION)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getPrivateActions();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -243,9 +245,8 @@ public class PrivateImpl extends BaseImpl implements IPrivate, Cloneable {
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

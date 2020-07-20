@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IEntityRef> entityRef;
   private List<IByType> byType;
@@ -60,18 +56,19 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
     addAdapter(ISelectedEntities.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IEntityRef> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public List<IByType> getByType() {
-    return byType;
+    return this.byType;
   }
   /**
    * Sets the value of model property entityRef
@@ -94,7 +91,9 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IEntityRef> entityRef = null;
     entityRef = getEntityRef();
@@ -133,6 +133,7 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public SelectedEntitiesImpl clone() {
     SelectedEntitiesImpl clonedObject = new SelectedEntitiesImpl();
     cloneStartMarker(clonedObject);
@@ -145,7 +146,7 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
     List<IEntityRef> entityRef = null;
     entityRef = getEntityRef();
     if (entityRef != null) {
-      List<IEntityRef> clonedList = new ArrayList<IEntityRef>();
+      List<IEntityRef> clonedList = new ArrayList<>();
       for (IEntityRef item : entityRef) {
         EntityRefImpl clonedChild = ((EntityRefImpl) item).clone();
         clonedList.add(clonedChild);
@@ -156,7 +157,7 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
     List<IByType> byType = null;
     byType = getByType();
     if (byType != null) {
-      List<IByType> clonedList = new ArrayList<IByType>();
+      List<IByType> clonedList = new ArrayList<>();
       for (IByType item : byType) {
         ByTypeImpl clonedChild = ((ByTypeImpl) item).clone();
         clonedList.add(clonedChild);
@@ -210,21 +211,21 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities,
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__ENTITY_REF)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getEntityRef();
-
-    } else if (key.equals(OscConstants.ELEMENT__BY_TYPE)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getByType();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__BY_TYPE)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getByType();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

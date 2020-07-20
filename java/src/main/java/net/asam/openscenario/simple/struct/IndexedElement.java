@@ -34,7 +34,7 @@ import net.asam.xml.indexer.Position;
  */
 public class IndexedElement {
 
-  private List<IndexedElement> subElements = new ArrayList<IndexedElement>();
+  private List<IndexedElement> subElements = new ArrayList<>();
   private ElementNode elementNode;
   private String characters;
   private Element element;
@@ -70,7 +70,7 @@ public class IndexedElement {
    * @return the parent
    */
   public IndexedElement getParent() {
-    return parent;
+    return this.parent;
   }
 
   /**
@@ -79,7 +79,7 @@ public class IndexedElement {
    * @param subelement the element to be added as a subelement
    */
   public void addSubElement(IndexedElement subelement) {
-    subElements.add(subelement);
+    this.subElements.add(subelement);
   }
 
   /**
@@ -88,7 +88,7 @@ public class IndexedElement {
    * @return the sub elements
    */
   public List<IndexedElement> getSubElements() {
-    return subElements;
+    return this.subElements;
   }
   /**
    * The characters (for simpleContent types)
@@ -96,8 +96,8 @@ public class IndexedElement {
    * @return the characters
    */
   public String getCharacters() {
-    return characters;
-  };
+    return this.characters;
+  }
 
   /**
    * The start position in the file
@@ -105,7 +105,7 @@ public class IndexedElement {
    * @return the position
    */
   public Position getStartElementLocation() {
-    return elementNode.getStartPosition();
+    return this.elementNode.getStartPosition();
   }
 
   /**
@@ -114,7 +114,7 @@ public class IndexedElement {
    * @return the position
    */
   public Position getEndElementLocation() {
-    return elementNode.getEndPosition();
+    return this.elementNode.getEndPosition();
   }
 
   /**
@@ -123,7 +123,7 @@ public class IndexedElement {
    * @return dom element
    */
   public Element getElement() {
-    return element;
+    return this.element;
   }
 
   /**
@@ -133,12 +133,11 @@ public class IndexedElement {
    * @return the position
    */
   public Position getAttributeStartPosition(String attributeName) {
-    AttributeNode attributeNode = elementNode.getAttributeNode(attributeName);
+    AttributeNode attributeNode = this.elementNode.getAttributeNode(attributeName);
     if (attributeNode != null) {
       return attributeNode.getStartPosition();
-    } else {
-      return null;
     }
+    return null;
   }
 
   /**
@@ -148,12 +147,11 @@ public class IndexedElement {
    * @return the position
    */
   public Position getAttributeEndPosition(String attributeName) {
-    AttributeNode attributeNode = elementNode.getAttributeNode(attributeName);
+    AttributeNode attributeNode = this.elementNode.getAttributeNode(attributeName);
     if (attributeNode != null) {
       return attributeNode.getEndPosition();
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Is this node a mixed node
@@ -161,7 +159,7 @@ public class IndexedElement {
    * @return true if mixed node
    */
   public boolean isMixedNode() {
-    return isMixedNode;
+    return this.isMixedNode;
   }
 
   /**

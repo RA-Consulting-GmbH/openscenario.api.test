@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IFile logicFile;
   private IFile sceneGraphFile;
@@ -61,23 +57,24 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable
     addAdapter(IRoadNetwork.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IFile getLogicFile() {
-    return logicFile;
+    return this.logicFile;
   }
 
   @Override
   public IFile getSceneGraphFile() {
-    return sceneGraphFile;
+    return this.sceneGraphFile;
   }
 
   @Override
   public List<ITrafficSignalController> getTrafficSignals() {
-    return trafficSignals;
+    return this.trafficSignals;
   }
   /**
    * Sets the value of model property logicFile
@@ -110,7 +107,9 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -123,8 +122,9 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IFile logicFile = null;
     logicFile = getLogicFile();
@@ -152,6 +152,7 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RoadNetworkImpl clone() {
     RoadNetworkImpl clonedObject = new RoadNetworkImpl();
     cloneStartMarker(clonedObject);
@@ -178,7 +179,7 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable
     List<ITrafficSignalController> trafficSignals = null;
     trafficSignals = getTrafficSignals();
     if (trafficSignals != null) {
-      List<ITrafficSignalController> clonedList = new ArrayList<ITrafficSignalController>();
+      List<ITrafficSignalController> clonedList = new ArrayList<>();
       for (ITrafficSignalController item : trafficSignals) {
         TrafficSignalControllerImpl clonedChild = ((TrafficSignalControllerImpl) item).clone();
         clonedList.add(clonedChild);
@@ -234,25 +235,25 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, Cloneable
     }
     if (key.equals(OscConstants.ELEMENT__LOGIC_FILE)) {
       return (IOpenScenarioFlexElement) getLogicFile();
-    } else if (key.equals(OscConstants.ELEMENT__SCENE_GRAPH_FILE)) {
-      return (IOpenScenarioFlexElement) getSceneGraphFile();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__SCENE_GRAPH_FILE)) {
+      return (IOpenScenarioFlexElement) getSceneGraphFile();
+    }
+    throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__TRAFFIC_SIGNAL_CONTROLLER)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getTrafficSignals();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

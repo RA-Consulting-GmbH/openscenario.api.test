@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IParameterAddValueRule addValue;
   private IParameterMultiplyByValueRule multiplyByValue;
@@ -60,18 +56,19 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable {
     addAdapter(IModifyRule.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IParameterAddValueRule getAddValue() {
-    return addValue;
+    return this.addValue;
   }
 
   @Override
   public IParameterMultiplyByValueRule getMultiplyByValue() {
-    return multiplyByValue;
+    return this.multiplyByValue;
   }
   /**
    * Sets the value of model property addValue
@@ -93,7 +90,9 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -106,8 +105,9 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IParameterAddValueRule addValue = null;
     addValue = getAddValue();
@@ -128,6 +128,7 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ModifyRuleImpl clone() {
     ModifyRuleImpl clonedObject = new ModifyRuleImpl();
     cloneStartMarker(clonedObject);
@@ -200,16 +201,17 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__ADD_VALUE)) {
       return (IOpenScenarioFlexElement) getAddValue();
-    } else if (key.equals(OscConstants.ELEMENT__MULTIPLY_BY_VALUE)) {
-      return (IOpenScenarioFlexElement) getMultiplyByValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__MULTIPLY_BY_VALUE)) {
+      return (IOpenScenarioFlexElement) getMultiplyByValue();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

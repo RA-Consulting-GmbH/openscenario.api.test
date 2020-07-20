@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstraints, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstraints {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
     addAdapter(IDynamicConstraints.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getMaxAcceleration() {
-    return maxAcceleration;
+    return this.maxAcceleration;
   }
 
   @Override
   public Double getMaxDeceleration() {
-    return maxDeceleration;
+    return this.maxDeceleration;
   }
 
   @Override
   public Double getMaxSpeed() {
-    return maxSpeed;
+    return this.maxSpeed;
   }
   /**
    * Sets the value of model property maxAcceleration
@@ -116,19 +117,19 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_ACCELERATION)) {
       // Simple type
-      maxAcceleration =
+      this.maxAcceleration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_DECELERATION)) {
       // Simple type
-      maxDeceleration =
+      this.maxDeceleration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_SPEED)) {
       // Simple type
-      maxSpeed =
+      this.maxSpeed =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -145,8 +146,9 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -157,6 +159,7 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
    *
    * @return a deep copy of the object.
    */
+  @Override
   public DynamicConstraintsImpl clone() {
     DynamicConstraintsImpl clonedObject = new DynamicConstraintsImpl();
     cloneStartMarker(clonedObject);
@@ -204,9 +207,8 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
       return getMaxDeceleration();
     } else if (key.equals(OscConstants.ATTRIBUTE__MAX_SPEED)) {
       return getMaxSpeed();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -232,6 +234,7 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -44,8 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class RoadPositionImpl extends BaseImpl implements IRoadPosition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -65,28 +65,29 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
     addAdapter(IRoadPosition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getRoadId() {
-    return roadId;
+    return this.roadId;
   }
 
   @Override
   public Double getS() {
-    return s;
+    return this.s;
   }
 
   @Override
   public Double getT() {
-    return t;
+    return this.t;
   }
 
   @Override
   public IOrientation getOrientation() {
-    return orientation;
+    return this.orientation;
   }
   /**
    * Sets the value of model property roadId
@@ -130,17 +131,18 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ROAD_ID)) {
       // Simple type
-      roadId = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.roadId =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__S)) {
       // Simple type
-      s = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.s = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__T)) {
       // Simple type
-      t = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.t = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -156,8 +158,9 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IOrientation orientation = null;
     orientation = getOrientation();
@@ -173,6 +176,7 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RoadPositionImpl clone() {
     RoadPositionImpl clonedObject = new RoadPositionImpl();
     cloneStartMarker(clonedObject);
@@ -208,9 +212,8 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
     }
     if (key.equals(OscConstants.ATTRIBUTE__ROAD_ID)) {
       return getRoadId();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -232,9 +235,8 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
       return getS();
     } else if (key.equals(OscConstants.ATTRIBUTE__T)) {
       return getT();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -259,14 +261,14 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, Cloneab
     }
     if (key.equals(OscConstants.ELEMENT__ORIENTATION)) {
       return (IOpenScenarioFlexElement) getOrientation();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

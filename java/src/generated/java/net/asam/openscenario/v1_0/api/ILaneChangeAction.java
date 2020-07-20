@@ -32,7 +32,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILaneChangeAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Lane offset to be reached at the target lane; the
    * action will end there. Unit: m.
@@ -40,14 +39,12 @@ public interface ILaneChangeAction extends IOpenScenarioModelElement {
    * @return value of model property targetLaneOffset
    */
   public Double getTargetLaneOffset();
-
   /**
    * From OpenSCENARIO class model specification: Shape/time of lane change action.
    *
    * @return value of model property laneChangeActionDynamics
    */
   public ITransitionDynamics getLaneChangeActionDynamics();
-
   /**
    * From OpenSCENARIO class model specification: Direction of lane change action.
    *

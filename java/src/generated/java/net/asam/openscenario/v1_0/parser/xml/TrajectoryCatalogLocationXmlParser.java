@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,38 +46,13 @@ public class TrajectoryCatalogLocationXmlParser
    */
   public TrajectoryCatalogLocationXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      TrajectoryCatalogLocationImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrajectoryCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrajectoryCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrajectoryCatalogLocationImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrajectoryCatalogLocationImpl>> result =
-        new Hashtable<String, IAttributeParser<TrajectoryCatalogLocationImpl>>();
+    Map<String, IAttributeParser<TrajectoryCatalogLocationImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,20 +70,24 @@ public class TrajectoryCatalogLocationXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrajectoryCatalogLocationImpl>> createParserList() {
-      List<IElementParser<TrajectoryCatalogLocationImpl>> result =
-          new ArrayList<IElementParser<TrajectoryCatalogLocationImpl>>();
+      List<IElementParser<TrajectoryCatalogLocationImpl>> result = new ArrayList<>();
       result.add(new SubElementDirectoryParser());
       return result;
     }
   }
   /** A parser for subelement directory */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDirectoryParser implements IElementParser<TrajectoryCatalogLocationImpl> {
 
     /** Constructor */
     public SubElementDirectoryParser() {
       super();
-      directoryXmlParser = new DirectoryXmlParser(messageLogger, filename);
+      this.directoryXmlParser =
+          new DirectoryXmlParser(
+              TrajectoryCatalogLocationXmlParser.this.messageLogger,
+              TrajectoryCatalogLocationXmlParser.this.filename);
     }
 
     private DirectoryXmlParser directoryXmlParser;
@@ -124,7 +100,7 @@ public class TrajectoryCatalogLocationXmlParser
       DirectoryImpl directory = new DirectoryImpl();
       // Setting the parent
       directory.setParent(object);
-      directoryXmlParser.parseElement(indexedElement, parserContext, directory);
+      this.directoryXmlParser.parseElement(indexedElement, parserContext, directory);
 
       object.setDirectory(directory);
     }

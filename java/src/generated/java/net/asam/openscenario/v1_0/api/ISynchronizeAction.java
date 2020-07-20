@@ -30,21 +30,18 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ISynchronizeAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: A reference to the master entity.
    *
    * @return value of model property masterEntityRef
    */
   public INamedReference<IEntity> getMasterEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: The target position for the master entity.
    *
    * @return value of model property targetPositionMaster
    */
   public IPosition getTargetPositionMaster();
-
   /**
    * From OpenSCENARIO class model specification: The target position for the entity that should be
    * synchronized.
@@ -52,7 +49,6 @@ public interface ISynchronizeAction extends IOpenScenarioModelElement {
    * @return value of model property targetPosition
    */
   public IPosition getTargetPosition();
-
   /**
    * From OpenSCENARIO class model specification: The speed that the synchronized entity should have
    * at its target position.

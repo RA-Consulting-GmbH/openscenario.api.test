@@ -31,7 +31,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITransitionDynamics extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The shape of the transition function f(x) between
    * current and target value.
@@ -39,7 +38,6 @@ public interface ITransitionDynamics extends IOpenScenarioModelElement {
    * @return value of model property dynamicsShape
    */
   public DynamicsShape getDynamicsShape();
-
   /**
    * From OpenSCENARIO class model specification: The value for a predefined rate (Unit: delta/s),
    * time (Unit: s) or distance (Unit: m) to acquire the target value. Range: [0..inf[.
@@ -47,7 +45,6 @@ public interface ITransitionDynamics extends IOpenScenarioModelElement {
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: The semantics of the value: 'rate', 'time' or
    * 'distance'.

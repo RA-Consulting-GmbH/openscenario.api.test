@@ -19,7 +19,7 @@ public class SimpleMessageLogger implements IParserMessageLogger {
 
   @Override
   public void logMessage(FileContentMessage message) {
-    if (message.getErrorLevel().isWorseOrEqualThan(logLevel)) {
+    if (message.getErrorLevel().isWorseOrEqualThan(this.logLevel)) {
       this.messages.add(message);
     }
   }
@@ -43,6 +43,7 @@ public class SimpleMessageLogger implements IParserMessageLogger {
   /**
    * The message that have been picked up filtered by a specific error level.
    *
+   * @param errorLevel the error level to filter the messages.
    * @return the filtered messages
    */
   public List<FileContentMessage> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel) {
@@ -55,6 +56,7 @@ public class SimpleMessageLogger implements IParserMessageLogger {
   /**
    * The message that have been picked up filtered by a specific error level.
    *
+   * @param errorLevel the error level to filter for worse or equal.
    * @return the filtered messages
    */
   public List<FileContentMessage> getMessagesFilteredByWorseOrEqualToErrorLevel(

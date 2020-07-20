@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITimeOfDay extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: If true, the timeofday is animated with
    * progressing simulation time, e.g. in order to animate the position of the sun.
@@ -34,7 +33,6 @@ public interface ITimeOfDay extends IOpenScenarioModelElement {
    * @return value of model property animation
    */
   public Boolean getAnimation();
-
   /**
    * From OpenSCENARIO class model specification: Datetime value.
    *

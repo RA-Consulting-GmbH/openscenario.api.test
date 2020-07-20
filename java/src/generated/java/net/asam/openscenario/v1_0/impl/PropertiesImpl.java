@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class PropertiesImpl extends BaseImpl implements IProperties {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IProperty> properties;
   private List<IFile> files;
@@ -60,18 +56,19 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
     addAdapter(IProperties.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IProperty> getProperties() {
-    return properties;
+    return this.properties;
   }
 
   @Override
   public List<IFile> getFiles() {
-    return files;
+    return this.files;
   }
   /**
    * Sets the value of model property properties
@@ -96,7 +93,9 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -109,8 +108,9 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IProperty> properties = null;
     properties = getProperties();
@@ -135,6 +135,7 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PropertiesImpl clone() {
     PropertiesImpl clonedObject = new PropertiesImpl();
     cloneStartMarker(clonedObject);
@@ -147,7 +148,7 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
     List<IProperty> properties = null;
     properties = getProperties();
     if (properties != null) {
-      List<IProperty> clonedList = new ArrayList<IProperty>();
+      List<IProperty> clonedList = new ArrayList<>();
       for (IProperty item : properties) {
         PropertyImpl clonedChild = ((PropertyImpl) item).clone();
         clonedList.add(clonedChild);
@@ -158,7 +159,7 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
     List<IFile> files = null;
     files = getFiles();
     if (files != null) {
-      List<IFile> clonedList = new ArrayList<IFile>();
+      List<IFile> clonedList = new ArrayList<>();
       for (IFile item : files) {
         FileImpl clonedChild = ((FileImpl) item).clone();
         clonedList.add(clonedChild);
@@ -212,21 +213,21 @@ public class PropertiesImpl extends BaseImpl implements IProperties, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__PROPERTY)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getProperties();
-
-    } else if (key.equals(OscConstants.ELEMENT__FILE)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getFiles();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__FILE)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getFiles();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

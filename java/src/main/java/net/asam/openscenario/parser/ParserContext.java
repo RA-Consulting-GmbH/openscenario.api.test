@@ -17,12 +17,7 @@
 
 package net.asam.openscenario.parser;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.ICatalogReference;
-import net.asam.openscenario.v1_0.catalog.ICatalogReferenceProvider;
 
 /**
  * A Parser Context that allows a parser to store dynamic information during the parsing process. A
@@ -40,7 +35,7 @@ public abstract class ParserContext {
    * @return the lasz indexed element that has been parsed
    */
   public IndexedElement getLastElementParsed() {
-    return lastElementParsed;
+    return this.lastElementParsed;
   }
 
   /**

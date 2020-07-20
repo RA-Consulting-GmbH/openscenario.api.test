@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
    */
   public LateralActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, LateralActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing LateralAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing LateralAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<LateralActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<LateralActionImpl>> result =
-        new Hashtable<String, IAttributeParser<LateralActionImpl>>();
+    Map<String, IAttributeParser<LateralActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,9 +71,9 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<LateralActionImpl>> createParserList() {
-      List<IElementParser<LateralActionImpl>> result =
-          new ArrayList<IElementParser<LateralActionImpl>>();
+      List<IElementParser<LateralActionImpl>> result = new ArrayList<>();
       result.add(new SubElementLaneChangeActionParser());
       result.add(new SubElementLaneOffsetActionParser());
       result.add(new SubElementLateralDistanceActionParser());
@@ -107,12 +81,15 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
     }
   }
   /** A parser for subelement laneChangeAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLaneChangeActionParser implements IElementParser<LateralActionImpl> {
 
     /** Constructor */
     public SubElementLaneChangeActionParser() {
       super();
-      laneChangeActionXmlParser = new LaneChangeActionXmlParser(messageLogger, filename);
+      this.laneChangeActionXmlParser =
+          new LaneChangeActionXmlParser(
+              LateralActionXmlParser.this.messageLogger, LateralActionXmlParser.this.filename);
     }
 
     private LaneChangeActionXmlParser laneChangeActionXmlParser;
@@ -123,7 +100,7 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
       LaneChangeActionImpl laneChangeAction = new LaneChangeActionImpl();
       // Setting the parent
       laneChangeAction.setParent(object);
-      laneChangeActionXmlParser.parseElement(indexedElement, parserContext, laneChangeAction);
+      this.laneChangeActionXmlParser.parseElement(indexedElement, parserContext, laneChangeAction);
 
       object.setLaneChangeAction(laneChangeAction);
     }
@@ -149,12 +126,15 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
     }
   }
   /** A parser for subelement laneOffsetAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLaneOffsetActionParser implements IElementParser<LateralActionImpl> {
 
     /** Constructor */
     public SubElementLaneOffsetActionParser() {
       super();
-      laneOffsetActionXmlParser = new LaneOffsetActionXmlParser(messageLogger, filename);
+      this.laneOffsetActionXmlParser =
+          new LaneOffsetActionXmlParser(
+              LateralActionXmlParser.this.messageLogger, LateralActionXmlParser.this.filename);
     }
 
     private LaneOffsetActionXmlParser laneOffsetActionXmlParser;
@@ -165,7 +145,7 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
       LaneOffsetActionImpl laneOffsetAction = new LaneOffsetActionImpl();
       // Setting the parent
       laneOffsetAction.setParent(object);
-      laneOffsetActionXmlParser.parseElement(indexedElement, parserContext, laneOffsetAction);
+      this.laneOffsetActionXmlParser.parseElement(indexedElement, parserContext, laneOffsetAction);
 
       object.setLaneOffsetAction(laneOffsetAction);
     }
@@ -191,12 +171,15 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
     }
   }
   /** A parser for subelement lateralDistanceAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLateralDistanceActionParser implements IElementParser<LateralActionImpl> {
 
     /** Constructor */
     public SubElementLateralDistanceActionParser() {
       super();
-      lateralDistanceActionXmlParser = new LateralDistanceActionXmlParser(messageLogger, filename);
+      this.lateralDistanceActionXmlParser =
+          new LateralDistanceActionXmlParser(
+              LateralActionXmlParser.this.messageLogger, LateralActionXmlParser.this.filename);
     }
 
     private LateralDistanceActionXmlParser lateralDistanceActionXmlParser;
@@ -207,7 +190,7 @@ public class LateralActionXmlParser extends XmlComplexTypeParser<LateralActionIm
       LateralDistanceActionImpl lateralDistanceAction = new LateralDistanceActionImpl();
       // Setting the parent
       lateralDistanceAction.setParent(object);
-      lateralDistanceActionXmlParser.parseElement(
+      this.lateralDistanceActionXmlParser.parseElement(
           indexedElement, parserContext, lateralDistanceAction);
 
       object.setLateralDistanceAction(lateralDistanceAction);

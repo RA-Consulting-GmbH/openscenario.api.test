@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ParameterMultiplyByValueRuleImpl extends BaseImpl
-    implements IParameterMultiplyByValueRule, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+    implements IParameterMultiplyByValueRule {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,13 +61,14 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
     addAdapter(IParameterMultiplyByValueRule.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
   /**
    * Sets the value of model property value
@@ -84,7 +85,8 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -100,8 +102,9 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -112,6 +115,7 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ParameterMultiplyByValueRuleImpl clone() {
     ParameterMultiplyByValueRuleImpl clonedObject = new ParameterMultiplyByValueRuleImpl();
     cloneStartMarker(clonedObject);
@@ -151,9 +155,8 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -179,6 +182,7 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -51,35 +48,12 @@ public class PropertiesXmlParser extends XmlComplexTypeParser<PropertiesImpl> {
    */
   public PropertiesXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PropertiesImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Properties",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Properties",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PropertiesImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PropertiesImpl>> result =
-        new Hashtable<String, IAttributeParser<PropertiesImpl>>();
+    Map<String, IAttributeParser<PropertiesImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,20 +71,24 @@ public class PropertiesXmlParser extends XmlComplexTypeParser<PropertiesImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PropertiesImpl>> createParserList() {
-      List<IElementParser<PropertiesImpl>> result = new ArrayList<IElementParser<PropertiesImpl>>();
+      List<IElementParser<PropertiesImpl>> result = new ArrayList<>();
       result.add(new SubElementPropertiesParser());
       result.add(new SubElementFilesParser());
       return result;
     }
   }
   /** A parser for subelement properties */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPropertiesParser implements IElementParser<PropertiesImpl> {
 
     /** Constructor */
     public SubElementPropertiesParser() {
       super();
-      propertyXmlParser = new PropertyXmlParser(messageLogger, filename);
+      this.propertyXmlParser =
+          new PropertyXmlParser(
+              PropertiesXmlParser.this.messageLogger, PropertiesXmlParser.this.filename);
     }
 
     private PropertyXmlParser propertyXmlParser;
@@ -121,10 +99,10 @@ public class PropertiesXmlParser extends XmlComplexTypeParser<PropertiesImpl> {
       PropertyImpl properties = new PropertyImpl();
       // Setting the parent
       properties.setParent(object);
-      propertyXmlParser.parseElement(indexedElement, parserContext, properties);
+      this.propertyXmlParser.parseElement(indexedElement, parserContext, properties);
       List<IProperty> propertiesList = object.getProperties();
       if (propertiesList == null) {
-        propertiesList = new ArrayList<IProperty>();
+        propertiesList = new ArrayList<>();
         object.setProperties(propertiesList);
       }
       propertiesList.add(properties);
@@ -151,12 +129,15 @@ public class PropertiesXmlParser extends XmlComplexTypeParser<PropertiesImpl> {
     }
   }
   /** A parser for subelement files */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFilesParser implements IElementParser<PropertiesImpl> {
 
     /** Constructor */
     public SubElementFilesParser() {
       super();
-      fileXmlParser = new FileXmlParser(messageLogger, filename);
+      this.fileXmlParser =
+          new FileXmlParser(
+              PropertiesXmlParser.this.messageLogger, PropertiesXmlParser.this.filename);
     }
 
     private FileXmlParser fileXmlParser;
@@ -167,10 +148,10 @@ public class PropertiesXmlParser extends XmlComplexTypeParser<PropertiesImpl> {
       FileImpl files = new FileImpl();
       // Setting the parent
       files.setParent(object);
-      fileXmlParser.parseElement(indexedElement, parserContext, files);
+      this.fileXmlParser.parseElement(indexedElement, parserContext, files);
       List<IFile> filesList = object.getFiles();
       if (filesList == null) {
-        filesList = new ArrayList<IFile>();
+        filesList = new ArrayList<>();
         object.setFiles(filesList);
       }
       filesList.add(files);

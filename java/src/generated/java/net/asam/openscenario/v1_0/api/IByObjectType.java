@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IByObjectType extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Defines the type.
    *

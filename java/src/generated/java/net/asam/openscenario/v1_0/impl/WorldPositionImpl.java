@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -69,38 +69,39 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Clone
     addAdapter(IWorldPosition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getX() {
-    return x;
+    return this.x;
   }
 
   @Override
   public Double getY() {
-    return y;
+    return this.y;
   }
 
   @Override
   public Double getZ() {
-    return z;
+    return this.z;
   }
 
   @Override
   public Double getH() {
-    return h;
+    return this.h;
   }
 
   @Override
   public Double getP() {
-    return p;
+    return this.p;
   }
 
   @Override
   public Double getR() {
-    return r;
+    return this.r;
   }
   /**
    * Sets the value of model property x
@@ -159,32 +160,32 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Clone
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__X)) {
       // Simple type
-      x = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.x = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__Y)) {
       // Simple type
-      y = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.y = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__Z)) {
       // Simple type
-      z = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.z = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__H)) {
       // Simple type
-      h = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.h = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__P)) {
       // Simple type
-      p = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.p = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__R)) {
       // Simple type
-      r = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.r = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -200,8 +201,9 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -212,6 +214,7 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public WorldPositionImpl clone() {
     WorldPositionImpl clonedObject = new WorldPositionImpl();
     cloneStartMarker(clonedObject);
@@ -271,9 +274,8 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Clone
       return getP();
     } else if (key.equals(OscConstants.ATTRIBUTE__R)) {
       return getR();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -299,6 +301,7 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, Clone
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

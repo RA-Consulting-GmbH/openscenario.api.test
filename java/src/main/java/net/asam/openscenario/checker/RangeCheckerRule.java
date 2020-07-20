@@ -28,6 +28,7 @@ import net.asam.openscenario.common.Textmarker;
  * An abstract implementation of ICheckerRule to check ranges of object's properties.
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> the OpenSCENARIO model element type.
  */
 public abstract class RangeCheckerRule<T extends IOpenScenarioModelElement>
     implements ICheckerRule<T> {

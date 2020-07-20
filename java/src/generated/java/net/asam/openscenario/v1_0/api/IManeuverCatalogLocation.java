@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IManeuverCatalogLocation extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: All catalogs files in this directory must be
    * evaluated.

@@ -46,6 +46,6 @@ public class AttributeNode extends PositionNode {
    * @return the name
    */
   public String getName() {
-    return name;
+    return this.name;
   }
 }

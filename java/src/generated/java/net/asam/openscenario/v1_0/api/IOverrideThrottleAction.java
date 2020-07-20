@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOverrideThrottleAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Throttle pedal value. Range: [0..1].0 represents
    * 0%, 1 represents 100% of pressing the throttle pedal.
@@ -35,7 +34,6 @@ public interface IOverrideThrottleAction extends IOpenScenarioModelElement {
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: True: override; false: stop overriding.
    *

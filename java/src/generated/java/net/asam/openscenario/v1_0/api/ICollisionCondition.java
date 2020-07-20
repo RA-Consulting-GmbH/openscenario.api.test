@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ICollisionCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of a specific entity.
    *
    * @return value of model property entityRef
    */
   public IEntityRef getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Entities of this type can trigger the condition
    * when collide.

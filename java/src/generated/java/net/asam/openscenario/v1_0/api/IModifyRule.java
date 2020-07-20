@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IModifyRule extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Adding a value to a parameter.
    *
    * @return value of model property addValue
    */
   public IParameterAddValueRule getAddValue();
-
   /**
    * From OpenSCENARIO class model specification: Multiply a parameter by a value.
    *

@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IClothoid extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Start curvature of clothoid.
    *
    * @return value of model property curvature
    */
   public Double getCurvature();
-
   /**
    * From OpenSCENARIO class model specification: Rate of change of the curvature of the
    * clothoid.Unit: 1/s;Range [0..inf[.
@@ -42,14 +40,12 @@ public interface IClothoid extends IOpenScenarioModelElement {
    * @return value of model property curvatureDot
    */
   public Double getCurvatureDot();
-
   /**
    * From OpenSCENARIO class model specification: Length of clothoid.
    *
    * @return value of model property length
    */
   public Double getLength();
-
   /**
    * From OpenSCENARIO class model specification: Optional time specification at the start of the
    * clothoid. Unit: s;Range [0..inf[.
@@ -57,7 +53,6 @@ public interface IClothoid extends IOpenScenarioModelElement {
    * @return value of model property startTime
    */
   public Double getStartTime();
-
   /**
    * From OpenSCENARIO class model specification: Optional time specification at the end of the
    * clothoid. Unit: s;Range ]0..inf[.
@@ -65,7 +60,6 @@ public interface IClothoid extends IOpenScenarioModelElement {
    * @return value of model property stopTime
    */
   public Double getStopTime();
-
   /**
    * From OpenSCENARIO class model specification: Start position of a clothoid.
    *

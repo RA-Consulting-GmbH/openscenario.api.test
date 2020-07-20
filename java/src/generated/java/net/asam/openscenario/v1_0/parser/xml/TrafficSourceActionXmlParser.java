@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,39 +48,17 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
    */
   public TrafficSourceActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrafficSourceActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficSourceAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficSourceAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficSourceActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficSourceActionImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficSourceActionImpl>>();
+    Map<String, IAttributeParser<TrafficSourceActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__RATE,
         new IAttributeParser<TrafficSourceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
               TrafficSourceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSourceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSourceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RATE, stripDollarSign(attributeValue), startMarker);
@@ -115,6 +97,7 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
     result.put(
         OscConstants.ATTRIBUTE__RADIUS,
         new IAttributeParser<TrafficSourceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -124,9 +107,15 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
               TrafficSourceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSourceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSourceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RADIUS, stripDollarSign(attributeValue), startMarker);
@@ -147,6 +136,7 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
     result.put(
         OscConstants.ATTRIBUTE__VELOCITY,
         new IAttributeParser<TrafficSourceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -156,9 +146,15 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
               TrafficSourceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSourceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSourceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VELOCITY, stripDollarSign(attributeValue), startMarker);
@@ -193,21 +189,25 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficSourceActionImpl>> createParserList() {
-      List<IElementParser<TrafficSourceActionImpl>> result =
-          new ArrayList<IElementParser<TrafficSourceActionImpl>>();
+      List<IElementParser<TrafficSourceActionImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       result.add(new SubElementTrafficDefinitionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<TrafficSourceActionImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              TrafficSourceActionXmlParser.this.messageLogger,
+              TrafficSourceActionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -220,7 +220,7 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }
@@ -246,13 +246,17 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
     }
   }
   /** A parser for subelement trafficDefinition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficDefinitionParser
       implements IElementParser<TrafficSourceActionImpl> {
 
     /** Constructor */
     public SubElementTrafficDefinitionParser() {
       super();
-      trafficDefinitionXmlParser = new TrafficDefinitionXmlParser(messageLogger, filename);
+      this.trafficDefinitionXmlParser =
+          new TrafficDefinitionXmlParser(
+              TrafficSourceActionXmlParser.this.messageLogger,
+              TrafficSourceActionXmlParser.this.filename);
     }
 
     private TrafficDefinitionXmlParser trafficDefinitionXmlParser;
@@ -265,7 +269,8 @@ public class TrafficSourceActionXmlParser extends XmlComplexTypeParser<TrafficSo
       TrafficDefinitionImpl trafficDefinition = new TrafficDefinitionImpl();
       // Setting the parent
       trafficDefinition.setParent(object);
-      trafficDefinitionXmlParser.parseElement(indexedElement, parserContext, trafficDefinition);
+      this.trafficDefinitionXmlParser.parseElement(
+          indexedElement, parserContext, trafficDefinition);
 
       object.setTrafficDefinition(trafficDefinition);
     }

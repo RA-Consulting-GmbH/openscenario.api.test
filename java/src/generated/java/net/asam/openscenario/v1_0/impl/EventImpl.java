@@ -48,8 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EventImpl extends BaseImpl implements IEvent, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class EventImpl extends BaseImpl implements IEvent {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -70,33 +70,34 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
     addAdapter(IEvent.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Priority getPriority() {
-    return priority;
+    return this.priority;
   }
 
   @Override
   public Long getMaximumExecutionCount() {
-    return maximumExecutionCount;
+    return this.maximumExecutionCount;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public List<IAction> getActions() {
-    return actions;
+    return this.actions;
   }
 
   @Override
   public ITrigger getStartTrigger() {
-    return startTrigger;
+    return this.startTrigger;
   }
   /**
    * Sets the value of model property priority
@@ -148,7 +149,7 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
       // Enumeration Type
       Priority result = Priority.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        priority = result;
+        this.priority = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -160,13 +161,14 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)) {
       // Simple type
-      maximumExecutionCount =
+      this.maximumExecutionCount =
           ParserHelper.parseUnsignedInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -182,8 +184,9 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IAction> actions = null;
     actions = getActions();
@@ -206,6 +209,7 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public EventImpl clone() {
     EventImpl clonedObject = new EventImpl();
     cloneStartMarker(clonedObject);
@@ -227,7 +231,7 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
     List<IAction> actions = null;
     actions = getActions();
     if (actions != null) {
-      List<IAction> clonedList = new ArrayList<IAction>();
+      List<IAction> clonedList = new ArrayList<>();
       for (IAction item : actions) {
         ActionImpl clonedChild = ((ActionImpl) item).clone();
         clonedList.add(clonedChild);
@@ -255,9 +259,8 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -267,9 +270,8 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)) {
       return getMaximumExecutionCount();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -304,23 +306,22 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__START_TRIGGER)) {
       return (IOpenScenarioFlexElement) getStartTrigger();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__ACTION)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getActions();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -342,9 +343,8 @@ public class EventImpl extends BaseImpl implements IEvent, Cloneable {
     if (key.equals(OscConstants.ATTRIBUTE__PRIORITY)) {
       Priority priority = getPriority();
       return priority != null ? priority.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
     addAdapter(ITrafficDefinition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public IVehicleCategoryDistribution getVehicleCategoryDistribution() {
-    return vehicleCategoryDistribution;
+    return this.vehicleCategoryDistribution;
   }
 
   @Override
   public IControllerDistribution getControllerDistribution() {
-    return controllerDistribution;
+    return this.controllerDistribution;
   }
   /**
    * Sets the value of model property name
@@ -114,7 +115,8 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -130,8 +132,9 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IVehicleCategoryDistribution vehicleCategoryDistribution = null;
     vehicleCategoryDistribution = getVehicleCategoryDistribution();
@@ -152,6 +155,7 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficDefinitionImpl clone() {
     TrafficDefinitionImpl clonedObject = new TrafficDefinitionImpl();
     cloneStartMarker(clonedObject);
@@ -192,9 +196,8 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -234,16 +237,17 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
     }
     if (key.equals(OscConstants.ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION)) {
       return (IOpenScenarioFlexElement) getVehicleCategoryDistribution();
-    } else if (key.equals(OscConstants.ELEMENT__CONTROLLER_DISTRIBUTION)) {
-      return (IOpenScenarioFlexElement) getControllerDistribution();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__CONTROLLER_DISTRIBUTION)) {
+      return (IOpenScenarioFlexElement) getControllerDistribution();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

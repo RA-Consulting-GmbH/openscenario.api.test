@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IParameterModifyAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Either adding a value to a parameter or multiply a
    * parameter by a value. Has to match the parameter type.

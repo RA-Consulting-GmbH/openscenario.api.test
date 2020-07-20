@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -52,41 +50,17 @@ public class LongitudinalDistanceActionXmlParser
    */
   public LongitudinalDistanceActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      LongitudinalDistanceActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing LongitudinalDistanceAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing LongitudinalDistanceAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<LongitudinalDistanceActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<LongitudinalDistanceActionImpl>> result =
-        new Hashtable<String, IAttributeParser<LongitudinalDistanceActionImpl>>();
+    Map<String, IAttributeParser<LongitudinalDistanceActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<LongitudinalDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -96,16 +70,22 @@ public class LongitudinalDistanceActionXmlParser
               LongitudinalDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -121,6 +101,7 @@ public class LongitudinalDistanceActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__DISTANCE,
         new IAttributeParser<LongitudinalDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -130,9 +111,15 @@ public class LongitudinalDistanceActionXmlParser
               LongitudinalDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DISTANCE, stripDollarSign(attributeValue), startMarker);
@@ -153,6 +140,7 @@ public class LongitudinalDistanceActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__TIME_GAP,
         new IAttributeParser<LongitudinalDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -162,9 +150,15 @@ public class LongitudinalDistanceActionXmlParser
               LongitudinalDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TIME_GAP, stripDollarSign(attributeValue), startMarker);
@@ -185,6 +179,7 @@ public class LongitudinalDistanceActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__FREESPACE,
         new IAttributeParser<LongitudinalDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -194,9 +189,15 @@ public class LongitudinalDistanceActionXmlParser
               LongitudinalDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__FREESPACE, stripDollarSign(attributeValue), startMarker);
@@ -217,6 +218,7 @@ public class LongitudinalDistanceActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__CONTINUOUS,
         new IAttributeParser<LongitudinalDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -226,9 +228,15 @@ public class LongitudinalDistanceActionXmlParser
               LongitudinalDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LongitudinalDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CONTINUOUS, stripDollarSign(attributeValue), startMarker);
@@ -263,21 +271,25 @@ public class LongitudinalDistanceActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<LongitudinalDistanceActionImpl>> createParserList() {
-      List<IElementParser<LongitudinalDistanceActionImpl>> result =
-          new ArrayList<IElementParser<LongitudinalDistanceActionImpl>>();
+      List<IElementParser<LongitudinalDistanceActionImpl>> result = new ArrayList<>();
       result.add(new SubElementDynamicConstraintsParser());
       return result;
     }
   }
   /** A parser for subelement dynamicConstraints */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDynamicConstraintsParser
       implements IElementParser<LongitudinalDistanceActionImpl> {
 
     /** Constructor */
     public SubElementDynamicConstraintsParser() {
       super();
-      dynamicConstraintsXmlParser = new DynamicConstraintsXmlParser(messageLogger, filename);
+      this.dynamicConstraintsXmlParser =
+          new DynamicConstraintsXmlParser(
+              LongitudinalDistanceActionXmlParser.this.messageLogger,
+              LongitudinalDistanceActionXmlParser.this.filename);
     }
 
     private DynamicConstraintsXmlParser dynamicConstraintsXmlParser;
@@ -290,7 +302,8 @@ public class LongitudinalDistanceActionXmlParser
       DynamicConstraintsImpl dynamicConstraints = new DynamicConstraintsImpl();
       // Setting the parent
       dynamicConstraints.setParent(object);
-      dynamicConstraintsXmlParser.parseElement(indexedElement, parserContext, dynamicConstraints);
+      this.dynamicConstraintsXmlParser.parseElement(
+          indexedElement, parserContext, dynamicConstraints);
 
       object.setDynamicConstraints(dynamicConstraints);
     }

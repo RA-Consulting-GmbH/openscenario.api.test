@@ -35,7 +35,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILaneOffsetAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: If false, the action ends when the target lane is
    * reached. If true it does not end but has to be stopped.
@@ -43,7 +42,6 @@ public interface ILaneOffsetAction extends IOpenScenarioModelElement {
    * @return value of model property continuous
    */
   public Boolean getContinuous();
-
   /**
    * From OpenSCENARIO class model specification: Parameters defining the dynamics of the
    * LaneOffsetAction.
@@ -51,7 +49,6 @@ public interface ILaneOffsetAction extends IOpenScenarioModelElement {
    * @return value of model property laneOffsetActionDynamics
    */
   public ILaneOffsetActionDynamics getLaneOffsetActionDynamics();
-
   /**
    * From OpenSCENARIO class model specification: Parameters indicating if the lane offset is
    * defined relative to another entity or absolute to the current lane's center line.

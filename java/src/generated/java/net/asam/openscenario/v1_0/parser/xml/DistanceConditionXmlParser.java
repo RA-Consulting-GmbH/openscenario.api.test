@@ -50,39 +50,17 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
    */
   public DistanceConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, DistanceConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing DistanceCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing DistanceCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<DistanceConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<DistanceConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<DistanceConditionImpl>>();
+    Map<String, IAttributeParser<DistanceConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<DistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +70,15 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
               DistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -115,6 +99,7 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
     result.put(
         OscConstants.ATTRIBUTE__FREESPACE,
         new IAttributeParser<DistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -124,9 +109,15 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
               DistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__FREESPACE, stripDollarSign(attributeValue), startMarker);
@@ -147,6 +138,7 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
     result.put(
         OscConstants.ATTRIBUTE__ALONG_ROUTE,
         new IAttributeParser<DistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -156,9 +148,15 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
               DistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ALONG_ROUTE,
@@ -181,6 +179,7 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
     result.put(
         OscConstants.ATTRIBUTE__RULE,
         new IAttributeParser<DistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -190,9 +189,15 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
               DistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RULE, stripDollarSign(attributeValue), startMarker);
@@ -203,7 +208,7 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
               if (result != null) {
                 object.setRule(result);
               } else {
-                messageLogger.logMessage(
+                DistanceConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -236,20 +241,24 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<DistanceConditionImpl>> createParserList() {
-      List<IElementParser<DistanceConditionImpl>> result =
-          new ArrayList<IElementParser<DistanceConditionImpl>>();
+      List<IElementParser<DistanceConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<DistanceConditionImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              DistanceConditionXmlParser.this.messageLogger,
+              DistanceConditionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -260,7 +269,7 @@ public class DistanceConditionXmlParser extends XmlComplexTypeParser<DistanceCon
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

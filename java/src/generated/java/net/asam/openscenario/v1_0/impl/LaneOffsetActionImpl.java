@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction,
     addAdapter(ILaneOffsetAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Boolean getContinuous() {
-    return continuous;
+    return this.continuous;
   }
 
   @Override
   public ILaneOffsetActionDynamics getLaneOffsetActionDynamics() {
-    return laneOffsetActionDynamics;
+    return this.laneOffsetActionDynamics;
   }
 
   @Override
   public ILaneOffsetTarget getLaneOffsetTarget() {
-    return laneOffsetTarget;
+    return this.laneOffsetTarget;
   }
   /**
    * Sets the value of model property continuous
@@ -115,7 +116,7 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction,
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__CONTINUOUS)) {
       // Simple type
-      continuous =
+      this.continuous =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -132,8 +133,9 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ILaneOffsetActionDynamics laneOffsetActionDynamics = null;
     laneOffsetActionDynamics = getLaneOffsetActionDynamics();
@@ -154,6 +156,7 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public LaneOffsetActionImpl clone() {
     LaneOffsetActionImpl clonedObject = new LaneOffsetActionImpl();
     cloneStartMarker(clonedObject);
@@ -218,9 +221,8 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction,
     }
     if (key.equals(OscConstants.ATTRIBUTE__CONTINUOUS)) {
       return getContinuous();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -235,16 +237,17 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction,
     }
     if (key.equals(OscConstants.ELEMENT__LANE_OFFSET_ACTION_DYNAMICS)) {
       return (IOpenScenarioFlexElement) getLaneOffsetActionDynamics();
-    } else if (key.equals(OscConstants.ELEMENT__LANE_OFFSET_TARGET)) {
-      return (IOpenScenarioFlexElement) getLaneOffsetTarget();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__LANE_OFFSET_TARGET)) {
+      return (IOpenScenarioFlexElement) getLaneOffsetTarget();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

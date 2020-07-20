@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.TraveledDistanceConditionImpl;
 import net.asam.xml.indexer.Position;
@@ -49,41 +45,17 @@ public class TraveledDistanceConditionXmlParser
    */
   public TraveledDistanceConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      TraveledDistanceConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TraveledDistanceCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TraveledDistanceCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TraveledDistanceConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TraveledDistanceConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<TraveledDistanceConditionImpl>>();
+    Map<String, IAttributeParser<TraveledDistanceConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<TraveledDistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +65,15 @@ public class TraveledDistanceConditionXmlParser
               TraveledDistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TraveledDistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TraveledDistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -130,9 +108,9 @@ public class TraveledDistanceConditionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TraveledDistanceConditionImpl>> createParserList() {
-      List<IElementParser<TraveledDistanceConditionImpl>> result =
-          new ArrayList<IElementParser<TraveledDistanceConditionImpl>>();
+      List<IElementParser<TraveledDistanceConditionImpl>> result = new ArrayList<>();
       return result;
     }
   }

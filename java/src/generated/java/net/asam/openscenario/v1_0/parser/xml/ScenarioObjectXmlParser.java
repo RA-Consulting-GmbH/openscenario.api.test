@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,39 +48,17 @@ public class ScenarioObjectXmlParser extends XmlComplexTypeParser<ScenarioObject
    */
   public ScenarioObjectXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ScenarioObjectImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ScenarioObject",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ScenarioObject",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ScenarioObjectImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ScenarioObjectImpl>> result =
-        new Hashtable<String, IAttributeParser<ScenarioObjectImpl>>();
+    Map<String, IAttributeParser<ScenarioObjectImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<ScenarioObjectImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class ScenarioObjectXmlParser extends XmlComplexTypeParser<ScenarioObject
               ScenarioObjectImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ScenarioObjectXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ScenarioObjectXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -129,21 +111,24 @@ public class ScenarioObjectXmlParser extends XmlComplexTypeParser<ScenarioObject
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ScenarioObjectImpl>> createParserList() {
-      List<IElementParser<ScenarioObjectImpl>> result =
-          new ArrayList<IElementParser<ScenarioObjectImpl>>();
+      List<IElementParser<ScenarioObjectImpl>> result = new ArrayList<>();
       result.add(new SubElementEntityObjectParser());
       result.add(new SubElementObjectControllerParser());
       return result;
     }
   }
   /** A parser for subelement entityObject */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntityObjectParser implements IElementParser<ScenarioObjectImpl> {
 
     /** Constructor */
     public SubElementEntityObjectParser() {
       super();
-      entityObjectXmlParser = new EntityObjectXmlParser(messageLogger, filename);
+      this.entityObjectXmlParser =
+          new EntityObjectXmlParser(
+              ScenarioObjectXmlParser.this.messageLogger, ScenarioObjectXmlParser.this.filename);
     }
 
     private EntityObjectXmlParser entityObjectXmlParser;
@@ -154,7 +139,7 @@ public class ScenarioObjectXmlParser extends XmlComplexTypeParser<ScenarioObject
       EntityObjectImpl entityObject = new EntityObjectImpl();
       // Setting the parent
       entityObject.setParent(object);
-      entityObjectXmlParser.parseElement(indexedElement, parserContext, entityObject);
+      this.entityObjectXmlParser.parseElement(indexedElement, parserContext, entityObject);
 
       object.setEntityObject(entityObject);
     }
@@ -188,12 +173,15 @@ public class ScenarioObjectXmlParser extends XmlComplexTypeParser<ScenarioObject
     }
   }
   /** A parser for subelement objectController */
+  @SuppressWarnings("synthetic-access")
   private class SubElementObjectControllerParser implements IElementParser<ScenarioObjectImpl> {
 
     /** Constructor */
     public SubElementObjectControllerParser() {
       super();
-      objectControllerXmlParser = new ObjectControllerXmlParser(messageLogger, filename);
+      this.objectControllerXmlParser =
+          new ObjectControllerXmlParser(
+              ScenarioObjectXmlParser.this.messageLogger, ScenarioObjectXmlParser.this.filename);
     }
 
     private ObjectControllerXmlParser objectControllerXmlParser;
@@ -204,7 +192,7 @@ public class ScenarioObjectXmlParser extends XmlComplexTypeParser<ScenarioObject
       ObjectControllerImpl objectController = new ObjectControllerImpl();
       // Setting the parent
       objectController.setParent(object);
-      objectControllerXmlParser.parseElement(indexedElement, parserContext, objectController);
+      this.objectControllerXmlParser.parseElement(indexedElement, parserContext, objectController);
 
       object.setObjectController(objectController);
     }

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,38 +46,13 @@ public class ManeuverCatalogLocationXmlParser
    */
   public ManeuverCatalogLocationXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      ManeuverCatalogLocationImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ManeuverCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ManeuverCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ManeuverCatalogLocationImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ManeuverCatalogLocationImpl>> result =
-        new Hashtable<String, IAttributeParser<ManeuverCatalogLocationImpl>>();
+    Map<String, IAttributeParser<ManeuverCatalogLocationImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,20 +70,24 @@ public class ManeuverCatalogLocationXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ManeuverCatalogLocationImpl>> createParserList() {
-      List<IElementParser<ManeuverCatalogLocationImpl>> result =
-          new ArrayList<IElementParser<ManeuverCatalogLocationImpl>>();
+      List<IElementParser<ManeuverCatalogLocationImpl>> result = new ArrayList<>();
       result.add(new SubElementDirectoryParser());
       return result;
     }
   }
   /** A parser for subelement directory */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDirectoryParser implements IElementParser<ManeuverCatalogLocationImpl> {
 
     /** Constructor */
     public SubElementDirectoryParser() {
       super();
-      directoryXmlParser = new DirectoryXmlParser(messageLogger, filename);
+      this.directoryXmlParser =
+          new DirectoryXmlParser(
+              ManeuverCatalogLocationXmlParser.this.messageLogger,
+              ManeuverCatalogLocationXmlParser.this.filename);
     }
 
     private DirectoryXmlParser directoryXmlParser;
@@ -124,7 +100,7 @@ public class ManeuverCatalogLocationXmlParser
       DirectoryImpl directory = new DirectoryImpl();
       // Setting the parent
       directory.setParent(object);
-      directoryXmlParser.parseElement(indexedElement, parserContext, directory);
+      this.directoryXmlParser.parseElement(indexedElement, parserContext, directory);
 
       object.setDirectory(directory);
     }

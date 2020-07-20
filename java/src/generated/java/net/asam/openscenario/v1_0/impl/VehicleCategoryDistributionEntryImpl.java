@@ -48,8 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class VehicleCategoryDistributionEntryImpl extends BaseImpl
-    implements IVehicleCategoryDistributionEntry, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+    implements IVehicleCategoryDistributionEntry {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -66,18 +66,19 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
     addAdapter(IVehicleCategoryDistributionEntry.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public VehicleCategory getCategory() {
-    return category;
+    return this.category;
   }
 
   @Override
   public Double getWeight() {
-    return weight;
+    return this.weight;
   }
   /**
    * Sets the value of model property category
@@ -105,7 +106,7 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
       // Enumeration Type
       VehicleCategory result = VehicleCategory.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        category = result;
+        this.category = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -117,7 +118,8 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__WEIGHT)) {
       // Simple type
-      weight = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.weight =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -133,8 +135,9 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -145,6 +148,7 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public VehicleCategoryDistributionEntryImpl clone() {
     VehicleCategoryDistributionEntryImpl clonedObject = new VehicleCategoryDistributionEntryImpl();
     cloneStartMarker(clonedObject);
@@ -189,9 +193,8 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__WEIGHT)) {
       return getWeight();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -217,6 +220,7 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -239,9 +243,8 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
     if (key.equals(OscConstants.ATTRIBUTE__CATEGORY)) {
       VehicleCategory category = getCategory();
       return category != null ? category.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

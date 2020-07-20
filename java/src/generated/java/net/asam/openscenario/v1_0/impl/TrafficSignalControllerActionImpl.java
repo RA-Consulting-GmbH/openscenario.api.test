@@ -49,8 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TrafficSignalControllerActionImpl extends BaseImpl
-    implements ITrafficSignalControllerAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+    implements ITrafficSignalControllerAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -68,23 +68,24 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
     addAdapter(ITrafficSignalControllerAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<ITrafficSignalController> getTrafficSignalControllerRef() {
-    return trafficSignalControllerRef;
+    return this.trafficSignalControllerRef;
   }
 
   @Override
   public String getPhase() {
-    return phase;
+    return this.phase;
   }
 
   @Override
   public List<IPhase> getPhaseRef() {
-    return phaseRef;
+    return this.phaseRef;
   }
   /**
    * Sets the value of model property trafficSignalControllerRef
@@ -122,13 +123,14 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
     if (attributeKey.equals(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)) {
       // Proxy
       NamedReferenceProxy<ITrafficSignalController> proxy =
-          new NamedReferenceProxy<ITrafficSignalController>(parameterLiteralValue);
-      trafficSignalControllerRef = proxy;
+          new NamedReferenceProxy<>(parameterLiteralValue);
+      this.trafficSignalControllerRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__PHASE)) {
       // Simple type
-      phase = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.phase =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -144,8 +146,9 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -156,6 +159,7 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficSignalControllerActionImpl clone() {
     TrafficSignalControllerActionImpl clonedObject = new TrafficSignalControllerActionImpl();
     cloneStartMarker(clonedObject);
@@ -190,9 +194,8 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
       return trafficSignalControllerRef != null ? trafficSignalControllerRef.getNameRef() : null;
     } else if (key.equals(OscConstants.ATTRIBUTE__PHASE)) {
       return getPhase();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -233,6 +236,7 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -254,9 +258,8 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
       return trafficSignalControllerRef != null
           ? (IOpenScenarioFlexElement) trafficSignalControllerRef.getTargetObject()
           : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

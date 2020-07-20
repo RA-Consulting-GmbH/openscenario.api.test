@@ -49,8 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -73,33 +73,34 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
     addAdapter(ITimeHeadwayCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Boolean getFreespace() {
-    return freespace;
+    return this.freespace;
   }
 
   @Override
   public Boolean getAlongRoute() {
-    return alongRoute;
+    return this.alongRoute;
   }
 
   @Override
   public Rule getRule() {
-    return rule;
+    return this.rule;
   }
   /**
    * Sets the value of model property entityRef
@@ -152,24 +153,25 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__FREESPACE)) {
       // Simple type
-      freespace =
+      this.freespace =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ALONG_ROUTE)) {
       // Simple type
-      alongRoute =
+      this.alongRoute =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
@@ -177,7 +179,7 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        rule = result;
+        this.rule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -200,8 +202,9 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -212,6 +215,7 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TimeHeadwayConditionImpl clone() {
     TimeHeadwayConditionImpl clonedObject = new TimeHeadwayConditionImpl();
     cloneStartMarker(clonedObject);
@@ -251,9 +255,8 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -273,9 +276,8 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -292,9 +294,8 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
       return getFreespace();
     } else if (key.equals(OscConstants.ATTRIBUTE__ALONG_ROUTE)) {
       return getAlongRoute();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -310,6 +311,7 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -328,9 +330,8 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -341,9 +342,8 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
     if (key.equals(OscConstants.ATTRIBUTE__RULE)) {
       Rule rule = getRule();
       return rule != null ? rule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

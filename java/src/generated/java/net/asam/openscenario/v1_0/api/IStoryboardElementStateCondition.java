@@ -30,21 +30,18 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IStoryboardElementStateCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Type of storyboard element instance.
    *
    * @return value of model property storyboardElementType
    */
   public StoryboardElementType getStoryboardElementType();
-
   /**
    * From OpenSCENARIO class model specification: Name of the referenced Storyboard instance.
    *
    * @return value of model property storyboardElementRef
    */
   public INamedReference<IStoryboardElement> getStoryboardElementRef();
-
   /**
    * From OpenSCENARIO class model specification: The state or the transition of the storyboard
    * element instance for which the condition becomes true.

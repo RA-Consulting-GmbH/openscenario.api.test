@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TimingImpl extends BaseImpl implements ITiming {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -66,23 +66,24 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
     addAdapter(ITiming.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ReferenceContext getDomainAbsoluteRelative() {
-    return domainAbsoluteRelative;
+    return this.domainAbsoluteRelative;
   }
 
   @Override
   public Double getScale() {
-    return scale;
+    return this.scale;
   }
 
   @Override
   public Double getOffset() {
-    return offset;
+    return this.offset;
   }
   /**
    * Sets the value of model property domainAbsoluteRelative
@@ -120,7 +121,7 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
       // Enumeration Type
       ReferenceContext result = ReferenceContext.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        domainAbsoluteRelative = result;
+        this.domainAbsoluteRelative = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -132,12 +133,14 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__SCALE)) {
       // Simple type
-      scale = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.scale =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__OFFSET)) {
       // Simple type
-      offset = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.offset =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -153,8 +156,9 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -165,6 +169,7 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TimingImpl clone() {
     TimingImpl clonedObject = new TimingImpl();
     cloneStartMarker(clonedObject);
@@ -214,9 +219,8 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
       return getScale();
     } else if (key.equals(OscConstants.ATTRIBUTE__OFFSET)) {
       return getOffset();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -242,6 +246,7 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -264,9 +269,8 @@ public class TimingImpl extends BaseImpl implements ITiming, Cloneable {
     if (key.equals(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE)) {
       ReferenceContext domainAbsoluteRelative = getDomainAbsoluteRelative();
       return domainAbsoluteRelative != null ? domainAbsoluteRelative.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

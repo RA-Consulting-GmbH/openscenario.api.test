@@ -54,7 +54,7 @@ public class XmlToSimpleNodeConverter {
   public IndexedElement convert(Document document) {
     Element element = document.getDocumentElement();
     IndexedElement indexedElement =
-        new IndexedElement(element, positionIndex.getElementNode(counter++), null);
+        new IndexedElement(element, this.positionIndex.getElementNode(this.counter++), null);
     convertInternal(indexedElement);
     return indexedElement;
   }
@@ -82,7 +82,7 @@ public class XmlToSimpleNodeConverter {
         hasChildren = true;
         IndexedElement indexedSubElement =
             new IndexedElement(
-                (Element) node, positionIndex.getElementNode(counter++), indexedElement);
+                (Element) node, this.positionIndex.getElementNode(this.counter++), indexedElement);
         indexedElement.addSubElement(indexedSubElement);
         convertInternal(indexedSubElement);
       }

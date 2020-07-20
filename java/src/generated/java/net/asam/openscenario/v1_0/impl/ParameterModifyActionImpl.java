@@ -44,13 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterModifyActionImpl extends BaseImpl
-    implements IParameterModifyAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ParameterModifyActionImpl extends BaseImpl implements IParameterModifyAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IModifyRule rule;
   /** Default constructor */
@@ -60,13 +55,14 @@ public class ParameterModifyActionImpl extends BaseImpl
     addAdapter(IParameterModifyAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IModifyRule getRule() {
-    return rule;
+    return this.rule;
   }
   /**
    * Sets the value of model property rule
@@ -80,7 +76,9 @@ public class ParameterModifyActionImpl extends BaseImpl
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -93,8 +91,9 @@ public class ParameterModifyActionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IModifyRule rule = null;
     rule = getRule();
@@ -110,6 +109,7 @@ public class ParameterModifyActionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ParameterModifyActionImpl clone() {
     ParameterModifyActionImpl clonedObject = new ParameterModifyActionImpl();
     cloneStartMarker(clonedObject);
@@ -174,14 +174,14 @@ public class ParameterModifyActionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__RULE)) {
       return (IOpenScenarioFlexElement) getRule();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

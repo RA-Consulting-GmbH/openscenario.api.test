@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IPositionInRoadCoordinates extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Position in s coordinates along the reference line
    * of the road.
@@ -35,7 +34,6 @@ public interface IPositionInRoadCoordinates extends IOpenScenarioModelElement {
    * @return value of model property pathS
    */
   public Double getPathS();
-
   /**
    * From OpenSCENARIO class model specification: Position in t coordinates orthogonal to the
    * reference line of the road.

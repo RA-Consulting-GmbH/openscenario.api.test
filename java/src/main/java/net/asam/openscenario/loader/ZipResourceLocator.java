@@ -31,22 +31,22 @@ public class ZipResourceLocator implements IResourceLocator {
 
   private ZipFile addressedZipFile = null;
   private String zipParentDirectory = null;
-  private Hashtable<String, List<ZipEntry>> dirToFiles = new Hashtable<String, List<ZipEntry>>();
+  private Hashtable<String, List<ZipEntry>> dirToFiles = new Hashtable<>();
 
   @Override
   public InputStream getInputStream(String symbolicFilename) throws ResourceNotFoundException {
     InputStream result = null;
     ZipEntry foundEntry = null;
-    if (addressedZipFile == null) {
+    if (this.addressedZipFile == null) {
       // Is this file a zipFile?
 
       try {
         File file = new File(symbolicFilename);
         if (file.exists()) {
-          zipParentDirectory = normalizeFilePath(file.getParentFile().getAbsolutePath());
+          this.zipParentDirectory = normalizeFilePath(file.getParentFile().getAbsolutePath());
         }
-        addressedZipFile = new ZipFile(symbolicFilename);
-        Enumeration<? extends ZipEntry> entries = addressedZipFile.entries();
+        this.addressedZipFile = new ZipFile(symbolicFilename);
+        Enumeration<? extends ZipEntry> entries = this.addressedZipFile.entries();
 
         while (entries.hasMoreElements()) {
           ZipEntry entry = entries.nextElement();
@@ -79,7 +79,7 @@ public class ZipResourceLocator implements IResourceLocator {
       throw new ResourceNotFoundException(symbolicFilename);
     }
     try {
-      result = addressedZipFile.getInputStream(foundEntry);
+      result = this.addressedZipFile.getInputStream(foundEntry);
     } catch (IOException e) {
       throw new ResourceNotFoundException(symbolicFilename, e);
     }
@@ -91,7 +91,7 @@ public class ZipResourceLocator implements IResourceLocator {
     String dirName = symbolicFilename.substring(0, index);
     ZipEntry result = null;
 
-    List<ZipEntry> entries = dirToFiles.get(dirName);
+    List<ZipEntry> entries = this.dirToFiles.get(dirName);
 
     if (entries != null) {
       for (ZipEntry zipEntry : entries) {
@@ -106,8 +106,8 @@ public class ZipResourceLocator implements IResourceLocator {
 
   private void addDirToMap(ZipEntry entry) {
     String dirName = entry.getName();
-    if (dirToFiles.get(dirName) == null) {
-      dirToFiles.put(stripFileSeparator(dirName), new ArrayList<ZipEntry>());
+    if (this.dirToFiles.get(dirName) == null) {
+      this.dirToFiles.put(stripFileSeparator(dirName), new ArrayList<ZipEntry>());
     }
   }
 
@@ -120,11 +120,11 @@ public class ZipResourceLocator implements IResourceLocator {
     String pathName = entry.getName();
     int index = pathName.lastIndexOf("/");
     String dirName = pathName.substring(0, index);
-    List<ZipEntry> entries = dirToFiles.get(dirName);
+    List<ZipEntry> entries = this.dirToFiles.get(dirName);
 
     if (entries == null) {
-      entries = new ArrayList<ZipEntry>();
-      dirToFiles.put(dirName, entries);
+      entries = new ArrayList<>();
+      this.dirToFiles.put(dirName, entries);
     }
     entries.add(entry);
   }
@@ -132,8 +132,8 @@ public class ZipResourceLocator implements IResourceLocator {
   @Override
   public List<String> getSymbolicFilenamesInSymbolicDir(String symbolicDirName)
       throws ResourceNotFoundException {
-    List<String> files = new ArrayList<String>();
-    List<ZipEntry> entries = dirToFiles.get(symbolicDirName);
+    List<String> files = new ArrayList<>();
+    List<ZipEntry> entries = this.dirToFiles.get(symbolicDirName);
     if (entries != null) {
       for (ZipEntry zipEntry : entries) {
         files.add(zipEntry.getName());
@@ -149,27 +149,26 @@ public class ZipResourceLocator implements IResourceLocator {
     File dir = new File(symbolicDir);
     if (dir.getPath().equals(dir.getAbsolutePath())) {
       String normalizedPath = normalizeFilePath(dir.getAbsolutePath());
-      if (zipParentDirectory.equals(symbolicBaseDir)) {
-        int index = normalizedPath.indexOf(zipParentDirectory);
+      if (this.zipParentDirectory.equals(symbolicBaseDir)) {
+        int index = normalizedPath.indexOf(this.zipParentDirectory);
         if (index == 0) {
           return normalizedPath.substring(index);
         }
       }
       return symbolicDir;
-    } else {
-      String normalizedPath = normalizeFilePath(symbolicDir);
-      if (dirToFiles.containsKey(normalizedPath)) {
-        return normalizedPath;
-      }
+    }
+    String normalizedPath = normalizeFilePath(symbolicDir);
+    if (this.dirToFiles.containsKey(normalizedPath)) {
+      return normalizedPath;
     }
     return null;
   }
 
   @Override
   public void finalize() {
-    if (addressedZipFile != null) {
+    if (this.addressedZipFile != null) {
       try {
-        addressedZipFile.close();
+        this.addressedZipFile.close();
       } catch (IOException e) {
         // nothing we can do now
       }
@@ -194,9 +193,8 @@ public class ZipResourceLocator implements IResourceLocator {
   private String stripFileSeparator(String input) {
     if (input.substring(input.length() - 1) == "/") {
       return input.substring(0, input.length() - 1);
-    } else {
-      return input;
     }
+    return input;
   }
 
   /**

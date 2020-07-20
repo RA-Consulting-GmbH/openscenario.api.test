@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IFinalSpeed extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The absolute speed a synchronized entity should
    * have at its target position.
@@ -34,7 +33,6 @@ public interface IFinalSpeed extends IOpenScenarioModelElement {
    * @return value of model property absoluteSpeed
    */
   public IAbsoluteSpeed getAbsoluteSpeed();
-
   /**
    * From OpenSCENARIO class model specification: The speed a synchronized entity should have
    * relative to its master entity at its target position.

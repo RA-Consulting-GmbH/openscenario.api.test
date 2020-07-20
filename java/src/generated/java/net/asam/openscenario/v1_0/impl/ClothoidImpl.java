@@ -44,8 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ClothoidImpl extends BaseImpl implements IClothoid {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -69,38 +69,39 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable {
     addAdapter(IClothoid.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getCurvature() {
-    return curvature;
+    return this.curvature;
   }
 
   @Override
   public Double getCurvatureDot() {
-    return curvatureDot;
+    return this.curvatureDot;
   }
 
   @Override
   public Double getLength() {
-    return length;
+    return this.length;
   }
 
   @Override
   public Double getStartTime() {
-    return startTime;
+    return this.startTime;
   }
 
   @Override
   public Double getStopTime() {
-    return stopTime;
+    return this.stopTime;
   }
 
   @Override
   public IPosition getPosition() {
-    return position;
+    return this.position;
   }
   /**
    * Sets the value of model property curvature
@@ -159,30 +160,31 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__CURVATURE)) {
       // Simple type
-      curvature =
+      this.curvature =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__CURVATURE_DOT)) {
       // Simple type
-      curvatureDot =
+      this.curvatureDot =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__LENGTH)) {
       // Simple type
-      length = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.length =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__START_TIME)) {
       // Simple type
-      startTime =
+      this.startTime =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__STOP_TIME)) {
       // Simple type
-      stopTime =
+      this.stopTime =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -199,8 +201,9 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition position = null;
     position = getPosition();
@@ -216,6 +219,7 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ClothoidImpl clone() {
     ClothoidImpl clonedObject = new ClothoidImpl();
     cloneStartMarker(clonedObject);
@@ -278,9 +282,8 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable {
       return getStartTime();
     } else if (key.equals(OscConstants.ATTRIBUTE__STOP_TIME)) {
       return getStopTime();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -305,14 +308,14 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__POSITION)) {
       return (IOpenScenarioFlexElement) getPosition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

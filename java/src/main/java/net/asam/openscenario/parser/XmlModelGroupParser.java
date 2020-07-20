@@ -27,6 +27,7 @@ import net.asam.openscenario.simple.struct.IndexedElement;
  * A generic parser for model groups (sequence, all, choice)
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public abstract class XmlModelGroupParser<T extends BaseImpl> extends XmlParserBase<T> {
 
@@ -54,7 +55,7 @@ public abstract class XmlModelGroupParser<T extends BaseImpl> extends XmlParserB
    * @return the parsers
    */
   protected List<IElementParser<T>> getParsers() {
-    return parsers;
+    return this.parsers;
   }
 
   /**
@@ -64,7 +65,7 @@ public abstract class XmlModelGroupParser<T extends BaseImpl> extends XmlParserB
    * @return the appropriate parser for an element with this tag name.
    */
   protected IElementParser<T> findParser(String tagName) {
-    for (IElementParser<T> parser : parsers) {
+    for (IElementParser<T> parser : this.parsers) {
       if (parser.doesMatch(tagName)) {
         return parser;
       }
@@ -92,7 +93,7 @@ public abstract class XmlModelGroupParser<T extends BaseImpl> extends XmlParserB
   @Override
   public void parseSubElements(
       List<IndexedElement> indexedElements, ParserContext parserContext, T object) {
-    parsers = createParserList();
+    this.parsers = createParserList();
     parseSubElementsInternal(indexedElements, parserContext, object);
   }
   /**

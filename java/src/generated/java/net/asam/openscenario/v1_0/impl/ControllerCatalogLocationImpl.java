@@ -44,13 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerCatalogLocationImpl extends BaseImpl
-    implements IControllerCatalogLocation, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ControllerCatalogLocationImpl extends BaseImpl implements IControllerCatalogLocation {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
   /** Default constructor */
@@ -60,13 +55,14 @@ public class ControllerCatalogLocationImpl extends BaseImpl
     addAdapter(IControllerCatalogLocation.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IDirectory getDirectory() {
-    return directory;
+    return this.directory;
   }
   /**
    * Sets the value of model property directory
@@ -80,7 +76,9 @@ public class ControllerCatalogLocationImpl extends BaseImpl
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -93,8 +91,9 @@ public class ControllerCatalogLocationImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IDirectory directory = null;
     directory = getDirectory();
@@ -110,6 +109,7 @@ public class ControllerCatalogLocationImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ControllerCatalogLocationImpl clone() {
     ControllerCatalogLocationImpl clonedObject = new ControllerCatalogLocationImpl();
     cloneStartMarker(clonedObject);
@@ -174,14 +174,14 @@ public class ControllerCatalogLocationImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__DIRECTORY)) {
       return (IOpenScenarioFlexElement) getDirectory();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Defines a source of traffic at a specific
    * position.
@@ -35,14 +34,12 @@ public interface ITrafficAction extends IOpenScenarioModelElement {
    * @return value of model property trafficSourceAction
    */
   public ITrafficSourceAction getTrafficSourceAction();
-
   /**
    * From OpenSCENARIO class model specification: Defines a sink of traffic at a specific position.
    *
    * @return value of model property trafficSinkAction
    */
   public ITrafficSinkAction getTrafficSinkAction();
-
   /**
    * From OpenSCENARIO class model specification: Defines swarm traffic around a given central
    * entity.

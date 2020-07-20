@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -51,38 +49,16 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
    */
   public ActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Action",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Action",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ActionImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ActionImpl>> result =
-        new Hashtable<String, IAttributeParser<ActionImpl>>();
+    Map<String, IAttributeParser<ActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<ActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,13 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
               ActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), ActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -129,8 +109,9 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ActionImpl>> createParserList() {
-      List<IElementParser<ActionImpl>> result = new ArrayList<IElementParser<ActionImpl>>();
+      List<IElementParser<ActionImpl>> result = new ArrayList<>();
       result.add(new SubElementGlobalActionParser());
       result.add(new SubElementUserDefinedActionParser());
       result.add(new SubElementPrivateActionParser());
@@ -138,12 +119,15 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
     }
   }
   /** A parser for subelement globalAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementGlobalActionParser implements IElementParser<ActionImpl> {
 
     /** Constructor */
     public SubElementGlobalActionParser() {
       super();
-      globalActionXmlParser = new GlobalActionXmlParser(messageLogger, filename);
+      this.globalActionXmlParser =
+          new GlobalActionXmlParser(
+              ActionXmlParser.this.messageLogger, ActionXmlParser.this.filename);
     }
 
     private GlobalActionXmlParser globalActionXmlParser;
@@ -154,7 +138,7 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
       GlobalActionImpl globalAction = new GlobalActionImpl();
       // Setting the parent
       globalAction.setParent(object);
-      globalActionXmlParser.parseElement(indexedElement, parserContext, globalAction);
+      this.globalActionXmlParser.parseElement(indexedElement, parserContext, globalAction);
 
       object.setGlobalAction(globalAction);
     }
@@ -180,12 +164,15 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
     }
   }
   /** A parser for subelement userDefinedAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementUserDefinedActionParser implements IElementParser<ActionImpl> {
 
     /** Constructor */
     public SubElementUserDefinedActionParser() {
       super();
-      userDefinedActionXmlParser = new UserDefinedActionXmlParser(messageLogger, filename);
+      this.userDefinedActionXmlParser =
+          new UserDefinedActionXmlParser(
+              ActionXmlParser.this.messageLogger, ActionXmlParser.this.filename);
     }
 
     private UserDefinedActionXmlParser userDefinedActionXmlParser;
@@ -196,7 +183,8 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
       UserDefinedActionImpl userDefinedAction = new UserDefinedActionImpl();
       // Setting the parent
       userDefinedAction.setParent(object);
-      userDefinedActionXmlParser.parseElement(indexedElement, parserContext, userDefinedAction);
+      this.userDefinedActionXmlParser.parseElement(
+          indexedElement, parserContext, userDefinedAction);
 
       object.setUserDefinedAction(userDefinedAction);
     }
@@ -222,12 +210,15 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
     }
   }
   /** A parser for subelement privateAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPrivateActionParser implements IElementParser<ActionImpl> {
 
     /** Constructor */
     public SubElementPrivateActionParser() {
       super();
-      privateActionXmlParser = new PrivateActionXmlParser(messageLogger, filename);
+      this.privateActionXmlParser =
+          new PrivateActionXmlParser(
+              ActionXmlParser.this.messageLogger, ActionXmlParser.this.filename);
     }
 
     private PrivateActionXmlParser privateActionXmlParser;
@@ -238,7 +229,7 @@ public class ActionXmlParser extends XmlComplexTypeParser<ActionImpl> {
       PrivateActionImpl privateAction = new PrivateActionImpl();
       // Setting the parent
       privateAction.setParent(object);
-      privateActionXmlParser.parseElement(indexedElement, parserContext, privateAction);
+      this.privateActionXmlParser.parseElement(indexedElement, parserContext, privateAction);
 
       object.setPrivateAction(privateAction);
     }

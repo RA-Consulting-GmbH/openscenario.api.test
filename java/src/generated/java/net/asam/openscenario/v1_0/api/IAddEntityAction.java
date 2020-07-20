@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAddEntityAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Adds an entity at the specified position.
    *

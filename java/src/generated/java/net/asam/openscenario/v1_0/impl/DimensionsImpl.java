@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class DimensionsImpl extends BaseImpl implements IDimensions {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable {
     addAdapter(IDimensions.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getWidth() {
-    return width;
+    return this.width;
   }
 
   @Override
   public Double getLength() {
-    return length;
+    return this.length;
   }
 
   @Override
   public Double getHeight() {
-    return height;
+    return this.height;
   }
   /**
    * Sets the value of model property width
@@ -114,17 +115,20 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__WIDTH)) {
       // Simple type
-      width = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.width =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__LENGTH)) {
       // Simple type
-      length = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.length =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__HEIGHT)) {
       // Simple type
-      height = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.height =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -140,8 +144,9 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -152,6 +157,7 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public DimensionsImpl clone() {
     DimensionsImpl clonedObject = new DimensionsImpl();
     cloneStartMarker(clonedObject);
@@ -199,9 +205,8 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable {
       return getLength();
     } else if (key.equals(OscConstants.ATTRIBUTE__HEIGHT)) {
       return getHeight();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -227,6 +232,7 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -26,21 +26,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILateralAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Action defining a lane change.
    *
    * @return value of model property laneChangeAction
    */
   public ILaneChangeAction getLaneChangeAction();
-
   /**
    * From OpenSCENARIO class model specification: Action defining a continuously kept lane offset.
    *
    * @return value of model property laneOffsetAction
    */
   public ILaneOffsetAction getLaneOffsetAction();
-
   /**
    * From OpenSCENARIO class model specification: Action defining a continuously kept lateral
    * distance to a specific entity.

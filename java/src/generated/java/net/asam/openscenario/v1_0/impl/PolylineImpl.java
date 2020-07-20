@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class PolylineImpl extends BaseImpl implements IPolyline {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IVertex> vertices;
   /** Default constructor */
@@ -58,13 +54,14 @@ public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable {
     addAdapter(IPolyline.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IVertex> getVertices() {
-    return vertices;
+    return this.vertices;
   }
   /**
    * Sets the value of model property vertices
@@ -78,7 +75,9 @@ public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -91,8 +90,9 @@ public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IVertex> vertices = null;
     vertices = getVertices();
@@ -110,6 +110,7 @@ public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PolylineImpl clone() {
     PolylineImpl clonedObject = new PolylineImpl();
     cloneStartMarker(clonedObject);
@@ -122,7 +123,7 @@ public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable {
     List<IVertex> vertices = null;
     vertices = getVertices();
     if (vertices != null) {
-      List<IVertex> clonedList = new ArrayList<IVertex>();
+      List<IVertex> clonedList = new ArrayList<>();
       for (IVertex item : vertices) {
         VertexImpl clonedChild = ((VertexImpl) item).clone();
         clonedList.add(clonedChild);
@@ -176,18 +177,18 @@ public class PolylineImpl extends BaseImpl implements IPolyline, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__VERTEX)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getVertices();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

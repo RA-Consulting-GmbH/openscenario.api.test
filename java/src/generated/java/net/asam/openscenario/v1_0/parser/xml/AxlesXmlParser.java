@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,35 +46,12 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
    */
   public AxlesXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, AxlesImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Axles",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Axles",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<AxlesImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<AxlesImpl>> result =
-        new Hashtable<String, IAttributeParser<AxlesImpl>>();
+    Map<String, IAttributeParser<AxlesImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,8 +69,9 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<AxlesImpl>> createParserList() {
-      List<IElementParser<AxlesImpl>> result = new ArrayList<IElementParser<AxlesImpl>>();
+      List<IElementParser<AxlesImpl>> result = new ArrayList<>();
       result.add(new SubElementFrontAxleParser());
       result.add(new SubElementRearAxleParser());
       result.add(new SubElementAdditionalAxlesParser());
@@ -104,12 +79,14 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
     }
   }
   /** A parser for subelement frontAxle */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFrontAxleParser implements IElementParser<AxlesImpl> {
 
     /** Constructor */
     public SubElementFrontAxleParser() {
       super();
-      axleXmlParser = new AxleXmlParser(messageLogger, filename);
+      this.axleXmlParser =
+          new AxleXmlParser(AxlesXmlParser.this.messageLogger, AxlesXmlParser.this.filename);
     }
 
     private AxleXmlParser axleXmlParser;
@@ -120,7 +97,7 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
       AxleImpl frontAxle = new AxleImpl();
       // Setting the parent
       frontAxle.setParent(object);
-      axleXmlParser.parseElement(indexedElement, parserContext, frontAxle);
+      this.axleXmlParser.parseElement(indexedElement, parserContext, frontAxle);
 
       object.setFrontAxle(frontAxle);
     }
@@ -146,12 +123,14 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
     }
   }
   /** A parser for subelement rearAxle */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRearAxleParser implements IElementParser<AxlesImpl> {
 
     /** Constructor */
     public SubElementRearAxleParser() {
       super();
-      axleXmlParser = new AxleXmlParser(messageLogger, filename);
+      this.axleXmlParser =
+          new AxleXmlParser(AxlesXmlParser.this.messageLogger, AxlesXmlParser.this.filename);
     }
 
     private AxleXmlParser axleXmlParser;
@@ -162,7 +141,7 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
       AxleImpl rearAxle = new AxleImpl();
       // Setting the parent
       rearAxle.setParent(object);
-      axleXmlParser.parseElement(indexedElement, parserContext, rearAxle);
+      this.axleXmlParser.parseElement(indexedElement, parserContext, rearAxle);
 
       object.setRearAxle(rearAxle);
     }
@@ -188,12 +167,14 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
     }
   }
   /** A parser for subelement additionalAxles */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAdditionalAxlesParser implements IElementParser<AxlesImpl> {
 
     /** Constructor */
     public SubElementAdditionalAxlesParser() {
       super();
-      axleXmlParser = new AxleXmlParser(messageLogger, filename);
+      this.axleXmlParser =
+          new AxleXmlParser(AxlesXmlParser.this.messageLogger, AxlesXmlParser.this.filename);
     }
 
     private AxleXmlParser axleXmlParser;
@@ -204,10 +185,10 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
       AxleImpl additionalAxles = new AxleImpl();
       // Setting the parent
       additionalAxles.setParent(object);
-      axleXmlParser.parseElement(indexedElement, parserContext, additionalAxles);
+      this.axleXmlParser.parseElement(indexedElement, parserContext, additionalAxles);
       List<IAxle> additionalAxlesList = object.getAdditionalAxles();
       if (additionalAxlesList == null) {
-        additionalAxlesList = new ArrayList<IAxle>();
+        additionalAxlesList = new ArrayList<>();
         object.setAdditionalAxles(additionalAxlesList);
       }
       additionalAxlesList.add(additionalAxles);

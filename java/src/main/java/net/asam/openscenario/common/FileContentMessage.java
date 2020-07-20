@@ -49,7 +49,7 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
    * @return the text marker
    */
   public Textmarker getTextmarker() {
-    return textmarker;
+    return this.textmarker;
   }
 
   /**
@@ -58,7 +58,7 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
    * @return the message text
    */
   public String getMessage() {
-    return message;
+    return this.message;
   }
 
   /**
@@ -67,7 +67,7 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
    * @return the error level
    */
   public ErrorLevel getErrorLevel() {
-    return errorLevel;
+    return this.errorLevel;
   }
 
   @Override
@@ -89,12 +89,12 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
   public String toString() {
     // TODO Auto-generated method stub
     return "Message: '"
-        + message
+        + this.message
         + "'"
         + " ErrorLevel: "
-        + errorLevel.toString()
+        + this.errorLevel.toString()
         + " Textmarker: '"
-        + textmarker.toString()
+        + this.textmarker.toString()
         + "'";
   }
 

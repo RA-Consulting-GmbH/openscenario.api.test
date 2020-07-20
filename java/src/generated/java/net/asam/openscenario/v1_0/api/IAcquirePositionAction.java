@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAcquirePositionAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: A position to acquire.
    *

@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IWaypoint extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The corresponding routing strategy (fastest,
    * shortest, random, leastIntersections).
@@ -34,7 +33,6 @@ public interface IWaypoint extends IOpenScenarioModelElement {
    * @return value of model property routeStrategy
    */
   public RouteStrategy getRouteStrategy();
-
   /**
    * From OpenSCENARIO class model specification: The reference position to form the route.
    *

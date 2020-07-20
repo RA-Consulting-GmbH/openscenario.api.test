@@ -47,8 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynamics, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynamics {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -67,23 +67,24 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
     addAdapter(ITransitionDynamics.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public DynamicsShape getDynamicsShape() {
-    return dynamicsShape;
+    return this.dynamicsShape;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public DynamicsDimension getDynamicsDimension() {
-    return dynamicsDimension;
+    return this.dynamicsDimension;
   }
   /**
    * Sets the value of model property dynamicsShape
@@ -121,7 +122,7 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
       // Enumeration Type
       DynamicsShape result = DynamicsShape.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        dynamicsShape = result;
+        this.dynamicsShape = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -133,14 +134,15 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION)) {
       // Enumeration Type
       DynamicsDimension result = DynamicsDimension.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        dynamicsDimension = result;
+        this.dynamicsDimension = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -163,8 +165,9 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -175,6 +178,7 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TransitionDynamicsImpl clone() {
     TransitionDynamicsImpl clonedObject = new TransitionDynamicsImpl();
     cloneStartMarker(clonedObject);
@@ -225,9 +229,8 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -253,6 +256,7 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -278,9 +282,8 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
     } else if (key.equals(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION)) {
       DynamicsDimension dynamicsDimension = getDynamicsDimension();
       return dynamicsDimension != null ? dynamicsDimension.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

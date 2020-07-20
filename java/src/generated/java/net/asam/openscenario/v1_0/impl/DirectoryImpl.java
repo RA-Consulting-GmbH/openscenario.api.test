@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class DirectoryImpl extends BaseImpl implements IDirectory {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -59,13 +59,14 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable {
     addAdapter(IDirectory.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getPath() {
-    return path;
+    return this.path;
   }
   /**
    * Sets the value of model property path
@@ -82,7 +83,8 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__PATH)) {
       // Simple type
-      path = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.path =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -98,8 +100,9 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -110,6 +113,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public DirectoryImpl clone() {
     DirectoryImpl clonedObject = new DirectoryImpl();
     cloneStartMarker(clonedObject);
@@ -134,9 +138,8 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__PATH)) {
       return getPath();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -177,6 +180,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

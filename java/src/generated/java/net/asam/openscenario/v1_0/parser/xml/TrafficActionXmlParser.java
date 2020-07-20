@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
    */
   public TrafficActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrafficActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficActionImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficActionImpl>>();
+    Map<String, IAttributeParser<TrafficActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,9 +71,9 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficActionImpl>> createParserList() {
-      List<IElementParser<TrafficActionImpl>> result =
-          new ArrayList<IElementParser<TrafficActionImpl>>();
+      List<IElementParser<TrafficActionImpl>> result = new ArrayList<>();
       result.add(new SubElementTrafficSourceActionParser());
       result.add(new SubElementTrafficSinkActionParser());
       result.add(new SubElementTrafficSwarmActionParser());
@@ -107,12 +81,15 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
     }
   }
   /** A parser for subelement trafficSourceAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSourceActionParser implements IElementParser<TrafficActionImpl> {
 
     /** Constructor */
     public SubElementTrafficSourceActionParser() {
       super();
-      trafficSourceActionXmlParser = new TrafficSourceActionXmlParser(messageLogger, filename);
+      this.trafficSourceActionXmlParser =
+          new TrafficSourceActionXmlParser(
+              TrafficActionXmlParser.this.messageLogger, TrafficActionXmlParser.this.filename);
     }
 
     private TrafficSourceActionXmlParser trafficSourceActionXmlParser;
@@ -123,7 +100,8 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
       TrafficSourceActionImpl trafficSourceAction = new TrafficSourceActionImpl();
       // Setting the parent
       trafficSourceAction.setParent(object);
-      trafficSourceActionXmlParser.parseElement(indexedElement, parserContext, trafficSourceAction);
+      this.trafficSourceActionXmlParser.parseElement(
+          indexedElement, parserContext, trafficSourceAction);
 
       object.setTrafficSourceAction(trafficSourceAction);
     }
@@ -149,12 +127,15 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
     }
   }
   /** A parser for subelement trafficSinkAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSinkActionParser implements IElementParser<TrafficActionImpl> {
 
     /** Constructor */
     public SubElementTrafficSinkActionParser() {
       super();
-      trafficSinkActionXmlParser = new TrafficSinkActionXmlParser(messageLogger, filename);
+      this.trafficSinkActionXmlParser =
+          new TrafficSinkActionXmlParser(
+              TrafficActionXmlParser.this.messageLogger, TrafficActionXmlParser.this.filename);
     }
 
     private TrafficSinkActionXmlParser trafficSinkActionXmlParser;
@@ -165,7 +146,8 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
       TrafficSinkActionImpl trafficSinkAction = new TrafficSinkActionImpl();
       // Setting the parent
       trafficSinkAction.setParent(object);
-      trafficSinkActionXmlParser.parseElement(indexedElement, parserContext, trafficSinkAction);
+      this.trafficSinkActionXmlParser.parseElement(
+          indexedElement, parserContext, trafficSinkAction);
 
       object.setTrafficSinkAction(trafficSinkAction);
     }
@@ -191,12 +173,15 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
     }
   }
   /** A parser for subelement trafficSwarmAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSwarmActionParser implements IElementParser<TrafficActionImpl> {
 
     /** Constructor */
     public SubElementTrafficSwarmActionParser() {
       super();
-      trafficSwarmActionXmlParser = new TrafficSwarmActionXmlParser(messageLogger, filename);
+      this.trafficSwarmActionXmlParser =
+          new TrafficSwarmActionXmlParser(
+              TrafficActionXmlParser.this.messageLogger, TrafficActionXmlParser.this.filename);
     }
 
     private TrafficSwarmActionXmlParser trafficSwarmActionXmlParser;
@@ -207,7 +192,8 @@ public class TrafficActionXmlParser extends XmlComplexTypeParser<TrafficActionIm
       TrafficSwarmActionImpl trafficSwarmAction = new TrafficSwarmActionImpl();
       // Setting the parent
       trafficSwarmAction.setParent(object);
-      trafficSwarmActionXmlParser.parseElement(indexedElement, parserContext, trafficSwarmAction);
+      this.trafficSwarmActionXmlParser.parseElement(
+          indexedElement, parserContext, trafficSwarmAction);
 
       object.setTrafficSwarmAction(trafficSwarmAction);
     }

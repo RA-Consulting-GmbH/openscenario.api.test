@@ -50,12 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ILongitudinalAction longitudinalAction;
   private ILateralAction lateralAction;
@@ -72,48 +68,49 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
     addAdapter(IPrivateAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ILongitudinalAction getLongitudinalAction() {
-    return longitudinalAction;
+    return this.longitudinalAction;
   }
 
   @Override
   public ILateralAction getLateralAction() {
-    return lateralAction;
+    return this.lateralAction;
   }
 
   @Override
   public IVisibilityAction getVisibilityAction() {
-    return visibilityAction;
+    return this.visibilityAction;
   }
 
   @Override
   public ISynchronizeAction getSynchronizeAction() {
-    return synchronizeAction;
+    return this.synchronizeAction;
   }
 
   @Override
   public IActivateControllerAction getActivateControllerAction() {
-    return activateControllerAction;
+    return this.activateControllerAction;
   }
 
   @Override
   public IControllerAction getControllerAction() {
-    return controllerAction;
+    return this.controllerAction;
   }
 
   @Override
   public ITeleportAction getTeleportAction() {
-    return teleportAction;
+    return this.teleportAction;
   }
 
   @Override
   public IRoutingAction getRoutingAction() {
-    return routingAction;
+    return this.routingAction;
   }
   /**
    * Sets the value of model property longitudinalAction
@@ -194,7 +191,9 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -207,8 +206,9 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ILongitudinalAction longitudinalAction = null;
     longitudinalAction = getLongitudinalAction();
@@ -259,6 +259,7 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PrivateActionImpl clone() {
     PrivateActionImpl clonedObject = new PrivateActionImpl();
     cloneStartMarker(clonedObject);
@@ -373,28 +374,35 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, Clone
     }
     if (key.equals(OscConstants.ELEMENT__LONGITUDINAL_ACTION)) {
       return (IOpenScenarioFlexElement) getLongitudinalAction();
-    } else if (key.equals(OscConstants.ELEMENT__LATERAL_ACTION)) {
-      return (IOpenScenarioFlexElement) getLateralAction();
-    } else if (key.equals(OscConstants.ELEMENT__VISIBILITY_ACTION)) {
-      return (IOpenScenarioFlexElement) getVisibilityAction();
-    } else if (key.equals(OscConstants.ELEMENT__SYNCHRONIZE_ACTION)) {
-      return (IOpenScenarioFlexElement) getSynchronizeAction();
-    } else if (key.equals(OscConstants.ELEMENT__ACTIVATE_CONTROLLER_ACTION)) {
-      return (IOpenScenarioFlexElement) getActivateControllerAction();
-    } else if (key.equals(OscConstants.ELEMENT__CONTROLLER_ACTION)) {
-      return (IOpenScenarioFlexElement) getControllerAction();
-    } else if (key.equals(OscConstants.ELEMENT__TELEPORT_ACTION)) {
-      return (IOpenScenarioFlexElement) getTeleportAction();
-    } else if (key.equals(OscConstants.ELEMENT__ROUTING_ACTION)) {
-      return (IOpenScenarioFlexElement) getRoutingAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__LATERAL_ACTION)) {
+      return (IOpenScenarioFlexElement) getLateralAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__VISIBILITY_ACTION)) {
+      return (IOpenScenarioFlexElement) getVisibilityAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__SYNCHRONIZE_ACTION)) {
+      return (IOpenScenarioFlexElement) getSynchronizeAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__ACTIVATE_CONTROLLER_ACTION)) {
+      return (IOpenScenarioFlexElement) getActivateControllerAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__CONTROLLER_ACTION)) {
+      return (IOpenScenarioFlexElement) getControllerAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__TELEPORT_ACTION)) {
+      return (IOpenScenarioFlexElement) getTeleportAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__ROUTING_ACTION)) {
+      return (IOpenScenarioFlexElement) getRoutingAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

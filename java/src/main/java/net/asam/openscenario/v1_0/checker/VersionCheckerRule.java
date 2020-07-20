@@ -26,7 +26,11 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.v1_0.api.IFileHeader;
 
-/** @author ahege */
+/**
+ * A checker rule for checking the version of the standard within a OpenSCENARIO file.
+ *
+ * @author Andreas Hege - RA Consulting
+ */
 public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
   private int majorRev;
   private int minorRev;
@@ -47,8 +51,8 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
     Integer revMinor = object.getRevMinor();
     if (revMajor == null
         || revMinor == null
-        || revMajor.intValue() != majorRev
-        || revMinor.intValue() != minorRev) {
+        || revMajor.intValue() != this.majorRev
+        || revMinor.intValue() != this.minorRev) {
       ILocator locator = (ILocator) object.getAdapter(ILocator.class);
       Textmarker textmarker = null;
 
@@ -58,9 +62,9 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
       messageLogger.logMessage(
           new FileContentMessage(
               "Major revision and minor revision are expected to be "
-                  + majorRev
+                  + this.majorRev
                   + " and "
-                  + minorRev,
+                  + this.minorRev,
               ErrorLevel.WARNING,
               textmarker));
     }

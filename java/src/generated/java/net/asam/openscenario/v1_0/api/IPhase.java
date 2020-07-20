@@ -28,21 +28,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IPhase extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the phase.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Duration of the phase. Unit: s; Range: [0..inf[.
    *
    * @return value of model property duration
    */
   public Double getDuration();
-
   /**
    * From OpenSCENARIO class model specification: Each phase has multiple TrafficSignalStates. One
    * for each TrafficSignal that is controlled. E.g. phase1 (trafficSignal1:true;false;false,

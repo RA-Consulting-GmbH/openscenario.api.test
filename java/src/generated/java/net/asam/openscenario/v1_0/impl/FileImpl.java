@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileImpl extends BaseImpl implements IFile, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class FileImpl extends BaseImpl implements IFile {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -59,13 +59,14 @@ public class FileImpl extends BaseImpl implements IFile, Cloneable {
     addAdapter(IFile.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getFilepath() {
-    return filepath;
+    return this.filepath;
   }
   /**
    * Sets the value of model property filepath
@@ -82,7 +83,7 @@ public class FileImpl extends BaseImpl implements IFile, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__FILEPATH)) {
       // Simple type
-      filepath =
+      this.filepath =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -99,8 +100,9 @@ public class FileImpl extends BaseImpl implements IFile, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -111,6 +113,7 @@ public class FileImpl extends BaseImpl implements IFile, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public FileImpl clone() {
     FileImpl clonedObject = new FileImpl();
     cloneStartMarker(clonedObject);
@@ -135,9 +138,8 @@ public class FileImpl extends BaseImpl implements IFile, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__FILEPATH)) {
       return getFilepath();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -178,6 +180,7 @@ public class FileImpl extends BaseImpl implements IFile, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

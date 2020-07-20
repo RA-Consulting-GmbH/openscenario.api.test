@@ -28,28 +28,24 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ICatalogReference extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the catalog.
    *
    * @return value of model property catalogName
    */
   public String getCatalogName();
-
   /**
    * From OpenSCENARIO class model specification: Name of catalog entry.
    *
    * @return value of model property entryName
    */
   public String getEntryName();
-
   /**
    * From OpenSCENARIO class model specification: List of parameter assignments for instantiation.
    *
    * @return value of model property parameterAssignments
    */
   public List<IParameterAssignment> getParameterAssignments();
-
   /**
    * From OpenSCENARIO class model specification: The resolved reference to a catalog element (out
    * of the catalogName and entryName). Transient means, that it is not mapped to the schema.

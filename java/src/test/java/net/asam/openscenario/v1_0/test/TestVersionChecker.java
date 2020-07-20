@@ -30,14 +30,13 @@ import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
 import net.asam.openscenario.v1_0.checker.VersionCheckerRule;
 import net.asam.openscenario.v1_0.checker.impl.ScenarioCheckerImpl;
-import net.asam.openscenario.v1_0.checker.range.RangeCheckerHelper;
 
 public class TestVersionChecker extends TestBase {
 
   private void applyCheckerRules(IOpenScenario openScenario, int majorRev, int minorRev) {
     ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
     scenarioChecker.addFileHeaderCheckerRule(new VersionCheckerRule(majorRev, minorRev));
-    scenarioChecker.checkScenario(messageLogger, openScenario);
+    scenarioChecker.checkScenario(this.messageLogger, openScenario);
   }
 
   @Test
@@ -46,8 +45,8 @@ public class TestVersionChecker extends TestBase {
       String filename = getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath();
       IOpenScenario openScenario = executeParsing(filename);
       applyCheckerRules(openScenario, 0, 9);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, messageLogger));
+      List<FileContentMessage> messages = new ArrayList<>();
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
       applyCheckerRules(openScenario, 1, 0);
       messages.add(
           new FileContentMessage(
@@ -55,11 +54,10 @@ public class TestVersionChecker extends TestBase {
               ErrorLevel.WARNING,
               new Textmarker(20, 2, filename)));
 
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
 
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 }

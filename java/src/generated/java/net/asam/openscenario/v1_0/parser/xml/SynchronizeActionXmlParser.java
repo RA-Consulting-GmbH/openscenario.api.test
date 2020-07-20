@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -52,39 +50,17 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
    */
   public SynchronizeActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, SynchronizeActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing SynchronizeAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing SynchronizeAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<SynchronizeActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<SynchronizeActionImpl>> result =
-        new Hashtable<String, IAttributeParser<SynchronizeActionImpl>>();
+    Map<String, IAttributeParser<SynchronizeActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__MASTER_ENTITY_REF,
         new IAttributeParser<SynchronizeActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +70,15 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
               SynchronizeActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    SynchronizeActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    SynchronizeActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MASTER_ENTITY_REF,
@@ -105,7 +87,7 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setMasterEntityRef(proxy);
             }
@@ -135,9 +117,9 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<SynchronizeActionImpl>> createParserList() {
-      List<IElementParser<SynchronizeActionImpl>> result =
-          new ArrayList<IElementParser<SynchronizeActionImpl>>();
+      List<IElementParser<SynchronizeActionImpl>> result = new ArrayList<>();
       result.add(new SubElementTargetPositionMasterParser());
       result.add(new SubElementTargetPositionParser());
       result.add(new SubElementFinalSpeedParser());
@@ -145,13 +127,17 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
     }
   }
   /** A parser for subelement targetPositionMaster */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTargetPositionMasterParser
       implements IElementParser<SynchronizeActionImpl> {
 
     /** Constructor */
     public SubElementTargetPositionMasterParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              SynchronizeActionXmlParser.this.messageLogger,
+              SynchronizeActionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -162,7 +148,7 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
       PositionImpl targetPositionMaster = new PositionImpl();
       // Setting the parent
       targetPositionMaster.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, targetPositionMaster);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, targetPositionMaster);
 
       object.setTargetPositionMaster(targetPositionMaster);
     }
@@ -188,12 +174,16 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
     }
   }
   /** A parser for subelement targetPosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTargetPositionParser implements IElementParser<SynchronizeActionImpl> {
 
     /** Constructor */
     public SubElementTargetPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              SynchronizeActionXmlParser.this.messageLogger,
+              SynchronizeActionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -204,7 +194,7 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
       PositionImpl targetPosition = new PositionImpl();
       // Setting the parent
       targetPosition.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, targetPosition);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, targetPosition);
 
       object.setTargetPosition(targetPosition);
     }
@@ -230,12 +220,16 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
     }
   }
   /** A parser for subelement finalSpeed */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFinalSpeedParser implements IElementParser<SynchronizeActionImpl> {
 
     /** Constructor */
     public SubElementFinalSpeedParser() {
       super();
-      finalSpeedXmlParser = new FinalSpeedXmlParser(messageLogger, filename);
+      this.finalSpeedXmlParser =
+          new FinalSpeedXmlParser(
+              SynchronizeActionXmlParser.this.messageLogger,
+              SynchronizeActionXmlParser.this.filename);
     }
 
     private FinalSpeedXmlParser finalSpeedXmlParser;
@@ -246,7 +240,7 @@ public class SynchronizeActionXmlParser extends XmlComplexTypeParser<Synchronize
       FinalSpeedImpl finalSpeed = new FinalSpeedImpl();
       // Setting the parent
       finalSpeed.setParent(object);
-      finalSpeedXmlParser.parseElement(indexedElement, parserContext, finalSpeed);
+      this.finalSpeedXmlParser.parseElement(indexedElement, parserContext, finalSpeed);
 
       object.setFinalSpeed(finalSpeed);
     }

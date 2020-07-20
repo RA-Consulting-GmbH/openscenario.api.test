@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ISpeedActionTarget extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Defines the target speed as relative speed to a
    * reference entity. Unit: m/s.
@@ -35,7 +34,6 @@ public interface ISpeedActionTarget extends IOpenScenarioModelElement {
    * @return value of model property relativeTargetSpeed
    */
   public IRelativeTargetSpeed getRelativeTargetSpeed();
-
   /**
    * From OpenSCENARIO class model specification: Defines the target speed as absolute speed.Unit:
    * m/s.

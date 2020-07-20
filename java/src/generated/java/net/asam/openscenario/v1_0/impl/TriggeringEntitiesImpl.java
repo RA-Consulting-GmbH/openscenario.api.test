@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntities, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntities {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +63,19 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
     addAdapter(ITriggeringEntities.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public TriggeringEntitiesRule getTriggeringEntitiesRule() {
-    return triggeringEntitiesRule;
+    return this.triggeringEntitiesRule;
   }
 
   @Override
   public List<IEntityRef> getEntityRefs() {
-    return entityRefs;
+    return this.entityRefs;
   }
   /**
    * Sets the value of model property triggeringEntitiesRule
@@ -101,7 +102,7 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
       // Enumeration Type
       TriggeringEntitiesRule result = TriggeringEntitiesRule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        triggeringEntitiesRule = result;
+        this.triggeringEntitiesRule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -124,8 +125,9 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IEntityRef> entityRefs = null;
     entityRefs = getEntityRefs();
@@ -143,6 +145,7 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TriggeringEntitiesImpl clone() {
     TriggeringEntitiesImpl clonedObject = new TriggeringEntitiesImpl();
     cloneStartMarker(clonedObject);
@@ -161,7 +164,7 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
     List<IEntityRef> entityRefs = null;
     entityRefs = getEntityRefs();
     if (entityRefs != null) {
-      List<IEntityRef> clonedList = new ArrayList<IEntityRef>();
+      List<IEntityRef> clonedList = new ArrayList<>();
       for (IEntityRef item : entityRefs) {
         EntityRefImpl clonedChild = ((EntityRefImpl) item).clone();
         clonedList.add(clonedChild);
@@ -215,18 +218,18 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__ENTITY_REF)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getEntityRefs();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -248,9 +251,8 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
     if (key.equals(OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE)) {
       TriggeringEntitiesRule triggeringEntitiesRule = getTriggeringEntitiesRule();
       return triggeringEntitiesRule != null ? triggeringEntitiesRule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

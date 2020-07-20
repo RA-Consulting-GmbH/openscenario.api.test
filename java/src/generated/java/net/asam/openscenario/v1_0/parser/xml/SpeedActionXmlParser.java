@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,35 +46,12 @@ public class SpeedActionXmlParser extends XmlComplexTypeParser<SpeedActionImpl> 
    */
   public SpeedActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, SpeedActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing SpeedAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing SpeedAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<SpeedActionImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<SpeedActionImpl>> result =
-        new Hashtable<String, IAttributeParser<SpeedActionImpl>>();
+    Map<String, IAttributeParser<SpeedActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,21 +69,24 @@ public class SpeedActionXmlParser extends XmlComplexTypeParser<SpeedActionImpl> 
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<SpeedActionImpl>> createParserList() {
-      List<IElementParser<SpeedActionImpl>> result =
-          new ArrayList<IElementParser<SpeedActionImpl>>();
+      List<IElementParser<SpeedActionImpl>> result = new ArrayList<>();
       result.add(new SubElementSpeedActionDynamicsParser());
       result.add(new SubElementSpeedActionTargetParser());
       return result;
     }
   }
   /** A parser for subelement speedActionDynamics */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSpeedActionDynamicsParser implements IElementParser<SpeedActionImpl> {
 
     /** Constructor */
     public SubElementSpeedActionDynamicsParser() {
       super();
-      transitionDynamicsXmlParser = new TransitionDynamicsXmlParser(messageLogger, filename);
+      this.transitionDynamicsXmlParser =
+          new TransitionDynamicsXmlParser(
+              SpeedActionXmlParser.this.messageLogger, SpeedActionXmlParser.this.filename);
     }
 
     private TransitionDynamicsXmlParser transitionDynamicsXmlParser;
@@ -120,7 +97,8 @@ public class SpeedActionXmlParser extends XmlComplexTypeParser<SpeedActionImpl> 
       TransitionDynamicsImpl speedActionDynamics = new TransitionDynamicsImpl();
       // Setting the parent
       speedActionDynamics.setParent(object);
-      transitionDynamicsXmlParser.parseElement(indexedElement, parserContext, speedActionDynamics);
+      this.transitionDynamicsXmlParser.parseElement(
+          indexedElement, parserContext, speedActionDynamics);
 
       object.setSpeedActionDynamics(speedActionDynamics);
     }
@@ -146,12 +124,15 @@ public class SpeedActionXmlParser extends XmlComplexTypeParser<SpeedActionImpl> 
     }
   }
   /** A parser for subelement speedActionTarget */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSpeedActionTargetParser implements IElementParser<SpeedActionImpl> {
 
     /** Constructor */
     public SubElementSpeedActionTargetParser() {
       super();
-      speedActionTargetXmlParser = new SpeedActionTargetXmlParser(messageLogger, filename);
+      this.speedActionTargetXmlParser =
+          new SpeedActionTargetXmlParser(
+              SpeedActionXmlParser.this.messageLogger, SpeedActionXmlParser.this.filename);
     }
 
     private SpeedActionTargetXmlParser speedActionTargetXmlParser;
@@ -162,7 +143,8 @@ public class SpeedActionXmlParser extends XmlComplexTypeParser<SpeedActionImpl> 
       SpeedActionTargetImpl speedActionTarget = new SpeedActionTargetImpl();
       // Setting the parent
       speedActionTarget.setParent(object);
-      speedActionTargetXmlParser.parseElement(indexedElement, parserContext, speedActionTarget);
+      this.speedActionTargetXmlParser.parseElement(
+          indexedElement, parserContext, speedActionTarget);
 
       object.setSpeedActionTarget(speedActionTarget);
     }

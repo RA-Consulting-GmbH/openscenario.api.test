@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -52,38 +50,16 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
    */
   public NurbsXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, NurbsImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Nurbs",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Nurbs",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<NurbsImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<NurbsImpl>> result =
-        new Hashtable<String, IAttributeParser<NurbsImpl>>();
+    Map<String, IAttributeParser<NurbsImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ORDER,
         new IAttributeParser<NurbsImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +69,13 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
               NurbsImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    NurbsXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), NurbsXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ORDER, stripDollarSign(attributeValue), startMarker);
@@ -130,20 +110,24 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<NurbsImpl>> createParserList() {
-      List<IElementParser<NurbsImpl>> result = new ArrayList<IElementParser<NurbsImpl>>();
+      List<IElementParser<NurbsImpl>> result = new ArrayList<>();
       result.add(new SubElementControlPointsParser());
       result.add(new SubElementKnotsParser());
       return result;
     }
   }
   /** A parser for subelement controlPoints */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControlPointsParser implements IElementParser<NurbsImpl> {
 
     /** Constructor */
     public SubElementControlPointsParser() {
       super();
-      controlPointXmlParser = new ControlPointXmlParser(messageLogger, filename);
+      this.controlPointXmlParser =
+          new ControlPointXmlParser(
+              NurbsXmlParser.this.messageLogger, NurbsXmlParser.this.filename);
     }
 
     private ControlPointXmlParser controlPointXmlParser;
@@ -154,10 +138,10 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
       ControlPointImpl controlPoints = new ControlPointImpl();
       // Setting the parent
       controlPoints.setParent(object);
-      controlPointXmlParser.parseElement(indexedElement, parserContext, controlPoints);
+      this.controlPointXmlParser.parseElement(indexedElement, parserContext, controlPoints);
       List<IControlPoint> controlPointsList = object.getControlPoints();
       if (controlPointsList == null) {
-        controlPointsList = new ArrayList<IControlPoint>();
+        controlPointsList = new ArrayList<>();
         object.setControlPoints(controlPointsList);
       }
       controlPointsList.add(controlPoints);
@@ -184,12 +168,14 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
     }
   }
   /** A parser for subelement knots */
+  @SuppressWarnings("synthetic-access")
   private class SubElementKnotsParser implements IElementParser<NurbsImpl> {
 
     /** Constructor */
     public SubElementKnotsParser() {
       super();
-      knotXmlParser = new KnotXmlParser(messageLogger, filename);
+      this.knotXmlParser =
+          new KnotXmlParser(NurbsXmlParser.this.messageLogger, NurbsXmlParser.this.filename);
     }
 
     private KnotXmlParser knotXmlParser;
@@ -200,10 +186,10 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
       KnotImpl knots = new KnotImpl();
       // Setting the parent
       knots.setParent(object);
-      knotXmlParser.parseElement(indexedElement, parserContext, knots);
+      this.knotXmlParser.parseElement(indexedElement, parserContext, knots);
       List<IKnot> knotsList = object.getKnots();
       if (knotsList == null) {
-        knotsList = new ArrayList<IKnot>();
+        knotsList = new ArrayList<>();
         object.setKnots(knotsList);
       }
       knotsList.add(knots);

@@ -33,7 +33,6 @@ import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.ILaneChangeAction;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
-import net.asam.openscenario.v1_0.common.OscConstants;
 
 public class TestInjectedParameters extends TestBase {
 
@@ -60,7 +59,7 @@ public class TestInjectedParameters extends TestBase {
 
   @Test
   public void testInjectionsForSuccess() {
-    Hashtable<String, String> injectedParamters = new Hashtable<String, String>();
+    Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("testBoolean", "true");
     injectedParamters.put("testInteger", "2");
     injectedParamters.put("testUnsignedInt", "2");
@@ -131,7 +130,7 @@ public class TestInjectedParameters extends TestBase {
 
   @Test
   public void testWrongFormats() {
-    Hashtable<String, String> injectedParamters = new Hashtable<String, String>();
+    Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("testBoolean", "wrongBoolean");
     injectedParamters.put("testInteger", "wrongInteger");
     injectedParamters.put("testUnsignedInt", "wrongUnsignedIntValue");
@@ -141,10 +140,8 @@ public class TestInjectedParameters extends TestBase {
 
     try {
       String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
-      IOpenScenario openScenario =
-          (IOpenScenario)
-              executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Injected parameter 'testInteger': Cannot convert 'wrongInteger' to an int. Number format error. Injected parameter is ignored.",
@@ -176,7 +173,7 @@ public class TestInjectedParameters extends TestBase {
               ErrorLevel.ERROR,
               new Textmarker(20, 2, filename)));
 
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }
@@ -184,21 +181,19 @@ public class TestInjectedParameters extends TestBase {
 
   @Test
   public void testNotDefined() {
-    Hashtable<String, String> injectedParamters = new Hashtable<String, String>();
+    Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("notDefined", "wrongBoolean");
 
     try {
       String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
-      IOpenScenario openScenario =
-          (IOpenScenario)
-              executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
               ErrorLevel.WARNING,
               new Textmarker(20, 2, filename)));
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }
@@ -206,21 +201,19 @@ public class TestInjectedParameters extends TestBase {
 
   @Test
   public void testNotDefinedWithNoGlobalParameters() {
-    Hashtable<String, String> injectedParamters = new Hashtable<String, String>();
+    Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("notDefined", "wrongBoolean");
 
     try {
       String filename = getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath();
-      IOpenScenario openScenario =
-          (IOpenScenario)
-              executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
+      List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
               ErrorLevel.WARNING,
               new Textmarker(21, 2, filename)));
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }

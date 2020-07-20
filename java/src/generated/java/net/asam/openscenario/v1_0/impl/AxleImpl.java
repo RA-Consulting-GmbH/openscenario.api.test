@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AxleImpl extends BaseImpl implements IAxle, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class AxleImpl extends BaseImpl implements IAxle {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -67,33 +67,34 @@ public class AxleImpl extends BaseImpl implements IAxle, Cloneable {
     addAdapter(IAxle.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getMaxSteering() {
-    return maxSteering;
+    return this.maxSteering;
   }
 
   @Override
   public Double getWheelDiameter() {
-    return wheelDiameter;
+    return this.wheelDiameter;
   }
 
   @Override
   public Double getTrackWidth() {
-    return trackWidth;
+    return this.trackWidth;
   }
 
   @Override
   public Double getPositionX() {
-    return positionX;
+    return this.positionX;
   }
 
   @Override
   public Double getPositionZ() {
-    return positionZ;
+    return this.positionZ;
   }
   /**
    * Sets the value of model property maxSteering
@@ -147,31 +148,31 @@ public class AxleImpl extends BaseImpl implements IAxle, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_STEERING)) {
       // Simple type
-      maxSteering =
+      this.maxSteering =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__WHEEL_DIAMETER)) {
       // Simple type
-      wheelDiameter =
+      this.wheelDiameter =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__TRACK_WIDTH)) {
       // Simple type
-      trackWidth =
+      this.trackWidth =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__POSITION_X)) {
       // Simple type
-      positionX =
+      this.positionX =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__POSITION_Z)) {
       // Simple type
-      positionZ =
+      this.positionZ =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -188,8 +189,9 @@ public class AxleImpl extends BaseImpl implements IAxle, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -200,6 +202,7 @@ public class AxleImpl extends BaseImpl implements IAxle, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public AxleImpl clone() {
     AxleImpl clonedObject = new AxleImpl();
     cloneStartMarker(clonedObject);
@@ -255,9 +258,8 @@ public class AxleImpl extends BaseImpl implements IAxle, Cloneable {
       return getPositionX();
     } else if (key.equals(OscConstants.ATTRIBUTE__POSITION_Z)) {
       return getPositionZ();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -283,6 +285,7 @@ public class AxleImpl extends BaseImpl implements IAxle, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

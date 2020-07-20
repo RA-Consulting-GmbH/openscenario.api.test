@@ -44,13 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerDistributionImpl extends BaseImpl
-    implements IControllerDistribution, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ControllerDistributionImpl extends BaseImpl implements IControllerDistribution {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IControllerDistributionEntry> controllerDistributionEntries;
   /** Default constructor */
@@ -60,13 +55,14 @@ public class ControllerDistributionImpl extends BaseImpl
     addAdapter(IControllerDistribution.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IControllerDistributionEntry> getControllerDistributionEntries() {
-    return controllerDistributionEntries;
+    return this.controllerDistributionEntries;
   }
   /**
    * Sets the value of model property controllerDistributionEntries
@@ -81,7 +77,9 @@ public class ControllerDistributionImpl extends BaseImpl
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -94,8 +92,9 @@ public class ControllerDistributionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IControllerDistributionEntry> controllerDistributionEntries = null;
     controllerDistributionEntries = getControllerDistributionEntries();
@@ -113,6 +112,7 @@ public class ControllerDistributionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ControllerDistributionImpl clone() {
     ControllerDistributionImpl clonedObject = new ControllerDistributionImpl();
     cloneStartMarker(clonedObject);
@@ -125,7 +125,7 @@ public class ControllerDistributionImpl extends BaseImpl
     List<IControllerDistributionEntry> controllerDistributionEntries = null;
     controllerDistributionEntries = getControllerDistributionEntries();
     if (controllerDistributionEntries != null) {
-      List<IControllerDistributionEntry> clonedList = new ArrayList<IControllerDistributionEntry>();
+      List<IControllerDistributionEntry> clonedList = new ArrayList<>();
       for (IControllerDistributionEntry item : controllerDistributionEntries) {
         ControllerDistributionEntryImpl clonedChild =
             ((ControllerDistributionEntryImpl) item).clone();
@@ -180,18 +180,18 @@ public class ControllerDistributionImpl extends BaseImpl
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getControllerDistributionEntries();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -31,6 +31,7 @@ import net.asam.openscenario.v1_0.catalog.CatalogHelper;
 
 public class TestImports extends TestBase {
 
+  @SuppressWarnings("null")
   @Test
   public void testImportSuccess() {
     try {
@@ -56,13 +57,13 @@ public class TestImports extends TestBase {
       Assertions.assertEquals((Double) 70.0, vehicleImportOvertaker.getPerformance().getMaxSpeed());
       Assertions.assertTrue(vehicleImportOvertaker != vehicleImportEgo);
 
-      Assertions.assertFalse(hasErrors(messageLogger));
+      Assertions.assertFalse(hasErrors(this.messageLogger));
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 
+  @SuppressWarnings("null")
   @Test
   public void testImportWithParametersSuccess() {
     try {
@@ -100,10 +101,9 @@ public class TestImports extends TestBase {
       Assertions.assertEquals(
           (Double) 60.0, vehicleImportThirdVehicle.getPerformance().getMaxSpeed());
 
-      Assertions.assertFalse(hasErrors(messageLogger));
+      Assertions.assertFalse(hasErrors(this.messageLogger));
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 

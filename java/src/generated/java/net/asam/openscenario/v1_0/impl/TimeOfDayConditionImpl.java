@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -64,18 +64,19 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
     addAdapter(ITimeOfDayCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Rule getRule() {
-    return rule;
+    return this.rule;
   }
 
   @Override
   public java.util.Date getDateTime() {
-    return dateTime;
+    return this.dateTime;
   }
   /**
    * Sets the value of model property rule
@@ -101,7 +102,7 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        rule = result;
+        this.rule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -113,7 +114,7 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DATE_TIME)) {
       // Simple type
-      dateTime =
+      this.dateTime =
           ParserHelper.parseDateTime(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -130,8 +131,9 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -142,6 +144,7 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TimeOfDayConditionImpl clone() {
     TimeOfDayConditionImpl clonedObject = new TimeOfDayConditionImpl();
     cloneStartMarker(clonedObject);
@@ -201,9 +204,8 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
     }
     if (key.equals(OscConstants.ATTRIBUTE__DATE_TIME)) {
       return getDateTime();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -214,6 +216,7 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -236,9 +239,8 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
     if (key.equals(OscConstants.ATTRIBUTE__RULE)) {
       Rule rule = getRule();
       return rule != null ? rule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

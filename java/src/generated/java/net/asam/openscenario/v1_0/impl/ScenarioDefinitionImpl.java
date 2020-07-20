@@ -48,12 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IParameterDeclaration> parameterDeclarations;
   private ICatalogLocations catalogLocations;
@@ -67,33 +63,34 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
     addAdapter(IScenarioDefinition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IParameterDeclaration> getParameterDeclarations() {
-    return parameterDeclarations;
+    return this.parameterDeclarations;
   }
 
   @Override
   public ICatalogLocations getCatalogLocations() {
-    return catalogLocations;
+    return this.catalogLocations;
   }
 
   @Override
   public IRoadNetwork getRoadNetwork() {
-    return roadNetwork;
+    return this.roadNetwork;
   }
 
   @Override
   public IEntities getEntities() {
-    return entities;
+    return this.entities;
   }
 
   @Override
   public IStoryboard getStoryboard() {
-    return storyboard;
+    return this.storyboard;
   }
   /**
    * Sets the value of model property parameterDeclarations
@@ -146,7 +143,9 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -160,9 +159,9 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
 
   @Override
   public List<ParameterValue> getParameterDefinitions() {
-    List<ParameterValue> result = new java.util.ArrayList<ParameterValue>();
-    if (parameterDeclarations != null) {
-      for (IParameterDeclaration parameterDeclaration : parameterDeclarations) {
+    List<ParameterValue> result = new java.util.ArrayList<>();
+    if (this.parameterDeclarations != null) {
+      for (IParameterDeclaration parameterDeclaration : this.parameterDeclarations) {
         ParameterValue parameterValue =
             new ParameterValue(
                 parameterDeclaration.getName(),
@@ -180,8 +179,9 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IParameterDeclaration> parameterDeclarations = null;
     parameterDeclarations = getParameterDeclarations();
@@ -219,6 +219,7 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ScenarioDefinitionImpl clone() {
     ScenarioDefinitionImpl clonedObject = new ScenarioDefinitionImpl();
     cloneStartMarker(clonedObject);
@@ -231,7 +232,7 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
     List<IParameterDeclaration> parameterDeclarations = null;
     parameterDeclarations = getParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<IParameterDeclaration>();
+      List<IParameterDeclaration> clonedList = new ArrayList<>();
       for (IParameterDeclaration item : parameterDeclarations) {
         ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
@@ -315,29 +316,31 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
     }
     if (key.equals(OscConstants.ELEMENT__CATALOG_LOCATIONS)) {
       return (IOpenScenarioFlexElement) getCatalogLocations();
-    } else if (key.equals(OscConstants.ELEMENT__ROAD_NETWORK)) {
-      return (IOpenScenarioFlexElement) getRoadNetwork();
-    } else if (key.equals(OscConstants.ELEMENT__ENTITIES)) {
-      return (IOpenScenarioFlexElement) getEntities();
-    } else if (key.equals(OscConstants.ELEMENT__STORYBOARD)) {
-      return (IOpenScenarioFlexElement) getStoryboard();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__ROAD_NETWORK)) {
+      return (IOpenScenarioFlexElement) getRoadNetwork();
+    }
+    if (key.equals(OscConstants.ELEMENT__ENTITIES)) {
+      return (IOpenScenarioFlexElement) getEntities();
+    }
+    if (key.equals(OscConstants.ELEMENT__STORYBOARD)) {
+      return (IOpenScenarioFlexElement) getStoryboard();
+    }
+    throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__PARAMETER_DECLARATION)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getParameterDeclarations();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

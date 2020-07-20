@@ -44,9 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActivateControllerActionImpl extends BaseImpl
-    implements IActivateControllerAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ActivateControllerActionImpl extends BaseImpl implements IActivateControllerAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +62,19 @@ public class ActivateControllerActionImpl extends BaseImpl
     addAdapter(IActivateControllerAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Boolean getLateral() {
-    return lateral;
+    return this.lateral;
   }
 
   @Override
   public Boolean getLongitudinal() {
-    return longitudinal;
+    return this.longitudinal;
   }
   /**
    * Sets the value of model property lateral
@@ -100,13 +100,13 @@ public class ActivateControllerActionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__LATERAL)) {
       // Simple type
-      lateral =
+      this.lateral =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__LONGITUDINAL)) {
       // Simple type
-      longitudinal =
+      this.longitudinal =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -123,8 +123,9 @@ public class ActivateControllerActionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -135,6 +136,7 @@ public class ActivateControllerActionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ActivateControllerActionImpl clone() {
     ActivateControllerActionImpl clonedObject = new ActivateControllerActionImpl();
     cloneStartMarker(clonedObject);
@@ -188,9 +190,8 @@ public class ActivateControllerActionImpl extends BaseImpl
       return getLateral();
     } else if (key.equals(OscConstants.ATTRIBUTE__LONGITUDINAL)) {
       return getLongitudinal();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -206,6 +207,7 @@ public class ActivateControllerActionImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

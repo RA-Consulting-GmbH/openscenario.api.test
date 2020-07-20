@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -64,18 +64,19 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
     addAdapter(IPrecipitation.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public PrecipitationType getPrecipitationType() {
-    return precipitationType;
+    return this.precipitationType;
   }
 
   @Override
   public Double getIntensity() {
-    return intensity;
+    return this.intensity;
   }
   /**
    * Sets the value of model property precipitationType
@@ -103,7 +104,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
       // Enumeration Type
       PrecipitationType result = PrecipitationType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        precipitationType = result;
+        this.precipitationType = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -115,7 +116,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__INTENSITY)) {
       // Simple type
-      intensity =
+      this.intensity =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -132,8 +133,9 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -144,6 +146,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PrecipitationImpl clone() {
     PrecipitationImpl clonedObject = new PrecipitationImpl();
     cloneStartMarker(clonedObject);
@@ -189,9 +192,8 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
     }
     if (key.equals(OscConstants.ATTRIBUTE__INTENSITY)) {
       return getIntensity();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -217,6 +219,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -239,9 +242,8 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, Clone
     if (key.equals(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE)) {
       PrecipitationType precipitationType = getPrecipitationType();
       return precipitationType != null ? precipitationType.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

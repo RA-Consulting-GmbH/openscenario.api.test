@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IControllerAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Assign a controller to an entity.
    *
    * @return value of model property assignControllerAction
    */
   public IAssignControllerAction getAssignControllerAction();
-
   /**
    * From OpenSCENARIO class model specification: Values for throttle, brake, clutch, parking brake,
    * steering wheel or gear.

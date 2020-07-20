@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRouteRef extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Route definition.
    *
    * @return value of model property route
    */
   public IRoute getRoute();
-
   /**
    * From OpenSCENARIO class model specification: Reference to route in the catalog.
    *

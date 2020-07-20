@@ -29,7 +29,6 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficSignalControllerCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: ID of the referenced signal controller in a road
    * network.
@@ -37,7 +36,6 @@ public interface ITrafficSignalControllerCondition extends IOpenScenarioModelEle
    * @return value of model property trafficSignalControllerRef
    */
   public INamedReference<ITrafficSignalController> getTrafficSignalControllerRef();
-
   /**
    * From OpenSCENARIO class model specification: Name of the phase of the signal controller to be
    * reached for the condition to become true. The available phases are defined in type RoadNetwork
@@ -46,7 +44,6 @@ public interface ITrafficSignalControllerCondition extends IOpenScenarioModelEle
    * @return value of model property phase
    */
   public String getPhase();
-
   /**
    * From OpenSCENARIO class model specification: The reference to the phase (phase is the
    * referential key in the referenced TrafficSignalController).

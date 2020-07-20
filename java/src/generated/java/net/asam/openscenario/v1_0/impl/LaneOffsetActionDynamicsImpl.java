@@ -47,9 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetActionDynamicsImpl extends BaseImpl
-    implements ILaneOffsetActionDynamics, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffsetActionDynamics {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -66,18 +65,19 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
     addAdapter(ILaneOffsetActionDynamics.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getMaxLateralAcc() {
-    return maxLateralAcc;
+    return this.maxLateralAcc;
   }
 
   @Override
   public DynamicsShape getDynamicsShape() {
-    return dynamicsShape;
+    return this.dynamicsShape;
   }
   /**
    * Sets the value of model property maxLateralAcc
@@ -103,7 +103,7 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC)) {
       // Simple type
-      maxLateralAcc =
+      this.maxLateralAcc =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
@@ -111,7 +111,7 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
       // Enumeration Type
       DynamicsShape result = DynamicsShape.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        dynamicsShape = result;
+        this.dynamicsShape = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -134,8 +134,9 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -146,6 +147,7 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public LaneOffsetActionDynamicsImpl clone() {
     LaneOffsetActionDynamicsImpl clonedObject = new LaneOffsetActionDynamicsImpl();
     cloneStartMarker(clonedObject);
@@ -190,9 +192,8 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC)) {
       return getMaxLateralAcc();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -218,6 +219,7 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -240,9 +242,8 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
     if (key.equals(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE)) {
       DynamicsShape dynamicsShape = getDynamicsShape();
       return dynamicsShape != null ? dynamicsShape.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

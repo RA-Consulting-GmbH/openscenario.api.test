@@ -50,38 +50,16 @@ public class WaypointXmlParser extends XmlComplexTypeParser<WaypointImpl> {
    */
   public WaypointXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, WaypointImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Waypoint",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Waypoint",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<WaypointImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<WaypointImpl>> result =
-        new Hashtable<String, IAttributeParser<WaypointImpl>>();
+    Map<String, IAttributeParser<WaypointImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ROUTE_STRATEGY,
         new IAttributeParser<WaypointImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -91,9 +69,15 @@ public class WaypointXmlParser extends XmlComplexTypeParser<WaypointImpl> {
               WaypointImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WaypointXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    WaypointXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ROUTE_STRATEGY,
@@ -106,7 +90,7 @@ public class WaypointXmlParser extends XmlComplexTypeParser<WaypointImpl> {
               if (result != null) {
                 object.setRouteStrategy(result);
               } else {
-                messageLogger.logMessage(
+                WaypointXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -139,19 +123,23 @@ public class WaypointXmlParser extends XmlComplexTypeParser<WaypointImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<WaypointImpl>> createParserList() {
-      List<IElementParser<WaypointImpl>> result = new ArrayList<IElementParser<WaypointImpl>>();
+      List<IElementParser<WaypointImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<WaypointImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              WaypointXmlParser.this.messageLogger, WaypointXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -162,7 +150,7 @@ public class WaypointXmlParser extends XmlComplexTypeParser<WaypointImpl> {
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IInRoutePosition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The position is defined through the current
    * position of a given entity.
@@ -36,14 +35,12 @@ public interface IInRoutePosition extends IOpenScenarioModelElement {
    * @return value of model property fromCurrentEntity
    */
   public IPositionOfCurrentEntity getFromCurrentEntity();
-
   /**
    * From OpenSCENARIO class model specification: Route position in road coordinate system.
    *
    * @return value of model property fromRoadCoordinates
    */
   public IPositionInRoadCoordinates getFromRoadCoordinates();
-
   /**
    * From OpenSCENARIO class model specification: Route position in lane coordinate system.
    *

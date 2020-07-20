@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOverrideSteeringWheelAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Steering wheel angle. Unit: rad.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: True: override; false: stop overriding.
    *

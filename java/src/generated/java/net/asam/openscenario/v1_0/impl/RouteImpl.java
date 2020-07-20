@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class RouteImpl extends BaseImpl implements IRoute {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -66,28 +66,29 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
     addAdapter(IRoute.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public Boolean getClosed() {
-    return closed;
+    return this.closed;
   }
 
   @Override
   public List<IParameterDeclaration> getParameterDeclarations() {
-    return parameterDeclarations;
+    return this.parameterDeclarations;
   }
 
   @Override
   public List<IWaypoint> getWaypoints() {
-    return waypoints;
+    return this.waypoints;
   }
   /**
    * Sets the value of model property name
@@ -131,12 +132,13 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__CLOSED)) {
       // Simple type
-      closed =
+      this.closed =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -154,9 +156,9 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
 
   @Override
   public List<ParameterValue> getParameterDefinitions() {
-    List<ParameterValue> result = new java.util.ArrayList<ParameterValue>();
-    if (parameterDeclarations != null) {
-      for (IParameterDeclaration parameterDeclaration : parameterDeclarations) {
+    List<ParameterValue> result = new java.util.ArrayList<>();
+    if (this.parameterDeclarations != null) {
+      for (IParameterDeclaration parameterDeclaration : this.parameterDeclarations) {
         ParameterValue parameterValue =
             new ParameterValue(
                 parameterDeclaration.getName(),
@@ -174,8 +176,9 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IParameterDeclaration> parameterDeclarations = null;
     parameterDeclarations = getParameterDeclarations();
@@ -200,6 +203,7 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RouteImpl clone() {
     RouteImpl clonedObject = new RouteImpl();
     cloneStartMarker(clonedObject);
@@ -216,7 +220,7 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
     List<IParameterDeclaration> parameterDeclarations = null;
     parameterDeclarations = getParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<IParameterDeclaration>();
+      List<IParameterDeclaration> clonedList = new ArrayList<>();
       for (IParameterDeclaration item : parameterDeclarations) {
         ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
@@ -227,7 +231,7 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
     List<IWaypoint> waypoints = null;
     waypoints = getWaypoints();
     if (waypoints != null) {
-      List<IWaypoint> clonedList = new ArrayList<IWaypoint>();
+      List<IWaypoint> clonedList = new ArrayList<>();
       for (IWaypoint item : waypoints) {
         WaypointImpl clonedChild = ((WaypointImpl) item).clone();
         clonedList.add(clonedChild);
@@ -248,9 +252,8 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -280,9 +283,8 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__CLOSED)) {
       return getClosed();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -295,21 +297,21 @@ public class RouteImpl extends BaseImpl implements IRoute, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__PARAMETER_DECLARATION)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getParameterDeclarations();
-
-    } else if (key.equals(OscConstants.ELEMENT__WAYPOINT)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getWaypoints();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__WAYPOINT)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getWaypoints();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -51,8 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class StoryboardElementStateConditionImpl extends BaseImpl
-    implements IStoryboardElementStateCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+    implements IStoryboardElementStateCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -71,23 +71,24 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
     addAdapter(IStoryboardElementStateCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public StoryboardElementType getStoryboardElementType() {
-    return storyboardElementType;
+    return this.storyboardElementType;
   }
 
   @Override
   public INamedReference<IStoryboardElement> getStoryboardElementRef() {
-    return storyboardElementRef;
+    return this.storyboardElementRef;
   }
 
   @Override
   public StoryboardElementState getState() {
-    return state;
+    return this.state;
   }
   /**
    * Sets the value of model property storyboardElementType
@@ -125,7 +126,7 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
       // Enumeration Type
       StoryboardElementType result = StoryboardElementType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        storyboardElementType = result;
+        this.storyboardElementType = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -138,15 +139,15 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF)) {
       // Proxy
       NamedReferenceProxy<IStoryboardElement> proxy =
-          new NamedReferenceProxy<IStoryboardElement>(parameterLiteralValue);
-      storyboardElementRef = proxy;
+          new NamedReferenceProxy<>(parameterLiteralValue);
+      this.storyboardElementRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__STATE)) {
       // Enumeration Type
       StoryboardElementState result = StoryboardElementState.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        state = result;
+        this.state = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -169,8 +170,9 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -181,6 +183,7 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public StoryboardElementStateConditionImpl clone() {
     StoryboardElementStateConditionImpl clonedObject = new StoryboardElementStateConditionImpl();
     cloneStartMarker(clonedObject);
@@ -221,9 +224,8 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
       // Get the Proxy
       INamedReference<IStoryboardElement> storyboardElementRef = getStoryboardElementRef();
       return storyboardElementRef != null ? storyboardElementRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -264,6 +266,7 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -284,9 +287,8 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
       return storyboardElementRef != null
           ? (IOpenScenarioFlexElement) storyboardElementRef.getTargetObject()
           : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -300,9 +302,8 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
     } else if (key.equals(OscConstants.ATTRIBUTE__STATE)) {
       StoryboardElementState state = getState();
       return state != null ? state.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

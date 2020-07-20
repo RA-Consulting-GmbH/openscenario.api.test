@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficSignalController extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: ID of the traffic signal controller in the road
    * network.
@@ -36,7 +35,6 @@ public interface ITrafficSignalController extends IOpenScenarioModelElement {
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: The delay to the controller in the reference
    * property. A controller having a delay to another one means that its first phase virtually
@@ -47,7 +45,6 @@ public interface ITrafficSignalController extends IOpenScenarioModelElement {
    * @return value of model property delay
    */
   public Double getDelay();
-
   /**
    * From OpenSCENARIO class model specification: A reference (ID) to the connected controller in
    * the road network. If reference is set, a delay is required.
@@ -55,7 +52,6 @@ public interface ITrafficSignalController extends IOpenScenarioModelElement {
    * @return value of model property reference
    */
   public String getReference();
-
   /**
    * From OpenSCENARIO class model specification: Phases of a TrafficSignalController.
    *

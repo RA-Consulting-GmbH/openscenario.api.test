@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ISpeedAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Defines how the target speed is reached.
    *
    * @return value of model property speedActionDynamics
    */
   public ITransitionDynamics getSpeedActionDynamics();
-
   /**
    * From OpenSCENARIO class model specification: Defines the target speed which should be reached.
    *

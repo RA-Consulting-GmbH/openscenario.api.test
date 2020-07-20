@@ -42,6 +42,6 @@ public class XmlScenarioLoaderFactory implements IScenarioLoaderFactory {
 
   @Override
   public IScenarioLoader createLoader(IResourceLocator resourceLocator) {
-    return new XmlScenarioLoader(filename, resourceLocator);
+    return new XmlScenarioLoader(this.filename, resourceLocator);
   }
 }

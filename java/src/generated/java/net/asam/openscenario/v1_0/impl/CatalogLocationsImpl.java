@@ -50,12 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IVehicleCatalogLocation vehicleCatalog;
   private IControllerCatalogLocation controllerCatalog;
@@ -72,48 +68,49 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations,
     addAdapter(ICatalogLocations.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IVehicleCatalogLocation getVehicleCatalog() {
-    return vehicleCatalog;
+    return this.vehicleCatalog;
   }
 
   @Override
   public IControllerCatalogLocation getControllerCatalog() {
-    return controllerCatalog;
+    return this.controllerCatalog;
   }
 
   @Override
   public IPedestrianCatalogLocation getPedestrianCatalog() {
-    return pedestrianCatalog;
+    return this.pedestrianCatalog;
   }
 
   @Override
   public IMiscObjectCatalogLocation getMiscObjectCatalog() {
-    return miscObjectCatalog;
+    return this.miscObjectCatalog;
   }
 
   @Override
   public IEnvironmentCatalogLocation getEnvironmentCatalog() {
-    return environmentCatalog;
+    return this.environmentCatalog;
   }
 
   @Override
   public IManeuverCatalogLocation getManeuverCatalog() {
-    return maneuverCatalog;
+    return this.maneuverCatalog;
   }
 
   @Override
   public ITrajectoryCatalogLocation getTrajectoryCatalog() {
-    return trajectoryCatalog;
+    return this.trajectoryCatalog;
   }
 
   @Override
   public IRouteCatalogLocation getRouteCatalog() {
-    return routeCatalog;
+    return this.routeCatalog;
   }
   /**
    * Sets the value of model property vehicleCatalog
@@ -190,7 +187,9 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations,
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -203,8 +202,9 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IVehicleCatalogLocation vehicleCatalog = null;
     vehicleCatalog = getVehicleCatalog();
@@ -255,6 +255,7 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public CatalogLocationsImpl clone() {
     CatalogLocationsImpl clonedObject = new CatalogLocationsImpl();
     cloneStartMarker(clonedObject);
@@ -375,28 +376,35 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations,
     }
     if (key.equals(OscConstants.ELEMENT__VEHICLE_CATALOG)) {
       return (IOpenScenarioFlexElement) getVehicleCatalog();
-    } else if (key.equals(OscConstants.ELEMENT__CONTROLLER_CATALOG)) {
-      return (IOpenScenarioFlexElement) getControllerCatalog();
-    } else if (key.equals(OscConstants.ELEMENT__PEDESTRIAN_CATALOG)) {
-      return (IOpenScenarioFlexElement) getPedestrianCatalog();
-    } else if (key.equals(OscConstants.ELEMENT__MISC_OBJECT_CATALOG)) {
-      return (IOpenScenarioFlexElement) getMiscObjectCatalog();
-    } else if (key.equals(OscConstants.ELEMENT__ENVIRONMENT_CATALOG)) {
-      return (IOpenScenarioFlexElement) getEnvironmentCatalog();
-    } else if (key.equals(OscConstants.ELEMENT__MANEUVER_CATALOG)) {
-      return (IOpenScenarioFlexElement) getManeuverCatalog();
-    } else if (key.equals(OscConstants.ELEMENT__TRAJECTORY_CATALOG)) {
-      return (IOpenScenarioFlexElement) getTrajectoryCatalog();
-    } else if (key.equals(OscConstants.ELEMENT__ROUTE_CATALOG)) {
-      return (IOpenScenarioFlexElement) getRouteCatalog();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__CONTROLLER_CATALOG)) {
+      return (IOpenScenarioFlexElement) getControllerCatalog();
+    }
+    if (key.equals(OscConstants.ELEMENT__PEDESTRIAN_CATALOG)) {
+      return (IOpenScenarioFlexElement) getPedestrianCatalog();
+    }
+    if (key.equals(OscConstants.ELEMENT__MISC_OBJECT_CATALOG)) {
+      return (IOpenScenarioFlexElement) getMiscObjectCatalog();
+    }
+    if (key.equals(OscConstants.ELEMENT__ENVIRONMENT_CATALOG)) {
+      return (IOpenScenarioFlexElement) getEnvironmentCatalog();
+    }
+    if (key.equals(OscConstants.ELEMENT__MANEUVER_CATALOG)) {
+      return (IOpenScenarioFlexElement) getManeuverCatalog();
+    }
+    if (key.equals(OscConstants.ELEMENT__TRAJECTORY_CATALOG)) {
+      return (IOpenScenarioFlexElement) getTrajectoryCatalog();
+    }
+    if (key.equals(OscConstants.ELEMENT__ROUTE_CATALOG)) {
+      return (IOpenScenarioFlexElement) getRouteCatalog();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

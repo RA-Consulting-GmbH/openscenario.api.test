@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,39 +48,17 @@ public class TrafficDefinitionXmlParser extends XmlComplexTypeParser<TrafficDefi
    */
   public TrafficDefinitionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrafficDefinitionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficDefinition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficDefinition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficDefinitionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficDefinitionImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficDefinitionImpl>>();
+    Map<String, IAttributeParser<TrafficDefinitionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<TrafficDefinitionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class TrafficDefinitionXmlParser extends XmlComplexTypeParser<TrafficDefi
               TrafficDefinitionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficDefinitionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficDefinitionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -129,23 +111,26 @@ public class TrafficDefinitionXmlParser extends XmlComplexTypeParser<TrafficDefi
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficDefinitionImpl>> createParserList() {
-      List<IElementParser<TrafficDefinitionImpl>> result =
-          new ArrayList<IElementParser<TrafficDefinitionImpl>>();
+      List<IElementParser<TrafficDefinitionImpl>> result = new ArrayList<>();
       result.add(new SubElementVehicleCategoryDistributionParser());
       result.add(new SubElementControllerDistributionParser());
       return result;
     }
   }
   /** A parser for subelement vehicleCategoryDistribution */
+  @SuppressWarnings("synthetic-access")
   private class SubElementVehicleCategoryDistributionParser
       implements IElementParser<TrafficDefinitionImpl> {
 
     /** Constructor */
     public SubElementVehicleCategoryDistributionParser() {
       super();
-      vehicleCategoryDistributionXmlParser =
-          new VehicleCategoryDistributionXmlParser(messageLogger, filename);
+      this.vehicleCategoryDistributionXmlParser =
+          new VehicleCategoryDistributionXmlParser(
+              TrafficDefinitionXmlParser.this.messageLogger,
+              TrafficDefinitionXmlParser.this.filename);
     }
 
     private VehicleCategoryDistributionXmlParser vehicleCategoryDistributionXmlParser;
@@ -157,7 +142,7 @@ public class TrafficDefinitionXmlParser extends XmlComplexTypeParser<TrafficDefi
           new VehicleCategoryDistributionImpl();
       // Setting the parent
       vehicleCategoryDistribution.setParent(object);
-      vehicleCategoryDistributionXmlParser.parseElement(
+      this.vehicleCategoryDistributionXmlParser.parseElement(
           indexedElement, parserContext, vehicleCategoryDistribution);
 
       object.setVehicleCategoryDistribution(vehicleCategoryDistribution);
@@ -184,14 +169,17 @@ public class TrafficDefinitionXmlParser extends XmlComplexTypeParser<TrafficDefi
     }
   }
   /** A parser for subelement controllerDistribution */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControllerDistributionParser
       implements IElementParser<TrafficDefinitionImpl> {
 
     /** Constructor */
     public SubElementControllerDistributionParser() {
       super();
-      controllerDistributionXmlParser =
-          new ControllerDistributionXmlParser(messageLogger, filename);
+      this.controllerDistributionXmlParser =
+          new ControllerDistributionXmlParser(
+              TrafficDefinitionXmlParser.this.messageLogger,
+              TrafficDefinitionXmlParser.this.filename);
     }
 
     private ControllerDistributionXmlParser controllerDistributionXmlParser;
@@ -202,7 +190,7 @@ public class TrafficDefinitionXmlParser extends XmlComplexTypeParser<TrafficDefi
       ControllerDistributionImpl controllerDistribution = new ControllerDistributionImpl();
       // Setting the parent
       controllerDistribution.setParent(object);
-      controllerDistributionXmlParser.parseElement(
+      this.controllerDistributionXmlParser.parseElement(
           indexedElement, parserContext, controllerDistribution);
 
       object.setControllerDistribution(controllerDistribution);

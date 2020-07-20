@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IRelativeTargetLane relativeTargetLane;
   private IAbsoluteTargetLane absoluteTargetLane;
@@ -60,18 +56,19 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget,
     addAdapter(ILaneChangeTarget.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IRelativeTargetLane getRelativeTargetLane() {
-    return relativeTargetLane;
+    return this.relativeTargetLane;
   }
 
   @Override
   public IAbsoluteTargetLane getAbsoluteTargetLane() {
-    return absoluteTargetLane;
+    return this.absoluteTargetLane;
   }
   /**
    * Sets the value of model property relativeTargetLane
@@ -94,7 +91,9 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget,
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IRelativeTargetLane relativeTargetLane = null;
     relativeTargetLane = getRelativeTargetLane();
@@ -129,6 +129,7 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public LaneChangeTargetImpl clone() {
     LaneChangeTargetImpl clonedObject = new LaneChangeTargetImpl();
     cloneStartMarker(clonedObject);
@@ -200,16 +201,17 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget,
     }
     if (key.equals(OscConstants.ELEMENT__RELATIVE_TARGET_LANE)) {
       return (IOpenScenarioFlexElement) getRelativeTargetLane();
-    } else if (key.equals(OscConstants.ELEMENT__ABSOLUTE_TARGET_LANE)) {
-      return (IOpenScenarioFlexElement) getAbsoluteTargetLane();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__ABSOLUTE_TARGET_LANE)) {
+      return (IOpenScenarioFlexElement) getAbsoluteTargetLane();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

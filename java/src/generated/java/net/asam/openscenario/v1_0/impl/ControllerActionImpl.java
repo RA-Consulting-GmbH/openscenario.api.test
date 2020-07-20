@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerActionImpl extends BaseImpl implements IControllerAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ControllerActionImpl extends BaseImpl implements IControllerAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IAssignControllerAction assignControllerAction;
   private IOverrideControllerValueAction overrideControllerValueAction;
@@ -60,18 +56,19 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction,
     addAdapter(IControllerAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IAssignControllerAction getAssignControllerAction() {
-    return assignControllerAction;
+    return this.assignControllerAction;
   }
 
   @Override
   public IOverrideControllerValueAction getOverrideControllerValueAction() {
-    return overrideControllerValueAction;
+    return this.overrideControllerValueAction;
   }
   /**
    * Sets the value of model property assignControllerAction
@@ -95,7 +92,9 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction,
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -108,8 +107,9 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IAssignControllerAction assignControllerAction = null;
     assignControllerAction = getAssignControllerAction();
@@ -130,6 +130,7 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ControllerActionImpl clone() {
     ControllerActionImpl clonedObject = new ControllerActionImpl();
     cloneStartMarker(clonedObject);
@@ -203,16 +204,17 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction,
     }
     if (key.equals(OscConstants.ELEMENT__ASSIGN_CONTROLLER_ACTION)) {
       return (IOpenScenarioFlexElement) getAssignControllerAction();
-    } else if (key.equals(OscConstants.ELEMENT__OVERRIDE_CONTROLLER_VALUE_ACTION)) {
-      return (IOpenScenarioFlexElement) getOverrideControllerValueAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__OVERRIDE_CONTROLLER_VALUE_ACTION)) {
+      return (IOpenScenarioFlexElement) getOverrideControllerValueAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

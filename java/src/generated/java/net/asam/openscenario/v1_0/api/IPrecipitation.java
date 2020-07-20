@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IPrecipitation extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Type of the precipitation.
    *
    * @return value of model property precipitationType
    */
   public PrecipitationType getPrecipitationType();
-
   /**
    * From OpenSCENARIO class model specification: The intensity of the precipitation. Range: [0..1].
    *

@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IEndOfRoadCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Amount of time at end of road. Unit: s; Range:
    * [0..inf[.

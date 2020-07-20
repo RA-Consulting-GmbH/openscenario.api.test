@@ -44,9 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideThrottleActionImpl extends BaseImpl
-    implements IOverrideThrottleAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class OverrideThrottleActionImpl extends BaseImpl implements IOverrideThrottleAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +62,19 @@ public class OverrideThrottleActionImpl extends BaseImpl
     addAdapter(IOverrideThrottleAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Boolean getActive() {
-    return active;
+    return this.active;
   }
   /**
    * Sets the value of model property value
@@ -100,12 +100,13 @@ public class OverrideThrottleActionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ACTIVE)) {
       // Simple type
-      active =
+      this.active =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -122,8 +123,9 @@ public class OverrideThrottleActionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -134,6 +136,7 @@ public class OverrideThrottleActionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public OverrideThrottleActionImpl clone() {
     OverrideThrottleActionImpl clonedObject = new OverrideThrottleActionImpl();
     cloneStartMarker(clonedObject);
@@ -175,9 +178,8 @@ public class OverrideThrottleActionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -192,9 +194,8 @@ public class OverrideThrottleActionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__ACTIVE)) {
       return getActive();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -210,6 +211,7 @@ public class OverrideThrottleActionImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

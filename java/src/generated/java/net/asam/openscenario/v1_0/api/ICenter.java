@@ -28,21 +28,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ICenter extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Center offset in x direction.
    *
    * @return value of model property x
    */
   public Double getX();
-
   /**
    * From OpenSCENARIO class model specification: Center offset in y direction.
    *
    * @return value of model property y
    */
   public Double getY();
-
   /**
    * From OpenSCENARIO class model specification: Center offset in z direction.
    *

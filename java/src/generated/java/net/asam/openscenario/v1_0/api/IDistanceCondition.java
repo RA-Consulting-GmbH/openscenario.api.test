@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IDistanceCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The distance value. Unit: s; Range: [0..inf[.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: True: distance is measured between closest
    * bounding box points. False: reference point distance is used.
@@ -43,7 +41,6 @@ public interface IDistanceCondition extends IOpenScenarioModelElement {
    * @return value of model property freespace
    */
   public Boolean getFreespace();
-
   /**
    * From OpenSCENARIO class model specification: True: routing is taken into account, e.g. turns
    * will increase distance. False: straight line distance is used.
@@ -51,14 +48,12 @@ public interface IDistanceCondition extends IOpenScenarioModelElement {
    * @return value of model property alongRoute
    */
   public Boolean getAlongRoute();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @return value of model property rule
    */
   public Rule getRule();
-
   /**
    * From OpenSCENARIO class model specification: The given position the distance is related to.
    *

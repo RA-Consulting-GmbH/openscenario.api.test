@@ -44,9 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionInLaneCoordinatesImpl extends BaseImpl
-    implements IPositionInLaneCoordinates, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPositionInLaneCoordinates {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -65,23 +64,24 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
     addAdapter(IPositionInLaneCoordinates.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getPathS() {
-    return pathS;
+    return this.pathS;
   }
 
   @Override
   public String getLaneId() {
-    return laneId;
+    return this.laneId;
   }
 
   @Override
   public Double getLaneOffset() {
-    return laneOffset;
+    return this.laneOffset;
   }
   /**
    * Sets the value of model property pathS
@@ -115,17 +115,19 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__PATH_S)) {
       // Simple type
-      pathS = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.pathS =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__LANE_ID)) {
       // Simple type
-      laneId = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.laneId =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__LANE_OFFSET)) {
       // Simple type
-      laneOffset =
+      this.laneOffset =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -142,8 +144,9 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -154,6 +157,7 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PositionInLaneCoordinatesImpl clone() {
     PositionInLaneCoordinatesImpl clonedObject = new PositionInLaneCoordinatesImpl();
     cloneStartMarker(clonedObject);
@@ -182,9 +186,8 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__LANE_ID)) {
       return getLaneId();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -206,9 +209,8 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
       return getPathS();
     } else if (key.equals(OscConstants.ATTRIBUTE__LANE_OFFSET)) {
       return getLaneOffset();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -234,6 +236,7 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

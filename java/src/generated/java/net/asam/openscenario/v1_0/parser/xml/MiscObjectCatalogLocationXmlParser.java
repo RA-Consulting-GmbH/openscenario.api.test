@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,38 +46,13 @@ public class MiscObjectCatalogLocationXmlParser
    */
   public MiscObjectCatalogLocationXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      MiscObjectCatalogLocationImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing MiscObjectCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing MiscObjectCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<MiscObjectCatalogLocationImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<MiscObjectCatalogLocationImpl>> result =
-        new Hashtable<String, IAttributeParser<MiscObjectCatalogLocationImpl>>();
+    Map<String, IAttributeParser<MiscObjectCatalogLocationImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,20 +70,24 @@ public class MiscObjectCatalogLocationXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<MiscObjectCatalogLocationImpl>> createParserList() {
-      List<IElementParser<MiscObjectCatalogLocationImpl>> result =
-          new ArrayList<IElementParser<MiscObjectCatalogLocationImpl>>();
+      List<IElementParser<MiscObjectCatalogLocationImpl>> result = new ArrayList<>();
       result.add(new SubElementDirectoryParser());
       return result;
     }
   }
   /** A parser for subelement directory */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDirectoryParser implements IElementParser<MiscObjectCatalogLocationImpl> {
 
     /** Constructor */
     public SubElementDirectoryParser() {
       super();
-      directoryXmlParser = new DirectoryXmlParser(messageLogger, filename);
+      this.directoryXmlParser =
+          new DirectoryXmlParser(
+              MiscObjectCatalogLocationXmlParser.this.messageLogger,
+              MiscObjectCatalogLocationXmlParser.this.filename);
     }
 
     private DirectoryXmlParser directoryXmlParser;
@@ -124,7 +100,7 @@ public class MiscObjectCatalogLocationXmlParser
       DirectoryImpl directory = new DirectoryImpl();
       // Setting the parent
       directory.setParent(object);
-      directoryXmlParser.parseElement(indexedElement, parserContext, directory);
+      this.directoryXmlParser.parseElement(indexedElement, parserContext, directory);
 
       object.setDirectory(directory);
     }

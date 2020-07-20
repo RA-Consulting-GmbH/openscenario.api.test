@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -26,15 +24,13 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IAction extends IOpenScenarioModelElement, IStoryboardElement {
-
+public interface IAction extends IStoryboardElement {
   /**
    * From OpenSCENARIO class model specification: Name of this action.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: The GlobalAction to be executed when the enclosing
    * Action is startedis started.
@@ -42,7 +38,6 @@ public interface IAction extends IOpenScenarioModelElement, IStoryboardElement {
    * @return value of model property globalAction
    */
   public IGlobalAction getGlobalAction();
-
   /**
    * From OpenSCENARIO class model specification: The UserDefinedAction to be executed when the
    * enclosing Action is started.
@@ -50,7 +45,6 @@ public interface IAction extends IOpenScenarioModelElement, IStoryboardElement {
    * @return value of model property userDefinedAction
    */
   public IUserDefinedAction getUserDefinedAction();
-
   /**
    * From OpenSCENARIO class model specification: The PrivateAction to be executed when the
    * enclosing Action is started.

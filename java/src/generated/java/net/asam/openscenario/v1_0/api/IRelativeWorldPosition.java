@@ -29,7 +29,6 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRelativeWorldPosition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference entity from which the relative world
    * position is measured.
@@ -37,7 +36,6 @@ public interface IRelativeWorldPosition extends IOpenScenarioModelElement {
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Relative x coordinate in the world coordinate
    * system.
@@ -45,7 +43,6 @@ public interface IRelativeWorldPosition extends IOpenScenarioModelElement {
    * @return value of model property dx
    */
   public Double getDx();
-
   /**
    * From OpenSCENARIO class model specification: Relative y coordinate in the world coordinate
    * system.
@@ -53,7 +50,6 @@ public interface IRelativeWorldPosition extends IOpenScenarioModelElement {
    * @return value of model property dy
    */
   public Double getDy();
-
   /**
    * From OpenSCENARIO class model specification: Relative z coordinate in the world coordinate
    * system.
@@ -61,7 +57,6 @@ public interface IRelativeWorldPosition extends IOpenScenarioModelElement {
    * @return value of model property dz
    */
   public Double getDz();
-
   /**
    * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
    * to the reference entity's orientation.

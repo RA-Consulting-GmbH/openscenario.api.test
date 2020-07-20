@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActImpl extends BaseImpl implements IAct, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ActImpl extends BaseImpl implements IAct {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -64,28 +64,29 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable {
     addAdapter(IAct.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public List<IManeuverGroup> getManeuverGroups() {
-    return maneuverGroups;
+    return this.maneuverGroups;
   }
 
   @Override
   public ITrigger getStartTrigger() {
-    return startTrigger;
+    return this.startTrigger;
   }
 
   @Override
   public ITrigger getStopTrigger() {
-    return stopTrigger;
+    return this.stopTrigger;
   }
   /**
    * Sets the value of model property name
@@ -128,7 +129,8 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -144,8 +146,9 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IManeuverGroup> maneuverGroups = null;
     maneuverGroups = getManeuverGroups();
@@ -173,6 +176,7 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ActImpl clone() {
     ActImpl clonedObject = new ActImpl();
     cloneStartMarker(clonedObject);
@@ -187,7 +191,7 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable {
     List<IManeuverGroup> maneuverGroups = null;
     maneuverGroups = getManeuverGroups();
     if (maneuverGroups != null) {
-      List<IManeuverGroup> clonedList = new ArrayList<IManeuverGroup>();
+      List<IManeuverGroup> clonedList = new ArrayList<>();
       for (IManeuverGroup item : maneuverGroups) {
         ManeuverGroupImpl clonedChild = ((ManeuverGroupImpl) item).clone();
         clonedList.add(clonedChild);
@@ -222,9 +226,8 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -264,25 +267,25 @@ public class ActImpl extends BaseImpl implements IAct, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__START_TRIGGER)) {
       return (IOpenScenarioFlexElement) getStartTrigger();
-    } else if (key.equals(OscConstants.ELEMENT__STOP_TRIGGER)) {
-      return (IOpenScenarioFlexElement) getStopTrigger();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__STOP_TRIGGER)) {
+      return (IOpenScenarioFlexElement) getStopTrigger();
+    }
+    throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__MANEUVER_GROUP)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getManeuverGroups();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

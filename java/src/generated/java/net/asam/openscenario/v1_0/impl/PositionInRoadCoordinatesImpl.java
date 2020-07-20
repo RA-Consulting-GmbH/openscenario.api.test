@@ -44,9 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionInRoadCoordinatesImpl extends BaseImpl
-    implements IPositionInRoadCoordinates, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPositionInRoadCoordinates {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +62,19 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
     addAdapter(IPositionInRoadCoordinates.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getPathS() {
-    return pathS;
+    return this.pathS;
   }
 
   @Override
   public Double getT() {
-    return t;
+    return this.t;
   }
   /**
    * Sets the value of model property pathS
@@ -100,12 +100,13 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__PATH_S)) {
       // Simple type
-      pathS = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.pathS =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__T)) {
       // Simple type
-      t = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.t = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -121,8 +122,9 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -133,6 +135,7 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PositionInRoadCoordinatesImpl clone() {
     PositionInRoadCoordinatesImpl clonedObject = new PositionInRoadCoordinatesImpl();
     cloneStartMarker(clonedObject);
@@ -176,9 +179,8 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
       return getPathS();
     } else if (key.equals(OscConstants.ATTRIBUTE__T)) {
       return getT();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -204,6 +206,7 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

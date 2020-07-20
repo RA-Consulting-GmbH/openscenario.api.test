@@ -48,9 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LateralDistanceActionImpl extends BaseImpl
-    implements ILateralDistanceAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class LateralDistanceActionImpl extends BaseImpl implements ILateralDistanceAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -72,33 +71,34 @@ public class LateralDistanceActionImpl extends BaseImpl
     addAdapter(ILateralDistanceAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public Double getDistance() {
-    return distance;
+    return this.distance;
   }
 
   @Override
   public Boolean getFreespace() {
-    return freespace;
+    return this.freespace;
   }
 
   @Override
   public Boolean getContinuous() {
-    return continuous;
+    return this.continuous;
   }
 
   @Override
   public IDynamicConstraints getDynamicConstraints() {
-    return dynamicConstraints;
+    return this.dynamicConstraints;
   }
   /**
    * Sets the value of model property entityRef
@@ -153,25 +153,25 @@ public class LateralDistanceActionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DISTANCE)) {
       // Simple type
-      distance =
+      this.distance =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__FREESPACE)) {
       // Simple type
-      freespace =
+      this.freespace =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__CONTINUOUS)) {
       // Simple type
-      continuous =
+      this.continuous =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -188,8 +188,9 @@ public class LateralDistanceActionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IDynamicConstraints dynamicConstraints = null;
     dynamicConstraints = getDynamicConstraints();
@@ -205,6 +206,7 @@ public class LateralDistanceActionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public LateralDistanceActionImpl clone() {
     LateralDistanceActionImpl clonedObject = new LateralDistanceActionImpl();
     cloneStartMarker(clonedObject);
@@ -246,9 +248,8 @@ public class LateralDistanceActionImpl extends BaseImpl
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -268,9 +269,8 @@ public class LateralDistanceActionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__DISTANCE)) {
       return getDistance();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -287,9 +287,8 @@ public class LateralDistanceActionImpl extends BaseImpl
       return getFreespace();
     } else if (key.equals(OscConstants.ATTRIBUTE__CONTINUOUS)) {
       return getContinuous();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -304,14 +303,14 @@ public class LateralDistanceActionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__DYNAMIC_CONSTRAINTS)) {
       return (IOpenScenarioFlexElement) getDynamicConstraints();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -330,9 +329,8 @@ public class LateralDistanceActionImpl extends BaseImpl
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

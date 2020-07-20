@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class InitActionsImpl extends BaseImpl implements IInitActions {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IGlobalAction> globalActions;
   private List<IUserDefinedAction> userDefinedActions;
@@ -62,23 +58,24 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
     addAdapter(IInitActions.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IGlobalAction> getGlobalActions() {
-    return globalActions;
+    return this.globalActions;
   }
 
   @Override
   public List<IUserDefinedAction> getUserDefinedActions() {
-    return userDefinedActions;
+    return this.userDefinedActions;
   }
 
   @Override
   public List<IPrivate> getPrivates() {
-    return privates;
+    return this.privates;
   }
   /**
    * Sets the value of model property globalActions
@@ -110,7 +107,9 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -123,8 +122,9 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IGlobalAction> globalActions = null;
     globalActions = getGlobalActions();
@@ -156,6 +156,7 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
    *
    * @return a deep copy of the object.
    */
+  @Override
   public InitActionsImpl clone() {
     InitActionsImpl clonedObject = new InitActionsImpl();
     cloneStartMarker(clonedObject);
@@ -168,7 +169,7 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
     List<IGlobalAction> globalActions = null;
     globalActions = getGlobalActions();
     if (globalActions != null) {
-      List<IGlobalAction> clonedList = new ArrayList<IGlobalAction>();
+      List<IGlobalAction> clonedList = new ArrayList<>();
       for (IGlobalAction item : globalActions) {
         GlobalActionImpl clonedChild = ((GlobalActionImpl) item).clone();
         clonedList.add(clonedChild);
@@ -179,7 +180,7 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
     List<IUserDefinedAction> userDefinedActions = null;
     userDefinedActions = getUserDefinedActions();
     if (userDefinedActions != null) {
-      List<IUserDefinedAction> clonedList = new ArrayList<IUserDefinedAction>();
+      List<IUserDefinedAction> clonedList = new ArrayList<>();
       for (IUserDefinedAction item : userDefinedActions) {
         UserDefinedActionImpl clonedChild = ((UserDefinedActionImpl) item).clone();
         clonedList.add(clonedChild);
@@ -190,7 +191,7 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
     List<IPrivate> privates = null;
     privates = getPrivates();
     if (privates != null) {
-      List<IPrivate> clonedList = new ArrayList<IPrivate>();
+      List<IPrivate> clonedList = new ArrayList<>();
       for (IPrivate item : privates) {
         PrivateImpl clonedChild = ((PrivateImpl) item).clone();
         clonedList.add(clonedChild);
@@ -244,24 +245,24 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, Cloneable
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__GLOBAL_ACTION)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getGlobalActions();
-
-    } else if (key.equals(OscConstants.ELEMENT__USER_DEFINED_ACTION)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getUserDefinedActions();
-
-    } else if (key.equals(OscConstants.ELEMENT__PRIVATE)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getPrivates();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__USER_DEFINED_ACTION)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getUserDefinedActions();
+    }
+    if (key.equals(OscConstants.ELEMENT__PRIVATE)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getPrivates();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

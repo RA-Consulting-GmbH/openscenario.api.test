@@ -29,21 +29,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IUserDefinedValueCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the external value.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Reference value the external value is compared to.
    *
    * @return value of model property value
    */
   public String getValue();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

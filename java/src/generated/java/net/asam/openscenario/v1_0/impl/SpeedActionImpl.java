@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class SpeedActionImpl extends BaseImpl implements ISpeedAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ITransitionDynamics speedActionDynamics;
   private ISpeedActionTarget speedActionTarget;
@@ -60,18 +56,19 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
     addAdapter(ISpeedAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ITransitionDynamics getSpeedActionDynamics() {
-    return speedActionDynamics;
+    return this.speedActionDynamics;
   }
 
   @Override
   public ISpeedActionTarget getSpeedActionTarget() {
-    return speedActionTarget;
+    return this.speedActionTarget;
   }
   /**
    * Sets the value of model property speedActionDynamics
@@ -94,7 +91,9 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ITransitionDynamics speedActionDynamics = null;
     speedActionDynamics = getSpeedActionDynamics();
@@ -129,6 +129,7 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
    *
    * @return a deep copy of the object.
    */
+  @Override
   public SpeedActionImpl clone() {
     SpeedActionImpl clonedObject = new SpeedActionImpl();
     cloneStartMarker(clonedObject);
@@ -200,16 +201,17 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, Cloneable
     }
     if (key.equals(OscConstants.ELEMENT__SPEED_ACTION_DYNAMICS)) {
       return (IOpenScenarioFlexElement) getSpeedActionDynamics();
-    } else if (key.equals(OscConstants.ELEMENT__SPEED_ACTION_TARGET)) {
-      return (IOpenScenarioFlexElement) getSpeedActionTarget();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__SPEED_ACTION_TARGET)) {
+      return (IOpenScenarioFlexElement) getSpeedActionTarget();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

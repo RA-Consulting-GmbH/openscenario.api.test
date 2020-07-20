@@ -32,7 +32,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficSwarmAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Shape of the swarm traffic distribution area is
    * given as an ellipsis around a central entity. SemiMajorAxis defines the half length of the
@@ -41,7 +40,6 @@ public interface ITrafficSwarmAction extends IOpenScenarioModelElement {
    * @return value of model property semiMajorAxis
    */
   public Double getSemiMajorAxis();
-
   /**
    * From OpenSCENARIO class model specification: Shape of the swarm traffic distribution area is
    * given as an ellipsis around a central entity. SemiMinorAxis defines the half length of the
@@ -50,7 +48,6 @@ public interface ITrafficSwarmAction extends IOpenScenarioModelElement {
    * @return value of model property semiMinorAxis
    */
   public Double getSemiMinorAxis();
-
   /**
    * From OpenSCENARIO class model specification: Radius of the inner circular area around the
    * central entity. Unit: m; Range: [0..inf[.
@@ -58,7 +55,6 @@ public interface ITrafficSwarmAction extends IOpenScenarioModelElement {
    * @return value of model property innerRadius
    */
   public Double getInnerRadius();
-
   /**
    * From OpenSCENARIO class model specification: Offset in longitudinal direction related to the
    * x-axis of the central entity. Unit: m;.
@@ -66,7 +62,6 @@ public interface ITrafficSwarmAction extends IOpenScenarioModelElement {
    * @return value of model property offset
    */
   public Double getOffset();
-
   /**
    * From OpenSCENARIO class model specification: The maximum number of vehicles surrounding the
    * central entity. Depending on the current road situation less than numberOfVehicles might be set
@@ -75,7 +70,6 @@ public interface ITrafficSwarmAction extends IOpenScenarioModelElement {
    * @return value of model property numberOfVehicles
    */
   public Long getNumberOfVehicles();
-
   /**
    * From OpenSCENARIO class model specification: The optional starting velocity of a created
    * entity. Unit: m/s; Range: [0..inf[.
@@ -83,14 +77,12 @@ public interface ITrafficSwarmAction extends IOpenScenarioModelElement {
    * @return value of model property velocity
    */
   public Double getVelocity();
-
   /**
    * From OpenSCENARIO class model specification: The entity that represents the center of a swarm.
    *
    * @return value of model property centralObject
    */
   public ICentralSwarmObject getCentralObject();
-
   /**
    * From OpenSCENARIO class model specification: Specifies properties of autonomous traffic with
    * respect to vehicle and driver distributions.

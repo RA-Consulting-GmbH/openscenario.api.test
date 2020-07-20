@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,39 +48,17 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
    */
   public TrafficSwarmActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrafficSwarmActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficSwarmAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficSwarmAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficSwarmActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficSwarmActionImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficSwarmActionImpl>>();
+    Map<String, IAttributeParser<TrafficSwarmActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS,
         new IAttributeParser<TrafficSwarmActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
               TrafficSwarmActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS,
@@ -117,6 +99,7 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
     result.put(
         OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS,
         new IAttributeParser<TrafficSwarmActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -126,9 +109,15 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
               TrafficSwarmActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS,
@@ -151,6 +140,7 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
     result.put(
         OscConstants.ATTRIBUTE__INNER_RADIUS,
         new IAttributeParser<TrafficSwarmActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -160,9 +150,15 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
               TrafficSwarmActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__INNER_RADIUS,
@@ -185,6 +181,7 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
     result.put(
         OscConstants.ATTRIBUTE__OFFSET,
         new IAttributeParser<TrafficSwarmActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -194,9 +191,15 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
               TrafficSwarmActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__OFFSET, stripDollarSign(attributeValue), startMarker);
@@ -217,6 +220,7 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
     result.put(
         OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES,
         new IAttributeParser<TrafficSwarmActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -226,9 +230,15 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
               TrafficSwarmActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES,
@@ -251,6 +261,7 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
     result.put(
         OscConstants.ATTRIBUTE__VELOCITY,
         new IAttributeParser<TrafficSwarmActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -260,9 +271,15 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
               TrafficSwarmActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSwarmActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VELOCITY, stripDollarSign(attributeValue), startMarker);
@@ -297,21 +314,25 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficSwarmActionImpl>> createParserList() {
-      List<IElementParser<TrafficSwarmActionImpl>> result =
-          new ArrayList<IElementParser<TrafficSwarmActionImpl>>();
+      List<IElementParser<TrafficSwarmActionImpl>> result = new ArrayList<>();
       result.add(new SubElementCentralObjectParser());
       result.add(new SubElementTrafficDefinitionParser());
       return result;
     }
   }
   /** A parser for subelement centralObject */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCentralObjectParser implements IElementParser<TrafficSwarmActionImpl> {
 
     /** Constructor */
     public SubElementCentralObjectParser() {
       super();
-      centralSwarmObjectXmlParser = new CentralSwarmObjectXmlParser(messageLogger, filename);
+      this.centralSwarmObjectXmlParser =
+          new CentralSwarmObjectXmlParser(
+              TrafficSwarmActionXmlParser.this.messageLogger,
+              TrafficSwarmActionXmlParser.this.filename);
     }
 
     private CentralSwarmObjectXmlParser centralSwarmObjectXmlParser;
@@ -322,7 +343,7 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
       CentralSwarmObjectImpl centralObject = new CentralSwarmObjectImpl();
       // Setting the parent
       centralObject.setParent(object);
-      centralSwarmObjectXmlParser.parseElement(indexedElement, parserContext, centralObject);
+      this.centralSwarmObjectXmlParser.parseElement(indexedElement, parserContext, centralObject);
 
       object.setCentralObject(centralObject);
     }
@@ -348,13 +369,17 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
     }
   }
   /** A parser for subelement trafficDefinition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficDefinitionParser
       implements IElementParser<TrafficSwarmActionImpl> {
 
     /** Constructor */
     public SubElementTrafficDefinitionParser() {
       super();
-      trafficDefinitionXmlParser = new TrafficDefinitionXmlParser(messageLogger, filename);
+      this.trafficDefinitionXmlParser =
+          new TrafficDefinitionXmlParser(
+              TrafficSwarmActionXmlParser.this.messageLogger,
+              TrafficSwarmActionXmlParser.this.filename);
     }
 
     private TrafficDefinitionXmlParser trafficDefinitionXmlParser;
@@ -365,7 +390,8 @@ public class TrafficSwarmActionXmlParser extends XmlComplexTypeParser<TrafficSwa
       TrafficDefinitionImpl trafficDefinition = new TrafficDefinitionImpl();
       // Setting the parent
       trafficDefinition.setParent(object);
-      trafficDefinitionXmlParser.parseElement(indexedElement, parserContext, trafficDefinition);
+      this.trafficDefinitionXmlParser.parseElement(
+          indexedElement, parserContext, trafficDefinition);
 
       object.setTrafficDefinition(trafficDefinition);
     }

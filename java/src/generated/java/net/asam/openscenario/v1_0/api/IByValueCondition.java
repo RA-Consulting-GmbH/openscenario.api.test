@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IByValueCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: A current parameter value is compared to a
    * reference value.
@@ -34,7 +33,6 @@ public interface IByValueCondition extends IOpenScenarioModelElement {
    * @return value of model property parameterCondition
    */
   public IParameterCondition getParameterCondition();
-
   /**
    * From OpenSCENARIO class model specification: The current time of day is compared to a reference
    * value.
@@ -42,7 +40,6 @@ public interface IByValueCondition extends IOpenScenarioModelElement {
    * @return value of model property timeOfDayCondition
    */
   public ITimeOfDayCondition getTimeOfDayCondition();
-
   /**
    * From OpenSCENARIO class model specification: The current simulation time is compared to a
    * reference value.
@@ -50,7 +47,6 @@ public interface IByValueCondition extends IOpenScenarioModelElement {
    * @return value of model property simulationTimeCondition
    */
   public ISimulationTimeCondition getSimulationTimeCondition();
-
   /**
    * From OpenSCENARIO class model specification: Condition becomes true if the referenced
    * StoryboardElement terminates according to the given rule.
@@ -58,7 +54,6 @@ public interface IByValueCondition extends IOpenScenarioModelElement {
    * @return value of model property storyboardElementStateCondition
    */
   public IStoryboardElementStateCondition getStoryboardElementStateCondition();
-
   /**
    * From OpenSCENARIO class model specification: The current value of an externally defined named
    * value is compared to a reference value (less, greater, equal).
@@ -66,7 +61,6 @@ public interface IByValueCondition extends IOpenScenarioModelElement {
    * @return value of model property userDefinedValueCondition
    */
   public IUserDefinedValueCondition getUserDefinedValueCondition();
-
   /**
    * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
    * reaches the indicated state.
@@ -74,7 +68,6 @@ public interface IByValueCondition extends IOpenScenarioModelElement {
    * @return value of model property trafficSignalCondition
    */
   public ITrafficSignalCondition getTrafficSignalCondition();
-
   /**
    * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
    * controller reaches the indicated state.

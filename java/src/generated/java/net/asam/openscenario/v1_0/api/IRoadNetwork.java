@@ -31,7 +31,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRoadNetwork extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: File path of the road network file (e.g. an ASAM
    * OpenDRIVE file).
@@ -39,7 +38,6 @@ public interface IRoadNetwork extends IOpenScenarioModelElement {
    * @return value of model property logicFile
    */
   public IFile getLogicFile();
-
   /**
    * From OpenSCENARIO class model specification: File path of a 3D model representing the virtual
    * environment. This may be used for visual representation (rendering).
@@ -47,7 +45,6 @@ public interface IRoadNetwork extends IOpenScenarioModelElement {
    * @return value of model property sceneGraphFile
    */
   public IFile getSceneGraphFile();
-
   /**
    * From OpenSCENARIO class model specification: Name references and description of dynamic
    * behavior for traffic signals defined in the road network file.

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class AssignRouteActionXmlParser extends XmlComplexTypeParser<AssignRoute
    */
   public AssignRouteActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, AssignRouteActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing AssignRouteAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing AssignRouteAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<AssignRouteActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<AssignRouteActionImpl>> result =
-        new Hashtable<String, IAttributeParser<AssignRouteActionImpl>>();
+    Map<String, IAttributeParser<AssignRouteActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,21 +71,25 @@ public class AssignRouteActionXmlParser extends XmlComplexTypeParser<AssignRoute
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<AssignRouteActionImpl>> createParserList() {
-      List<IElementParser<AssignRouteActionImpl>> result =
-          new ArrayList<IElementParser<AssignRouteActionImpl>>();
+      List<IElementParser<AssignRouteActionImpl>> result = new ArrayList<>();
       result.add(new SubElementRouteParser());
       result.add(new SubElementCatalogReferenceParser());
       return result;
     }
   }
   /** A parser for subelement route */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRouteParser implements IElementParser<AssignRouteActionImpl> {
 
     /** Constructor */
     public SubElementRouteParser() {
       super();
-      routeXmlParser = new RouteXmlParser(messageLogger, filename);
+      this.routeXmlParser =
+          new RouteXmlParser(
+              AssignRouteActionXmlParser.this.messageLogger,
+              AssignRouteActionXmlParser.this.filename);
     }
 
     private RouteXmlParser routeXmlParser;
@@ -122,7 +100,7 @@ public class AssignRouteActionXmlParser extends XmlComplexTypeParser<AssignRoute
       RouteImpl route = new RouteImpl();
       // Setting the parent
       route.setParent(object);
-      routeXmlParser.parseElement(indexedElement, parserContext, route);
+      this.routeXmlParser.parseElement(indexedElement, parserContext, route);
 
       object.setRoute(route);
     }
@@ -148,12 +126,16 @@ public class AssignRouteActionXmlParser extends XmlComplexTypeParser<AssignRoute
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser implements IElementParser<AssignRouteActionImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              AssignRouteActionXmlParser.this.messageLogger,
+              AssignRouteActionXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -164,7 +146,7 @@ public class AssignRouteActionXmlParser extends XmlComplexTypeParser<AssignRoute
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);

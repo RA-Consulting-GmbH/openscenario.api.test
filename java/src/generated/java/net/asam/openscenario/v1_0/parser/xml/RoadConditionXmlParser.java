@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -49,39 +47,17 @@ public class RoadConditionXmlParser extends XmlComplexTypeParser<RoadConditionIm
    */
   public RoadConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RoadConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RoadCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RoadCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RoadConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RoadConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<RoadConditionImpl>>();
+    Map<String, IAttributeParser<RoadConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR,
         new IAttributeParser<RoadConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -91,9 +67,15 @@ public class RoadConditionXmlParser extends XmlComplexTypeParser<RoadConditionIm
               RoadConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RoadConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RoadConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR,
@@ -131,20 +113,23 @@ public class RoadConditionXmlParser extends XmlComplexTypeParser<RoadConditionIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RoadConditionImpl>> createParserList() {
-      List<IElementParser<RoadConditionImpl>> result =
-          new ArrayList<IElementParser<RoadConditionImpl>>();
+      List<IElementParser<RoadConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementPropertiesParser());
       return result;
     }
   }
   /** A parser for subelement properties */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPropertiesParser implements IElementParser<RoadConditionImpl> {
 
     /** Constructor */
     public SubElementPropertiesParser() {
       super();
-      propertiesXmlParser = new PropertiesXmlParser(messageLogger, filename);
+      this.propertiesXmlParser =
+          new PropertiesXmlParser(
+              RoadConditionXmlParser.this.messageLogger, RoadConditionXmlParser.this.filename);
     }
 
     private PropertiesXmlParser propertiesXmlParser;
@@ -155,7 +140,7 @@ public class RoadConditionXmlParser extends XmlComplexTypeParser<RoadConditionIm
       PropertiesImpl properties = new PropertiesImpl();
       // Setting the parent
       properties.setParent(object);
-      propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
+      this.propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
 
       object.setProperties(properties);
     }

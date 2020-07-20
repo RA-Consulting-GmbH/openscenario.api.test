@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IPositionOfCurrentEntity fromCurrentEntity;
   private IPositionInRoadCoordinates fromRoadCoordinates;
@@ -62,23 +58,24 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition, C
     addAdapter(IInRoutePosition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IPositionOfCurrentEntity getFromCurrentEntity() {
-    return fromCurrentEntity;
+    return this.fromCurrentEntity;
   }
 
   @Override
   public IPositionInRoadCoordinates getFromRoadCoordinates() {
-    return fromRoadCoordinates;
+    return this.fromRoadCoordinates;
   }
 
   @Override
   public IPositionInLaneCoordinates getFromLaneCoordinates() {
-    return fromLaneCoordinates;
+    return this.fromLaneCoordinates;
   }
   /**
    * Sets the value of model property fromCurrentEntity
@@ -110,7 +107,9 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition, C
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -123,8 +122,9 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition, C
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPositionOfCurrentEntity fromCurrentEntity = null;
     fromCurrentEntity = getFromCurrentEntity();
@@ -150,6 +150,7 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition, C
    *
    * @return a deep copy of the object.
    */
+  @Override
   public InRoutePositionImpl clone() {
     InRoutePositionImpl clonedObject = new InRoutePositionImpl();
     cloneStartMarker(clonedObject);
@@ -231,18 +232,20 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition, C
     }
     if (key.equals(OscConstants.ELEMENT__FROM_CURRENT_ENTITY)) {
       return (IOpenScenarioFlexElement) getFromCurrentEntity();
-    } else if (key.equals(OscConstants.ELEMENT__FROM_ROAD_COORDINATES)) {
-      return (IOpenScenarioFlexElement) getFromRoadCoordinates();
-    } else if (key.equals(OscConstants.ELEMENT__FROM_LANE_COORDINATES)) {
-      return (IOpenScenarioFlexElement) getFromLaneCoordinates();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__FROM_ROAD_COORDINATES)) {
+      return (IOpenScenarioFlexElement) getFromRoadCoordinates();
+    }
+    if (key.equals(OscConstants.ELEMENT__FROM_LANE_COORDINATES)) {
+      return (IOpenScenarioFlexElement) getFromLaneCoordinates();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

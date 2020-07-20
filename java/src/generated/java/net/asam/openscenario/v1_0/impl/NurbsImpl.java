@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class NurbsImpl extends BaseImpl implements INurbs {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
     addAdapter(INurbs.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Long getOrder() {
-    return order;
+    return this.order;
   }
 
   @Override
   public List<IControlPoint> getControlPoints() {
-    return controlPoints;
+    return this.controlPoints;
   }
 
   @Override
   public List<IKnot> getKnots() {
-    return knots;
+    return this.knots;
   }
   /**
    * Sets the value of model property order
@@ -117,7 +118,7 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ORDER)) {
       // Simple type
-      order =
+      this.order =
           ParserHelper.parseUnsignedInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -134,8 +135,9 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IControlPoint> controlPoints = null;
     controlPoints = getControlPoints();
@@ -160,6 +162,7 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public NurbsImpl clone() {
     NurbsImpl clonedObject = new NurbsImpl();
     cloneStartMarker(clonedObject);
@@ -174,7 +177,7 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
     List<IControlPoint> controlPoints = null;
     controlPoints = getControlPoints();
     if (controlPoints != null) {
-      List<IControlPoint> clonedList = new ArrayList<IControlPoint>();
+      List<IControlPoint> clonedList = new ArrayList<>();
       for (IControlPoint item : controlPoints) {
         ControlPointImpl clonedChild = ((ControlPointImpl) item).clone();
         clonedList.add(clonedChild);
@@ -185,7 +188,7 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
     List<IKnot> knots = null;
     knots = getKnots();
     if (knots != null) {
-      List<IKnot> clonedList = new ArrayList<IKnot>();
+      List<IKnot> clonedList = new ArrayList<>();
       for (IKnot item : knots) {
         KnotImpl clonedChild = ((KnotImpl) item).clone();
         clonedList.add(clonedChild);
@@ -211,9 +214,8 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__ORDER)) {
       return getOrder();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -246,21 +248,21 @@ public class NurbsImpl extends BaseImpl implements INurbs, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__CONTROL_POINT)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getControlPoints();
-
-    } else if (key.equals(OscConstants.ELEMENT__KNOT)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getKnots();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__KNOT)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getKnots();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

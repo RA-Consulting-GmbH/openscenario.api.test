@@ -50,12 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionImpl extends BaseImpl implements IPosition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class PositionImpl extends BaseImpl implements IPosition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IWorldPosition worldPosition;
   private IRelativeWorldPosition relativeWorldPosition;
@@ -72,48 +68,49 @@ public class PositionImpl extends BaseImpl implements IPosition, Cloneable {
     addAdapter(IPosition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IWorldPosition getWorldPosition() {
-    return worldPosition;
+    return this.worldPosition;
   }
 
   @Override
   public IRelativeWorldPosition getRelativeWorldPosition() {
-    return relativeWorldPosition;
+    return this.relativeWorldPosition;
   }
 
   @Override
   public IRelativeObjectPosition getRelativeObjectPosition() {
-    return relativeObjectPosition;
+    return this.relativeObjectPosition;
   }
 
   @Override
   public IRoadPosition getRoadPosition() {
-    return roadPosition;
+    return this.roadPosition;
   }
 
   @Override
   public IRelativeRoadPosition getRelativeRoadPosition() {
-    return relativeRoadPosition;
+    return this.relativeRoadPosition;
   }
 
   @Override
   public ILanePosition getLanePosition() {
-    return lanePosition;
+    return this.lanePosition;
   }
 
   @Override
   public IRelativeLanePosition getRelativeLanePosition() {
-    return relativeLanePosition;
+    return this.relativeLanePosition;
   }
 
   @Override
   public IRoutePosition getRoutePosition() {
-    return routePosition;
+    return this.routePosition;
   }
   /**
    * Sets the value of model property worldPosition
@@ -191,7 +188,9 @@ public class PositionImpl extends BaseImpl implements IPosition, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -204,8 +203,9 @@ public class PositionImpl extends BaseImpl implements IPosition, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IWorldPosition worldPosition = null;
     worldPosition = getWorldPosition();
@@ -256,6 +256,7 @@ public class PositionImpl extends BaseImpl implements IPosition, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PositionImpl clone() {
     PositionImpl clonedObject = new PositionImpl();
     cloneStartMarker(clonedObject);
@@ -373,28 +374,35 @@ public class PositionImpl extends BaseImpl implements IPosition, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__WORLD_POSITION)) {
       return (IOpenScenarioFlexElement) getWorldPosition();
-    } else if (key.equals(OscConstants.ELEMENT__RELATIVE_WORLD_POSITION)) {
-      return (IOpenScenarioFlexElement) getRelativeWorldPosition();
-    } else if (key.equals(OscConstants.ELEMENT__RELATIVE_OBJECT_POSITION)) {
-      return (IOpenScenarioFlexElement) getRelativeObjectPosition();
-    } else if (key.equals(OscConstants.ELEMENT__ROAD_POSITION)) {
-      return (IOpenScenarioFlexElement) getRoadPosition();
-    } else if (key.equals(OscConstants.ELEMENT__RELATIVE_ROAD_POSITION)) {
-      return (IOpenScenarioFlexElement) getRelativeRoadPosition();
-    } else if (key.equals(OscConstants.ELEMENT__LANE_POSITION)) {
-      return (IOpenScenarioFlexElement) getLanePosition();
-    } else if (key.equals(OscConstants.ELEMENT__RELATIVE_LANE_POSITION)) {
-      return (IOpenScenarioFlexElement) getRelativeLanePosition();
-    } else if (key.equals(OscConstants.ELEMENT__ROUTE_POSITION)) {
-      return (IOpenScenarioFlexElement) getRoutePosition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__RELATIVE_WORLD_POSITION)) {
+      return (IOpenScenarioFlexElement) getRelativeWorldPosition();
+    }
+    if (key.equals(OscConstants.ELEMENT__RELATIVE_OBJECT_POSITION)) {
+      return (IOpenScenarioFlexElement) getRelativeObjectPosition();
+    }
+    if (key.equals(OscConstants.ELEMENT__ROAD_POSITION)) {
+      return (IOpenScenarioFlexElement) getRoadPosition();
+    }
+    if (key.equals(OscConstants.ELEMENT__RELATIVE_ROAD_POSITION)) {
+      return (IOpenScenarioFlexElement) getRelativeRoadPosition();
+    }
+    if (key.equals(OscConstants.ELEMENT__LANE_POSITION)) {
+      return (IOpenScenarioFlexElement) getLanePosition();
+    }
+    if (key.equals(OscConstants.ELEMENT__RELATIVE_LANE_POSITION)) {
+      return (IOpenScenarioFlexElement) getRelativeLanePosition();
+    }
+    if (key.equals(OscConstants.ELEMENT__ROUTE_POSITION)) {
+      return (IOpenScenarioFlexElement) getRoutePosition();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

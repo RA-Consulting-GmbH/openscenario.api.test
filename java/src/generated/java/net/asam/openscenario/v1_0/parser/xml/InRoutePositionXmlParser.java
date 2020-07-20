@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
    */
   public InRoutePositionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, InRoutePositionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing InRoutePosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing InRoutePosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<InRoutePositionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<InRoutePositionImpl>> result =
-        new Hashtable<String, IAttributeParser<InRoutePositionImpl>>();
+    Map<String, IAttributeParser<InRoutePositionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,9 +71,9 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<InRoutePositionImpl>> createParserList() {
-      List<IElementParser<InRoutePositionImpl>> result =
-          new ArrayList<IElementParser<InRoutePositionImpl>>();
+      List<IElementParser<InRoutePositionImpl>> result = new ArrayList<>();
       result.add(new SubElementFromCurrentEntityParser());
       result.add(new SubElementFromRoadCoordinatesParser());
       result.add(new SubElementFromLaneCoordinatesParser());
@@ -107,13 +81,15 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
     }
   }
   /** A parser for subelement fromCurrentEntity */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFromCurrentEntityParser implements IElementParser<InRoutePositionImpl> {
 
     /** Constructor */
     public SubElementFromCurrentEntityParser() {
       super();
-      positionOfCurrentEntityXmlParser =
-          new PositionOfCurrentEntityXmlParser(messageLogger, filename);
+      this.positionOfCurrentEntityXmlParser =
+          new PositionOfCurrentEntityXmlParser(
+              InRoutePositionXmlParser.this.messageLogger, InRoutePositionXmlParser.this.filename);
     }
 
     private PositionOfCurrentEntityXmlParser positionOfCurrentEntityXmlParser;
@@ -124,7 +100,7 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
       PositionOfCurrentEntityImpl fromCurrentEntity = new PositionOfCurrentEntityImpl();
       // Setting the parent
       fromCurrentEntity.setParent(object);
-      positionOfCurrentEntityXmlParser.parseElement(
+      this.positionOfCurrentEntityXmlParser.parseElement(
           indexedElement, parserContext, fromCurrentEntity);
 
       object.setFromCurrentEntity(fromCurrentEntity);
@@ -151,13 +127,15 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
     }
   }
   /** A parser for subelement fromRoadCoordinates */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFromRoadCoordinatesParser implements IElementParser<InRoutePositionImpl> {
 
     /** Constructor */
     public SubElementFromRoadCoordinatesParser() {
       super();
-      positionInRoadCoordinatesXmlParser =
-          new PositionInRoadCoordinatesXmlParser(messageLogger, filename);
+      this.positionInRoadCoordinatesXmlParser =
+          new PositionInRoadCoordinatesXmlParser(
+              InRoutePositionXmlParser.this.messageLogger, InRoutePositionXmlParser.this.filename);
     }
 
     private PositionInRoadCoordinatesXmlParser positionInRoadCoordinatesXmlParser;
@@ -168,7 +146,7 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
       PositionInRoadCoordinatesImpl fromRoadCoordinates = new PositionInRoadCoordinatesImpl();
       // Setting the parent
       fromRoadCoordinates.setParent(object);
-      positionInRoadCoordinatesXmlParser.parseElement(
+      this.positionInRoadCoordinatesXmlParser.parseElement(
           indexedElement, parserContext, fromRoadCoordinates);
 
       object.setFromRoadCoordinates(fromRoadCoordinates);
@@ -195,13 +173,15 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
     }
   }
   /** A parser for subelement fromLaneCoordinates */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFromLaneCoordinatesParser implements IElementParser<InRoutePositionImpl> {
 
     /** Constructor */
     public SubElementFromLaneCoordinatesParser() {
       super();
-      positionInLaneCoordinatesXmlParser =
-          new PositionInLaneCoordinatesXmlParser(messageLogger, filename);
+      this.positionInLaneCoordinatesXmlParser =
+          new PositionInLaneCoordinatesXmlParser(
+              InRoutePositionXmlParser.this.messageLogger, InRoutePositionXmlParser.this.filename);
     }
 
     private PositionInLaneCoordinatesXmlParser positionInLaneCoordinatesXmlParser;
@@ -212,7 +192,7 @@ public class InRoutePositionXmlParser extends XmlComplexTypeParser<InRoutePositi
       PositionInLaneCoordinatesImpl fromLaneCoordinates = new PositionInLaneCoordinatesImpl();
       // Setting the parent
       fromLaneCoordinates.setParent(object);
-      positionInLaneCoordinatesXmlParser.parseElement(
+      this.positionInLaneCoordinatesXmlParser.parseElement(
           indexedElement, parserContext, fromLaneCoordinates);
 
       object.setFromLaneCoordinates(fromLaneCoordinates);

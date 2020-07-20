@@ -217,1832 +217,2063 @@ import net.asam.openscenario.v1_0.checker.IScenarioChecker;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ScenarioCheckerImpl implements IScenarioChecker {
-  private Hashtable<Class, List<ICheckerRule<?>>> typeToCheckerRuleList =
-      new Hashtable<Class, List<ICheckerRule<?>>>();
+  private Hashtable<Class<?>, List<ICheckerRule<?>>> typeToCheckerRuleList = new Hashtable<>();
 
+  @Override
   public void checkScenario(IParserMessageLogger messageLogger, IOpenScenario openScenario) {
     applyOpenScenarioCheckerRules(messageLogger, openScenario);
   }
 
+  @Override
   public void addAbsoluteSpeedCheckerRule(ICheckerRule<IAbsoluteSpeed> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAbsoluteSpeed.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IAbsoluteSpeed.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAbsoluteSpeed.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAbsoluteSpeed.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAbsoluteTargetLaneCheckerRule(ICheckerRule<IAbsoluteTargetLane> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAbsoluteTargetLane.class);
+        this.typeToCheckerRuleList.get(IAbsoluteTargetLane.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAbsoluteTargetLane.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAbsoluteTargetLane.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAbsoluteTargetLaneOffsetCheckerRule(
       ICheckerRule<IAbsoluteTargetLaneOffset> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAbsoluteTargetLaneOffset.class);
+        this.typeToCheckerRuleList.get(IAbsoluteTargetLaneOffset.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAbsoluteTargetLaneOffset.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAbsoluteTargetLaneOffset.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAbsoluteTargetSpeedCheckerRule(ICheckerRule<IAbsoluteTargetSpeed> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAbsoluteTargetSpeed.class);
+        this.typeToCheckerRuleList.get(IAbsoluteTargetSpeed.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAbsoluteTargetSpeed.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAbsoluteTargetSpeed.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAccelerationConditionCheckerRule(
       ICheckerRule<IAccelerationCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAccelerationCondition.class);
+        this.typeToCheckerRuleList.get(IAccelerationCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAccelerationCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAccelerationCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAcquirePositionActionCheckerRule(
       ICheckerRule<IAcquirePositionAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAcquirePositionAction.class);
+        this.typeToCheckerRuleList.get(IAcquirePositionAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAcquirePositionAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAcquirePositionAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addActCheckerRule(ICheckerRule<IAct> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAct.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAct.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAct.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAct.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addActionCheckerRule(ICheckerRule<IAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addActivateControllerActionCheckerRule(
       ICheckerRule<IActivateControllerAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IActivateControllerAction.class);
+        this.typeToCheckerRuleList.get(IActivateControllerAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IActivateControllerAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IActivateControllerAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addActorsCheckerRule(ICheckerRule<IActors> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IActors.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IActors.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IActors.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IActors.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAddEntityActionCheckerRule(ICheckerRule<IAddEntityAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAddEntityAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IAddEntityAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAddEntityAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAddEntityAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAssignControllerActionCheckerRule(
       ICheckerRule<IAssignControllerAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAssignControllerAction.class);
+        this.typeToCheckerRuleList.get(IAssignControllerAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAssignControllerAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAssignControllerAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAssignRouteActionCheckerRule(ICheckerRule<IAssignRouteAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAssignRouteAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IAssignRouteAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAssignRouteAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAssignRouteAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAxleCheckerRule(ICheckerRule<IAxle> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAxle.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAxle.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAxle.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAxle.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addAxlesCheckerRule(ICheckerRule<IAxles> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAxles.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAxles.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IAxles.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IAxles.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addBoundingBoxCheckerRule(ICheckerRule<IBoundingBox> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IBoundingBox.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IBoundingBox.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IBoundingBox.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IBoundingBox.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addByEntityConditionCheckerRule(ICheckerRule<IByEntityCondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByEntityCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IByEntityCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IByEntityCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IByEntityCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addByObjectTypeCheckerRule(ICheckerRule<IByObjectType> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByObjectType.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IByObjectType.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IByObjectType.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IByObjectType.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addByTypeCheckerRule(ICheckerRule<IByType> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByType.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IByType.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IByType.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IByType.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addByValueConditionCheckerRule(ICheckerRule<IByValueCondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByValueCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IByValueCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IByValueCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IByValueCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCatalogCheckerRule(ICheckerRule<ICatalog> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalog.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICatalog.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICatalog.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICatalog.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCatalogDefinitionCheckerRule(ICheckerRule<ICatalogDefinition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalogDefinition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ICatalogDefinition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICatalogDefinition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICatalogDefinition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCatalogLocationsCheckerRule(ICheckerRule<ICatalogLocations> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalogLocations.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ICatalogLocations.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICatalogLocations.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICatalogLocations.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCatalogReferenceCheckerRule(ICheckerRule<ICatalogReference> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalogReference.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ICatalogReference.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICatalogReference.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICatalogReference.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCenterCheckerRule(ICheckerRule<ICenter> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICenter.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICenter.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICenter.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICenter.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCentralSwarmObjectCheckerRule(ICheckerRule<ICentralSwarmObject> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ICentralSwarmObject.class);
+        this.typeToCheckerRuleList.get(ICentralSwarmObject.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICentralSwarmObject.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICentralSwarmObject.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addClothoidCheckerRule(ICheckerRule<IClothoid> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IClothoid.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IClothoid.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IClothoid.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IClothoid.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCollisionConditionCheckerRule(ICheckerRule<ICollisionCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ICollisionCondition.class);
+        this.typeToCheckerRuleList.get(ICollisionCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICollisionCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICollisionCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addConditionCheckerRule(ICheckerRule<ICondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICondition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addConditionGroupCheckerRule(ICheckerRule<IConditionGroup> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IConditionGroup.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IConditionGroup.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IConditionGroup.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IConditionGroup.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addControlPointCheckerRule(ICheckerRule<IControlPoint> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IControlPoint.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IControlPoint.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IControlPoint.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IControlPoint.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addControllerCheckerRule(ICheckerRule<IController> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IController.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IController.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IController.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IController.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addControllerActionCheckerRule(ICheckerRule<IControllerAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IControllerAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IControllerAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IControllerAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IControllerAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addControllerCatalogLocationCheckerRule(
       ICheckerRule<IControllerCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IControllerCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IControllerCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IControllerCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IControllerCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addControllerDistributionCheckerRule(
       ICheckerRule<IControllerDistribution> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IControllerDistribution.class);
+        this.typeToCheckerRuleList.get(IControllerDistribution.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IControllerDistribution.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IControllerDistribution.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addControllerDistributionEntryCheckerRule(
       ICheckerRule<IControllerDistributionEntry> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IControllerDistributionEntry.class);
+        this.typeToCheckerRuleList.get(IControllerDistributionEntry.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IControllerDistributionEntry.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IControllerDistributionEntry.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addCustomCommandActionCheckerRule(ICheckerRule<ICustomCommandAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ICustomCommandAction.class);
+        this.typeToCheckerRuleList.get(ICustomCommandAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ICustomCommandAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ICustomCommandAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addDeleteEntityActionCheckerRule(ICheckerRule<IDeleteEntityAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IDeleteEntityAction.class);
+        this.typeToCheckerRuleList.get(IDeleteEntityAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IDeleteEntityAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IDeleteEntityAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addDimensionsCheckerRule(ICheckerRule<IDimensions> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IDimensions.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IDimensions.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IDimensions.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IDimensions.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addDirectoryCheckerRule(ICheckerRule<IDirectory> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IDirectory.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IDirectory.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IDirectory.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IDirectory.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addDistanceConditionCheckerRule(ICheckerRule<IDistanceCondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IDistanceCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IDistanceCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IDistanceCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IDistanceCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addDynamicConstraintsCheckerRule(ICheckerRule<IDynamicConstraints> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IDynamicConstraints.class);
+        this.typeToCheckerRuleList.get(IDynamicConstraints.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IDynamicConstraints.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IDynamicConstraints.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEndOfRoadConditionCheckerRule(ICheckerRule<IEndOfRoadCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IEndOfRoadCondition.class);
+        this.typeToCheckerRuleList.get(IEndOfRoadCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEndOfRoadCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEndOfRoadCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEntitiesCheckerRule(ICheckerRule<IEntities> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntities.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntities.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEntities.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEntities.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEntityActionCheckerRule(ICheckerRule<IEntityAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEntityAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEntityAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEntityConditionCheckerRule(ICheckerRule<IEntityCondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IEntityCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEntityCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEntityCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEntityObjectCheckerRule(ICheckerRule<IEntityObject> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityObject.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityObject.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEntityObject.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEntityObject.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEntityRefCheckerRule(ICheckerRule<IEntityRef> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityRef.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityRef.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEntityRef.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEntityRef.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEntitySelectionCheckerRule(ICheckerRule<IEntitySelection> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntitySelection.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IEntitySelection.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEntitySelection.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEntitySelection.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEnvironmentCheckerRule(ICheckerRule<IEnvironment> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEnvironment.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEnvironment.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEnvironment.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEnvironment.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEnvironmentActionCheckerRule(ICheckerRule<IEnvironmentAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEnvironmentAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IEnvironmentAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEnvironmentAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEnvironmentAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEnvironmentCatalogLocationCheckerRule(
       ICheckerRule<IEnvironmentCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IEnvironmentCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IEnvironmentCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEnvironmentCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEnvironmentCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addEventCheckerRule(ICheckerRule<IEvent> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEvent.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEvent.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IEvent.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IEvent.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addFileCheckerRule(ICheckerRule<IFile> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFile.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFile.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IFile.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IFile.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addFileHeaderCheckerRule(ICheckerRule<IFileHeader> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFileHeader.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFileHeader.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IFileHeader.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IFileHeader.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addFinalSpeedCheckerRule(ICheckerRule<IFinalSpeed> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFinalSpeed.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFinalSpeed.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IFinalSpeed.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IFinalSpeed.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addFogCheckerRule(ICheckerRule<IFog> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFog.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFog.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IFog.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IFog.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addFollowTrajectoryActionCheckerRule(
       ICheckerRule<IFollowTrajectoryAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IFollowTrajectoryAction.class);
+        this.typeToCheckerRuleList.get(IFollowTrajectoryAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IFollowTrajectoryAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IFollowTrajectoryAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addGlobalActionCheckerRule(ICheckerRule<IGlobalAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IGlobalAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IGlobalAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IGlobalAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IGlobalAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addInRoutePositionCheckerRule(ICheckerRule<IInRoutePosition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IInRoutePosition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IInRoutePosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IInRoutePosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IInRoutePosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addInfrastructureActionCheckerRule(ICheckerRule<IInfrastructureAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IInfrastructureAction.class);
+        this.typeToCheckerRuleList.get(IInfrastructureAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IInfrastructureAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IInfrastructureAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addInitCheckerRule(ICheckerRule<IInit> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IInit.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IInit.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IInit.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IInit.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addInitActionsCheckerRule(ICheckerRule<IInitActions> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IInitActions.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IInitActions.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IInitActions.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IInitActions.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addKnotCheckerRule(ICheckerRule<IKnot> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IKnot.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IKnot.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IKnot.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IKnot.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLaneChangeActionCheckerRule(ICheckerRule<ILaneChangeAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneChangeAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneChangeAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILaneChangeAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILaneChangeAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLaneChangeTargetCheckerRule(ICheckerRule<ILaneChangeTarget> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneChangeTarget.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneChangeTarget.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILaneChangeTarget.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILaneChangeTarget.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLaneOffsetActionCheckerRule(ICheckerRule<ILaneOffsetAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneOffsetAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneOffsetAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILaneOffsetAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILaneOffsetAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLaneOffsetActionDynamicsCheckerRule(
       ICheckerRule<ILaneOffsetActionDynamics> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILaneOffsetActionDynamics.class);
+        this.typeToCheckerRuleList.get(ILaneOffsetActionDynamics.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILaneOffsetActionDynamics.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILaneOffsetActionDynamics.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLaneOffsetTargetCheckerRule(ICheckerRule<ILaneOffsetTarget> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneOffsetTarget.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneOffsetTarget.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILaneOffsetTarget.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILaneOffsetTarget.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLanePositionCheckerRule(ICheckerRule<ILanePosition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILanePosition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ILanePosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILanePosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILanePosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLateralActionCheckerRule(ICheckerRule<ILateralAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILateralAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILateralAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILateralAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILateralAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLateralDistanceActionCheckerRule(
       ICheckerRule<ILateralDistanceAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILateralDistanceAction.class);
+        this.typeToCheckerRuleList.get(ILateralDistanceAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILateralDistanceAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILateralDistanceAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLongitudinalActionCheckerRule(ICheckerRule<ILongitudinalAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILongitudinalAction.class);
+        this.typeToCheckerRuleList.get(ILongitudinalAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILongitudinalAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILongitudinalAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addLongitudinalDistanceActionCheckerRule(
       ICheckerRule<ILongitudinalDistanceAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILongitudinalDistanceAction.class);
+        this.typeToCheckerRuleList.get(ILongitudinalDistanceAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ILongitudinalDistanceAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ILongitudinalDistanceAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addManeuverCheckerRule(ICheckerRule<IManeuver> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IManeuver.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IManeuver.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IManeuver.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IManeuver.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addManeuverCatalogLocationCheckerRule(
       ICheckerRule<IManeuverCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IManeuverCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IManeuverCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IManeuverCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IManeuverCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addManeuverGroupCheckerRule(ICheckerRule<IManeuverGroup> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IManeuverGroup.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IManeuverGroup.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IManeuverGroup.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IManeuverGroup.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addMiscObjectCheckerRule(ICheckerRule<IMiscObject> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IMiscObject.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IMiscObject.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IMiscObject.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IMiscObject.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addMiscObjectCatalogLocationCheckerRule(
       ICheckerRule<IMiscObjectCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IMiscObjectCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IMiscObjectCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IMiscObjectCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IMiscObjectCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addModifyRuleCheckerRule(ICheckerRule<IModifyRule> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IModifyRule.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IModifyRule.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IModifyRule.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IModifyRule.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addNoneCheckerRule(ICheckerRule<INone> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(INone.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(INone.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(INone.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(INone.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addNurbsCheckerRule(ICheckerRule<INurbs> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(INurbs.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(INurbs.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(INurbs.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(INurbs.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addObjectControllerCheckerRule(ICheckerRule<IObjectController> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IObjectController.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IObjectController.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IObjectController.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IObjectController.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOffroadConditionCheckerRule(ICheckerRule<IOffroadCondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IOffroadCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IOffroadCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOffroadCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOffroadCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOpenScenarioCheckerRule(ICheckerRule<IOpenScenario> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IOpenScenario.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IOpenScenario.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOpenScenario.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOpenScenario.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOpenScenarioCategoryCheckerRule(ICheckerRule<IOpenScenarioCategory> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOpenScenarioCategory.class);
+        this.typeToCheckerRuleList.get(IOpenScenarioCategory.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOpenScenarioCategory.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOpenScenarioCategory.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOrientationCheckerRule(ICheckerRule<IOrientation> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IOrientation.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IOrientation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOrientation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOrientation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOverrideBrakeActionCheckerRule(ICheckerRule<IOverrideBrakeAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideBrakeAction.class);
+        this.typeToCheckerRuleList.get(IOverrideBrakeAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOverrideBrakeAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOverrideBrakeAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOverrideClutchActionCheckerRule(ICheckerRule<IOverrideClutchAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideClutchAction.class);
+        this.typeToCheckerRuleList.get(IOverrideClutchAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOverrideClutchAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOverrideClutchAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOverrideControllerValueActionCheckerRule(
       ICheckerRule<IOverrideControllerValueAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideControllerValueAction.class);
+        this.typeToCheckerRuleList.get(IOverrideControllerValueAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOverrideControllerValueAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOverrideControllerValueAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOverrideGearActionCheckerRule(ICheckerRule<IOverrideGearAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideGearAction.class);
+        this.typeToCheckerRuleList.get(IOverrideGearAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOverrideGearAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOverrideGearAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOverrideParkingBrakeActionCheckerRule(
       ICheckerRule<IOverrideParkingBrakeAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideParkingBrakeAction.class);
+        this.typeToCheckerRuleList.get(IOverrideParkingBrakeAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOverrideParkingBrakeAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOverrideParkingBrakeAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOverrideSteeringWheelActionCheckerRule(
       ICheckerRule<IOverrideSteeringWheelAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideSteeringWheelAction.class);
+        this.typeToCheckerRuleList.get(IOverrideSteeringWheelAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOverrideSteeringWheelAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOverrideSteeringWheelAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addOverrideThrottleActionCheckerRule(
       ICheckerRule<IOverrideThrottleAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideThrottleAction.class);
+        this.typeToCheckerRuleList.get(IOverrideThrottleAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IOverrideThrottleAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IOverrideThrottleAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterActionCheckerRule(ICheckerRule<IParameterAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IParameterAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IParameterAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterAddValueRuleCheckerRule(
       ICheckerRule<IParameterAddValueRule> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterAddValueRule.class);
+        this.typeToCheckerRuleList.get(IParameterAddValueRule.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterAddValueRule.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterAddValueRule.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterAssignmentCheckerRule(ICheckerRule<IParameterAssignment> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterAssignment.class);
+        this.typeToCheckerRuleList.get(IParameterAssignment.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterAssignment.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterAssignment.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterConditionCheckerRule(ICheckerRule<IParameterCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterCondition.class);
+        this.typeToCheckerRuleList.get(IParameterCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterDeclarationCheckerRule(ICheckerRule<IParameterDeclaration> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterDeclaration.class);
+        this.typeToCheckerRuleList.get(IParameterDeclaration.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterDeclaration.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterDeclaration.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterModifyActionCheckerRule(
       ICheckerRule<IParameterModifyAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterModifyAction.class);
+        this.typeToCheckerRuleList.get(IParameterModifyAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterModifyAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterModifyAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterMultiplyByValueRuleCheckerRule(
       ICheckerRule<IParameterMultiplyByValueRule> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterMultiplyByValueRule.class);
+        this.typeToCheckerRuleList.get(IParameterMultiplyByValueRule.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterMultiplyByValueRule.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterMultiplyByValueRule.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addParameterSetActionCheckerRule(ICheckerRule<IParameterSetAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterSetAction.class);
+        this.typeToCheckerRuleList.get(IParameterSetAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IParameterSetAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IParameterSetAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPedestrianCheckerRule(ICheckerRule<IPedestrian> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPedestrian.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPedestrian.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPedestrian.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPedestrian.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPedestrianCatalogLocationCheckerRule(
       ICheckerRule<IPedestrianCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPedestrianCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IPedestrianCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPedestrianCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPedestrianCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPerformanceCheckerRule(ICheckerRule<IPerformance> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPerformance.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPerformance.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPerformance.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPerformance.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPhaseCheckerRule(ICheckerRule<IPhase> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPhase.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPhase.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPhase.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPhase.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPolylineCheckerRule(ICheckerRule<IPolyline> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPolyline.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPolyline.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPolyline.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPolyline.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPositionCheckerRule(ICheckerRule<IPosition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPosition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPositionInLaneCoordinatesCheckerRule(
       ICheckerRule<IPositionInLaneCoordinates> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPositionInLaneCoordinates.class);
+        this.typeToCheckerRuleList.get(IPositionInLaneCoordinates.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPositionInLaneCoordinates.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPositionInLaneCoordinates.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPositionInRoadCoordinatesCheckerRule(
       ICheckerRule<IPositionInRoadCoordinates> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPositionInRoadCoordinates.class);
+        this.typeToCheckerRuleList.get(IPositionInRoadCoordinates.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPositionInRoadCoordinates.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPositionInRoadCoordinates.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPositionOfCurrentEntityCheckerRule(
       ICheckerRule<IPositionOfCurrentEntity> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPositionOfCurrentEntity.class);
+        this.typeToCheckerRuleList.get(IPositionOfCurrentEntity.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPositionOfCurrentEntity.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPositionOfCurrentEntity.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPrecipitationCheckerRule(ICheckerRule<IPrecipitation> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPrecipitation.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IPrecipitation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPrecipitation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPrecipitation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPrivateCheckerRule(ICheckerRule<IPrivate> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPrivate.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPrivate.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPrivate.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPrivate.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPrivateActionCheckerRule(ICheckerRule<IPrivateAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPrivateAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IPrivateAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IPrivateAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IPrivateAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPropertiesCheckerRule(ICheckerRule<IProperties> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IProperties.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IProperties.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IProperties.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IProperties.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addPropertyCheckerRule(ICheckerRule<IProperty> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IProperty.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IProperty.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IProperty.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IProperty.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addReachPositionConditionCheckerRule(
       ICheckerRule<IReachPositionCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IReachPositionCondition.class);
+        this.typeToCheckerRuleList.get(IReachPositionCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IReachPositionCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IReachPositionCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeDistanceConditionCheckerRule(
       ICheckerRule<IRelativeDistanceCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeDistanceCondition.class);
+        this.typeToCheckerRuleList.get(IRelativeDistanceCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeDistanceCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeDistanceCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeLanePositionCheckerRule(ICheckerRule<IRelativeLanePosition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeLanePosition.class);
+        this.typeToCheckerRuleList.get(IRelativeLanePosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeLanePosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeLanePosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeObjectPositionCheckerRule(
       ICheckerRule<IRelativeObjectPosition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeObjectPosition.class);
+        this.typeToCheckerRuleList.get(IRelativeObjectPosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeObjectPosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeObjectPosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeRoadPositionCheckerRule(ICheckerRule<IRelativeRoadPosition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeRoadPosition.class);
+        this.typeToCheckerRuleList.get(IRelativeRoadPosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeRoadPosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeRoadPosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeSpeedConditionCheckerRule(
       ICheckerRule<IRelativeSpeedCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeSpeedCondition.class);
+        this.typeToCheckerRuleList.get(IRelativeSpeedCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeSpeedCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeSpeedCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeSpeedToMasterCheckerRule(
       ICheckerRule<IRelativeSpeedToMaster> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeSpeedToMaster.class);
+        this.typeToCheckerRuleList.get(IRelativeSpeedToMaster.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeSpeedToMaster.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeSpeedToMaster.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeTargetLaneCheckerRule(ICheckerRule<IRelativeTargetLane> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeTargetLane.class);
+        this.typeToCheckerRuleList.get(IRelativeTargetLane.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeTargetLane.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeTargetLane.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeTargetLaneOffsetCheckerRule(
       ICheckerRule<IRelativeTargetLaneOffset> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeTargetLaneOffset.class);
+        this.typeToCheckerRuleList.get(IRelativeTargetLaneOffset.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeTargetLaneOffset.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeTargetLaneOffset.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeTargetSpeedCheckerRule(ICheckerRule<IRelativeTargetSpeed> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeTargetSpeed.class);
+        this.typeToCheckerRuleList.get(IRelativeTargetSpeed.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeTargetSpeed.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeTargetSpeed.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRelativeWorldPositionCheckerRule(
       ICheckerRule<IRelativeWorldPosition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeWorldPosition.class);
+        this.typeToCheckerRuleList.get(IRelativeWorldPosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRelativeWorldPosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRelativeWorldPosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRoadConditionCheckerRule(ICheckerRule<IRoadCondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoadCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IRoadCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRoadCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRoadCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRoadNetworkCheckerRule(ICheckerRule<IRoadNetwork> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoadNetwork.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoadNetwork.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRoadNetwork.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRoadNetwork.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRoadPositionCheckerRule(ICheckerRule<IRoadPosition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoadPosition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoadPosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRoadPosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRoadPosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRouteCheckerRule(ICheckerRule<IRoute> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoute.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoute.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRoute.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRoute.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRouteCatalogLocationCheckerRule(ICheckerRule<IRouteCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRouteCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IRouteCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRouteCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRouteCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRoutePositionCheckerRule(ICheckerRule<IRoutePosition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoutePosition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IRoutePosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRoutePosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRoutePosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRouteRefCheckerRule(ICheckerRule<IRouteRef> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRouteRef.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRouteRef.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRouteRef.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRouteRef.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addRoutingActionCheckerRule(ICheckerRule<IRoutingAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoutingAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IRoutingAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IRoutingAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IRoutingAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addScenarioDefinitionCheckerRule(ICheckerRule<IScenarioDefinition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IScenarioDefinition.class);
+        this.typeToCheckerRuleList.get(IScenarioDefinition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IScenarioDefinition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IScenarioDefinition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addScenarioObjectCheckerRule(ICheckerRule<IScenarioObject> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IScenarioObject.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IScenarioObject.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IScenarioObject.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IScenarioObject.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addSelectedEntitiesCheckerRule(ICheckerRule<ISelectedEntities> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISelectedEntities.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISelectedEntities.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ISelectedEntities.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ISelectedEntities.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addShapeCheckerRule(ICheckerRule<IShape> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IShape.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IShape.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IShape.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IShape.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addSimulationTimeConditionCheckerRule(
       ICheckerRule<ISimulationTimeCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ISimulationTimeCondition.class);
+        this.typeToCheckerRuleList.get(ISimulationTimeCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ISimulationTimeCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ISimulationTimeCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addSpeedActionCheckerRule(ICheckerRule<ISpeedAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISpeedAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ISpeedAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ISpeedAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ISpeedAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addSpeedActionTargetCheckerRule(ICheckerRule<ISpeedActionTarget> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISpeedActionTarget.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISpeedActionTarget.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ISpeedActionTarget.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ISpeedActionTarget.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addSpeedConditionCheckerRule(ICheckerRule<ISpeedCondition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISpeedCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISpeedCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ISpeedCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ISpeedCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addStandStillConditionCheckerRule(ICheckerRule<IStandStillCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IStandStillCondition.class);
+        this.typeToCheckerRuleList.get(IStandStillCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IStandStillCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IStandStillCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addStoryCheckerRule(ICheckerRule<IStory> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IStory.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IStory.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IStory.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IStory.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addStoryboardCheckerRule(ICheckerRule<IStoryboard> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IStoryboard.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IStoryboard.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IStoryboard.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IStoryboard.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addStoryboardElementStateConditionCheckerRule(
       ICheckerRule<IStoryboardElementStateCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IStoryboardElementStateCondition.class);
+        this.typeToCheckerRuleList.get(IStoryboardElementStateCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IStoryboardElementStateCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IStoryboardElementStateCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addSunCheckerRule(ICheckerRule<ISun> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISun.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ISun.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ISun.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ISun.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addSynchronizeActionCheckerRule(ICheckerRule<ISynchronizeAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISynchronizeAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISynchronizeAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ISynchronizeAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ISynchronizeAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTeleportActionCheckerRule(ICheckerRule<ITeleportAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITeleportAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITeleportAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITeleportAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITeleportAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTimeHeadwayConditionCheckerRule(ICheckerRule<ITimeHeadwayCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeHeadwayCondition.class);
+        this.typeToCheckerRuleList.get(ITimeHeadwayCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITimeHeadwayCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITimeHeadwayCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTimeOfDayCheckerRule(ICheckerRule<ITimeOfDay> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITimeOfDay.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITimeOfDay.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITimeOfDay.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITimeOfDay.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTimeOfDayConditionCheckerRule(ICheckerRule<ITimeOfDayCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeOfDayCondition.class);
+        this.typeToCheckerRuleList.get(ITimeOfDayCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITimeOfDayCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITimeOfDayCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTimeReferenceCheckerRule(ICheckerRule<ITimeReference> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITimeReference.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITimeReference.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITimeReference.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITimeReference.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTimeToCollisionConditionCheckerRule(
       ICheckerRule<ITimeToCollisionCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeToCollisionCondition.class);
+        this.typeToCheckerRuleList.get(ITimeToCollisionCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITimeToCollisionCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITimeToCollisionCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTimeToCollisionConditionTargetCheckerRule(
       ICheckerRule<ITimeToCollisionConditionTarget> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeToCollisionConditionTarget.class);
+        this.typeToCheckerRuleList.get(ITimeToCollisionConditionTarget.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITimeToCollisionConditionTarget.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITimeToCollisionConditionTarget.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTimingCheckerRule(ICheckerRule<ITiming> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITiming.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITiming.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITiming.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITiming.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficActionCheckerRule(ICheckerRule<ITrafficAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrafficAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITrafficAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficDefinitionCheckerRule(ICheckerRule<ITrafficDefinition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrafficDefinition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITrafficDefinition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficDefinition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficDefinition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSignalActionCheckerRule(ICheckerRule<ITrafficSignalAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSignalAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSignalAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSignalConditionCheckerRule(
       ICheckerRule<ITrafficSignalCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalCondition.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSignalCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSignalCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSignalControllerCheckerRule(
       ICheckerRule<ITrafficSignalController> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalController.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalController.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSignalController.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSignalController.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSignalControllerActionCheckerRule(
       ICheckerRule<ITrafficSignalControllerAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalControllerAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalControllerAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSignalControllerAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSignalControllerAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSignalControllerConditionCheckerRule(
       ICheckerRule<ITrafficSignalControllerCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalControllerCondition.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalControllerCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSignalControllerCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSignalControllerCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSignalStateCheckerRule(ICheckerRule<ITrafficSignalState> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalState.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalState.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSignalState.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSignalState.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSignalStateActionCheckerRule(
       ICheckerRule<ITrafficSignalStateAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalStateAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalStateAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSignalStateAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSignalStateAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSinkActionCheckerRule(ICheckerRule<ITrafficSinkAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrafficSinkAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITrafficSinkAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSinkAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSinkAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSourceActionCheckerRule(ICheckerRule<ITrafficSourceAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSourceAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSourceAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSourceAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSourceAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrafficSwarmActionCheckerRule(ICheckerRule<ITrafficSwarmAction> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSwarmAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSwarmAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrafficSwarmAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrafficSwarmAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrajectoryCheckerRule(ICheckerRule<ITrajectory> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrajectory.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITrajectory.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrajectory.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrajectory.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrajectoryCatalogLocationCheckerRule(
       ICheckerRule<ITrajectoryCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrajectoryCatalogLocation.class);
+        this.typeToCheckerRuleList.get(ITrajectoryCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrajectoryCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrajectoryCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTrajectoryFollowingModeCheckerRule(
       ICheckerRule<ITrajectoryFollowingMode> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrajectoryFollowingMode.class);
+        this.typeToCheckerRuleList.get(ITrajectoryFollowingMode.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrajectoryFollowingMode.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrajectoryFollowingMode.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTransitionDynamicsCheckerRule(ICheckerRule<ITransitionDynamics> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITransitionDynamics.class);
+        this.typeToCheckerRuleList.get(ITransitionDynamics.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITransitionDynamics.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITransitionDynamics.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTraveledDistanceConditionCheckerRule(
       ICheckerRule<ITraveledDistanceCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITraveledDistanceCondition.class);
+        this.typeToCheckerRuleList.get(ITraveledDistanceCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITraveledDistanceCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITraveledDistanceCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTriggerCheckerRule(ICheckerRule<ITrigger> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrigger.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITrigger.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITrigger.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITrigger.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addTriggeringEntitiesCheckerRule(ICheckerRule<ITriggeringEntities> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITriggeringEntities.class);
+        this.typeToCheckerRuleList.get(ITriggeringEntities.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(ITriggeringEntities.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(ITriggeringEntities.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addUserDefinedActionCheckerRule(ICheckerRule<IUserDefinedAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IUserDefinedAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IUserDefinedAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IUserDefinedAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IUserDefinedAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addUserDefinedValueConditionCheckerRule(
       ICheckerRule<IUserDefinedValueCondition> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IUserDefinedValueCondition.class);
+        this.typeToCheckerRuleList.get(IUserDefinedValueCondition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IUserDefinedValueCondition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IUserDefinedValueCondition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addVehicleCheckerRule(ICheckerRule<IVehicle> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IVehicle.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IVehicle.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IVehicle.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IVehicle.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addVehicleCatalogLocationCheckerRule(
       ICheckerRule<IVehicleCatalogLocation> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IVehicleCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IVehicleCatalogLocation.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IVehicleCatalogLocation.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IVehicleCatalogLocation.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addVehicleCategoryDistributionCheckerRule(
       ICheckerRule<IVehicleCategoryDistribution> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IVehicleCategoryDistribution.class);
+        this.typeToCheckerRuleList.get(IVehicleCategoryDistribution.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IVehicleCategoryDistribution.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IVehicleCategoryDistribution.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addVehicleCategoryDistributionEntryCheckerRule(
       ICheckerRule<IVehicleCategoryDistributionEntry> checkerRule) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IVehicleCategoryDistributionEntry.class);
+        this.typeToCheckerRuleList.get(IVehicleCategoryDistributionEntry.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IVehicleCategoryDistributionEntry.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IVehicleCategoryDistributionEntry.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addVertexCheckerRule(ICheckerRule<IVertex> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IVertex.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IVertex.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IVertex.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IVertex.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addVisibilityActionCheckerRule(ICheckerRule<IVisibilityAction> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IVisibilityAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IVisibilityAction.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IVisibilityAction.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IVisibilityAction.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addWaypointCheckerRule(ICheckerRule<IWaypoint> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IWaypoint.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IWaypoint.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IWaypoint.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IWaypoint.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addWeatherCheckerRule(ICheckerRule<IWeather> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IWeather.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IWeather.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IWeather.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IWeather.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
+  @Override
   public void addWorldPositionCheckerRule(ICheckerRule<IWorldPosition> checkerRule) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IWorldPosition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IWorldPosition.class);
     if (checkerRulesForType == null) {
-      checkerRulesForType = new ArrayList<ICheckerRule<?>>();
-      typeToCheckerRuleList.put(IWorldPosition.class, checkerRulesForType);
+      checkerRulesForType = new ArrayList<>();
+      this.typeToCheckerRuleList.put(IWorldPosition.class, checkerRulesForType);
     }
     checkerRulesForType.add(checkerRule);
   }
 
   private void applyAbsoluteSpeedCheckerRules(
       IParserMessageLogger messageLogger, IAbsoluteSpeed object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAbsoluteSpeed.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IAbsoluteSpeed.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteSpeed> typedCheckerRule = (ICheckerRule<IAbsoluteSpeed>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2053,9 +2284,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyAbsoluteTargetLaneCheckerRules(
       IParserMessageLogger messageLogger, IAbsoluteTargetLane object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAbsoluteTargetLane.class);
+        this.typeToCheckerRuleList.get(IAbsoluteTargetLane.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetLane> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetLane>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2067,9 +2299,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyAbsoluteTargetLaneOffsetCheckerRules(
       IParserMessageLogger messageLogger, IAbsoluteTargetLaneOffset object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAbsoluteTargetLaneOffset.class);
+        this.typeToCheckerRuleList.get(IAbsoluteTargetLaneOffset.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetLaneOffset> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetLaneOffset>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2081,9 +2314,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyAbsoluteTargetSpeedCheckerRules(
       IParserMessageLogger messageLogger, IAbsoluteTargetSpeed object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAbsoluteTargetSpeed.class);
+        this.typeToCheckerRuleList.get(IAbsoluteTargetSpeed.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetSpeed> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetSpeed>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2095,9 +2329,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyAccelerationConditionCheckerRules(
       IParserMessageLogger messageLogger, IAccelerationCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAccelerationCondition.class);
+        this.typeToCheckerRuleList.get(IAccelerationCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAccelerationCondition> typedCheckerRule =
             (ICheckerRule<IAccelerationCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2109,9 +2344,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyAcquirePositionActionCheckerRules(
       IParserMessageLogger messageLogger, IAcquirePositionAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAcquirePositionAction.class);
+        this.typeToCheckerRuleList.get(IAcquirePositionAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAcquirePositionAction> typedCheckerRule =
             (ICheckerRule<IAcquirePositionAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2125,9 +2361,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyActCheckerRules(IParserMessageLogger messageLogger, IAct object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAct.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAct.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAct> typedCheckerRule = (ICheckerRule<IAct>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2150,9 +2387,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyActionCheckerRules(IParserMessageLogger messageLogger, IAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAction> typedCheckerRule = (ICheckerRule<IAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2175,9 +2413,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyActivateControllerActionCheckerRules(
       IParserMessageLogger messageLogger, IActivateControllerAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IActivateControllerAction.class);
+        this.typeToCheckerRuleList.get(IActivateControllerAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IActivateControllerAction> typedCheckerRule =
             (ICheckerRule<IActivateControllerAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2187,9 +2426,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyActorsCheckerRules(IParserMessageLogger messageLogger, IActors object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IActors.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IActors.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IActors> typedCheckerRule = (ICheckerRule<IActors>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2205,9 +2445,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyAddEntityActionCheckerRules(
       IParserMessageLogger messageLogger, IAddEntityAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAddEntityAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IAddEntityAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAddEntityAction> typedCheckerRule =
             (ICheckerRule<IAddEntityAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2223,9 +2465,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyAssignControllerActionCheckerRules(
       IParserMessageLogger messageLogger, IAssignControllerAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IAssignControllerAction.class);
+        this.typeToCheckerRuleList.get(IAssignControllerAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAssignControllerAction> typedCheckerRule =
             (ICheckerRule<IAssignControllerAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2244,9 +2487,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyAssignRouteActionCheckerRules(
       IParserMessageLogger messageLogger, IAssignRouteAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAssignRouteAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IAssignRouteAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAssignRouteAction> typedCheckerRule =
             (ICheckerRule<IAssignRouteAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2264,9 +2509,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyAxleCheckerRules(IParserMessageLogger messageLogger, IAxle object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAxle.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAxle.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAxle> typedCheckerRule = (ICheckerRule<IAxle>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2275,9 +2521,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyAxlesCheckerRules(IParserMessageLogger messageLogger, IAxles object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IAxles.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAxles.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IAxles> typedCheckerRule = (ICheckerRule<IAxles>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2301,9 +2548,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyBoundingBoxCheckerRules(
       IParserMessageLogger messageLogger, IBoundingBox object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IBoundingBox.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IBoundingBox.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IBoundingBox> typedCheckerRule = (ICheckerRule<IBoundingBox>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2321,9 +2569,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyByEntityConditionCheckerRules(
       IParserMessageLogger messageLogger, IByEntityCondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByEntityCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IByEntityCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IByEntityCondition> typedCheckerRule =
             (ICheckerRule<IByEntityCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2342,9 +2592,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyByObjectTypeCheckerRules(
       IParserMessageLogger messageLogger, IByObjectType object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByObjectType.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IByObjectType.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IByObjectType> typedCheckerRule = (ICheckerRule<IByObjectType>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2353,9 +2604,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyByTypeCheckerRules(IParserMessageLogger messageLogger, IByType object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByType.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IByType.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IByType> typedCheckerRule = (ICheckerRule<IByType>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2365,9 +2617,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyByValueConditionCheckerRules(
       IParserMessageLogger messageLogger, IByValueCondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IByValueCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IByValueCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IByValueCondition> typedCheckerRule =
             (ICheckerRule<IByValueCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2409,9 +2663,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyCatalogCheckerRules(IParserMessageLogger messageLogger, ICatalog object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalog.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICatalog.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICatalog> typedCheckerRule = (ICheckerRule<ICatalog>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2469,9 +2724,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyCatalogDefinitionCheckerRules(
       IParserMessageLogger messageLogger, ICatalogDefinition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalogDefinition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ICatalogDefinition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogDefinition> typedCheckerRule =
             (ICheckerRule<ICatalogDefinition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2486,9 +2743,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyCatalogLocationsCheckerRules(
       IParserMessageLogger messageLogger, ICatalogLocations object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalogLocations.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ICatalogLocations.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogLocations> typedCheckerRule =
             (ICheckerRule<ICatalogLocations>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2531,9 +2790,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyCatalogReferenceCheckerRules(
       IParserMessageLogger messageLogger, ICatalogReference object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICatalogReference.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ICatalogReference.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogReference> typedCheckerRule =
             (ICheckerRule<ICatalogReference>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2549,9 +2810,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyCenterCheckerRules(IParserMessageLogger messageLogger, ICenter object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICenter.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICenter.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICenter> typedCheckerRule = (ICheckerRule<ICenter>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2562,9 +2824,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyCentralSwarmObjectCheckerRules(
       IParserMessageLogger messageLogger, ICentralSwarmObject object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ICentralSwarmObject.class);
+        this.typeToCheckerRuleList.get(ICentralSwarmObject.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICentralSwarmObject> typedCheckerRule =
             (ICheckerRule<ICentralSwarmObject>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2574,9 +2837,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyClothoidCheckerRules(IParserMessageLogger messageLogger, IClothoid object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IClothoid.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IClothoid.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IClothoid> typedCheckerRule = (ICheckerRule<IClothoid>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2591,9 +2855,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyCollisionConditionCheckerRules(
       IParserMessageLogger messageLogger, ICollisionCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ICollisionCondition.class);
+        this.typeToCheckerRuleList.get(ICollisionCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICollisionCondition> typedCheckerRule =
             (ICheckerRule<ICollisionCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2611,9 +2876,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyConditionCheckerRules(IParserMessageLogger messageLogger, ICondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ICondition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICondition> typedCheckerRule = (ICheckerRule<ICondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2631,9 +2897,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyConditionGroupCheckerRules(
       IParserMessageLogger messageLogger, IConditionGroup object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IConditionGroup.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IConditionGroup.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IConditionGroup> typedCheckerRule =
             (ICheckerRule<IConditionGroup>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2650,9 +2918,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyControlPointCheckerRules(
       IParserMessageLogger messageLogger, IControlPoint object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IControlPoint.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IControlPoint.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IControlPoint> typedCheckerRule = (ICheckerRule<IControlPoint>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2665,9 +2934,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyControllerCheckerRules(IParserMessageLogger messageLogger, IController object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IController.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IController.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IController> typedCheckerRule = (ICheckerRule<IController>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2687,9 +2957,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyControllerActionCheckerRules(
       IParserMessageLogger messageLogger, IControllerAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IControllerAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IControllerAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IControllerAction> typedCheckerRule =
             (ICheckerRule<IControllerAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2710,9 +2982,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyControllerCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, IControllerCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IControllerCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IControllerCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IControllerCatalogLocation> typedCheckerRule =
             (ICheckerRule<IControllerCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2728,9 +3001,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyControllerDistributionCheckerRules(
       IParserMessageLogger messageLogger, IControllerDistribution object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IControllerDistribution.class);
+        this.typeToCheckerRuleList.get(IControllerDistribution.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IControllerDistribution> typedCheckerRule =
             (ICheckerRule<IControllerDistribution>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2749,9 +3023,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyControllerDistributionEntryCheckerRules(
       IParserMessageLogger messageLogger, IControllerDistributionEntry object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IControllerDistributionEntry.class);
+        this.typeToCheckerRuleList.get(IControllerDistributionEntry.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IControllerDistributionEntry> typedCheckerRule =
             (ICheckerRule<IControllerDistributionEntry>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2771,9 +3046,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyCustomCommandActionCheckerRules(
       IParserMessageLogger messageLogger, ICustomCommandAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ICustomCommandAction.class);
+        this.typeToCheckerRuleList.get(ICustomCommandAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ICustomCommandAction> typedCheckerRule =
             (ICheckerRule<ICustomCommandAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2785,9 +3061,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyDeleteEntityActionCheckerRules(
       IParserMessageLogger messageLogger, IDeleteEntityAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IDeleteEntityAction.class);
+        this.typeToCheckerRuleList.get(IDeleteEntityAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IDeleteEntityAction> typedCheckerRule =
             (ICheckerRule<IDeleteEntityAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2797,9 +3074,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyDimensionsCheckerRules(IParserMessageLogger messageLogger, IDimensions object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IDimensions.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IDimensions.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IDimensions> typedCheckerRule = (ICheckerRule<IDimensions>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2808,9 +3086,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyDirectoryCheckerRules(IParserMessageLogger messageLogger, IDirectory object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IDirectory.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IDirectory.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IDirectory> typedCheckerRule = (ICheckerRule<IDirectory>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2820,9 +3099,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyDistanceConditionCheckerRules(
       IParserMessageLogger messageLogger, IDistanceCondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IDistanceCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IDistanceCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IDistanceCondition> typedCheckerRule =
             (ICheckerRule<IDistanceCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2838,9 +3119,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyDynamicConstraintsCheckerRules(
       IParserMessageLogger messageLogger, IDynamicConstraints object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IDynamicConstraints.class);
+        this.typeToCheckerRuleList.get(IDynamicConstraints.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IDynamicConstraints> typedCheckerRule =
             (ICheckerRule<IDynamicConstraints>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2852,9 +3134,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyEndOfRoadConditionCheckerRules(
       IParserMessageLogger messageLogger, IEndOfRoadCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IEndOfRoadCondition.class);
+        this.typeToCheckerRuleList.get(IEndOfRoadCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEndOfRoadCondition> typedCheckerRule =
             (ICheckerRule<IEndOfRoadCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2864,9 +3147,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyEntitiesCheckerRules(IParserMessageLogger messageLogger, IEntities object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntities.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntities.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEntities> typedCheckerRule = (ICheckerRule<IEntities>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2888,9 +3172,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyEntityActionCheckerRules(
       IParserMessageLogger messageLogger, IEntityAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEntityAction> typedCheckerRule = (ICheckerRule<IEntityAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -2908,9 +3193,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyEntityConditionCheckerRules(
       IParserMessageLogger messageLogger, IEntityCondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IEntityCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEntityCondition> typedCheckerRule =
             (ICheckerRule<IEntityCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -2973,9 +3260,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyEntityObjectCheckerRules(
       IParserMessageLogger messageLogger, IEntityObject object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityObject.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityObject.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEntityObject> typedCheckerRule = (ICheckerRule<IEntityObject>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3000,9 +3288,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyEntityRefCheckerRules(IParserMessageLogger messageLogger, IEntityRef object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntityRef.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityRef.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEntityRef> typedCheckerRule = (ICheckerRule<IEntityRef>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3012,9 +3301,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyEntitySelectionCheckerRules(
       IParserMessageLogger messageLogger, IEntitySelection object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEntitySelection.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IEntitySelection.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEntitySelection> typedCheckerRule =
             (ICheckerRule<IEntitySelection>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3029,9 +3320,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyEnvironmentCheckerRules(
       IParserMessageLogger messageLogger, IEnvironment object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEnvironment.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEnvironment.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironment> typedCheckerRule = (ICheckerRule<IEnvironment>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3059,9 +3351,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyEnvironmentActionCheckerRules(
       IParserMessageLogger messageLogger, IEnvironmentAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEnvironmentAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IEnvironmentAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironmentAction> typedCheckerRule =
             (ICheckerRule<IEnvironmentAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3081,9 +3375,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyEnvironmentCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, IEnvironmentCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IEnvironmentCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IEnvironmentCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironmentCatalogLocation> typedCheckerRule =
             (ICheckerRule<IEnvironmentCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3097,9 +3392,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyEventCheckerRules(IParserMessageLogger messageLogger, IEvent object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IEvent.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEvent.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IEvent> typedCheckerRule = (ICheckerRule<IEvent>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3118,9 +3414,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyFileCheckerRules(IParserMessageLogger messageLogger, IFile object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFile.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFile.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IFile> typedCheckerRule = (ICheckerRule<IFile>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3129,9 +3426,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyFileHeaderCheckerRules(IParserMessageLogger messageLogger, IFileHeader object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFileHeader.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFileHeader.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IFileHeader> typedCheckerRule = (ICheckerRule<IFileHeader>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3140,9 +3438,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyFinalSpeedCheckerRules(IParserMessageLogger messageLogger, IFinalSpeed object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFinalSpeed.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFinalSpeed.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IFinalSpeed> typedCheckerRule = (ICheckerRule<IFinalSpeed>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3159,9 +3458,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyFogCheckerRules(IParserMessageLogger messageLogger, IFog object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IFog.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFog.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IFog> typedCheckerRule = (ICheckerRule<IFog>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3176,9 +3476,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyFollowTrajectoryActionCheckerRules(
       IParserMessageLogger messageLogger, IFollowTrajectoryAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IFollowTrajectoryAction.class);
+        this.typeToCheckerRuleList.get(IFollowTrajectoryAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IFollowTrajectoryAction> typedCheckerRule =
             (ICheckerRule<IFollowTrajectoryAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3205,9 +3506,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyGlobalActionCheckerRules(
       IParserMessageLogger messageLogger, IGlobalAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IGlobalAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IGlobalAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IGlobalAction> typedCheckerRule = (ICheckerRule<IGlobalAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3237,9 +3539,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyInRoutePositionCheckerRules(
       IParserMessageLogger messageLogger, IInRoutePosition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IInRoutePosition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IInRoutePosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IInRoutePosition> typedCheckerRule =
             (ICheckerRule<IInRoutePosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3263,9 +3567,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyInfrastructureActionCheckerRules(
       IParserMessageLogger messageLogger, IInfrastructureAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IInfrastructureAction.class);
+        this.typeToCheckerRuleList.get(IInfrastructureAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IInfrastructureAction> typedCheckerRule =
             (ICheckerRule<IInfrastructureAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3279,9 +3584,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyInitCheckerRules(IParserMessageLogger messageLogger, IInit object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IInit.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IInit.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IInit> typedCheckerRule = (ICheckerRule<IInit>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3295,9 +3601,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyInitActionsCheckerRules(
       IParserMessageLogger messageLogger, IInitActions object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IInitActions.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IInitActions.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IInitActions> typedCheckerRule = (ICheckerRule<IInitActions>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3324,9 +3631,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyKnotCheckerRules(IParserMessageLogger messageLogger, IKnot object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IKnot.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IKnot.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IKnot> typedCheckerRule = (ICheckerRule<IKnot>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3336,9 +3644,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyLaneChangeActionCheckerRules(
       IParserMessageLogger messageLogger, ILaneChangeAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneChangeAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneChangeAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILaneChangeAction> typedCheckerRule =
             (ICheckerRule<ILaneChangeAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3357,9 +3667,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyLaneChangeTargetCheckerRules(
       IParserMessageLogger messageLogger, ILaneChangeTarget object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneChangeTarget.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneChangeTarget.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILaneChangeTarget> typedCheckerRule =
             (ICheckerRule<ILaneChangeTarget>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3378,9 +3690,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyLaneOffsetActionCheckerRules(
       IParserMessageLogger messageLogger, ILaneOffsetAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneOffsetAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneOffsetAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetAction> typedCheckerRule =
             (ICheckerRule<ILaneOffsetAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3400,9 +3714,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyLaneOffsetActionDynamicsCheckerRules(
       IParserMessageLogger messageLogger, ILaneOffsetActionDynamics object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILaneOffsetActionDynamics.class);
+        this.typeToCheckerRuleList.get(ILaneOffsetActionDynamics.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetActionDynamics> typedCheckerRule =
             (ICheckerRule<ILaneOffsetActionDynamics>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3413,9 +3728,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyLaneOffsetTargetCheckerRules(
       IParserMessageLogger messageLogger, ILaneOffsetTarget object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILaneOffsetTarget.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILaneOffsetTarget.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetTarget> typedCheckerRule =
             (ICheckerRule<ILaneOffsetTarget>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3434,9 +3751,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyLanePositionCheckerRules(
       IParserMessageLogger messageLogger, ILanePosition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILanePosition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ILanePosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILanePosition> typedCheckerRule = (ICheckerRule<ILanePosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3450,9 +3768,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyLateralActionCheckerRules(
       IParserMessageLogger messageLogger, ILateralAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ILateralAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ILateralAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILateralAction> typedCheckerRule = (ICheckerRule<ILateralAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3475,9 +3795,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyLateralDistanceActionCheckerRules(
       IParserMessageLogger messageLogger, ILateralDistanceAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILateralDistanceAction.class);
+        this.typeToCheckerRuleList.get(ILateralDistanceAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILateralDistanceAction> typedCheckerRule =
             (ICheckerRule<ILateralDistanceAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3493,9 +3814,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyLongitudinalActionCheckerRules(
       IParserMessageLogger messageLogger, ILongitudinalAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILongitudinalAction.class);
+        this.typeToCheckerRuleList.get(ILongitudinalAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILongitudinalAction> typedCheckerRule =
             (ICheckerRule<ILongitudinalAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3515,9 +3837,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyLongitudinalDistanceActionCheckerRules(
       IParserMessageLogger messageLogger, ILongitudinalDistanceAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ILongitudinalDistanceAction.class);
+        this.typeToCheckerRuleList.get(ILongitudinalDistanceAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ILongitudinalDistanceAction> typedCheckerRule =
             (ICheckerRule<ILongitudinalDistanceAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3531,9 +3854,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyManeuverCheckerRules(IParserMessageLogger messageLogger, IManeuver object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IManeuver.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IManeuver.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IManeuver> typedCheckerRule = (ICheckerRule<IManeuver>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3556,9 +3880,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyManeuverCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, IManeuverCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IManeuverCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IManeuverCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IManeuverCatalogLocation> typedCheckerRule =
             (ICheckerRule<IManeuverCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3573,9 +3898,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyManeuverGroupCheckerRules(
       IParserMessageLogger messageLogger, IManeuverGroup object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IManeuverGroup.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IManeuverGroup.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IManeuverGroup> typedCheckerRule = (ICheckerRule<IManeuverGroup>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3600,9 +3927,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyMiscObjectCheckerRules(IParserMessageLogger messageLogger, IMiscObject object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IMiscObject.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IMiscObject.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IMiscObject> typedCheckerRule = (ICheckerRule<IMiscObject>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3627,9 +3955,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyMiscObjectCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, IMiscObjectCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IMiscObjectCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IMiscObjectCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IMiscObjectCatalogLocation> typedCheckerRule =
             (ICheckerRule<IMiscObjectCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3643,9 +3972,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyModifyRuleCheckerRules(IParserMessageLogger messageLogger, IModifyRule object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IModifyRule.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IModifyRule.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IModifyRule> typedCheckerRule = (ICheckerRule<IModifyRule>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3662,9 +3992,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyNoneCheckerRules(IParserMessageLogger messageLogger, INone object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(INone.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(INone.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<INone> typedCheckerRule = (ICheckerRule<INone>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3673,9 +4004,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyNurbsCheckerRules(IParserMessageLogger messageLogger, INurbs object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(INurbs.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(INurbs.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<INurbs> typedCheckerRule = (ICheckerRule<INurbs>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3697,9 +4029,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyObjectControllerCheckerRules(
       IParserMessageLogger messageLogger, IObjectController object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IObjectController.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IObjectController.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IObjectController> typedCheckerRule =
             (ICheckerRule<IObjectController>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3718,9 +4052,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyOffroadConditionCheckerRules(
       IParserMessageLogger messageLogger, IOffroadCondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IOffroadCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IOffroadCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOffroadCondition> typedCheckerRule =
             (ICheckerRule<IOffroadCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3731,9 +4067,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyOpenScenarioCheckerRules(
       IParserMessageLogger messageLogger, IOpenScenario object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IOpenScenario.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IOpenScenario.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOpenScenario> typedCheckerRule = (ICheckerRule<IOpenScenario>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3752,9 +4089,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOpenScenarioCategoryCheckerRules(
       IParserMessageLogger messageLogger, IOpenScenarioCategory object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOpenScenarioCategory.class);
+        this.typeToCheckerRuleList.get(IOpenScenarioCategory.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOpenScenarioCategory> typedCheckerRule =
             (ICheckerRule<IOpenScenarioCategory>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3773,9 +4111,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyOrientationCheckerRules(
       IParserMessageLogger messageLogger, IOrientation object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IOrientation.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IOrientation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOrientation> typedCheckerRule = (ICheckerRule<IOrientation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -3786,9 +4125,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOverrideBrakeActionCheckerRules(
       IParserMessageLogger messageLogger, IOverrideBrakeAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideBrakeAction.class);
+        this.typeToCheckerRuleList.get(IOverrideBrakeAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideBrakeAction> typedCheckerRule =
             (ICheckerRule<IOverrideBrakeAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3800,9 +4140,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOverrideClutchActionCheckerRules(
       IParserMessageLogger messageLogger, IOverrideClutchAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideClutchAction.class);
+        this.typeToCheckerRuleList.get(IOverrideClutchAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideClutchAction> typedCheckerRule =
             (ICheckerRule<IOverrideClutchAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3814,9 +4155,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOverrideControllerValueActionCheckerRules(
       IParserMessageLogger messageLogger, IOverrideControllerValueAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideControllerValueAction.class);
+        this.typeToCheckerRuleList.get(IOverrideControllerValueAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideControllerValueAction> typedCheckerRule =
             (ICheckerRule<IOverrideControllerValueAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3852,9 +4194,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOverrideGearActionCheckerRules(
       IParserMessageLogger messageLogger, IOverrideGearAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideGearAction.class);
+        this.typeToCheckerRuleList.get(IOverrideGearAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideGearAction> typedCheckerRule =
             (ICheckerRule<IOverrideGearAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3866,9 +4209,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOverrideParkingBrakeActionCheckerRules(
       IParserMessageLogger messageLogger, IOverrideParkingBrakeAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideParkingBrakeAction.class);
+        this.typeToCheckerRuleList.get(IOverrideParkingBrakeAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideParkingBrakeAction> typedCheckerRule =
             (ICheckerRule<IOverrideParkingBrakeAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3880,9 +4224,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOverrideSteeringWheelActionCheckerRules(
       IParserMessageLogger messageLogger, IOverrideSteeringWheelAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideSteeringWheelAction.class);
+        this.typeToCheckerRuleList.get(IOverrideSteeringWheelAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideSteeringWheelAction> typedCheckerRule =
             (ICheckerRule<IOverrideSteeringWheelAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3894,9 +4239,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyOverrideThrottleActionCheckerRules(
       IParserMessageLogger messageLogger, IOverrideThrottleAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IOverrideThrottleAction.class);
+        this.typeToCheckerRuleList.get(IOverrideThrottleAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideThrottleAction> typedCheckerRule =
             (ICheckerRule<IOverrideThrottleAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3907,9 +4253,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyParameterActionCheckerRules(
       IParserMessageLogger messageLogger, IParameterAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IParameterAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IParameterAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAction> typedCheckerRule =
             (ICheckerRule<IParameterAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3929,9 +4277,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyParameterAddValueRuleCheckerRules(
       IParserMessageLogger messageLogger, IParameterAddValueRule object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterAddValueRule.class);
+        this.typeToCheckerRuleList.get(IParameterAddValueRule.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAddValueRule> typedCheckerRule =
             (ICheckerRule<IParameterAddValueRule>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3943,9 +4292,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyParameterAssignmentCheckerRules(
       IParserMessageLogger messageLogger, IParameterAssignment object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterAssignment.class);
+        this.typeToCheckerRuleList.get(IParameterAssignment.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAssignment> typedCheckerRule =
             (ICheckerRule<IParameterAssignment>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3957,9 +4307,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyParameterConditionCheckerRules(
       IParserMessageLogger messageLogger, IParameterCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterCondition.class);
+        this.typeToCheckerRuleList.get(IParameterCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterCondition> typedCheckerRule =
             (ICheckerRule<IParameterCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3971,9 +4322,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyParameterDeclarationCheckerRules(
       IParserMessageLogger messageLogger, IParameterDeclaration object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterDeclaration.class);
+        this.typeToCheckerRuleList.get(IParameterDeclaration.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterDeclaration> typedCheckerRule =
             (ICheckerRule<IParameterDeclaration>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -3985,9 +4337,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyParameterModifyActionCheckerRules(
       IParserMessageLogger messageLogger, IParameterModifyAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterModifyAction.class);
+        this.typeToCheckerRuleList.get(IParameterModifyAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterModifyAction> typedCheckerRule =
             (ICheckerRule<IParameterModifyAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4003,9 +4356,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyParameterMultiplyByValueRuleCheckerRules(
       IParserMessageLogger messageLogger, IParameterMultiplyByValueRule object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterMultiplyByValueRule.class);
+        this.typeToCheckerRuleList.get(IParameterMultiplyByValueRule.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterMultiplyByValueRule> typedCheckerRule =
             (ICheckerRule<IParameterMultiplyByValueRule>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4017,9 +4371,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyParameterSetActionCheckerRules(
       IParserMessageLogger messageLogger, IParameterSetAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IParameterSetAction.class);
+        this.typeToCheckerRuleList.get(IParameterSetAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IParameterSetAction> typedCheckerRule =
             (ICheckerRule<IParameterSetAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4029,9 +4384,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyPedestrianCheckerRules(IParserMessageLogger messageLogger, IPedestrian object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPedestrian.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPedestrian.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPedestrian> typedCheckerRule = (ICheckerRule<IPedestrian>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4056,9 +4412,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyPedestrianCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, IPedestrianCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPedestrianCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IPedestrianCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPedestrianCatalogLocation> typedCheckerRule =
             (ICheckerRule<IPedestrianCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4073,9 +4430,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyPerformanceCheckerRules(
       IParserMessageLogger messageLogger, IPerformance object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPerformance.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPerformance.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPerformance> typedCheckerRule = (ICheckerRule<IPerformance>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4084,9 +4442,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyPhaseCheckerRules(IParserMessageLogger messageLogger, IPhase object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPhase.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPhase.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPhase> typedCheckerRule = (ICheckerRule<IPhase>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4101,9 +4460,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyPolylineCheckerRules(IParserMessageLogger messageLogger, IPolyline object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPolyline.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPolyline.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPolyline> typedCheckerRule = (ICheckerRule<IPolyline>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4118,9 +4478,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyPositionCheckerRules(IParserMessageLogger messageLogger, IPosition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPosition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPosition> typedCheckerRule = (ICheckerRule<IPosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4163,9 +4524,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyPositionInLaneCoordinatesCheckerRules(
       IParserMessageLogger messageLogger, IPositionInLaneCoordinates object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPositionInLaneCoordinates.class);
+        this.typeToCheckerRuleList.get(IPositionInLaneCoordinates.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPositionInLaneCoordinates> typedCheckerRule =
             (ICheckerRule<IPositionInLaneCoordinates>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4177,9 +4539,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyPositionInRoadCoordinatesCheckerRules(
       IParserMessageLogger messageLogger, IPositionInRoadCoordinates object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPositionInRoadCoordinates.class);
+        this.typeToCheckerRuleList.get(IPositionInRoadCoordinates.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPositionInRoadCoordinates> typedCheckerRule =
             (ICheckerRule<IPositionInRoadCoordinates>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4191,9 +4554,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyPositionOfCurrentEntityCheckerRules(
       IParserMessageLogger messageLogger, IPositionOfCurrentEntity object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IPositionOfCurrentEntity.class);
+        this.typeToCheckerRuleList.get(IPositionOfCurrentEntity.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPositionOfCurrentEntity> typedCheckerRule =
             (ICheckerRule<IPositionOfCurrentEntity>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4204,9 +4568,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyPrecipitationCheckerRules(
       IParserMessageLogger messageLogger, IPrecipitation object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPrecipitation.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IPrecipitation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPrecipitation> typedCheckerRule = (ICheckerRule<IPrecipitation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4215,9 +4581,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyPrivateCheckerRules(IParserMessageLogger messageLogger, IPrivate object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPrivate.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPrivate.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPrivate> typedCheckerRule = (ICheckerRule<IPrivate>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4233,9 +4600,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyPrivateActionCheckerRules(
       IParserMessageLogger messageLogger, IPrivateAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IPrivateAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IPrivateAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IPrivateAction> typedCheckerRule = (ICheckerRule<IPrivateAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4276,9 +4645,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyPropertiesCheckerRules(IParserMessageLogger messageLogger, IProperties object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IProperties.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IProperties.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IProperties> typedCheckerRule = (ICheckerRule<IProperties>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4299,9 +4669,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyPropertyCheckerRules(IParserMessageLogger messageLogger, IProperty object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IProperty.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IProperty.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IProperty> typedCheckerRule = (ICheckerRule<IProperty>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4312,9 +4683,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyReachPositionConditionCheckerRules(
       IParserMessageLogger messageLogger, IReachPositionCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IReachPositionCondition.class);
+        this.typeToCheckerRuleList.get(IReachPositionCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IReachPositionCondition> typedCheckerRule =
             (ICheckerRule<IReachPositionCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4330,9 +4702,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeDistanceConditionCheckerRules(
       IParserMessageLogger messageLogger, IRelativeDistanceCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeDistanceCondition.class);
+        this.typeToCheckerRuleList.get(IRelativeDistanceCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeDistanceCondition> typedCheckerRule =
             (ICheckerRule<IRelativeDistanceCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4344,9 +4717,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeLanePositionCheckerRules(
       IParserMessageLogger messageLogger, IRelativeLanePosition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeLanePosition.class);
+        this.typeToCheckerRuleList.get(IRelativeLanePosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeLanePosition> typedCheckerRule =
             (ICheckerRule<IRelativeLanePosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4362,9 +4736,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeObjectPositionCheckerRules(
       IParserMessageLogger messageLogger, IRelativeObjectPosition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeObjectPosition.class);
+        this.typeToCheckerRuleList.get(IRelativeObjectPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeObjectPosition> typedCheckerRule =
             (ICheckerRule<IRelativeObjectPosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4380,9 +4755,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeRoadPositionCheckerRules(
       IParserMessageLogger messageLogger, IRelativeRoadPosition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeRoadPosition.class);
+        this.typeToCheckerRuleList.get(IRelativeRoadPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeRoadPosition> typedCheckerRule =
             (ICheckerRule<IRelativeRoadPosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4398,9 +4774,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeSpeedConditionCheckerRules(
       IParserMessageLogger messageLogger, IRelativeSpeedCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeSpeedCondition.class);
+        this.typeToCheckerRuleList.get(IRelativeSpeedCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeSpeedCondition> typedCheckerRule =
             (ICheckerRule<IRelativeSpeedCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4412,9 +4789,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeSpeedToMasterCheckerRules(
       IParserMessageLogger messageLogger, IRelativeSpeedToMaster object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeSpeedToMaster.class);
+        this.typeToCheckerRuleList.get(IRelativeSpeedToMaster.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeSpeedToMaster> typedCheckerRule =
             (ICheckerRule<IRelativeSpeedToMaster>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4426,9 +4804,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeTargetLaneCheckerRules(
       IParserMessageLogger messageLogger, IRelativeTargetLane object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeTargetLane.class);
+        this.typeToCheckerRuleList.get(IRelativeTargetLane.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetLane> typedCheckerRule =
             (ICheckerRule<IRelativeTargetLane>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4440,9 +4819,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeTargetLaneOffsetCheckerRules(
       IParserMessageLogger messageLogger, IRelativeTargetLaneOffset object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeTargetLaneOffset.class);
+        this.typeToCheckerRuleList.get(IRelativeTargetLaneOffset.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetLaneOffset> typedCheckerRule =
             (ICheckerRule<IRelativeTargetLaneOffset>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4454,9 +4834,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeTargetSpeedCheckerRules(
       IParserMessageLogger messageLogger, IRelativeTargetSpeed object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeTargetSpeed.class);
+        this.typeToCheckerRuleList.get(IRelativeTargetSpeed.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetSpeed> typedCheckerRule =
             (ICheckerRule<IRelativeTargetSpeed>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4468,9 +4849,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRelativeWorldPositionCheckerRules(
       IParserMessageLogger messageLogger, IRelativeWorldPosition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRelativeWorldPosition.class);
+        this.typeToCheckerRuleList.get(IRelativeWorldPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeWorldPosition> typedCheckerRule =
             (ICheckerRule<IRelativeWorldPosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4485,9 +4867,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyRoadConditionCheckerRules(
       IParserMessageLogger messageLogger, IRoadCondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoadCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IRoadCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRoadCondition> typedCheckerRule = (ICheckerRule<IRoadCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4501,9 +4885,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyRoadNetworkCheckerRules(
       IParserMessageLogger messageLogger, IRoadNetwork object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoadNetwork.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoadNetwork.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRoadNetwork> typedCheckerRule = (ICheckerRule<IRoadNetwork>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4527,9 +4912,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyRoadPositionCheckerRules(
       IParserMessageLogger messageLogger, IRoadPosition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoadPosition.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoadPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRoadPosition> typedCheckerRule = (ICheckerRule<IRoadPosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4542,9 +4928,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyRouteCheckerRules(IParserMessageLogger messageLogger, IRoute object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoute.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoute.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRoute> typedCheckerRule = (ICheckerRule<IRoute>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4567,9 +4954,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyRouteCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, IRouteCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IRouteCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IRouteCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRouteCatalogLocation> typedCheckerRule =
             (ICheckerRule<IRouteCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4584,9 +4972,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyRoutePositionCheckerRules(
       IParserMessageLogger messageLogger, IRoutePosition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoutePosition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IRoutePosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRoutePosition> typedCheckerRule = (ICheckerRule<IRoutePosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4607,9 +4997,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyRouteRefCheckerRules(IParserMessageLogger messageLogger, IRouteRef object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRouteRef.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRouteRef.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRouteRef> typedCheckerRule = (ICheckerRule<IRouteRef>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4627,9 +5018,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyRoutingActionCheckerRules(
       IParserMessageLogger messageLogger, IRoutingAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IRoutingAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IRoutingAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IRoutingAction> typedCheckerRule = (ICheckerRule<IRoutingAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4652,9 +5045,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyScenarioDefinitionCheckerRules(
       IParserMessageLogger messageLogger, IScenarioDefinition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IScenarioDefinition.class);
+        this.typeToCheckerRuleList.get(IScenarioDefinition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IScenarioDefinition> typedCheckerRule =
             (ICheckerRule<IScenarioDefinition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4687,9 +5081,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyScenarioObjectCheckerRules(
       IParserMessageLogger messageLogger, IScenarioObject object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IScenarioObject.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IScenarioObject.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IScenarioObject> typedCheckerRule =
             (ICheckerRule<IScenarioObject>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4708,9 +5104,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applySelectedEntitiesCheckerRules(
       IParserMessageLogger messageLogger, ISelectedEntities object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISelectedEntities.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISelectedEntities.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ISelectedEntities> typedCheckerRule =
             (ICheckerRule<ISelectedEntities>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4732,9 +5130,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyShapeCheckerRules(IParserMessageLogger messageLogger, IShape object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IShape.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IShape.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IShape> typedCheckerRule = (ICheckerRule<IShape>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4757,9 +5156,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applySimulationTimeConditionCheckerRules(
       IParserMessageLogger messageLogger, ISimulationTimeCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ISimulationTimeCondition.class);
+        this.typeToCheckerRuleList.get(ISimulationTimeCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ISimulationTimeCondition> typedCheckerRule =
             (ICheckerRule<ISimulationTimeCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4770,9 +5170,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applySpeedActionCheckerRules(
       IParserMessageLogger messageLogger, ISpeedAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISpeedAction.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ISpeedAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedAction> typedCheckerRule = (ICheckerRule<ISpeedAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4790,9 +5191,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applySpeedActionTargetCheckerRules(
       IParserMessageLogger messageLogger, ISpeedActionTarget object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISpeedActionTarget.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISpeedActionTarget.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedActionTarget> typedCheckerRule =
             (ICheckerRule<ISpeedActionTarget>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4811,9 +5214,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applySpeedConditionCheckerRules(
       IParserMessageLogger messageLogger, ISpeedCondition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISpeedCondition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISpeedCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedCondition> typedCheckerRule =
             (ICheckerRule<ISpeedCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4825,9 +5230,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyStandStillConditionCheckerRules(
       IParserMessageLogger messageLogger, IStandStillCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IStandStillCondition.class);
+        this.typeToCheckerRuleList.get(IStandStillCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IStandStillCondition> typedCheckerRule =
             (ICheckerRule<IStandStillCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4837,9 +5243,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyStoryCheckerRules(IParserMessageLogger messageLogger, IStory object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IStory.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IStory.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IStory> typedCheckerRule = (ICheckerRule<IStory>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4860,9 +5267,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyStoryboardCheckerRules(IParserMessageLogger messageLogger, IStoryboard object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IStoryboard.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IStoryboard.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IStoryboard> typedCheckerRule = (ICheckerRule<IStoryboard>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4887,9 +5295,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyStoryboardElementStateConditionCheckerRules(
       IParserMessageLogger messageLogger, IStoryboardElementStateCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IStoryboardElementStateCondition.class);
+        this.typeToCheckerRuleList.get(IStoryboardElementStateCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IStoryboardElementStateCondition> typedCheckerRule =
             (ICheckerRule<IStoryboardElementStateCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4899,9 +5308,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applySunCheckerRules(IParserMessageLogger messageLogger, ISun object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISun.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ISun.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ISun> typedCheckerRule = (ICheckerRule<ISun>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4911,9 +5321,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applySynchronizeActionCheckerRules(
       IParserMessageLogger messageLogger, ISynchronizeAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ISynchronizeAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ISynchronizeAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ISynchronizeAction> typedCheckerRule =
             (ICheckerRule<ISynchronizeAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4936,9 +5348,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyTeleportActionCheckerRules(
       IParserMessageLogger messageLogger, ITeleportAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITeleportAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITeleportAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITeleportAction> typedCheckerRule =
             (ICheckerRule<ITeleportAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4954,9 +5368,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTimeHeadwayConditionCheckerRules(
       IParserMessageLogger messageLogger, ITimeHeadwayCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeHeadwayCondition.class);
+        this.typeToCheckerRuleList.get(ITimeHeadwayCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITimeHeadwayCondition> typedCheckerRule =
             (ICheckerRule<ITimeHeadwayCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4966,9 +5381,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyTimeOfDayCheckerRules(IParserMessageLogger messageLogger, ITimeOfDay object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITimeOfDay.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITimeOfDay.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITimeOfDay> typedCheckerRule = (ICheckerRule<ITimeOfDay>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -4979,9 +5395,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTimeOfDayConditionCheckerRules(
       IParserMessageLogger messageLogger, ITimeOfDayCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeOfDayCondition.class);
+        this.typeToCheckerRuleList.get(ITimeOfDayCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITimeOfDayCondition> typedCheckerRule =
             (ICheckerRule<ITimeOfDayCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -4992,9 +5409,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyTimeReferenceCheckerRules(
       IParserMessageLogger messageLogger, ITimeReference object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITimeReference.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITimeReference.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITimeReference> typedCheckerRule = (ICheckerRule<ITimeReference>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5013,9 +5432,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTimeToCollisionConditionCheckerRules(
       IParserMessageLogger messageLogger, ITimeToCollisionCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeToCollisionCondition.class);
+        this.typeToCheckerRuleList.get(ITimeToCollisionCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITimeToCollisionCondition> typedCheckerRule =
             (ICheckerRule<ITimeToCollisionCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5033,9 +5453,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTimeToCollisionConditionTargetCheckerRules(
       IParserMessageLogger messageLogger, ITimeToCollisionConditionTarget object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITimeToCollisionConditionTarget.class);
+        this.typeToCheckerRuleList.get(ITimeToCollisionConditionTarget.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITimeToCollisionConditionTarget> typedCheckerRule =
             (ICheckerRule<ITimeToCollisionConditionTarget>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5053,9 +5474,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyTimingCheckerRules(IParserMessageLogger messageLogger, ITiming object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITiming.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITiming.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITiming> typedCheckerRule = (ICheckerRule<ITiming>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5065,9 +5487,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyTrafficActionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrafficAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITrafficAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficAction> typedCheckerRule = (ICheckerRule<ITrafficAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5089,9 +5513,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyTrafficDefinitionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficDefinition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrafficDefinition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITrafficDefinition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficDefinition> typedCheckerRule =
             (ICheckerRule<ITrafficDefinition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5112,9 +5538,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSignalActionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSignalAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5135,9 +5562,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSignalConditionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSignalCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalCondition.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalCondition> typedCheckerRule =
             (ICheckerRule<ITrafficSignalCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5149,9 +5577,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSignalControllerCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSignalController object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalController.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalController.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalController> typedCheckerRule =
             (ICheckerRule<ITrafficSignalController>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5169,9 +5598,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSignalControllerActionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSignalControllerAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalControllerAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalControllerAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalControllerAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalControllerAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5183,9 +5613,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSignalControllerConditionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSignalControllerCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalControllerCondition.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalControllerCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalControllerCondition> typedCheckerRule =
             (ICheckerRule<ITrafficSignalControllerCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5197,9 +5628,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSignalStateCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSignalState object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalState.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalState.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalState> typedCheckerRule =
             (ICheckerRule<ITrafficSignalState>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5211,9 +5643,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSignalStateActionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSignalStateAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSignalStateAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSignalStateAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalStateAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalStateAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5224,9 +5657,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyTrafficSinkActionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSinkAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrafficSinkAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(ITrafficSinkAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSinkAction> typedCheckerRule =
             (ICheckerRule<ITrafficSinkAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5246,9 +5681,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSourceActionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSourceAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSourceAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSourceAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSourceAction> typedCheckerRule =
             (ICheckerRule<ITrafficSourceAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5268,9 +5704,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrafficSwarmActionCheckerRules(
       IParserMessageLogger messageLogger, ITrafficSwarmAction object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrafficSwarmAction.class);
+        this.typeToCheckerRuleList.get(ITrafficSwarmAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSwarmAction> typedCheckerRule =
             (ICheckerRule<ITrafficSwarmAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5288,9 +5725,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyTrajectoryCheckerRules(IParserMessageLogger messageLogger, ITrajectory object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrajectory.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITrajectory.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectory> typedCheckerRule = (ICheckerRule<ITrajectory>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5311,9 +5749,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrajectoryCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, ITrajectoryCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrajectoryCatalogLocation.class);
+        this.typeToCheckerRuleList.get(ITrajectoryCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectoryCatalogLocation> typedCheckerRule =
             (ICheckerRule<ITrajectoryCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5329,9 +5768,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTrajectoryFollowingModeCheckerRules(
       IParserMessageLogger messageLogger, ITrajectoryFollowingMode object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITrajectoryFollowingMode.class);
+        this.typeToCheckerRuleList.get(ITrajectoryFollowingMode.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectoryFollowingMode> typedCheckerRule =
             (ICheckerRule<ITrajectoryFollowingMode>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5343,9 +5783,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTransitionDynamicsCheckerRules(
       IParserMessageLogger messageLogger, ITransitionDynamics object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITransitionDynamics.class);
+        this.typeToCheckerRuleList.get(ITransitionDynamics.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITransitionDynamics> typedCheckerRule =
             (ICheckerRule<ITransitionDynamics>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5357,9 +5798,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTraveledDistanceConditionCheckerRules(
       IParserMessageLogger messageLogger, ITraveledDistanceCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITraveledDistanceCondition.class);
+        this.typeToCheckerRuleList.get(ITraveledDistanceCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITraveledDistanceCondition> typedCheckerRule =
             (ICheckerRule<ITraveledDistanceCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5369,9 +5811,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyTriggerCheckerRules(IParserMessageLogger messageLogger, ITrigger object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(ITrigger.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITrigger.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITrigger> typedCheckerRule = (ICheckerRule<ITrigger>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5388,9 +5831,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyTriggeringEntitiesCheckerRules(
       IParserMessageLogger messageLogger, ITriggeringEntities object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(ITriggeringEntities.class);
+        this.typeToCheckerRuleList.get(ITriggeringEntities.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<ITriggeringEntities> typedCheckerRule =
             (ICheckerRule<ITriggeringEntities>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5407,9 +5851,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyUserDefinedActionCheckerRules(
       IParserMessageLogger messageLogger, IUserDefinedAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IUserDefinedAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IUserDefinedAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IUserDefinedAction> typedCheckerRule =
             (ICheckerRule<IUserDefinedAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5425,9 +5871,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyUserDefinedValueConditionCheckerRules(
       IParserMessageLogger messageLogger, IUserDefinedValueCondition object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IUserDefinedValueCondition.class);
+        this.typeToCheckerRuleList.get(IUserDefinedValueCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IUserDefinedValueCondition> typedCheckerRule =
             (ICheckerRule<IUserDefinedValueCondition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5437,9 +5884,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyVehicleCheckerRules(IParserMessageLogger messageLogger, IVehicle object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IVehicle.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IVehicle.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IVehicle> typedCheckerRule = (ICheckerRule<IVehicle>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5472,9 +5920,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyVehicleCatalogLocationCheckerRules(
       IParserMessageLogger messageLogger, IVehicleCatalogLocation object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IVehicleCatalogLocation.class);
+        this.typeToCheckerRuleList.get(IVehicleCatalogLocation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCatalogLocation> typedCheckerRule =
             (ICheckerRule<IVehicleCatalogLocation>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5490,9 +5939,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyVehicleCategoryDistributionCheckerRules(
       IParserMessageLogger messageLogger, IVehicleCategoryDistribution object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IVehicleCategoryDistribution.class);
+        this.typeToCheckerRuleList.get(IVehicleCategoryDistribution.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCategoryDistribution> typedCheckerRule =
             (ICheckerRule<IVehicleCategoryDistribution>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5511,9 +5961,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   private void applyVehicleCategoryDistributionEntryCheckerRules(
       IParserMessageLogger messageLogger, IVehicleCategoryDistributionEntry object) {
     List<ICheckerRule<?>> checkerRulesForType =
-        typeToCheckerRuleList.get(IVehicleCategoryDistributionEntry.class);
+        this.typeToCheckerRuleList.get(IVehicleCategoryDistributionEntry.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCategoryDistributionEntry> typedCheckerRule =
             (ICheckerRule<IVehicleCategoryDistributionEntry>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5523,9 +5974,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyVertexCheckerRules(IParserMessageLogger messageLogger, IVertex object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IVertex.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IVertex.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IVertex> typedCheckerRule = (ICheckerRule<IVertex>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5539,9 +5991,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyVisibilityActionCheckerRules(
       IParserMessageLogger messageLogger, IVisibilityAction object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IVisibilityAction.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IVisibilityAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IVisibilityAction> typedCheckerRule =
             (ICheckerRule<IVisibilityAction>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
@@ -5551,9 +6005,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyWaypointCheckerRules(IParserMessageLogger messageLogger, IWaypoint object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IWaypoint.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IWaypoint.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IWaypoint> typedCheckerRule = (ICheckerRule<IWaypoint>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5566,9 +6021,10 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyWeatherCheckerRules(IParserMessageLogger messageLogger, IWeather object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IWeather.class);
+    List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IWeather.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IWeather> typedCheckerRule = (ICheckerRule<IWeather>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }
@@ -5590,9 +6046,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
 
   private void applyWorldPositionCheckerRules(
       IParserMessageLogger messageLogger, IWorldPosition object) {
-    List<ICheckerRule<?>> checkerRulesForType = typeToCheckerRuleList.get(IWorldPosition.class);
+    List<ICheckerRule<?>> checkerRulesForType =
+        this.typeToCheckerRuleList.get(IWorldPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
+        @SuppressWarnings("unchecked")
         ICheckerRule<IWorldPosition> typedCheckerRule = (ICheckerRule<IWorldPosition>) checkerRule;
         typedCheckerRule.applyRule(messageLogger, object);
       }

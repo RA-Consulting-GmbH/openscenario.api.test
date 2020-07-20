@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StandStillConditionImpl extends BaseImpl implements IStandStillCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class StandStillConditionImpl extends BaseImpl implements IStandStillCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -59,13 +59,14 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
     addAdapter(IStandStillCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getDuration() {
-    return duration;
+    return this.duration;
   }
   /**
    * Sets the value of model property duration
@@ -82,7 +83,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__DURATION)) {
       // Simple type
-      duration =
+      this.duration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -99,8 +100,9 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -111,6 +113,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
    *
    * @return a deep copy of the object.
    */
+  @Override
   public StandStillConditionImpl clone() {
     StandStillConditionImpl clonedObject = new StandStillConditionImpl();
     cloneStartMarker(clonedObject);
@@ -150,9 +153,8 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
     }
     if (key.equals(OscConstants.ATTRIBUTE__DURATION)) {
       return getDuration();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -178,6 +180,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,38 +46,13 @@ public class ParameterModifyActionXmlParser
    */
   public ParameterModifyActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      ParameterModifyActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ParameterModifyAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ParameterModifyAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ParameterModifyActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ParameterModifyActionImpl>> result =
-        new Hashtable<String, IAttributeParser<ParameterModifyActionImpl>>();
+    Map<String, IAttributeParser<ParameterModifyActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,20 +70,24 @@ public class ParameterModifyActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ParameterModifyActionImpl>> createParserList() {
-      List<IElementParser<ParameterModifyActionImpl>> result =
-          new ArrayList<IElementParser<ParameterModifyActionImpl>>();
+      List<IElementParser<ParameterModifyActionImpl>> result = new ArrayList<>();
       result.add(new SubElementRuleParser());
       return result;
     }
   }
   /** A parser for subelement rule */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRuleParser implements IElementParser<ParameterModifyActionImpl> {
 
     /** Constructor */
     public SubElementRuleParser() {
       super();
-      modifyRuleXmlParser = new ModifyRuleXmlParser(messageLogger, filename);
+      this.modifyRuleXmlParser =
+          new ModifyRuleXmlParser(
+              ParameterModifyActionXmlParser.this.messageLogger,
+              ParameterModifyActionXmlParser.this.filename);
     }
 
     private ModifyRuleXmlParser modifyRuleXmlParser;
@@ -124,7 +100,7 @@ public class ParameterModifyActionXmlParser
       ModifyRuleImpl rule = new ModifyRuleImpl();
       // Setting the parent
       rule.setParent(object);
-      modifyRuleXmlParser.parseElement(indexedElement, parserContext, rule);
+      this.modifyRuleXmlParser.parseElement(indexedElement, parserContext, rule);
 
       object.setRule(rule);
     }

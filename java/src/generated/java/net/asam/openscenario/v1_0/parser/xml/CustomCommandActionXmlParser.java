@@ -18,13 +18,9 @@ package net.asam.openscenario.v1_0.parser.xml;
 
 import java.util.Hashtable;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.type.XmlSimpleContentParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.CustomCommandActionImpl;
 import net.asam.xml.indexer.Position;
@@ -48,35 +44,13 @@ public class CustomCommandActionXmlParser extends XmlSimpleContentParser<CustomC
   }
 
   @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, CustomCommandActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing CustomCommandAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing CustomCommandAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
-  }
-
-  @Override
   protected Map<String, IAttributeParser<CustomCommandActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<CustomCommandActionImpl>> result =
-        new Hashtable<String, IAttributeParser<CustomCommandActionImpl>>();
+    Map<String, IAttributeParser<CustomCommandActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__TYPE,
         new IAttributeParser<CustomCommandActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -86,9 +60,15 @@ public class CustomCommandActionXmlParser extends XmlSimpleContentParser<CustomC
               CustomCommandActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    CustomCommandActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    CustomCommandActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TYPE, stripDollarSign(attributeValue), startMarker);

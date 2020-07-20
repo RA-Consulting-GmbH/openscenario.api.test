@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IPosition position;
   /** Default constructor */
@@ -58,13 +54,14 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction, C
     addAdapter(IAddEntityAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IPosition getPosition() {
-    return position;
+    return this.position;
   }
   /**
    * Sets the value of model property position
@@ -78,7 +75,9 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction, C
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -91,8 +90,9 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction, C
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition position = null;
     position = getPosition();
@@ -108,6 +108,7 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction, C
    *
    * @return a deep copy of the object.
    */
+  @Override
   public AddEntityActionImpl clone() {
     AddEntityActionImpl clonedObject = new AddEntityActionImpl();
     cloneStartMarker(clonedObject);
@@ -172,14 +173,14 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction, C
     }
     if (key.equals(OscConstants.ELEMENT__POSITION)) {
       return (IOpenScenarioFlexElement) getPosition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

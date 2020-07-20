@@ -28,4 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEntity extends IOpenScenarioModelElement {}
+public interface IEntity extends IOpenScenarioModelElement {
+  // See uml model documentation
+}

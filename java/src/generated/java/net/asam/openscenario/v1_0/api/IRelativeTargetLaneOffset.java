@@ -28,14 +28,12 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRelativeTargetLaneOffset extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Lane offset with respect to the reference entity's
    * current lane position. Unit: m.

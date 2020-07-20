@@ -29,7 +29,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITimeToCollisionCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The time to collision value. Unit: s; Range:
    * [0..inf[.
@@ -37,7 +36,6 @@ public interface ITimeToCollisionCondition extends IOpenScenarioModelElement {
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: True: time to collision is measured using the
    * distance between closest bounding box points.False: reference point distance is used.
@@ -45,7 +43,6 @@ public interface ITimeToCollisionCondition extends IOpenScenarioModelElement {
    * @return value of model property freespace
    */
   public Boolean getFreespace();
-
   /**
    * From OpenSCENARIO class model specification: True: routing is taken into account, e.g. turns
    * will increase distance. False: straight line distance is used.
@@ -53,14 +50,12 @@ public interface ITimeToCollisionCondition extends IOpenScenarioModelElement {
    * @return value of model property alongRoute
    */
   public Boolean getAlongRoute();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @return value of model property rule
    */
   public Rule getRule();
-
   /**
    * From OpenSCENARIO class model specification: The explicit position or a position defined
    * through the current position of a reference entity.

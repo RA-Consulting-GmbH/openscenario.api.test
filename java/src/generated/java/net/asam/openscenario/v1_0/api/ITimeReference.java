@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITimeReference extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: This property indicates Timing information is
    * neglected.
@@ -36,7 +35,6 @@ public interface ITimeReference extends IOpenScenarioModelElement {
    * @return value of model property none
    */
   public INone getNone();
-
   /**
    * From OpenSCENARIO class model specification: This property indicates timing information is
    * taken into account. Its underlying properties allow specification of the time domain (absolute

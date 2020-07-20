@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -49,38 +47,16 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
    */
   public LanePositionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, LanePositionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing LanePosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing LanePosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<LanePositionImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<LanePositionImpl>> result =
-        new Hashtable<String, IAttributeParser<LanePositionImpl>>();
+    Map<String, IAttributeParser<LanePositionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ROAD_ID,
         new IAttributeParser<LanePositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +66,15 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
               LanePositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ROAD_ID, stripDollarSign(attributeValue), startMarker);
@@ -113,6 +95,7 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
     result.put(
         OscConstants.ATTRIBUTE__LANE_ID,
         new IAttributeParser<LanePositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -122,9 +105,15 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
               LanePositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__LANE_ID, stripDollarSign(attributeValue), startMarker);
@@ -145,6 +134,7 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
     result.put(
         OscConstants.ATTRIBUTE__OFFSET,
         new IAttributeParser<LanePositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -154,9 +144,15 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
               LanePositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__OFFSET, stripDollarSign(attributeValue), startMarker);
@@ -177,6 +173,7 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
     result.put(
         OscConstants.ATTRIBUTE__S,
         new IAttributeParser<LanePositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -186,9 +183,15 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
               LanePositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LanePositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__S, stripDollarSign(attributeValue), startMarker);
@@ -223,20 +226,23 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<LanePositionImpl>> createParserList() {
-      List<IElementParser<LanePositionImpl>> result =
-          new ArrayList<IElementParser<LanePositionImpl>>();
+      List<IElementParser<LanePositionImpl>> result = new ArrayList<>();
       result.add(new SubElementOrientationParser());
       return result;
     }
   }
   /** A parser for subelement orientation */
+  @SuppressWarnings("synthetic-access")
   private class SubElementOrientationParser implements IElementParser<LanePositionImpl> {
 
     /** Constructor */
     public SubElementOrientationParser() {
       super();
-      orientationXmlParser = new OrientationXmlParser(messageLogger, filename);
+      this.orientationXmlParser =
+          new OrientationXmlParser(
+              LanePositionXmlParser.this.messageLogger, LanePositionXmlParser.this.filename);
     }
 
     private OrientationXmlParser orientationXmlParser;
@@ -247,7 +253,7 @@ public class LanePositionXmlParser extends XmlComplexTypeParser<LanePositionImpl
       OrientationImpl orientation = new OrientationImpl();
       // Setting the parent
       orientation.setParent(object);
-      orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
+      this.orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
 
       object.setOrientation(orientation);
     }

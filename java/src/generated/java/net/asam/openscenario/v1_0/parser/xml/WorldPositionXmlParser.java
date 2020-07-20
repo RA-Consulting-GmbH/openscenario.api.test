@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.WorldPositionImpl;
 import net.asam.xml.indexer.Position;
@@ -48,39 +44,17 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
    */
   public WorldPositionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, WorldPositionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing WorldPosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing WorldPosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<WorldPositionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<WorldPositionImpl>> result =
-        new Hashtable<String, IAttributeParser<WorldPositionImpl>>();
+    Map<String, IAttributeParser<WorldPositionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__X,
         new IAttributeParser<WorldPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +64,15 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
               WorldPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__X, stripDollarSign(attributeValue), startMarker);
@@ -113,6 +93,7 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
     result.put(
         OscConstants.ATTRIBUTE__Y,
         new IAttributeParser<WorldPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -122,9 +103,15 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
               WorldPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__Y, stripDollarSign(attributeValue), startMarker);
@@ -145,6 +132,7 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
     result.put(
         OscConstants.ATTRIBUTE__Z,
         new IAttributeParser<WorldPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -154,9 +142,15 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
               WorldPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__Z, stripDollarSign(attributeValue), startMarker);
@@ -177,6 +171,7 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
     result.put(
         OscConstants.ATTRIBUTE__H,
         new IAttributeParser<WorldPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -186,9 +181,15 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
               WorldPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__H, stripDollarSign(attributeValue), startMarker);
@@ -209,6 +210,7 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
     result.put(
         OscConstants.ATTRIBUTE__P,
         new IAttributeParser<WorldPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -218,9 +220,15 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
               WorldPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__P, stripDollarSign(attributeValue), startMarker);
@@ -241,6 +249,7 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
     result.put(
         OscConstants.ATTRIBUTE__R,
         new IAttributeParser<WorldPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -250,9 +259,15 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
               WorldPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    WorldPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__R, stripDollarSign(attributeValue), startMarker);
@@ -287,9 +302,9 @@ public class WorldPositionXmlParser extends XmlComplexTypeParser<WorldPositionIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<WorldPositionImpl>> createParserList() {
-      List<IElementParser<WorldPositionImpl>> result =
-          new ArrayList<IElementParser<WorldPositionImpl>>();
+      List<IElementParser<WorldPositionImpl>> result = new ArrayList<>();
       return result;
     }
   }

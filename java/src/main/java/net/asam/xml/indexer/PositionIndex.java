@@ -29,8 +29,8 @@ import java.util.Stack;
 public class PositionIndex {
 
   private int counter = 0;
-  private Hashtable<Integer, ElementNode> dictionary = new Hashtable<Integer, ElementNode>();
-  Stack<ElementNode> stack = new Stack<ElementNode>();
+  private Hashtable<Integer, ElementNode> dictionary = new Hashtable<>();
+  Stack<ElementNode> stack = new Stack<>();
 
   /**
    * Pushing a element node
@@ -43,8 +43,8 @@ public class PositionIndex {
 
     ElementNode node = new ElementNode(line, column);
     node.addAttributes(attributeNodes);
-    dictionary.put(counter++, node);
-    stack.push(node);
+    this.dictionary.put(this.counter++, node);
+    this.stack.push(node);
   }
   /**
    * Sets the end position
@@ -53,7 +53,7 @@ public class PositionIndex {
    * @param column end column of the element node
    */
   public void setEndPosition(int line, int column) {
-    ElementNode node = stack.pop();
+    ElementNode node = this.stack.pop();
     node.addEndPosition(line, column);
   }
 
@@ -64,7 +64,7 @@ public class PositionIndex {
    * @return the found element node or null if not not found
    */
   public ElementNode getElementNode(int index) {
-    return dictionary.get(index);
+    return this.dictionary.get(index);
   }
 
   /**
@@ -73,6 +73,6 @@ public class PositionIndex {
    * @return the size
    */
   public int getSize() {
-    return counter;
+    return this.counter;
   }
 }

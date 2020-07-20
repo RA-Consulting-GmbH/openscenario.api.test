@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ICustomCommandAction customCommandAction;
   /** Default constructor */
@@ -58,13 +54,14 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
     addAdapter(IUserDefinedAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ICustomCommandAction getCustomCommandAction() {
-    return customCommandAction;
+    return this.customCommandAction;
   }
   /**
    * Sets the value of model property customCommandAction
@@ -78,7 +75,9 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -91,8 +90,9 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ICustomCommandAction customCommandAction = null;
     customCommandAction = getCustomCommandAction();
@@ -108,6 +108,7 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
    *
    * @return a deep copy of the object.
    */
+  @Override
   public UserDefinedActionImpl clone() {
     UserDefinedActionImpl clonedObject = new UserDefinedActionImpl();
     cloneStartMarker(clonedObject);
@@ -172,14 +173,14 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
     }
     if (key.equals(OscConstants.ELEMENT__CUSTOM_COMMAND_ACTION)) {
       return (IOpenScenarioFlexElement) getCustomCommandAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

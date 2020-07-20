@@ -29,14 +29,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IByEntityCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: A list of entities triggering this condition.
    *
    * @return value of model property triggeringEntities
    */
   public ITriggeringEntities getTriggeringEntities();
-
   /**
    * From OpenSCENARIO class model specification: The condition which is related to the triggering
    * entities.

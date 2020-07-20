@@ -46,12 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityObjectImpl extends BaseImpl implements IEntityObject, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class EntityObjectImpl extends BaseImpl implements IEntityObject {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ICatalogReference catalogReference;
   private IVehicle vehicle;
@@ -64,28 +60,29 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, Cloneab
     addAdapter(IEntityObject.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ICatalogReference getCatalogReference() {
-    return catalogReference;
+    return this.catalogReference;
   }
 
   @Override
   public IVehicle getVehicle() {
-    return vehicle;
+    return this.vehicle;
   }
 
   @Override
   public IPedestrian getPedestrian() {
-    return pedestrian;
+    return this.pedestrian;
   }
 
   @Override
   public IMiscObject getMiscObject() {
-    return miscObject;
+    return this.miscObject;
   }
   /**
    * Sets the value of model property catalogReference
@@ -123,7 +120,9 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, Cloneab
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -136,8 +135,9 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, Cloneab
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ICatalogReference catalogReference = null;
     catalogReference = getCatalogReference();
@@ -168,6 +168,7 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, Cloneab
    *
    * @return a deep copy of the object.
    */
+  @Override
   public EntityObjectImpl clone() {
     EntityObjectImpl clonedObject = new EntityObjectImpl();
     cloneStartMarker(clonedObject);
@@ -253,20 +254,23 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, Cloneab
     }
     if (key.equals(OscConstants.ELEMENT__CATALOG_REFERENCE)) {
       return (IOpenScenarioFlexElement) getCatalogReference();
-    } else if (key.equals(OscConstants.ELEMENT__VEHICLE)) {
-      return (IOpenScenarioFlexElement) getVehicle();
-    } else if (key.equals(OscConstants.ELEMENT__PEDESTRIAN)) {
-      return (IOpenScenarioFlexElement) getPedestrian();
-    } else if (key.equals(OscConstants.ELEMENT__MISC_OBJECT)) {
-      return (IOpenScenarioFlexElement) getMiscObject();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__VEHICLE)) {
+      return (IOpenScenarioFlexElement) getVehicle();
+    }
+    if (key.equals(OscConstants.ELEMENT__PEDESTRIAN)) {
+      return (IOpenScenarioFlexElement) getPedestrian();
+    }
+    if (key.equals(OscConstants.ELEMENT__MISC_OBJECT)) {
+      return (IOpenScenarioFlexElement) getMiscObject();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

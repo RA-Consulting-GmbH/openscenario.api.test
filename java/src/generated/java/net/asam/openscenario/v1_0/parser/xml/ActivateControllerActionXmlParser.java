@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ActivateControllerActionImpl;
 import net.asam.xml.indexer.Position;
@@ -49,41 +45,17 @@ public class ActivateControllerActionXmlParser
    */
   public ActivateControllerActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      ActivateControllerActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ActivateControllerAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ActivateControllerAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ActivateControllerActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ActivateControllerActionImpl>> result =
-        new Hashtable<String, IAttributeParser<ActivateControllerActionImpl>>();
+    Map<String, IAttributeParser<ActivateControllerActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__LATERAL,
         new IAttributeParser<ActivateControllerActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +65,15 @@ public class ActivateControllerActionXmlParser
               ActivateControllerActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ActivateControllerActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ActivateControllerActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__LATERAL, stripDollarSign(attributeValue), startMarker);
@@ -116,6 +94,7 @@ public class ActivateControllerActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__LONGITUDINAL,
         new IAttributeParser<ActivateControllerActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -125,9 +104,15 @@ public class ActivateControllerActionXmlParser
               ActivateControllerActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ActivateControllerActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ActivateControllerActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__LONGITUDINAL,
@@ -164,9 +149,9 @@ public class ActivateControllerActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ActivateControllerActionImpl>> createParserList() {
-      List<IElementParser<ActivateControllerActionImpl>> result =
-          new ArrayList<IElementParser<ActivateControllerActionImpl>>();
+      List<IElementParser<ActivateControllerActionImpl>> result = new ArrayList<>();
       return result;
     }
   }

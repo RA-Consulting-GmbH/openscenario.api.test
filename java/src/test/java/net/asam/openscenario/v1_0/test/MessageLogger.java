@@ -18,7 +18,6 @@
 package net.asam.openscenario.v1_0.test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import net.asam.openscenario.common.ErrorLevel;
@@ -28,11 +27,11 @@ import net.asam.openscenario.common.Textmarker;
 
 public class MessageLogger implements IParserMessageLogger {
 
-  private List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+  private List<FileContentMessage> messages = new ArrayList<>();
 
   @Override
   public void logMessage(FileContentMessage message) {
-    messages.add(message);
+    this.messages.add(message);
     if (message.getErrorLevel() == ErrorLevel.ERROR
         || message.getErrorLevel() == ErrorLevel.INFO
         || message.getErrorLevel() == ErrorLevel.WARNING
@@ -46,16 +45,16 @@ public class MessageLogger implements IParserMessageLogger {
   @Override
   public void logAllMessages(List<FileContentMessage> logMessages) {
     for (FileContentMessage message : logMessages) {
-      messages.add(message);
+      this.messages.add(message);
       System.out.println(message.getMessage());
     }
   }
 
   public void clear() {
-    messages.clear();
+    this.messages.clear();
   }
 
   public List<FileContentMessage> getMessages() {
-    return messages;
+    return this.messages;
   }
 }

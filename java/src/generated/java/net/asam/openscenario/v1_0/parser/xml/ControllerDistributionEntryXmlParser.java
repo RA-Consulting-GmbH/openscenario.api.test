@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -52,41 +50,17 @@ public class ControllerDistributionEntryXmlParser
    */
   public ControllerDistributionEntryXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      ControllerDistributionEntryImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ControllerDistributionEntry",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ControllerDistributionEntry",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ControllerDistributionEntryImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ControllerDistributionEntryImpl>> result =
-        new Hashtable<String, IAttributeParser<ControllerDistributionEntryImpl>>();
+    Map<String, IAttributeParser<ControllerDistributionEntryImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__WEIGHT,
         new IAttributeParser<ControllerDistributionEntryImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -96,9 +70,15 @@ public class ControllerDistributionEntryXmlParser
               ControllerDistributionEntryImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ControllerDistributionEntryXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ControllerDistributionEntryXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__WEIGHT, stripDollarSign(attributeValue), startMarker);
@@ -133,22 +113,26 @@ public class ControllerDistributionEntryXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ControllerDistributionEntryImpl>> createParserList() {
-      List<IElementParser<ControllerDistributionEntryImpl>> result =
-          new ArrayList<IElementParser<ControllerDistributionEntryImpl>>();
+      List<IElementParser<ControllerDistributionEntryImpl>> result = new ArrayList<>();
       result.add(new SubElementControllerParser());
       result.add(new SubElementCatalogReferenceParser());
       return result;
     }
   }
   /** A parser for subelement controller */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControllerParser
       implements IElementParser<ControllerDistributionEntryImpl> {
 
     /** Constructor */
     public SubElementControllerParser() {
       super();
-      controllerXmlParser = new ControllerXmlParser(messageLogger, filename);
+      this.controllerXmlParser =
+          new ControllerXmlParser(
+              ControllerDistributionEntryXmlParser.this.messageLogger,
+              ControllerDistributionEntryXmlParser.this.filename);
     }
 
     private ControllerXmlParser controllerXmlParser;
@@ -161,7 +145,7 @@ public class ControllerDistributionEntryXmlParser
       ControllerImpl controller = new ControllerImpl();
       // Setting the parent
       controller.setParent(object);
-      controllerXmlParser.parseElement(indexedElement, parserContext, controller);
+      this.controllerXmlParser.parseElement(indexedElement, parserContext, controller);
 
       object.setController(controller);
     }
@@ -187,13 +171,17 @@ public class ControllerDistributionEntryXmlParser
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser
       implements IElementParser<ControllerDistributionEntryImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              ControllerDistributionEntryXmlParser.this.messageLogger,
+              ControllerDistributionEntryXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -206,7 +194,7 @@ public class ControllerDistributionEntryXmlParser
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);

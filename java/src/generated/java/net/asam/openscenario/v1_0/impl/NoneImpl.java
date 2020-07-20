@@ -41,12 +41,8 @@ import net.asam.openscenario.v1_0.api.INone;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class NoneImpl extends BaseImpl implements INone, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class NoneImpl extends BaseImpl implements INone {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Default constructor */
   public NoneImpl() {
@@ -55,13 +51,16 @@ public class NoneImpl extends BaseImpl implements INone, Cloneable {
     addAdapter(INone.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -74,8 +73,9 @@ public class NoneImpl extends BaseImpl implements INone, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -86,6 +86,7 @@ public class NoneImpl extends BaseImpl implements INone, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public NoneImpl clone() {
     NoneImpl clonedObject = new NoneImpl();
     cloneStartMarker(clonedObject);
@@ -144,6 +145,7 @@ public class NoneImpl extends BaseImpl implements INone, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

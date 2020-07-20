@@ -47,8 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLanePosition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLanePosition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -70,33 +70,34 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
     addAdapter(IRelativeLanePosition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public Integer getDLane() {
-    return dLane;
+    return this.dLane;
   }
 
   @Override
   public Double getDs() {
-    return ds;
+    return this.ds;
   }
 
   @Override
   public Double getOffset() {
-    return offset;
+    return this.offset;
   }
 
   @Override
   public IOrientation getOrientation() {
-    return orientation;
+    return this.orientation;
   }
   /**
    * Sets the value of model property entityRef
@@ -148,23 +149,26 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__D_LANE)) {
       // Simple type
-      dLane = ParserHelper.parseInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.dLane =
+          ParserHelper.parseInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DS)) {
       // Simple type
-      ds = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.ds =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__OFFSET)) {
       // Simple type
-      offset = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.offset =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -180,8 +184,9 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IOrientation orientation = null;
     orientation = getOrientation();
@@ -197,6 +202,7 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RelativeLanePositionImpl clone() {
     RelativeLanePositionImpl clonedObject = new RelativeLanePositionImpl();
     cloneStartMarker(clonedObject);
@@ -238,9 +244,8 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -255,9 +260,8 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
     }
     if (key.equals(OscConstants.ATTRIBUTE__D_LANE)) {
       return getDLane();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -269,9 +273,8 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
       return getDs();
     } else if (key.equals(OscConstants.ATTRIBUTE__OFFSET)) {
       return getOffset();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -296,14 +299,14 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
     }
     if (key.equals(OscConstants.ELEMENT__ORIENTATION)) {
       return (IOpenScenarioFlexElement) getOrientation();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -322,9 +325,8 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

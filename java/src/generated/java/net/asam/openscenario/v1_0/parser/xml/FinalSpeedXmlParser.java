@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,35 +46,12 @@ public class FinalSpeedXmlParser extends XmlComplexTypeParser<FinalSpeedImpl> {
    */
   public FinalSpeedXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, FinalSpeedImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing FinalSpeed",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing FinalSpeed",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<FinalSpeedImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<FinalSpeedImpl>> result =
-        new Hashtable<String, IAttributeParser<FinalSpeedImpl>>();
+    Map<String, IAttributeParser<FinalSpeedImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,20 +69,24 @@ public class FinalSpeedXmlParser extends XmlComplexTypeParser<FinalSpeedImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<FinalSpeedImpl>> createParserList() {
-      List<IElementParser<FinalSpeedImpl>> result = new ArrayList<IElementParser<FinalSpeedImpl>>();
+      List<IElementParser<FinalSpeedImpl>> result = new ArrayList<>();
       result.add(new SubElementAbsoluteSpeedParser());
       result.add(new SubElementRelativeSpeedToMasterParser());
       return result;
     }
   }
   /** A parser for subelement absoluteSpeed */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAbsoluteSpeedParser implements IElementParser<FinalSpeedImpl> {
 
     /** Constructor */
     public SubElementAbsoluteSpeedParser() {
       super();
-      absoluteSpeedXmlParser = new AbsoluteSpeedXmlParser(messageLogger, filename);
+      this.absoluteSpeedXmlParser =
+          new AbsoluteSpeedXmlParser(
+              FinalSpeedXmlParser.this.messageLogger, FinalSpeedXmlParser.this.filename);
     }
 
     private AbsoluteSpeedXmlParser absoluteSpeedXmlParser;
@@ -119,7 +97,7 @@ public class FinalSpeedXmlParser extends XmlComplexTypeParser<FinalSpeedImpl> {
       AbsoluteSpeedImpl absoluteSpeed = new AbsoluteSpeedImpl();
       // Setting the parent
       absoluteSpeed.setParent(object);
-      absoluteSpeedXmlParser.parseElement(indexedElement, parserContext, absoluteSpeed);
+      this.absoluteSpeedXmlParser.parseElement(indexedElement, parserContext, absoluteSpeed);
 
       object.setAbsoluteSpeed(absoluteSpeed);
     }
@@ -145,12 +123,15 @@ public class FinalSpeedXmlParser extends XmlComplexTypeParser<FinalSpeedImpl> {
     }
   }
   /** A parser for subelement relativeSpeedToMaster */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRelativeSpeedToMasterParser implements IElementParser<FinalSpeedImpl> {
 
     /** Constructor */
     public SubElementRelativeSpeedToMasterParser() {
       super();
-      relativeSpeedToMasterXmlParser = new RelativeSpeedToMasterXmlParser(messageLogger, filename);
+      this.relativeSpeedToMasterXmlParser =
+          new RelativeSpeedToMasterXmlParser(
+              FinalSpeedXmlParser.this.messageLogger, FinalSpeedXmlParser.this.filename);
     }
 
     private RelativeSpeedToMasterXmlParser relativeSpeedToMasterXmlParser;
@@ -161,7 +142,7 @@ public class FinalSpeedXmlParser extends XmlComplexTypeParser<FinalSpeedImpl> {
       RelativeSpeedToMasterImpl relativeSpeedToMaster = new RelativeSpeedToMasterImpl();
       // Setting the parent
       relativeSpeedToMaster.setParent(object);
-      relativeSpeedToMasterXmlParser.parseElement(
+      this.relativeSpeedToMasterXmlParser.parseElement(
           indexedElement, parserContext, relativeSpeedToMaster);
 
       object.setRelativeSpeedToMaster(relativeSpeedToMaster);

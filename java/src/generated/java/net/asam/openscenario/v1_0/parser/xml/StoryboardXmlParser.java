@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -51,35 +48,12 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
    */
   public StoryboardXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, StoryboardImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Storyboard",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Storyboard",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<StoryboardImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<StoryboardImpl>> result =
-        new Hashtable<String, IAttributeParser<StoryboardImpl>>();
+    Map<String, IAttributeParser<StoryboardImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,8 +71,9 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<StoryboardImpl>> createParserList() {
-      List<IElementParser<StoryboardImpl>> result = new ArrayList<IElementParser<StoryboardImpl>>();
+      List<IElementParser<StoryboardImpl>> result = new ArrayList<>();
       result.add(new SubElementInitParser());
       result.add(new SubElementStoriesParser());
       result.add(new SubElementStopTriggerParser());
@@ -106,12 +81,15 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
     }
   }
   /** A parser for subelement init */
+  @SuppressWarnings("synthetic-access")
   private class SubElementInitParser implements IElementParser<StoryboardImpl> {
 
     /** Constructor */
     public SubElementInitParser() {
       super();
-      initXmlParser = new InitXmlParser(messageLogger, filename);
+      this.initXmlParser =
+          new InitXmlParser(
+              StoryboardXmlParser.this.messageLogger, StoryboardXmlParser.this.filename);
     }
 
     private InitXmlParser initXmlParser;
@@ -122,7 +100,7 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
       InitImpl init = new InitImpl();
       // Setting the parent
       init.setParent(object);
-      initXmlParser.parseElement(indexedElement, parserContext, init);
+      this.initXmlParser.parseElement(indexedElement, parserContext, init);
 
       object.setInit(init);
     }
@@ -148,12 +126,15 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
     }
   }
   /** A parser for subelement stories */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStoriesParser implements IElementParser<StoryboardImpl> {
 
     /** Constructor */
     public SubElementStoriesParser() {
       super();
-      storyXmlParser = new StoryXmlParser(messageLogger, filename);
+      this.storyXmlParser =
+          new StoryXmlParser(
+              StoryboardXmlParser.this.messageLogger, StoryboardXmlParser.this.filename);
     }
 
     private StoryXmlParser storyXmlParser;
@@ -164,10 +145,10 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
       StoryImpl stories = new StoryImpl();
       // Setting the parent
       stories.setParent(object);
-      storyXmlParser.parseElement(indexedElement, parserContext, stories);
+      this.storyXmlParser.parseElement(indexedElement, parserContext, stories);
       List<IStory> storiesList = object.getStories();
       if (storiesList == null) {
-        storiesList = new ArrayList<IStory>();
+        storiesList = new ArrayList<>();
         object.setStories(storiesList);
       }
       storiesList.add(stories);
@@ -194,12 +175,15 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
     }
   }
   /** A parser for subelement stopTrigger */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStopTriggerParser implements IElementParser<StoryboardImpl> {
 
     /** Constructor */
     public SubElementStopTriggerParser() {
       super();
-      triggerXmlParser = new TriggerXmlParser(messageLogger, filename);
+      this.triggerXmlParser =
+          new TriggerXmlParser(
+              StoryboardXmlParser.this.messageLogger, StoryboardXmlParser.this.filename);
     }
 
     private TriggerXmlParser triggerXmlParser;
@@ -210,7 +194,7 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
       TriggerImpl stopTrigger = new TriggerImpl();
       // Setting the parent
       stopTrigger.setParent(object);
-      triggerXmlParser.parseElement(indexedElement, parserContext, stopTrigger);
+      this.triggerXmlParser.parseElement(indexedElement, parserContext, stopTrigger);
 
       object.setStopTrigger(stopTrigger);
     }

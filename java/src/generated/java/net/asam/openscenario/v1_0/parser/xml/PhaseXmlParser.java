@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,38 +48,16 @@ public class PhaseXmlParser extends XmlComplexTypeParser<PhaseImpl> {
    */
   public PhaseXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PhaseImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Phase",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Phase",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PhaseImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PhaseImpl>> result =
-        new Hashtable<String, IAttributeParser<PhaseImpl>>();
+    Map<String, IAttributeParser<PhaseImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<PhaseImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -91,9 +67,13 @@ public class PhaseXmlParser extends XmlComplexTypeParser<PhaseImpl> {
               PhaseImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PhaseXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), PhaseXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -114,6 +94,7 @@ public class PhaseXmlParser extends XmlComplexTypeParser<PhaseImpl> {
     result.put(
         OscConstants.ATTRIBUTE__DURATION,
         new IAttributeParser<PhaseImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -123,9 +104,13 @@ public class PhaseXmlParser extends XmlComplexTypeParser<PhaseImpl> {
               PhaseImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PhaseXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), PhaseXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DURATION, stripDollarSign(attributeValue), startMarker);
@@ -160,19 +145,23 @@ public class PhaseXmlParser extends XmlComplexTypeParser<PhaseImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PhaseImpl>> createParserList() {
-      List<IElementParser<PhaseImpl>> result = new ArrayList<IElementParser<PhaseImpl>>();
+      List<IElementParser<PhaseImpl>> result = new ArrayList<>();
       result.add(new SubElementTrafficSignalStatesParser());
       return result;
     }
   }
   /** A parser for subelement trafficSignalStates */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSignalStatesParser implements IElementParser<PhaseImpl> {
 
     /** Constructor */
     public SubElementTrafficSignalStatesParser() {
       super();
-      trafficSignalStateXmlParser = new TrafficSignalStateXmlParser(messageLogger, filename);
+      this.trafficSignalStateXmlParser =
+          new TrafficSignalStateXmlParser(
+              PhaseXmlParser.this.messageLogger, PhaseXmlParser.this.filename);
     }
 
     private TrafficSignalStateXmlParser trafficSignalStateXmlParser;
@@ -183,10 +172,11 @@ public class PhaseXmlParser extends XmlComplexTypeParser<PhaseImpl> {
       TrafficSignalStateImpl trafficSignalStates = new TrafficSignalStateImpl();
       // Setting the parent
       trafficSignalStates.setParent(object);
-      trafficSignalStateXmlParser.parseElement(indexedElement, parserContext, trafficSignalStates);
+      this.trafficSignalStateXmlParser.parseElement(
+          indexedElement, parserContext, trafficSignalStates);
       List<ITrafficSignalState> trafficSignalStatesList = object.getTrafficSignalStates();
       if (trafficSignalStatesList == null) {
-        trafficSignalStatesList = new ArrayList<ITrafficSignalState>();
+        trafficSignalStatesList = new ArrayList<>();
         object.setTrafficSignalStates(trafficSignalStatesList);
       }
       trafficSignalStatesList.add(trafficSignalStates);

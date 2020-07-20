@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRoutePosition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference to the route the position is calculated
    * from.
@@ -36,7 +35,6 @@ public interface IRoutePosition extends IOpenScenarioModelElement {
    * @return value of model property routeRef
    */
   public IRouteRef getRouteRef();
-
   /**
    * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
    * to the referenced road's s and t coordinates, to the current lane's s and t coordinates or to
@@ -45,7 +43,6 @@ public interface IRoutePosition extends IOpenScenarioModelElement {
    * @return value of model property orientation
    */
   public IOrientation getOrientation();
-
   /**
    * From OpenSCENARIO class model specification: Position along the route.
    *

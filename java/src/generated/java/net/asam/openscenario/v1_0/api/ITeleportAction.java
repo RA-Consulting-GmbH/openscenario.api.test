@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITeleportAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The position the entity/entities are teleported
    * to.

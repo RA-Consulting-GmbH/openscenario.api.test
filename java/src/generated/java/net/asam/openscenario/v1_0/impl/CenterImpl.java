@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CenterImpl extends BaseImpl implements ICenter, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class CenterImpl extends BaseImpl implements ICenter {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class CenterImpl extends BaseImpl implements ICenter, Cloneable {
     addAdapter(ICenter.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getX() {
-    return x;
+    return this.x;
   }
 
   @Override
   public Double getY() {
-    return y;
+    return this.y;
   }
 
   @Override
   public Double getZ() {
-    return z;
+    return this.z;
   }
   /**
    * Sets the value of model property x
@@ -111,17 +112,17 @@ public class CenterImpl extends BaseImpl implements ICenter, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__X)) {
       // Simple type
-      x = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.x = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__Y)) {
       // Simple type
-      y = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.y = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__Z)) {
       // Simple type
-      z = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.z = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -137,8 +138,9 @@ public class CenterImpl extends BaseImpl implements ICenter, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -149,6 +151,7 @@ public class CenterImpl extends BaseImpl implements ICenter, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public CenterImpl clone() {
     CenterImpl clonedObject = new CenterImpl();
     cloneStartMarker(clonedObject);
@@ -196,9 +199,8 @@ public class CenterImpl extends BaseImpl implements ICenter, Cloneable {
       return getY();
     } else if (key.equals(OscConstants.ATTRIBUTE__Z)) {
       return getZ();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -224,6 +226,7 @@ public class CenterImpl extends BaseImpl implements ICenter, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

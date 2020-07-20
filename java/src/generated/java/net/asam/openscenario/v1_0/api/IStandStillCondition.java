@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IStandStillCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Duration time of still standing to let the logical
    * expression become true. Unit: s. Range [0..inf[.

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.WrappedListParser;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
@@ -51,35 +48,12 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
    */
   public RoadNetworkXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RoadNetworkImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RoadNetwork",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RoadNetwork",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RoadNetworkImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RoadNetworkImpl>> result =
-        new Hashtable<String, IAttributeParser<RoadNetworkImpl>>();
+    Map<String, IAttributeParser<RoadNetworkImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,27 +71,31 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<RoadNetworkImpl>> createParserList() {
-      List<IElementParser<RoadNetworkImpl>> result =
-          new ArrayList<IElementParser<RoadNetworkImpl>>();
+      List<IElementParser<RoadNetworkImpl>> result = new ArrayList<>();
       result.add(new SubElementLogicFileParser());
       result.add(new SubElementSceneGraphFileParser());
       result.add(
-          new WrappedListParser<RoadNetworkImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              RoadNetworkXmlParser.this.filename,
               new SubElementTrafficSignalsParser(),
               OscConstants.ELEMENT__TRAFFIC_SIGNALS));
       return result;
     }
   }
   /** A parser for subelement logicFile */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLogicFileParser implements IElementParser<RoadNetworkImpl> {
 
     /** Constructor */
     public SubElementLogicFileParser() {
       super();
-      fileXmlParser = new FileXmlParser(messageLogger, filename);
+      this.fileXmlParser =
+          new FileXmlParser(
+              RoadNetworkXmlParser.this.messageLogger, RoadNetworkXmlParser.this.filename);
     }
 
     private FileXmlParser fileXmlParser;
@@ -128,7 +106,7 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
       FileImpl logicFile = new FileImpl();
       // Setting the parent
       logicFile.setParent(object);
-      fileXmlParser.parseElement(indexedElement, parserContext, logicFile);
+      this.fileXmlParser.parseElement(indexedElement, parserContext, logicFile);
 
       object.setLogicFile(logicFile);
     }
@@ -154,12 +132,15 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
     }
   }
   /** A parser for subelement sceneGraphFile */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSceneGraphFileParser implements IElementParser<RoadNetworkImpl> {
 
     /** Constructor */
     public SubElementSceneGraphFileParser() {
       super();
-      fileXmlParser = new FileXmlParser(messageLogger, filename);
+      this.fileXmlParser =
+          new FileXmlParser(
+              RoadNetworkXmlParser.this.messageLogger, RoadNetworkXmlParser.this.filename);
     }
 
     private FileXmlParser fileXmlParser;
@@ -170,7 +151,7 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
       FileImpl sceneGraphFile = new FileImpl();
       // Setting the parent
       sceneGraphFile.setParent(object);
-      fileXmlParser.parseElement(indexedElement, parserContext, sceneGraphFile);
+      this.fileXmlParser.parseElement(indexedElement, parserContext, sceneGraphFile);
 
       object.setSceneGraphFile(sceneGraphFile);
     }
@@ -196,13 +177,15 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
     }
   }
   /** A parser for subelement trafficSignals */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSignalsParser implements IElementParser<RoadNetworkImpl> {
 
     /** Constructor */
     public SubElementTrafficSignalsParser() {
       super();
-      trafficSignalControllerXmlParser =
-          new TrafficSignalControllerXmlParser(messageLogger, filename);
+      this.trafficSignalControllerXmlParser =
+          new TrafficSignalControllerXmlParser(
+              RoadNetworkXmlParser.this.messageLogger, RoadNetworkXmlParser.this.filename);
     }
 
     private TrafficSignalControllerXmlParser trafficSignalControllerXmlParser;
@@ -213,10 +196,11 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
       TrafficSignalControllerImpl trafficSignals = new TrafficSignalControllerImpl();
       // Setting the parent
       trafficSignals.setParent(object);
-      trafficSignalControllerXmlParser.parseElement(indexedElement, parserContext, trafficSignals);
+      this.trafficSignalControllerXmlParser.parseElement(
+          indexedElement, parserContext, trafficSignals);
       List<ITrafficSignalController> trafficSignalsList = object.getTrafficSignals();
       if (trafficSignalsList == null) {
-        trafficSignalsList = new ArrayList<ITrafficSignalController>();
+        trafficSignalsList = new ArrayList<>();
         object.setTrafficSignals(trafficSignalsList);
       }
       trafficSignalsList.add(trafficSignals);

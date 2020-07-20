@@ -49,12 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByValueConditionImpl extends BaseImpl implements IByValueCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ByValueConditionImpl extends BaseImpl implements IByValueCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IParameterCondition parameterCondition;
   private ITimeOfDayCondition timeOfDayCondition;
@@ -70,43 +66,44 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition,
     addAdapter(IByValueCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IParameterCondition getParameterCondition() {
-    return parameterCondition;
+    return this.parameterCondition;
   }
 
   @Override
   public ITimeOfDayCondition getTimeOfDayCondition() {
-    return timeOfDayCondition;
+    return this.timeOfDayCondition;
   }
 
   @Override
   public ISimulationTimeCondition getSimulationTimeCondition() {
-    return simulationTimeCondition;
+    return this.simulationTimeCondition;
   }
 
   @Override
   public IStoryboardElementStateCondition getStoryboardElementStateCondition() {
-    return storyboardElementStateCondition;
+    return this.storyboardElementStateCondition;
   }
 
   @Override
   public IUserDefinedValueCondition getUserDefinedValueCondition() {
-    return userDefinedValueCondition;
+    return this.userDefinedValueCondition;
   }
 
   @Override
   public ITrafficSignalCondition getTrafficSignalCondition() {
-    return trafficSignalCondition;
+    return this.trafficSignalCondition;
   }
 
   @Override
   public ITrafficSignalControllerCondition getTrafficSignalControllerCondition() {
-    return trafficSignalControllerCondition;
+    return this.trafficSignalControllerCondition;
   }
   /**
    * Sets the value of model property parameterCondition
@@ -177,7 +174,9 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition,
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -190,8 +189,9 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IParameterCondition parameterCondition = null;
     parameterCondition = getParameterCondition();
@@ -237,6 +237,7 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ByValueConditionImpl clone() {
     ByValueConditionImpl clonedObject = new ByValueConditionImpl();
     cloneStartMarker(clonedObject);
@@ -348,26 +349,32 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition,
     }
     if (key.equals(OscConstants.ELEMENT__PARAMETER_CONDITION)) {
       return (IOpenScenarioFlexElement) getParameterCondition();
-    } else if (key.equals(OscConstants.ELEMENT__TIME_OF_DAY_CONDITION)) {
-      return (IOpenScenarioFlexElement) getTimeOfDayCondition();
-    } else if (key.equals(OscConstants.ELEMENT__SIMULATION_TIME_CONDITION)) {
-      return (IOpenScenarioFlexElement) getSimulationTimeCondition();
-    } else if (key.equals(OscConstants.ELEMENT__STORYBOARD_ELEMENT_STATE_CONDITION)) {
-      return (IOpenScenarioFlexElement) getStoryboardElementStateCondition();
-    } else if (key.equals(OscConstants.ELEMENT__USER_DEFINED_VALUE_CONDITION)) {
-      return (IOpenScenarioFlexElement) getUserDefinedValueCondition();
-    } else if (key.equals(OscConstants.ELEMENT__TRAFFIC_SIGNAL_CONDITION)) {
-      return (IOpenScenarioFlexElement) getTrafficSignalCondition();
-    } else if (key.equals(OscConstants.ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_CONDITION)) {
-      return (IOpenScenarioFlexElement) getTrafficSignalControllerCondition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__TIME_OF_DAY_CONDITION)) {
+      return (IOpenScenarioFlexElement) getTimeOfDayCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__SIMULATION_TIME_CONDITION)) {
+      return (IOpenScenarioFlexElement) getSimulationTimeCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__STORYBOARD_ELEMENT_STATE_CONDITION)) {
+      return (IOpenScenarioFlexElement) getStoryboardElementStateCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__USER_DEFINED_VALUE_CONDITION)) {
+      return (IOpenScenarioFlexElement) getUserDefinedValueCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__TRAFFIC_SIGNAL_CONDITION)) {
+      return (IOpenScenarioFlexElement) getTrafficSignalCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_CONDITION)) {
+      return (IOpenScenarioFlexElement) getTrafficSignalControllerCondition();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

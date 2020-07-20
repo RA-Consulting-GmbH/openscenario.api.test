@@ -52,38 +52,16 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
    */
   public WeatherXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, WeatherImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Weather",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Weather",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<WeatherImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<WeatherImpl>> result =
-        new Hashtable<String, IAttributeParser<WeatherImpl>>();
+    Map<String, IAttributeParser<WeatherImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__CLOUD_STATE,
         new IAttributeParser<WeatherImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +71,13 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
               WeatherImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    WeatherXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), WeatherXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CLOUD_STATE,
@@ -108,7 +90,7 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
               if (result != null) {
                 object.setCloudState(result);
               } else {
-                messageLogger.logMessage(
+                WeatherXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -141,8 +123,9 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<WeatherImpl>> createParserList() {
-      List<IElementParser<WeatherImpl>> result = new ArrayList<IElementParser<WeatherImpl>>();
+      List<IElementParser<WeatherImpl>> result = new ArrayList<>();
       result.add(new SubElementSunParser());
       result.add(new SubElementFogParser());
       result.add(new SubElementPrecipitationParser());
@@ -150,12 +133,14 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
     }
   }
   /** A parser for subelement sun */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSunParser implements IElementParser<WeatherImpl> {
 
     /** Constructor */
     public SubElementSunParser() {
       super();
-      sunXmlParser = new SunXmlParser(messageLogger, filename);
+      this.sunXmlParser =
+          new SunXmlParser(WeatherXmlParser.this.messageLogger, WeatherXmlParser.this.filename);
     }
 
     private SunXmlParser sunXmlParser;
@@ -166,7 +151,7 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
       SunImpl sun = new SunImpl();
       // Setting the parent
       sun.setParent(object);
-      sunXmlParser.parseElement(indexedElement, parserContext, sun);
+      this.sunXmlParser.parseElement(indexedElement, parserContext, sun);
 
       object.setSun(sun);
     }
@@ -192,12 +177,14 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
     }
   }
   /** A parser for subelement fog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFogParser implements IElementParser<WeatherImpl> {
 
     /** Constructor */
     public SubElementFogParser() {
       super();
-      fogXmlParser = new FogXmlParser(messageLogger, filename);
+      this.fogXmlParser =
+          new FogXmlParser(WeatherXmlParser.this.messageLogger, WeatherXmlParser.this.filename);
     }
 
     private FogXmlParser fogXmlParser;
@@ -208,7 +195,7 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
       FogImpl fog = new FogImpl();
       // Setting the parent
       fog.setParent(object);
-      fogXmlParser.parseElement(indexedElement, parserContext, fog);
+      this.fogXmlParser.parseElement(indexedElement, parserContext, fog);
 
       object.setFog(fog);
     }
@@ -234,12 +221,15 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
     }
   }
   /** A parser for subelement precipitation */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPrecipitationParser implements IElementParser<WeatherImpl> {
 
     /** Constructor */
     public SubElementPrecipitationParser() {
       super();
-      precipitationXmlParser = new PrecipitationXmlParser(messageLogger, filename);
+      this.precipitationXmlParser =
+          new PrecipitationXmlParser(
+              WeatherXmlParser.this.messageLogger, WeatherXmlParser.this.filename);
     }
 
     private PrecipitationXmlParser precipitationXmlParser;
@@ -250,7 +240,7 @@ public class WeatherXmlParser extends XmlComplexTypeParser<WeatherImpl> {
       PrecipitationImpl precipitation = new PrecipitationImpl();
       // Setting the parent
       precipitation.setParent(object);
-      precipitationXmlParser.parseElement(indexedElement, parserContext, precipitation);
+      this.precipitationXmlParser.parseElement(indexedElement, parserContext, precipitation);
 
       object.setPrecipitation(precipitation);
     }

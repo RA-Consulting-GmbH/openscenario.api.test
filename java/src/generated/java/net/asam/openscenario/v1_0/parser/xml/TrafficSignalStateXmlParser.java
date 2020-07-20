@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.TrafficSignalStateImpl;
 import net.asam.xml.indexer.Position;
@@ -48,39 +44,17 @@ public class TrafficSignalStateXmlParser extends XmlComplexTypeParser<TrafficSig
    */
   public TrafficSignalStateXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrafficSignalStateImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficSignalState",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficSignalState",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficSignalStateImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficSignalStateImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficSignalStateImpl>>();
+    Map<String, IAttributeParser<TrafficSignalStateImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_ID,
         new IAttributeParser<TrafficSignalStateImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +64,15 @@ public class TrafficSignalStateXmlParser extends XmlComplexTypeParser<TrafficSig
               TrafficSignalStateImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSignalStateXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSignalStateXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_ID,
@@ -115,6 +95,7 @@ public class TrafficSignalStateXmlParser extends XmlComplexTypeParser<TrafficSig
     result.put(
         OscConstants.ATTRIBUTE__STATE,
         new IAttributeParser<TrafficSignalStateImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -124,9 +105,15 @@ public class TrafficSignalStateXmlParser extends XmlComplexTypeParser<TrafficSig
               TrafficSignalStateImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSignalStateXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSignalStateXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__STATE, stripDollarSign(attributeValue), startMarker);
@@ -161,9 +148,9 @@ public class TrafficSignalStateXmlParser extends XmlComplexTypeParser<TrafficSig
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficSignalStateImpl>> createParserList() {
-      List<IElementParser<TrafficSignalStateImpl>> result =
-          new ArrayList<IElementParser<TrafficSignalStateImpl>>();
+      List<IElementParser<TrafficSignalStateImpl>> result = new ArrayList<>();
       return result;
     }
   }

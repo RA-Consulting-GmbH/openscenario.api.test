@@ -18,10 +18,7 @@ package net.asam.openscenario.v1_0.parser.xml;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlGroupParser;
@@ -50,29 +47,7 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
    */
   public EntityObjectXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, EntityObjectImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing EntityObject",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing EntityObject",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   /** Parser for all subelements */
@@ -89,9 +64,9 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<EntityObjectImpl>> createParserList() {
-      List<IElementParser<EntityObjectImpl>> result =
-          new ArrayList<IElementParser<EntityObjectImpl>>();
+      List<IElementParser<EntityObjectImpl>> result = new ArrayList<>();
       result.add(new SubElementCatalogReferenceParser());
       result.add(new SubElementVehicleParser());
       result.add(new SubElementPedestrianParser());
@@ -100,12 +75,15 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser implements IElementParser<EntityObjectImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              EntityObjectXmlParser.this.messageLogger, EntityObjectXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -116,7 +94,7 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);
@@ -143,12 +121,15 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
     }
   }
   /** A parser for subelement vehicle */
+  @SuppressWarnings("synthetic-access")
   private class SubElementVehicleParser implements IElementParser<EntityObjectImpl> {
 
     /** Constructor */
     public SubElementVehicleParser() {
       super();
-      vehicleXmlParser = new VehicleXmlParser(messageLogger, filename);
+      this.vehicleXmlParser =
+          new VehicleXmlParser(
+              EntityObjectXmlParser.this.messageLogger, EntityObjectXmlParser.this.filename);
     }
 
     private VehicleXmlParser vehicleXmlParser;
@@ -159,7 +140,7 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
       VehicleImpl vehicle = new VehicleImpl();
       // Setting the parent
       vehicle.setParent(object);
-      vehicleXmlParser.parseElement(indexedElement, parserContext, vehicle);
+      this.vehicleXmlParser.parseElement(indexedElement, parserContext, vehicle);
 
       object.setVehicle(vehicle);
     }
@@ -185,12 +166,15 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
     }
   }
   /** A parser for subelement pedestrian */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPedestrianParser implements IElementParser<EntityObjectImpl> {
 
     /** Constructor */
     public SubElementPedestrianParser() {
       super();
-      pedestrianXmlParser = new PedestrianXmlParser(messageLogger, filename);
+      this.pedestrianXmlParser =
+          new PedestrianXmlParser(
+              EntityObjectXmlParser.this.messageLogger, EntityObjectXmlParser.this.filename);
     }
 
     private PedestrianXmlParser pedestrianXmlParser;
@@ -201,7 +185,7 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
       PedestrianImpl pedestrian = new PedestrianImpl();
       // Setting the parent
       pedestrian.setParent(object);
-      pedestrianXmlParser.parseElement(indexedElement, parserContext, pedestrian);
+      this.pedestrianXmlParser.parseElement(indexedElement, parserContext, pedestrian);
 
       object.setPedestrian(pedestrian);
     }
@@ -227,12 +211,15 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
     }
   }
   /** A parser for subelement miscObject */
+  @SuppressWarnings("synthetic-access")
   private class SubElementMiscObjectParser implements IElementParser<EntityObjectImpl> {
 
     /** Constructor */
     public SubElementMiscObjectParser() {
       super();
-      miscObjectXmlParser = new MiscObjectXmlParser(messageLogger, filename);
+      this.miscObjectXmlParser =
+          new MiscObjectXmlParser(
+              EntityObjectXmlParser.this.messageLogger, EntityObjectXmlParser.this.filename);
     }
 
     private MiscObjectXmlParser miscObjectXmlParser;
@@ -243,7 +230,7 @@ public class EntityObjectXmlParser extends XmlGroupParser<EntityObjectImpl> {
       MiscObjectImpl miscObject = new MiscObjectImpl();
       // Setting the parent
       miscObject.setParent(object);
-      miscObjectXmlParser.parseElement(indexedElement, parserContext, miscObject);
+      this.miscObjectXmlParser.parseElement(indexedElement, parserContext, miscObject);
 
       object.setMiscObject(miscObject);
     }

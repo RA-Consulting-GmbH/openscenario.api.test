@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOffroadCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Amount of time of driving offroad. Unit: s; Range:
    * [0..inf[.

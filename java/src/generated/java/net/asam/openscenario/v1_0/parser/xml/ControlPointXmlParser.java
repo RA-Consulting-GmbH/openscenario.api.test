@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -49,38 +47,16 @@ public class ControlPointXmlParser extends XmlComplexTypeParser<ControlPointImpl
    */
   public ControlPointXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ControlPointImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ControlPoint",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ControlPoint",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ControlPointImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ControlPointImpl>> result =
-        new Hashtable<String, IAttributeParser<ControlPointImpl>>();
+    Map<String, IAttributeParser<ControlPointImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__TIME,
         new IAttributeParser<ControlPointImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +66,15 @@ public class ControlPointXmlParser extends XmlComplexTypeParser<ControlPointImpl
               ControlPointImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ControlPointXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ControlPointXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TIME, stripDollarSign(attributeValue), startMarker);
@@ -113,6 +95,7 @@ public class ControlPointXmlParser extends XmlComplexTypeParser<ControlPointImpl
     result.put(
         OscConstants.ATTRIBUTE__WEIGHT,
         new IAttributeParser<ControlPointImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -122,9 +105,15 @@ public class ControlPointXmlParser extends XmlComplexTypeParser<ControlPointImpl
               ControlPointImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ControlPointXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ControlPointXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__WEIGHT, stripDollarSign(attributeValue), startMarker);
@@ -159,20 +148,23 @@ public class ControlPointXmlParser extends XmlComplexTypeParser<ControlPointImpl
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ControlPointImpl>> createParserList() {
-      List<IElementParser<ControlPointImpl>> result =
-          new ArrayList<IElementParser<ControlPointImpl>>();
+      List<IElementParser<ControlPointImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<ControlPointImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              ControlPointXmlParser.this.messageLogger, ControlPointXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -183,7 +175,7 @@ public class ControlPointXmlParser extends XmlComplexTypeParser<ControlPointImpl
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

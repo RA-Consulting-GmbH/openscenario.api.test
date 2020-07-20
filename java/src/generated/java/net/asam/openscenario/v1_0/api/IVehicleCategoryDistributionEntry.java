@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IVehicleCategoryDistributionEntry extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The category of the vehicles that appear in
    * traffic.
@@ -36,7 +35,6 @@ public interface IVehicleCategoryDistributionEntry extends IOpenScenarioModelEle
    * @return value of model property category
    */
   public VehicleCategory getCategory();
-
   /**
    * From OpenSCENARIO class model specification: The weight of a vehicle category within a traffic
    * distribution. Range: [0..inf[.

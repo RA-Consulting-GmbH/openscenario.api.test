@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class TimeReferenceImpl extends BaseImpl implements ITimeReference {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private INone none;
   private ITiming timing;
@@ -60,18 +56,19 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
     addAdapter(ITimeReference.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INone getNone() {
-    return none;
+    return this.none;
   }
 
   @Override
   public ITiming getTiming() {
-    return timing;
+    return this.timing;
   }
   /**
    * Sets the value of model property none
@@ -95,7 +92,9 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -108,8 +107,9 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     INone none = null;
     none = getNone();
@@ -130,6 +130,7 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TimeReferenceImpl clone() {
     TimeReferenceImpl clonedObject = new TimeReferenceImpl();
     cloneStartMarker(clonedObject);
@@ -201,16 +202,17 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, Clone
     }
     if (key.equals(OscConstants.ELEMENT__NONE)) {
       return (IOpenScenarioFlexElement) getNone();
-    } else if (key.equals(OscConstants.ELEMENT__TIMING)) {
-      return (IOpenScenarioFlexElement) getTiming();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__TIMING)) {
+      return (IOpenScenarioFlexElement) getTiming();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

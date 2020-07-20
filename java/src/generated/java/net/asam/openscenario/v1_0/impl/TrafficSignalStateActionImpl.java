@@ -44,9 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalStateActionImpl extends BaseImpl
-    implements ITrafficSignalStateAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TrafficSignalStateActionImpl extends BaseImpl implements ITrafficSignalStateAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +62,19 @@ public class TrafficSignalStateActionImpl extends BaseImpl
     addAdapter(ITrafficSignalStateAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public String getState() {
-    return state;
+    return this.state;
   }
   /**
    * Sets the value of model property name
@@ -100,12 +100,14 @@ public class TrafficSignalStateActionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__STATE)) {
       // Simple type
-      state = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.state =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -121,8 +123,9 @@ public class TrafficSignalStateActionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -133,6 +136,7 @@ public class TrafficSignalStateActionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficSignalStateActionImpl clone() {
     TrafficSignalStateActionImpl clonedObject = new TrafficSignalStateActionImpl();
     cloneStartMarker(clonedObject);
@@ -161,9 +165,8 @@ public class TrafficSignalStateActionImpl extends BaseImpl
       return getName();
     } else if (key.equals(OscConstants.ATTRIBUTE__STATE)) {
       return getState();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -204,6 +207,7 @@ public class TrafficSignalStateActionImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

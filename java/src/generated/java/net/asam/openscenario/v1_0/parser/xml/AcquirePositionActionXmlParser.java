@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,38 +46,13 @@ public class AcquirePositionActionXmlParser
    */
   public AcquirePositionActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      AcquirePositionActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing AcquirePositionAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing AcquirePositionAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<AcquirePositionActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<AcquirePositionActionImpl>> result =
-        new Hashtable<String, IAttributeParser<AcquirePositionActionImpl>>();
+    Map<String, IAttributeParser<AcquirePositionActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,20 +70,24 @@ public class AcquirePositionActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<AcquirePositionActionImpl>> createParserList() {
-      List<IElementParser<AcquirePositionActionImpl>> result =
-          new ArrayList<IElementParser<AcquirePositionActionImpl>>();
+      List<IElementParser<AcquirePositionActionImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<AcquirePositionActionImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              AcquirePositionActionXmlParser.this.messageLogger,
+              AcquirePositionActionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -124,7 +100,7 @@ public class AcquirePositionActionXmlParser
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

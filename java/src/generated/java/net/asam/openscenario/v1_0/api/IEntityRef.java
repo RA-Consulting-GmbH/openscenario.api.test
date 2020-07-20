@@ -28,7 +28,6 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IEntityRef extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the reference entity.
    *

@@ -34,6 +34,7 @@ import net.asam.xml.indexer.Position;
  * Generic parsers for wrapped list. An inner parser is wrapped by this parser.
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public class WrappedListParser<T extends BaseImpl> extends XmlParserBase<T>
     implements IElementParser<T> {
@@ -46,9 +47,9 @@ public class WrappedListParser<T extends BaseImpl> extends XmlParserBase<T>
    * Constructor
    *
    * @param messageLogger to log messages during parsing process
-   * @param filename of the file the parser is operationg on.
+   * @param filename of the file the parser is operating on.
    * @param innerParser the inner parser
-   * @param wrapperTagName the tagname that wrapps the list.
+   * @param wrapperTagName the tag name that wraps the list.
    */
   public WrappedListParser(
       IParserMessageLogger messageLogger,
@@ -70,46 +71,46 @@ public class WrappedListParser<T extends BaseImpl> extends XmlParserBase<T>
       String tagName = element.getNodeName();
       Position start = indexedElement.getStartElementLocation();
 
-      if (!innerElementParser.doesMatch(tagName)) {
-        messageLogger.logMessage(
+      if (!this.innerElementParser.doesMatch(tagName)) {
+        this.messageLogger.logMessage(
             new FileContentMessage(
                 "Unknown or unexpected element '" + tagName + "'",
                 ErrorLevel.ERROR,
-                new Textmarker(start.getLine(), start.getColumn(), filename)));
+                new Textmarker(start.getLine(), start.getColumn(), this.filename)));
       } else {
 
-        if (currentOccurs < innerElementParser.getMaxOccur()
-            || innerElementParser.getMaxOccur() == -1) {
-          innerElementParser.parse(indexedElement, parserContext, object);
+        if (currentOccurs < this.innerElementParser.getMaxOccur()
+            || this.innerElementParser.getMaxOccur() == -1) {
+          this.innerElementParser.parse(indexedElement, parserContext, object);
           currentOccurs++;
 
         } else {
-          messageLogger.logMessage(
+          this.messageLogger.logMessage(
               new FileContentMessage(
                   "Too many elements in <"
-                      + wrapperTagName
+                      + this.wrapperTagName
                       + ">  ("
-                      + innerElementParser.getMaxOccur()
+                      + this.innerElementParser.getMaxOccur()
                       + ") has already reached",
                   ErrorLevel.ERROR,
-                  new Textmarker(start.getLine(), start.getColumn(), filename)));
+                  new Textmarker(start.getLine(), start.getColumn(), this.filename)));
         }
       }
     }
 
-    if (currentOccurs < innerElementParser.getMinOccur()) {
-      messageLogger.logMessage(
+    if (currentOccurs < this.innerElementParser.getMinOccur()) {
+      this.messageLogger.logMessage(
           new FileContentMessage(
               "Too few elements in <"
-                  + wrapperTagName
+                  + this.wrapperTagName
                   + ">  ("
-                  + innerElementParser.getMaxOccur()
+                  + this.innerElementParser.getMaxOccur()
                   + " are allowed)",
               ErrorLevel.FATAL,
               new Textmarker(
-                  wrapperTagNameEndPosition.getLine(),
-                  wrapperTagNameEndPosition.getColumn(),
-                  filename)));
+                  this.wrapperTagNameEndPosition.getLine(),
+                  this.wrapperTagNameEndPosition.getColumn(),
+                  this.filename)));
     }
   }
 
@@ -123,7 +124,7 @@ public class WrappedListParser<T extends BaseImpl> extends XmlParserBase<T>
 
   @Override
   public int getMinOccur() {
-    return innerElementParser.getMinOccur() == 0 ? 0 : 1;
+    return this.innerElementParser.getMinOccur() == 0 ? 0 : 1;
   }
 
   @Override
@@ -133,11 +134,11 @@ public class WrappedListParser<T extends BaseImpl> extends XmlParserBase<T>
 
   @Override
   public boolean doesMatch(String elementName) {
-    return elementName != null && elementName.equals(wrapperTagName);
+    return elementName != null && elementName.equals(this.wrapperTagName);
   }
 
   @Override
   public String[] getExpectedTagNames() {
-    return new String[] {wrapperTagName};
+    return new String[] {this.wrapperTagName};
   }
 }

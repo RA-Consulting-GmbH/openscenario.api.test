@@ -27,21 +27,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IControllerDistributionEntry extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The weight of the entry. Range: ]0..inf[.
    *
    * @return value of model property weight
    */
   public Double getWeight();
-
   /**
    * From OpenSCENARIO class model specification: The specified controller type.
    *
    * @return value of model property controller
    */
   public IController getController();
-
   /**
    * From OpenSCENARIO class model specification: A controller type import from a catalog.
    *

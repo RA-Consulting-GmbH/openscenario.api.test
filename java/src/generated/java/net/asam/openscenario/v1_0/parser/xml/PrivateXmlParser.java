@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -52,38 +50,16 @@ public class PrivateXmlParser extends XmlComplexTypeParser<PrivateImpl> {
    */
   public PrivateXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PrivateImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Private",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Private",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PrivateImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PrivateImpl>> result =
-        new Hashtable<String, IAttributeParser<PrivateImpl>>();
+    Map<String, IAttributeParser<PrivateImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<PrivateImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,16 +69,20 @@ public class PrivateXmlParser extends XmlComplexTypeParser<PrivateImpl> {
               PrivateImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PrivateXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), PrivateXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -132,19 +112,23 @@ public class PrivateXmlParser extends XmlComplexTypeParser<PrivateImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PrivateImpl>> createParserList() {
-      List<IElementParser<PrivateImpl>> result = new ArrayList<IElementParser<PrivateImpl>>();
+      List<IElementParser<PrivateImpl>> result = new ArrayList<>();
       result.add(new SubElementPrivateActionsParser());
       return result;
     }
   }
   /** A parser for subelement privateActions */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPrivateActionsParser implements IElementParser<PrivateImpl> {
 
     /** Constructor */
     public SubElementPrivateActionsParser() {
       super();
-      privateActionXmlParser = new PrivateActionXmlParser(messageLogger, filename);
+      this.privateActionXmlParser =
+          new PrivateActionXmlParser(
+              PrivateXmlParser.this.messageLogger, PrivateXmlParser.this.filename);
     }
 
     private PrivateActionXmlParser privateActionXmlParser;
@@ -155,10 +139,10 @@ public class PrivateXmlParser extends XmlComplexTypeParser<PrivateImpl> {
       PrivateActionImpl privateActions = new PrivateActionImpl();
       // Setting the parent
       privateActions.setParent(object);
-      privateActionXmlParser.parseElement(indexedElement, parserContext, privateActions);
+      this.privateActionXmlParser.parseElement(indexedElement, parserContext, privateActions);
       List<IPrivateAction> privateActionsList = object.getPrivateActions();
       if (privateActionsList == null) {
-        privateActionsList = new ArrayList<IPrivateAction>();
+        privateActionsList = new ArrayList<>();
         object.setPrivateActions(privateActionsList);
       }
       privateActionsList.add(privateActions);

@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -27,15 +25,13 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IScenarioObject extends IOpenScenarioModelElement, IEntity {
-
+public interface IScenarioObject extends IEntity {
   /**
    * From OpenSCENARIO class model specification: Identifier of the scenario object.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: The EntityObject (either instance of type Vehicle,
    * Pedestrian or MiscObject).
@@ -43,7 +39,6 @@ public interface IScenarioObject extends IOpenScenarioModelElement, IEntity {
    * @return value of model property entityObject
    */
   public IEntityObject getEntityObject();
-
   /**
    * From OpenSCENARIO class model specification: Controller of the EntityObject instance.
    *

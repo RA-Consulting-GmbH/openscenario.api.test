@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,38 +47,13 @@ public class ControllerDistributionXmlParser
    */
   public ControllerDistributionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      ControllerDistributionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ControllerDistribution",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ControllerDistribution",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ControllerDistributionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ControllerDistributionImpl>> result =
-        new Hashtable<String, IAttributeParser<ControllerDistributionImpl>>();
+    Map<String, IAttributeParser<ControllerDistributionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -99,22 +71,25 @@ public class ControllerDistributionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ControllerDistributionImpl>> createParserList() {
-      List<IElementParser<ControllerDistributionImpl>> result =
-          new ArrayList<IElementParser<ControllerDistributionImpl>>();
+      List<IElementParser<ControllerDistributionImpl>> result = new ArrayList<>();
       result.add(new SubElementControllerDistributionEntriesParser());
       return result;
     }
   }
   /** A parser for subelement controllerDistributionEntries */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControllerDistributionEntriesParser
       implements IElementParser<ControllerDistributionImpl> {
 
     /** Constructor */
     public SubElementControllerDistributionEntriesParser() {
       super();
-      controllerDistributionEntryXmlParser =
-          new ControllerDistributionEntryXmlParser(messageLogger, filename);
+      this.controllerDistributionEntryXmlParser =
+          new ControllerDistributionEntryXmlParser(
+              ControllerDistributionXmlParser.this.messageLogger,
+              ControllerDistributionXmlParser.this.filename);
     }
 
     private ControllerDistributionEntryXmlParser controllerDistributionEntryXmlParser;
@@ -128,12 +103,12 @@ public class ControllerDistributionXmlParser
           new ControllerDistributionEntryImpl();
       // Setting the parent
       controllerDistributionEntries.setParent(object);
-      controllerDistributionEntryXmlParser.parseElement(
+      this.controllerDistributionEntryXmlParser.parseElement(
           indexedElement, parserContext, controllerDistributionEntries);
       List<IControllerDistributionEntry> controllerDistributionEntriesList =
           object.getControllerDistributionEntries();
       if (controllerDistributionEntriesList == null) {
-        controllerDistributionEntriesList = new ArrayList<IControllerDistributionEntry>();
+        controllerDistributionEntriesList = new ArrayList<>();
         object.setControllerDistributionEntries(controllerDistributionEntriesList);
       }
       controllerDistributionEntriesList.add(controllerDistributionEntries);

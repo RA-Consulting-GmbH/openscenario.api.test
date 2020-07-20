@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,39 +48,17 @@ public class LaneOffsetActionXmlParser extends XmlComplexTypeParser<LaneOffsetAc
    */
   public LaneOffsetActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, LaneOffsetActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing LaneOffsetAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing LaneOffsetAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<LaneOffsetActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<LaneOffsetActionImpl>> result =
-        new Hashtable<String, IAttributeParser<LaneOffsetActionImpl>>();
+    Map<String, IAttributeParser<LaneOffsetActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__CONTINUOUS,
         new IAttributeParser<LaneOffsetActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class LaneOffsetActionXmlParser extends XmlComplexTypeParser<LaneOffsetAc
               LaneOffsetActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LaneOffsetActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LaneOffsetActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CONTINUOUS, stripDollarSign(attributeValue), startMarker);
@@ -129,23 +111,26 @@ public class LaneOffsetActionXmlParser extends XmlComplexTypeParser<LaneOffsetAc
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<LaneOffsetActionImpl>> createParserList() {
-      List<IElementParser<LaneOffsetActionImpl>> result =
-          new ArrayList<IElementParser<LaneOffsetActionImpl>>();
+      List<IElementParser<LaneOffsetActionImpl>> result = new ArrayList<>();
       result.add(new SubElementLaneOffsetActionDynamicsParser());
       result.add(new SubElementLaneOffsetTargetParser());
       return result;
     }
   }
   /** A parser for subelement laneOffsetActionDynamics */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLaneOffsetActionDynamicsParser
       implements IElementParser<LaneOffsetActionImpl> {
 
     /** Constructor */
     public SubElementLaneOffsetActionDynamicsParser() {
       super();
-      laneOffsetActionDynamicsXmlParser =
-          new LaneOffsetActionDynamicsXmlParser(messageLogger, filename);
+      this.laneOffsetActionDynamicsXmlParser =
+          new LaneOffsetActionDynamicsXmlParser(
+              LaneOffsetActionXmlParser.this.messageLogger,
+              LaneOffsetActionXmlParser.this.filename);
     }
 
     private LaneOffsetActionDynamicsXmlParser laneOffsetActionDynamicsXmlParser;
@@ -156,7 +141,7 @@ public class LaneOffsetActionXmlParser extends XmlComplexTypeParser<LaneOffsetAc
       LaneOffsetActionDynamicsImpl laneOffsetActionDynamics = new LaneOffsetActionDynamicsImpl();
       // Setting the parent
       laneOffsetActionDynamics.setParent(object);
-      laneOffsetActionDynamicsXmlParser.parseElement(
+      this.laneOffsetActionDynamicsXmlParser.parseElement(
           indexedElement, parserContext, laneOffsetActionDynamics);
 
       object.setLaneOffsetActionDynamics(laneOffsetActionDynamics);
@@ -183,12 +168,16 @@ public class LaneOffsetActionXmlParser extends XmlComplexTypeParser<LaneOffsetAc
     }
   }
   /** A parser for subelement laneOffsetTarget */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLaneOffsetTargetParser implements IElementParser<LaneOffsetActionImpl> {
 
     /** Constructor */
     public SubElementLaneOffsetTargetParser() {
       super();
-      laneOffsetTargetXmlParser = new LaneOffsetTargetXmlParser(messageLogger, filename);
+      this.laneOffsetTargetXmlParser =
+          new LaneOffsetTargetXmlParser(
+              LaneOffsetActionXmlParser.this.messageLogger,
+              LaneOffsetActionXmlParser.this.filename);
     }
 
     private LaneOffsetTargetXmlParser laneOffsetTargetXmlParser;
@@ -199,7 +188,7 @@ public class LaneOffsetActionXmlParser extends XmlComplexTypeParser<LaneOffsetAc
       LaneOffsetTargetImpl laneOffsetTarget = new LaneOffsetTargetImpl();
       // Setting the parent
       laneOffsetTarget.setParent(object);
-      laneOffsetTargetXmlParser.parseElement(indexedElement, parserContext, laneOffsetTarget);
+      this.laneOffsetTargetXmlParser.parseElement(indexedElement, parserContext, laneOffsetTarget);
 
       object.setLaneOffsetTarget(laneOffsetTarget);
     }

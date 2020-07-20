@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.asam.openscenario.parser.ParserContext;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.catalog.ICatalogReferenceProvider;
 
@@ -31,7 +30,7 @@ import net.asam.openscenario.v1_0.catalog.ICatalogReferenceProvider;
  */
 public class CatalogReferenceParserContext extends ParserContext
     implements ICatalogReferenceProvider {
-  private List<ICatalogReference> catalogReferences = new ArrayList<ICatalogReference>();
+  private List<ICatalogReference> catalogReferences = new ArrayList<>();
 
   /**
    * Adds a found catalog reference. At the end of the parsing process any catalog reference is in
@@ -40,11 +39,11 @@ public class CatalogReferenceParserContext extends ParserContext
    * @param catalogReference a catalog reference to be added.
    */
   public void addCatalogReference(ICatalogReference catalogReference) {
-    catalogReferences.add(catalogReference);
+    this.catalogReferences.add(catalogReference);
   }
 
   @Override
   public List<ICatalogReference> getCatalogReferences() {
-    return catalogReferences;
+    return this.catalogReferences;
   }
 }

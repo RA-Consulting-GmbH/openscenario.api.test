@@ -46,12 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TimeToCollisionConditionTargetImpl extends BaseImpl
-    implements ITimeToCollisionConditionTarget, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+    implements ITimeToCollisionConditionTarget {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IPosition position;
   private IEntityRef entityRef;
@@ -62,18 +58,19 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
     addAdapter(ITimeToCollisionConditionTarget.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IPosition getPosition() {
-    return position;
+    return this.position;
   }
 
   @Override
   public IEntityRef getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
   /**
    * Sets the value of model property position
@@ -94,7 +91,9 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition position = null;
     position = getPosition();
@@ -129,6 +129,7 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TimeToCollisionConditionTargetImpl clone() {
     TimeToCollisionConditionTargetImpl clonedObject = new TimeToCollisionConditionTargetImpl();
     cloneStartMarker(clonedObject);
@@ -200,16 +201,17 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__POSITION)) {
       return (IOpenScenarioFlexElement) getPosition();
-    } else if (key.equals(OscConstants.ELEMENT__ENTITY_REF)) {
-      return (IOpenScenarioFlexElement) getEntityRef();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__ENTITY_REF)) {
+      return (IOpenScenarioFlexElement) getEntityRef();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

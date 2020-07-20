@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class OpenScenarioImpl extends BaseImpl implements IOpenScenario {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IFileHeader fileHeader;
   private IOpenScenarioCategory openScenarioCategory;
@@ -60,18 +56,19 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, Cloneab
     addAdapter(IOpenScenario.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IFileHeader getFileHeader() {
-    return fileHeader;
+    return this.fileHeader;
   }
 
   @Override
   public IOpenScenarioCategory getOpenScenarioCategory() {
-    return openScenarioCategory;
+    return this.openScenarioCategory;
   }
   /**
    * Sets the value of model property fileHeader
@@ -94,7 +91,9 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, Cloneab
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, Cloneab
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IFileHeader fileHeader = null;
     fileHeader = getFileHeader();
@@ -129,6 +129,7 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, Cloneab
    *
    * @return a deep copy of the object.
    */
+  @Override
   public OpenScenarioImpl clone() {
     OpenScenarioImpl clonedObject = new OpenScenarioImpl();
     cloneStartMarker(clonedObject);
@@ -201,16 +202,17 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, Cloneab
     }
     if (key.equals(OscConstants.ELEMENT__FILE_HEADER)) {
       return (IOpenScenarioFlexElement) getFileHeader();
-    } else if (key.equals(OscConstants.ELEMENT__OPEN_SCENARIO_CATEGORY)) {
-      return (IOpenScenarioFlexElement) getOpenScenarioCategory();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__OPEN_SCENARIO_CATEGORY)) {
+      return (IOpenScenarioFlexElement) getOpenScenarioCategory();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

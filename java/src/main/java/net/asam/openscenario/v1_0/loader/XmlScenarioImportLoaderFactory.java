@@ -49,7 +49,7 @@ public class XmlScenarioImportLoaderFactory implements IScenarioLoaderFactory {
   @Override
   public IScenarioLoader createLoader(IResourceLocator resourceLocator) {
 
-    XmlScenarioLoader innerScenarioLoader = new XmlScenarioLoader(filename, resourceLocator);
-    return new XmlScenarioImportLoader(innerScenarioLoader, catalogMessageLogger);
+    XmlScenarioLoader innerScenarioLoader = new XmlScenarioLoader(this.filename, resourceLocator);
+    return new XmlScenarioImportLoader(innerScenarioLoader, this.catalogMessageLogger);
   }
 }

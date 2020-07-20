@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IEnvironment environment;
   private ICatalogReference catalogReference;
@@ -60,18 +56,19 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
     addAdapter(IEnvironmentAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IEnvironment getEnvironment() {
-    return environment;
+    return this.environment;
   }
 
   @Override
   public ICatalogReference getCatalogReference() {
-    return catalogReference;
+    return this.catalogReference;
   }
   /**
    * Sets the value of model property environment
@@ -93,7 +90,9 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -106,8 +105,9 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IEnvironment environment = null;
     environment = getEnvironment();
@@ -128,6 +128,7 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
    *
    * @return a deep copy of the object.
    */
+  @Override
   public EnvironmentActionImpl clone() {
     EnvironmentActionImpl clonedObject = new EnvironmentActionImpl();
     cloneStartMarker(clonedObject);
@@ -199,16 +200,17 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
     }
     if (key.equals(OscConstants.ELEMENT__ENVIRONMENT)) {
       return (IOpenScenarioFlexElement) getEnvironment();
-    } else if (key.equals(OscConstants.ELEMENT__CATALOG_REFERENCE)) {
-      return (IOpenScenarioFlexElement) getCatalogReference();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__CATALOG_REFERENCE)) {
+      return (IOpenScenarioFlexElement) getCatalogReference();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,35 +46,12 @@ public class PolylineXmlParser extends XmlComplexTypeParser<PolylineImpl> {
    */
   public PolylineXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PolylineImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Polyline",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Polyline",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PolylineImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PolylineImpl>> result =
-        new Hashtable<String, IAttributeParser<PolylineImpl>>();
+    Map<String, IAttributeParser<PolylineImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,19 +69,23 @@ public class PolylineXmlParser extends XmlComplexTypeParser<PolylineImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PolylineImpl>> createParserList() {
-      List<IElementParser<PolylineImpl>> result = new ArrayList<IElementParser<PolylineImpl>>();
+      List<IElementParser<PolylineImpl>> result = new ArrayList<>();
       result.add(new SubElementVerticesParser());
       return result;
     }
   }
   /** A parser for subelement vertices */
+  @SuppressWarnings("synthetic-access")
   private class SubElementVerticesParser implements IElementParser<PolylineImpl> {
 
     /** Constructor */
     public SubElementVerticesParser() {
       super();
-      vertexXmlParser = new VertexXmlParser(messageLogger, filename);
+      this.vertexXmlParser =
+          new VertexXmlParser(
+              PolylineXmlParser.this.messageLogger, PolylineXmlParser.this.filename);
     }
 
     private VertexXmlParser vertexXmlParser;
@@ -118,10 +96,10 @@ public class PolylineXmlParser extends XmlComplexTypeParser<PolylineImpl> {
       VertexImpl vertices = new VertexImpl();
       // Setting the parent
       vertices.setParent(object);
-      vertexXmlParser.parseElement(indexedElement, parserContext, vertices);
+      this.vertexXmlParser.parseElement(indexedElement, parserContext, vertices);
       List<IVertex> verticesList = object.getVertices();
       if (verticesList == null) {
-        verticesList = new ArrayList<IVertex>();
+        verticesList = new ArrayList<>();
         object.setVertices(verticesList);
       }
       verticesList.add(vertices);

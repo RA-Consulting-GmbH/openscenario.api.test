@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IObjectController extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Catalog reference to a controller.
    *
    * @return value of model property catalogReference
    */
   public ICatalogReference getCatalogReference();
-
   /**
    * From OpenSCENARIO class model specification: Controller type definition.
    *

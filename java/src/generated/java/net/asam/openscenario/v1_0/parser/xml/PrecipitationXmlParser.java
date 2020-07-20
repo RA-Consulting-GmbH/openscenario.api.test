@@ -24,10 +24,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.PrecipitationType;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.PrecipitationImpl;
@@ -49,39 +47,17 @@ public class PrecipitationXmlParser extends XmlComplexTypeParser<PrecipitationIm
    */
   public PrecipitationXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PrecipitationImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Precipitation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Precipitation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PrecipitationImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PrecipitationImpl>> result =
-        new Hashtable<String, IAttributeParser<PrecipitationImpl>>();
+    Map<String, IAttributeParser<PrecipitationImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__PRECIPITATION_TYPE,
         new IAttributeParser<PrecipitationImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -91,9 +67,15 @@ public class PrecipitationXmlParser extends XmlComplexTypeParser<PrecipitationIm
               PrecipitationImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PrecipitationXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PrecipitationXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__PRECIPITATION_TYPE,
@@ -106,7 +88,7 @@ public class PrecipitationXmlParser extends XmlComplexTypeParser<PrecipitationIm
               if (result != null) {
                 object.setPrecipitationType(result);
               } else {
-                messageLogger.logMessage(
+                PrecipitationXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -125,6 +107,7 @@ public class PrecipitationXmlParser extends XmlComplexTypeParser<PrecipitationIm
     result.put(
         OscConstants.ATTRIBUTE__INTENSITY,
         new IAttributeParser<PrecipitationImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -134,9 +117,15 @@ public class PrecipitationXmlParser extends XmlComplexTypeParser<PrecipitationIm
               PrecipitationImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PrecipitationXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PrecipitationXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__INTENSITY, stripDollarSign(attributeValue), startMarker);
@@ -171,9 +160,9 @@ public class PrecipitationXmlParser extends XmlComplexTypeParser<PrecipitationIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PrecipitationImpl>> createParserList() {
-      List<IElementParser<PrecipitationImpl>> result =
-          new ArrayList<IElementParser<PrecipitationImpl>>();
+      List<IElementParser<PrecipitationImpl>> result = new ArrayList<>();
       return result;
     }
   }

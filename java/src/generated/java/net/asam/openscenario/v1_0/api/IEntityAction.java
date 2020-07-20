@@ -27,14 +27,12 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IEntityAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the reference entity.
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Action that adds the reference entity to the
    * scenario.
@@ -42,7 +40,6 @@ public interface IEntityAction extends IOpenScenarioModelElement {
    * @return value of model property addEntityAction
    */
   public IAddEntityAction getAddEntityAction();
-
   /**
    * From OpenSCENARIO class model specification: Action that deletes the reference entity from the
    * scenario.

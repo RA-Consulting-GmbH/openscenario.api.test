@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IActors extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Indicates whether the triggering entities are
    * considered actors.
@@ -36,7 +35,6 @@ public interface IActors extends IOpenScenarioModelElement {
    * @return value of model property selectTriggeringEntities
    */
   public Boolean getSelectTriggeringEntities();
-
   /**
    * From OpenSCENARIO class model specification: A list of entities this actor is referencing.
    *

@@ -25,6 +25,7 @@ import net.asam.openscenario.simple.struct.IndexedElement;
  * Parser interface for types (XSD:group, XSD:complexType, XSD:simpleContent)
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public interface IXmlTypeParser<T> {
 

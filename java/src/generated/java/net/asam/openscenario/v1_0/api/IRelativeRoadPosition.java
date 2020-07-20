@@ -28,14 +28,12 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRelativeRoadPosition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: reference entity.
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Relative ds road coordinate to s coordinate of the
    * reference entity.
@@ -43,7 +41,6 @@ public interface IRelativeRoadPosition extends IOpenScenarioModelElement {
    * @return value of model property ds
    */
   public Double getDs();
-
   /**
    * From OpenSCENARIO class model specification: Relative dt road coordinate to t coordinate of the
    * reference entity.
@@ -51,7 +48,6 @@ public interface IRelativeRoadPosition extends IOpenScenarioModelElement {
    * @return value of model property dt
    */
   public Double getDt();
-
   /**
    * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
    * to the referenced road's s and t coordinates.

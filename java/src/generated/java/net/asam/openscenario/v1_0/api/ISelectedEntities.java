@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ISelectedEntities extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: References to the selected entities.
    *
    * @return value of model property entityRef
    */
   public List<IEntityRef> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Defines the type to determine that all entities of
    * a specific type are members.

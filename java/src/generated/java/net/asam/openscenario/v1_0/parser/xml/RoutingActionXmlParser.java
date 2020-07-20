@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
    */
   public RoutingActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RoutingActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RoutingAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RoutingAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RoutingActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RoutingActionImpl>> result =
-        new Hashtable<String, IAttributeParser<RoutingActionImpl>>();
+    Map<String, IAttributeParser<RoutingActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,9 +71,9 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RoutingActionImpl>> createParserList() {
-      List<IElementParser<RoutingActionImpl>> result =
-          new ArrayList<IElementParser<RoutingActionImpl>>();
+      List<IElementParser<RoutingActionImpl>> result = new ArrayList<>();
       result.add(new SubElementAssignRouteActionParser());
       result.add(new SubElementFollowTrajectoryActionParser());
       result.add(new SubElementAcquirePositionActionParser());
@@ -107,12 +81,15 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
     }
   }
   /** A parser for subelement assignRouteAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAssignRouteActionParser implements IElementParser<RoutingActionImpl> {
 
     /** Constructor */
     public SubElementAssignRouteActionParser() {
       super();
-      assignRouteActionXmlParser = new AssignRouteActionXmlParser(messageLogger, filename);
+      this.assignRouteActionXmlParser =
+          new AssignRouteActionXmlParser(
+              RoutingActionXmlParser.this.messageLogger, RoutingActionXmlParser.this.filename);
     }
 
     private AssignRouteActionXmlParser assignRouteActionXmlParser;
@@ -123,7 +100,8 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
       AssignRouteActionImpl assignRouteAction = new AssignRouteActionImpl();
       // Setting the parent
       assignRouteAction.setParent(object);
-      assignRouteActionXmlParser.parseElement(indexedElement, parserContext, assignRouteAction);
+      this.assignRouteActionXmlParser.parseElement(
+          indexedElement, parserContext, assignRouteAction);
 
       object.setAssignRouteAction(assignRouteAction);
     }
@@ -149,14 +127,16 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
     }
   }
   /** A parser for subelement followTrajectoryAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementFollowTrajectoryActionParser
       implements IElementParser<RoutingActionImpl> {
 
     /** Constructor */
     public SubElementFollowTrajectoryActionParser() {
       super();
-      followTrajectoryActionXmlParser =
-          new FollowTrajectoryActionXmlParser(messageLogger, filename);
+      this.followTrajectoryActionXmlParser =
+          new FollowTrajectoryActionXmlParser(
+              RoutingActionXmlParser.this.messageLogger, RoutingActionXmlParser.this.filename);
     }
 
     private FollowTrajectoryActionXmlParser followTrajectoryActionXmlParser;
@@ -167,7 +147,7 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
       FollowTrajectoryActionImpl followTrajectoryAction = new FollowTrajectoryActionImpl();
       // Setting the parent
       followTrajectoryAction.setParent(object);
-      followTrajectoryActionXmlParser.parseElement(
+      this.followTrajectoryActionXmlParser.parseElement(
           indexedElement, parserContext, followTrajectoryAction);
 
       object.setFollowTrajectoryAction(followTrajectoryAction);
@@ -194,12 +174,15 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
     }
   }
   /** A parser for subelement acquirePositionAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAcquirePositionActionParser implements IElementParser<RoutingActionImpl> {
 
     /** Constructor */
     public SubElementAcquirePositionActionParser() {
       super();
-      acquirePositionActionXmlParser = new AcquirePositionActionXmlParser(messageLogger, filename);
+      this.acquirePositionActionXmlParser =
+          new AcquirePositionActionXmlParser(
+              RoutingActionXmlParser.this.messageLogger, RoutingActionXmlParser.this.filename);
     }
 
     private AcquirePositionActionXmlParser acquirePositionActionXmlParser;
@@ -210,7 +193,7 @@ public class RoutingActionXmlParser extends XmlComplexTypeParser<RoutingActionIm
       AcquirePositionActionImpl acquirePositionAction = new AcquirePositionActionImpl();
       // Setting the parent
       acquirePositionAction.setParent(object);
-      acquirePositionActionXmlParser.parseElement(
+      this.acquirePositionActionXmlParser.parseElement(
           indexedElement, parserContext, acquirePositionAction);
 
       object.setAcquirePositionAction(acquirePositionAction);

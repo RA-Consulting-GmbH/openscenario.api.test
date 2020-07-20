@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -53,38 +51,16 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
    */
   public ManeuverXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ManeuverImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Maneuver",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Maneuver",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ManeuverImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ManeuverImpl>> result =
-        new Hashtable<String, IAttributeParser<ManeuverImpl>>();
+    Map<String, IAttributeParser<ManeuverImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<ManeuverImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +70,15 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
               ManeuverImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ManeuverXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ManeuverXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -131,12 +113,14 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<ManeuverImpl>> createParserList() {
-      List<IElementParser<ManeuverImpl>> result = new ArrayList<IElementParser<ManeuverImpl>>();
+      List<IElementParser<ManeuverImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<ManeuverImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              ManeuverXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementEventsParser());
@@ -144,12 +128,15 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser implements IElementParser<ManeuverImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              ManeuverXmlParser.this.messageLogger, ManeuverXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -160,11 +147,11 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -191,12 +178,14 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
     }
   }
   /** A parser for subelement events */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEventsParser implements IElementParser<ManeuverImpl> {
 
     /** Constructor */
     public SubElementEventsParser() {
       super();
-      eventXmlParser = new EventXmlParser(messageLogger, filename);
+      this.eventXmlParser =
+          new EventXmlParser(ManeuverXmlParser.this.messageLogger, ManeuverXmlParser.this.filename);
     }
 
     private EventXmlParser eventXmlParser;
@@ -207,10 +196,10 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
       EventImpl events = new EventImpl();
       // Setting the parent
       events.setParent(object);
-      eventXmlParser.parseElement(indexedElement, parserContext, events);
+      this.eventXmlParser.parseElement(indexedElement, parserContext, events);
       List<IEvent> eventsList = object.getEvents();
       if (eventsList == null) {
-        eventsList = new ArrayList<IEvent>();
+        eventsList = new ArrayList<>();
         object.setEvents(eventsList);
       }
       eventsList.add(events);

@@ -48,8 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ConditionImpl extends BaseImpl implements ICondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -70,33 +70,34 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
     addAdapter(ICondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public Double getDelay() {
-    return delay;
+    return this.delay;
   }
 
   @Override
   public ConditionEdge getConditionEdge() {
-    return conditionEdge;
+    return this.conditionEdge;
   }
 
   @Override
   public IByEntityCondition getByEntityCondition() {
-    return byEntityCondition;
+    return this.byEntityCondition;
   }
 
   @Override
   public IByValueCondition getByValueCondition() {
-    return byValueCondition;
+    return this.byValueCondition;
   }
   /**
    * Sets the value of model property name
@@ -149,19 +150,21 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DELAY)) {
       // Simple type
-      delay = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.delay =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__CONDITION_EDGE)) {
       // Enumeration Type
       ConditionEdge result = ConditionEdge.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        conditionEdge = result;
+        this.conditionEdge = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -184,8 +187,9 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IByEntityCondition byEntityCondition = null;
     byEntityCondition = getByEntityCondition();
@@ -206,6 +210,7 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ConditionImpl clone() {
     ConditionImpl clonedObject = new ConditionImpl();
     cloneStartMarker(clonedObject);
@@ -251,9 +256,8 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -273,9 +277,8 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__DELAY)) {
       return getDelay();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -300,16 +303,17 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__BY_ENTITY_CONDITION)) {
       return (IOpenScenarioFlexElement) getByEntityCondition();
-    } else if (key.equals(OscConstants.ELEMENT__BY_VALUE_CONDITION)) {
-      return (IOpenScenarioFlexElement) getByValueCondition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__BY_VALUE_CONDITION)) {
+      return (IOpenScenarioFlexElement) getByValueCondition();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -332,9 +336,8 @@ public class ConditionImpl extends BaseImpl implements ICondition, Cloneable {
     if (key.equals(OscConstants.ATTRIBUTE__CONDITION_EDGE)) {
       ConditionEdge conditionEdge = getConditionEdge();
       return conditionEdge != null ? conditionEdge.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -55,36 +52,13 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
    */
   public PrivateActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PrivateActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing PrivateAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing PrivateAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PrivateActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PrivateActionImpl>> result =
-        new Hashtable<String, IAttributeParser<PrivateActionImpl>>();
+    Map<String, IAttributeParser<PrivateActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -102,9 +76,9 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PrivateActionImpl>> createParserList() {
-      List<IElementParser<PrivateActionImpl>> result =
-          new ArrayList<IElementParser<PrivateActionImpl>>();
+      List<IElementParser<PrivateActionImpl>> result = new ArrayList<>();
       result.add(new SubElementLongitudinalActionParser());
       result.add(new SubElementLateralActionParser());
       result.add(new SubElementVisibilityActionParser());
@@ -117,12 +91,15 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement longitudinalAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLongitudinalActionParser implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementLongitudinalActionParser() {
       super();
-      longitudinalActionXmlParser = new LongitudinalActionXmlParser(messageLogger, filename);
+      this.longitudinalActionXmlParser =
+          new LongitudinalActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private LongitudinalActionXmlParser longitudinalActionXmlParser;
@@ -133,7 +110,8 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       LongitudinalActionImpl longitudinalAction = new LongitudinalActionImpl();
       // Setting the parent
       longitudinalAction.setParent(object);
-      longitudinalActionXmlParser.parseElement(indexedElement, parserContext, longitudinalAction);
+      this.longitudinalActionXmlParser.parseElement(
+          indexedElement, parserContext, longitudinalAction);
 
       object.setLongitudinalAction(longitudinalAction);
     }
@@ -159,12 +137,15 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement lateralAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLateralActionParser implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementLateralActionParser() {
       super();
-      lateralActionXmlParser = new LateralActionXmlParser(messageLogger, filename);
+      this.lateralActionXmlParser =
+          new LateralActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private LateralActionXmlParser lateralActionXmlParser;
@@ -175,7 +156,7 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       LateralActionImpl lateralAction = new LateralActionImpl();
       // Setting the parent
       lateralAction.setParent(object);
-      lateralActionXmlParser.parseElement(indexedElement, parserContext, lateralAction);
+      this.lateralActionXmlParser.parseElement(indexedElement, parserContext, lateralAction);
 
       object.setLateralAction(lateralAction);
     }
@@ -201,12 +182,15 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement visibilityAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementVisibilityActionParser implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementVisibilityActionParser() {
       super();
-      visibilityActionXmlParser = new VisibilityActionXmlParser(messageLogger, filename);
+      this.visibilityActionXmlParser =
+          new VisibilityActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private VisibilityActionXmlParser visibilityActionXmlParser;
@@ -217,7 +201,7 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       VisibilityActionImpl visibilityAction = new VisibilityActionImpl();
       // Setting the parent
       visibilityAction.setParent(object);
-      visibilityActionXmlParser.parseElement(indexedElement, parserContext, visibilityAction);
+      this.visibilityActionXmlParser.parseElement(indexedElement, parserContext, visibilityAction);
 
       object.setVisibilityAction(visibilityAction);
     }
@@ -243,12 +227,15 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement synchronizeAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSynchronizeActionParser implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementSynchronizeActionParser() {
       super();
-      synchronizeActionXmlParser = new SynchronizeActionXmlParser(messageLogger, filename);
+      this.synchronizeActionXmlParser =
+          new SynchronizeActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private SynchronizeActionXmlParser synchronizeActionXmlParser;
@@ -259,7 +246,8 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       SynchronizeActionImpl synchronizeAction = new SynchronizeActionImpl();
       // Setting the parent
       synchronizeAction.setParent(object);
-      synchronizeActionXmlParser.parseElement(indexedElement, parserContext, synchronizeAction);
+      this.synchronizeActionXmlParser.parseElement(
+          indexedElement, parserContext, synchronizeAction);
 
       object.setSynchronizeAction(synchronizeAction);
     }
@@ -285,14 +273,16 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement activateControllerAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementActivateControllerActionParser
       implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementActivateControllerActionParser() {
       super();
-      activateControllerActionXmlParser =
-          new ActivateControllerActionXmlParser(messageLogger, filename);
+      this.activateControllerActionXmlParser =
+          new ActivateControllerActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private ActivateControllerActionXmlParser activateControllerActionXmlParser;
@@ -303,7 +293,7 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       ActivateControllerActionImpl activateControllerAction = new ActivateControllerActionImpl();
       // Setting the parent
       activateControllerAction.setParent(object);
-      activateControllerActionXmlParser.parseElement(
+      this.activateControllerActionXmlParser.parseElement(
           indexedElement, parserContext, activateControllerAction);
 
       object.setActivateControllerAction(activateControllerAction);
@@ -330,12 +320,15 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement controllerAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControllerActionParser implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementControllerActionParser() {
       super();
-      controllerActionXmlParser = new ControllerActionXmlParser(messageLogger, filename);
+      this.controllerActionXmlParser =
+          new ControllerActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private ControllerActionXmlParser controllerActionXmlParser;
@@ -346,7 +339,7 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       ControllerActionImpl controllerAction = new ControllerActionImpl();
       // Setting the parent
       controllerAction.setParent(object);
-      controllerActionXmlParser.parseElement(indexedElement, parserContext, controllerAction);
+      this.controllerActionXmlParser.parseElement(indexedElement, parserContext, controllerAction);
 
       object.setControllerAction(controllerAction);
     }
@@ -372,12 +365,15 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement teleportAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTeleportActionParser implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementTeleportActionParser() {
       super();
-      teleportActionXmlParser = new TeleportActionXmlParser(messageLogger, filename);
+      this.teleportActionXmlParser =
+          new TeleportActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private TeleportActionXmlParser teleportActionXmlParser;
@@ -388,7 +384,7 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       TeleportActionImpl teleportAction = new TeleportActionImpl();
       // Setting the parent
       teleportAction.setParent(object);
-      teleportActionXmlParser.parseElement(indexedElement, parserContext, teleportAction);
+      this.teleportActionXmlParser.parseElement(indexedElement, parserContext, teleportAction);
 
       object.setTeleportAction(teleportAction);
     }
@@ -414,12 +410,15 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
     }
   }
   /** A parser for subelement routingAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRoutingActionParser implements IElementParser<PrivateActionImpl> {
 
     /** Constructor */
     public SubElementRoutingActionParser() {
       super();
-      routingActionXmlParser = new RoutingActionXmlParser(messageLogger, filename);
+      this.routingActionXmlParser =
+          new RoutingActionXmlParser(
+              PrivateActionXmlParser.this.messageLogger, PrivateActionXmlParser.this.filename);
     }
 
     private RoutingActionXmlParser routingActionXmlParser;
@@ -430,7 +429,7 @@ public class PrivateActionXmlParser extends XmlComplexTypeParser<PrivateActionIm
       RoutingActionImpl routingAction = new RoutingActionImpl();
       // Setting the parent
       routingAction.setParent(object);
-      routingActionXmlParser.parseElement(indexedElement, parserContext, routingAction);
+      this.routingActionXmlParser.parseElement(indexedElement, parserContext, routingAction);
 
       object.setRoutingAction(routingAction);
     }
