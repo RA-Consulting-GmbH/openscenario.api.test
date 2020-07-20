@@ -18,10 +18,7 @@ package net.asam.openscenario.v1_0.parser.xml;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlGroupParser;
@@ -46,29 +43,7 @@ public class CatalogDefinitionXmlParser extends XmlGroupParser<CatalogDefinition
    */
   public CatalogDefinitionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, CatalogDefinitionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing CatalogDefinition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing CatalogDefinition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   /** Parser for all subelements */
@@ -85,20 +60,24 @@ public class CatalogDefinitionXmlParser extends XmlGroupParser<CatalogDefinition
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<CatalogDefinitionImpl>> createParserList() {
-      List<IElementParser<CatalogDefinitionImpl>> result =
-          new ArrayList<IElementParser<CatalogDefinitionImpl>>();
+      List<IElementParser<CatalogDefinitionImpl>> result = new ArrayList<>();
       result.add(new SubElementCatalogParser());
       return result;
     }
   }
   /** A parser for subelement catalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogParser implements IElementParser<CatalogDefinitionImpl> {
 
     /** Constructor */
     public SubElementCatalogParser() {
       super();
-      catalogXmlParser = new CatalogXmlParser(messageLogger, filename);
+      this.catalogXmlParser =
+          new CatalogXmlParser(
+              CatalogDefinitionXmlParser.this.messageLogger,
+              CatalogDefinitionXmlParser.this.filename);
     }
 
     private CatalogXmlParser catalogXmlParser;
@@ -109,7 +88,7 @@ public class CatalogDefinitionXmlParser extends XmlGroupParser<CatalogDefinition
       CatalogImpl catalog = new CatalogImpl();
       // Setting the parent
       catalog.setParent(object);
-      catalogXmlParser.parseElement(indexedElement, parserContext, catalog);
+      this.catalogXmlParser.parseElement(indexedElement, parserContext, catalog);
 
       object.setCatalog(catalog);
     }

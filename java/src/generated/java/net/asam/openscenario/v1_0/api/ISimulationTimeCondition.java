@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ISimulationTimeCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Time value of the simulation time condition. Unit:
    * s.
@@ -35,7 +34,6 @@ public interface ISimulationTimeCondition extends IOpenScenarioModelElement {
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

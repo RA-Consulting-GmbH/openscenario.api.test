@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -59,13 +59,14 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition,
     addAdapter(IOffroadCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getDuration() {
-    return duration;
+    return this.duration;
   }
   /**
    * Sets the value of model property duration
@@ -82,7 +83,7 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition,
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__DURATION)) {
       // Simple type
-      duration =
+      this.duration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -99,8 +100,9 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -111,6 +113,7 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public OffroadConditionImpl clone() {
     OffroadConditionImpl clonedObject = new OffroadConditionImpl();
     cloneStartMarker(clonedObject);
@@ -150,9 +153,8 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition,
     }
     if (key.equals(OscConstants.ATTRIBUTE__DURATION)) {
       return getDuration();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -178,6 +180,7 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition,
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

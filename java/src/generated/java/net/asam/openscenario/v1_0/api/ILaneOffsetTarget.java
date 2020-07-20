@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILaneOffsetTarget extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Relative reference to the lane position of a
    * specific entity.
@@ -34,7 +33,6 @@ public interface ILaneOffsetTarget extends IOpenScenarioModelElement {
    * @return value of model property relativeTargetLaneOffset
    */
   public IRelativeTargetLaneOffset getRelativeTargetLaneOffset();
-
   /**
    * From OpenSCENARIO class model specification: Absolute reference to the current lane's center
    * line.

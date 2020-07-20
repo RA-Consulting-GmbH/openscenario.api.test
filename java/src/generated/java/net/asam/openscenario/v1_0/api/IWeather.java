@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IWeather extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Definition of the cloud state, i.e. cloud state
    * and sky visualization settings.
@@ -35,7 +34,6 @@ public interface IWeather extends IOpenScenarioModelElement {
    * @return value of model property cloudState
    */
   public CloudState getCloudState();
-
   /**
    * From OpenSCENARIO class model specification: Definition of the sun, i.e. position and
    * intensity.
@@ -43,7 +41,6 @@ public interface IWeather extends IOpenScenarioModelElement {
    * @return value of model property sun
    */
   public ISun getSun();
-
   /**
    * From OpenSCENARIO class model specification: Definition of fog, i.e. visual range and bounding
    * box.
@@ -51,7 +48,6 @@ public interface IWeather extends IOpenScenarioModelElement {
    * @return value of model property fog
    */
   public IFog getFog();
-
   /**
    * From OpenSCENARIO class model specification: Definition of precipitation, i.e. type and
    * intensity.

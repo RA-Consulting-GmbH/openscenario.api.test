@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -18,17 +18,13 @@ package net.asam.openscenario.api;
 
 /**
  * An Exception that is thrown when a key in the model is not supported.
- * 
+ *
  * @author Andreas Hege - RA Consulting
  * @see IOpenScenarioFlexElement
  */
-public class KeyNotSupportedException extends Exception
-{
-  /**
-   * Default Constructor
-   */
-  public KeyNotSupportedException()
-  {
+public class KeyNotSupportedException extends Exception {
+  /** Default Constructor */
+  public KeyNotSupportedException() {
     super();
   }
 }

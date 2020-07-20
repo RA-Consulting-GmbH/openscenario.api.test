@@ -24,10 +24,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.FollowingMode;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.TrajectoryFollowingModeImpl;
@@ -50,41 +48,17 @@ public class TrajectoryFollowingModeXmlParser
    */
   public TrajectoryFollowingModeXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      TrajectoryFollowingModeImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrajectoryFollowingMode",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrajectoryFollowingMode",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrajectoryFollowingModeImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrajectoryFollowingModeImpl>> result =
-        new Hashtable<String, IAttributeParser<TrajectoryFollowingModeImpl>>();
+    Map<String, IAttributeParser<TrajectoryFollowingModeImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__FOLLOWING_MODE,
         new IAttributeParser<TrajectoryFollowingModeImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +68,15 @@ public class TrajectoryFollowingModeXmlParser
               TrajectoryFollowingModeImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrajectoryFollowingModeXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrajectoryFollowingModeXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__FOLLOWING_MODE,
@@ -109,7 +89,7 @@ public class TrajectoryFollowingModeXmlParser
               if (result != null) {
                 object.setFollowingMode(result);
               } else {
-                messageLogger.logMessage(
+                TrajectoryFollowingModeXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -142,9 +122,9 @@ public class TrajectoryFollowingModeXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrajectoryFollowingModeImpl>> createParserList() {
-      List<IElementParser<TrajectoryFollowingModeImpl>> result =
-          new ArrayList<IElementParser<TrajectoryFollowingModeImpl>>();
+      List<IElementParser<TrajectoryFollowingModeImpl>> result = new ArrayList<>();
       return result;
     }
   }

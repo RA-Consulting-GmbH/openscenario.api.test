@@ -47,7 +47,7 @@ public enum Priority {
    * @return the literal as defined in OpenSCENARIO
    */
   public String getLiteral() {
-    return literal;
+    return this.literal;
   }
 
   /**

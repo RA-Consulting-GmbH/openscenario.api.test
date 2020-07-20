@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class StoryboardImpl extends BaseImpl implements IStoryboard {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IInit init;
   private List<IStory> stories;
@@ -62,23 +58,24 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable {
     addAdapter(IStoryboard.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IInit getInit() {
-    return init;
+    return this.init;
   }
 
   @Override
   public List<IStory> getStories() {
-    return stories;
+    return this.stories;
   }
 
   @Override
   public ITrigger getStopTrigger() {
-    return stopTrigger;
+    return this.stopTrigger;
   }
   /**
    * Sets the value of model property init
@@ -110,7 +107,9 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -123,8 +122,9 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IInit init = null;
     init = getInit();
@@ -152,6 +152,7 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public StoryboardImpl clone() {
     StoryboardImpl clonedObject = new StoryboardImpl();
     cloneStartMarker(clonedObject);
@@ -171,7 +172,7 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable {
     List<IStory> stories = null;
     stories = getStories();
     if (stories != null) {
-      List<IStory> clonedList = new ArrayList<IStory>();
+      List<IStory> clonedList = new ArrayList<>();
       for (IStory item : stories) {
         StoryImpl clonedChild = ((StoryImpl) item).clone();
         clonedList.add(clonedChild);
@@ -234,25 +235,25 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__INIT)) {
       return (IOpenScenarioFlexElement) getInit();
-    } else if (key.equals(OscConstants.ELEMENT__STOP_TRIGGER)) {
-      return (IOpenScenarioFlexElement) getStopTrigger();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__STOP_TRIGGER)) {
+      return (IOpenScenarioFlexElement) getStopTrigger();
+    }
+    throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__STORY)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getStories();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

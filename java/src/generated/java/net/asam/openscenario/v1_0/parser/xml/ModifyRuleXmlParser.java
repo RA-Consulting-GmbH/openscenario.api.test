@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,35 +46,12 @@ public class ModifyRuleXmlParser extends XmlComplexTypeParser<ModifyRuleImpl> {
    */
   public ModifyRuleXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ModifyRuleImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ModifyRule",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ModifyRule",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ModifyRuleImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ModifyRuleImpl>> result =
-        new Hashtable<String, IAttributeParser<ModifyRuleImpl>>();
+    Map<String, IAttributeParser<ModifyRuleImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,20 +69,24 @@ public class ModifyRuleXmlParser extends XmlComplexTypeParser<ModifyRuleImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ModifyRuleImpl>> createParserList() {
-      List<IElementParser<ModifyRuleImpl>> result = new ArrayList<IElementParser<ModifyRuleImpl>>();
+      List<IElementParser<ModifyRuleImpl>> result = new ArrayList<>();
       result.add(new SubElementAddValueParser());
       result.add(new SubElementMultiplyByValueParser());
       return result;
     }
   }
   /** A parser for subelement addValue */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAddValueParser implements IElementParser<ModifyRuleImpl> {
 
     /** Constructor */
     public SubElementAddValueParser() {
       super();
-      parameterAddValueRuleXmlParser = new ParameterAddValueRuleXmlParser(messageLogger, filename);
+      this.parameterAddValueRuleXmlParser =
+          new ParameterAddValueRuleXmlParser(
+              ModifyRuleXmlParser.this.messageLogger, ModifyRuleXmlParser.this.filename);
     }
 
     private ParameterAddValueRuleXmlParser parameterAddValueRuleXmlParser;
@@ -119,7 +97,7 @@ public class ModifyRuleXmlParser extends XmlComplexTypeParser<ModifyRuleImpl> {
       ParameterAddValueRuleImpl addValue = new ParameterAddValueRuleImpl();
       // Setting the parent
       addValue.setParent(object);
-      parameterAddValueRuleXmlParser.parseElement(indexedElement, parserContext, addValue);
+      this.parameterAddValueRuleXmlParser.parseElement(indexedElement, parserContext, addValue);
 
       object.setAddValue(addValue);
     }
@@ -145,13 +123,15 @@ public class ModifyRuleXmlParser extends XmlComplexTypeParser<ModifyRuleImpl> {
     }
   }
   /** A parser for subelement multiplyByValue */
+  @SuppressWarnings("synthetic-access")
   private class SubElementMultiplyByValueParser implements IElementParser<ModifyRuleImpl> {
 
     /** Constructor */
     public SubElementMultiplyByValueParser() {
       super();
-      parameterMultiplyByValueRuleXmlParser =
-          new ParameterMultiplyByValueRuleXmlParser(messageLogger, filename);
+      this.parameterMultiplyByValueRuleXmlParser =
+          new ParameterMultiplyByValueRuleXmlParser(
+              ModifyRuleXmlParser.this.messageLogger, ModifyRuleXmlParser.this.filename);
     }
 
     private ParameterMultiplyByValueRuleXmlParser parameterMultiplyByValueRuleXmlParser;
@@ -162,7 +142,7 @@ public class ModifyRuleXmlParser extends XmlComplexTypeParser<ModifyRuleImpl> {
       ParameterMultiplyByValueRuleImpl multiplyByValue = new ParameterMultiplyByValueRuleImpl();
       // Setting the parent
       multiplyByValue.setParent(object);
-      parameterMultiplyByValueRuleXmlParser.parseElement(
+      this.parameterMultiplyByValueRuleXmlParser.parseElement(
           indexedElement, parserContext, multiplyByValue);
 
       object.setMultiplyByValue(multiplyByValue);

@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOverrideControllerValueAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: New value for throttle pedal position or unset
    * value.
@@ -35,21 +34,18 @@ public interface IOverrideControllerValueAction extends IOpenScenarioModelElemen
    * @return value of model property throttle
    */
   public IOverrideThrottleAction getThrottle();
-
   /**
    * From OpenSCENARIO class model specification: New value for brake position or unset value.
    *
    * @return value of model property brake
    */
   public IOverrideBrakeAction getBrake();
-
   /**
    * From OpenSCENARIO class model specification: New value for clutch position or unset value.
    *
    * @return value of model property clutch
    */
   public IOverrideClutchAction getClutch();
-
   /**
    * From OpenSCENARIO class model specification: New value for parking brake position or unset
    * value.
@@ -57,7 +53,6 @@ public interface IOverrideControllerValueAction extends IOpenScenarioModelElemen
    * @return value of model property parkingBrake
    */
   public IOverrideParkingBrakeAction getParkingBrake();
-
   /**
    * From OpenSCENARIO class model specification: New value for steering wheel position or unset
    * value.
@@ -65,7 +60,6 @@ public interface IOverrideControllerValueAction extends IOpenScenarioModelElemen
    * @return value of model property steeringWheel
    */
   public IOverrideSteeringWheelAction getSteeringWheel();
-
   /**
    * From OpenSCENARIO class model specification: New value for gear position or unset value.
    *

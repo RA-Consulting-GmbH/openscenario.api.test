@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAccelerationCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Acceleration value. Unit: m/s^2.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

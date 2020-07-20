@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class EntityRefImpl extends BaseImpl implements IEntityRef {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,13 +61,14 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
     addAdapter(IEntityRef.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
   /**
    * Sets the value of model property entityRef
@@ -83,8 +84,8 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
     }
   }
@@ -100,8 +101,9 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -112,6 +114,7 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public EntityRefImpl clone() {
     EntityRefImpl clonedObject = new EntityRefImpl();
     cloneStartMarker(clonedObject);
@@ -140,9 +143,8 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -183,6 +185,7 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -201,9 +204,8 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, Cloneable {
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

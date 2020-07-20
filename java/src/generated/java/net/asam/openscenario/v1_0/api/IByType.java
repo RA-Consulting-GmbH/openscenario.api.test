@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IByType extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: If a scenario object's entity object is of this
    * type, it is part of the entity selection.

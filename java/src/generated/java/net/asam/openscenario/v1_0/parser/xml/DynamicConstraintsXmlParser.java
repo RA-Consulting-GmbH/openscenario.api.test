@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.DynamicConstraintsImpl;
 import net.asam.xml.indexer.Position;
@@ -48,39 +44,17 @@ public class DynamicConstraintsXmlParser extends XmlComplexTypeParser<DynamicCon
    */
   public DynamicConstraintsXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, DynamicConstraintsImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing DynamicConstraints",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing DynamicConstraints",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<DynamicConstraintsImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<DynamicConstraintsImpl>> result =
-        new Hashtable<String, IAttributeParser<DynamicConstraintsImpl>>();
+    Map<String, IAttributeParser<DynamicConstraintsImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__MAX_ACCELERATION,
         new IAttributeParser<DynamicConstraintsImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +64,15 @@ public class DynamicConstraintsXmlParser extends XmlComplexTypeParser<DynamicCon
               DynamicConstraintsImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DynamicConstraintsXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DynamicConstraintsXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MAX_ACCELERATION,
@@ -115,6 +95,7 @@ public class DynamicConstraintsXmlParser extends XmlComplexTypeParser<DynamicCon
     result.put(
         OscConstants.ATTRIBUTE__MAX_DECELERATION,
         new IAttributeParser<DynamicConstraintsImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -124,9 +105,15 @@ public class DynamicConstraintsXmlParser extends XmlComplexTypeParser<DynamicCon
               DynamicConstraintsImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DynamicConstraintsXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DynamicConstraintsXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MAX_DECELERATION,
@@ -149,6 +136,7 @@ public class DynamicConstraintsXmlParser extends XmlComplexTypeParser<DynamicCon
     result.put(
         OscConstants.ATTRIBUTE__MAX_SPEED,
         new IAttributeParser<DynamicConstraintsImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -158,9 +146,15 @@ public class DynamicConstraintsXmlParser extends XmlComplexTypeParser<DynamicCon
               DynamicConstraintsImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DynamicConstraintsXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DynamicConstraintsXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MAX_SPEED, stripDollarSign(attributeValue), startMarker);
@@ -195,9 +189,9 @@ public class DynamicConstraintsXmlParser extends XmlComplexTypeParser<DynamicCon
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<DynamicConstraintsImpl>> createParserList() {
-      List<IElementParser<DynamicConstraintsImpl>> result =
-          new ArrayList<IElementParser<DynamicConstraintsImpl>>();
+      List<IElementParser<DynamicConstraintsImpl>> result = new ArrayList<>();
       return result;
     }
   }

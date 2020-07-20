@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class EnvironmentActionXmlParser extends XmlComplexTypeParser<Environment
    */
   public EnvironmentActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, EnvironmentActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing EnvironmentAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing EnvironmentAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<EnvironmentActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<EnvironmentActionImpl>> result =
-        new Hashtable<String, IAttributeParser<EnvironmentActionImpl>>();
+    Map<String, IAttributeParser<EnvironmentActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,21 +71,25 @@ public class EnvironmentActionXmlParser extends XmlComplexTypeParser<Environment
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<EnvironmentActionImpl>> createParserList() {
-      List<IElementParser<EnvironmentActionImpl>> result =
-          new ArrayList<IElementParser<EnvironmentActionImpl>>();
+      List<IElementParser<EnvironmentActionImpl>> result = new ArrayList<>();
       result.add(new SubElementEnvironmentParser());
       result.add(new SubElementCatalogReferenceParser());
       return result;
     }
   }
   /** A parser for subelement environment */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEnvironmentParser implements IElementParser<EnvironmentActionImpl> {
 
     /** Constructor */
     public SubElementEnvironmentParser() {
       super();
-      environmentXmlParser = new EnvironmentXmlParser(messageLogger, filename);
+      this.environmentXmlParser =
+          new EnvironmentXmlParser(
+              EnvironmentActionXmlParser.this.messageLogger,
+              EnvironmentActionXmlParser.this.filename);
     }
 
     private EnvironmentXmlParser environmentXmlParser;
@@ -122,7 +100,7 @@ public class EnvironmentActionXmlParser extends XmlComplexTypeParser<Environment
       EnvironmentImpl environment = new EnvironmentImpl();
       // Setting the parent
       environment.setParent(object);
-      environmentXmlParser.parseElement(indexedElement, parserContext, environment);
+      this.environmentXmlParser.parseElement(indexedElement, parserContext, environment);
 
       object.setEnvironment(environment);
     }
@@ -148,12 +126,16 @@ public class EnvironmentActionXmlParser extends XmlComplexTypeParser<Environment
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser implements IElementParser<EnvironmentActionImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              EnvironmentActionXmlParser.this.messageLogger,
+              EnvironmentActionXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -164,7 +146,7 @@ public class EnvironmentActionXmlParser extends XmlComplexTypeParser<Environment
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);

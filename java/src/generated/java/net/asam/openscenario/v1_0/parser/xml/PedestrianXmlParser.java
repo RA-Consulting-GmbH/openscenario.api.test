@@ -54,38 +54,16 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
    */
   public PedestrianXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PedestrianImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Pedestrian",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Pedestrian",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PedestrianImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PedestrianImpl>> result =
-        new Hashtable<String, IAttributeParser<PedestrianImpl>>();
+    Map<String, IAttributeParser<PedestrianImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__MODEL,
         new IAttributeParser<PedestrianImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -95,9 +73,15 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
               PedestrianImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MODEL, stripDollarSign(attributeValue), startMarker);
@@ -118,6 +102,7 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
     result.put(
         OscConstants.ATTRIBUTE__MASS,
         new IAttributeParser<PedestrianImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -127,9 +112,15 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
               PedestrianImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MASS, stripDollarSign(attributeValue), startMarker);
@@ -150,6 +141,7 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<PedestrianImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -159,9 +151,15 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
               PedestrianImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -182,6 +180,7 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
     result.put(
         OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY,
         new IAttributeParser<PedestrianImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -191,9 +190,15 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
               PedestrianImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PedestrianXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY,
@@ -206,7 +211,7 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
               if (result != null) {
                 object.setPedestrianCategory(result);
               } else {
-                messageLogger.logMessage(
+                PedestrianXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -239,12 +244,14 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<PedestrianImpl>> createParserList() {
-      List<IElementParser<PedestrianImpl>> result = new ArrayList<IElementParser<PedestrianImpl>>();
+      List<IElementParser<PedestrianImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<PedestrianImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              PedestrianXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementBoundingBoxParser());
@@ -253,12 +260,15 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser implements IElementParser<PedestrianImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              PedestrianXmlParser.this.messageLogger, PedestrianXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -269,11 +279,11 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -300,12 +310,15 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
     }
   }
   /** A parser for subelement boundingBox */
+  @SuppressWarnings("synthetic-access")
   private class SubElementBoundingBoxParser implements IElementParser<PedestrianImpl> {
 
     /** Constructor */
     public SubElementBoundingBoxParser() {
       super();
-      boundingBoxXmlParser = new BoundingBoxXmlParser(messageLogger, filename);
+      this.boundingBoxXmlParser =
+          new BoundingBoxXmlParser(
+              PedestrianXmlParser.this.messageLogger, PedestrianXmlParser.this.filename);
     }
 
     private BoundingBoxXmlParser boundingBoxXmlParser;
@@ -316,7 +329,7 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
       BoundingBoxImpl boundingBox = new BoundingBoxImpl();
       // Setting the parent
       boundingBox.setParent(object);
-      boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
+      this.boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
 
       object.setBoundingBox(boundingBox);
     }
@@ -342,12 +355,15 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
     }
   }
   /** A parser for subelement properties */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPropertiesParser implements IElementParser<PedestrianImpl> {
 
     /** Constructor */
     public SubElementPropertiesParser() {
       super();
-      propertiesXmlParser = new PropertiesXmlParser(messageLogger, filename);
+      this.propertiesXmlParser =
+          new PropertiesXmlParser(
+              PedestrianXmlParser.this.messageLogger, PedestrianXmlParser.this.filename);
     }
 
     private PropertiesXmlParser propertiesXmlParser;
@@ -358,7 +374,7 @@ public class PedestrianXmlParser extends XmlComplexTypeParser<PedestrianImpl> {
       PropertiesImpl properties = new PropertiesImpl();
       // Setting the parent
       properties.setParent(object);
-      propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
+      this.propertiesXmlParser.parseElement(indexedElement, parserContext, properties);
 
       object.setProperties(properties);
     }

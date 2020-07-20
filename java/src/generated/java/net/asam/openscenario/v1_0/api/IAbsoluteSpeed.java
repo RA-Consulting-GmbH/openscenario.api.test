@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAbsoluteSpeed extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Absolute speed. Unit: m/s. Range: [0..inf[.
    *

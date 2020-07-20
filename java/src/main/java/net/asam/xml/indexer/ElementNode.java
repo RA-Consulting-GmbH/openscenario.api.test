@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class ElementNode extends PositionNode {
 
-  private List<AttributeNode> attributes = new ArrayList<AttributeNode>();
+  private List<AttributeNode> attributes = new ArrayList<>();
 
   /**
    * Constructor
@@ -56,7 +56,7 @@ public class ElementNode extends PositionNode {
    * @param attributeNodes attribte node to add
    */
   public void addAttributes(List<AttributeNode> attributeNodes) {
-    attributes.addAll(attributeNodes);
+    this.attributes.addAll(attributeNodes);
   }
 
   /**
@@ -66,7 +66,7 @@ public class ElementNode extends PositionNode {
    * @return the attribute node
    */
   public AttributeNode getAttributeNode(int index) {
-    return attributes.get(index);
+    return this.attributes.get(index);
   }
 
   /**
@@ -77,7 +77,7 @@ public class ElementNode extends PositionNode {
    */
   public AttributeNode getAttributeNode(String attributeName) {
     AttributeNode result = null;
-    for (AttributeNode attributeNode : attributes) {
+    for (AttributeNode attributeNode : this.attributes) {
       if (attributeNode.getName().equals(attributeName)) {
         return attributeNode;
       }

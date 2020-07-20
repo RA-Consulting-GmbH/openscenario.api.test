@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AxlesImpl extends BaseImpl implements IAxles, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class AxlesImpl extends BaseImpl implements IAxles {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IAxle frontAxle;
   private IAxle rearAxle;
@@ -60,23 +56,24 @@ public class AxlesImpl extends BaseImpl implements IAxles, Cloneable {
     addAdapter(IAxles.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IAxle getFrontAxle() {
-    return frontAxle;
+    return this.frontAxle;
   }
 
   @Override
   public IAxle getRearAxle() {
-    return rearAxle;
+    return this.rearAxle;
   }
 
   @Override
   public List<IAxle> getAdditionalAxles() {
-    return additionalAxles;
+    return this.additionalAxles;
   }
   /**
    * Sets the value of model property frontAxle
@@ -106,7 +103,9 @@ public class AxlesImpl extends BaseImpl implements IAxles, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -119,8 +118,9 @@ public class AxlesImpl extends BaseImpl implements IAxles, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IAxle frontAxle = null;
     frontAxle = getFrontAxle();
@@ -148,6 +148,7 @@ public class AxlesImpl extends BaseImpl implements IAxles, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public AxlesImpl clone() {
     AxlesImpl clonedObject = new AxlesImpl();
     cloneStartMarker(clonedObject);
@@ -174,7 +175,7 @@ public class AxlesImpl extends BaseImpl implements IAxles, Cloneable {
     List<IAxle> additionalAxles = null;
     additionalAxles = getAdditionalAxles();
     if (additionalAxles != null) {
-      List<IAxle> clonedList = new ArrayList<IAxle>();
+      List<IAxle> clonedList = new ArrayList<>();
       for (IAxle item : additionalAxles) {
         AxleImpl clonedChild = ((AxleImpl) item).clone();
         clonedList.add(clonedChild);
@@ -230,25 +231,25 @@ public class AxlesImpl extends BaseImpl implements IAxles, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__FRONT_AXLE)) {
       return (IOpenScenarioFlexElement) getFrontAxle();
-    } else if (key.equals(OscConstants.ELEMENT__REAR_AXLE)) {
-      return (IOpenScenarioFlexElement) getRearAxle();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__REAR_AXLE)) {
+      return (IOpenScenarioFlexElement) getRearAxle();
+    }
+    throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__ADDITIONAL_AXLE)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getAdditionalAxles();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

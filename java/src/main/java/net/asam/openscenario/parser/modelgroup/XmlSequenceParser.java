@@ -38,13 +38,13 @@ import net.asam.xml.indexer.Position;
  * Parser for a XSD:sequence model group (exact order of elements).
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGroupParser<T> {
 
   private static int NOT_FOUND = -1;
 
-  private Map<IElementParser<T>, Integer> occuredElementList =
-      new Hashtable<IElementParser<T>, Integer>();
+  private Map<IElementParser<T>, Integer> occuredElementList = new Hashtable<>();
 
   /**
    * Constructor
@@ -71,24 +71,24 @@ public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGrou
       Position start = indexedElement.getStartElementLocation();
 
       if (parser == null) {
-        messageLogger.logMessage(
+        this.messageLogger.logMessage(
             new FileContentMessage(
                 "Unknown element '" + tagName + "'",
                 ErrorLevel.ERROR,
-                new Textmarker(start.getLine(), start.getColumn(), filename)));
+                new Textmarker(start.getLine(), start.getColumn(), this.filename)));
         lastElementParsed = indexedElement;
       } else {
         int nextIndex = getNextIndex(currentParserIndex, tagName, start);
         if (nextIndex == NOT_FOUND) {
-          messageLogger.logMessage(
+          this.messageLogger.logMessage(
               new FileContentMessage(
                   "Element '" + tagName + "' is not allowed here.",
                   ErrorLevel.ERROR,
-                  new Textmarker(start.getLine(), start.getColumn(), filename)));
+                  new Textmarker(start.getLine(), start.getColumn(), this.filename)));
           lastElementParsed = indexedElement;
         } else {
           currentParserIndex = nextIndex;
-          Integer currentOccurs = occuredElementList.get(tagName);
+          Integer currentOccurs = this.occuredElementList.get(parser);
           if (currentOccurs == null) {
             currentOccurs = 0;
           }
@@ -98,9 +98,9 @@ public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGrou
                 moveForwardToLastElementParsed(
                     indexedElements, currentListIndex, parserContext.getLastElementParsed());
             lastElementParsed = parserContext.getLastElementParsed();
-            occuredElementList.put(parser, currentOccurs + 1);
+            this.occuredElementList.put(parser, currentOccurs + 1);
           } else {
-            messageLogger.logMessage(
+            this.messageLogger.logMessage(
                 new FileContentMessage(
                     "Too many elements of <"
                         + tagName
@@ -108,7 +108,7 @@ public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGrou
                         + parser.getMaxOccur()
                         + ") has already reached",
                     ErrorLevel.ERROR,
-                    new Textmarker(start.getLine(), start.getColumn(), filename)));
+                    new Textmarker(start.getLine(), start.getColumn(), this.filename)));
             lastElementParsed = indexedElement;
           }
         }
@@ -128,30 +128,31 @@ public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGrou
    * @return the next index if found or -1 if a parser for such a element cannot be found.
    */
   private int getNextIndex(int currentIndex, String tagName, Position startPosition) {
-    List<FileContentMessage> localMessages = new ArrayList<FileContentMessage>();
+    List<FileContentMessage> localMessages = new ArrayList<>();
 
+    int result = NOT_FOUND;
     // Increment the list index until the element fits
     for (int i = currentIndex; i < getParsers().size(); i++) {
       List<IElementParser<T>> parsers = getParsers();
       if (parsers.get(i).doesMatch(tagName)) {
-        messageLogger.logAllMessages(localMessages);
-        return i;
-      } else {
-        IElementParser<T> parser = parsers.get(i);
-        // if the element at this index is required and not yet reached minimum occurance
-        Integer occured = occuredElementList.get(parser);
-        if (occured == null) {
-          occured = 0;
-        }
-        if (parser.getMinOccur() > occured) {
-          localMessages.add(
-              new FileContentMessage(
-                  "Required element is missing before <" + tagName + ">",
-                  ErrorLevel.ERROR,
-                  new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename)));
-        }
+        this.messageLogger.logAllMessages(localMessages);
+        result = i;
+        break;
+      }
+      IElementParser<T> parser = parsers.get(i);
+      // if the element at this index is required and not yet reached minimum occurance
+      Integer occured = this.occuredElementList.get(parser);
+      if (occured == null) {
+        occured = 0;
+      }
+      if (parser.getMinOccur() > occured) {
+        localMessages.add(
+            new FileContentMessage(
+                "Required element is missing before <" + tagName + ">",
+                ErrorLevel.ERROR,
+                new Textmarker(startPosition.getLine(), startPosition.getColumn(), this.filename)));
       }
     }
-    return NOT_FOUND;
+    return result;
   }
 }

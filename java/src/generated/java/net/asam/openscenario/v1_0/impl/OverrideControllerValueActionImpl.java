@@ -50,12 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class OverrideControllerValueActionImpl extends BaseImpl
-    implements IOverrideControllerValueAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+    implements IOverrideControllerValueAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IOverrideThrottleAction throttle;
   private IOverrideBrakeAction brake;
@@ -70,38 +66,39 @@ public class OverrideControllerValueActionImpl extends BaseImpl
     addAdapter(IOverrideControllerValueAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IOverrideThrottleAction getThrottle() {
-    return throttle;
+    return this.throttle;
   }
 
   @Override
   public IOverrideBrakeAction getBrake() {
-    return brake;
+    return this.brake;
   }
 
   @Override
   public IOverrideClutchAction getClutch() {
-    return clutch;
+    return this.clutch;
   }
 
   @Override
   public IOverrideParkingBrakeAction getParkingBrake() {
-    return parkingBrake;
+    return this.parkingBrake;
   }
 
   @Override
   public IOverrideSteeringWheelAction getSteeringWheel() {
-    return steeringWheel;
+    return this.steeringWheel;
   }
 
   @Override
   public IOverrideGearAction getGear() {
-    return gear;
+    return this.gear;
   }
   /**
    * Sets the value of model property throttle
@@ -160,7 +157,9 @@ public class OverrideControllerValueActionImpl extends BaseImpl
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -173,8 +172,9 @@ public class OverrideControllerValueActionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IOverrideThrottleAction throttle = null;
     throttle = getThrottle();
@@ -215,6 +215,7 @@ public class OverrideControllerValueActionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public OverrideControllerValueActionImpl clone() {
     OverrideControllerValueActionImpl clonedObject = new OverrideControllerValueActionImpl();
     cloneStartMarker(clonedObject);
@@ -316,24 +317,29 @@ public class OverrideControllerValueActionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__THROTTLE)) {
       return (IOpenScenarioFlexElement) getThrottle();
-    } else if (key.equals(OscConstants.ELEMENT__BRAKE)) {
-      return (IOpenScenarioFlexElement) getBrake();
-    } else if (key.equals(OscConstants.ELEMENT__CLUTCH)) {
-      return (IOpenScenarioFlexElement) getClutch();
-    } else if (key.equals(OscConstants.ELEMENT__PARKING_BRAKE)) {
-      return (IOpenScenarioFlexElement) getParkingBrake();
-    } else if (key.equals(OscConstants.ELEMENT__STEERING_WHEEL)) {
-      return (IOpenScenarioFlexElement) getSteeringWheel();
-    } else if (key.equals(OscConstants.ELEMENT__GEAR)) {
-      return (IOpenScenarioFlexElement) getGear();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__BRAKE)) {
+      return (IOpenScenarioFlexElement) getBrake();
+    }
+    if (key.equals(OscConstants.ELEMENT__CLUTCH)) {
+      return (IOpenScenarioFlexElement) getClutch();
+    }
+    if (key.equals(OscConstants.ELEMENT__PARKING_BRAKE)) {
+      return (IOpenScenarioFlexElement) getParkingBrake();
+    }
+    if (key.equals(OscConstants.ELEMENT__STEERING_WHEEL)) {
+      return (IOpenScenarioFlexElement) getSteeringWheel();
+    }
+    if (key.equals(OscConstants.ELEMENT__GEAR)) {
+      return (IOpenScenarioFlexElement) getGear();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -29,21 +29,18 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRelativeSpeedCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Relative speed value. Unit: m/s.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.DirectoryImpl;
 import net.asam.xml.indexer.Position;
@@ -48,38 +44,16 @@ public class DirectoryXmlParser extends XmlComplexTypeParser<DirectoryImpl> {
    */
   public DirectoryXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, DirectoryImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Directory",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Directory",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<DirectoryImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<DirectoryImpl>> result =
-        new Hashtable<String, IAttributeParser<DirectoryImpl>>();
+    Map<String, IAttributeParser<DirectoryImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__PATH,
         new IAttributeParser<DirectoryImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -89,9 +63,15 @@ public class DirectoryXmlParser extends XmlComplexTypeParser<DirectoryImpl> {
               DirectoryImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    DirectoryXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    DirectoryXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__PATH, stripDollarSign(attributeValue), startMarker);
@@ -126,8 +106,9 @@ public class DirectoryXmlParser extends XmlComplexTypeParser<DirectoryImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<DirectoryImpl>> createParserList() {
-      List<IElementParser<DirectoryImpl>> result = new ArrayList<IElementParser<DirectoryImpl>>();
+      List<IElementParser<DirectoryImpl>> result = new ArrayList<>();
       return result;
     }
   }

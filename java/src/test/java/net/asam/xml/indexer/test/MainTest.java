@@ -28,7 +28,6 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import net.asam.openscenario.v1_0.test.TestBase;
 import net.asam.xml.indexer.ElementNode;
 import net.asam.xml.indexer.PositionIndex;
 import net.asam.xml.indexer.grammar.XMLLexer;

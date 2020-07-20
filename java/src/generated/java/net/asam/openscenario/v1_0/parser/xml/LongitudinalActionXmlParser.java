@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,36 +46,13 @@ public class LongitudinalActionXmlParser extends XmlComplexTypeParser<Longitudin
    */
   public LongitudinalActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, LongitudinalActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing LongitudinalAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing LongitudinalAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<LongitudinalActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<LongitudinalActionImpl>> result =
-        new Hashtable<String, IAttributeParser<LongitudinalActionImpl>>();
+    Map<String, IAttributeParser<LongitudinalActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,21 +70,25 @@ public class LongitudinalActionXmlParser extends XmlComplexTypeParser<Longitudin
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<LongitudinalActionImpl>> createParserList() {
-      List<IElementParser<LongitudinalActionImpl>> result =
-          new ArrayList<IElementParser<LongitudinalActionImpl>>();
+      List<IElementParser<LongitudinalActionImpl>> result = new ArrayList<>();
       result.add(new SubElementSpeedActionParser());
       result.add(new SubElementLongitudinalDistanceActionParser());
       return result;
     }
   }
   /** A parser for subelement speedAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSpeedActionParser implements IElementParser<LongitudinalActionImpl> {
 
     /** Constructor */
     public SubElementSpeedActionParser() {
       super();
-      speedActionXmlParser = new SpeedActionXmlParser(messageLogger, filename);
+      this.speedActionXmlParser =
+          new SpeedActionXmlParser(
+              LongitudinalActionXmlParser.this.messageLogger,
+              LongitudinalActionXmlParser.this.filename);
     }
 
     private SpeedActionXmlParser speedActionXmlParser;
@@ -121,7 +99,7 @@ public class LongitudinalActionXmlParser extends XmlComplexTypeParser<Longitudin
       SpeedActionImpl speedAction = new SpeedActionImpl();
       // Setting the parent
       speedAction.setParent(object);
-      speedActionXmlParser.parseElement(indexedElement, parserContext, speedAction);
+      this.speedActionXmlParser.parseElement(indexedElement, parserContext, speedAction);
 
       object.setSpeedAction(speedAction);
     }
@@ -147,14 +125,17 @@ public class LongitudinalActionXmlParser extends XmlComplexTypeParser<Longitudin
     }
   }
   /** A parser for subelement longitudinalDistanceAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLongitudinalDistanceActionParser
       implements IElementParser<LongitudinalActionImpl> {
 
     /** Constructor */
     public SubElementLongitudinalDistanceActionParser() {
       super();
-      longitudinalDistanceActionXmlParser =
-          new LongitudinalDistanceActionXmlParser(messageLogger, filename);
+      this.longitudinalDistanceActionXmlParser =
+          new LongitudinalDistanceActionXmlParser(
+              LongitudinalActionXmlParser.this.messageLogger,
+              LongitudinalActionXmlParser.this.filename);
     }
 
     private LongitudinalDistanceActionXmlParser longitudinalDistanceActionXmlParser;
@@ -166,7 +147,7 @@ public class LongitudinalActionXmlParser extends XmlComplexTypeParser<Longitudin
           new LongitudinalDistanceActionImpl();
       // Setting the parent
       longitudinalDistanceAction.setParent(object);
-      longitudinalDistanceActionXmlParser.parseElement(
+      this.longitudinalDistanceActionXmlParser.parseElement(
           indexedElement, parserContext, longitudinalDistanceAction);
 
       object.setLongitudinalDistanceAction(longitudinalDistanceAction);

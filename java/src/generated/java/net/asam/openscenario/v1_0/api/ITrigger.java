@@ -29,7 +29,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrigger extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: List of condition groups as a container of
    * conditions.

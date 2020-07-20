@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOpenScenarioCategory extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Definition of a scenario.
    *
    * @return value of model property scenarioDefinition
    */
   public IScenarioDefinition getScenarioDefinition();
-
   /**
    * From OpenSCENARIO class model specification: Definition of a catalog.
    *

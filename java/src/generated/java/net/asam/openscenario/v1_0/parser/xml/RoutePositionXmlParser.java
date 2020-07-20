@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
    */
   public RoutePositionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RoutePositionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RoutePosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RoutePosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RoutePositionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RoutePositionImpl>> result =
-        new Hashtable<String, IAttributeParser<RoutePositionImpl>>();
+    Map<String, IAttributeParser<RoutePositionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,9 +71,9 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RoutePositionImpl>> createParserList() {
-      List<IElementParser<RoutePositionImpl>> result =
-          new ArrayList<IElementParser<RoutePositionImpl>>();
+      List<IElementParser<RoutePositionImpl>> result = new ArrayList<>();
       result.add(new SubElementRouteRefParser());
       result.add(new SubElementOrientationParser());
       result.add(new SubElementInRoutePositionParser());
@@ -107,12 +81,15 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
     }
   }
   /** A parser for subelement routeRef */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRouteRefParser implements IElementParser<RoutePositionImpl> {
 
     /** Constructor */
     public SubElementRouteRefParser() {
       super();
-      routeRefXmlParser = new RouteRefXmlParser(messageLogger, filename);
+      this.routeRefXmlParser =
+          new RouteRefXmlParser(
+              RoutePositionXmlParser.this.messageLogger, RoutePositionXmlParser.this.filename);
     }
 
     private RouteRefXmlParser routeRefXmlParser;
@@ -123,7 +100,7 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
       RouteRefImpl routeRef = new RouteRefImpl();
       // Setting the parent
       routeRef.setParent(object);
-      routeRefXmlParser.parseElement(indexedElement, parserContext, routeRef);
+      this.routeRefXmlParser.parseElement(indexedElement, parserContext, routeRef);
 
       object.setRouteRef(routeRef);
     }
@@ -149,12 +126,15 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
     }
   }
   /** A parser for subelement orientation */
+  @SuppressWarnings("synthetic-access")
   private class SubElementOrientationParser implements IElementParser<RoutePositionImpl> {
 
     /** Constructor */
     public SubElementOrientationParser() {
       super();
-      orientationXmlParser = new OrientationXmlParser(messageLogger, filename);
+      this.orientationXmlParser =
+          new OrientationXmlParser(
+              RoutePositionXmlParser.this.messageLogger, RoutePositionXmlParser.this.filename);
     }
 
     private OrientationXmlParser orientationXmlParser;
@@ -165,7 +145,7 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
       OrientationImpl orientation = new OrientationImpl();
       // Setting the parent
       orientation.setParent(object);
-      orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
+      this.orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
 
       object.setOrientation(orientation);
     }
@@ -191,12 +171,15 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
     }
   }
   /** A parser for subelement inRoutePosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementInRoutePositionParser implements IElementParser<RoutePositionImpl> {
 
     /** Constructor */
     public SubElementInRoutePositionParser() {
       super();
-      inRoutePositionXmlParser = new InRoutePositionXmlParser(messageLogger, filename);
+      this.inRoutePositionXmlParser =
+          new InRoutePositionXmlParser(
+              RoutePositionXmlParser.this.messageLogger, RoutePositionXmlParser.this.filename);
     }
 
     private InRoutePositionXmlParser inRoutePositionXmlParser;
@@ -207,7 +190,7 @@ public class RoutePositionXmlParser extends XmlComplexTypeParser<RoutePositionIm
       InRoutePositionImpl inRoutePosition = new InRoutePositionImpl();
       // Setting the parent
       inRoutePosition.setParent(object);
-      inRoutePositionXmlParser.parseElement(indexedElement, parserContext, inRoutePosition);
+      this.inRoutePositionXmlParser.parseElement(indexedElement, parserContext, inRoutePosition);
 
       object.setInRoutePosition(inRoutePosition);
     }

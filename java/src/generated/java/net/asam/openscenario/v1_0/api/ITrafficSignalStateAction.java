@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficSignalStateAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: ID of a signal in a road network. The signal ID
    * must be listed in the TrafficSignal list of the RoadNetwork.
@@ -34,7 +33,6 @@ public interface ITrafficSignalStateAction extends IOpenScenarioModelElement {
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Targeted state of the signal. The available states
    * are listed in the TrafficSignal list of the RoadNetwork.

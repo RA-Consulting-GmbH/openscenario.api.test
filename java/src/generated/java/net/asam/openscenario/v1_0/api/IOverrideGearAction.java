@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOverrideGearAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Gear number.
    *
    * @return value of model property number
    */
   public Double getNumber();
-
   /**
    * From OpenSCENARIO class model specification: True: override; false: stop overriding.
    *

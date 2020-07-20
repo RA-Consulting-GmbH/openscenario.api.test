@@ -47,8 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -66,28 +66,29 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
     addAdapter(ISynchronizeAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getMasterEntityRef() {
-    return masterEntityRef;
+    return this.masterEntityRef;
   }
 
   @Override
   public IPosition getTargetPositionMaster() {
-    return targetPositionMaster;
+    return this.targetPositionMaster;
   }
 
   @Override
   public IPosition getTargetPosition() {
-    return targetPosition;
+    return this.targetPosition;
   }
 
   @Override
   public IFinalSpeed getFinalSpeed() {
-    return finalSpeed;
+    return this.finalSpeed;
   }
   /**
    * Sets the value of model property masterEntityRef
@@ -131,8 +132,8 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      masterEntityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.masterEntityRef = proxy;
       removeResolvedParameter(attributeKey);
     }
   }
@@ -148,8 +149,9 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition targetPositionMaster = null;
     targetPositionMaster = getTargetPositionMaster();
@@ -175,6 +177,7 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
    *
    * @return a deep copy of the object.
    */
+  @Override
   public SynchronizeActionImpl clone() {
     SynchronizeActionImpl clonedObject = new SynchronizeActionImpl();
     cloneStartMarker(clonedObject);
@@ -225,9 +228,8 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
       // Get the Proxy
       INamedReference<IEntity> masterEntityRef = getMasterEntityRef();
       return masterEntityRef != null ? masterEntityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -267,18 +269,20 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
     }
     if (key.equals(OscConstants.ELEMENT__TARGET_POSITION_MASTER)) {
       return (IOpenScenarioFlexElement) getTargetPositionMaster();
-    } else if (key.equals(OscConstants.ELEMENT__TARGET_POSITION)) {
-      return (IOpenScenarioFlexElement) getTargetPosition();
-    } else if (key.equals(OscConstants.ELEMENT__FINAL_SPEED)) {
-      return (IOpenScenarioFlexElement) getFinalSpeed();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__TARGET_POSITION)) {
+      return (IOpenScenarioFlexElement) getTargetPosition();
+    }
+    if (key.equals(OscConstants.ELEMENT__FINAL_SPEED)) {
+      return (IOpenScenarioFlexElement) getFinalSpeed();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -299,9 +303,8 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
       return masterEntityRef != null
           ? (IOpenScenarioFlexElement) masterEntityRef.getTargetObject()
           : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

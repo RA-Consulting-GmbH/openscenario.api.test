@@ -51,8 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class CatalogImpl extends BaseImpl implements ICatalog {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -75,53 +75,54 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     addAdapter(ICatalog.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public List<IVehicle> getVehicles() {
-    return vehicles;
+    return this.vehicles;
   }
 
   @Override
   public List<IController> getControllers() {
-    return controllers;
+    return this.controllers;
   }
 
   @Override
   public List<IPedestrian> getPedestrians() {
-    return pedestrians;
+    return this.pedestrians;
   }
 
   @Override
   public List<IMiscObject> getMiscObjects() {
-    return miscObjects;
+    return this.miscObjects;
   }
 
   @Override
   public List<IEnvironment> getEnvironments() {
-    return environments;
+    return this.environments;
   }
 
   @Override
   public List<IManeuver> getManeuvers() {
-    return maneuvers;
+    return this.maneuvers;
   }
 
   @Override
   public List<ITrajectory> getTrajectories() {
-    return trajectories;
+    return this.trajectories;
   }
 
   @Override
   public List<IRoute> getRoutes() {
-    return routes;
+    return this.routes;
   }
   /**
    * Sets the value of model property name
@@ -209,7 +210,8 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -225,8 +227,9 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IVehicle> vehicles = null;
     vehicles = getVehicles();
@@ -293,6 +296,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public CatalogImpl clone() {
     CatalogImpl clonedObject = new CatalogImpl();
     cloneStartMarker(clonedObject);
@@ -307,7 +311,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<IVehicle> vehicles = null;
     vehicles = getVehicles();
     if (vehicles != null) {
-      List<IVehicle> clonedList = new ArrayList<IVehicle>();
+      List<IVehicle> clonedList = new ArrayList<>();
       for (IVehicle item : vehicles) {
         VehicleImpl clonedChild = ((VehicleImpl) item).clone();
         clonedList.add(clonedChild);
@@ -318,7 +322,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<IController> controllers = null;
     controllers = getControllers();
     if (controllers != null) {
-      List<IController> clonedList = new ArrayList<IController>();
+      List<IController> clonedList = new ArrayList<>();
       for (IController item : controllers) {
         ControllerImpl clonedChild = ((ControllerImpl) item).clone();
         clonedList.add(clonedChild);
@@ -329,7 +333,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<IPedestrian> pedestrians = null;
     pedestrians = getPedestrians();
     if (pedestrians != null) {
-      List<IPedestrian> clonedList = new ArrayList<IPedestrian>();
+      List<IPedestrian> clonedList = new ArrayList<>();
       for (IPedestrian item : pedestrians) {
         PedestrianImpl clonedChild = ((PedestrianImpl) item).clone();
         clonedList.add(clonedChild);
@@ -340,7 +344,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<IMiscObject> miscObjects = null;
     miscObjects = getMiscObjects();
     if (miscObjects != null) {
-      List<IMiscObject> clonedList = new ArrayList<IMiscObject>();
+      List<IMiscObject> clonedList = new ArrayList<>();
       for (IMiscObject item : miscObjects) {
         MiscObjectImpl clonedChild = ((MiscObjectImpl) item).clone();
         clonedList.add(clonedChild);
@@ -351,7 +355,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<IEnvironment> environments = null;
     environments = getEnvironments();
     if (environments != null) {
-      List<IEnvironment> clonedList = new ArrayList<IEnvironment>();
+      List<IEnvironment> clonedList = new ArrayList<>();
       for (IEnvironment item : environments) {
         EnvironmentImpl clonedChild = ((EnvironmentImpl) item).clone();
         clonedList.add(clonedChild);
@@ -362,7 +366,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<IManeuver> maneuvers = null;
     maneuvers = getManeuvers();
     if (maneuvers != null) {
-      List<IManeuver> clonedList = new ArrayList<IManeuver>();
+      List<IManeuver> clonedList = new ArrayList<>();
       for (IManeuver item : maneuvers) {
         ManeuverImpl clonedChild = ((ManeuverImpl) item).clone();
         clonedList.add(clonedChild);
@@ -373,7 +377,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<ITrajectory> trajectories = null;
     trajectories = getTrajectories();
     if (trajectories != null) {
-      List<ITrajectory> clonedList = new ArrayList<ITrajectory>();
+      List<ITrajectory> clonedList = new ArrayList<>();
       for (ITrajectory item : trajectories) {
         TrajectoryImpl clonedChild = ((TrajectoryImpl) item).clone();
         clonedList.add(clonedChild);
@@ -384,7 +388,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     List<IRoute> routes = null;
     routes = getRoutes();
     if (routes != null) {
-      List<IRoute> clonedList = new ArrayList<IRoute>();
+      List<IRoute> clonedList = new ArrayList<>();
       for (IRoute item : routes) {
         RouteImpl clonedChild = ((RouteImpl) item).clone();
         clonedList.add(clonedChild);
@@ -405,9 +409,8 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -445,39 +448,39 @@ public class CatalogImpl extends BaseImpl implements ICatalog, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__VEHICLE)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getVehicles();
-
-    } else if (key.equals(OscConstants.ELEMENT__CONTROLLER)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getControllers();
-
-    } else if (key.equals(OscConstants.ELEMENT__PEDESTRIAN)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getPedestrians();
-
-    } else if (key.equals(OscConstants.ELEMENT__MISC_OBJECT)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getMiscObjects();
-
-    } else if (key.equals(OscConstants.ELEMENT__ENVIRONMENT)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getEnvironments();
-
-    } else if (key.equals(OscConstants.ELEMENT__MANEUVER)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getManeuvers();
-
-    } else if (key.equals(OscConstants.ELEMENT__TRAJECTORY)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getTrajectories();
-
-    } else if (key.equals(OscConstants.ELEMENT__ROUTE)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getRoutes();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__CONTROLLER)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getControllers();
+    }
+    if (key.equals(OscConstants.ELEMENT__PEDESTRIAN)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getPedestrians();
+    }
+    if (key.equals(OscConstants.ELEMENT__MISC_OBJECT)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getMiscObjects();
+    }
+    if (key.equals(OscConstants.ELEMENT__ENVIRONMENT)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getEnvironments();
+    }
+    if (key.equals(OscConstants.ELEMENT__MANEUVER)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getManeuvers();
+    }
+    if (key.equals(OscConstants.ELEMENT__TRAJECTORY)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getTrajectories();
+    }
+    if (key.equals(OscConstants.ELEMENT__ROUTE)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getRoutes();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

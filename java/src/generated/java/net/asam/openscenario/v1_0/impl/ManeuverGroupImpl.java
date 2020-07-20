@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -67,33 +67,34 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
     addAdapter(IManeuverGroup.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Long getMaximumExecutionCount() {
-    return maximumExecutionCount;
+    return this.maximumExecutionCount;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public IActors getActors() {
-    return actors;
+    return this.actors;
   }
 
   @Override
   public List<ICatalogReference> getCatalogReferences() {
-    return catalogReferences;
+    return this.catalogReferences;
   }
 
   @Override
   public List<IManeuver> getManeuvers() {
-    return maneuvers;
+    return this.maneuvers;
   }
   /**
    * Sets the value of model property maximumExecutionCount
@@ -143,13 +144,14 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)) {
       // Simple type
-      maximumExecutionCount =
+      this.maximumExecutionCount =
           ParserHelper.parseUnsignedInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -165,8 +167,9 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IActors actors = null;
     actors = getActors();
@@ -196,6 +199,7 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ManeuverGroupImpl clone() {
     ManeuverGroupImpl clonedObject = new ManeuverGroupImpl();
     cloneStartMarker(clonedObject);
@@ -219,7 +223,7 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
     List<ICatalogReference> catalogReferences = null;
     catalogReferences = getCatalogReferences();
     if (catalogReferences != null) {
-      List<ICatalogReference> clonedList = new ArrayList<ICatalogReference>();
+      List<ICatalogReference> clonedList = new ArrayList<>();
       for (ICatalogReference item : catalogReferences) {
         CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) item).clone();
         clonedList.add(clonedChild);
@@ -230,7 +234,7 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
     List<IManeuver> maneuvers = null;
     maneuvers = getManeuvers();
     if (maneuvers != null) {
-      List<IManeuver> clonedList = new ArrayList<IManeuver>();
+      List<IManeuver> clonedList = new ArrayList<>();
       for (IManeuver item : maneuvers) {
         ManeuverImpl clonedChild = ((ManeuverImpl) item).clone();
         clonedList.add(clonedChild);
@@ -251,9 +255,8 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -263,9 +266,8 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
     }
     if (key.equals(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)) {
       return getMaximumExecutionCount();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -300,26 +302,25 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, Clone
     }
     if (key.equals(OscConstants.ELEMENT__ACTORS)) {
       return (IOpenScenarioFlexElement) getActors();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__CATALOG_REFERENCE)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getCatalogReferences();
-
-    } else if (key.equals(OscConstants.ELEMENT__MANEUVER)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getManeuvers();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__MANEUVER)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getManeuvers();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

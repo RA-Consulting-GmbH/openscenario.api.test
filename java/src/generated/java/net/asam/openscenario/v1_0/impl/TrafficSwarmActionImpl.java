@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -73,48 +73,49 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
     addAdapter(ITrafficSwarmAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getSemiMajorAxis() {
-    return semiMajorAxis;
+    return this.semiMajorAxis;
   }
 
   @Override
   public Double getSemiMinorAxis() {
-    return semiMinorAxis;
+    return this.semiMinorAxis;
   }
 
   @Override
   public Double getInnerRadius() {
-    return innerRadius;
+    return this.innerRadius;
   }
 
   @Override
   public Double getOffset() {
-    return offset;
+    return this.offset;
   }
 
   @Override
   public Long getNumberOfVehicles() {
-    return numberOfVehicles;
+    return this.numberOfVehicles;
   }
 
   @Override
   public Double getVelocity() {
-    return velocity;
+    return this.velocity;
   }
 
   @Override
   public ICentralSwarmObject getCentralObject() {
-    return centralObject;
+    return this.centralObject;
   }
 
   @Override
   public ITrafficDefinition getTrafficDefinition() {
-    return trafficDefinition;
+    return this.trafficDefinition;
   }
   /**
    * Sets the value of model property semiMajorAxis
@@ -197,36 +198,37 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS)) {
       // Simple type
-      semiMajorAxis =
+      this.semiMajorAxis =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS)) {
       // Simple type
-      semiMinorAxis =
+      this.semiMinorAxis =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__INNER_RADIUS)) {
       // Simple type
-      innerRadius =
+      this.innerRadius =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__OFFSET)) {
       // Simple type
-      offset = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.offset =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES)) {
       // Simple type
-      numberOfVehicles =
+      this.numberOfVehicles =
           ParserHelper.parseUnsignedInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VELOCITY)) {
       // Simple type
-      velocity =
+      this.velocity =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -243,8 +245,9 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ICentralSwarmObject centralObject = null;
     centralObject = getCentralObject();
@@ -265,6 +268,7 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficSwarmActionImpl clone() {
     TrafficSwarmActionImpl clonedObject = new TrafficSwarmActionImpl();
     cloneStartMarker(clonedObject);
@@ -318,9 +322,8 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
     }
     if (key.equals(OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES)) {
       return getNumberOfVehicles();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -343,9 +346,8 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
       return getOffset();
     } else if (key.equals(OscConstants.ATTRIBUTE__VELOCITY)) {
       return getVelocity();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -370,16 +372,17 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
     }
     if (key.equals(OscConstants.ELEMENT__CENTRAL_OBJECT)) {
       return (IOpenScenarioFlexElement) getCentralObject();
-    } else if (key.equals(OscConstants.ELEMENT__TRAFFIC_DEFINITION)) {
-      return (IOpenScenarioFlexElement) getTrafficDefinition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__TRAFFIC_DEFINITION)) {
+      return (IOpenScenarioFlexElement) getTrafficDefinition();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -52,38 +50,16 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
    */
   public TrajectoryXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrajectoryImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Trajectory",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Trajectory",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrajectoryImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrajectoryImpl>> result =
-        new Hashtable<String, IAttributeParser<TrajectoryImpl>>();
+    Map<String, IAttributeParser<TrajectoryImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<TrajectoryImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +69,15 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
               TrajectoryImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrajectoryXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrajectoryXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -116,6 +98,7 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
     result.put(
         OscConstants.ATTRIBUTE__CLOSED,
         new IAttributeParser<TrajectoryImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -125,9 +108,15 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
               TrajectoryImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrajectoryXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrajectoryXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CLOSED, stripDollarSign(attributeValue), startMarker);
@@ -162,12 +151,14 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<TrajectoryImpl>> createParserList() {
-      List<IElementParser<TrajectoryImpl>> result = new ArrayList<IElementParser<TrajectoryImpl>>();
+      List<IElementParser<TrajectoryImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<TrajectoryImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              TrajectoryXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementShapeParser());
@@ -175,12 +166,15 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser implements IElementParser<TrajectoryImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              TrajectoryXmlParser.this.messageLogger, TrajectoryXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -191,11 +185,11 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -222,12 +216,15 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
     }
   }
   /** A parser for subelement shape */
+  @SuppressWarnings("synthetic-access")
   private class SubElementShapeParser implements IElementParser<TrajectoryImpl> {
 
     /** Constructor */
     public SubElementShapeParser() {
       super();
-      shapeXmlParser = new ShapeXmlParser(messageLogger, filename);
+      this.shapeXmlParser =
+          new ShapeXmlParser(
+              TrajectoryXmlParser.this.messageLogger, TrajectoryXmlParser.this.filename);
     }
 
     private ShapeXmlParser shapeXmlParser;
@@ -238,7 +235,7 @@ public class TrajectoryXmlParser extends XmlComplexTypeParser<TrajectoryImpl> {
       ShapeImpl shape = new ShapeImpl();
       // Setting the parent
       shape.setParent(object);
-      shapeXmlParser.parseElement(indexedElement, parserContext, shape);
+      this.shapeXmlParser.parseElement(indexedElement, parserContext, shape);
 
       object.setShape(shape);
     }

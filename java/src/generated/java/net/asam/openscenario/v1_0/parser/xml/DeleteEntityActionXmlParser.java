@@ -20,14 +20,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.impl.DeleteEntityActionImpl;
 
 /**
@@ -46,36 +41,13 @@ public class DeleteEntityActionXmlParser extends XmlComplexTypeParser<DeleteEnti
    */
   public DeleteEntityActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, DeleteEntityActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing DeleteEntityAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing DeleteEntityAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<DeleteEntityActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<DeleteEntityActionImpl>> result =
-        new Hashtable<String, IAttributeParser<DeleteEntityActionImpl>>();
+    Map<String, IAttributeParser<DeleteEntityActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -93,9 +65,9 @@ public class DeleteEntityActionXmlParser extends XmlComplexTypeParser<DeleteEnti
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<DeleteEntityActionImpl>> createParserList() {
-      List<IElementParser<DeleteEntityActionImpl>> result =
-          new ArrayList<IElementParser<DeleteEntityActionImpl>>();
+      List<IElementParser<DeleteEntityActionImpl>> result = new ArrayList<>();
       return result;
     }
   }

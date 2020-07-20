@@ -63,7 +63,7 @@ public class FileResourceLocator implements IResourceLocator {
    * @return the list of files in this directory
    */
   protected List<String> getFiles(final File dir) {
-    List<String> result = new ArrayList<String>();
+    List<String> result = new ArrayList<>();
     for (final File fileEntry : dir.listFiles()) {
       if (fileEntry.isDirectory()) {
         result.addAll(getFiles(fileEntry));
@@ -80,12 +80,10 @@ public class FileResourceLocator implements IResourceLocator {
     if (dir.isDirectory() && dir.getPath().equals(dir.getAbsolutePath())) {
       // symbolic Dir is given absolute
       return symbolicDir;
-    } else {
-
-      File baseDir = new File(new File(symbolicBaseDir).getParentFile(), symbolicDir);
-      if (baseDir.isDirectory()) {
-        return baseDir.getAbsolutePath();
-      }
+    }
+    File baseDir = new File(new File(symbolicBaseDir).getParentFile(), symbolicDir);
+    if (baseDir.isDirectory()) {
+      return baseDir.getAbsolutePath();
     }
     return null;
   }

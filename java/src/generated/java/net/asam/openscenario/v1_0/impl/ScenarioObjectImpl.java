@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Clo
     addAdapter(IScenarioObject.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public IEntityObject getEntityObject() {
-    return entityObject;
+    return this.entityObject;
   }
 
   @Override
   public IObjectController getObjectController() {
-    return objectController;
+    return this.objectController;
   }
   /**
    * Sets the value of model property name
@@ -113,7 +114,8 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Clo
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -129,8 +131,9 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Clo
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IEntityObject entityObject = null;
     entityObject = getEntityObject();
@@ -151,6 +154,7 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Clo
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ScenarioObjectImpl clone() {
     ScenarioObjectImpl clonedObject = new ScenarioObjectImpl();
     cloneStartMarker(clonedObject);
@@ -189,9 +193,8 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Clo
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -231,16 +234,17 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, Clo
     }
     if (key.equals(OscConstants.ELEMENT__ENTITY_OBJECT)) {
       return (IOpenScenarioFlexElement) getEntityObject();
-    } else if (key.equals(OscConstants.ELEMENT__OBJECT_CONTROLLER)) {
-      return (IOpenScenarioFlexElement) getObjectController();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__OBJECT_CONTROLLER)) {
+      return (IOpenScenarioFlexElement) getObjectController();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

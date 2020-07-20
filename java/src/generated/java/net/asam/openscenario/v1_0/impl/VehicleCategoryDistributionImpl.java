@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class VehicleCategoryDistributionImpl extends BaseImpl
-    implements IVehicleCategoryDistribution, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+    implements IVehicleCategoryDistribution {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries;
   /** Default constructor */
@@ -60,13 +56,14 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
     addAdapter(IVehicleCategoryDistribution.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries() {
-    return vehicleCategoryDistributionEntries;
+    return this.vehicleCategoryDistributionEntries;
   }
   /**
    * Sets the value of model property vehicleCategoryDistributionEntries
@@ -81,7 +78,9 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -94,8 +93,9 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries = null;
     vehicleCategoryDistributionEntries = getVehicleCategoryDistributionEntries();
@@ -113,6 +113,7 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public VehicleCategoryDistributionImpl clone() {
     VehicleCategoryDistributionImpl clonedObject = new VehicleCategoryDistributionImpl();
     cloneStartMarker(clonedObject);
@@ -125,8 +126,7 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
     List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries = null;
     vehicleCategoryDistributionEntries = getVehicleCategoryDistributionEntries();
     if (vehicleCategoryDistributionEntries != null) {
-      List<IVehicleCategoryDistributionEntry> clonedList =
-          new ArrayList<IVehicleCategoryDistributionEntry>();
+      List<IVehicleCategoryDistributionEntry> clonedList = new ArrayList<>();
       for (IVehicleCategoryDistributionEntry item : vehicleCategoryDistributionEntries) {
         VehicleCategoryDistributionEntryImpl clonedChild =
             ((VehicleCategoryDistributionEntryImpl) item).clone();
@@ -181,18 +181,18 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getVehicleCategoryDistributionEntries();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

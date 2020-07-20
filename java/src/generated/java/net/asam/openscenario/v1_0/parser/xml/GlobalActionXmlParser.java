@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -52,35 +49,12 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
    */
   public GlobalActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, GlobalActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing GlobalAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing GlobalAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<GlobalActionImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<GlobalActionImpl>> result =
-        new Hashtable<String, IAttributeParser<GlobalActionImpl>>();
+    Map<String, IAttributeParser<GlobalActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,9 +72,9 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<GlobalActionImpl>> createParserList() {
-      List<IElementParser<GlobalActionImpl>> result =
-          new ArrayList<IElementParser<GlobalActionImpl>>();
+      List<IElementParser<GlobalActionImpl>> result = new ArrayList<>();
       result.add(new SubElementEnvironmentActionParser());
       result.add(new SubElementEntityActionParser());
       result.add(new SubElementParameterActionParser());
@@ -110,12 +84,15 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
     }
   }
   /** A parser for subelement environmentAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEnvironmentActionParser implements IElementParser<GlobalActionImpl> {
 
     /** Constructor */
     public SubElementEnvironmentActionParser() {
       super();
-      environmentActionXmlParser = new EnvironmentActionXmlParser(messageLogger, filename);
+      this.environmentActionXmlParser =
+          new EnvironmentActionXmlParser(
+              GlobalActionXmlParser.this.messageLogger, GlobalActionXmlParser.this.filename);
     }
 
     private EnvironmentActionXmlParser environmentActionXmlParser;
@@ -126,7 +103,8 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
       EnvironmentActionImpl environmentAction = new EnvironmentActionImpl();
       // Setting the parent
       environmentAction.setParent(object);
-      environmentActionXmlParser.parseElement(indexedElement, parserContext, environmentAction);
+      this.environmentActionXmlParser.parseElement(
+          indexedElement, parserContext, environmentAction);
 
       object.setEnvironmentAction(environmentAction);
     }
@@ -152,12 +130,15 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
     }
   }
   /** A parser for subelement entityAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntityActionParser implements IElementParser<GlobalActionImpl> {
 
     /** Constructor */
     public SubElementEntityActionParser() {
       super();
-      entityActionXmlParser = new EntityActionXmlParser(messageLogger, filename);
+      this.entityActionXmlParser =
+          new EntityActionXmlParser(
+              GlobalActionXmlParser.this.messageLogger, GlobalActionXmlParser.this.filename);
     }
 
     private EntityActionXmlParser entityActionXmlParser;
@@ -168,7 +149,7 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
       EntityActionImpl entityAction = new EntityActionImpl();
       // Setting the parent
       entityAction.setParent(object);
-      entityActionXmlParser.parseElement(indexedElement, parserContext, entityAction);
+      this.entityActionXmlParser.parseElement(indexedElement, parserContext, entityAction);
 
       object.setEntityAction(entityAction);
     }
@@ -194,12 +175,15 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
     }
   }
   /** A parser for subelement parameterAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterActionParser implements IElementParser<GlobalActionImpl> {
 
     /** Constructor */
     public SubElementParameterActionParser() {
       super();
-      parameterActionXmlParser = new ParameterActionXmlParser(messageLogger, filename);
+      this.parameterActionXmlParser =
+          new ParameterActionXmlParser(
+              GlobalActionXmlParser.this.messageLogger, GlobalActionXmlParser.this.filename);
     }
 
     private ParameterActionXmlParser parameterActionXmlParser;
@@ -210,7 +194,7 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
       ParameterActionImpl parameterAction = new ParameterActionImpl();
       // Setting the parent
       parameterAction.setParent(object);
-      parameterActionXmlParser.parseElement(indexedElement, parserContext, parameterAction);
+      this.parameterActionXmlParser.parseElement(indexedElement, parserContext, parameterAction);
 
       object.setParameterAction(parameterAction);
     }
@@ -236,12 +220,15 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
     }
   }
   /** A parser for subelement infrastructureAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementInfrastructureActionParser implements IElementParser<GlobalActionImpl> {
 
     /** Constructor */
     public SubElementInfrastructureActionParser() {
       super();
-      infrastructureActionXmlParser = new InfrastructureActionXmlParser(messageLogger, filename);
+      this.infrastructureActionXmlParser =
+          new InfrastructureActionXmlParser(
+              GlobalActionXmlParser.this.messageLogger, GlobalActionXmlParser.this.filename);
     }
 
     private InfrastructureActionXmlParser infrastructureActionXmlParser;
@@ -252,7 +239,7 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
       InfrastructureActionImpl infrastructureAction = new InfrastructureActionImpl();
       // Setting the parent
       infrastructureAction.setParent(object);
-      infrastructureActionXmlParser.parseElement(
+      this.infrastructureActionXmlParser.parseElement(
           indexedElement, parserContext, infrastructureAction);
 
       object.setInfrastructureAction(infrastructureAction);
@@ -279,12 +266,15 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
     }
   }
   /** A parser for subelement trafficAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficActionParser implements IElementParser<GlobalActionImpl> {
 
     /** Constructor */
     public SubElementTrafficActionParser() {
       super();
-      trafficActionXmlParser = new TrafficActionXmlParser(messageLogger, filename);
+      this.trafficActionXmlParser =
+          new TrafficActionXmlParser(
+              GlobalActionXmlParser.this.messageLogger, GlobalActionXmlParser.this.filename);
     }
 
     private TrafficActionXmlParser trafficActionXmlParser;
@@ -295,7 +285,7 @@ public class GlobalActionXmlParser extends XmlComplexTypeParser<GlobalActionImpl
       TrafficActionImpl trafficAction = new TrafficActionImpl();
       // Setting the parent
       trafficAction.setParent(object);
-      trafficActionXmlParser.parseElement(indexedElement, parserContext, trafficAction);
+      this.trafficActionXmlParser.parseElement(indexedElement, parserContext, trafficAction);
 
       object.setTrafficAction(trafficAction);
     }

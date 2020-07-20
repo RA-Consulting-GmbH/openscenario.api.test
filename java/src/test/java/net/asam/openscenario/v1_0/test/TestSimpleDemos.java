@@ -17,7 +17,6 @@
 
 package net.asam.openscenario.v1_0.test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +25,6 @@ import org.junit.jupiter.api.Test;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.SimpleMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
@@ -133,6 +131,7 @@ public class TestSimpleDemos extends TestBase {
     }
   }
 
+  @SuppressWarnings("unused")
   @Test
   public void testCheckerRuleDemo() {
     try {
@@ -160,11 +159,11 @@ public class TestSimpleDemos extends TestBase {
       }
 
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 
+  @SuppressWarnings("unused")
   @Test
   public void testCheckerRuleEgoDemo() {
     try {
@@ -192,8 +191,7 @@ public class TestSimpleDemos extends TestBase {
       }
 
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 }

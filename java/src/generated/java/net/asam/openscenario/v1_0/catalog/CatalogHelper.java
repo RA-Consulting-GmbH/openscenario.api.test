@@ -118,9 +118,8 @@ public class CatalogHelper {
   public static IController asController(ICatalogElement catalogElement) {
     if (isController(catalogElement)) {
       return (IController) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Conversion to type IEnvironment
@@ -131,9 +130,8 @@ public class CatalogHelper {
   public static IEnvironment asEnvironment(ICatalogElement catalogElement) {
     if (isEnvironment(catalogElement)) {
       return (IEnvironment) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Conversion to type IManeuver
@@ -144,9 +142,8 @@ public class CatalogHelper {
   public static IManeuver asManeuver(ICatalogElement catalogElement) {
     if (isManeuver(catalogElement)) {
       return (IManeuver) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Conversion to type IMiscObject
@@ -157,9 +154,8 @@ public class CatalogHelper {
   public static IMiscObject asMiscObject(ICatalogElement catalogElement) {
     if (isMiscObject(catalogElement)) {
       return (IMiscObject) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Conversion to type IPedestrian
@@ -170,9 +166,8 @@ public class CatalogHelper {
   public static IPedestrian asPedestrian(ICatalogElement catalogElement) {
     if (isPedestrian(catalogElement)) {
       return (IPedestrian) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Conversion to type IRoute
@@ -183,9 +178,8 @@ public class CatalogHelper {
   public static IRoute asRoute(ICatalogElement catalogElement) {
     if (isRoute(catalogElement)) {
       return (IRoute) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Conversion to type ITrajectory
@@ -196,9 +190,8 @@ public class CatalogHelper {
   public static ITrajectory asTrajectory(ICatalogElement catalogElement) {
     if (isTrajectory(catalogElement)) {
       return (ITrajectory) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Conversion to type IVehicle
@@ -209,9 +202,8 @@ public class CatalogHelper {
   public static IVehicle asVehicle(ICatalogElement catalogElement) {
     if (isVehicle(catalogElement)) {
       return (IVehicle) catalogElement;
-    } else {
-      return null;
     }
+    return null;
   }
   /**
    * Provides the name of the catalogElement

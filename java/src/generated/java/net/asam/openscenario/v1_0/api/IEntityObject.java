@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IEntityObject extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference to a catalog entry of type MiscObject,
    * Vehicle or Pedestrian.
@@ -35,21 +34,18 @@ public interface IEntityObject extends IOpenScenarioModelElement {
    * @return value of model property catalogReference
    */
   public ICatalogReference getCatalogReference();
-
   /**
    * From OpenSCENARIO class model specification: Vehicle definition.
    *
    * @return value of model property vehicle
    */
   public IVehicle getVehicle();
-
   /**
    * From OpenSCENARIO class model specification: Pedestrian definition.
    *
    * @return value of model property pedestrian
    */
   public IPedestrian getPedestrian();
-
   /**
    * From OpenSCENARIO class model specification: Definition of a MiscObject.
    *

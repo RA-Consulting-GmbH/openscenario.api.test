@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ICustomCommandAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Type that is defined as a contract between the
    * simulation environment provider and the author of a scenario.
@@ -35,7 +34,6 @@ public interface ICustomCommandAction extends IOpenScenarioModelElement {
    * @return value of model property type
    */
   public String getType();
-
   /**
    * From OpenSCENARIO class model specification: The command that is defined as a contract between
    * the simulation environment provider and the author of a scenario.

@@ -18,10 +18,7 @@ package net.asam.openscenario.v1_0.parser.xml;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.WrappedListParser;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
@@ -52,29 +49,7 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
    */
   public ScenarioDefinitionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ScenarioDefinitionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ScenarioDefinition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ScenarioDefinition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   /** Parser for all subelements */
@@ -91,13 +66,14 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<ScenarioDefinitionImpl>> createParserList() {
-      List<IElementParser<ScenarioDefinitionImpl>> result =
-          new ArrayList<IElementParser<ScenarioDefinitionImpl>>();
+      List<IElementParser<ScenarioDefinitionImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<ScenarioDefinitionImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              ScenarioDefinitionXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementCatalogLocationsParser());
@@ -108,13 +84,17 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser
       implements IElementParser<ScenarioDefinitionImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              ScenarioDefinitionXmlParser.this.messageLogger,
+              ScenarioDefinitionXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -125,11 +105,11 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -156,12 +136,16 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
     }
   }
   /** A parser for subelement catalogLocations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogLocationsParser implements IElementParser<ScenarioDefinitionImpl> {
 
     /** Constructor */
     public SubElementCatalogLocationsParser() {
       super();
-      catalogLocationsXmlParser = new CatalogLocationsXmlParser(messageLogger, filename);
+      this.catalogLocationsXmlParser =
+          new CatalogLocationsXmlParser(
+              ScenarioDefinitionXmlParser.this.messageLogger,
+              ScenarioDefinitionXmlParser.this.filename);
     }
 
     private CatalogLocationsXmlParser catalogLocationsXmlParser;
@@ -172,7 +156,7 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
       CatalogLocationsImpl catalogLocations = new CatalogLocationsImpl();
       // Setting the parent
       catalogLocations.setParent(object);
-      catalogLocationsXmlParser.parseElement(indexedElement, parserContext, catalogLocations);
+      this.catalogLocationsXmlParser.parseElement(indexedElement, parserContext, catalogLocations);
 
       object.setCatalogLocations(catalogLocations);
     }
@@ -198,12 +182,16 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
     }
   }
   /** A parser for subelement roadNetwork */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRoadNetworkParser implements IElementParser<ScenarioDefinitionImpl> {
 
     /** Constructor */
     public SubElementRoadNetworkParser() {
       super();
-      roadNetworkXmlParser = new RoadNetworkXmlParser(messageLogger, filename);
+      this.roadNetworkXmlParser =
+          new RoadNetworkXmlParser(
+              ScenarioDefinitionXmlParser.this.messageLogger,
+              ScenarioDefinitionXmlParser.this.filename);
     }
 
     private RoadNetworkXmlParser roadNetworkXmlParser;
@@ -214,7 +202,7 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
       RoadNetworkImpl roadNetwork = new RoadNetworkImpl();
       // Setting the parent
       roadNetwork.setParent(object);
-      roadNetworkXmlParser.parseElement(indexedElement, parserContext, roadNetwork);
+      this.roadNetworkXmlParser.parseElement(indexedElement, parserContext, roadNetwork);
 
       object.setRoadNetwork(roadNetwork);
     }
@@ -240,12 +228,16 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
     }
   }
   /** A parser for subelement entities */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntitiesParser implements IElementParser<ScenarioDefinitionImpl> {
 
     /** Constructor */
     public SubElementEntitiesParser() {
       super();
-      entitiesXmlParser = new EntitiesXmlParser(messageLogger, filename);
+      this.entitiesXmlParser =
+          new EntitiesXmlParser(
+              ScenarioDefinitionXmlParser.this.messageLogger,
+              ScenarioDefinitionXmlParser.this.filename);
     }
 
     private EntitiesXmlParser entitiesXmlParser;
@@ -256,7 +248,7 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
       EntitiesImpl entities = new EntitiesImpl();
       // Setting the parent
       entities.setParent(object);
-      entitiesXmlParser.parseElement(indexedElement, parserContext, entities);
+      this.entitiesXmlParser.parseElement(indexedElement, parserContext, entities);
 
       object.setEntities(entities);
     }
@@ -282,12 +274,16 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
     }
   }
   /** A parser for subelement storyboard */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStoryboardParser implements IElementParser<ScenarioDefinitionImpl> {
 
     /** Constructor */
     public SubElementStoryboardParser() {
       super();
-      storyboardXmlParser = new StoryboardXmlParser(messageLogger, filename);
+      this.storyboardXmlParser =
+          new StoryboardXmlParser(
+              ScenarioDefinitionXmlParser.this.messageLogger,
+              ScenarioDefinitionXmlParser.this.filename);
     }
 
     private StoryboardXmlParser storyboardXmlParser;
@@ -298,7 +294,7 @@ public class ScenarioDefinitionXmlParser extends XmlGroupParser<ScenarioDefiniti
       StoryboardImpl storyboard = new StoryboardImpl();
       // Setting the parent
       storyboard.setParent(object);
-      storyboardXmlParser.parseElement(indexedElement, parserContext, storyboard);
+      this.storyboardXmlParser.parseElement(indexedElement, parserContext, storyboard);
 
       object.setStoryboard(storyboard);
     }

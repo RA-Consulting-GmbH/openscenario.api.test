@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IVertex extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Optional time specification of the vertex.
    *
    * @return value of model property time
    */
   public Double getTime();
-
   /**
    * From OpenSCENARIO class model specification: Position of the vertex.
    *

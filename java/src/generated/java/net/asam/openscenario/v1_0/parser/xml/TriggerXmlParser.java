@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,35 +46,12 @@ public class TriggerXmlParser extends XmlComplexTypeParser<TriggerImpl> {
    */
   public TriggerXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TriggerImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Trigger",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Trigger",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TriggerImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TriggerImpl>> result =
-        new Hashtable<String, IAttributeParser<TriggerImpl>>();
+    Map<String, IAttributeParser<TriggerImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,19 +69,23 @@ public class TriggerXmlParser extends XmlComplexTypeParser<TriggerImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TriggerImpl>> createParserList() {
-      List<IElementParser<TriggerImpl>> result = new ArrayList<IElementParser<TriggerImpl>>();
+      List<IElementParser<TriggerImpl>> result = new ArrayList<>();
       result.add(new SubElementConditionGroupsParser());
       return result;
     }
   }
   /** A parser for subelement conditionGroups */
+  @SuppressWarnings("synthetic-access")
   private class SubElementConditionGroupsParser implements IElementParser<TriggerImpl> {
 
     /** Constructor */
     public SubElementConditionGroupsParser() {
       super();
-      conditionGroupXmlParser = new ConditionGroupXmlParser(messageLogger, filename);
+      this.conditionGroupXmlParser =
+          new ConditionGroupXmlParser(
+              TriggerXmlParser.this.messageLogger, TriggerXmlParser.this.filename);
     }
 
     private ConditionGroupXmlParser conditionGroupXmlParser;
@@ -118,10 +96,10 @@ public class TriggerXmlParser extends XmlComplexTypeParser<TriggerImpl> {
       ConditionGroupImpl conditionGroups = new ConditionGroupImpl();
       // Setting the parent
       conditionGroups.setParent(object);
-      conditionGroupXmlParser.parseElement(indexedElement, parserContext, conditionGroups);
+      this.conditionGroupXmlParser.parseElement(indexedElement, parserContext, conditionGroups);
       List<IConditionGroup> conditionGroupsList = object.getConditionGroups();
       if (conditionGroupsList == null) {
-        conditionGroupsList = new ArrayList<IConditionGroup>();
+        conditionGroupsList = new ArrayList<>();
         object.setConditionGroups(conditionGroupsList);
       }
       conditionGroupsList.add(conditionGroups);

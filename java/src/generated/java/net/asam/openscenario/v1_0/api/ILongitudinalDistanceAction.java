@@ -31,14 +31,12 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILongitudinalDistanceAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference entity the distance shall be kept to.
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Distance value, not to be used together with
    * timeGap attribute. Unit: m; Range: [0..inf[.
@@ -46,7 +44,6 @@ public interface ILongitudinalDistanceAction extends IOpenScenarioModelElement {
    * @return value of model property distance
    */
   public Double getDistance();
-
   /**
    * From OpenSCENARIO class model specification: Time gap value, not to be used together with
    * distance attribute. Unit: s; Range: [0..inf[.
@@ -54,7 +51,6 @@ public interface ILongitudinalDistanceAction extends IOpenScenarioModelElement {
    * @return value of model property timeGap
    */
   public Double getTimeGap();
-
   /**
    * From OpenSCENARIO class model specification: True: Distance is measured using the distance
    * between closest bounding box points False: Reference point distance is used.
@@ -62,7 +58,6 @@ public interface ILongitudinalDistanceAction extends IOpenScenarioModelElement {
    * @return value of model property freespace
    */
   public Boolean getFreespace();
-
   /**
    * From OpenSCENARIO class model specification: If false, the action ends when the target distance
    * is reached. If true it does not end and can only be stopped.
@@ -70,7 +65,6 @@ public interface ILongitudinalDistanceAction extends IOpenScenarioModelElement {
    * @return value of model property continuous
    */
   public Boolean getContinuous();
-
   /**
    * From OpenSCENARIO class model specification: Parameter that assigns either unlimited dynamics
    * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action.

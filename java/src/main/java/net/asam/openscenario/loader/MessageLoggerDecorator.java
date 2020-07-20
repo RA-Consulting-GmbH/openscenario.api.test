@@ -46,23 +46,24 @@ public class MessageLoggerDecorator implements IParserMessageLogger {
   @Override
   public void logMessage(FileContentMessage message) {
     ErrorLevel erorLevel = message.getErrorLevel();
-    hasErrors = hasErrors || (erorLevel == ErrorLevel.FATAL || erorLevel == ErrorLevel.ERROR);
-    innerMessageLogger.logMessage(message);
+    this.hasErrors =
+        this.hasErrors || (erorLevel == ErrorLevel.FATAL || erorLevel == ErrorLevel.ERROR);
+    this.innerMessageLogger.logMessage(message);
   }
 
   @Override
   public void logAllMessages(List<FileContentMessage> messages) {
     for (FileContentMessage message : messages) {
-      innerMessageLogger.logMessage(message);
+      this.innerMessageLogger.logMessage(message);
     }
   }
 
   /**
-   * Report whether errors occured
+   * Report whether errors occurred
    *
-   * @return true if errors or fatal errors have been occured.
+   * @return true if errors or fatal errors have been occurred.
    */
   public boolean hasErrors() {
-    return hasErrors;
+    return this.hasErrors;
   }
 }

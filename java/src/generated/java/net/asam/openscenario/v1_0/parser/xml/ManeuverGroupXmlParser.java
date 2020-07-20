@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -54,39 +52,17 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
    */
   public ManeuverGroupXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ManeuverGroupImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ManeuverGroup",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ManeuverGroup",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ManeuverGroupImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ManeuverGroupImpl>> result =
-        new Hashtable<String, IAttributeParser<ManeuverGroupImpl>>();
+    Map<String, IAttributeParser<ManeuverGroupImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
         new IAttributeParser<ManeuverGroupImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -96,9 +72,15 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
               ManeuverGroupImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ManeuverGroupXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ManeuverGroupXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
@@ -122,6 +104,7 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<ManeuverGroupImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -131,9 +114,15 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
               ManeuverGroupImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ManeuverGroupXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ManeuverGroupXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -168,9 +157,9 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ManeuverGroupImpl>> createParserList() {
-      List<IElementParser<ManeuverGroupImpl>> result =
-          new ArrayList<IElementParser<ManeuverGroupImpl>>();
+      List<IElementParser<ManeuverGroupImpl>> result = new ArrayList<>();
       result.add(new SubElementActorsParser());
       result.add(new SubElementCatalogReferencesParser());
       result.add(new SubElementManeuversParser());
@@ -178,12 +167,15 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
     }
   }
   /** A parser for subelement actors */
+  @SuppressWarnings("synthetic-access")
   private class SubElementActorsParser implements IElementParser<ManeuverGroupImpl> {
 
     /** Constructor */
     public SubElementActorsParser() {
       super();
-      actorsXmlParser = new ActorsXmlParser(messageLogger, filename);
+      this.actorsXmlParser =
+          new ActorsXmlParser(
+              ManeuverGroupXmlParser.this.messageLogger, ManeuverGroupXmlParser.this.filename);
     }
 
     private ActorsXmlParser actorsXmlParser;
@@ -194,7 +186,7 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
       ActorsImpl actors = new ActorsImpl();
       // Setting the parent
       actors.setParent(object);
-      actorsXmlParser.parseElement(indexedElement, parserContext, actors);
+      this.actorsXmlParser.parseElement(indexedElement, parserContext, actors);
 
       object.setActors(actors);
     }
@@ -220,12 +212,15 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
     }
   }
   /** A parser for subelement catalogReferences */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferencesParser implements IElementParser<ManeuverGroupImpl> {
 
     /** Constructor */
     public SubElementCatalogReferencesParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              ManeuverGroupXmlParser.this.messageLogger, ManeuverGroupXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -236,10 +231,10 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
       CatalogReferenceImpl catalogReferences = new CatalogReferenceImpl();
       // Setting the parent
       catalogReferences.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReferences);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReferences);
       List<ICatalogReference> catalogReferencesList = object.getCatalogReferences();
       if (catalogReferencesList == null) {
-        catalogReferencesList = new ArrayList<ICatalogReference>();
+        catalogReferencesList = new ArrayList<>();
         object.setCatalogReferences(catalogReferencesList);
       }
       catalogReferencesList.add(catalogReferences);
@@ -267,12 +262,15 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
     }
   }
   /** A parser for subelement maneuvers */
+  @SuppressWarnings("synthetic-access")
   private class SubElementManeuversParser implements IElementParser<ManeuverGroupImpl> {
 
     /** Constructor */
     public SubElementManeuversParser() {
       super();
-      maneuverXmlParser = new ManeuverXmlParser(messageLogger, filename);
+      this.maneuverXmlParser =
+          new ManeuverXmlParser(
+              ManeuverGroupXmlParser.this.messageLogger, ManeuverGroupXmlParser.this.filename);
     }
 
     private ManeuverXmlParser maneuverXmlParser;
@@ -283,10 +281,10 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
       ManeuverImpl maneuvers = new ManeuverImpl();
       // Setting the parent
       maneuvers.setParent(object);
-      maneuverXmlParser.parseElement(indexedElement, parserContext, maneuvers);
+      this.maneuverXmlParser.parseElement(indexedElement, parserContext, maneuvers);
       List<IManeuver> maneuversList = object.getManeuvers();
       if (maneuversList == null) {
-        maneuversList = new ArrayList<IManeuver>();
+        maneuversList = new ArrayList<>();
         object.setManeuvers(maneuversList);
       }
       maneuversList.add(maneuvers);

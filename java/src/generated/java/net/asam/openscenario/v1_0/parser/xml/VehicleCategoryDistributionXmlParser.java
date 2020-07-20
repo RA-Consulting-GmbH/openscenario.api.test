@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,38 +47,13 @@ public class VehicleCategoryDistributionXmlParser
    */
   public VehicleCategoryDistributionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      VehicleCategoryDistributionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing VehicleCategoryDistribution",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing VehicleCategoryDistribution",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<VehicleCategoryDistributionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<VehicleCategoryDistributionImpl>> result =
-        new Hashtable<String, IAttributeParser<VehicleCategoryDistributionImpl>>();
+    Map<String, IAttributeParser<VehicleCategoryDistributionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -99,22 +71,25 @@ public class VehicleCategoryDistributionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<VehicleCategoryDistributionImpl>> createParserList() {
-      List<IElementParser<VehicleCategoryDistributionImpl>> result =
-          new ArrayList<IElementParser<VehicleCategoryDistributionImpl>>();
+      List<IElementParser<VehicleCategoryDistributionImpl>> result = new ArrayList<>();
       result.add(new SubElementVehicleCategoryDistributionEntriesParser());
       return result;
     }
   }
   /** A parser for subelement vehicleCategoryDistributionEntries */
+  @SuppressWarnings("synthetic-access")
   private class SubElementVehicleCategoryDistributionEntriesParser
       implements IElementParser<VehicleCategoryDistributionImpl> {
 
     /** Constructor */
     public SubElementVehicleCategoryDistributionEntriesParser() {
       super();
-      vehicleCategoryDistributionEntryXmlParser =
-          new VehicleCategoryDistributionEntryXmlParser(messageLogger, filename);
+      this.vehicleCategoryDistributionEntryXmlParser =
+          new VehicleCategoryDistributionEntryXmlParser(
+              VehicleCategoryDistributionXmlParser.this.messageLogger,
+              VehicleCategoryDistributionXmlParser.this.filename);
     }
 
     private VehicleCategoryDistributionEntryXmlParser vehicleCategoryDistributionEntryXmlParser;
@@ -128,12 +103,12 @@ public class VehicleCategoryDistributionXmlParser
           new VehicleCategoryDistributionEntryImpl();
       // Setting the parent
       vehicleCategoryDistributionEntries.setParent(object);
-      vehicleCategoryDistributionEntryXmlParser.parseElement(
+      this.vehicleCategoryDistributionEntryXmlParser.parseElement(
           indexedElement, parserContext, vehicleCategoryDistributionEntries);
       List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntriesList =
           object.getVehicleCategoryDistributionEntries();
       if (vehicleCategoryDistributionEntriesList == null) {
-        vehicleCategoryDistributionEntriesList = new ArrayList<IVehicleCategoryDistributionEntry>();
+        vehicleCategoryDistributionEntriesList = new ArrayList<>();
         object.setVehicleCategoryDistributionEntries(vehicleCategoryDistributionEntriesList);
       }
       vehicleCategoryDistributionEntriesList.add(vehicleCategoryDistributionEntries);

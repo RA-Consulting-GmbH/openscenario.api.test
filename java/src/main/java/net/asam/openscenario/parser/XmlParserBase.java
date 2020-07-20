@@ -30,6 +30,7 @@ import net.asam.xml.indexer.Position;
  * Base class for all parsers
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public abstract class XmlParserBase<T extends BaseImpl> {
 
@@ -45,6 +46,24 @@ public abstract class XmlParserBase<T extends BaseImpl> {
     super();
     this.messageLogger = messageLogger;
     this.filename = filename;
+  }
+
+  /**
+   * Access for e.g. private subclasses
+   *
+   * @return the messageLogger
+   */
+  protected IParserMessageLogger getMessageLogger() {
+    return this.messageLogger;
+  }
+
+  /**
+   * Access for e.g. private subclasses
+   *
+   * @return the filename
+   */
+  public String getFilename() {
+    return this.filename;
   }
 
   /**
@@ -64,7 +83,8 @@ public abstract class XmlParserBase<T extends BaseImpl> {
    * @param xmlTextMarkerFactory factory for a text marker
    * @return parsed value
    */
-  protected static String parseString(String xmlValue, Textmarker xmlTextMarkerFactory) {
+  protected static String parseString(
+      String xmlValue, @SuppressWarnings("unused") Textmarker xmlTextMarkerFactory) {
     return xmlValue;
   }
 
@@ -77,7 +97,7 @@ public abstract class XmlParserBase<T extends BaseImpl> {
    */
   protected Long parseUnsignedInt(String xmlValue, Textmarker textMarker) {
 
-    return ParserHelper.parseUnsignedInt(messageLogger, xmlValue, textMarker);
+    return ParserHelper.parseUnsignedInt(this.messageLogger, xmlValue, textMarker);
   }
 
   /**
@@ -89,7 +109,7 @@ public abstract class XmlParserBase<T extends BaseImpl> {
    */
   protected Integer parseInt(String xmlValue, Textmarker textMarker) {
 
-    return ParserHelper.parseInt(messageLogger, xmlValue, textMarker);
+    return ParserHelper.parseInt(this.messageLogger, xmlValue, textMarker);
   }
 
   /**
@@ -100,7 +120,7 @@ public abstract class XmlParserBase<T extends BaseImpl> {
    * @return parsed value
    */
   protected Double parseDouble(String xmlValue, Textmarker textMarker) {
-    return ParserHelper.parseDouble(messageLogger, xmlValue, textMarker);
+    return ParserHelper.parseDouble(this.messageLogger, xmlValue, textMarker);
   }
 
   /**
@@ -112,7 +132,7 @@ public abstract class XmlParserBase<T extends BaseImpl> {
    */
   protected Integer parseUnsignedShort(String xmlValue, Textmarker textMarker) {
 
-    return ParserHelper.parseUnsignedShort(messageLogger, xmlValue, textMarker);
+    return ParserHelper.parseUnsignedShort(this.messageLogger, xmlValue, textMarker);
   }
 
   /**
@@ -124,7 +144,7 @@ public abstract class XmlParserBase<T extends BaseImpl> {
    */
   protected Boolean parseBoolean(String xmlValue, Textmarker textMarker) {
 
-    return ParserHelper.parseBoolean(messageLogger, xmlValue, textMarker);
+    return ParserHelper.parseBoolean(this.messageLogger, xmlValue, textMarker);
   }
 
   /**
@@ -135,10 +155,14 @@ public abstract class XmlParserBase<T extends BaseImpl> {
    * @return parsed value
    */
   protected Date parseDateTime(String xmlValue, Textmarker textMarker) {
-    return ParserHelper.parseDateTime(messageLogger, xmlValue, textMarker);
+    return ParserHelper.parseDateTime(this.messageLogger, xmlValue, textMarker);
   }
 
-  /** A parer for a indexed element */
+  /**
+   * A parer for a indexed element
+   *
+   * @param <T> OpenSCENARIO model element type
+   */
   public interface IElementParser<T> {
     /**
      * parsing the element
@@ -180,7 +204,11 @@ public abstract class XmlParserBase<T extends BaseImpl> {
     public String[] getExpectedTagNames();
   }
 
-  /** Interface for parsing attributes */
+  /**
+   * Interface for parsing attributes
+   *
+   * @param <T> OpenSCENARIO model element type
+   */
   public interface IAttributeParser<T> {
     /**
      * parse an attribute

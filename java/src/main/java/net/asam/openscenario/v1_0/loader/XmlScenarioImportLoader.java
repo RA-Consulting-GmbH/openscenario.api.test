@@ -95,7 +95,7 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
    */
   private Hashtable<String, String> getMapFromParameterAssignements(
       List<IParameterAssignment> parameterAssignments, IParserMessageLogger parserMessageLogger) {
-    Hashtable<String, String> result = new Hashtable<String, String>();
+    Hashtable<String, String> result = new Hashtable<>();
     if (parameterAssignments != null) {
       for (IParameterAssignment parameterAssignment : parameterAssignments) {
         String parameterName = parameterAssignment.getParameterRef().getNameRef();
@@ -127,7 +127,7 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
       IResourceLocator resourceLocator,
       String filename,
       IParserMessageLogger messageLogger) {
-    Set<String> result = new HashSet<String>();
+    Set<String> result = new HashSet<>();
 
     IScenarioDefinition scenarioDefinition =
         openScenario.getOpenScenarioCategory().getScenarioDefinition();
@@ -237,16 +237,16 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
     MessageLoggerDecorator messageLoggerEnvelope = new MessageLoggerDecorator(messageLogger);
     IOpenScenario openScenario =
         (IOpenScenario)
-            innerScenarioLoader.load(messageLoggerEnvelope).getAdapter(IOpenScenario.class);
+            this.innerScenarioLoader.load(messageLoggerEnvelope).getAdapter(IOpenScenario.class);
 
     if (!messageLoggerEnvelope.hasErrors()) {
-      IResourceLocator resourceLocator = innerScenarioLoader.getResourceLocator();
+      IResourceLocator resourceLocator = this.innerScenarioLoader.getResourceLocator();
 
       // do imports here
-      String filename = innerScenarioLoader.getFilename();
+      String filename = this.innerScenarioLoader.getFilename();
       Set<String> catalogLocations =
           getCatalogLocations(openScenario, resourceLocator, filename, messageLoggerEnvelope);
-      CatalogCache catalogCache = new CatalogCache(resourceLocator, catalogMessageLogger);
+      CatalogCache catalogCache = new CatalogCache(resourceLocator, this.catalogMessageLogger);
       for (String catalogLocationPath : catalogLocations) {
         List<String> filenames =
             resourceLocator.getSymbolicFilenamesInSymbolicDir(catalogLocationPath);

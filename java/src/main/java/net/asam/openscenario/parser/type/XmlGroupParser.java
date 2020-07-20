@@ -26,7 +26,6 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.XmlModelGroupParser;
 import net.asam.openscenario.parser.XmlParserBase;
-import net.asam.openscenario.parser.XmlParserException;
 import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.xml.indexer.Position;
 
@@ -34,6 +33,7 @@ import net.asam.xml.indexer.Position;
  * Parser for XSD:group types
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public class XmlGroupParser<T extends BaseImpl> extends XmlParserBase<T>
     implements IXmlTypeParser<T> {
@@ -55,23 +55,24 @@ public class XmlGroupParser<T extends BaseImpl> extends XmlParserBase<T>
   public void parseElement(IndexedElement indexedElement, ParserContext parserContext, T object) {
     Position startPosition = indexedElement.getStartElementLocation();
     object.setStartMarker(
-        new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename));
+        new Textmarker(startPosition.getLine(), startPosition.getColumn(), this.filename));
 
     // Prepare a list
     List<IndexedElement> parentSubElements = indexedElement.getParent().getSubElements();
     int index = parentSubElements.indexOf(indexedElement);
-    List<IndexedElement> elementsToParse = new ArrayList<IndexedElement>();
+    List<IndexedElement> elementsToParse = new ArrayList<>();
     for (int i = index; i < parentSubElements.size(); i++) {
       elementsToParse.add(parentSubElements.get(i));
     }
     parseSubElements(elementsToParse, parserContext, object);
     Position endPosition = parserContext.getLastElementParsed().getEndElementLocation();
-    object.setEndMarker(new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename));
+    object.setEndMarker(
+        new Textmarker(endPosition.getLine(), endPosition.getColumn(), this.filename));
   }
 
   @Override
   public void parseSubElements(
       List<IndexedElement> indexedElement, ParserContext parserContext, T object) {
-    subElementParser.parseSubElements(indexedElement, parserContext, object);
+    this.subElementParser.parseSubElements(indexedElement, parserContext, object);
   }
 }

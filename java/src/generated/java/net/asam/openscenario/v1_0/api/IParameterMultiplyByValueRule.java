@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IParameterMultiplyByValueRule extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Multiply existing parameter by the value (be aware
    * of the parameter data type).

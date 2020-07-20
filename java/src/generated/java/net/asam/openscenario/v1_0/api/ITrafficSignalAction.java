@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficSignalAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Action used to control the state of a signal.
    *
    * @return value of model property trafficSignalControllerAction
    */
   public ITrafficSignalControllerAction getTrafficSignalControllerAction();
-
   /**
    * From OpenSCENARIO class model specification: Action used to set a specific phase of a signal
    * controller.

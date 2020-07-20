@@ -26,4 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IDeleteEntityAction extends IOpenScenarioModelElement {}
+public interface IDeleteEntityAction extends IOpenScenarioModelElement {
+  // Empty
+}

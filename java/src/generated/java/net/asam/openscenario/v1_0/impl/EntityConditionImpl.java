@@ -55,12 +55,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityConditionImpl extends BaseImpl implements IEntityCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class EntityConditionImpl extends BaseImpl implements IEntityCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IEndOfRoadCondition endOfRoadCondition;
   private ICollisionCondition collisionCondition;
@@ -82,73 +78,74 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
     addAdapter(IEntityCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IEndOfRoadCondition getEndOfRoadCondition() {
-    return endOfRoadCondition;
+    return this.endOfRoadCondition;
   }
 
   @Override
   public ICollisionCondition getCollisionCondition() {
-    return collisionCondition;
+    return this.collisionCondition;
   }
 
   @Override
   public IOffroadCondition getOffroadCondition() {
-    return offroadCondition;
+    return this.offroadCondition;
   }
 
   @Override
   public ITimeHeadwayCondition getTimeHeadwayCondition() {
-    return timeHeadwayCondition;
+    return this.timeHeadwayCondition;
   }
 
   @Override
   public ITimeToCollisionCondition getTimeToCollisionCondition() {
-    return timeToCollisionCondition;
+    return this.timeToCollisionCondition;
   }
 
   @Override
   public IAccelerationCondition getAccelerationCondition() {
-    return accelerationCondition;
+    return this.accelerationCondition;
   }
 
   @Override
   public IStandStillCondition getStandStillCondition() {
-    return standStillCondition;
+    return this.standStillCondition;
   }
 
   @Override
   public ISpeedCondition getSpeedCondition() {
-    return speedCondition;
+    return this.speedCondition;
   }
 
   @Override
   public IRelativeSpeedCondition getRelativeSpeedCondition() {
-    return relativeSpeedCondition;
+    return this.relativeSpeedCondition;
   }
 
   @Override
   public ITraveledDistanceCondition getTraveledDistanceCondition() {
-    return traveledDistanceCondition;
+    return this.traveledDistanceCondition;
   }
 
   @Override
   public IReachPositionCondition getReachPositionCondition() {
-    return reachPositionCondition;
+    return this.reachPositionCondition;
   }
 
   @Override
   public IDistanceCondition getDistanceCondition() {
-    return distanceCondition;
+    return this.distanceCondition;
   }
 
   @Override
   public IRelativeDistanceCondition getRelativeDistanceCondition() {
-    return relativeDistanceCondition;
+    return this.relativeDistanceCondition;
   }
   /**
    * Sets the value of model property endOfRoadCondition
@@ -271,7 +268,9 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -284,8 +283,9 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IEndOfRoadCondition endOfRoadCondition = null;
     endOfRoadCondition = getEndOfRoadCondition();
@@ -361,6 +361,7 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
    *
    * @return a deep copy of the object.
    */
+  @Override
   public EntityConditionImpl clone() {
     EntityConditionImpl clonedObject = new EntityConditionImpl();
     cloneStartMarker(clonedObject);
@@ -516,38 +517,50 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition, C
     }
     if (key.equals(OscConstants.ELEMENT__END_OF_ROAD_CONDITION)) {
       return (IOpenScenarioFlexElement) getEndOfRoadCondition();
-    } else if (key.equals(OscConstants.ELEMENT__COLLISION_CONDITION)) {
-      return (IOpenScenarioFlexElement) getCollisionCondition();
-    } else if (key.equals(OscConstants.ELEMENT__OFFROAD_CONDITION)) {
-      return (IOpenScenarioFlexElement) getOffroadCondition();
-    } else if (key.equals(OscConstants.ELEMENT__TIME_HEADWAY_CONDITION)) {
-      return (IOpenScenarioFlexElement) getTimeHeadwayCondition();
-    } else if (key.equals(OscConstants.ELEMENT__TIME_TO_COLLISION_CONDITION)) {
-      return (IOpenScenarioFlexElement) getTimeToCollisionCondition();
-    } else if (key.equals(OscConstants.ELEMENT__ACCELERATION_CONDITION)) {
-      return (IOpenScenarioFlexElement) getAccelerationCondition();
-    } else if (key.equals(OscConstants.ELEMENT__STAND_STILL_CONDITION)) {
-      return (IOpenScenarioFlexElement) getStandStillCondition();
-    } else if (key.equals(OscConstants.ELEMENT__SPEED_CONDITION)) {
-      return (IOpenScenarioFlexElement) getSpeedCondition();
-    } else if (key.equals(OscConstants.ELEMENT__RELATIVE_SPEED_CONDITION)) {
-      return (IOpenScenarioFlexElement) getRelativeSpeedCondition();
-    } else if (key.equals(OscConstants.ELEMENT__TRAVELED_DISTANCE_CONDITION)) {
-      return (IOpenScenarioFlexElement) getTraveledDistanceCondition();
-    } else if (key.equals(OscConstants.ELEMENT__REACH_POSITION_CONDITION)) {
-      return (IOpenScenarioFlexElement) getReachPositionCondition();
-    } else if (key.equals(OscConstants.ELEMENT__DISTANCE_CONDITION)) {
-      return (IOpenScenarioFlexElement) getDistanceCondition();
-    } else if (key.equals(OscConstants.ELEMENT__RELATIVE_DISTANCE_CONDITION)) {
-      return (IOpenScenarioFlexElement) getRelativeDistanceCondition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__COLLISION_CONDITION)) {
+      return (IOpenScenarioFlexElement) getCollisionCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__OFFROAD_CONDITION)) {
+      return (IOpenScenarioFlexElement) getOffroadCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__TIME_HEADWAY_CONDITION)) {
+      return (IOpenScenarioFlexElement) getTimeHeadwayCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__TIME_TO_COLLISION_CONDITION)) {
+      return (IOpenScenarioFlexElement) getTimeToCollisionCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__ACCELERATION_CONDITION)) {
+      return (IOpenScenarioFlexElement) getAccelerationCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__STAND_STILL_CONDITION)) {
+      return (IOpenScenarioFlexElement) getStandStillCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__SPEED_CONDITION)) {
+      return (IOpenScenarioFlexElement) getSpeedCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__RELATIVE_SPEED_CONDITION)) {
+      return (IOpenScenarioFlexElement) getRelativeSpeedCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__TRAVELED_DISTANCE_CONDITION)) {
+      return (IOpenScenarioFlexElement) getTraveledDistanceCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__REACH_POSITION_CONDITION)) {
+      return (IOpenScenarioFlexElement) getReachPositionCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__DISTANCE_CONDITION)) {
+      return (IOpenScenarioFlexElement) getDistanceCondition();
+    }
+    if (key.equals(OscConstants.ELEMENT__RELATIVE_DISTANCE_CONDITION)) {
+      return (IOpenScenarioFlexElement) getRelativeDistanceCondition();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

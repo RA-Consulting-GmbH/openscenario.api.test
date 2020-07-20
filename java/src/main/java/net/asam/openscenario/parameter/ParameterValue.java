@@ -48,7 +48,7 @@ public class ParameterValue {
    * @return the name
    */
   public String getName() {
-    return name;
+    return this.name;
   }
 
   /**
@@ -57,7 +57,7 @@ public class ParameterValue {
    * @return the type
    */
   public Class<?> getType() {
-    return type;
+    return this.type;
   }
   /**
    * The value of a parameter
@@ -65,7 +65,7 @@ public class ParameterValue {
    * @return the value
    */
   public String getValue() {
-    return value;
+    return this.value;
   }
 
   /**

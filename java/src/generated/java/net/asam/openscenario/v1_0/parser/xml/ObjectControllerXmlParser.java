@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,36 +47,13 @@ public class ObjectControllerXmlParser extends XmlComplexTypeParser<ObjectContro
    */
   public ObjectControllerXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ObjectControllerImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ObjectController",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ObjectController",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ObjectControllerImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ObjectControllerImpl>> result =
-        new Hashtable<String, IAttributeParser<ObjectControllerImpl>>();
+    Map<String, IAttributeParser<ObjectControllerImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -97,21 +71,25 @@ public class ObjectControllerXmlParser extends XmlComplexTypeParser<ObjectContro
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ObjectControllerImpl>> createParserList() {
-      List<IElementParser<ObjectControllerImpl>> result =
-          new ArrayList<IElementParser<ObjectControllerImpl>>();
+      List<IElementParser<ObjectControllerImpl>> result = new ArrayList<>();
       result.add(new SubElementCatalogReferenceParser());
       result.add(new SubElementControllerParser());
       return result;
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser implements IElementParser<ObjectControllerImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              ObjectControllerXmlParser.this.messageLogger,
+              ObjectControllerXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -122,7 +100,7 @@ public class ObjectControllerXmlParser extends XmlComplexTypeParser<ObjectContro
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);
@@ -149,12 +127,16 @@ public class ObjectControllerXmlParser extends XmlComplexTypeParser<ObjectContro
     }
   }
   /** A parser for subelement controller */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControllerParser implements IElementParser<ObjectControllerImpl> {
 
     /** Constructor */
     public SubElementControllerParser() {
       super();
-      controllerXmlParser = new ControllerXmlParser(messageLogger, filename);
+      this.controllerXmlParser =
+          new ControllerXmlParser(
+              ObjectControllerXmlParser.this.messageLogger,
+              ObjectControllerXmlParser.this.filename);
     }
 
     private ControllerXmlParser controllerXmlParser;
@@ -165,7 +147,7 @@ public class ObjectControllerXmlParser extends XmlComplexTypeParser<ObjectContro
       ControllerImpl controller = new ControllerImpl();
       // Setting the parent
       controller.setParent(object);
-      controllerXmlParser.parseElement(indexedElement, parserContext, controller);
+      this.controllerXmlParser.parseElement(indexedElement, parserContext, controller);
 
       object.setController(controller);
     }

@@ -47,8 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ControllerDistributionEntryImpl extends BaseImpl
-    implements IControllerDistributionEntry, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+    implements IControllerDistributionEntry {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -65,23 +65,24 @@ public class ControllerDistributionEntryImpl extends BaseImpl
     addAdapter(IControllerDistributionEntry.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getWeight() {
-    return weight;
+    return this.weight;
   }
 
   @Override
   public IController getController() {
-    return controller;
+    return this.controller;
   }
 
   @Override
   public ICatalogReference getCatalogReference() {
-    return catalogReference;
+    return this.catalogReference;
   }
   /**
    * Sets the value of model property weight
@@ -115,7 +116,8 @@ public class ControllerDistributionEntryImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__WEIGHT)) {
       // Simple type
-      weight = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.weight =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -131,8 +133,9 @@ public class ControllerDistributionEntryImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IController controller = null;
     controller = getController();
@@ -153,6 +156,7 @@ public class ControllerDistributionEntryImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ControllerDistributionEntryImpl clone() {
     ControllerDistributionEntryImpl clonedObject = new ControllerDistributionEntryImpl();
     cloneStartMarker(clonedObject);
@@ -206,9 +210,8 @@ public class ControllerDistributionEntryImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__WEIGHT)) {
       return getWeight();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -233,16 +236,17 @@ public class ControllerDistributionEntryImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__CONTROLLER)) {
       return (IOpenScenarioFlexElement) getController();
-    } else if (key.equals(OscConstants.ELEMENT__CATALOG_REFERENCE)) {
-      return (IOpenScenarioFlexElement) getCatalogReference();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__CATALOG_REFERENCE)) {
+      return (IOpenScenarioFlexElement) getCatalogReference();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

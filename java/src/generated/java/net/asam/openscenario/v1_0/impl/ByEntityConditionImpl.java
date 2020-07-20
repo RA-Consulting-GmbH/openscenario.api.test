@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByEntityConditionImpl extends BaseImpl implements IByEntityCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ByEntityConditionImpl extends BaseImpl implements IByEntityCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ITriggeringEntities triggeringEntities;
   private IEntityCondition entityCondition;
@@ -60,18 +56,19 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
     addAdapter(IByEntityCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ITriggeringEntities getTriggeringEntities() {
-    return triggeringEntities;
+    return this.triggeringEntities;
   }
 
   @Override
   public IEntityCondition getEntityCondition() {
-    return entityCondition;
+    return this.entityCondition;
   }
   /**
    * Sets the value of model property triggeringEntities
@@ -94,7 +91,9 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ITriggeringEntities triggeringEntities = null;
     triggeringEntities = getTriggeringEntities();
@@ -129,6 +129,7 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ByEntityConditionImpl clone() {
     ByEntityConditionImpl clonedObject = new ByEntityConditionImpl();
     cloneStartMarker(clonedObject);
@@ -200,16 +201,17 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
     }
     if (key.equals(OscConstants.ELEMENT__TRIGGERING_ENTITIES)) {
       return (IOpenScenarioFlexElement) getTriggeringEntities();
-    } else if (key.equals(OscConstants.ELEMENT__ENTITY_CONDITION)) {
-      return (IOpenScenarioFlexElement) getEntityCondition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__ENTITY_CONDITION)) {
+      return (IOpenScenarioFlexElement) getEntityCondition();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

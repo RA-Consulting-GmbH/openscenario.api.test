@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface INurbs extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Order of the NURBS trajectory. This is the order
    * of the curve, not the degree of the polynomials, which will be one less than the order of the
@@ -37,7 +36,6 @@ public interface INurbs extends IOpenScenarioModelElement {
    * @return value of model property order
    */
   public Long getOrder();
-
   /**
    * From OpenSCENARIO class model specification: Control point vector of the NURBS trajectory. The
    * number of control points must be greater or equal to the order of the curve.
@@ -45,7 +43,6 @@ public interface INurbs extends IOpenScenarioModelElement {
    * @return value of model property controlPoints
    */
   public List<IControlPoint> getControlPoints();
-
   /**
    * From OpenSCENARIO class model specification: Knot vector of the NURBS trajectory. Knot values
    * must be given in ascending order. The number of knot vector values must be equal to the number

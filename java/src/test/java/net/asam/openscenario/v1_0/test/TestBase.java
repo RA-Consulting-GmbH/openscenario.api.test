@@ -58,7 +58,7 @@ public class TestBase {
 
     IScenarioLoader loader = loaderFactory.createLoader(new FileResourceLocator());
 
-    IOpenScenarioModelElement load = loader.load(messageLogger, injectedProperties);
+    IOpenScenarioModelElement load = loader.load(this.messageLogger, injectedProperties);
     return load != null ? (OpenScenarioImpl) load.getAdapter(OpenScenarioImpl.class) : null;
   }
 
@@ -69,19 +69,19 @@ public class TestBase {
         new XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 
     IScenarioLoader loader = loaderFactory.createLoader(new FileResourceLocator());
-    return (OpenScenarioImpl) loader.load(messageLogger).getAdapter(OpenScenarioImpl.class);
+    return (OpenScenarioImpl) loader.load(this.messageLogger).getAdapter(OpenScenarioImpl.class);
   }
 
   @BeforeEach
   public void init() {
-    messageLogger.clear();
-    stdout = System.out;
-    System.setOut(new PrintStream(testOut));
+    this.messageLogger.clear();
+    this.stdout = System.out;
+    System.setOut(new PrintStream(this.testOut));
   }
 
   @AfterEach
   public void cleanUp() {
-    System.setOut(stdout);
+    System.setOut(this.stdout);
   }
 
   protected boolean hasErrors(MessageLogger messageLogger) {
@@ -110,7 +110,7 @@ public class TestBase {
 
   protected List<FileContentMessage> filterByErrorLevel(
       List<FileContentMessage> messages, ErrorLevel errorLevel) {
-    List<FileContentMessage> result = new ArrayList<FileContentMessage>();
+    List<FileContentMessage> result = new ArrayList<>();
     for (FileContentMessage message : messages) {
       if (errorLevel == message.getErrorLevel()) {
         result.add(message);
@@ -120,6 +120,7 @@ public class TestBase {
     return result;
   }
 
+  @SuppressWarnings("resource")
   protected String getLine(String buffer, int line) {
     Scanner paramReader = new Scanner(buffer);
     int counter = 0;
@@ -130,6 +131,7 @@ public class TestBase {
         return result;
       }
     }
+    paramReader.close();
     return null;
   }
 }

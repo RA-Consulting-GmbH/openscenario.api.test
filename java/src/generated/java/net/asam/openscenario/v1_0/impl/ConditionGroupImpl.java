@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ConditionGroupImpl extends BaseImpl implements IConditionGroup {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<ICondition> conditions;
   /** Default constructor */
@@ -58,13 +54,14 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Clo
     addAdapter(IConditionGroup.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<ICondition> getConditions() {
-    return conditions;
+    return this.conditions;
   }
   /**
    * Sets the value of model property conditions
@@ -78,7 +75,9 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Clo
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -91,8 +90,9 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Clo
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<ICondition> conditions = null;
     conditions = getConditions();
@@ -110,6 +110,7 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Clo
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ConditionGroupImpl clone() {
     ConditionGroupImpl clonedObject = new ConditionGroupImpl();
     cloneStartMarker(clonedObject);
@@ -122,7 +123,7 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Clo
     List<ICondition> conditions = null;
     conditions = getConditions();
     if (conditions != null) {
-      List<ICondition> clonedList = new ArrayList<ICondition>();
+      List<ICondition> clonedList = new ArrayList<>();
       for (ICondition item : conditions) {
         ConditionImpl clonedChild = ((ConditionImpl) item).clone();
         clonedList.add(clonedChild);
@@ -176,18 +177,18 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, Clo
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__CONDITION)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getConditions();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

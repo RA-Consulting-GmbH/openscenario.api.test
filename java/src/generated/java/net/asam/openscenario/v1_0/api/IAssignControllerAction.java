@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAssignControllerAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Assigns a controller to a given entity.
    *
    * @return value of model property controller
    */
   public IController getController();
-
   /**
    * From OpenSCENARIO class model specification: Uses a CatalogReference to assign a controller to
    * a given entity. CatalogReference must point to a Controller type.

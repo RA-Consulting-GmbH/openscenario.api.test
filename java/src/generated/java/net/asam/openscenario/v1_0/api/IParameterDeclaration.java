@@ -26,21 +26,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IParameterDeclaration extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the parameter.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Type of the parameter.
    *
    * @return value of model property parameterType
    */
   public ParameterType getParameterType();
-
   /**
    * From OpenSCENARIO class model specification: Value of the parameter as its default value.
    *

@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InfrastructureActionImpl extends BaseImpl implements IInfrastructureAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class InfrastructureActionImpl extends BaseImpl implements IInfrastructureAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ITrafficSignalAction trafficSignalAction;
   /** Default constructor */
@@ -58,13 +54,14 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
     addAdapter(IInfrastructureAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ITrafficSignalAction getTrafficSignalAction() {
-    return trafficSignalAction;
+    return this.trafficSignalAction;
   }
   /**
    * Sets the value of model property trafficSignalAction
@@ -78,7 +75,9 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -91,8 +90,9 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ITrafficSignalAction trafficSignalAction = null;
     trafficSignalAction = getTrafficSignalAction();
@@ -108,6 +108,7 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
    *
    * @return a deep copy of the object.
    */
+  @Override
   public InfrastructureActionImpl clone() {
     InfrastructureActionImpl clonedObject = new InfrastructureActionImpl();
     cloneStartMarker(clonedObject);
@@ -172,14 +173,14 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
     }
     if (key.equals(OscConstants.ELEMENT__TRAFFIC_SIGNAL_ACTION)) {
       return (IOpenScenarioFlexElement) getTrafficSignalAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -55,38 +52,13 @@ public class OverrideControllerValueActionXmlParser
   public OverrideControllerValueActionXmlParser(
       IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      OverrideControllerValueActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing OverrideControllerValueAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing OverrideControllerValueAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<OverrideControllerValueActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<OverrideControllerValueActionImpl>> result =
-        new Hashtable<String, IAttributeParser<OverrideControllerValueActionImpl>>();
+    Map<String, IAttributeParser<OverrideControllerValueActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -104,9 +76,9 @@ public class OverrideControllerValueActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<OverrideControllerValueActionImpl>> createParserList() {
-      List<IElementParser<OverrideControllerValueActionImpl>> result =
-          new ArrayList<IElementParser<OverrideControllerValueActionImpl>>();
+      List<IElementParser<OverrideControllerValueActionImpl>> result = new ArrayList<>();
       result.add(new SubElementThrottleParser());
       result.add(new SubElementBrakeParser());
       result.add(new SubElementClutchParser());
@@ -117,14 +89,17 @@ public class OverrideControllerValueActionXmlParser
     }
   }
   /** A parser for subelement throttle */
+  @SuppressWarnings("synthetic-access")
   private class SubElementThrottleParser
       implements IElementParser<OverrideControllerValueActionImpl> {
 
     /** Constructor */
     public SubElementThrottleParser() {
       super();
-      overrideThrottleActionXmlParser =
-          new OverrideThrottleActionXmlParser(messageLogger, filename);
+      this.overrideThrottleActionXmlParser =
+          new OverrideThrottleActionXmlParser(
+              OverrideControllerValueActionXmlParser.this.messageLogger,
+              OverrideControllerValueActionXmlParser.this.filename);
     }
 
     private OverrideThrottleActionXmlParser overrideThrottleActionXmlParser;
@@ -137,7 +112,7 @@ public class OverrideControllerValueActionXmlParser
       OverrideThrottleActionImpl throttle = new OverrideThrottleActionImpl();
       // Setting the parent
       throttle.setParent(object);
-      overrideThrottleActionXmlParser.parseElement(indexedElement, parserContext, throttle);
+      this.overrideThrottleActionXmlParser.parseElement(indexedElement, parserContext, throttle);
 
       object.setThrottle(throttle);
     }
@@ -163,12 +138,16 @@ public class OverrideControllerValueActionXmlParser
     }
   }
   /** A parser for subelement brake */
+  @SuppressWarnings("synthetic-access")
   private class SubElementBrakeParser implements IElementParser<OverrideControllerValueActionImpl> {
 
     /** Constructor */
     public SubElementBrakeParser() {
       super();
-      overrideBrakeActionXmlParser = new OverrideBrakeActionXmlParser(messageLogger, filename);
+      this.overrideBrakeActionXmlParser =
+          new OverrideBrakeActionXmlParser(
+              OverrideControllerValueActionXmlParser.this.messageLogger,
+              OverrideControllerValueActionXmlParser.this.filename);
     }
 
     private OverrideBrakeActionXmlParser overrideBrakeActionXmlParser;
@@ -181,7 +160,7 @@ public class OverrideControllerValueActionXmlParser
       OverrideBrakeActionImpl brake = new OverrideBrakeActionImpl();
       // Setting the parent
       brake.setParent(object);
-      overrideBrakeActionXmlParser.parseElement(indexedElement, parserContext, brake);
+      this.overrideBrakeActionXmlParser.parseElement(indexedElement, parserContext, brake);
 
       object.setBrake(brake);
     }
@@ -207,13 +186,17 @@ public class OverrideControllerValueActionXmlParser
     }
   }
   /** A parser for subelement clutch */
+  @SuppressWarnings("synthetic-access")
   private class SubElementClutchParser
       implements IElementParser<OverrideControllerValueActionImpl> {
 
     /** Constructor */
     public SubElementClutchParser() {
       super();
-      overrideClutchActionXmlParser = new OverrideClutchActionXmlParser(messageLogger, filename);
+      this.overrideClutchActionXmlParser =
+          new OverrideClutchActionXmlParser(
+              OverrideControllerValueActionXmlParser.this.messageLogger,
+              OverrideControllerValueActionXmlParser.this.filename);
     }
 
     private OverrideClutchActionXmlParser overrideClutchActionXmlParser;
@@ -226,7 +209,7 @@ public class OverrideControllerValueActionXmlParser
       OverrideClutchActionImpl clutch = new OverrideClutchActionImpl();
       // Setting the parent
       clutch.setParent(object);
-      overrideClutchActionXmlParser.parseElement(indexedElement, parserContext, clutch);
+      this.overrideClutchActionXmlParser.parseElement(indexedElement, parserContext, clutch);
 
       object.setClutch(clutch);
     }
@@ -252,14 +235,17 @@ public class OverrideControllerValueActionXmlParser
     }
   }
   /** A parser for subelement parkingBrake */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParkingBrakeParser
       implements IElementParser<OverrideControllerValueActionImpl> {
 
     /** Constructor */
     public SubElementParkingBrakeParser() {
       super();
-      overrideParkingBrakeActionXmlParser =
-          new OverrideParkingBrakeActionXmlParser(messageLogger, filename);
+      this.overrideParkingBrakeActionXmlParser =
+          new OverrideParkingBrakeActionXmlParser(
+              OverrideControllerValueActionXmlParser.this.messageLogger,
+              OverrideControllerValueActionXmlParser.this.filename);
     }
 
     private OverrideParkingBrakeActionXmlParser overrideParkingBrakeActionXmlParser;
@@ -272,7 +258,8 @@ public class OverrideControllerValueActionXmlParser
       OverrideParkingBrakeActionImpl parkingBrake = new OverrideParkingBrakeActionImpl();
       // Setting the parent
       parkingBrake.setParent(object);
-      overrideParkingBrakeActionXmlParser.parseElement(indexedElement, parserContext, parkingBrake);
+      this.overrideParkingBrakeActionXmlParser.parseElement(
+          indexedElement, parserContext, parkingBrake);
 
       object.setParkingBrake(parkingBrake);
     }
@@ -298,14 +285,17 @@ public class OverrideControllerValueActionXmlParser
     }
   }
   /** A parser for subelement steeringWheel */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSteeringWheelParser
       implements IElementParser<OverrideControllerValueActionImpl> {
 
     /** Constructor */
     public SubElementSteeringWheelParser() {
       super();
-      overrideSteeringWheelActionXmlParser =
-          new OverrideSteeringWheelActionXmlParser(messageLogger, filename);
+      this.overrideSteeringWheelActionXmlParser =
+          new OverrideSteeringWheelActionXmlParser(
+              OverrideControllerValueActionXmlParser.this.messageLogger,
+              OverrideControllerValueActionXmlParser.this.filename);
     }
 
     private OverrideSteeringWheelActionXmlParser overrideSteeringWheelActionXmlParser;
@@ -318,7 +308,7 @@ public class OverrideControllerValueActionXmlParser
       OverrideSteeringWheelActionImpl steeringWheel = new OverrideSteeringWheelActionImpl();
       // Setting the parent
       steeringWheel.setParent(object);
-      overrideSteeringWheelActionXmlParser.parseElement(
+      this.overrideSteeringWheelActionXmlParser.parseElement(
           indexedElement, parserContext, steeringWheel);
 
       object.setSteeringWheel(steeringWheel);
@@ -345,12 +335,16 @@ public class OverrideControllerValueActionXmlParser
     }
   }
   /** A parser for subelement gear */
+  @SuppressWarnings("synthetic-access")
   private class SubElementGearParser implements IElementParser<OverrideControllerValueActionImpl> {
 
     /** Constructor */
     public SubElementGearParser() {
       super();
-      overrideGearActionXmlParser = new OverrideGearActionXmlParser(messageLogger, filename);
+      this.overrideGearActionXmlParser =
+          new OverrideGearActionXmlParser(
+              OverrideControllerValueActionXmlParser.this.messageLogger,
+              OverrideControllerValueActionXmlParser.this.filename);
     }
 
     private OverrideGearActionXmlParser overrideGearActionXmlParser;
@@ -363,7 +357,7 @@ public class OverrideControllerValueActionXmlParser
       OverrideGearActionImpl gear = new OverrideGearActionImpl();
       // Setting the parent
       gear.setParent(object);
-      overrideGearActionXmlParser.parseElement(indexedElement, parserContext, gear);
+      this.overrideGearActionXmlParser.parseElement(indexedElement, parserContext, gear);
 
       object.setGear(gear);
     }

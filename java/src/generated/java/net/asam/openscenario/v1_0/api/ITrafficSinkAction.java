@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficSinkAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Defines the rate on which vehicles disappear at
    * the sinks location. Unit: vehicles/s Range: [0..inf[.
@@ -34,7 +33,6 @@ public interface ITrafficSinkAction extends IOpenScenarioModelElement {
    * @return value of model property rate
    */
   public Double getRate();
-
   /**
    * From OpenSCENARIO class model specification: Defines the radius of the traffic sink where
    * vehicles disappear around the specified position. Unit: m; Range: [0..inf[.
@@ -42,14 +40,12 @@ public interface ITrafficSinkAction extends IOpenScenarioModelElement {
    * @return value of model property radius
    */
   public Double getRadius();
-
   /**
    * From OpenSCENARIO class model specification: Defines the position of the traffic sink.
    *
    * @return value of model property position
    */
   public IPosition getPosition();
-
   /**
    * From OpenSCENARIO class model specification: Defines the vehicle and controller distribution
    * for the sink.

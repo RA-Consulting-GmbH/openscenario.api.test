@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IFile extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Filepath e.g.
    * filepath=/home/simulator/customDriverSpecification.xml.

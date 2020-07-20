@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,36 +46,13 @@ public class TimeReferenceXmlParser extends XmlComplexTypeParser<TimeReferenceIm
    */
   public TimeReferenceXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TimeReferenceImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TimeReference",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TimeReference",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TimeReferenceImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TimeReferenceImpl>> result =
-        new Hashtable<String, IAttributeParser<TimeReferenceImpl>>();
+    Map<String, IAttributeParser<TimeReferenceImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,21 +70,24 @@ public class TimeReferenceXmlParser extends XmlComplexTypeParser<TimeReferenceIm
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TimeReferenceImpl>> createParserList() {
-      List<IElementParser<TimeReferenceImpl>> result =
-          new ArrayList<IElementParser<TimeReferenceImpl>>();
+      List<IElementParser<TimeReferenceImpl>> result = new ArrayList<>();
       result.add(new SubElementNoneParser());
       result.add(new SubElementTimingParser());
       return result;
     }
   }
   /** A parser for subelement none */
+  @SuppressWarnings("synthetic-access")
   private class SubElementNoneParser implements IElementParser<TimeReferenceImpl> {
 
     /** Constructor */
     public SubElementNoneParser() {
       super();
-      noneXmlParser = new NoneXmlParser(messageLogger, filename);
+      this.noneXmlParser =
+          new NoneXmlParser(
+              TimeReferenceXmlParser.this.messageLogger, TimeReferenceXmlParser.this.filename);
     }
 
     private NoneXmlParser noneXmlParser;
@@ -121,7 +98,7 @@ public class TimeReferenceXmlParser extends XmlComplexTypeParser<TimeReferenceIm
       NoneImpl none = new NoneImpl();
       // Setting the parent
       none.setParent(object);
-      noneXmlParser.parseElement(indexedElement, parserContext, none);
+      this.noneXmlParser.parseElement(indexedElement, parserContext, none);
 
       object.setNone(none);
     }
@@ -147,12 +124,15 @@ public class TimeReferenceXmlParser extends XmlComplexTypeParser<TimeReferenceIm
     }
   }
   /** A parser for subelement timing */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTimingParser implements IElementParser<TimeReferenceImpl> {
 
     /** Constructor */
     public SubElementTimingParser() {
       super();
-      timingXmlParser = new TimingXmlParser(messageLogger, filename);
+      this.timingXmlParser =
+          new TimingXmlParser(
+              TimeReferenceXmlParser.this.messageLogger, TimeReferenceXmlParser.this.filename);
     }
 
     private TimingXmlParser timingXmlParser;
@@ -163,7 +143,7 @@ public class TimeReferenceXmlParser extends XmlComplexTypeParser<TimeReferenceIm
       TimingImpl timing = new TimingImpl();
       // Setting the parent
       timing.setParent(object);
-      timingXmlParser.parseElement(indexedElement, parserContext, timing);
+      this.timingXmlParser.parseElement(indexedElement, parserContext, timing);
 
       object.setTiming(timing);
     }

@@ -29,6 +29,7 @@ import net.asam.openscenario.common.INamedReference;
  * A generic implementation of INamedReference
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public class NamedReferenceProxy<T extends IOpenScenarioModelElement>
     implements INamedReference<T> {
@@ -62,7 +63,7 @@ public class NamedReferenceProxy<T extends IOpenScenarioModelElement>
 
   @Override
   public T getTargetObject() {
-    return targetObject;
+    return this.targetObject;
   }
 
   /**
@@ -76,13 +77,13 @@ public class NamedReferenceProxy<T extends IOpenScenarioModelElement>
 
   @Override
   public String getNameRef() {
-    return nameRef;
+    return this.nameRef;
   }
 
   @Override
   public NamedReferenceProxy<T> clone() {
-    NamedReferenceProxy<T> proxy = new NamedReferenceProxy<T>(nameRef);
-    proxy.setTargetObject(targetObject);
+    NamedReferenceProxy<T> proxy = new NamedReferenceProxy<T>(this.nameRef);
+    proxy.setTargetObject(this.targetObject);
     return proxy;
   }
 
@@ -127,15 +128,19 @@ public class NamedReferenceProxy<T extends IOpenScenarioModelElement>
         throw new KeyNotSupportedException();
       }
 
+      @SuppressWarnings("synthetic-access")
       @Override
       public IOpenScenarioFlexElement getParentFlexElement() {
-        return parent != null ? parent.getOpenScenarioFlexElement() : null;
+        return NamedReferenceProxy.this.parent != null
+            ? NamedReferenceProxy.this.parent.getOpenScenarioFlexElement()
+            : null;
       }
 
+      @SuppressWarnings("synthetic-access")
       @Override
       public String getModelType() {
-        return targetObject != null
-            ? targetObject.getOpenScenarioFlexElement().getModelType()
+        return NamedReferenceProxy.this.targetObject != null
+            ? NamedReferenceProxy.this.targetObject.getOpenScenarioFlexElement().getModelType()
             : null;
       }
 

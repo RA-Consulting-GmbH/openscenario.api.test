@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class EntitiesImpl extends BaseImpl implements IEntities {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IScenarioObject> scenarioObjects;
   private List<IEntitySelection> entitySelections;
@@ -60,18 +56,19 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
     addAdapter(IEntities.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IScenarioObject> getScenarioObjects() {
-    return scenarioObjects;
+    return this.scenarioObjects;
   }
 
   @Override
   public List<IEntitySelection> getEntitySelections() {
-    return entitySelections;
+    return this.entitySelections;
   }
   /**
    * Sets the value of model property scenarioObjects
@@ -94,7 +91,9 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IScenarioObject> scenarioObjects = null;
     scenarioObjects = getScenarioObjects();
@@ -133,6 +133,7 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public EntitiesImpl clone() {
     EntitiesImpl clonedObject = new EntitiesImpl();
     cloneStartMarker(clonedObject);
@@ -145,7 +146,7 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
     List<IScenarioObject> scenarioObjects = null;
     scenarioObjects = getScenarioObjects();
     if (scenarioObjects != null) {
-      List<IScenarioObject> clonedList = new ArrayList<IScenarioObject>();
+      List<IScenarioObject> clonedList = new ArrayList<>();
       for (IScenarioObject item : scenarioObjects) {
         ScenarioObjectImpl clonedChild = ((ScenarioObjectImpl) item).clone();
         clonedList.add(clonedChild);
@@ -156,7 +157,7 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
     List<IEntitySelection> entitySelections = null;
     entitySelections = getEntitySelections();
     if (entitySelections != null) {
-      List<IEntitySelection> clonedList = new ArrayList<IEntitySelection>();
+      List<IEntitySelection> clonedList = new ArrayList<>();
       for (IEntitySelection item : entitySelections) {
         EntitySelectionImpl clonedChild = ((EntitySelectionImpl) item).clone();
         clonedList.add(clonedChild);
@@ -210,21 +211,21 @@ public class EntitiesImpl extends BaseImpl implements IEntities, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__SCENARIO_OBJECT)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getScenarioObjects();
-
-    } else if (key.equals(OscConstants.ELEMENT__ENTITY_SELECTION)) {
-      return (List<IOpenScenarioFlexElement>) (List<?>) getEntitySelections();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__ENTITY_SELECTION)) {
+      return (List<IOpenScenarioFlexElement>) (List<?>) getEntitySelections();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override

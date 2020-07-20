@@ -45,8 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByTypeImpl extends BaseImpl implements IByType, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ByTypeImpl extends BaseImpl implements IByType {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,13 +61,14 @@ public class ByTypeImpl extends BaseImpl implements IByType, Cloneable {
     addAdapter(IByType.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ObjectType getObjectType() {
-    return objectType;
+    return this.objectType;
   }
   /**
    * Sets the value of model property objectType
@@ -86,7 +87,7 @@ public class ByTypeImpl extends BaseImpl implements IByType, Cloneable {
       // Enumeration Type
       ObjectType result = ObjectType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        objectType = result;
+        this.objectType = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -109,8 +110,9 @@ public class ByTypeImpl extends BaseImpl implements IByType, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -121,6 +123,7 @@ public class ByTypeImpl extends BaseImpl implements IByType, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ByTypeImpl clone() {
     ByTypeImpl clonedObject = new ByTypeImpl();
     cloneStartMarker(clonedObject);
@@ -184,6 +187,7 @@ public class ByTypeImpl extends BaseImpl implements IByType, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -206,9 +210,8 @@ public class ByTypeImpl extends BaseImpl implements IByType, Cloneable {
     if (key.equals(OscConstants.ATTRIBUTE__OBJECT_TYPE)) {
       ObjectType objectType = getObjectType();
       return objectType != null ? objectType.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

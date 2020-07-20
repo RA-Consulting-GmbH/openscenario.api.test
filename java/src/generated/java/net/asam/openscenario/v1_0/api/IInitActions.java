@@ -29,21 +29,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IInitActions extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: An optional list of global actions.
    *
    * @return value of model property globalActions
    */
   public List<IGlobalAction> getGlobalActions();
-
   /**
    * From OpenSCENARIO class model specification: An optional list of user defined actions.
    *
    * @return value of model property userDefinedActions
    */
   public List<IUserDefinedAction> getUserDefinedActions();
-
   /**
    * From OpenSCENARIO class model specification: An optional list of private actions.
    *

@@ -36,7 +36,7 @@ public class TestRangeChecker extends TestBase {
   private void applyCheckerRules(IOpenScenario openScenario) {
     ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
     RangeCheckerHelper.addAllRangeCheckerRules(scenarioChecker);
-    scenarioChecker.checkScenario(messageLogger, openScenario);
+    scenarioChecker.checkScenario(this.messageLogger, openScenario);
   }
 
   @Test
@@ -45,7 +45,7 @@ public class TestRangeChecker extends TestBase {
       String filename = getResourceFile("DoubleLaneChangerCheckerErrors.xosc").getAbsolutePath();
       IOpenScenario openScenario = executeParsing(filename);
       applyCheckerRules(openScenario);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      List<FileContentMessage> messages = new ArrayList<>();
 
       messages.add(
           new FileContentMessage(
@@ -83,11 +83,10 @@ public class TestRangeChecker extends TestBase {
               ErrorLevel.ERROR,
               new Textmarker(60, 22, filename)));
 
-      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, messageLogger));
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
 
     } catch (ScenarioLoaderException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      Assertions.fail();
     }
   }
 }

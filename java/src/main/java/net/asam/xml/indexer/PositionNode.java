@@ -33,7 +33,7 @@ public abstract class PositionNode {
    * @return start position of the node
    */
   public Position getStartPosition() {
-    return startPosition;
+    return this.startPosition;
   }
 
   /**
@@ -42,7 +42,7 @@ public abstract class PositionNode {
    * @return end position of the node
    */
   public Position getEndPosition() {
-    return endPosition;
+    return this.endPosition;
   }
 
   /**
@@ -62,7 +62,7 @@ public abstract class PositionNode {
    * @param column of the stat position
    */
   public PositionNode(int line, int column) {
-    startPosition = new Position(line, column);
+    this.startPosition = new Position(line, column);
   }
 
   /**
@@ -74,7 +74,7 @@ public abstract class PositionNode {
    * @param endColumn column of the end position
    */
   public PositionNode(int startLine, int startColumn, int endLine, int endColumn) {
-    startPosition = new Position(startLine, startColumn);
-    endPosition = new Position(endLine, endColumn);
+    this.startPosition = new Position(startLine, startColumn);
+    this.endPosition = new Position(endLine, endColumn);
   }
 }

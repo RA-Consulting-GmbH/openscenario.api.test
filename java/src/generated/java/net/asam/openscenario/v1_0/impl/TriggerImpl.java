@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class TriggerImpl extends BaseImpl implements ITrigger {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private List<IConditionGroup> conditionGroups;
   /** Default constructor */
@@ -58,13 +54,14 @@ public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable {
     addAdapter(ITrigger.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public List<IConditionGroup> getConditionGroups() {
-    return conditionGroups;
+    return this.conditionGroups;
   }
   /**
    * Sets the value of model property conditionGroups
@@ -78,7 +75,9 @@ public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -91,8 +90,9 @@ public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IConditionGroup> conditionGroups = null;
     conditionGroups = getConditionGroups();
@@ -110,6 +110,7 @@ public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TriggerImpl clone() {
     TriggerImpl clonedObject = new TriggerImpl();
     cloneStartMarker(clonedObject);
@@ -122,7 +123,7 @@ public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable {
     List<IConditionGroup> conditionGroups = null;
     conditionGroups = getConditionGroups();
     if (conditionGroups != null) {
-      List<IConditionGroup> clonedList = new ArrayList<IConditionGroup>();
+      List<IConditionGroup> clonedList = new ArrayList<>();
       for (IConditionGroup item : conditionGroups) {
         ConditionGroupImpl clonedChild = ((ConditionGroupImpl) item).clone();
         clonedList.add(clonedChild);
@@ -176,18 +177,18 @@ public class TriggerImpl extends BaseImpl implements ITrigger, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__CONDITION_GROUP)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getConditionGroups();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

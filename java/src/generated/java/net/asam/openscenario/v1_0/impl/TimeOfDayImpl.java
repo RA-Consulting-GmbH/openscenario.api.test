@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,18 +61,19 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
     addAdapter(ITimeOfDay.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Boolean getAnimation() {
-    return animation;
+    return this.animation;
   }
 
   @Override
   public java.util.Date getDateTime() {
-    return dateTime;
+    return this.dateTime;
   }
   /**
    * Sets the value of model property animation
@@ -98,13 +99,13 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ANIMATION)) {
       // Simple type
-      animation =
+      this.animation =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DATE_TIME)) {
       // Simple type
-      dateTime =
+      this.dateTime =
           ParserHelper.parseDateTime(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -121,8 +122,9 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -133,6 +135,7 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TimeOfDayImpl clone() {
     TimeOfDayImpl clonedObject = new TimeOfDayImpl();
     cloneStartMarker(clonedObject);
@@ -184,9 +187,8 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__ANIMATION)) {
       return getAnimation();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -196,9 +198,8 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__DATE_TIME)) {
       return getDateTime();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -209,6 +210,7 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

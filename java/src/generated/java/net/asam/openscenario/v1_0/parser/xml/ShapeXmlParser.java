@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,35 +47,12 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
    */
   public ShapeXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ShapeImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Shape",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Shape",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ShapeImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ShapeImpl>> result =
-        new Hashtable<String, IAttributeParser<ShapeImpl>>();
+    Map<String, IAttributeParser<ShapeImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,8 +70,9 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ShapeImpl>> createParserList() {
-      List<IElementParser<ShapeImpl>> result = new ArrayList<IElementParser<ShapeImpl>>();
+      List<IElementParser<ShapeImpl>> result = new ArrayList<>();
       result.add(new SubElementPolylineParser());
       result.add(new SubElementClothoidParser());
       result.add(new SubElementNurbsParser());
@@ -105,12 +80,14 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
     }
   }
   /** A parser for subelement polyline */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPolylineParser implements IElementParser<ShapeImpl> {
 
     /** Constructor */
     public SubElementPolylineParser() {
       super();
-      polylineXmlParser = new PolylineXmlParser(messageLogger, filename);
+      this.polylineXmlParser =
+          new PolylineXmlParser(ShapeXmlParser.this.messageLogger, ShapeXmlParser.this.filename);
     }
 
     private PolylineXmlParser polylineXmlParser;
@@ -121,7 +98,7 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
       PolylineImpl polyline = new PolylineImpl();
       // Setting the parent
       polyline.setParent(object);
-      polylineXmlParser.parseElement(indexedElement, parserContext, polyline);
+      this.polylineXmlParser.parseElement(indexedElement, parserContext, polyline);
 
       object.setPolyline(polyline);
     }
@@ -147,12 +124,14 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
     }
   }
   /** A parser for subelement clothoid */
+  @SuppressWarnings("synthetic-access")
   private class SubElementClothoidParser implements IElementParser<ShapeImpl> {
 
     /** Constructor */
     public SubElementClothoidParser() {
       super();
-      clothoidXmlParser = new ClothoidXmlParser(messageLogger, filename);
+      this.clothoidXmlParser =
+          new ClothoidXmlParser(ShapeXmlParser.this.messageLogger, ShapeXmlParser.this.filename);
     }
 
     private ClothoidXmlParser clothoidXmlParser;
@@ -163,7 +142,7 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
       ClothoidImpl clothoid = new ClothoidImpl();
       // Setting the parent
       clothoid.setParent(object);
-      clothoidXmlParser.parseElement(indexedElement, parserContext, clothoid);
+      this.clothoidXmlParser.parseElement(indexedElement, parserContext, clothoid);
 
       object.setClothoid(clothoid);
     }
@@ -189,12 +168,14 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
     }
   }
   /** A parser for subelement nurbs */
+  @SuppressWarnings("synthetic-access")
   private class SubElementNurbsParser implements IElementParser<ShapeImpl> {
 
     /** Constructor */
     public SubElementNurbsParser() {
       super();
-      nurbsXmlParser = new NurbsXmlParser(messageLogger, filename);
+      this.nurbsXmlParser =
+          new NurbsXmlParser(ShapeXmlParser.this.messageLogger, ShapeXmlParser.this.filename);
     }
 
     private NurbsXmlParser nurbsXmlParser;
@@ -205,7 +186,7 @@ public class ShapeXmlParser extends XmlComplexTypeParser<ShapeImpl> {
       NurbsImpl nurbs = new NurbsImpl();
       // Setting the parent
       nurbs.setParent(object);
-      nurbsXmlParser.parseElement(indexedElement, parserContext, nurbs);
+      this.nurbsXmlParser.parseElement(indexedElement, parserContext, nurbs);
 
       object.setNurbs(nurbs);
     }

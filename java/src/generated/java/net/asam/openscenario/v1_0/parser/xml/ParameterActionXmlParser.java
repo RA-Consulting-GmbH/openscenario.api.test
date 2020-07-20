@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -52,39 +50,17 @@ public class ParameterActionXmlParser extends XmlComplexTypeParser<ParameterActi
    */
   public ParameterActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ParameterActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ParameterAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ParameterAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ParameterActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ParameterActionImpl>> result =
-        new Hashtable<String, IAttributeParser<ParameterActionImpl>>();
+    Map<String, IAttributeParser<ParameterActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__PARAMETER_REF,
         new IAttributeParser<ParameterActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +70,15 @@ public class ParameterActionXmlParser extends XmlComplexTypeParser<ParameterActi
               ParameterActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ParameterActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ParameterActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__PARAMETER_REF,
@@ -106,7 +88,7 @@ public class ParameterActionXmlParser extends XmlComplexTypeParser<ParameterActi
               // Parse value
               // Proxy
               NamedReferenceProxy<IParameterDeclaration> proxy =
-                  new NamedReferenceProxy<IParameterDeclaration>(attributeValue);
+                  new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setParameterRef(proxy);
             }
@@ -136,21 +118,24 @@ public class ParameterActionXmlParser extends XmlComplexTypeParser<ParameterActi
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ParameterActionImpl>> createParserList() {
-      List<IElementParser<ParameterActionImpl>> result =
-          new ArrayList<IElementParser<ParameterActionImpl>>();
+      List<IElementParser<ParameterActionImpl>> result = new ArrayList<>();
       result.add(new SubElementSetActionParser());
       result.add(new SubElementModifyActionParser());
       return result;
     }
   }
   /** A parser for subelement setAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSetActionParser implements IElementParser<ParameterActionImpl> {
 
     /** Constructor */
     public SubElementSetActionParser() {
       super();
-      parameterSetActionXmlParser = new ParameterSetActionXmlParser(messageLogger, filename);
+      this.parameterSetActionXmlParser =
+          new ParameterSetActionXmlParser(
+              ParameterActionXmlParser.this.messageLogger, ParameterActionXmlParser.this.filename);
     }
 
     private ParameterSetActionXmlParser parameterSetActionXmlParser;
@@ -161,7 +146,7 @@ public class ParameterActionXmlParser extends XmlComplexTypeParser<ParameterActi
       ParameterSetActionImpl setAction = new ParameterSetActionImpl();
       // Setting the parent
       setAction.setParent(object);
-      parameterSetActionXmlParser.parseElement(indexedElement, parserContext, setAction);
+      this.parameterSetActionXmlParser.parseElement(indexedElement, parserContext, setAction);
 
       object.setSetAction(setAction);
     }
@@ -187,12 +172,15 @@ public class ParameterActionXmlParser extends XmlComplexTypeParser<ParameterActi
     }
   }
   /** A parser for subelement modifyAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementModifyActionParser implements IElementParser<ParameterActionImpl> {
 
     /** Constructor */
     public SubElementModifyActionParser() {
       super();
-      parameterModifyActionXmlParser = new ParameterModifyActionXmlParser(messageLogger, filename);
+      this.parameterModifyActionXmlParser =
+          new ParameterModifyActionXmlParser(
+              ParameterActionXmlParser.this.messageLogger, ParameterActionXmlParser.this.filename);
     }
 
     private ParameterModifyActionXmlParser parameterModifyActionXmlParser;
@@ -203,7 +191,7 @@ public class ParameterActionXmlParser extends XmlComplexTypeParser<ParameterActi
       ParameterModifyActionImpl modifyAction = new ParameterModifyActionImpl();
       // Setting the parent
       modifyAction.setParent(object);
-      parameterModifyActionXmlParser.parseElement(indexedElement, parserContext, modifyAction);
+      this.parameterModifyActionXmlParser.parseElement(indexedElement, parserContext, modifyAction);
 
       object.setModifyAction(modifyAction);
     }

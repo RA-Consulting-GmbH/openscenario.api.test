@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOpenScenario extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Header information for the scenario or the
    * catalog.
@@ -34,7 +33,6 @@ public interface IOpenScenario extends IOpenScenarioModelElement {
    * @return value of model property fileHeader
    */
   public IFileHeader getFileHeader();
-
   /**
    * From OpenSCENARIO class model specification: Category (catalog or scenario) of the OpenSCENARIO
    * description.

@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -64,18 +64,19 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
     addAdapter(ISpeedCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Rule getRule() {
-    return rule;
+    return this.rule;
   }
   /**
    * Sets the value of model property value
@@ -100,14 +101,15 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__RULE)) {
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        rule = result;
+        this.rule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -130,8 +132,9 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -142,6 +145,7 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
    *
    * @return a deep copy of the object.
    */
+  @Override
   public SpeedConditionImpl clone() {
     SpeedConditionImpl clonedObject = new SpeedConditionImpl();
     cloneStartMarker(clonedObject);
@@ -186,9 +190,8 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -214,6 +217,7 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -236,9 +240,8 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, Clo
     if (key.equals(OscConstants.ATTRIBUTE__RULE)) {
       Rule rule = getRule();
       return rule != null ? rule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -55,35 +52,12 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
    */
   public PositionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, PositionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Position",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Position",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PositionImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PositionImpl>> result =
-        new Hashtable<String, IAttributeParser<PositionImpl>>();
+    Map<String, IAttributeParser<PositionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -101,8 +75,9 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PositionImpl>> createParserList() {
-      List<IElementParser<PositionImpl>> result = new ArrayList<IElementParser<PositionImpl>>();
+      List<IElementParser<PositionImpl>> result = new ArrayList<>();
       result.add(new SubElementWorldPositionParser());
       result.add(new SubElementRelativeWorldPositionParser());
       result.add(new SubElementRelativeObjectPositionParser());
@@ -115,12 +90,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement worldPosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementWorldPositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementWorldPositionParser() {
       super();
-      worldPositionXmlParser = new WorldPositionXmlParser(messageLogger, filename);
+      this.worldPositionXmlParser =
+          new WorldPositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private WorldPositionXmlParser worldPositionXmlParser;
@@ -131,7 +109,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       WorldPositionImpl worldPosition = new WorldPositionImpl();
       // Setting the parent
       worldPosition.setParent(object);
-      worldPositionXmlParser.parseElement(indexedElement, parserContext, worldPosition);
+      this.worldPositionXmlParser.parseElement(indexedElement, parserContext, worldPosition);
 
       object.setWorldPosition(worldPosition);
     }
@@ -157,12 +135,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement relativeWorldPosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRelativeWorldPositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementRelativeWorldPositionParser() {
       super();
-      relativeWorldPositionXmlParser = new RelativeWorldPositionXmlParser(messageLogger, filename);
+      this.relativeWorldPositionXmlParser =
+          new RelativeWorldPositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private RelativeWorldPositionXmlParser relativeWorldPositionXmlParser;
@@ -173,7 +154,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       RelativeWorldPositionImpl relativeWorldPosition = new RelativeWorldPositionImpl();
       // Setting the parent
       relativeWorldPosition.setParent(object);
-      relativeWorldPositionXmlParser.parseElement(
+      this.relativeWorldPositionXmlParser.parseElement(
           indexedElement, parserContext, relativeWorldPosition);
 
       object.setRelativeWorldPosition(relativeWorldPosition);
@@ -200,13 +181,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement relativeObjectPosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRelativeObjectPositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementRelativeObjectPositionParser() {
       super();
-      relativeObjectPositionXmlParser =
-          new RelativeObjectPositionXmlParser(messageLogger, filename);
+      this.relativeObjectPositionXmlParser =
+          new RelativeObjectPositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private RelativeObjectPositionXmlParser relativeObjectPositionXmlParser;
@@ -217,7 +200,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       RelativeObjectPositionImpl relativeObjectPosition = new RelativeObjectPositionImpl();
       // Setting the parent
       relativeObjectPosition.setParent(object);
-      relativeObjectPositionXmlParser.parseElement(
+      this.relativeObjectPositionXmlParser.parseElement(
           indexedElement, parserContext, relativeObjectPosition);
 
       object.setRelativeObjectPosition(relativeObjectPosition);
@@ -244,12 +227,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement roadPosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRoadPositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementRoadPositionParser() {
       super();
-      roadPositionXmlParser = new RoadPositionXmlParser(messageLogger, filename);
+      this.roadPositionXmlParser =
+          new RoadPositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private RoadPositionXmlParser roadPositionXmlParser;
@@ -260,7 +246,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       RoadPositionImpl roadPosition = new RoadPositionImpl();
       // Setting the parent
       roadPosition.setParent(object);
-      roadPositionXmlParser.parseElement(indexedElement, parserContext, roadPosition);
+      this.roadPositionXmlParser.parseElement(indexedElement, parserContext, roadPosition);
 
       object.setRoadPosition(roadPosition);
     }
@@ -286,12 +272,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement relativeRoadPosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRelativeRoadPositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementRelativeRoadPositionParser() {
       super();
-      relativeRoadPositionXmlParser = new RelativeRoadPositionXmlParser(messageLogger, filename);
+      this.relativeRoadPositionXmlParser =
+          new RelativeRoadPositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private RelativeRoadPositionXmlParser relativeRoadPositionXmlParser;
@@ -302,7 +291,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       RelativeRoadPositionImpl relativeRoadPosition = new RelativeRoadPositionImpl();
       // Setting the parent
       relativeRoadPosition.setParent(object);
-      relativeRoadPositionXmlParser.parseElement(
+      this.relativeRoadPositionXmlParser.parseElement(
           indexedElement, parserContext, relativeRoadPosition);
 
       object.setRelativeRoadPosition(relativeRoadPosition);
@@ -329,12 +318,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement lanePosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLanePositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementLanePositionParser() {
       super();
-      lanePositionXmlParser = new LanePositionXmlParser(messageLogger, filename);
+      this.lanePositionXmlParser =
+          new LanePositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private LanePositionXmlParser lanePositionXmlParser;
@@ -345,7 +337,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       LanePositionImpl lanePosition = new LanePositionImpl();
       // Setting the parent
       lanePosition.setParent(object);
-      lanePositionXmlParser.parseElement(indexedElement, parserContext, lanePosition);
+      this.lanePositionXmlParser.parseElement(indexedElement, parserContext, lanePosition);
 
       object.setLanePosition(lanePosition);
     }
@@ -371,12 +363,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement relativeLanePosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRelativeLanePositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementRelativeLanePositionParser() {
       super();
-      relativeLanePositionXmlParser = new RelativeLanePositionXmlParser(messageLogger, filename);
+      this.relativeLanePositionXmlParser =
+          new RelativeLanePositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private RelativeLanePositionXmlParser relativeLanePositionXmlParser;
@@ -387,7 +382,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       RelativeLanePositionImpl relativeLanePosition = new RelativeLanePositionImpl();
       // Setting the parent
       relativeLanePosition.setParent(object);
-      relativeLanePositionXmlParser.parseElement(
+      this.relativeLanePositionXmlParser.parseElement(
           indexedElement, parserContext, relativeLanePosition);
 
       object.setRelativeLanePosition(relativeLanePosition);
@@ -414,12 +409,15 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
     }
   }
   /** A parser for subelement routePosition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRoutePositionParser implements IElementParser<PositionImpl> {
 
     /** Constructor */
     public SubElementRoutePositionParser() {
       super();
-      routePositionXmlParser = new RoutePositionXmlParser(messageLogger, filename);
+      this.routePositionXmlParser =
+          new RoutePositionXmlParser(
+              PositionXmlParser.this.messageLogger, PositionXmlParser.this.filename);
     }
 
     private RoutePositionXmlParser routePositionXmlParser;
@@ -430,7 +428,7 @@ public class PositionXmlParser extends XmlComplexTypeParser<PositionImpl> {
       RoutePositionImpl routePosition = new RoutePositionImpl();
       // Setting the parent
       routePosition.setParent(object);
-      routePositionXmlParser.parseElement(indexedElement, parserContext, routePosition);
+      this.routePositionXmlParser.parseElement(indexedElement, parserContext, routePosition);
 
       object.setRoutePosition(routePosition);
     }

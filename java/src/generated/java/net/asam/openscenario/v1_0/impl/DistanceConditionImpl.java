@@ -47,8 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DistanceConditionImpl extends BaseImpl implements IDistanceCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class DistanceConditionImpl extends BaseImpl implements IDistanceCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -70,33 +70,34 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
     addAdapter(IDistanceCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Boolean getFreespace() {
-    return freespace;
+    return this.freespace;
   }
 
   @Override
   public Boolean getAlongRoute() {
-    return alongRoute;
+    return this.alongRoute;
   }
 
   @Override
   public Rule getRule() {
-    return rule;
+    return this.rule;
   }
 
   @Override
   public IPosition getPosition() {
-    return position;
+    return this.position;
   }
   /**
    * Sets the value of model property value
@@ -148,18 +149,19 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__FREESPACE)) {
       // Simple type
-      freespace =
+      this.freespace =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ALONG_ROUTE)) {
       // Simple type
-      alongRoute =
+      this.alongRoute =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
@@ -167,7 +169,7 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        rule = result;
+        this.rule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -190,8 +192,9 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition position = null;
     position = getPosition();
@@ -207,6 +210,7 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
    *
    * @return a deep copy of the object.
    */
+  @Override
   public DistanceConditionImpl clone() {
     DistanceConditionImpl clonedObject = new DistanceConditionImpl();
     cloneStartMarker(clonedObject);
@@ -262,9 +266,8 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -281,9 +284,8 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
       return getFreespace();
     } else if (key.equals(OscConstants.ATTRIBUTE__ALONG_ROUTE)) {
       return getAlongRoute();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -298,14 +300,14 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
     }
     if (key.equals(OscConstants.ELEMENT__POSITION)) {
       return (IOpenScenarioFlexElement) getPosition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -328,9 +330,8 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
     if (key.equals(OscConstants.ATTRIBUTE__RULE)) {
       Rule rule = getRule();
       return rule != null ? rule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

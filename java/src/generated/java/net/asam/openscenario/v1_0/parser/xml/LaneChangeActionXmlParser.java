@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,39 +48,17 @@ public class LaneChangeActionXmlParser extends XmlComplexTypeParser<LaneChangeAc
    */
   public LaneChangeActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, LaneChangeActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing LaneChangeAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing LaneChangeAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<LaneChangeActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<LaneChangeActionImpl>> result =
-        new Hashtable<String, IAttributeParser<LaneChangeActionImpl>>();
+    Map<String, IAttributeParser<LaneChangeActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET,
         new IAttributeParser<LaneChangeActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class LaneChangeActionXmlParser extends XmlComplexTypeParser<LaneChangeAc
               LaneChangeActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LaneChangeActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LaneChangeActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET,
@@ -131,22 +113,26 @@ public class LaneChangeActionXmlParser extends XmlComplexTypeParser<LaneChangeAc
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<LaneChangeActionImpl>> createParserList() {
-      List<IElementParser<LaneChangeActionImpl>> result =
-          new ArrayList<IElementParser<LaneChangeActionImpl>>();
+      List<IElementParser<LaneChangeActionImpl>> result = new ArrayList<>();
       result.add(new SubElementLaneChangeActionDynamicsParser());
       result.add(new SubElementLaneChangeTargetParser());
       return result;
     }
   }
   /** A parser for subelement laneChangeActionDynamics */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLaneChangeActionDynamicsParser
       implements IElementParser<LaneChangeActionImpl> {
 
     /** Constructor */
     public SubElementLaneChangeActionDynamicsParser() {
       super();
-      transitionDynamicsXmlParser = new TransitionDynamicsXmlParser(messageLogger, filename);
+      this.transitionDynamicsXmlParser =
+          new TransitionDynamicsXmlParser(
+              LaneChangeActionXmlParser.this.messageLogger,
+              LaneChangeActionXmlParser.this.filename);
     }
 
     private TransitionDynamicsXmlParser transitionDynamicsXmlParser;
@@ -157,7 +143,7 @@ public class LaneChangeActionXmlParser extends XmlComplexTypeParser<LaneChangeAc
       TransitionDynamicsImpl laneChangeActionDynamics = new TransitionDynamicsImpl();
       // Setting the parent
       laneChangeActionDynamics.setParent(object);
-      transitionDynamicsXmlParser.parseElement(
+      this.transitionDynamicsXmlParser.parseElement(
           indexedElement, parserContext, laneChangeActionDynamics);
 
       object.setLaneChangeActionDynamics(laneChangeActionDynamics);
@@ -184,12 +170,16 @@ public class LaneChangeActionXmlParser extends XmlComplexTypeParser<LaneChangeAc
     }
   }
   /** A parser for subelement laneChangeTarget */
+  @SuppressWarnings("synthetic-access")
   private class SubElementLaneChangeTargetParser implements IElementParser<LaneChangeActionImpl> {
 
     /** Constructor */
     public SubElementLaneChangeTargetParser() {
       super();
-      laneChangeTargetXmlParser = new LaneChangeTargetXmlParser(messageLogger, filename);
+      this.laneChangeTargetXmlParser =
+          new LaneChangeTargetXmlParser(
+              LaneChangeActionXmlParser.this.messageLogger,
+              LaneChangeActionXmlParser.this.filename);
     }
 
     private LaneChangeTargetXmlParser laneChangeTargetXmlParser;
@@ -200,7 +190,7 @@ public class LaneChangeActionXmlParser extends XmlComplexTypeParser<LaneChangeAc
       LaneChangeTargetImpl laneChangeTarget = new LaneChangeTargetImpl();
       // Setting the parent
       laneChangeTarget.setParent(object);
-      laneChangeTargetXmlParser.parseElement(indexedElement, parserContext, laneChangeTarget);
+      this.laneChangeTargetXmlParser.parseElement(indexedElement, parserContext, laneChangeTarget);
 
       object.setLaneChangeTarget(laneChangeTarget);
     }

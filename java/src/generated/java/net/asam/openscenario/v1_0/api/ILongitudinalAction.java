@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILongitudinalAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: This action describes the transition between the
    * current longitudinal speed of an entity and its target speed.
@@ -34,7 +33,6 @@ public interface ILongitudinalAction extends IOpenScenarioModelElement {
    * @return value of model property speedAction
    */
   public ISpeedAction getSpeedAction();
-
   /**
    * From OpenSCENARIO class model specification: This Action defines a continuously kept
    * longitudinal distance to a specific entity.

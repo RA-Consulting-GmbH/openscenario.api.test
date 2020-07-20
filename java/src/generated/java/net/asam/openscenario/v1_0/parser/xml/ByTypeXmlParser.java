@@ -24,10 +24,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.ObjectType;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ByTypeImpl;
@@ -49,38 +47,16 @@ public class ByTypeXmlParser extends XmlComplexTypeParser<ByTypeImpl> {
    */
   public ByTypeXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ByTypeImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ByType",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ByType",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ByTypeImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ByTypeImpl>> result =
-        new Hashtable<String, IAttributeParser<ByTypeImpl>>();
+    Map<String, IAttributeParser<ByTypeImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__OBJECT_TYPE,
         new IAttributeParser<ByTypeImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +66,13 @@ public class ByTypeXmlParser extends XmlComplexTypeParser<ByTypeImpl> {
               ByTypeImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ByTypeXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), ByTypeXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__OBJECT_TYPE,
@@ -105,7 +85,7 @@ public class ByTypeXmlParser extends XmlComplexTypeParser<ByTypeImpl> {
               if (result != null) {
                 object.setObjectType(result);
               } else {
-                messageLogger.logMessage(
+                ByTypeXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -138,8 +118,9 @@ public class ByTypeXmlParser extends XmlComplexTypeParser<ByTypeImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ByTypeImpl>> createParserList() {
-      List<IElementParser<ByTypeImpl>> result = new ArrayList<IElementParser<ByTypeImpl>>();
+      List<IElementParser<ByTypeImpl>> result = new ArrayList<>();
       return result;
     }
   }

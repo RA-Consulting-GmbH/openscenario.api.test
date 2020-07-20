@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -50,35 +47,12 @@ public class RouteRefXmlParser extends XmlComplexTypeParser<RouteRefImpl> {
    */
   public RouteRefXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RouteRefImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RouteRef",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RouteRef",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RouteRefImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RouteRefImpl>> result =
-        new Hashtable<String, IAttributeParser<RouteRefImpl>>();
+    Map<String, IAttributeParser<RouteRefImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,20 +70,23 @@ public class RouteRefXmlParser extends XmlComplexTypeParser<RouteRefImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RouteRefImpl>> createParserList() {
-      List<IElementParser<RouteRefImpl>> result = new ArrayList<IElementParser<RouteRefImpl>>();
+      List<IElementParser<RouteRefImpl>> result = new ArrayList<>();
       result.add(new SubElementRouteParser());
       result.add(new SubElementCatalogReferenceParser());
       return result;
     }
   }
   /** A parser for subelement route */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRouteParser implements IElementParser<RouteRefImpl> {
 
     /** Constructor */
     public SubElementRouteParser() {
       super();
-      routeXmlParser = new RouteXmlParser(messageLogger, filename);
+      this.routeXmlParser =
+          new RouteXmlParser(RouteRefXmlParser.this.messageLogger, RouteRefXmlParser.this.filename);
     }
 
     private RouteXmlParser routeXmlParser;
@@ -120,7 +97,7 @@ public class RouteRefXmlParser extends XmlComplexTypeParser<RouteRefImpl> {
       RouteImpl route = new RouteImpl();
       // Setting the parent
       route.setParent(object);
-      routeXmlParser.parseElement(indexedElement, parserContext, route);
+      this.routeXmlParser.parseElement(indexedElement, parserContext, route);
 
       object.setRoute(route);
     }
@@ -146,12 +123,15 @@ public class RouteRefXmlParser extends XmlComplexTypeParser<RouteRefImpl> {
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser implements IElementParser<RouteRefImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              RouteRefXmlParser.this.messageLogger, RouteRefXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -162,7 +142,7 @@ public class RouteRefXmlParser extends XmlComplexTypeParser<RouteRefImpl> {
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);

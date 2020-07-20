@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,36 +46,13 @@ public class ControllerActionXmlParser extends XmlComplexTypeParser<ControllerAc
    */
   public ControllerActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ControllerActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ControllerAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ControllerAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ControllerActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ControllerActionImpl>> result =
-        new Hashtable<String, IAttributeParser<ControllerActionImpl>>();
+    Map<String, IAttributeParser<ControllerActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,23 +70,26 @@ public class ControllerActionXmlParser extends XmlComplexTypeParser<ControllerAc
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ControllerActionImpl>> createParserList() {
-      List<IElementParser<ControllerActionImpl>> result =
-          new ArrayList<IElementParser<ControllerActionImpl>>();
+      List<IElementParser<ControllerActionImpl>> result = new ArrayList<>();
       result.add(new SubElementAssignControllerActionParser());
       result.add(new SubElementOverrideControllerValueActionParser());
       return result;
     }
   }
   /** A parser for subelement assignControllerAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAssignControllerActionParser
       implements IElementParser<ControllerActionImpl> {
 
     /** Constructor */
     public SubElementAssignControllerActionParser() {
       super();
-      assignControllerActionXmlParser =
-          new AssignControllerActionXmlParser(messageLogger, filename);
+      this.assignControllerActionXmlParser =
+          new AssignControllerActionXmlParser(
+              ControllerActionXmlParser.this.messageLogger,
+              ControllerActionXmlParser.this.filename);
     }
 
     private AssignControllerActionXmlParser assignControllerActionXmlParser;
@@ -123,7 +100,7 @@ public class ControllerActionXmlParser extends XmlComplexTypeParser<ControllerAc
       AssignControllerActionImpl assignControllerAction = new AssignControllerActionImpl();
       // Setting the parent
       assignControllerAction.setParent(object);
-      assignControllerActionXmlParser.parseElement(
+      this.assignControllerActionXmlParser.parseElement(
           indexedElement, parserContext, assignControllerAction);
 
       object.setAssignControllerAction(assignControllerAction);
@@ -150,14 +127,17 @@ public class ControllerActionXmlParser extends XmlComplexTypeParser<ControllerAc
     }
   }
   /** A parser for subelement overrideControllerValueAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementOverrideControllerValueActionParser
       implements IElementParser<ControllerActionImpl> {
 
     /** Constructor */
     public SubElementOverrideControllerValueActionParser() {
       super();
-      overrideControllerValueActionXmlParser =
-          new OverrideControllerValueActionXmlParser(messageLogger, filename);
+      this.overrideControllerValueActionXmlParser =
+          new OverrideControllerValueActionXmlParser(
+              ControllerActionXmlParser.this.messageLogger,
+              ControllerActionXmlParser.this.filename);
     }
 
     private OverrideControllerValueActionXmlParser overrideControllerValueActionXmlParser;
@@ -169,7 +149,7 @@ public class ControllerActionXmlParser extends XmlComplexTypeParser<ControllerAc
           new OverrideControllerValueActionImpl();
       // Setting the parent
       overrideControllerValueAction.setParent(object);
-      overrideControllerValueActionXmlParser.parseElement(
+      this.overrideControllerValueActionXmlParser.parseElement(
           indexedElement, parserContext, overrideControllerValueAction);
 
       object.setOverrideControllerValueAction(overrideControllerValueAction);

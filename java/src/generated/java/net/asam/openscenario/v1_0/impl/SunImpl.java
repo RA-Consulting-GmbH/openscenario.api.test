@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SunImpl extends BaseImpl implements ISun, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class SunImpl extends BaseImpl implements ISun {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class SunImpl extends BaseImpl implements ISun, Cloneable {
     addAdapter(ISun.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getIntensity() {
-    return intensity;
+    return this.intensity;
   }
 
   @Override
   public Double getAzimuth() {
-    return azimuth;
+    return this.azimuth;
   }
 
   @Override
   public Double getElevation() {
-    return elevation;
+    return this.elevation;
   }
   /**
    * Sets the value of model property intensity
@@ -115,19 +116,19 @@ public class SunImpl extends BaseImpl implements ISun, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__INTENSITY)) {
       // Simple type
-      intensity =
+      this.intensity =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__AZIMUTH)) {
       // Simple type
-      azimuth =
+      this.azimuth =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ELEVATION)) {
       // Simple type
-      elevation =
+      this.elevation =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -144,8 +145,9 @@ public class SunImpl extends BaseImpl implements ISun, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -156,6 +158,7 @@ public class SunImpl extends BaseImpl implements ISun, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public SunImpl clone() {
     SunImpl clonedObject = new SunImpl();
     cloneStartMarker(clonedObject);
@@ -203,9 +206,8 @@ public class SunImpl extends BaseImpl implements ISun, Cloneable {
       return getAzimuth();
     } else if (key.equals(OscConstants.ATTRIBUTE__ELEVATION)) {
       return getElevation();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -231,6 +233,7 @@ public class SunImpl extends BaseImpl implements ISun, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

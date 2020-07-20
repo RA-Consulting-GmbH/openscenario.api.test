@@ -27,21 +27,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IShape extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Polyline property of a shape.
    *
    * @return value of model property polyline
    */
   public IPolyline getPolyline();
-
   /**
    * From OpenSCENARIO class model specification: Clothoid property of a shape.
    *
    * @return value of model property clothoid
    */
   public IClothoid getClothoid();
-
   /**
    * From OpenSCENARIO class model specification: NURBS property of a shape.
    *

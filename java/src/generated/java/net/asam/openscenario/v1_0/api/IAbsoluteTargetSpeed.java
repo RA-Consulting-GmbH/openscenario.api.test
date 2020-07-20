@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAbsoluteTargetSpeed extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Target speed in m/s the vehicle should change to.
    *

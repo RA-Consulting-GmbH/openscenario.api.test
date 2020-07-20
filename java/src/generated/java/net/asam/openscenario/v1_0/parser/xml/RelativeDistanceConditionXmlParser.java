@@ -25,10 +25,8 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.RelativeDistanceType;
 import net.asam.openscenario.v1_0.api.Rule;
@@ -53,41 +51,17 @@ public class RelativeDistanceConditionXmlParser
    */
   public RelativeDistanceConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      RelativeDistanceConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RelativeDistanceCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RelativeDistanceCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RelativeDistanceConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RelativeDistanceConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<RelativeDistanceConditionImpl>>();
+    Map<String, IAttributeParser<RelativeDistanceConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<RelativeDistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -97,16 +71,22 @@ public class RelativeDistanceConditionXmlParser
               RelativeDistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -122,6 +102,7 @@ public class RelativeDistanceConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE,
         new IAttributeParser<RelativeDistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -131,9 +112,15 @@ public class RelativeDistanceConditionXmlParser
               RelativeDistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE,
@@ -146,7 +133,7 @@ public class RelativeDistanceConditionXmlParser
               if (result != null) {
                 object.setRelativeDistanceType(result);
               } else {
-                messageLogger.logMessage(
+                RelativeDistanceConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -166,6 +153,7 @@ public class RelativeDistanceConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<RelativeDistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -175,9 +163,15 @@ public class RelativeDistanceConditionXmlParser
               RelativeDistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -198,6 +192,7 @@ public class RelativeDistanceConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__FREESPACE,
         new IAttributeParser<RelativeDistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -207,9 +202,15 @@ public class RelativeDistanceConditionXmlParser
               RelativeDistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__FREESPACE, stripDollarSign(attributeValue), startMarker);
@@ -230,6 +231,7 @@ public class RelativeDistanceConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__RULE,
         new IAttributeParser<RelativeDistanceConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -239,9 +241,15 @@ public class RelativeDistanceConditionXmlParser
               RelativeDistanceConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeDistanceConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RULE, stripDollarSign(attributeValue), startMarker);
@@ -252,7 +260,7 @@ public class RelativeDistanceConditionXmlParser
               if (result != null) {
                 object.setRule(result);
               } else {
-                messageLogger.logMessage(
+                RelativeDistanceConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -285,9 +293,9 @@ public class RelativeDistanceConditionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RelativeDistanceConditionImpl>> createParserList() {
-      List<IElementParser<RelativeDistanceConditionImpl>> result =
-          new ArrayList<IElementParser<RelativeDistanceConditionImpl>>();
+      List<IElementParser<RelativeDistanceConditionImpl>> result = new ArrayList<>();
       return result;
     }
   }

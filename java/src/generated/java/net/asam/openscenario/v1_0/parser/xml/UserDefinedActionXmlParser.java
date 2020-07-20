@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -48,36 +45,13 @@ public class UserDefinedActionXmlParser extends XmlComplexTypeParser<UserDefined
    */
   public UserDefinedActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, UserDefinedActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing UserDefinedAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing UserDefinedAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<UserDefinedActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<UserDefinedActionImpl>> result =
-        new Hashtable<String, IAttributeParser<UserDefinedActionImpl>>();
+    Map<String, IAttributeParser<UserDefinedActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,21 +69,25 @@ public class UserDefinedActionXmlParser extends XmlComplexTypeParser<UserDefined
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<UserDefinedActionImpl>> createParserList() {
-      List<IElementParser<UserDefinedActionImpl>> result =
-          new ArrayList<IElementParser<UserDefinedActionImpl>>();
+      List<IElementParser<UserDefinedActionImpl>> result = new ArrayList<>();
       result.add(new SubElementCustomCommandActionParser());
       return result;
     }
   }
   /** A parser for subelement customCommandAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCustomCommandActionParser
       implements IElementParser<UserDefinedActionImpl> {
 
     /** Constructor */
     public SubElementCustomCommandActionParser() {
       super();
-      customCommandActionXmlParser = new CustomCommandActionXmlParser(messageLogger, filename);
+      this.customCommandActionXmlParser =
+          new CustomCommandActionXmlParser(
+              UserDefinedActionXmlParser.this.messageLogger,
+              UserDefinedActionXmlParser.this.filename);
     }
 
     private CustomCommandActionXmlParser customCommandActionXmlParser;
@@ -120,7 +98,8 @@ public class UserDefinedActionXmlParser extends XmlComplexTypeParser<UserDefined
       CustomCommandActionImpl customCommandAction = new CustomCommandActionImpl();
       // Setting the parent
       customCommandAction.setParent(object);
-      customCommandActionXmlParser.parseElement(indexedElement, parserContext, customCommandAction);
+      this.customCommandActionXmlParser.parseElement(
+          indexedElement, parserContext, customCommandAction);
 
       object.setCustomCommandAction(customCommandAction);
     }

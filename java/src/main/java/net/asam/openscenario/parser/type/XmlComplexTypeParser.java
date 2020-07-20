@@ -39,6 +39,7 @@ import net.asam.xml.indexer.Position;
  * Parsing an XSD:complexType
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public abstract class XmlComplexTypeParser<T extends BaseImpl> extends XmlParserBase<T>
     implements IXmlTypeParser<T> {
@@ -69,7 +70,7 @@ public abstract class XmlComplexTypeParser<T extends BaseImpl> extends XmlParser
    * @param object the object that will be filled during the parsing process.
    */
   protected void parseAttributes(IndexedElement indexedElement, T object) {
-    attributeNameToAttributeParser = getAttributeNameToAttributeParserMap();
+    this.attributeNameToAttributeParser = getAttributeNameToAttributeParserMap();
     Element element = indexedElement.getElement();
     NamedNodeMap attributeMap = element.getAttributes();
     Position position = indexedElement.getStartElementLocation();
@@ -78,43 +79,43 @@ public abstract class XmlComplexTypeParser<T extends BaseImpl> extends XmlParser
 
       String attributeName = attributeNode.getNodeName();
       String attributeValue = attributeNode.getNodeValue();
-      IAttributeParser<T> parser = attributeNameToAttributeParser.get(attributeName);
+      IAttributeParser<T> parser = this.attributeNameToAttributeParser.get(attributeName);
       Position attributeStartPosition = indexedElement.getAttributeStartPosition(attributeName);
       Position attributeEndPosition = indexedElement.getAttributeEndPosition(attributeName);
 
       if (attributeName.contains(":")) {
-        messageLogger.logMessage(
+        this.messageLogger.logMessage(
             new FileContentMessage(
                 "Ignoring attribute '" + attributeName + "'",
                 ErrorLevel.INFO,
                 new Textmarker(
                     attributeStartPosition.getLine(),
                     attributeStartPosition.getColumn(),
-                    filename)));
+                    this.filename)));
       } else if (parser == null) {
-        messageLogger.logMessage(
+        this.messageLogger.logMessage(
             new FileContentMessage(
                 "Unknown attribute '" + attributeName + "'",
                 ErrorLevel.ERROR,
                 new Textmarker(
                     attributeStartPosition.getLine(),
                     attributeStartPosition.getColumn(),
-                    filename)));
+                    this.filename)));
       } else {
         parser.parse(
             attributeStartPosition, attributeEndPosition, attributeName, attributeValue, object);
         // Remove
-        attributeNameToAttributeParser.remove(attributeName);
+        this.attributeNameToAttributeParser.remove(attributeName);
       }
     }
 
-    for (String attributeName : attributeNameToAttributeParser.keySet()) {
-      if (attributeNameToAttributeParser.get(attributeName).getMinOccur() > 0) {
-        messageLogger.logMessage(
+    for (String attributeName : this.attributeNameToAttributeParser.keySet()) {
+      if (this.attributeNameToAttributeParser.get(attributeName).getMinOccur() > 0) {
+        this.messageLogger.logMessage(
             new FileContentMessage(
                 "Required attribute '" + attributeName + "' is missing ",
                 ErrorLevel.ERROR,
-                new Textmarker(position.getLine(), position.getColumn(), filename)));
+                new Textmarker(position.getLine(), position.getColumn(), this.filename)));
       }
     }
   }
@@ -125,20 +126,21 @@ public abstract class XmlComplexTypeParser<T extends BaseImpl> extends XmlParser
     Position position = indexedElement.getStartElementLocation();
     String elementName = indexedElement.getElement().getNodeName();
     if (indexedElement.isMixedNode()) {
-      messageLogger.logMessage(
+      this.messageLogger.logMessage(
           new FileContentMessage(
               "Element '" + elementName + "' contains text. Only subelements allowed.",
               ErrorLevel.ERROR,
-              new Textmarker(position.getLine(), position.getColumn(), filename)));
+              new Textmarker(position.getLine(), position.getColumn(), this.filename)));
     }
     parseAttributes(indexedElement, object);
     parseSubElements(indexedElement.getSubElements(), parserContext, object);
     parserContext.setLastElementParsed(indexedElement);
     Position startPosition = indexedElement.getStartElementLocation();
     object.setStartMarker(
-        new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename));
+        new Textmarker(startPosition.getLine(), startPosition.getColumn(), this.filename));
     Position endPosition = indexedElement.getStartElementLocation();
-    object.setEndMarker(new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename));
+    object.setEndMarker(
+        new Textmarker(endPosition.getLine(), endPosition.getColumn(), this.filename));
   }
 
   /**
@@ -161,18 +163,16 @@ public abstract class XmlComplexTypeParser<T extends BaseImpl> extends XmlParser
     if (value.startsWith("$")) {
       if (value.length() > 1) {
         return value.substring(1);
-      } else {
-        return "";
       }
-    } else {
-      return value;
+      return "";
     }
+    return value;
   }
 
   @Override
   public void parseSubElements(
       List<IndexedElement> indexedElements, ParserContext parserContext, T object) {
 
-    subElementParser.parseSubElements(indexedElements, parserContext, object);
+    this.subElementParser.parseSubElements(indexedElements, parserContext, object);
   }
 }

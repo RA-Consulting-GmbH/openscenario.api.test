@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IOverrideParkingBrakeAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Parking brake value. Unit: %; Range: [0..1]. The
    * value 1 represent the maximum parking brake state.
@@ -35,7 +34,6 @@ public interface IOverrideParkingBrakeAction extends IOpenScenarioModelElement {
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: True: override; false: stop overriding.
    *

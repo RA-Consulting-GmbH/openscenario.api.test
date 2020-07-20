@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ICatalogLocations extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on vehicle types.
@@ -35,7 +34,6 @@ public interface ICatalogLocations extends IOpenScenarioModelElement {
    * @return value of model property vehicleCatalog
    */
   public IVehicleCatalogLocation getVehicleCatalog();
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on controller types.
@@ -43,7 +41,6 @@ public interface ICatalogLocations extends IOpenScenarioModelElement {
    * @return value of model property controllerCatalog
    */
   public IControllerCatalogLocation getControllerCatalog();
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on pedestrian types.
@@ -51,7 +48,6 @@ public interface ICatalogLocations extends IOpenScenarioModelElement {
    * @return value of model property pedestrianCatalog
    */
   public IPedestrianCatalogLocation getPedestrianCatalog();
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on miscellaneous object types.
@@ -59,7 +55,6 @@ public interface ICatalogLocations extends IOpenScenarioModelElement {
    * @return value of model property miscObjectCatalog
    */
   public IMiscObjectCatalogLocation getMiscObjectCatalog();
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on environment types.
@@ -67,7 +62,6 @@ public interface ICatalogLocations extends IOpenScenarioModelElement {
    * @return value of model property environmentCatalog
    */
   public IEnvironmentCatalogLocation getEnvironmentCatalog();
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on maneuver types.
@@ -75,7 +69,6 @@ public interface ICatalogLocations extends IOpenScenarioModelElement {
    * @return value of model property maneuverCatalog
    */
   public IManeuverCatalogLocation getManeuverCatalog();
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on trajectory types.
@@ -83,7 +76,6 @@ public interface ICatalogLocations extends IOpenScenarioModelElement {
    * @return value of model property trajectoryCatalog
    */
   public ITrajectoryCatalogLocation getTrajectoryCatalog();
-
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on route types.

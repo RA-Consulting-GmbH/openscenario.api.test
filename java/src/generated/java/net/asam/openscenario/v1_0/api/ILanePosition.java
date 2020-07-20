@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILanePosition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: ID of the current road (ID of a road in road
    * network).
@@ -35,7 +34,6 @@ public interface ILanePosition extends IOpenScenarioModelElement {
    * @return value of model property roadId
    */
   public String getRoadId();
-
   /**
    * From OpenSCENARIO class model specification: ID of the current lane (ID of a lane in road
    * network).
@@ -43,7 +41,6 @@ public interface ILanePosition extends IOpenScenarioModelElement {
    * @return value of model property laneId
    */
   public String getLaneId();
-
   /**
    * From OpenSCENARIO class model specification: Lateral offset to the centerline of the current
    * lane. Unit: m.
@@ -51,7 +48,6 @@ public interface ILanePosition extends IOpenScenarioModelElement {
    * @return value of model property offset
    */
   public Double getOffset();
-
   /**
    * From OpenSCENARIO class model specification: The s coordinate of the current position. Unit: m;
    * Range: [0..inf[.
@@ -59,7 +55,6 @@ public interface ILanePosition extends IOpenScenarioModelElement {
    * @return value of model property s
    */
   public Double getS();
-
   /**
    * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
    * to the referenced road's s and t coordinates.

@@ -44,8 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ActorsImpl extends BaseImpl implements IActors {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,18 +61,19 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
     addAdapter(IActors.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Boolean getSelectTriggeringEntities() {
-    return selectTriggeringEntities;
+    return this.selectTriggeringEntities;
   }
 
   @Override
   public List<IEntityRef> getEntityRefs() {
-    return entityRefs;
+    return this.entityRefs;
   }
   /**
    * Sets the value of model property selectTriggeringEntities
@@ -98,7 +99,7 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES)) {
       // Simple type
-      selectTriggeringEntities =
+      this.selectTriggeringEntities =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -115,8 +116,9 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IEntityRef> entityRefs = null;
     entityRefs = getEntityRefs();
@@ -134,6 +136,7 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ActorsImpl clone() {
     ActorsImpl clonedObject = new ActorsImpl();
     cloneStartMarker(clonedObject);
@@ -148,7 +151,7 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
     List<IEntityRef> entityRefs = null;
     entityRefs = getEntityRefs();
     if (entityRefs != null) {
-      List<IEntityRef> clonedList = new ArrayList<IEntityRef>();
+      List<IEntityRef> clonedList = new ArrayList<>();
       for (IEntityRef item : entityRefs) {
         EntityRefImpl clonedChild = ((EntityRefImpl) item).clone();
         clonedList.add(clonedChild);
@@ -194,9 +197,8 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES)) {
       return getSelectTriggeringEntities();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -209,18 +211,18 @@ public class ActorsImpl extends BaseImpl implements IActors, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__ENTITY_REF)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getEntityRefs();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

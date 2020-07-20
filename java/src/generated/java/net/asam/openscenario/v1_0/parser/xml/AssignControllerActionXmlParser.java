@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -51,38 +48,13 @@ public class AssignControllerActionXmlParser
    */
   public AssignControllerActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      AssignControllerActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing AssignControllerAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing AssignControllerAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<AssignControllerActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<AssignControllerActionImpl>> result =
-        new Hashtable<String, IAttributeParser<AssignControllerActionImpl>>();
+    Map<String, IAttributeParser<AssignControllerActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -100,21 +72,25 @@ public class AssignControllerActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<AssignControllerActionImpl>> createParserList() {
-      List<IElementParser<AssignControllerActionImpl>> result =
-          new ArrayList<IElementParser<AssignControllerActionImpl>>();
+      List<IElementParser<AssignControllerActionImpl>> result = new ArrayList<>();
       result.add(new SubElementControllerParser());
       result.add(new SubElementCatalogReferenceParser());
       return result;
     }
   }
   /** A parser for subelement controller */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControllerParser implements IElementParser<AssignControllerActionImpl> {
 
     /** Constructor */
     public SubElementControllerParser() {
       super();
-      controllerXmlParser = new ControllerXmlParser(messageLogger, filename);
+      this.controllerXmlParser =
+          new ControllerXmlParser(
+              AssignControllerActionXmlParser.this.messageLogger,
+              AssignControllerActionXmlParser.this.filename);
     }
 
     private ControllerXmlParser controllerXmlParser;
@@ -127,7 +103,7 @@ public class AssignControllerActionXmlParser
       ControllerImpl controller = new ControllerImpl();
       // Setting the parent
       controller.setParent(object);
-      controllerXmlParser.parseElement(indexedElement, parserContext, controller);
+      this.controllerXmlParser.parseElement(indexedElement, parserContext, controller);
 
       object.setController(controller);
     }
@@ -153,13 +129,17 @@ public class AssignControllerActionXmlParser
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser
       implements IElementParser<AssignControllerActionImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              AssignControllerActionXmlParser.this.messageLogger,
+              AssignControllerActionXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -172,7 +152,7 @@ public class AssignControllerActionXmlParser
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);

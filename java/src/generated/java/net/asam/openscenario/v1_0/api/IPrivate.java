@@ -29,14 +29,12 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IPrivate extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification:
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: List of private actions to be executed when the
    * enclosing container gets triggered.

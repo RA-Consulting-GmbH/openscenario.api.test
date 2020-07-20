@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutchAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutchAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,18 +61,19 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
     addAdapter(IOverrideClutchAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Boolean getActive() {
-    return active;
+    return this.active;
   }
   /**
    * Sets the value of model property value
@@ -98,12 +99,13 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ACTIVE)) {
       // Simple type
-      active =
+      this.active =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -120,8 +122,9 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -132,6 +135,7 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
    *
    * @return a deep copy of the object.
    */
+  @Override
   public OverrideClutchActionImpl clone() {
     OverrideClutchActionImpl clonedObject = new OverrideClutchActionImpl();
     cloneStartMarker(clonedObject);
@@ -173,9 +177,8 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -190,9 +193,8 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
     }
     if (key.equals(OscConstants.ATTRIBUTE__ACTIVE)) {
       return getActive();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -208,6 +210,7 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

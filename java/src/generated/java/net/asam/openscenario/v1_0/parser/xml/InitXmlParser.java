@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -48,35 +45,12 @@ public class InitXmlParser extends XmlComplexTypeParser<InitImpl> {
    */
   public InitXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, InitImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Init",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Init",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<InitImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<InitImpl>> result =
-        new Hashtable<String, IAttributeParser<InitImpl>>();
+    Map<String, IAttributeParser<InitImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -94,19 +68,22 @@ public class InitXmlParser extends XmlComplexTypeParser<InitImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<InitImpl>> createParserList() {
-      List<IElementParser<InitImpl>> result = new ArrayList<IElementParser<InitImpl>>();
+      List<IElementParser<InitImpl>> result = new ArrayList<>();
       result.add(new SubElementActionsParser());
       return result;
     }
   }
   /** A parser for subelement actions */
+  @SuppressWarnings("synthetic-access")
   private class SubElementActionsParser implements IElementParser<InitImpl> {
 
     /** Constructor */
     public SubElementActionsParser() {
       super();
-      initActionsXmlParser = new InitActionsXmlParser(messageLogger, filename);
+      this.initActionsXmlParser =
+          new InitActionsXmlParser(InitXmlParser.this.messageLogger, InitXmlParser.this.filename);
     }
 
     private InitActionsXmlParser initActionsXmlParser;
@@ -116,7 +93,7 @@ public class InitXmlParser extends XmlComplexTypeParser<InitImpl> {
       InitActionsImpl actions = new InitActionsImpl();
       // Setting the parent
       actions.setParent(object);
-      initActionsXmlParser.parseElement(indexedElement, parserContext, actions);
+      this.initActionsXmlParser.parseElement(indexedElement, parserContext, actions);
 
       object.setActions(actions);
     }

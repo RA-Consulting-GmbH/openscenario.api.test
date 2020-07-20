@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -52,41 +50,17 @@ public class RelativeObjectPositionXmlParser
    */
   public RelativeObjectPositionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      RelativeObjectPositionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RelativeObjectPosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RelativeObjectPosition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RelativeObjectPositionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RelativeObjectPositionImpl>> result =
-        new Hashtable<String, IAttributeParser<RelativeObjectPositionImpl>>();
+    Map<String, IAttributeParser<RelativeObjectPositionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<RelativeObjectPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -96,16 +70,22 @@ public class RelativeObjectPositionXmlParser
               RelativeObjectPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -121,6 +101,7 @@ public class RelativeObjectPositionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__DX,
         new IAttributeParser<RelativeObjectPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -130,9 +111,15 @@ public class RelativeObjectPositionXmlParser
               RelativeObjectPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DX, stripDollarSign(attributeValue), startMarker);
@@ -153,6 +140,7 @@ public class RelativeObjectPositionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__DY,
         new IAttributeParser<RelativeObjectPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -162,9 +150,15 @@ public class RelativeObjectPositionXmlParser
               RelativeObjectPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DY, stripDollarSign(attributeValue), startMarker);
@@ -185,6 +179,7 @@ public class RelativeObjectPositionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__DZ,
         new IAttributeParser<RelativeObjectPositionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -194,9 +189,15 @@ public class RelativeObjectPositionXmlParser
               RelativeObjectPositionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeObjectPositionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DZ, stripDollarSign(attributeValue), startMarker);
@@ -231,20 +232,24 @@ public class RelativeObjectPositionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RelativeObjectPositionImpl>> createParserList() {
-      List<IElementParser<RelativeObjectPositionImpl>> result =
-          new ArrayList<IElementParser<RelativeObjectPositionImpl>>();
+      List<IElementParser<RelativeObjectPositionImpl>> result = new ArrayList<>();
       result.add(new SubElementOrientationParser());
       return result;
     }
   }
   /** A parser for subelement orientation */
+  @SuppressWarnings("synthetic-access")
   private class SubElementOrientationParser implements IElementParser<RelativeObjectPositionImpl> {
 
     /** Constructor */
     public SubElementOrientationParser() {
       super();
-      orientationXmlParser = new OrientationXmlParser(messageLogger, filename);
+      this.orientationXmlParser =
+          new OrientationXmlParser(
+              RelativeObjectPositionXmlParser.this.messageLogger,
+              RelativeObjectPositionXmlParser.this.filename);
     }
 
     private OrientationXmlParser orientationXmlParser;
@@ -257,7 +262,7 @@ public class RelativeObjectPositionXmlParser
       OrientationImpl orientation = new OrientationImpl();
       // Setting the parent
       orientation.setParent(object);
-      orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
+      this.orientationXmlParser.parseElement(indexedElement, parserContext, orientation);
 
       object.setOrientation(orientation);
     }

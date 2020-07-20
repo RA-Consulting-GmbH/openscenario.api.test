@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IProperties extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: A name/value pair. The semantic of the name/values
    * are subject of a contract between the provider of a simulation environment and the author of a
@@ -37,7 +36,6 @@ public interface IProperties extends IOpenScenarioModelElement {
    * @return value of model property properties
    */
   public List<IProperty> getProperties();
-
   /**
    * From OpenSCENARIO class model specification: A list of arbitrary files attached to an object
    * that owns the properties. The semantic and the file formats are subject of a contract between

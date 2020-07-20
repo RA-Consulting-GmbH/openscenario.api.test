@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetLane, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetLane {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -64,18 +64,19 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
     addAdapter(IRelativeTargetLane.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public Integer getValue() {
-    return value;
+    return this.value;
   }
   /**
    * Sets the value of model property entityRef
@@ -100,13 +101,14 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -122,8 +124,9 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -134,6 +137,7 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RelativeTargetLaneImpl clone() {
     RelativeTargetLaneImpl clonedObject = new RelativeTargetLaneImpl();
     cloneStartMarker(clonedObject);
@@ -164,9 +168,8 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -181,9 +184,8 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -214,6 +216,7 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -232,9 +235,8 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

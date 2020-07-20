@@ -26,14 +26,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IFog extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Unit: m; Range: [0..inf[.
    *
    * @return value of model property visualRange
    */
   public Double getVisualRange();
-
   /**
    * From OpenSCENARIO class model specification: Dimensions and center of fog in fixed coordinates.
    *

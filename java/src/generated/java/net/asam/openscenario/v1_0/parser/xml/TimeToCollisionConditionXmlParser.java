@@ -51,41 +51,17 @@ public class TimeToCollisionConditionXmlParser
    */
   public TimeToCollisionConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      TimeToCollisionConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TimeToCollisionCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TimeToCollisionCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TimeToCollisionConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TimeToCollisionConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<TimeToCollisionConditionImpl>>();
+    Map<String, IAttributeParser<TimeToCollisionConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<TimeToCollisionConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -95,9 +71,15 @@ public class TimeToCollisionConditionXmlParser
               TimeToCollisionConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -118,6 +100,7 @@ public class TimeToCollisionConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__FREESPACE,
         new IAttributeParser<TimeToCollisionConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -127,9 +110,15 @@ public class TimeToCollisionConditionXmlParser
               TimeToCollisionConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__FREESPACE, stripDollarSign(attributeValue), startMarker);
@@ -150,6 +139,7 @@ public class TimeToCollisionConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__ALONG_ROUTE,
         new IAttributeParser<TimeToCollisionConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -159,9 +149,15 @@ public class TimeToCollisionConditionXmlParser
               TimeToCollisionConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ALONG_ROUTE,
@@ -184,6 +180,7 @@ public class TimeToCollisionConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__RULE,
         new IAttributeParser<TimeToCollisionConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -193,9 +190,15 @@ public class TimeToCollisionConditionXmlParser
               TimeToCollisionConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TimeToCollisionConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RULE, stripDollarSign(attributeValue), startMarker);
@@ -206,7 +209,7 @@ public class TimeToCollisionConditionXmlParser
               if (result != null) {
                 object.setRule(result);
               } else {
-                messageLogger.logMessage(
+                TimeToCollisionConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -239,22 +242,25 @@ public class TimeToCollisionConditionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TimeToCollisionConditionImpl>> createParserList() {
-      List<IElementParser<TimeToCollisionConditionImpl>> result =
-          new ArrayList<IElementParser<TimeToCollisionConditionImpl>>();
+      List<IElementParser<TimeToCollisionConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementTimeToCollisionConditionTargetParser());
       return result;
     }
   }
   /** A parser for subelement timeToCollisionConditionTarget */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTimeToCollisionConditionTargetParser
       implements IElementParser<TimeToCollisionConditionImpl> {
 
     /** Constructor */
     public SubElementTimeToCollisionConditionTargetParser() {
       super();
-      timeToCollisionConditionTargetXmlParser =
-          new TimeToCollisionConditionTargetXmlParser(messageLogger, filename);
+      this.timeToCollisionConditionTargetXmlParser =
+          new TimeToCollisionConditionTargetXmlParser(
+              TimeToCollisionConditionXmlParser.this.messageLogger,
+              TimeToCollisionConditionXmlParser.this.filename);
     }
 
     private TimeToCollisionConditionTargetXmlParser timeToCollisionConditionTargetXmlParser;
@@ -268,7 +274,7 @@ public class TimeToCollisionConditionXmlParser
           new TimeToCollisionConditionTargetImpl();
       // Setting the parent
       timeToCollisionConditionTarget.setParent(object);
-      timeToCollisionConditionTargetXmlParser.parseElement(
+      this.timeToCollisionConditionTargetXmlParser.parseElement(
           indexedElement, parserContext, timeToCollisionConditionTarget);
 
       object.setTimeToCollisionConditionTarget(timeToCollisionConditionTarget);

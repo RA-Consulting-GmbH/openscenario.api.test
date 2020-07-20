@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ISpeedCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Speed value of the speed condition. Unit m/s.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

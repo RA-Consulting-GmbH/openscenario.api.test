@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ShapeImpl extends BaseImpl implements IShape, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class ShapeImpl extends BaseImpl implements IShape {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IPolyline polyline;
   private IClothoid clothoid;
@@ -62,23 +58,24 @@ public class ShapeImpl extends BaseImpl implements IShape, Cloneable {
     addAdapter(IShape.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IPolyline getPolyline() {
-    return polyline;
+    return this.polyline;
   }
 
   @Override
   public IClothoid getClothoid() {
-    return clothoid;
+    return this.clothoid;
   }
 
   @Override
   public INurbs getNurbs() {
-    return nurbs;
+    return this.nurbs;
   }
   /**
    * Sets the value of model property polyline
@@ -107,7 +104,9 @@ public class ShapeImpl extends BaseImpl implements IShape, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -120,8 +119,9 @@ public class ShapeImpl extends BaseImpl implements IShape, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPolyline polyline = null;
     polyline = getPolyline();
@@ -147,6 +147,7 @@ public class ShapeImpl extends BaseImpl implements IShape, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ShapeImpl clone() {
     ShapeImpl clonedObject = new ShapeImpl();
     cloneStartMarker(clonedObject);
@@ -225,18 +226,20 @@ public class ShapeImpl extends BaseImpl implements IShape, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__POLYLINE)) {
       return (IOpenScenarioFlexElement) getPolyline();
-    } else if (key.equals(OscConstants.ELEMENT__CLOTHOID)) {
-      return (IOpenScenarioFlexElement) getClothoid();
-    } else if (key.equals(OscConstants.ELEMENT__NURBS)) {
-      return (IOpenScenarioFlexElement) getNurbs();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__CLOTHOID)) {
+      return (IOpenScenarioFlexElement) getClothoid();
+    }
+    if (key.equals(OscConstants.ELEMENT__NURBS)) {
+      return (IOpenScenarioFlexElement) getNurbs();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

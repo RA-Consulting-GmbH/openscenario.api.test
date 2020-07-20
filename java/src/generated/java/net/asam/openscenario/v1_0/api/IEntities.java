@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IEntities extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: A list of scenario object definitions that pairs
    * an entity object and a controller.
@@ -36,7 +35,6 @@ public interface IEntities extends IOpenScenarioModelElement {
    * @return value of model property scenarioObjects
    */
   public List<IScenarioObject> getScenarioObjects();
-
   /**
    * From OpenSCENARIO class model specification: A list of entity selection definitions.
    *

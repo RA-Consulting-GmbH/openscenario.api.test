@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITimeToCollisionConditionTarget extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Position.
    *
    * @return value of model property position
    */
   public IPosition getPosition();
-
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *

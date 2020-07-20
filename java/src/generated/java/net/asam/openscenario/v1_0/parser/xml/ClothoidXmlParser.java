@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -49,38 +47,16 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
    */
   public ClothoidXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ClothoidImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Clothoid",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Clothoid",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ClothoidImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ClothoidImpl>> result =
-        new Hashtable<String, IAttributeParser<ClothoidImpl>>();
+    Map<String, IAttributeParser<ClothoidImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__CURVATURE,
         new IAttributeParser<ClothoidImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +66,15 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
               ClothoidImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CURVATURE, stripDollarSign(attributeValue), startMarker);
@@ -113,6 +95,7 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
     result.put(
         OscConstants.ATTRIBUTE__CURVATURE_DOT,
         new IAttributeParser<ClothoidImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -122,9 +105,15 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
               ClothoidImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CURVATURE_DOT,
@@ -147,6 +136,7 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
     result.put(
         OscConstants.ATTRIBUTE__LENGTH,
         new IAttributeParser<ClothoidImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -156,9 +146,15 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
               ClothoidImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__LENGTH, stripDollarSign(attributeValue), startMarker);
@@ -179,6 +175,7 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
     result.put(
         OscConstants.ATTRIBUTE__START_TIME,
         new IAttributeParser<ClothoidImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -188,9 +185,15 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
               ClothoidImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__START_TIME, stripDollarSign(attributeValue), startMarker);
@@ -211,6 +214,7 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
     result.put(
         OscConstants.ATTRIBUTE__STOP_TIME,
         new IAttributeParser<ClothoidImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -220,9 +224,15 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
               ClothoidImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ClothoidXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__STOP_TIME, stripDollarSign(attributeValue), startMarker);
@@ -257,19 +267,23 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ClothoidImpl>> createParserList() {
-      List<IElementParser<ClothoidImpl>> result = new ArrayList<IElementParser<ClothoidImpl>>();
+      List<IElementParser<ClothoidImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<ClothoidImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              ClothoidXmlParser.this.messageLogger, ClothoidXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -280,7 +294,7 @@ public class ClothoidXmlParser extends XmlComplexTypeParser<ClothoidImpl> {
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.impl.CatalogReferenceImpl;
  */
 public class ParameterResolver {
 
-  private Stack<Hashtable<String, ParameterValue>> parameterValueSets =
-      new Stack<Hashtable<String, ParameterValue>>();
+  private Stack<Hashtable<String, ParameterValue>> parameterValueSets = new Stack<>();
 
   /**
    * Resolves all parameters of a parameterized object.
@@ -90,8 +89,9 @@ public class ParameterResolver {
   public String findValue(Class<?> expectedParameterType, String parameterName) {
     // Search from the top of the stack (which is the end of the underlying
     // list)
-    for (int i = parameterValueSets.size() - 1; i >= 0; i--) {
-      Hashtable<String, ParameterValue> parameterNameToParameterValue = parameterValueSets.get(i);
+    for (int i = this.parameterValueSets.size() - 1; i >= 0; i--) {
+      Hashtable<String, ParameterValue> parameterNameToParameterValue =
+          this.parameterValueSets.get(i);
       ParameterValue paramValue = parameterNameToParameterValue.get(parameterName);
       if (paramValue != null && paramValue.getType().equals(expectedParameterType)) {
         return paramValue.getValue();
@@ -107,17 +107,17 @@ public class ParameterResolver {
    * @param parameterValues set of parameter values
    */
   public void pushParameterValueSet(List<ParameterValue> parameterValues) {
-    Hashtable<String, ParameterValue> table = new Hashtable<String, ParameterValue>();
+    Hashtable<String, ParameterValue> table = new Hashtable<>();
     for (ParameterValue parameterValue : parameterValues) {
       table.put(parameterValue.getName(), parameterValue);
     }
-    parameterValueSets.push(table);
+    this.parameterValueSets.push(table);
   }
 
   /** Remove the head of the stack */
   public void popParameterValueSet() {
 
-    parameterValueSets.pop();
+    this.parameterValueSets.pop();
   }
 
   /**

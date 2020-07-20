@@ -28,21 +28,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IFollowTrajectoryAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Trajectory definition.
    *
    * @return value of model property trajectory
    */
   public ITrajectory getTrajectory();
-
   /**
    * From OpenSCENARIO class model specification: A reference to the trajectory type in a catalog.
    *
    * @return value of model property catalogReference
    */
   public ICatalogReference getCatalogReference();
-
   /**
    * From OpenSCENARIO class model specification: Defines if time information provided within the
    * trajectory should be considered. If so, it may be used as either absolute or relative time
@@ -52,7 +49,6 @@ public interface IFollowTrajectoryAction extends IOpenScenarioModelElement {
    * @return value of model property timeReference
    */
   public ITimeReference getTimeReference();
-
   /**
    * From OpenSCENARIO class model specification: The mode how to follow the given trajectory.
    *

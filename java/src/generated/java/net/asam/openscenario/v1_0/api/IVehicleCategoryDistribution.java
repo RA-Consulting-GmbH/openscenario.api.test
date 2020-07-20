@@ -29,7 +29,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IVehicleCategoryDistribution extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: List of elements that pair vehicle categories and
    * their weight within the distribution.

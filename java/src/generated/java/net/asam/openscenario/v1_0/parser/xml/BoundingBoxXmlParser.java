@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,35 +46,12 @@ public class BoundingBoxXmlParser extends XmlComplexTypeParser<BoundingBoxImpl> 
    */
   public BoundingBoxXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, BoundingBoxImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing BoundingBox",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing BoundingBox",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<BoundingBoxImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<BoundingBoxImpl>> result =
-        new Hashtable<String, IAttributeParser<BoundingBoxImpl>>();
+    Map<String, IAttributeParser<BoundingBoxImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,21 +69,24 @@ public class BoundingBoxXmlParser extends XmlComplexTypeParser<BoundingBoxImpl> 
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<BoundingBoxImpl>> createParserList() {
-      List<IElementParser<BoundingBoxImpl>> result =
-          new ArrayList<IElementParser<BoundingBoxImpl>>();
+      List<IElementParser<BoundingBoxImpl>> result = new ArrayList<>();
       result.add(new SubElementCenterParser());
       result.add(new SubElementDimensionsParser());
       return result;
     }
   }
   /** A parser for subelement center */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCenterParser implements IElementParser<BoundingBoxImpl> {
 
     /** Constructor */
     public SubElementCenterParser() {
       super();
-      centerXmlParser = new CenterXmlParser(messageLogger, filename);
+      this.centerXmlParser =
+          new CenterXmlParser(
+              BoundingBoxXmlParser.this.messageLogger, BoundingBoxXmlParser.this.filename);
     }
 
     private CenterXmlParser centerXmlParser;
@@ -120,7 +97,7 @@ public class BoundingBoxXmlParser extends XmlComplexTypeParser<BoundingBoxImpl> 
       CenterImpl center = new CenterImpl();
       // Setting the parent
       center.setParent(object);
-      centerXmlParser.parseElement(indexedElement, parserContext, center);
+      this.centerXmlParser.parseElement(indexedElement, parserContext, center);
 
       object.setCenter(center);
     }
@@ -146,12 +123,15 @@ public class BoundingBoxXmlParser extends XmlComplexTypeParser<BoundingBoxImpl> 
     }
   }
   /** A parser for subelement dimensions */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDimensionsParser implements IElementParser<BoundingBoxImpl> {
 
     /** Constructor */
     public SubElementDimensionsParser() {
       super();
-      dimensionsXmlParser = new DimensionsXmlParser(messageLogger, filename);
+      this.dimensionsXmlParser =
+          new DimensionsXmlParser(
+              BoundingBoxXmlParser.this.messageLogger, BoundingBoxXmlParser.this.filename);
     }
 
     private DimensionsXmlParser dimensionsXmlParser;
@@ -162,7 +142,7 @@ public class BoundingBoxXmlParser extends XmlComplexTypeParser<BoundingBoxImpl> 
       DimensionsImpl dimensions = new DimensionsImpl();
       // Setting the parent
       dimensions.setParent(object);
-      dimensionsXmlParser.parseElement(indexedElement, parserContext, dimensions);
+      this.dimensionsXmlParser.parseElement(indexedElement, parserContext, dimensions);
 
       object.setDimensions(dimensions);
     }

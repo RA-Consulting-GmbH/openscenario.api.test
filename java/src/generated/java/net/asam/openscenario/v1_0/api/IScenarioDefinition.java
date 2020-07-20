@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IScenarioDefinition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Global Parameter declaration. Some parameter
    * represent placeholders to be resolved when the scenario file is loaded. Some parameters
@@ -38,7 +37,6 @@ public interface IScenarioDefinition extends IOpenScenarioModelElement {
    * @return value of model property parameterDeclarations
    */
   public List<IParameterDeclaration> getParameterDeclarations();
-
   /**
    * From OpenSCENARIO class model specification: A list of locations to look up catalog files. Each
    * catalog element type has its own list.
@@ -46,14 +44,12 @@ public interface IScenarioDefinition extends IOpenScenarioModelElement {
    * @return value of model property catalogLocations
    */
   public ICatalogLocations getCatalogLocations();
-
   /**
    * From OpenSCENARIO class model specification: Reference to the road network.
    *
    * @return value of model property roadNetwork
    */
   public IRoadNetwork getRoadNetwork();
-
   /**
    * From OpenSCENARIO class model specification: Container for entity selections and scenario
    * object definitions. Instances of ScenarioObject, of EntitySelection and of SpawnedObject
@@ -62,7 +58,6 @@ public interface IScenarioDefinition extends IOpenScenarioModelElement {
    * @return value of model property entities
    */
   public IEntities getEntities();
-
   /**
    * From OpenSCENARIO class model specification: Container for the dynamic content of the scenario.
    *

@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILaneOffsetActionDynamics extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Maximum lateral acceleration used to initially
    * reach and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.
@@ -35,7 +34,6 @@ public interface ILaneOffsetActionDynamics extends IOpenScenarioModelElement {
    * @return value of model property maxLateralAcc
    */
   public Double getMaxLateralAcc();
-
   /**
    * From OpenSCENARIO class model specification: Geometrical shape of the LaneOffsetAction's
    * dynamics.

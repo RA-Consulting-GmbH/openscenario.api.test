@@ -25,10 +25,8 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
 import net.asam.openscenario.v1_0.common.OscConstants;
@@ -51,39 +49,17 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
    */
   public RelativeTargetSpeedXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RelativeTargetSpeedImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing RelativeTargetSpeed",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing RelativeTargetSpeed",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RelativeTargetSpeedImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RelativeTargetSpeedImpl>> result =
-        new Hashtable<String, IAttributeParser<RelativeTargetSpeedImpl>>();
+    Map<String, IAttributeParser<RelativeTargetSpeedImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<RelativeTargetSpeedImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,16 +69,22 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
               RelativeTargetSpeedImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -118,6 +100,7 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<RelativeTargetSpeedImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -127,9 +110,15 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
               RelativeTargetSpeedImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -150,6 +139,7 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
     result.put(
         OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE,
         new IAttributeParser<RelativeTargetSpeedImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -159,9 +149,15 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
               RelativeTargetSpeedImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE,
@@ -174,7 +170,7 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
               if (result != null) {
                 object.setSpeedTargetValueType(result);
               } else {
-                messageLogger.logMessage(
+                RelativeTargetSpeedXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -194,6 +190,7 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
     result.put(
         OscConstants.ATTRIBUTE__CONTINUOUS,
         new IAttributeParser<RelativeTargetSpeedImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -203,9 +200,15 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
               RelativeTargetSpeedImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    RelativeTargetSpeedXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CONTINUOUS, stripDollarSign(attributeValue), startMarker);
@@ -240,9 +243,9 @@ public class RelativeTargetSpeedXmlParser extends XmlComplexTypeParser<RelativeT
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<RelativeTargetSpeedImpl>> createParserList() {
-      List<IElementParser<RelativeTargetSpeedImpl>> result =
-          new ArrayList<IElementParser<RelativeTargetSpeedImpl>>();
+      List<IElementParser<RelativeTargetSpeedImpl>> result = new ArrayList<>();
       return result;
     }
   }

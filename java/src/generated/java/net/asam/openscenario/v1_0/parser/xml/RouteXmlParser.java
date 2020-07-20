@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -53,38 +51,16 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
    */
   public RouteXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, RouteImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Route",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Route",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<RouteImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<RouteImpl>> result =
-        new Hashtable<String, IAttributeParser<RouteImpl>>();
+    Map<String, IAttributeParser<RouteImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<RouteImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +70,13 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
               RouteImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RouteXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), RouteXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -117,6 +97,7 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
     result.put(
         OscConstants.ATTRIBUTE__CLOSED,
         new IAttributeParser<RouteImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -126,9 +107,13 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
               RouteImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    RouteXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), RouteXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CLOSED, stripDollarSign(attributeValue), startMarker);
@@ -163,12 +148,14 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<RouteImpl>> createParserList() {
-      List<IElementParser<RouteImpl>> result = new ArrayList<IElementParser<RouteImpl>>();
+      List<IElementParser<RouteImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<RouteImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              RouteXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementWaypointsParser());
@@ -176,12 +163,15 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser implements IElementParser<RouteImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              RouteXmlParser.this.messageLogger, RouteXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -192,11 +182,11 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -223,12 +213,14 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
     }
   }
   /** A parser for subelement waypoints */
+  @SuppressWarnings("synthetic-access")
   private class SubElementWaypointsParser implements IElementParser<RouteImpl> {
 
     /** Constructor */
     public SubElementWaypointsParser() {
       super();
-      waypointXmlParser = new WaypointXmlParser(messageLogger, filename);
+      this.waypointXmlParser =
+          new WaypointXmlParser(RouteXmlParser.this.messageLogger, RouteXmlParser.this.filename);
     }
 
     private WaypointXmlParser waypointXmlParser;
@@ -239,10 +231,10 @@ public class RouteXmlParser extends XmlComplexTypeParser<RouteImpl> {
       WaypointImpl waypoints = new WaypointImpl();
       // Setting the parent
       waypoints.setParent(object);
-      waypointXmlParser.parseElement(indexedElement, parserContext, waypoints);
+      this.waypointXmlParser.parseElement(indexedElement, parserContext, waypoints);
       List<IWaypoint> waypointsList = object.getWaypoints();
       if (waypointsList == null) {
-        waypointsList = new ArrayList<IWaypoint>();
+        waypointsList = new ArrayList<>();
         object.setWaypoints(waypointsList);
       }
       waypointsList.add(waypoints);

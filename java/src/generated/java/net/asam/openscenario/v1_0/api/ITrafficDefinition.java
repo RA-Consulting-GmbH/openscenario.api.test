@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrafficDefinition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the traffic definition.
    *
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Distribution of vehicle categories within the
    * traffic.
@@ -42,7 +40,6 @@ public interface ITrafficDefinition extends IOpenScenarioModelElement {
    * @return value of model property vehicleCategoryDistribution
    */
   public IVehicleCategoryDistribution getVehicleCategoryDistribution();
-
   /**
    * From OpenSCENARIO class model specification: Distribution of controllers within this traffic.
    *

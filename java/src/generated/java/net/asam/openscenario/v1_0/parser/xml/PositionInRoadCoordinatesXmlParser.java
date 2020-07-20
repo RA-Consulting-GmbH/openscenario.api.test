@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.PositionInRoadCoordinatesImpl;
 import net.asam.xml.indexer.Position;
@@ -49,41 +45,17 @@ public class PositionInRoadCoordinatesXmlParser
    */
   public PositionInRoadCoordinatesXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      PositionInRoadCoordinatesImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing PositionInRoadCoordinates",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing PositionInRoadCoordinates",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<PositionInRoadCoordinatesImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<PositionInRoadCoordinatesImpl>> result =
-        new Hashtable<String, IAttributeParser<PositionInRoadCoordinatesImpl>>();
+    Map<String, IAttributeParser<PositionInRoadCoordinatesImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__PATH_S,
         new IAttributeParser<PositionInRoadCoordinatesImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +65,15 @@ public class PositionInRoadCoordinatesXmlParser
               PositionInRoadCoordinatesImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PositionInRoadCoordinatesXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PositionInRoadCoordinatesXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__PATH_S, stripDollarSign(attributeValue), startMarker);
@@ -116,6 +94,7 @@ public class PositionInRoadCoordinatesXmlParser
     result.put(
         OscConstants.ATTRIBUTE__T,
         new IAttributeParser<PositionInRoadCoordinatesImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -125,9 +104,15 @@ public class PositionInRoadCoordinatesXmlParser
               PositionInRoadCoordinatesImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    PositionInRoadCoordinatesXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    PositionInRoadCoordinatesXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__T, stripDollarSign(attributeValue), startMarker);
@@ -162,9 +147,9 @@ public class PositionInRoadCoordinatesXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<PositionInRoadCoordinatesImpl>> createParserList() {
-      List<IElementParser<PositionInRoadCoordinatesImpl>> result =
-          new ArrayList<IElementParser<PositionInRoadCoordinatesImpl>>();
+      List<IElementParser<PositionInRoadCoordinatesImpl>> result = new ArrayList<>();
       return result;
     }
   }

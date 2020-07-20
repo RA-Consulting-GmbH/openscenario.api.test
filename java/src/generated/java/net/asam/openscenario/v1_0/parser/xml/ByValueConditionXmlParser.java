@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -54,36 +51,13 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
    */
   public ByValueConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ByValueConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ByValueCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ByValueCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ByValueConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ByValueConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<ByValueConditionImpl>>();
+    Map<String, IAttributeParser<ByValueConditionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -101,9 +75,9 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ByValueConditionImpl>> createParserList() {
-      List<IElementParser<ByValueConditionImpl>> result =
-          new ArrayList<IElementParser<ByValueConditionImpl>>();
+      List<IElementParser<ByValueConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementParameterConditionParser());
       result.add(new SubElementTimeOfDayConditionParser());
       result.add(new SubElementSimulationTimeConditionParser());
@@ -115,12 +89,16 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     }
   }
   /** A parser for subelement parameterCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterConditionParser implements IElementParser<ByValueConditionImpl> {
 
     /** Constructor */
     public SubElementParameterConditionParser() {
       super();
-      parameterConditionXmlParser = new ParameterConditionXmlParser(messageLogger, filename);
+      this.parameterConditionXmlParser =
+          new ParameterConditionXmlParser(
+              ByValueConditionXmlParser.this.messageLogger,
+              ByValueConditionXmlParser.this.filename);
     }
 
     private ParameterConditionXmlParser parameterConditionXmlParser;
@@ -131,7 +109,8 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
       ParameterConditionImpl parameterCondition = new ParameterConditionImpl();
       // Setting the parent
       parameterCondition.setParent(object);
-      parameterConditionXmlParser.parseElement(indexedElement, parserContext, parameterCondition);
+      this.parameterConditionXmlParser.parseElement(
+          indexedElement, parserContext, parameterCondition);
 
       object.setParameterCondition(parameterCondition);
     }
@@ -157,12 +136,16 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     }
   }
   /** A parser for subelement timeOfDayCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTimeOfDayConditionParser implements IElementParser<ByValueConditionImpl> {
 
     /** Constructor */
     public SubElementTimeOfDayConditionParser() {
       super();
-      timeOfDayConditionXmlParser = new TimeOfDayConditionXmlParser(messageLogger, filename);
+      this.timeOfDayConditionXmlParser =
+          new TimeOfDayConditionXmlParser(
+              ByValueConditionXmlParser.this.messageLogger,
+              ByValueConditionXmlParser.this.filename);
     }
 
     private TimeOfDayConditionXmlParser timeOfDayConditionXmlParser;
@@ -173,7 +156,8 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
       TimeOfDayConditionImpl timeOfDayCondition = new TimeOfDayConditionImpl();
       // Setting the parent
       timeOfDayCondition.setParent(object);
-      timeOfDayConditionXmlParser.parseElement(indexedElement, parserContext, timeOfDayCondition);
+      this.timeOfDayConditionXmlParser.parseElement(
+          indexedElement, parserContext, timeOfDayCondition);
 
       object.setTimeOfDayCondition(timeOfDayCondition);
     }
@@ -199,14 +183,17 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     }
   }
   /** A parser for subelement simulationTimeCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSimulationTimeConditionParser
       implements IElementParser<ByValueConditionImpl> {
 
     /** Constructor */
     public SubElementSimulationTimeConditionParser() {
       super();
-      simulationTimeConditionXmlParser =
-          new SimulationTimeConditionXmlParser(messageLogger, filename);
+      this.simulationTimeConditionXmlParser =
+          new SimulationTimeConditionXmlParser(
+              ByValueConditionXmlParser.this.messageLogger,
+              ByValueConditionXmlParser.this.filename);
     }
 
     private SimulationTimeConditionXmlParser simulationTimeConditionXmlParser;
@@ -217,7 +204,7 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
       SimulationTimeConditionImpl simulationTimeCondition = new SimulationTimeConditionImpl();
       // Setting the parent
       simulationTimeCondition.setParent(object);
-      simulationTimeConditionXmlParser.parseElement(
+      this.simulationTimeConditionXmlParser.parseElement(
           indexedElement, parserContext, simulationTimeCondition);
 
       object.setSimulationTimeCondition(simulationTimeCondition);
@@ -244,14 +231,17 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     }
   }
   /** A parser for subelement storyboardElementStateCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStoryboardElementStateConditionParser
       implements IElementParser<ByValueConditionImpl> {
 
     /** Constructor */
     public SubElementStoryboardElementStateConditionParser() {
       super();
-      storyboardElementStateConditionXmlParser =
-          new StoryboardElementStateConditionXmlParser(messageLogger, filename);
+      this.storyboardElementStateConditionXmlParser =
+          new StoryboardElementStateConditionXmlParser(
+              ByValueConditionXmlParser.this.messageLogger,
+              ByValueConditionXmlParser.this.filename);
     }
 
     private StoryboardElementStateConditionXmlParser storyboardElementStateConditionXmlParser;
@@ -263,7 +253,7 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
           new StoryboardElementStateConditionImpl();
       // Setting the parent
       storyboardElementStateCondition.setParent(object);
-      storyboardElementStateConditionXmlParser.parseElement(
+      this.storyboardElementStateConditionXmlParser.parseElement(
           indexedElement, parserContext, storyboardElementStateCondition);
 
       object.setStoryboardElementStateCondition(storyboardElementStateCondition);
@@ -290,14 +280,17 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     }
   }
   /** A parser for subelement userDefinedValueCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementUserDefinedValueConditionParser
       implements IElementParser<ByValueConditionImpl> {
 
     /** Constructor */
     public SubElementUserDefinedValueConditionParser() {
       super();
-      userDefinedValueConditionXmlParser =
-          new UserDefinedValueConditionXmlParser(messageLogger, filename);
+      this.userDefinedValueConditionXmlParser =
+          new UserDefinedValueConditionXmlParser(
+              ByValueConditionXmlParser.this.messageLogger,
+              ByValueConditionXmlParser.this.filename);
     }
 
     private UserDefinedValueConditionXmlParser userDefinedValueConditionXmlParser;
@@ -308,7 +301,7 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
       UserDefinedValueConditionImpl userDefinedValueCondition = new UserDefinedValueConditionImpl();
       // Setting the parent
       userDefinedValueCondition.setParent(object);
-      userDefinedValueConditionXmlParser.parseElement(
+      this.userDefinedValueConditionXmlParser.parseElement(
           indexedElement, parserContext, userDefinedValueCondition);
 
       object.setUserDefinedValueCondition(userDefinedValueCondition);
@@ -335,14 +328,17 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     }
   }
   /** A parser for subelement trafficSignalCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSignalConditionParser
       implements IElementParser<ByValueConditionImpl> {
 
     /** Constructor */
     public SubElementTrafficSignalConditionParser() {
       super();
-      trafficSignalConditionXmlParser =
-          new TrafficSignalConditionXmlParser(messageLogger, filename);
+      this.trafficSignalConditionXmlParser =
+          new TrafficSignalConditionXmlParser(
+              ByValueConditionXmlParser.this.messageLogger,
+              ByValueConditionXmlParser.this.filename);
     }
 
     private TrafficSignalConditionXmlParser trafficSignalConditionXmlParser;
@@ -353,7 +349,7 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
       TrafficSignalConditionImpl trafficSignalCondition = new TrafficSignalConditionImpl();
       // Setting the parent
       trafficSignalCondition.setParent(object);
-      trafficSignalConditionXmlParser.parseElement(
+      this.trafficSignalConditionXmlParser.parseElement(
           indexedElement, parserContext, trafficSignalCondition);
 
       object.setTrafficSignalCondition(trafficSignalCondition);
@@ -380,14 +376,17 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
     }
   }
   /** A parser for subelement trafficSignalControllerCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSignalControllerConditionParser
       implements IElementParser<ByValueConditionImpl> {
 
     /** Constructor */
     public SubElementTrafficSignalControllerConditionParser() {
       super();
-      trafficSignalControllerConditionXmlParser =
-          new TrafficSignalControllerConditionXmlParser(messageLogger, filename);
+      this.trafficSignalControllerConditionXmlParser =
+          new TrafficSignalControllerConditionXmlParser(
+              ByValueConditionXmlParser.this.messageLogger,
+              ByValueConditionXmlParser.this.filename);
     }
 
     private TrafficSignalControllerConditionXmlParser trafficSignalControllerConditionXmlParser;
@@ -399,7 +398,7 @@ public class ByValueConditionXmlParser extends XmlComplexTypeParser<ByValueCondi
           new TrafficSignalControllerConditionImpl();
       // Setting the parent
       trafficSignalControllerCondition.setParent(object);
-      trafficSignalControllerConditionXmlParser.parseElement(
+      this.trafficSignalControllerConditionXmlParser.parseElement(
           indexedElement, parserContext, trafficSignalControllerCondition);
 
       object.setTrafficSignalControllerCondition(trafficSignalControllerCondition);

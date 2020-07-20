@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITrajectoryFollowingMode extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Defines (lateral) trajectory following behavior of
    * the actor: Mode 'position' forces the actor to strictly adhere to the trajectory. In contrast,

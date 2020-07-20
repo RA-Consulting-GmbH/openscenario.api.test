@@ -102,10 +102,11 @@ public class OpenScenarioChecker {
       System.out.println("-v\tprogram version");
       return;
     }
-    Hashtable<String, String> nameValuePairs = new Hashtable<String, String>();
+    Hashtable<String, String> nameValuePairs = new Hashtable<>();
     if (paramFileName != null) {
       try {
         File paramFile = new File(paramFileName);
+        @SuppressWarnings("resource") // See closing the scanner
         Scanner paramReader = new Scanner(paramFile);
         int counter = 0;
         while (paramReader.hasNextLine()) {
@@ -137,7 +138,7 @@ public class OpenScenarioChecker {
       }
       if (!nameValuePairs.isEmpty()) {
         System.out.println("Used Parameters:");
-        for (String key : new TreeSet<String>(nameValuePairs.keySet())) {
+        for (String key : new TreeSet<>(nameValuePairs.keySet())) {
           System.out.println("\t" + key + "\t" + nameValuePairs.get(key));
         }
       }

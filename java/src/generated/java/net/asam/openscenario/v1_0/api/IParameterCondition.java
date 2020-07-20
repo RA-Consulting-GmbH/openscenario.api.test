@@ -30,21 +30,18 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IParameterCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the parameter that must be defined.
    *
    * @return value of model property parameterRef
    */
   public INamedReference<IParameterDeclaration> getParameterRef();
-
   /**
    * From OpenSCENARIO class model specification: Value of the parameter.
    *
    * @return value of model property value
    */
   public String getValue();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficActionImpl extends BaseImpl implements ITrafficAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ITrafficSourceAction trafficSourceAction;
   private ITrafficSinkAction trafficSinkAction;
@@ -62,23 +58,24 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, Clone
     addAdapter(ITrafficAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ITrafficSourceAction getTrafficSourceAction() {
-    return trafficSourceAction;
+    return this.trafficSourceAction;
   }
 
   @Override
   public ITrafficSinkAction getTrafficSinkAction() {
-    return trafficSinkAction;
+    return this.trafficSinkAction;
   }
 
   @Override
   public ITrafficSwarmAction getTrafficSwarmAction() {
-    return trafficSwarmAction;
+    return this.trafficSwarmAction;
   }
   /**
    * Sets the value of model property trafficSourceAction
@@ -110,7 +107,9 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, Clone
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -123,8 +122,9 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ITrafficSourceAction trafficSourceAction = null;
     trafficSourceAction = getTrafficSourceAction();
@@ -150,6 +150,7 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficActionImpl clone() {
     TrafficActionImpl clonedObject = new TrafficActionImpl();
     cloneStartMarker(clonedObject);
@@ -228,18 +229,20 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, Clone
     }
     if (key.equals(OscConstants.ELEMENT__TRAFFIC_SOURCE_ACTION)) {
       return (IOpenScenarioFlexElement) getTrafficSourceAction();
-    } else if (key.equals(OscConstants.ELEMENT__TRAFFIC_SINK_ACTION)) {
-      return (IOpenScenarioFlexElement) getTrafficSinkAction();
-    } else if (key.equals(OscConstants.ELEMENT__TRAFFIC_SWARM_ACTION)) {
-      return (IOpenScenarioFlexElement) getTrafficSwarmAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__TRAFFIC_SINK_ACTION)) {
+      return (IOpenScenarioFlexElement) getTrafficSinkAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__TRAFFIC_SWARM_ACTION)) {
+      return (IOpenScenarioFlexElement) getTrafficSwarmAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

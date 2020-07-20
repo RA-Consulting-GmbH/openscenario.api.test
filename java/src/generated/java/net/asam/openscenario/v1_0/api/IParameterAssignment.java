@@ -29,7 +29,6 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IParameterAssignment extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the parameter that must be declared in the
    * catalog.
@@ -37,7 +36,6 @@ public interface IParameterAssignment extends IOpenScenarioModelElement {
    * @return value of model property parameterRef
    */
   public INamedReference<IParameterDeclaration> getParameterRef();
-
   /**
    * From OpenSCENARIO class model specification: Value of the parameter that is handed over to the
    * parametrizable type.

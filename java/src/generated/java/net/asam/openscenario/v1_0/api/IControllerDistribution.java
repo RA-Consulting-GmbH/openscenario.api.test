@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IControllerDistribution extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The weights of controllers of a specific type in a
    * traffic.

@@ -47,12 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class GlobalActionImpl extends BaseImpl implements IGlobalAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IEnvironmentAction environmentAction;
   private IEntityAction entityAction;
@@ -66,33 +62,34 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneab
     addAdapter(IGlobalAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IEnvironmentAction getEnvironmentAction() {
-    return environmentAction;
+    return this.environmentAction;
   }
 
   @Override
   public IEntityAction getEntityAction() {
-    return entityAction;
+    return this.entityAction;
   }
 
   @Override
   public IParameterAction getParameterAction() {
-    return parameterAction;
+    return this.parameterAction;
   }
 
   @Override
   public IInfrastructureAction getInfrastructureAction() {
-    return infrastructureAction;
+    return this.infrastructureAction;
   }
 
   @Override
   public ITrafficAction getTrafficAction() {
-    return trafficAction;
+    return this.trafficAction;
   }
   /**
    * Sets the value of model property environmentAction
@@ -140,7 +137,9 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneab
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -153,8 +152,9 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneab
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IEnvironmentAction environmentAction = null;
     environmentAction = getEnvironmentAction();
@@ -190,6 +190,7 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneab
    *
    * @return a deep copy of the object.
    */
+  @Override
   public GlobalActionImpl clone() {
     GlobalActionImpl clonedObject = new GlobalActionImpl();
     cloneStartMarker(clonedObject);
@@ -283,22 +284,26 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, Cloneab
     }
     if (key.equals(OscConstants.ELEMENT__ENVIRONMENT_ACTION)) {
       return (IOpenScenarioFlexElement) getEnvironmentAction();
-    } else if (key.equals(OscConstants.ELEMENT__ENTITY_ACTION)) {
-      return (IOpenScenarioFlexElement) getEntityAction();
-    } else if (key.equals(OscConstants.ELEMENT__PARAMETER_ACTION)) {
-      return (IOpenScenarioFlexElement) getParameterAction();
-    } else if (key.equals(OscConstants.ELEMENT__INFRASTRUCTURE_ACTION)) {
-      return (IOpenScenarioFlexElement) getInfrastructureAction();
-    } else if (key.equals(OscConstants.ELEMENT__TRAFFIC_ACTION)) {
-      return (IOpenScenarioFlexElement) getTrafficAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__ENTITY_ACTION)) {
+      return (IOpenScenarioFlexElement) getEntityAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__PARAMETER_ACTION)) {
+      return (IOpenScenarioFlexElement) getParameterAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__INFRASTRUCTURE_ACTION)) {
+      return (IOpenScenarioFlexElement) getInfrastructureAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__TRAFFIC_ACTION)) {
+      return (IOpenScenarioFlexElement) getTrafficAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

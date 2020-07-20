@@ -46,9 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrajectoryFollowingModeImpl extends BaseImpl
-    implements ITrajectoryFollowingMode, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectoryFollowingMode {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,13 +62,14 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
     addAdapter(ITrajectoryFollowingMode.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public FollowingMode getFollowingMode() {
-    return followingMode;
+    return this.followingMode;
   }
   /**
    * Sets the value of model property followingMode
@@ -91,7 +91,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
       // Enumeration Type
       FollowingMode result = FollowingMode.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        followingMode = result;
+        this.followingMode = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -114,8 +114,9 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -126,6 +127,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrajectoryFollowingModeImpl clone() {
     TrajectoryFollowingModeImpl clonedObject = new TrajectoryFollowingModeImpl();
     cloneStartMarker(clonedObject);
@@ -189,6 +191,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -211,9 +214,8 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
     if (key.equals(OscConstants.ATTRIBUTE__FOLLOWING_MODE)) {
       FollowingMode followingMode = getFollowingMode();
       return followingMode != null ? followingMode.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

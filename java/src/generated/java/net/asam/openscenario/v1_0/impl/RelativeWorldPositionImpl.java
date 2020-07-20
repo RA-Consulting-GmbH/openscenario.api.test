@@ -48,9 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeWorldPositionImpl extends BaseImpl
-    implements IRelativeWorldPosition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorldPosition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -72,33 +71,34 @@ public class RelativeWorldPositionImpl extends BaseImpl
     addAdapter(IRelativeWorldPosition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public Double getDx() {
-    return dx;
+    return this.dx;
   }
 
   @Override
   public Double getDy() {
-    return dy;
+    return this.dy;
   }
 
   @Override
   public Double getDz() {
-    return dz;
+    return this.dz;
   }
 
   @Override
   public IOrientation getOrientation() {
-    return orientation;
+    return this.orientation;
   }
   /**
    * Sets the value of model property entityRef
@@ -151,23 +151,26 @@ public class RelativeWorldPositionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DX)) {
       // Simple type
-      dx = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.dx =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DY)) {
       // Simple type
-      dy = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.dy =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DZ)) {
       // Simple type
-      dz = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.dz =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -183,8 +186,9 @@ public class RelativeWorldPositionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IOrientation orientation = null;
     orientation = getOrientation();
@@ -200,6 +204,7 @@ public class RelativeWorldPositionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RelativeWorldPositionImpl clone() {
     RelativeWorldPositionImpl clonedObject = new RelativeWorldPositionImpl();
     cloneStartMarker(clonedObject);
@@ -241,9 +246,8 @@ public class RelativeWorldPositionImpl extends BaseImpl
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -267,9 +271,8 @@ public class RelativeWorldPositionImpl extends BaseImpl
       return getDy();
     } else if (key.equals(OscConstants.ATTRIBUTE__DZ)) {
       return getDz();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -294,14 +297,14 @@ public class RelativeWorldPositionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ELEMENT__ORIENTATION)) {
       return (IOpenScenarioFlexElement) getOrientation();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -320,9 +323,8 @@ public class RelativeWorldPositionImpl extends BaseImpl
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

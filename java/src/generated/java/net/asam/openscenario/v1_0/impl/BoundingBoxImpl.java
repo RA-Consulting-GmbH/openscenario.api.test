@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class BoundingBoxImpl extends BaseImpl implements IBoundingBox {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ICenter center;
   private IDimensions dimensions;
@@ -60,18 +56,19 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, Cloneable
     addAdapter(IBoundingBox.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ICenter getCenter() {
-    return center;
+    return this.center;
   }
 
   @Override
   public IDimensions getDimensions() {
-    return dimensions;
+    return this.dimensions;
   }
   /**
    * Sets the value of model property center
@@ -95,7 +92,9 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, Cloneable
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -108,8 +107,9 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, Cloneable
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ICenter center = null;
     center = getCenter();
@@ -130,6 +130,7 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, Cloneable
    *
    * @return a deep copy of the object.
    */
+  @Override
   public BoundingBoxImpl clone() {
     BoundingBoxImpl clonedObject = new BoundingBoxImpl();
     cloneStartMarker(clonedObject);
@@ -201,16 +202,17 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, Cloneable
     }
     if (key.equals(OscConstants.ELEMENT__CENTER)) {
       return (IOpenScenarioFlexElement) getCenter();
-    } else if (key.equals(OscConstants.ELEMENT__DIMENSIONS)) {
-      return (IOpenScenarioFlexElement) getDimensions();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__DIMENSIONS)) {
+      return (IOpenScenarioFlexElement) getDimensions();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

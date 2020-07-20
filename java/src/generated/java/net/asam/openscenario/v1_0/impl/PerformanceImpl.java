@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class PerformanceImpl extends BaseImpl implements IPerformance {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable
     addAdapter(IPerformance.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getMaxSpeed() {
-    return maxSpeed;
+    return this.maxSpeed;
   }
 
   @Override
   public Double getMaxAcceleration() {
-    return maxAcceleration;
+    return this.maxAcceleration;
   }
 
   @Override
   public Double getMaxDeceleration() {
-    return maxDeceleration;
+    return this.maxDeceleration;
   }
   /**
    * Sets the value of model property maxSpeed
@@ -114,19 +115,19 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_SPEED)) {
       // Simple type
-      maxSpeed =
+      this.maxSpeed =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_ACCELERATION)) {
       // Simple type
-      maxAcceleration =
+      this.maxAcceleration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__MAX_DECELERATION)) {
       // Simple type
-      maxDeceleration =
+      this.maxDeceleration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -143,8 +144,9 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -155,6 +157,7 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PerformanceImpl clone() {
     PerformanceImpl clonedObject = new PerformanceImpl();
     cloneStartMarker(clonedObject);
@@ -202,9 +205,8 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable
       return getMaxAcceleration();
     } else if (key.equals(OscConstants.ATTRIBUTE__MAX_DECELERATION)) {
       return getMaxDeceleration();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -230,6 +232,7 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, Cloneable
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

@@ -25,10 +25,8 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.IStoryboardElement;
 import net.asam.openscenario.v1_0.api.StoryboardElementState;
 import net.asam.openscenario.v1_0.api.StoryboardElementType;
@@ -54,41 +52,17 @@ public class StoryboardElementStateConditionXmlParser
   public StoryboardElementStateConditionXmlParser(
       IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      StoryboardElementStateConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing StoryboardElementStateCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing StoryboardElementStateCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<StoryboardElementStateConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<StoryboardElementStateConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<StoryboardElementStateConditionImpl>>();
+    Map<String, IAttributeParser<StoryboardElementStateConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE,
         new IAttributeParser<StoryboardElementStateConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -98,9 +72,15 @@ public class StoryboardElementStateConditionXmlParser
               StoryboardElementStateConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    StoryboardElementStateConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    StoryboardElementStateConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE,
@@ -113,7 +93,7 @@ public class StoryboardElementStateConditionXmlParser
               if (result != null) {
                 object.setStoryboardElementType(result);
               } else {
-                messageLogger.logMessage(
+                StoryboardElementStateConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -133,6 +113,7 @@ public class StoryboardElementStateConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF,
         new IAttributeParser<StoryboardElementStateConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -142,9 +123,15 @@ public class StoryboardElementStateConditionXmlParser
               StoryboardElementStateConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    StoryboardElementStateConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    StoryboardElementStateConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF,
@@ -154,7 +141,7 @@ public class StoryboardElementStateConditionXmlParser
               // Parse value
               // Proxy
               NamedReferenceProxy<IStoryboardElement> proxy =
-                  new NamedReferenceProxy<IStoryboardElement>(attributeValue);
+                  new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setStoryboardElementRef(proxy);
             }
@@ -171,6 +158,7 @@ public class StoryboardElementStateConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__STATE,
         new IAttributeParser<StoryboardElementStateConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -180,9 +168,15 @@ public class StoryboardElementStateConditionXmlParser
               StoryboardElementStateConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    StoryboardElementStateConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    StoryboardElementStateConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__STATE, stripDollarSign(attributeValue), startMarker);
@@ -193,7 +187,7 @@ public class StoryboardElementStateConditionXmlParser
               if (result != null) {
                 object.setState(result);
               } else {
-                messageLogger.logMessage(
+                StoryboardElementStateConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -226,9 +220,9 @@ public class StoryboardElementStateConditionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<StoryboardElementStateConditionImpl>> createParserList() {
-      List<IElementParser<StoryboardElementStateConditionImpl>> result =
-          new ArrayList<IElementParser<StoryboardElementStateConditionImpl>>();
+      List<IElementParser<StoryboardElementStateConditionImpl>> result = new ArrayList<>();
       return result;
     }
   }

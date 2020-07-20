@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IAbsoluteSpeed absoluteSpeed;
   private IRelativeSpeedToMaster relativeSpeedToMaster;
@@ -60,18 +56,19 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, Cloneable {
     addAdapter(IFinalSpeed.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IAbsoluteSpeed getAbsoluteSpeed() {
-    return absoluteSpeed;
+    return this.absoluteSpeed;
   }
 
   @Override
   public IRelativeSpeedToMaster getRelativeSpeedToMaster() {
-    return relativeSpeedToMaster;
+    return this.relativeSpeedToMaster;
   }
   /**
    * Sets the value of model property absoluteSpeed
@@ -94,7 +91,9 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, Cloneable {
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -107,8 +106,9 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IAbsoluteSpeed absoluteSpeed = null;
     absoluteSpeed = getAbsoluteSpeed();
@@ -129,6 +129,7 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public FinalSpeedImpl clone() {
     FinalSpeedImpl clonedObject = new FinalSpeedImpl();
     cloneStartMarker(clonedObject);
@@ -201,16 +202,17 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__ABSOLUTE_SPEED)) {
       return (IOpenScenarioFlexElement) getAbsoluteSpeed();
-    } else if (key.equals(OscConstants.ELEMENT__RELATIVE_SPEED_TO_MASTER)) {
-      return (IOpenScenarioFlexElement) getRelativeSpeedToMaster();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__RELATIVE_SPEED_TO_MASTER)) {
+      return (IOpenScenarioFlexElement) getRelativeSpeedToMaster();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

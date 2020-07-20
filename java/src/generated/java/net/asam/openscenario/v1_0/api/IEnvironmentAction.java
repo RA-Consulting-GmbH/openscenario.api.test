@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IEnvironmentAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: New environment definition.
    *
    * @return value of model property environment
    */
   public IEnvironment getEnvironment();
-
   /**
    * From OpenSCENARIO class model specification: Reference to a catalog entry of type Environment.
    *

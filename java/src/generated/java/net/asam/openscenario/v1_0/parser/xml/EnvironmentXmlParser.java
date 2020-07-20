@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -54,38 +52,16 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
    */
   public EnvironmentXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, EnvironmentImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Environment",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Environment",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<EnvironmentImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<EnvironmentImpl>> result =
-        new Hashtable<String, IAttributeParser<EnvironmentImpl>>();
+    Map<String, IAttributeParser<EnvironmentImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<EnvironmentImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -95,9 +71,15 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
               EnvironmentImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    EnvironmentXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    EnvironmentXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -132,13 +114,14 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
     /*
      * Creates a list of parser
      */
+    @Override
+    @SuppressWarnings("synthetic-access")
     protected List<IElementParser<EnvironmentImpl>> createParserList() {
-      List<IElementParser<EnvironmentImpl>> result =
-          new ArrayList<IElementParser<EnvironmentImpl>>();
+      List<IElementParser<EnvironmentImpl>> result = new ArrayList<>();
       result.add(
-          new WrappedListParser<EnvironmentImpl>(
-              messageLogger,
-              filename,
+          new WrappedListParser<>(
+              this.messageLogger,
+              EnvironmentXmlParser.this.filename,
               new SubElementParameterDeclarationsParser(),
               OscConstants.ELEMENT__PARAMETER_DECLARATIONS));
       result.add(new SubElementTimeOfDayParser());
@@ -148,12 +131,15 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
     }
   }
   /** A parser for subelement parameterDeclarations */
+  @SuppressWarnings("synthetic-access")
   private class SubElementParameterDeclarationsParser implements IElementParser<EnvironmentImpl> {
 
     /** Constructor */
     public SubElementParameterDeclarationsParser() {
       super();
-      parameterDeclarationXmlParser = new ParameterDeclarationXmlParser(messageLogger, filename);
+      this.parameterDeclarationXmlParser =
+          new ParameterDeclarationXmlParser(
+              EnvironmentXmlParser.this.messageLogger, EnvironmentXmlParser.this.filename);
     }
 
     private ParameterDeclarationXmlParser parameterDeclarationXmlParser;
@@ -164,11 +150,11 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
       ParameterDeclarationImpl parameterDeclarations = new ParameterDeclarationImpl();
       // Setting the parent
       parameterDeclarations.setParent(object);
-      parameterDeclarationXmlParser.parseElement(
+      this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
       List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
       if (parameterDeclarationsList == null) {
-        parameterDeclarationsList = new ArrayList<IParameterDeclaration>();
+        parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
       }
       parameterDeclarationsList.add(parameterDeclarations);
@@ -195,12 +181,15 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
     }
   }
   /** A parser for subelement timeOfDay */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTimeOfDayParser implements IElementParser<EnvironmentImpl> {
 
     /** Constructor */
     public SubElementTimeOfDayParser() {
       super();
-      timeOfDayXmlParser = new TimeOfDayXmlParser(messageLogger, filename);
+      this.timeOfDayXmlParser =
+          new TimeOfDayXmlParser(
+              EnvironmentXmlParser.this.messageLogger, EnvironmentXmlParser.this.filename);
     }
 
     private TimeOfDayXmlParser timeOfDayXmlParser;
@@ -211,7 +200,7 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
       TimeOfDayImpl timeOfDay = new TimeOfDayImpl();
       // Setting the parent
       timeOfDay.setParent(object);
-      timeOfDayXmlParser.parseElement(indexedElement, parserContext, timeOfDay);
+      this.timeOfDayXmlParser.parseElement(indexedElement, parserContext, timeOfDay);
 
       object.setTimeOfDay(timeOfDay);
     }
@@ -237,12 +226,15 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
     }
   }
   /** A parser for subelement weather */
+  @SuppressWarnings("synthetic-access")
   private class SubElementWeatherParser implements IElementParser<EnvironmentImpl> {
 
     /** Constructor */
     public SubElementWeatherParser() {
       super();
-      weatherXmlParser = new WeatherXmlParser(messageLogger, filename);
+      this.weatherXmlParser =
+          new WeatherXmlParser(
+              EnvironmentXmlParser.this.messageLogger, EnvironmentXmlParser.this.filename);
     }
 
     private WeatherXmlParser weatherXmlParser;
@@ -253,7 +245,7 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
       WeatherImpl weather = new WeatherImpl();
       // Setting the parent
       weather.setParent(object);
-      weatherXmlParser.parseElement(indexedElement, parserContext, weather);
+      this.weatherXmlParser.parseElement(indexedElement, parserContext, weather);
 
       object.setWeather(weather);
     }
@@ -279,12 +271,15 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
     }
   }
   /** A parser for subelement roadCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRoadConditionParser implements IElementParser<EnvironmentImpl> {
 
     /** Constructor */
     public SubElementRoadConditionParser() {
       super();
-      roadConditionXmlParser = new RoadConditionXmlParser(messageLogger, filename);
+      this.roadConditionXmlParser =
+          new RoadConditionXmlParser(
+              EnvironmentXmlParser.this.messageLogger, EnvironmentXmlParser.this.filename);
     }
 
     private RoadConditionXmlParser roadConditionXmlParser;
@@ -295,7 +290,7 @@ public class EnvironmentXmlParser extends XmlComplexTypeParser<EnvironmentImpl> 
       RoadConditionImpl roadCondition = new RoadConditionImpl();
       // Setting the parent
       roadCondition.setParent(object);
-      roadConditionXmlParser.parseElement(indexedElement, parserContext, roadCondition);
+      this.roadConditionXmlParser.parseElement(indexedElement, parserContext, roadCondition);
 
       object.setRoadCondition(roadCondition);
     }

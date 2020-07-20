@@ -28,21 +28,18 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IParameterAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the parameter.
    *
    * @return value of model property parameterRef
    */
   public INamedReference<IParameterDeclaration> getParameterRef();
-
   /**
    * From OpenSCENARIO class model specification: New value for the parameter.
    *
    * @return value of model property setAction
    */
   public IParameterSetAction getSetAction();
-
   /**
    * From OpenSCENARIO class model specification: Modifying rule for the parameter (Add value or
    * multiply by value).

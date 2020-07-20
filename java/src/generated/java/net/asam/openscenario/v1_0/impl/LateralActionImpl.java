@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LateralActionImpl extends BaseImpl implements ILateralAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class LateralActionImpl extends BaseImpl implements ILateralAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ILaneChangeAction laneChangeAction;
   private ILaneOffsetAction laneOffsetAction;
@@ -62,23 +58,24 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, Clone
     addAdapter(ILateralAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ILaneChangeAction getLaneChangeAction() {
-    return laneChangeAction;
+    return this.laneChangeAction;
   }
 
   @Override
   public ILaneOffsetAction getLaneOffsetAction() {
-    return laneOffsetAction;
+    return this.laneOffsetAction;
   }
 
   @Override
   public ILateralDistanceAction getLateralDistanceAction() {
-    return lateralDistanceAction;
+    return this.lateralDistanceAction;
   }
   /**
    * Sets the value of model property laneChangeAction
@@ -110,7 +107,9 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, Clone
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -123,8 +122,9 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ILaneChangeAction laneChangeAction = null;
     laneChangeAction = getLaneChangeAction();
@@ -150,6 +150,7 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public LateralActionImpl clone() {
     LateralActionImpl clonedObject = new LateralActionImpl();
     cloneStartMarker(clonedObject);
@@ -229,18 +230,20 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, Clone
     }
     if (key.equals(OscConstants.ELEMENT__LANE_CHANGE_ACTION)) {
       return (IOpenScenarioFlexElement) getLaneChangeAction();
-    } else if (key.equals(OscConstants.ELEMENT__LANE_OFFSET_ACTION)) {
-      return (IOpenScenarioFlexElement) getLaneOffsetAction();
-    } else if (key.equals(OscConstants.ELEMENT__LATERAL_DISTANCE_ACTION)) {
-      return (IOpenScenarioFlexElement) getLateralDistanceAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__LANE_OFFSET_ACTION)) {
+      return (IOpenScenarioFlexElement) getLaneOffsetAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__LATERAL_DISTANCE_ACTION)) {
+      return (IOpenScenarioFlexElement) getLateralDistanceAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

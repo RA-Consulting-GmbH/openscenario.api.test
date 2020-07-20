@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITraveledDistanceCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Amount of traveled distance. Unit: m; Range:
    * [0..inf[.

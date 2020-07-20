@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IDirectory extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: File system path, e.g. path=/home/simulation/.
    *

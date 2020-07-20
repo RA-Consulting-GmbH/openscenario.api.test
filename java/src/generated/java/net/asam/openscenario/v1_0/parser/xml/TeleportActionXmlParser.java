@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -48,36 +45,13 @@ public class TeleportActionXmlParser extends XmlComplexTypeParser<TeleportAction
    */
   public TeleportActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TeleportActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TeleportAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TeleportAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TeleportActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TeleportActionImpl>> result =
-        new Hashtable<String, IAttributeParser<TeleportActionImpl>>();
+    Map<String, IAttributeParser<TeleportActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,20 +69,23 @@ public class TeleportActionXmlParser extends XmlComplexTypeParser<TeleportAction
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TeleportActionImpl>> createParserList() {
-      List<IElementParser<TeleportActionImpl>> result =
-          new ArrayList<IElementParser<TeleportActionImpl>>();
+      List<IElementParser<TeleportActionImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<TeleportActionImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              TeleportActionXmlParser.this.messageLogger, TeleportActionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -119,7 +96,7 @@ public class TeleportActionXmlParser extends XmlComplexTypeParser<TeleportAction
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

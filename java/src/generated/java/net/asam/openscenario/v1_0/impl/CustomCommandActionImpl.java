@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,18 +61,19 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
     addAdapter(ICustomCommandAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getType() {
-    return type;
+    return this.type;
   }
 
   @Override
   public String getContent() {
-    return content;
+    return this.content;
   }
   /**
    * Sets the value of model property type
@@ -98,12 +99,13 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__TYPE)) {
       // Simple type
-      type = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.type =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__CONTENT)) {
       // Simple type
-      content =
+      this.content =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -120,8 +122,9 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -132,6 +135,7 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
    *
    * @return a deep copy of the object.
    */
+  @Override
   public CustomCommandActionImpl clone() {
     CustomCommandActionImpl clonedObject = new CustomCommandActionImpl();
     cloneStartMarker(clonedObject);
@@ -158,9 +162,8 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
       return getType();
     } else if (key.equals(OscConstants.ATTRIBUTE__CONTENT)) {
       return getContent();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -201,6 +204,7 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

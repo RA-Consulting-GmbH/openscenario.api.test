@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -52,38 +50,16 @@ public class EntityActionXmlParser extends XmlComplexTypeParser<EntityActionImpl
    */
   public EntityActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, EntityActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing EntityAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing EntityAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<EntityActionImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<EntityActionImpl>> result =
-        new Hashtable<String, IAttributeParser<EntityActionImpl>>();
+    Map<String, IAttributeParser<EntityActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<EntityActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,16 +69,22 @@ public class EntityActionXmlParser extends XmlComplexTypeParser<EntityActionImpl
               EntityActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    EntityActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    EntityActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -132,21 +114,24 @@ public class EntityActionXmlParser extends XmlComplexTypeParser<EntityActionImpl
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<EntityActionImpl>> createParserList() {
-      List<IElementParser<EntityActionImpl>> result =
-          new ArrayList<IElementParser<EntityActionImpl>>();
+      List<IElementParser<EntityActionImpl>> result = new ArrayList<>();
       result.add(new SubElementAddEntityActionParser());
       result.add(new SubElementDeleteEntityActionParser());
       return result;
     }
   }
   /** A parser for subelement addEntityAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAddEntityActionParser implements IElementParser<EntityActionImpl> {
 
     /** Constructor */
     public SubElementAddEntityActionParser() {
       super();
-      addEntityActionXmlParser = new AddEntityActionXmlParser(messageLogger, filename);
+      this.addEntityActionXmlParser =
+          new AddEntityActionXmlParser(
+              EntityActionXmlParser.this.messageLogger, EntityActionXmlParser.this.filename);
     }
 
     private AddEntityActionXmlParser addEntityActionXmlParser;
@@ -157,7 +142,7 @@ public class EntityActionXmlParser extends XmlComplexTypeParser<EntityActionImpl
       AddEntityActionImpl addEntityAction = new AddEntityActionImpl();
       // Setting the parent
       addEntityAction.setParent(object);
-      addEntityActionXmlParser.parseElement(indexedElement, parserContext, addEntityAction);
+      this.addEntityActionXmlParser.parseElement(indexedElement, parserContext, addEntityAction);
 
       object.setAddEntityAction(addEntityAction);
     }
@@ -183,12 +168,15 @@ public class EntityActionXmlParser extends XmlComplexTypeParser<EntityActionImpl
     }
   }
   /** A parser for subelement deleteEntityAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDeleteEntityActionParser implements IElementParser<EntityActionImpl> {
 
     /** Constructor */
     public SubElementDeleteEntityActionParser() {
       super();
-      deleteEntityActionXmlParser = new DeleteEntityActionXmlParser(messageLogger, filename);
+      this.deleteEntityActionXmlParser =
+          new DeleteEntityActionXmlParser(
+              EntityActionXmlParser.this.messageLogger, EntityActionXmlParser.this.filename);
     }
 
     private DeleteEntityActionXmlParser deleteEntityActionXmlParser;
@@ -199,7 +187,8 @@ public class EntityActionXmlParser extends XmlComplexTypeParser<EntityActionImpl
       DeleteEntityActionImpl deleteEntityAction = new DeleteEntityActionImpl();
       // Setting the parent
       deleteEntityAction.setParent(object);
-      deleteEntityActionXmlParser.parseElement(indexedElement, parserContext, deleteEntityAction);
+      this.deleteEntityActionXmlParser.parseElement(
+          indexedElement, parserContext, deleteEntityAction);
 
       object.setDeleteEntityAction(deleteEntityAction);
     }

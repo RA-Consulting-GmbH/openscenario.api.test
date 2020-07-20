@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -48,36 +45,13 @@ public class InfrastructureActionXmlParser extends XmlComplexTypeParser<Infrastr
    */
   public InfrastructureActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, InfrastructureActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing InfrastructureAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing InfrastructureAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<InfrastructureActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<InfrastructureActionImpl>> result =
-        new Hashtable<String, IAttributeParser<InfrastructureActionImpl>>();
+    Map<String, IAttributeParser<InfrastructureActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -95,21 +69,25 @@ public class InfrastructureActionXmlParser extends XmlComplexTypeParser<Infrastr
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<InfrastructureActionImpl>> createParserList() {
-      List<IElementParser<InfrastructureActionImpl>> result =
-          new ArrayList<IElementParser<InfrastructureActionImpl>>();
+      List<IElementParser<InfrastructureActionImpl>> result = new ArrayList<>();
       result.add(new SubElementTrafficSignalActionParser());
       return result;
     }
   }
   /** A parser for subelement trafficSignalAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSignalActionParser
       implements IElementParser<InfrastructureActionImpl> {
 
     /** Constructor */
     public SubElementTrafficSignalActionParser() {
       super();
-      trafficSignalActionXmlParser = new TrafficSignalActionXmlParser(messageLogger, filename);
+      this.trafficSignalActionXmlParser =
+          new TrafficSignalActionXmlParser(
+              InfrastructureActionXmlParser.this.messageLogger,
+              InfrastructureActionXmlParser.this.filename);
     }
 
     private TrafficSignalActionXmlParser trafficSignalActionXmlParser;
@@ -122,7 +100,8 @@ public class InfrastructureActionXmlParser extends XmlComplexTypeParser<Infrastr
       TrafficSignalActionImpl trafficSignalAction = new TrafficSignalActionImpl();
       // Setting the parent
       trafficSignalAction.setParent(object);
-      trafficSignalActionXmlParser.parseElement(indexedElement, parserContext, trafficSignalAction);
+      this.trafficSignalActionXmlParser.parseElement(
+          indexedElement, parserContext, trafficSignalAction);
 
       object.setTrafficSignalAction(trafficSignalAction);
     }

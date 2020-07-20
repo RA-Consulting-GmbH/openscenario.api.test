@@ -44,9 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalConditionImpl extends BaseImpl
-    implements ITrafficSignalCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSignalCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +62,19 @@ public class TrafficSignalConditionImpl extends BaseImpl
     addAdapter(ITrafficSignalCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public String getState() {
-    return state;
+    return this.state;
   }
   /**
    * Sets the value of model property name
@@ -101,12 +101,14 @@ public class TrafficSignalConditionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__STATE)) {
       // Simple type
-      state = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.state =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -122,8 +124,9 @@ public class TrafficSignalConditionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -134,6 +137,7 @@ public class TrafficSignalConditionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficSignalConditionImpl clone() {
     TrafficSignalConditionImpl clonedObject = new TrafficSignalConditionImpl();
     cloneStartMarker(clonedObject);
@@ -162,9 +166,8 @@ public class TrafficSignalConditionImpl extends BaseImpl
       return getName();
     } else if (key.equals(OscConstants.ATTRIBUTE__STATE)) {
       return getState();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -205,6 +208,7 @@ public class TrafficSignalConditionImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

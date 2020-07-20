@@ -82,7 +82,7 @@ public class XmlScenarioLoader implements IScenarioLoader {
    * @return the resource locator
    */
   public IResourceLocator getResourceLocator() {
-    return resourceLocator;
+    return this.resourceLocator;
   }
 
   /**
@@ -91,7 +91,7 @@ public class XmlScenarioLoader implements IScenarioLoader {
    * @return the filename
    */
   public String getFilename() {
-    return filename;
+    return this.filename;
   }
 
   @Override
@@ -100,13 +100,14 @@ public class XmlScenarioLoader implements IScenarioLoader {
     return load(messageLogger, null);
   }
 
+  @SuppressWarnings("resource")
   @Override
   public IOpenScenarioModelElement load(
       IParserMessageLogger messageLogger, Map<String, String> injectedParameters)
       throws ScenarioLoaderException {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     try {
-      InputStream inputStream = resourceLocator.getInputStream(filename);
+      InputStream inputStream = this.resourceLocator.getInputStream(this.filename);
       DocumentBuilder dBuilder;
       dBuilder = factory.newDocumentBuilder();
 
@@ -115,7 +116,7 @@ public class XmlScenarioLoader implements IScenarioLoader {
 
       // antlr indexing
       CharStream stream;
-      inputStream = resourceLocator.getInputStream(filename);
+      inputStream = this.resourceLocator.getInputStream(this.filename);
       stream = CharStreams.fromStream(inputStream);
       XMLLexer lexer = new XMLLexer(stream);
       CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -128,7 +129,7 @@ public class XmlScenarioLoader implements IScenarioLoader {
       IndexedElement indexedElement = xmlToSimpleNodeConverter.convert(doc);
       // Finally do parsing from dom result
       OpenScenarioXmlParser openScenarioXmlParser =
-          new OpenScenarioXmlParser(messageLogger, filename);
+          new OpenScenarioXmlParser(messageLogger, this.filename);
 
       OpenScenarioImpl openScenarioImpl = new OpenScenarioImpl();
       ParserContext parserContext = new CatalogReferenceParserContext();
@@ -145,7 +146,7 @@ public class XmlScenarioLoader implements IScenarioLoader {
           new FileContentMessage(
               e.getMessage(),
               ErrorLevel.FATAL,
-              new Textmarker(e.getLineNumber() - 1, e.getColumnNumber() - 1, filename)));
+              new Textmarker(e.getLineNumber() - 1, e.getColumnNumber() - 1, this.filename)));
     } catch (SAXException e) {
       throw new ScenarioLoaderException("Severe parser exception", e);
     }

@@ -44,8 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class PhaseImpl extends BaseImpl implements IPhase {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
     addAdapter(IPhase.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public Double getDuration() {
-    return duration;
+    return this.duration;
   }
 
   @Override
   public List<ITrafficSignalState> getTrafficSignalStates() {
-    return trafficSignalStates;
+    return this.trafficSignalStates;
   }
   /**
    * Sets the value of model property name
@@ -114,12 +115,13 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DURATION)) {
       // Simple type
-      duration =
+      this.duration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -136,8 +138,9 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<ITrafficSignalState> trafficSignalStates = null;
     trafficSignalStates = getTrafficSignalStates();
@@ -155,6 +158,7 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public PhaseImpl clone() {
     PhaseImpl clonedObject = new PhaseImpl();
     cloneStartMarker(clonedObject);
@@ -171,7 +175,7 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
     List<ITrafficSignalState> trafficSignalStates = null;
     trafficSignalStates = getTrafficSignalStates();
     if (trafficSignalStates != null) {
-      List<ITrafficSignalState> clonedList = new ArrayList<ITrafficSignalState>();
+      List<ITrafficSignalState> clonedList = new ArrayList<>();
       for (ITrafficSignalState item : trafficSignalStates) {
         TrafficSignalStateImpl clonedChild = ((TrafficSignalStateImpl) item).clone();
         clonedList.add(clonedChild);
@@ -192,9 +196,8 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -214,9 +217,8 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__DURATION)) {
       return getDuration();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -239,18 +241,18 @@ public class PhaseImpl extends BaseImpl implements IPhase, Cloneable {
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__TRAFFIC_SIGNAL_STATE)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getTrafficSignalStates();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

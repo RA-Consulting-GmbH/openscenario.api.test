@@ -26,4 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface INone extends IOpenScenarioModelElement {}
+public interface INone extends IOpenScenarioModelElement {
+  // Empty
+}

@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAbsoluteTargetLaneOffset extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Signed number in meters the vehicle should respect
    * as an offset from the center of the current lane.

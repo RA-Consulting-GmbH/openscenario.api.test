@@ -37,11 +37,11 @@ import net.asam.xml.indexer.Position;
  * Parser for a XSD:choice model group (one out of of a list of types).
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public abstract class XmlChoiceParser<T extends BaseImpl> extends XmlModelGroupParser<T> {
 
-  private Map<IElementParser<T>, Integer> occuredElementList =
-      new Hashtable<IElementParser<T>, Integer>();
+  private Map<IElementParser<T>, Integer> occuredElementList = new Hashtable<>();
 
   /**
    * Constructor
@@ -67,23 +67,22 @@ public abstract class XmlChoiceParser<T extends BaseImpl> extends XmlModelGroupP
       Position start = indexedElement.getStartElementLocation();
 
       if (parser == null) {
-        Integer occurCount = occuredElementList.get(parsers.get(0));
-        if (parsers.size() == 1
+        Integer occurCount = this.occuredElementList.get(this.parsers.get(0));
+        if (this.parsers.size() == 1
             && occurCount != null
-            && occurCount >= parsers.get(0).getMinOccur()) {
+            && occurCount >= this.parsers.get(0).getMinOccur()) {
           // We are done
           break;
-        } else {
-          // We are not done yet
-          messageLogger.logMessage(
-              new FileContentMessage(
-                  "Unknown element '" + tagName + "'",
-                  ErrorLevel.ERROR,
-                  new Textmarker(start.getLine(), start.getColumn(), filename)));
-          lastElementParsed = indexedElement;
         }
+        // We are not done yet
+        this.messageLogger.logMessage(
+            new FileContentMessage(
+                "Unknown element '" + tagName + "'",
+                ErrorLevel.ERROR,
+                new Textmarker(start.getLine(), start.getColumn(), this.filename)));
+        lastElementParsed = indexedElement;
       } else {
-        Integer currentOccurs = occuredElementList.get(tagName);
+        Integer currentOccurs = this.occuredElementList.get(parser);
         if (currentOccurs == null) {
           currentOccurs = 0;
         }
@@ -98,10 +97,10 @@ public abstract class XmlChoiceParser<T extends BaseImpl> extends XmlModelGroupP
           if (currentOccurs == 0) {
             excludeOtherParsers(parser);
           }
-          occuredElementList.put(parser, currentOccurs + 1);
+          this.occuredElementList.put(parser, currentOccurs + 1);
 
         } else {
-          messageLogger.logMessage(
+          this.messageLogger.logMessage(
               new FileContentMessage(
                   "Too many elements of <"
                       + tagName
@@ -109,7 +108,7 @@ public abstract class XmlChoiceParser<T extends BaseImpl> extends XmlModelGroupP
                       + parser.getMaxOccur()
                       + ") has already reached",
                   ErrorLevel.ERROR,
-                  new Textmarker(start.getLine(), start.getColumn(), filename)));
+                  new Textmarker(start.getLine(), start.getColumn(), this.filename)));
           lastElementParsed = indexedElement;
         }
       }

@@ -32,7 +32,6 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ILateralDistanceAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the reference entity the lateral distance
    * shall be kept to.
@@ -40,14 +39,12 @@ public interface ILateralDistanceAction extends IOpenScenarioModelElement {
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Lateral distance value. Unit: m; Range: [0..inf[.
    *
    * @return value of model property distance
    */
   public Double getDistance();
-
   /**
    * From OpenSCENARIO class model specification: True: Lateral distance is measured using the
    * distance between closest bounding box points. False: Reference point distance is used.
@@ -55,7 +52,6 @@ public interface ILateralDistanceAction extends IOpenScenarioModelElement {
    * @return value of model property freespace
    */
   public Boolean getFreespace();
-
   /**
    * From OpenSCENARIO class model specification: If false, the action ends when the target distance
    * is reached. If true it does not end and can only be stopped.
@@ -63,7 +59,6 @@ public interface ILateralDistanceAction extends IOpenScenarioModelElement {
    * @return value of model property continuous
    */
   public Boolean getContinuous();
-
   /**
    * From OpenSCENARIO class model specification: Parameter that assigns either unlimited dynamics
    * (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action.

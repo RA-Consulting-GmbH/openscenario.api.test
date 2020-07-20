@@ -28,21 +28,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAxles extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Front axle.
    *
    * @return value of model property frontAxle
    */
   public IAxle getFrontAxle();
-
   /**
    * From OpenSCENARIO class model specification: Rear axle.
    *
    * @return value of model property rearAxle
    */
   public IAxle getRearAxle();
-
   /**
    * From OpenSCENARIO class model specification: A list of optional additional axles.
    *

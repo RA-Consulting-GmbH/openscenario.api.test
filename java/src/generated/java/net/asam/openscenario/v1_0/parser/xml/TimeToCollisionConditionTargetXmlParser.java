@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -51,38 +48,13 @@ public class TimeToCollisionConditionTargetXmlParser
   public TimeToCollisionConditionTargetXmlParser(
       IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      TimeToCollisionConditionTargetImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TimeToCollisionConditionTarget",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TimeToCollisionConditionTarget",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TimeToCollisionConditionTargetImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TimeToCollisionConditionTargetImpl>> result =
-        new Hashtable<String, IAttributeParser<TimeToCollisionConditionTargetImpl>>();
+    Map<String, IAttributeParser<TimeToCollisionConditionTargetImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -100,22 +72,26 @@ public class TimeToCollisionConditionTargetXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TimeToCollisionConditionTargetImpl>> createParserList() {
-      List<IElementParser<TimeToCollisionConditionTargetImpl>> result =
-          new ArrayList<IElementParser<TimeToCollisionConditionTargetImpl>>();
+      List<IElementParser<TimeToCollisionConditionTargetImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       result.add(new SubElementEntityRefParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser
       implements IElementParser<TimeToCollisionConditionTargetImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              TimeToCollisionConditionTargetXmlParser.this.messageLogger,
+              TimeToCollisionConditionTargetXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -128,7 +104,7 @@ public class TimeToCollisionConditionTargetXmlParser
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }
@@ -154,13 +130,17 @@ public class TimeToCollisionConditionTargetXmlParser
     }
   }
   /** A parser for subelement entityRef */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntityRefParser
       implements IElementParser<TimeToCollisionConditionTargetImpl> {
 
     /** Constructor */
     public SubElementEntityRefParser() {
       super();
-      entityRefXmlParser = new EntityRefXmlParser(messageLogger, filename);
+      this.entityRefXmlParser =
+          new EntityRefXmlParser(
+              TimeToCollisionConditionTargetXmlParser.this.messageLogger,
+              TimeToCollisionConditionTargetXmlParser.this.filename);
     }
 
     private EntityRefXmlParser entityRefXmlParser;
@@ -173,7 +153,7 @@ public class TimeToCollisionConditionTargetXmlParser
       EntityRefImpl entityRef = new EntityRefImpl();
       // Setting the parent
       entityRef.setParent(object);
-      entityRefXmlParser.parseElement(indexedElement, parserContext, entityRef);
+      this.entityRefXmlParser.parseElement(indexedElement, parserContext, entityRef);
 
       object.setEntityRef(entityRef);
     }

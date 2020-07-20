@@ -51,39 +51,17 @@ public class TriggeringEntitiesXmlParser extends XmlComplexTypeParser<Triggering
    */
   public TriggeringEntitiesXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TriggeringEntitiesImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TriggeringEntities",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TriggeringEntities",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TriggeringEntitiesImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TriggeringEntitiesImpl>> result =
-        new Hashtable<String, IAttributeParser<TriggeringEntitiesImpl>>();
+    Map<String, IAttributeParser<TriggeringEntitiesImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE,
         new IAttributeParser<TriggeringEntitiesImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -93,9 +71,15 @@ public class TriggeringEntitiesXmlParser extends XmlComplexTypeParser<Triggering
               TriggeringEntitiesImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TriggeringEntitiesXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TriggeringEntitiesXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE,
@@ -108,7 +92,7 @@ public class TriggeringEntitiesXmlParser extends XmlComplexTypeParser<Triggering
               if (result != null) {
                 object.setTriggeringEntitiesRule(result);
               } else {
-                messageLogger.logMessage(
+                TriggeringEntitiesXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -143,20 +127,24 @@ public class TriggeringEntitiesXmlParser extends XmlComplexTypeParser<Triggering
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TriggeringEntitiesImpl>> createParserList() {
-      List<IElementParser<TriggeringEntitiesImpl>> result =
-          new ArrayList<IElementParser<TriggeringEntitiesImpl>>();
+      List<IElementParser<TriggeringEntitiesImpl>> result = new ArrayList<>();
       result.add(new SubElementEntityRefsParser());
       return result;
     }
   }
   /** A parser for subelement entityRefs */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntityRefsParser implements IElementParser<TriggeringEntitiesImpl> {
 
     /** Constructor */
     public SubElementEntityRefsParser() {
       super();
-      entityRefXmlParser = new EntityRefXmlParser(messageLogger, filename);
+      this.entityRefXmlParser =
+          new EntityRefXmlParser(
+              TriggeringEntitiesXmlParser.this.messageLogger,
+              TriggeringEntitiesXmlParser.this.filename);
     }
 
     private EntityRefXmlParser entityRefXmlParser;
@@ -167,10 +155,10 @@ public class TriggeringEntitiesXmlParser extends XmlComplexTypeParser<Triggering
       EntityRefImpl entityRefs = new EntityRefImpl();
       // Setting the parent
       entityRefs.setParent(object);
-      entityRefXmlParser.parseElement(indexedElement, parserContext, entityRefs);
+      this.entityRefXmlParser.parseElement(indexedElement, parserContext, entityRefs);
       List<IEntityRef> entityRefsList = object.getEntityRefs();
       if (entityRefsList == null) {
-        entityRefsList = new ArrayList<IEntityRef>();
+        entityRefsList = new ArrayList<>();
         object.setEntityRefs(entityRefsList);
       }
       entityRefsList.add(entityRefs);

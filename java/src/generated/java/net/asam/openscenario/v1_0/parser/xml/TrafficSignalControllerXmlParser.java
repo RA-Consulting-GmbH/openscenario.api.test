@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -51,41 +49,17 @@ public class TrafficSignalControllerXmlParser
    */
   public TrafficSignalControllerXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      TrafficSignalControllerImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficSignalController",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficSignalController",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficSignalControllerImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficSignalControllerImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficSignalControllerImpl>>();
+    Map<String, IAttributeParser<TrafficSignalControllerImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<TrafficSignalControllerImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -95,9 +69,15 @@ public class TrafficSignalControllerXmlParser
               TrafficSignalControllerImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSignalControllerXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSignalControllerXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -118,6 +98,7 @@ public class TrafficSignalControllerXmlParser
     result.put(
         OscConstants.ATTRIBUTE__DELAY,
         new IAttributeParser<TrafficSignalControllerImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -127,9 +108,15 @@ public class TrafficSignalControllerXmlParser
               TrafficSignalControllerImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSignalControllerXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSignalControllerXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DELAY, stripDollarSign(attributeValue), startMarker);
@@ -150,6 +137,7 @@ public class TrafficSignalControllerXmlParser
     result.put(
         OscConstants.ATTRIBUTE__REFERENCE,
         new IAttributeParser<TrafficSignalControllerImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -159,9 +147,15 @@ public class TrafficSignalControllerXmlParser
               TrafficSignalControllerImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSignalControllerXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSignalControllerXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__REFERENCE, stripDollarSign(attributeValue), startMarker);
@@ -196,20 +190,24 @@ public class TrafficSignalControllerXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficSignalControllerImpl>> createParserList() {
-      List<IElementParser<TrafficSignalControllerImpl>> result =
-          new ArrayList<IElementParser<TrafficSignalControllerImpl>>();
+      List<IElementParser<TrafficSignalControllerImpl>> result = new ArrayList<>();
       result.add(new SubElementPhasesParser());
       return result;
     }
   }
   /** A parser for subelement phases */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPhasesParser implements IElementParser<TrafficSignalControllerImpl> {
 
     /** Constructor */
     public SubElementPhasesParser() {
       super();
-      phaseXmlParser = new PhaseXmlParser(messageLogger, filename);
+      this.phaseXmlParser =
+          new PhaseXmlParser(
+              TrafficSignalControllerXmlParser.this.messageLogger,
+              TrafficSignalControllerXmlParser.this.filename);
     }
 
     private PhaseXmlParser phaseXmlParser;
@@ -222,10 +220,10 @@ public class TrafficSignalControllerXmlParser
       PhaseImpl phases = new PhaseImpl();
       // Setting the parent
       phases.setParent(object);
-      phaseXmlParser.parseElement(indexedElement, parserContext, phases);
+      this.phaseXmlParser.parseElement(indexedElement, parserContext, phases);
       List<IPhase> phasesList = object.getPhases();
       if (phasesList == null) {
-        phasesList = new ArrayList<IPhase>();
+        phasesList = new ArrayList<>();
         object.setPhases(phasesList);
       }
       phasesList.add(phases);

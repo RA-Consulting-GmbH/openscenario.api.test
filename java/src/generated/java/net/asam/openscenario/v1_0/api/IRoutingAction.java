@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRoutingAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Assigns a route to an entity. The route is defined
    * by at least two waypoints.
@@ -36,14 +35,12 @@ public interface IRoutingAction extends IOpenScenarioModelElement {
    * @return value of model property assignRouteAction
    */
   public IAssignRouteAction getAssignRouteAction();
-
   /**
    * From OpenSCENARIO class model specification: Controls an entity to follow a trajectory.
    *
    * @return value of model property followTrajectoryAction
    */
   public IFollowTrajectoryAction getFollowTrajectoryAction();
-
   /**
    * From OpenSCENARIO class model specification: Assigns a route to an entity. The route assigned
    * will be the shortest route (along roads) between the entity's current position and the position

@@ -24,10 +24,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.Rule;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.UserDefinedValueConditionImpl;
@@ -50,41 +48,17 @@ public class UserDefinedValueConditionXmlParser
    */
   public UserDefinedValueConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      UserDefinedValueConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing UserDefinedValueCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing UserDefinedValueCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<UserDefinedValueConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<UserDefinedValueConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<UserDefinedValueConditionImpl>>();
+    Map<String, IAttributeParser<UserDefinedValueConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__NAME,
         new IAttributeParser<UserDefinedValueConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +68,15 @@ public class UserDefinedValueConditionXmlParser
               UserDefinedValueConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    UserDefinedValueConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    UserDefinedValueConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__NAME, stripDollarSign(attributeValue), startMarker);
@@ -117,6 +97,7 @@ public class UserDefinedValueConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<UserDefinedValueConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -126,9 +107,15 @@ public class UserDefinedValueConditionXmlParser
               UserDefinedValueConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    UserDefinedValueConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    UserDefinedValueConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -149,6 +136,7 @@ public class UserDefinedValueConditionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__RULE,
         new IAttributeParser<UserDefinedValueConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -158,9 +146,15 @@ public class UserDefinedValueConditionXmlParser
               UserDefinedValueConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    UserDefinedValueConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    UserDefinedValueConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RULE, stripDollarSign(attributeValue), startMarker);
@@ -171,7 +165,7 @@ public class UserDefinedValueConditionXmlParser
               if (result != null) {
                 object.setRule(result);
               } else {
-                messageLogger.logMessage(
+                UserDefinedValueConditionXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -204,9 +198,9 @@ public class UserDefinedValueConditionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<UserDefinedValueConditionImpl>> createParserList() {
-      List<IElementParser<UserDefinedValueConditionImpl>> result =
-          new ArrayList<IElementParser<UserDefinedValueConditionImpl>>();
+      List<IElementParser<UserDefinedValueConditionImpl>> result = new ArrayList<>();
       return result;
     }
   }

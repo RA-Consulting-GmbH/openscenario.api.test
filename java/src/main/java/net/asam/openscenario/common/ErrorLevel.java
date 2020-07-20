@@ -31,7 +31,7 @@ package net.asam.openscenario.common;
  *
  * @author Andreas Hege - RA Consulting
  */
-public enum ErrorLevel implements Comparable<ErrorLevel> {
+public enum ErrorLevel {
   FATAL(5),
   ERROR(4),
   WARNING(3),

@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,38 +46,13 @@ public class EnvironmentCatalogLocationXmlParser
    */
   public EnvironmentCatalogLocationXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      EnvironmentCatalogLocationImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing EnvironmentCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing EnvironmentCatalogLocation",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<EnvironmentCatalogLocationImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<EnvironmentCatalogLocationImpl>> result =
-        new Hashtable<String, IAttributeParser<EnvironmentCatalogLocationImpl>>();
+    Map<String, IAttributeParser<EnvironmentCatalogLocationImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -98,21 +70,25 @@ public class EnvironmentCatalogLocationXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<EnvironmentCatalogLocationImpl>> createParserList() {
-      List<IElementParser<EnvironmentCatalogLocationImpl>> result =
-          new ArrayList<IElementParser<EnvironmentCatalogLocationImpl>>();
+      List<IElementParser<EnvironmentCatalogLocationImpl>> result = new ArrayList<>();
       result.add(new SubElementDirectoryParser());
       return result;
     }
   }
   /** A parser for subelement directory */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDirectoryParser
       implements IElementParser<EnvironmentCatalogLocationImpl> {
 
     /** Constructor */
     public SubElementDirectoryParser() {
       super();
-      directoryXmlParser = new DirectoryXmlParser(messageLogger, filename);
+      this.directoryXmlParser =
+          new DirectoryXmlParser(
+              EnvironmentCatalogLocationXmlParser.this.messageLogger,
+              EnvironmentCatalogLocationXmlParser.this.filename);
     }
 
     private DirectoryXmlParser directoryXmlParser;
@@ -125,7 +101,7 @@ public class EnvironmentCatalogLocationXmlParser
       DirectoryImpl directory = new DirectoryImpl();
       // Setting the parent
       directory.setParent(object);
-      directoryXmlParser.parseElement(indexedElement, parserContext, directory);
+      this.directoryXmlParser.parseElement(indexedElement, parserContext, directory);
 
       object.setDirectory(directory);
     }

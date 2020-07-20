@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,36 +46,13 @@ public class ByEntityConditionXmlParser extends XmlComplexTypeParser<ByEntityCon
    */
   public ByEntityConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ByEntityConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ByEntityCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ByEntityCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ByEntityConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ByEntityConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<ByEntityConditionImpl>>();
+    Map<String, IAttributeParser<ByEntityConditionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,22 +70,26 @@ public class ByEntityConditionXmlParser extends XmlComplexTypeParser<ByEntityCon
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ByEntityConditionImpl>> createParserList() {
-      List<IElementParser<ByEntityConditionImpl>> result =
-          new ArrayList<IElementParser<ByEntityConditionImpl>>();
+      List<IElementParser<ByEntityConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementTriggeringEntitiesParser());
       result.add(new SubElementEntityConditionParser());
       return result;
     }
   }
   /** A parser for subelement triggeringEntities */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTriggeringEntitiesParser
       implements IElementParser<ByEntityConditionImpl> {
 
     /** Constructor */
     public SubElementTriggeringEntitiesParser() {
       super();
-      triggeringEntitiesXmlParser = new TriggeringEntitiesXmlParser(messageLogger, filename);
+      this.triggeringEntitiesXmlParser =
+          new TriggeringEntitiesXmlParser(
+              ByEntityConditionXmlParser.this.messageLogger,
+              ByEntityConditionXmlParser.this.filename);
     }
 
     private TriggeringEntitiesXmlParser triggeringEntitiesXmlParser;
@@ -122,7 +100,8 @@ public class ByEntityConditionXmlParser extends XmlComplexTypeParser<ByEntityCon
       TriggeringEntitiesImpl triggeringEntities = new TriggeringEntitiesImpl();
       // Setting the parent
       triggeringEntities.setParent(object);
-      triggeringEntitiesXmlParser.parseElement(indexedElement, parserContext, triggeringEntities);
+      this.triggeringEntitiesXmlParser.parseElement(
+          indexedElement, parserContext, triggeringEntities);
 
       object.setTriggeringEntities(triggeringEntities);
     }
@@ -148,12 +127,16 @@ public class ByEntityConditionXmlParser extends XmlComplexTypeParser<ByEntityCon
     }
   }
   /** A parser for subelement entityCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntityConditionParser implements IElementParser<ByEntityConditionImpl> {
 
     /** Constructor */
     public SubElementEntityConditionParser() {
       super();
-      entityConditionXmlParser = new EntityConditionXmlParser(messageLogger, filename);
+      this.entityConditionXmlParser =
+          new EntityConditionXmlParser(
+              ByEntityConditionXmlParser.this.messageLogger,
+              ByEntityConditionXmlParser.this.filename);
     }
 
     private EntityConditionXmlParser entityConditionXmlParser;
@@ -164,7 +147,7 @@ public class ByEntityConditionXmlParser extends XmlComplexTypeParser<ByEntityCon
       EntityConditionImpl entityCondition = new EntityConditionImpl();
       // Setting the parent
       entityCondition.setParent(object);
-      entityConditionXmlParser.parseElement(indexedElement, parserContext, entityCondition);
+      this.entityConditionXmlParser.parseElement(indexedElement, parserContext, entityCondition);
 
       object.setEntityCondition(entityCondition);
     }

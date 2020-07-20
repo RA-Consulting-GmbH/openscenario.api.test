@@ -27,14 +27,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRelativeSpeedToMaster extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Relative speed. Unit: m/s. Range: ]-inf..inf[.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: The semantics of the value (delta, offset,
    * factor).

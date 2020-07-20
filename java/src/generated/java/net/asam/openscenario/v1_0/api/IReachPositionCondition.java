@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IReachPositionCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Radius of tolerance circle around given position.
    * Unit: m; Range: [0..inf[.
@@ -35,7 +34,6 @@ public interface IReachPositionCondition extends IOpenScenarioModelElement {
    * @return value of model property tolerance
    */
   public Double getTolerance();
-
   /**
    * From OpenSCENARIO class model specification: The position to be reached with the defined
    * tolerance.

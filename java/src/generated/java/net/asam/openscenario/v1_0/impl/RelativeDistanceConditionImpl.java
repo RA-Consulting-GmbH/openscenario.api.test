@@ -51,9 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeDistanceConditionImpl extends BaseImpl
-    implements IRelativeDistanceCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class RelativeDistanceConditionImpl extends BaseImpl implements IRelativeDistanceCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -76,33 +75,34 @@ public class RelativeDistanceConditionImpl extends BaseImpl
     addAdapter(IRelativeDistanceCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public RelativeDistanceType getRelativeDistanceType() {
-    return relativeDistanceType;
+    return this.relativeDistanceType;
   }
 
   @Override
   public Double getValue() {
-    return value;
+    return this.value;
   }
 
   @Override
   public Boolean getFreespace() {
-    return freespace;
+    return this.freespace;
   }
 
   @Override
   public Rule getRule() {
-    return rule;
+    return this.rule;
   }
   /**
    * Sets the value of model property entityRef
@@ -153,15 +153,15 @@ public class RelativeDistanceConditionImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE)) {
       // Enumeration Type
       RelativeDistanceType result = RelativeDistanceType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        relativeDistanceType = result;
+        this.relativeDistanceType = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -173,12 +173,13 @@ public class RelativeDistanceConditionImpl extends BaseImpl
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
-      value = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.value =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__FREESPACE)) {
       // Simple type
-      freespace =
+      this.freespace =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
@@ -186,7 +187,7 @@ public class RelativeDistanceConditionImpl extends BaseImpl
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        rule = result;
+        this.rule = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -209,8 +210,9 @@ public class RelativeDistanceConditionImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -221,6 +223,7 @@ public class RelativeDistanceConditionImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RelativeDistanceConditionImpl clone() {
     RelativeDistanceConditionImpl clonedObject = new RelativeDistanceConditionImpl();
     cloneStartMarker(clonedObject);
@@ -264,9 +267,8 @@ public class RelativeDistanceConditionImpl extends BaseImpl
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -286,9 +288,8 @@ public class RelativeDistanceConditionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__VALUE)) {
       return getValue();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -303,9 +304,8 @@ public class RelativeDistanceConditionImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__FREESPACE)) {
       return getFreespace();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -321,6 +321,7 @@ public class RelativeDistanceConditionImpl extends BaseImpl
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -339,9 +340,8 @@ public class RelativeDistanceConditionImpl extends BaseImpl
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -355,9 +355,8 @@ public class RelativeDistanceConditionImpl extends BaseImpl
     } else if (key.equals(OscConstants.ATTRIBUTE__RULE)) {
       Rule rule = getRule();
       return rule != null ? rule.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -20,15 +20,11 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ParameterAssignmentImpl;
@@ -50,39 +46,17 @@ public class ParameterAssignmentXmlParser extends XmlComplexTypeParser<Parameter
    */
   public ParameterAssignmentXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, ParameterAssignmentImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ParameterAssignment",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ParameterAssignment",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ParameterAssignmentImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ParameterAssignmentImpl>> result =
-        new Hashtable<String, IAttributeParser<ParameterAssignmentImpl>>();
+    Map<String, IAttributeParser<ParameterAssignmentImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__PARAMETER_REF,
         new IAttributeParser<ParameterAssignmentImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -91,10 +65,6 @@ public class ParameterAssignmentXmlParser extends XmlComplexTypeParser<Parameter
               String attributeValue,
               ParameterAssignmentImpl object) {
 
-            Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
-            Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
             // This is a special case for ParameterDeclaration.name or
             // ParamterAssignment.parameterRef
             // Proxy
@@ -112,6 +82,7 @@ public class ParameterAssignmentXmlParser extends XmlComplexTypeParser<Parameter
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<ParameterAssignmentImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -121,9 +92,15 @@ public class ParameterAssignmentXmlParser extends XmlComplexTypeParser<Parameter
               ParameterAssignmentImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ParameterAssignmentXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ParameterAssignmentXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -158,9 +135,9 @@ public class ParameterAssignmentXmlParser extends XmlComplexTypeParser<Parameter
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ParameterAssignmentImpl>> createParserList() {
-      List<IElementParser<ParameterAssignmentImpl>> result =
-          new ArrayList<IElementParser<ParameterAssignmentImpl>>();
+      List<IElementParser<ParameterAssignmentImpl>> result = new ArrayList<>();
       return result;
     }
   }

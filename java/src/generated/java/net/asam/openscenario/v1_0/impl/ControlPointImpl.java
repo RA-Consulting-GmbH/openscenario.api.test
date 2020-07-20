@@ -44,8 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ControlPointImpl extends BaseImpl implements IControlPoint {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneab
     addAdapter(IControlPoint.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getTime() {
-    return time;
+    return this.time;
   }
 
   @Override
   public Double getWeight() {
-    return weight;
+    return this.weight;
   }
 
   @Override
   public IPosition getPosition() {
-    return position;
+    return this.position;
   }
   /**
    * Sets the value of model property time
@@ -114,12 +115,14 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneab
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__TIME)) {
       // Simple type
-      time = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.time =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__WEIGHT)) {
       // Simple type
-      weight = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.weight =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -135,8 +138,9 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneab
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition position = null;
     position = getPosition();
@@ -152,6 +156,7 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneab
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ControlPointImpl clone() {
     ControlPointImpl clonedObject = new ControlPointImpl();
     cloneStartMarker(clonedObject);
@@ -202,9 +207,8 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneab
       return getTime();
     } else if (key.equals(OscConstants.ATTRIBUTE__WEIGHT)) {
       return getWeight();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -229,14 +233,14 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, Cloneab
     }
     if (key.equals(OscConstants.ELEMENT__POSITION)) {
       return (IOpenScenarioFlexElement) getPosition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

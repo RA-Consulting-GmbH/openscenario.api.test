@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -49,38 +47,16 @@ public class VertexXmlParser extends XmlComplexTypeParser<VertexImpl> {
    */
   public VertexXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, VertexImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Vertex",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Vertex",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<VertexImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<VertexImpl>> result =
-        new Hashtable<String, IAttributeParser<VertexImpl>>();
+    Map<String, IAttributeParser<VertexImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__TIME,
         new IAttributeParser<VertexImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +66,13 @@ public class VertexXmlParser extends XmlComplexTypeParser<VertexImpl> {
               VertexImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    VertexXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), VertexXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TIME, stripDollarSign(attributeValue), startMarker);
@@ -127,19 +107,22 @@ public class VertexXmlParser extends XmlComplexTypeParser<VertexImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<VertexImpl>> createParserList() {
-      List<IElementParser<VertexImpl>> result = new ArrayList<IElementParser<VertexImpl>>();
+      List<IElementParser<VertexImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<VertexImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(VertexXmlParser.this.messageLogger, VertexXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -150,7 +133,7 @@ public class VertexXmlParser extends XmlComplexTypeParser<VertexImpl> {
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

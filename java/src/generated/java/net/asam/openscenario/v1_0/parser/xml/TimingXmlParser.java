@@ -24,10 +24,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.ReferenceContext;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.TimingImpl;
@@ -49,38 +47,16 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
    */
   public TimingXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TimingImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Timing",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Timing",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TimingImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TimingImpl>> result =
-        new Hashtable<String, IAttributeParser<TimingImpl>>();
+    Map<String, IAttributeParser<TimingImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE,
         new IAttributeParser<TimingImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +66,13 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
               TimingImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TimingXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), TimingXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE,
@@ -105,7 +85,7 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
               if (result != null) {
                 object.setDomainAbsoluteRelative(result);
               } else {
-                messageLogger.logMessage(
+                TimingXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -126,6 +106,7 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
     result.put(
         OscConstants.ATTRIBUTE__SCALE,
         new IAttributeParser<TimingImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -135,9 +116,13 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
               TimingImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TimingXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), TimingXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__SCALE, stripDollarSign(attributeValue), startMarker);
@@ -158,6 +143,7 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
     result.put(
         OscConstants.ATTRIBUTE__OFFSET,
         new IAttributeParser<TimingImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -167,9 +153,13 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
               TimingImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TimingXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), TimingXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__OFFSET, stripDollarSign(attributeValue), startMarker);
@@ -204,8 +194,9 @@ public class TimingXmlParser extends XmlComplexTypeParser<TimingImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TimingImpl>> createParserList() {
-      List<IElementParser<TimingImpl>> result = new ArrayList<IElementParser<TimingImpl>>();
+      List<IElementParser<TimingImpl>> result = new ArrayList<>();
       return result;
     }
   }

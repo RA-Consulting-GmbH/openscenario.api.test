@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -55,36 +52,13 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
    */
   public CatalogLocationsXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, CatalogLocationsImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing CatalogLocations",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing CatalogLocations",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<CatalogLocationsImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<CatalogLocationsImpl>> result =
-        new Hashtable<String, IAttributeParser<CatalogLocationsImpl>>();
+    Map<String, IAttributeParser<CatalogLocationsImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -102,9 +76,9 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<CatalogLocationsImpl>> createParserList() {
-      List<IElementParser<CatalogLocationsImpl>> result =
-          new ArrayList<IElementParser<CatalogLocationsImpl>>();
+      List<IElementParser<CatalogLocationsImpl>> result = new ArrayList<>();
       result.add(new SubElementVehicleCatalogParser());
       result.add(new SubElementControllerCatalogParser());
       result.add(new SubElementPedestrianCatalogParser());
@@ -117,13 +91,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement vehicleCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementVehicleCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementVehicleCatalogParser() {
       super();
-      vehicleCatalogLocationXmlParser =
-          new VehicleCatalogLocationXmlParser(messageLogger, filename);
+      this.vehicleCatalogLocationXmlParser =
+          new VehicleCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private VehicleCatalogLocationXmlParser vehicleCatalogLocationXmlParser;
@@ -134,7 +111,8 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       VehicleCatalogLocationImpl vehicleCatalog = new VehicleCatalogLocationImpl();
       // Setting the parent
       vehicleCatalog.setParent(object);
-      vehicleCatalogLocationXmlParser.parseElement(indexedElement, parserContext, vehicleCatalog);
+      this.vehicleCatalogLocationXmlParser.parseElement(
+          indexedElement, parserContext, vehicleCatalog);
 
       object.setVehicleCatalog(vehicleCatalog);
     }
@@ -160,13 +138,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement controllerCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementControllerCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementControllerCatalogParser() {
       super();
-      controllerCatalogLocationXmlParser =
-          new ControllerCatalogLocationXmlParser(messageLogger, filename);
+      this.controllerCatalogLocationXmlParser =
+          new ControllerCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private ControllerCatalogLocationXmlParser controllerCatalogLocationXmlParser;
@@ -177,7 +158,7 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       ControllerCatalogLocationImpl controllerCatalog = new ControllerCatalogLocationImpl();
       // Setting the parent
       controllerCatalog.setParent(object);
-      controllerCatalogLocationXmlParser.parseElement(
+      this.controllerCatalogLocationXmlParser.parseElement(
           indexedElement, parserContext, controllerCatalog);
 
       object.setControllerCatalog(controllerCatalog);
@@ -204,13 +185,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement pedestrianCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPedestrianCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementPedestrianCatalogParser() {
       super();
-      pedestrianCatalogLocationXmlParser =
-          new PedestrianCatalogLocationXmlParser(messageLogger, filename);
+      this.pedestrianCatalogLocationXmlParser =
+          new PedestrianCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private PedestrianCatalogLocationXmlParser pedestrianCatalogLocationXmlParser;
@@ -221,7 +205,7 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       PedestrianCatalogLocationImpl pedestrianCatalog = new PedestrianCatalogLocationImpl();
       // Setting the parent
       pedestrianCatalog.setParent(object);
-      pedestrianCatalogLocationXmlParser.parseElement(
+      this.pedestrianCatalogLocationXmlParser.parseElement(
           indexedElement, parserContext, pedestrianCatalog);
 
       object.setPedestrianCatalog(pedestrianCatalog);
@@ -248,13 +232,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement miscObjectCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementMiscObjectCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementMiscObjectCatalogParser() {
       super();
-      miscObjectCatalogLocationXmlParser =
-          new MiscObjectCatalogLocationXmlParser(messageLogger, filename);
+      this.miscObjectCatalogLocationXmlParser =
+          new MiscObjectCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private MiscObjectCatalogLocationXmlParser miscObjectCatalogLocationXmlParser;
@@ -265,7 +252,7 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       MiscObjectCatalogLocationImpl miscObjectCatalog = new MiscObjectCatalogLocationImpl();
       // Setting the parent
       miscObjectCatalog.setParent(object);
-      miscObjectCatalogLocationXmlParser.parseElement(
+      this.miscObjectCatalogLocationXmlParser.parseElement(
           indexedElement, parserContext, miscObjectCatalog);
 
       object.setMiscObjectCatalog(miscObjectCatalog);
@@ -292,13 +279,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement environmentCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEnvironmentCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementEnvironmentCatalogParser() {
       super();
-      environmentCatalogLocationXmlParser =
-          new EnvironmentCatalogLocationXmlParser(messageLogger, filename);
+      this.environmentCatalogLocationXmlParser =
+          new EnvironmentCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private EnvironmentCatalogLocationXmlParser environmentCatalogLocationXmlParser;
@@ -309,7 +299,7 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       EnvironmentCatalogLocationImpl environmentCatalog = new EnvironmentCatalogLocationImpl();
       // Setting the parent
       environmentCatalog.setParent(object);
-      environmentCatalogLocationXmlParser.parseElement(
+      this.environmentCatalogLocationXmlParser.parseElement(
           indexedElement, parserContext, environmentCatalog);
 
       object.setEnvironmentCatalog(environmentCatalog);
@@ -336,13 +326,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement maneuverCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementManeuverCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementManeuverCatalogParser() {
       super();
-      maneuverCatalogLocationXmlParser =
-          new ManeuverCatalogLocationXmlParser(messageLogger, filename);
+      this.maneuverCatalogLocationXmlParser =
+          new ManeuverCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private ManeuverCatalogLocationXmlParser maneuverCatalogLocationXmlParser;
@@ -353,7 +346,8 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       ManeuverCatalogLocationImpl maneuverCatalog = new ManeuverCatalogLocationImpl();
       // Setting the parent
       maneuverCatalog.setParent(object);
-      maneuverCatalogLocationXmlParser.parseElement(indexedElement, parserContext, maneuverCatalog);
+      this.maneuverCatalogLocationXmlParser.parseElement(
+          indexedElement, parserContext, maneuverCatalog);
 
       object.setManeuverCatalog(maneuverCatalog);
     }
@@ -379,13 +373,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement trajectoryCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrajectoryCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementTrajectoryCatalogParser() {
       super();
-      trajectoryCatalogLocationXmlParser =
-          new TrajectoryCatalogLocationXmlParser(messageLogger, filename);
+      this.trajectoryCatalogLocationXmlParser =
+          new TrajectoryCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private TrajectoryCatalogLocationXmlParser trajectoryCatalogLocationXmlParser;
@@ -396,7 +393,7 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       TrajectoryCatalogLocationImpl trajectoryCatalog = new TrajectoryCatalogLocationImpl();
       // Setting the parent
       trajectoryCatalog.setParent(object);
-      trajectoryCatalogLocationXmlParser.parseElement(
+      this.trajectoryCatalogLocationXmlParser.parseElement(
           indexedElement, parserContext, trajectoryCatalog);
 
       object.setTrajectoryCatalog(trajectoryCatalog);
@@ -423,12 +420,16 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
     }
   }
   /** A parser for subelement routeCatalog */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRouteCatalogParser implements IElementParser<CatalogLocationsImpl> {
 
     /** Constructor */
     public SubElementRouteCatalogParser() {
       super();
-      routeCatalogLocationXmlParser = new RouteCatalogLocationXmlParser(messageLogger, filename);
+      this.routeCatalogLocationXmlParser =
+          new RouteCatalogLocationXmlParser(
+              CatalogLocationsXmlParser.this.messageLogger,
+              CatalogLocationsXmlParser.this.filename);
     }
 
     private RouteCatalogLocationXmlParser routeCatalogLocationXmlParser;
@@ -439,7 +440,7 @@ public class CatalogLocationsXmlParser extends XmlComplexTypeParser<CatalogLocat
       RouteCatalogLocationImpl routeCatalog = new RouteCatalogLocationImpl();
       // Setting the parent
       routeCatalog.setParent(object);
-      routeCatalogLocationXmlParser.parseElement(indexedElement, parserContext, routeCatalog);
+      this.routeCatalogLocationXmlParser.parseElement(indexedElement, parserContext, routeCatalog);
 
       object.setRouteCatalog(routeCatalog);
     }

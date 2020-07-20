@@ -34,7 +34,7 @@ import net.asam.openscenario.common.Textmarker;
 public class ParserHelper {
   public static final int UNSIGNED_SHORT_MAX_VALUE = 2 * Short.MAX_VALUE + 1;
 
-  public static final long UNSIGNED_INT_MAX_VALUE = 2L * (long) Integer.MAX_VALUE + 1L;
+  public static final long UNSIGNED_INT_MAX_VALUE = 2L * Integer.MAX_VALUE + 1L;
 
   /**
    * Parsing a string value into a string value.
@@ -45,7 +45,9 @@ public class ParserHelper {
    * @return the parsed value
    */
   public static String parseString(
-      IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
+      @SuppressWarnings("unused") IParserMessageLogger messageLogger,
+      String xmlValue,
+      @SuppressWarnings("unused") Textmarker textMarker) {
     return xmlValue;
   }
 
@@ -63,7 +65,7 @@ public class ParserHelper {
       IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
 
     try {
-      Long result = DatatypeConverter.parseLong(xmlValue);
+      long result = DatatypeConverter.parseLong(xmlValue);
       if (result > UNSIGNED_INT_MAX_VALUE || result < 0) {
         messageLogger.logMessage(
             new FileContentMessage(
@@ -191,9 +193,9 @@ public class ParserHelper {
       IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
 
     if (xmlValue.equals("true") || xmlValue.equals("1")) {
-      return true;
+      return Boolean.TRUE;
     } else if (xmlValue.equals("false") || xmlValue.equals("0")) {
-      return false;
+      return Boolean.FALSE;
     }
 
     messageLogger.logMessage(
@@ -345,7 +347,7 @@ public class ParserHelper {
   public static void validateDateTime(String xmlValue) throws Exception {
 
     try {
-      Date result = DatatypeConverter.parseDateTime(xmlValue).getTime();
+      DatatypeConverter.parseDateTime(xmlValue).getTime();
 
     } catch (IllegalArgumentException e) {
       throw new Exception(

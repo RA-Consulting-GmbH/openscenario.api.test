@@ -26,14 +26,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IPerformance extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Maximum speed of the vehicle. Unit: m/s.
    *
    * @return value of model property maxSpeed
    */
   public Double getMaxSpeed();
-
   /**
    * From OpenSCENARIO class model specification: Maximum acceleration of the vehicle. Unit: m/s^2.
    * Range: [0..inf[.
@@ -41,7 +39,6 @@ public interface IPerformance extends IOpenScenarioModelElement {
    * @return value of model property maxAcceleration
    */
   public Double getMaxAcceleration();
-
   /**
    * From OpenSCENARIO class model specification: Maximum deceleration of the vehicle. Unit: m/s^2.
    * Range: [0..inf[.

@@ -28,14 +28,12 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRelativeTargetSpeed extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: Value of the relative speed. This value is either
    * given as a delta or as a factor. E.g. value=10 together with valueType=delta means the
@@ -46,7 +44,6 @@ public interface IRelativeTargetSpeed extends IOpenScenarioModelElement {
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: The value is either a delta (Unit m/s) or a factor
    * (no Unit).
@@ -54,7 +51,6 @@ public interface IRelativeTargetSpeed extends IOpenScenarioModelElement {
    * @return value of model property speedTargetValueType
    */
   public SpeedTargetValueType getSpeedTargetValueType();
-
   /**
    * From OpenSCENARIO class model specification: By setting continuous to true a controller comes
    * into place and tries to maintain a continuous relative speed. This may not be used together

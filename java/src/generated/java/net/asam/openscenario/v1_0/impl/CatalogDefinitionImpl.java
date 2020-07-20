@@ -43,12 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private ICatalog catalog;
   /** Default constructor */
@@ -58,13 +54,14 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
     addAdapter(ICatalogDefinition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ICatalog getCatalog() {
-    return catalog;
+    return this.catalog;
   }
   /**
    * Sets the value of model property catalog
@@ -77,7 +74,9 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -90,8 +89,9 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     ICatalog catalog = null;
     catalog = getCatalog();
@@ -107,6 +107,7 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
    *
    * @return a deep copy of the object.
    */
+  @Override
   public CatalogDefinitionImpl clone() {
     CatalogDefinitionImpl clonedObject = new CatalogDefinitionImpl();
     cloneStartMarker(clonedObject);
@@ -171,14 +172,14 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
     }
     if (key.equals(OscConstants.ELEMENT__CATALOG)) {
       return (IOpenScenarioFlexElement) getCatalog();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

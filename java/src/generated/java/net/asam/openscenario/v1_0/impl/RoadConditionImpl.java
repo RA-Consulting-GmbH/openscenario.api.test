@@ -44,8 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -61,18 +61,19 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Clone
     addAdapter(IRoadCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Double getFrictionScaleFactor() {
-    return frictionScaleFactor;
+    return this.frictionScaleFactor;
   }
 
   @Override
   public IProperties getProperties() {
-    return properties;
+    return this.properties;
   }
   /**
    * Sets the value of model property frictionScaleFactor
@@ -98,7 +99,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Clone
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR)) {
       // Simple type
-      frictionScaleFactor =
+      this.frictionScaleFactor =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -115,8 +116,9 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IProperties properties = null;
     properties = getProperties();
@@ -132,6 +134,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RoadConditionImpl clone() {
     RoadConditionImpl clonedObject = new RoadConditionImpl();
     cloneStartMarker(clonedObject);
@@ -178,9 +181,8 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Clone
     }
     if (key.equals(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR)) {
       return getFrictionScaleFactor();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -205,14 +207,14 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, Clone
     }
     if (key.equals(OscConstants.ELEMENT__PROPERTIES)) {
       return (IOpenScenarioFlexElement) getProperties();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

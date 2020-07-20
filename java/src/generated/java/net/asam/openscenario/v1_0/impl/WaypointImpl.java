@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class WaypointImpl extends BaseImpl implements IWaypoint {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,18 +63,19 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable {
     addAdapter(IWaypoint.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public RouteStrategy getRouteStrategy() {
-    return routeStrategy;
+    return this.routeStrategy;
   }
 
   @Override
   public IPosition getPosition() {
-    return position;
+    return this.position;
   }
   /**
    * Sets the value of model property routeStrategy
@@ -102,7 +103,7 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable {
       // Enumeration Type
       RouteStrategy result = RouteStrategy.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        routeStrategy = result;
+        this.routeStrategy = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -125,8 +126,9 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IPosition position = null;
     position = getPosition();
@@ -142,6 +144,7 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public WaypointImpl clone() {
     WaypointImpl clonedObject = new WaypointImpl();
     cloneStartMarker(clonedObject);
@@ -211,14 +214,14 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__POSITION)) {
       return (IOpenScenarioFlexElement) getPosition();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -241,9 +244,8 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, Cloneable {
     if (key.equals(OscConstants.ATTRIBUTE__ROUTE_STRATEGY)) {
       RouteStrategy routeStrategy = getRouteStrategy();
       return routeStrategy != null ? routeStrategy.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -24,10 +24,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.VehicleCategoryDistributionEntryImpl;
@@ -51,41 +49,17 @@ public class VehicleCategoryDistributionEntryXmlParser
   public VehicleCategoryDistributionEntryXmlParser(
       IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      VehicleCategoryDistributionEntryImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing VehicleCategoryDistributionEntry",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing VehicleCategoryDistributionEntry",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<VehicleCategoryDistributionEntryImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<VehicleCategoryDistributionEntryImpl>> result =
-        new Hashtable<String, IAttributeParser<VehicleCategoryDistributionEntryImpl>>();
+    Map<String, IAttributeParser<VehicleCategoryDistributionEntryImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__CATEGORY,
         new IAttributeParser<VehicleCategoryDistributionEntryImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -95,9 +69,15 @@ public class VehicleCategoryDistributionEntryXmlParser
               VehicleCategoryDistributionEntryImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    VehicleCategoryDistributionEntryXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    VehicleCategoryDistributionEntryXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CATEGORY, stripDollarSign(attributeValue), startMarker);
@@ -108,7 +88,7 @@ public class VehicleCategoryDistributionEntryXmlParser
               if (result != null) {
                 object.setCategory(result);
               } else {
-                messageLogger.logMessage(
+                VehicleCategoryDistributionEntryXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -127,6 +107,7 @@ public class VehicleCategoryDistributionEntryXmlParser
     result.put(
         OscConstants.ATTRIBUTE__WEIGHT,
         new IAttributeParser<VehicleCategoryDistributionEntryImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -136,9 +117,15 @@ public class VehicleCategoryDistributionEntryXmlParser
               VehicleCategoryDistributionEntryImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    VehicleCategoryDistributionEntryXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    VehicleCategoryDistributionEntryXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__WEIGHT, stripDollarSign(attributeValue), startMarker);
@@ -173,9 +160,9 @@ public class VehicleCategoryDistributionEntryXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<VehicleCategoryDistributionEntryImpl>> createParserList() {
-      List<IElementParser<VehicleCategoryDistributionEntryImpl>> result =
-          new ArrayList<IElementParser<VehicleCategoryDistributionEntryImpl>>();
+      List<IElementParser<VehicleCategoryDistributionEntryImpl>> result = new ArrayList<>();
       return result;
     }
   }

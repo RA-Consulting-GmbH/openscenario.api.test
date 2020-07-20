@@ -24,10 +24,8 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.DynamicsDimension;
 import net.asam.openscenario.v1_0.api.DynamicsShape;
 import net.asam.openscenario.v1_0.common.OscConstants;
@@ -50,39 +48,17 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
    */
   public TransitionDynamicsXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TransitionDynamicsImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TransitionDynamics",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TransitionDynamics",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TransitionDynamicsImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TransitionDynamicsImpl>> result =
-        new Hashtable<String, IAttributeParser<TransitionDynamicsImpl>>();
+    Map<String, IAttributeParser<TransitionDynamicsImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__DYNAMICS_SHAPE,
         new IAttributeParser<TransitionDynamicsImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
               TransitionDynamicsImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TransitionDynamicsXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TransitionDynamicsXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DYNAMICS_SHAPE,
@@ -107,7 +89,7 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
               if (result != null) {
                 object.setDynamicsShape(result);
               } else {
-                messageLogger.logMessage(
+                TransitionDynamicsXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -126,6 +108,7 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<TransitionDynamicsImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -135,9 +118,15 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
               TransitionDynamicsImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TransitionDynamicsXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TransitionDynamicsXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -158,6 +147,7 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
     result.put(
         OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION,
         new IAttributeParser<TransitionDynamicsImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -167,9 +157,15 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
               TransitionDynamicsImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TransitionDynamicsXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TransitionDynamicsXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION,
@@ -182,7 +178,7 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
               if (result != null) {
                 object.setDynamicsDimension(result);
               } else {
-                messageLogger.logMessage(
+                TransitionDynamicsXmlParser.this.messageLogger.logMessage(
                     new FileContentMessage(
                         "Value '" + attributeValue + "' is not allowed.",
                         ErrorLevel.ERROR,
@@ -215,9 +211,9 @@ public class TransitionDynamicsXmlParser extends XmlComplexTypeParser<Transition
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TransitionDynamicsImpl>> createParserList() {
-      List<IElementParser<TransitionDynamicsImpl>> result =
-          new ArrayList<IElementParser<TransitionDynamicsImpl>>();
+      List<IElementParser<TransitionDynamicsImpl>> result = new ArrayList<>();
       return result;
     }
   }

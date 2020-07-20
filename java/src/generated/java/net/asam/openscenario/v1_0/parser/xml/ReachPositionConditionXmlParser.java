@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,41 +48,17 @@ public class ReachPositionConditionXmlParser
    */
   public ReachPositionConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      ReachPositionConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing ReachPositionCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing ReachPositionCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<ReachPositionConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<ReachPositionConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<ReachPositionConditionImpl>>();
+    Map<String, IAttributeParser<ReachPositionConditionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__TOLERANCE,
         new IAttributeParser<ReachPositionConditionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -94,9 +68,15 @@ public class ReachPositionConditionXmlParser
               ReachPositionConditionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    ReachPositionConditionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    ReachPositionConditionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__TOLERANCE, stripDollarSign(attributeValue), startMarker);
@@ -131,20 +111,24 @@ public class ReachPositionConditionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<ReachPositionConditionImpl>> createParserList() {
-      List<IElementParser<ReachPositionConditionImpl>> result =
-          new ArrayList<IElementParser<ReachPositionConditionImpl>>();
+      List<IElementParser<ReachPositionConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<ReachPositionConditionImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              ReachPositionConditionXmlParser.this.messageLogger,
+              ReachPositionConditionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -157,7 +141,7 @@ public class ReachPositionConditionXmlParser
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }

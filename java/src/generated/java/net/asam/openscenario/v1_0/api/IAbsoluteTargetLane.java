@@ -26,7 +26,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IAbsoluteTargetLane extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Number (ID) of the target lane the entity will
    * change to.

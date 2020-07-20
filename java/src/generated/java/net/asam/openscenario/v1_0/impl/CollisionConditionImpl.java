@@ -44,12 +44,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CollisionConditionImpl extends BaseImpl implements ICollisionCondition, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class CollisionConditionImpl extends BaseImpl implements ICollisionCondition {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IEntityRef entityRef;
   private IByObjectType byType;
@@ -60,18 +56,19 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
     addAdapter(ICollisionCondition.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IEntityRef getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public IByObjectType getByType() {
-    return byType;
+    return this.byType;
   }
   /**
    * Sets the value of model property entityRef
@@ -93,7 +90,9 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -106,8 +105,9 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IEntityRef entityRef = null;
     entityRef = getEntityRef();
@@ -128,6 +128,7 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
    *
    * @return a deep copy of the object.
    */
+  @Override
   public CollisionConditionImpl clone() {
     CollisionConditionImpl clonedObject = new CollisionConditionImpl();
     cloneStartMarker(clonedObject);
@@ -199,16 +200,17 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
     }
     if (key.equals(OscConstants.ELEMENT__ENTITY_REF)) {
       return (IOpenScenarioFlexElement) getEntityRef();
-    } else if (key.equals(OscConstants.ELEMENT__BY_TYPE)) {
-      return (IOpenScenarioFlexElement) getByType();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__BY_TYPE)) {
+      return (IOpenScenarioFlexElement) getByType();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

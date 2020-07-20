@@ -27,7 +27,6 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ICentralSwarmObject extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Name of the central entity the swarm traffic is
    * created around.

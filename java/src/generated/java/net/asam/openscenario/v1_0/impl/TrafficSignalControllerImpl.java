@@ -45,9 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalControllerImpl extends BaseImpl
-    implements ITrafficSignalController, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class TrafficSignalControllerImpl extends BaseImpl implements ITrafficSignalController {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -67,28 +66,29 @@ public class TrafficSignalControllerImpl extends BaseImpl
     addAdapter(ITrafficSignalController.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public Double getDelay() {
-    return delay;
+    return this.delay;
   }
 
   @Override
   public String getReference() {
-    return reference;
+    return this.reference;
   }
 
   @Override
   public List<IPhase> getPhases() {
-    return phases;
+    return this.phases;
   }
   /**
    * Sets the value of model property name
@@ -136,17 +136,19 @@ public class TrafficSignalControllerImpl extends BaseImpl
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DELAY)) {
       // Simple type
-      delay = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.delay =
+          ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__REFERENCE)) {
       // Simple type
-      reference =
+      this.reference =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -163,8 +165,9 @@ public class TrafficSignalControllerImpl extends BaseImpl
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     List<IPhase> phases = null;
     phases = getPhases();
@@ -182,6 +185,7 @@ public class TrafficSignalControllerImpl extends BaseImpl
    *
    * @return a deep copy of the object.
    */
+  @Override
   public TrafficSignalControllerImpl clone() {
     TrafficSignalControllerImpl clonedObject = new TrafficSignalControllerImpl();
     cloneStartMarker(clonedObject);
@@ -200,7 +204,7 @@ public class TrafficSignalControllerImpl extends BaseImpl
     List<IPhase> phases = null;
     phases = getPhases();
     if (phases != null) {
-      List<IPhase> clonedList = new ArrayList<IPhase>();
+      List<IPhase> clonedList = new ArrayList<>();
       for (IPhase item : phases) {
         PhaseImpl clonedChild = ((PhaseImpl) item).clone();
         clonedList.add(clonedChild);
@@ -223,9 +227,8 @@ public class TrafficSignalControllerImpl extends BaseImpl
       return getName();
     } else if (key.equals(OscConstants.ATTRIBUTE__REFERENCE)) {
       return getReference();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -245,9 +248,8 @@ public class TrafficSignalControllerImpl extends BaseImpl
     }
     if (key.equals(OscConstants.ATTRIBUTE__DELAY)) {
       return getDelay();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -270,18 +272,18 @@ public class TrafficSignalControllerImpl extends BaseImpl
     throw new KeyNotSupportedException();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     if (key == null) {
       throw new KeyNotSupportedException();
     }
     if (key.equals(OscConstants.ELEMENT__PHASE)) {
       return (List<IOpenScenarioFlexElement>) (List<?>) getPhases();
-
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

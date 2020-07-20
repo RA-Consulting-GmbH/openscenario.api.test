@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -49,38 +47,16 @@ public class FogXmlParser extends XmlComplexTypeParser<FogImpl> {
    */
   public FogXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, FogImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing Fog",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing Fog",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<FogImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<FogImpl>> result =
-        new Hashtable<String, IAttributeParser<FogImpl>>();
+    Map<String, IAttributeParser<FogImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__VISUAL_RANGE,
         new IAttributeParser<FogImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +66,11 @@ public class FogXmlParser extends XmlComplexTypeParser<FogImpl> {
               FogImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(), startPosition.getColumn(), FogXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(), endPosition.getColumn(), FogXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VISUAL_RANGE,
@@ -129,19 +107,22 @@ public class FogXmlParser extends XmlComplexTypeParser<FogImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<FogImpl>> createParserList() {
-      List<IElementParser<FogImpl>> result = new ArrayList<IElementParser<FogImpl>>();
+      List<IElementParser<FogImpl>> result = new ArrayList<>();
       result.add(new SubElementBoundingBoxParser());
       return result;
     }
   }
   /** A parser for subelement boundingBox */
+  @SuppressWarnings("synthetic-access")
   private class SubElementBoundingBoxParser implements IElementParser<FogImpl> {
 
     /** Constructor */
     public SubElementBoundingBoxParser() {
       super();
-      boundingBoxXmlParser = new BoundingBoxXmlParser(messageLogger, filename);
+      this.boundingBoxXmlParser =
+          new BoundingBoxXmlParser(FogXmlParser.this.messageLogger, FogXmlParser.this.filename);
     }
 
     private BoundingBoxXmlParser boundingBoxXmlParser;
@@ -151,7 +132,7 @@ public class FogXmlParser extends XmlComplexTypeParser<FogImpl> {
       BoundingBoxImpl boundingBox = new BoundingBoxImpl();
       // Setting the parent
       boundingBox.setParent(object);
-      boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
+      this.boundingBoxXmlParser.parseElement(indexedElement, parserContext, boundingBox);
 
       object.setBoundingBox(boundingBox);
     }

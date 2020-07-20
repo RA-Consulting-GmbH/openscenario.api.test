@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -60,36 +57,13 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
    */
   public EntityConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, EntityConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing EntityCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing EntityCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<EntityConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<EntityConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<EntityConditionImpl>>();
+    Map<String, IAttributeParser<EntityConditionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -107,9 +81,9 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<EntityConditionImpl>> createParserList() {
-      List<IElementParser<EntityConditionImpl>> result =
-          new ArrayList<IElementParser<EntityConditionImpl>>();
+      List<IElementParser<EntityConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementEndOfRoadConditionParser());
       result.add(new SubElementCollisionConditionParser());
       result.add(new SubElementOffroadConditionParser());
@@ -127,12 +101,15 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement endOfRoadCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEndOfRoadConditionParser implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementEndOfRoadConditionParser() {
       super();
-      endOfRoadConditionXmlParser = new EndOfRoadConditionXmlParser(messageLogger, filename);
+      this.endOfRoadConditionXmlParser =
+          new EndOfRoadConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private EndOfRoadConditionXmlParser endOfRoadConditionXmlParser;
@@ -143,7 +120,8 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       EndOfRoadConditionImpl endOfRoadCondition = new EndOfRoadConditionImpl();
       // Setting the parent
       endOfRoadCondition.setParent(object);
-      endOfRoadConditionXmlParser.parseElement(indexedElement, parserContext, endOfRoadCondition);
+      this.endOfRoadConditionXmlParser.parseElement(
+          indexedElement, parserContext, endOfRoadCondition);
 
       object.setEndOfRoadCondition(endOfRoadCondition);
     }
@@ -169,12 +147,15 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement collisionCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCollisionConditionParser implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementCollisionConditionParser() {
       super();
-      collisionConditionXmlParser = new CollisionConditionXmlParser(messageLogger, filename);
+      this.collisionConditionXmlParser =
+          new CollisionConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private CollisionConditionXmlParser collisionConditionXmlParser;
@@ -185,7 +166,8 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       CollisionConditionImpl collisionCondition = new CollisionConditionImpl();
       // Setting the parent
       collisionCondition.setParent(object);
-      collisionConditionXmlParser.parseElement(indexedElement, parserContext, collisionCondition);
+      this.collisionConditionXmlParser.parseElement(
+          indexedElement, parserContext, collisionCondition);
 
       object.setCollisionCondition(collisionCondition);
     }
@@ -211,12 +193,15 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement offroadCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementOffroadConditionParser implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementOffroadConditionParser() {
       super();
-      offroadConditionXmlParser = new OffroadConditionXmlParser(messageLogger, filename);
+      this.offroadConditionXmlParser =
+          new OffroadConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private OffroadConditionXmlParser offroadConditionXmlParser;
@@ -227,7 +212,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       OffroadConditionImpl offroadCondition = new OffroadConditionImpl();
       // Setting the parent
       offroadCondition.setParent(object);
-      offroadConditionXmlParser.parseElement(indexedElement, parserContext, offroadCondition);
+      this.offroadConditionXmlParser.parseElement(indexedElement, parserContext, offroadCondition);
 
       object.setOffroadCondition(offroadCondition);
     }
@@ -253,13 +238,16 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement timeHeadwayCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTimeHeadwayConditionParser
       implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementTimeHeadwayConditionParser() {
       super();
-      timeHeadwayConditionXmlParser = new TimeHeadwayConditionXmlParser(messageLogger, filename);
+      this.timeHeadwayConditionXmlParser =
+          new TimeHeadwayConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private TimeHeadwayConditionXmlParser timeHeadwayConditionXmlParser;
@@ -270,7 +258,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       TimeHeadwayConditionImpl timeHeadwayCondition = new TimeHeadwayConditionImpl();
       // Setting the parent
       timeHeadwayCondition.setParent(object);
-      timeHeadwayConditionXmlParser.parseElement(
+      this.timeHeadwayConditionXmlParser.parseElement(
           indexedElement, parserContext, timeHeadwayCondition);
 
       object.setTimeHeadwayCondition(timeHeadwayCondition);
@@ -297,14 +285,16 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement timeToCollisionCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTimeToCollisionConditionParser
       implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementTimeToCollisionConditionParser() {
       super();
-      timeToCollisionConditionXmlParser =
-          new TimeToCollisionConditionXmlParser(messageLogger, filename);
+      this.timeToCollisionConditionXmlParser =
+          new TimeToCollisionConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private TimeToCollisionConditionXmlParser timeToCollisionConditionXmlParser;
@@ -315,7 +305,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       TimeToCollisionConditionImpl timeToCollisionCondition = new TimeToCollisionConditionImpl();
       // Setting the parent
       timeToCollisionCondition.setParent(object);
-      timeToCollisionConditionXmlParser.parseElement(
+      this.timeToCollisionConditionXmlParser.parseElement(
           indexedElement, parserContext, timeToCollisionCondition);
 
       object.setTimeToCollisionCondition(timeToCollisionCondition);
@@ -342,13 +332,16 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement accelerationCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementAccelerationConditionParser
       implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementAccelerationConditionParser() {
       super();
-      accelerationConditionXmlParser = new AccelerationConditionXmlParser(messageLogger, filename);
+      this.accelerationConditionXmlParser =
+          new AccelerationConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private AccelerationConditionXmlParser accelerationConditionXmlParser;
@@ -359,7 +352,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       AccelerationConditionImpl accelerationCondition = new AccelerationConditionImpl();
       // Setting the parent
       accelerationCondition.setParent(object);
-      accelerationConditionXmlParser.parseElement(
+      this.accelerationConditionXmlParser.parseElement(
           indexedElement, parserContext, accelerationCondition);
 
       object.setAccelerationCondition(accelerationCondition);
@@ -386,12 +379,15 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement standStillCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementStandStillConditionParser implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementStandStillConditionParser() {
       super();
-      standStillConditionXmlParser = new StandStillConditionXmlParser(messageLogger, filename);
+      this.standStillConditionXmlParser =
+          new StandStillConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private StandStillConditionXmlParser standStillConditionXmlParser;
@@ -402,7 +398,8 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       StandStillConditionImpl standStillCondition = new StandStillConditionImpl();
       // Setting the parent
       standStillCondition.setParent(object);
-      standStillConditionXmlParser.parseElement(indexedElement, parserContext, standStillCondition);
+      this.standStillConditionXmlParser.parseElement(
+          indexedElement, parserContext, standStillCondition);
 
       object.setStandStillCondition(standStillCondition);
     }
@@ -428,12 +425,15 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement speedCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementSpeedConditionParser implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementSpeedConditionParser() {
       super();
-      speedConditionXmlParser = new SpeedConditionXmlParser(messageLogger, filename);
+      this.speedConditionXmlParser =
+          new SpeedConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private SpeedConditionXmlParser speedConditionXmlParser;
@@ -444,7 +444,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       SpeedConditionImpl speedCondition = new SpeedConditionImpl();
       // Setting the parent
       speedCondition.setParent(object);
-      speedConditionXmlParser.parseElement(indexedElement, parserContext, speedCondition);
+      this.speedConditionXmlParser.parseElement(indexedElement, parserContext, speedCondition);
 
       object.setSpeedCondition(speedCondition);
     }
@@ -470,14 +470,16 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement relativeSpeedCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRelativeSpeedConditionParser
       implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementRelativeSpeedConditionParser() {
       super();
-      relativeSpeedConditionXmlParser =
-          new RelativeSpeedConditionXmlParser(messageLogger, filename);
+      this.relativeSpeedConditionXmlParser =
+          new RelativeSpeedConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private RelativeSpeedConditionXmlParser relativeSpeedConditionXmlParser;
@@ -488,7 +490,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       RelativeSpeedConditionImpl relativeSpeedCondition = new RelativeSpeedConditionImpl();
       // Setting the parent
       relativeSpeedCondition.setParent(object);
-      relativeSpeedConditionXmlParser.parseElement(
+      this.relativeSpeedConditionXmlParser.parseElement(
           indexedElement, parserContext, relativeSpeedCondition);
 
       object.setRelativeSpeedCondition(relativeSpeedCondition);
@@ -515,14 +517,16 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement traveledDistanceCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTraveledDistanceConditionParser
       implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementTraveledDistanceConditionParser() {
       super();
-      traveledDistanceConditionXmlParser =
-          new TraveledDistanceConditionXmlParser(messageLogger, filename);
+      this.traveledDistanceConditionXmlParser =
+          new TraveledDistanceConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private TraveledDistanceConditionXmlParser traveledDistanceConditionXmlParser;
@@ -533,7 +537,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       TraveledDistanceConditionImpl traveledDistanceCondition = new TraveledDistanceConditionImpl();
       // Setting the parent
       traveledDistanceCondition.setParent(object);
-      traveledDistanceConditionXmlParser.parseElement(
+      this.traveledDistanceConditionXmlParser.parseElement(
           indexedElement, parserContext, traveledDistanceCondition);
 
       object.setTraveledDistanceCondition(traveledDistanceCondition);
@@ -560,14 +564,16 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement reachPositionCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementReachPositionConditionParser
       implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementReachPositionConditionParser() {
       super();
-      reachPositionConditionXmlParser =
-          new ReachPositionConditionXmlParser(messageLogger, filename);
+      this.reachPositionConditionXmlParser =
+          new ReachPositionConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private ReachPositionConditionXmlParser reachPositionConditionXmlParser;
@@ -578,7 +584,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       ReachPositionConditionImpl reachPositionCondition = new ReachPositionConditionImpl();
       // Setting the parent
       reachPositionCondition.setParent(object);
-      reachPositionConditionXmlParser.parseElement(
+      this.reachPositionConditionXmlParser.parseElement(
           indexedElement, parserContext, reachPositionCondition);
 
       object.setReachPositionCondition(reachPositionCondition);
@@ -605,12 +611,15 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement distanceCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDistanceConditionParser implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementDistanceConditionParser() {
       super();
-      distanceConditionXmlParser = new DistanceConditionXmlParser(messageLogger, filename);
+      this.distanceConditionXmlParser =
+          new DistanceConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private DistanceConditionXmlParser distanceConditionXmlParser;
@@ -621,7 +630,8 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       DistanceConditionImpl distanceCondition = new DistanceConditionImpl();
       // Setting the parent
       distanceCondition.setParent(object);
-      distanceConditionXmlParser.parseElement(indexedElement, parserContext, distanceCondition);
+      this.distanceConditionXmlParser.parseElement(
+          indexedElement, parserContext, distanceCondition);
 
       object.setDistanceCondition(distanceCondition);
     }
@@ -647,14 +657,16 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
     }
   }
   /** A parser for subelement relativeDistanceCondition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementRelativeDistanceConditionParser
       implements IElementParser<EntityConditionImpl> {
 
     /** Constructor */
     public SubElementRelativeDistanceConditionParser() {
       super();
-      relativeDistanceConditionXmlParser =
-          new RelativeDistanceConditionXmlParser(messageLogger, filename);
+      this.relativeDistanceConditionXmlParser =
+          new RelativeDistanceConditionXmlParser(
+              EntityConditionXmlParser.this.messageLogger, EntityConditionXmlParser.this.filename);
     }
 
     private RelativeDistanceConditionXmlParser relativeDistanceConditionXmlParser;
@@ -665,7 +677,7 @@ public class EntityConditionXmlParser extends XmlComplexTypeParser<EntityConditi
       RelativeDistanceConditionImpl relativeDistanceCondition = new RelativeDistanceConditionImpl();
       // Setting the parent
       relativeDistanceCondition.setParent(object);
-      relativeDistanceConditionXmlParser.parseElement(
+      this.relativeDistanceConditionXmlParser.parseElement(
           indexedElement, parserContext, relativeDistanceCondition);
 
       object.setRelativeDistanceCondition(relativeDistanceCondition);

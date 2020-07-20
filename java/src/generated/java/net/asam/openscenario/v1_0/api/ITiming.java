@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITiming extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Definition of time value context as either
    * absolute or relative.
@@ -35,7 +34,6 @@ public interface ITiming extends IOpenScenarioModelElement {
    * @return value of model property domainAbsoluteRelative
    */
   public ReferenceContext getDomainAbsoluteRelative();
-
   /**
    * From OpenSCENARIO class model specification: Scaling factor for time values. While values
    * smaller than 1.0 represent negative scaling, values larger than 1.0 will result in positive
@@ -44,7 +42,6 @@ public interface ITiming extends IOpenScenarioModelElement {
    * @return value of model property scale
    */
   public Double getScale();
-
   /**
    * From OpenSCENARIO class model specification: Introduction of a global offset for all time
    * values. Unit: s; Range: ]-inf..inf[.

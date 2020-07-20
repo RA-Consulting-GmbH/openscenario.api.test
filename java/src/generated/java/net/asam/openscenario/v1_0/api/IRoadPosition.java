@@ -28,7 +28,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRoadPosition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Identifier of the road, defined in the road
    * network definition file (external to ASAM OpenSCENARIO).
@@ -36,7 +35,6 @@ public interface IRoadPosition extends IOpenScenarioModelElement {
    * @return value of model property roadId
    */
   public String getRoadId();
-
   /**
    * From OpenSCENARIO class model specification: Represents s coordinate along the reference line
    * of the road.
@@ -44,7 +42,6 @@ public interface IRoadPosition extends IOpenScenarioModelElement {
    * @return value of model property s
    */
   public Double getS();
-
   /**
    * From OpenSCENARIO class model specification: Represents t coordinate orthogonal to the
    * reference line of the road.
@@ -52,7 +49,6 @@ public interface IRoadPosition extends IOpenScenarioModelElement {
    * @return value of model property t
    */
   public Double getT();
-
   /**
    * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
    * to the referenced road's s and t coordinates.

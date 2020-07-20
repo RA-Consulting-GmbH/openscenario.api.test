@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.FileHeaderImpl;
 import net.asam.xml.indexer.Position;
@@ -48,38 +44,16 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
    */
   public FileHeaderXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, FileHeaderImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing FileHeader",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing FileHeader",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<FileHeaderImpl>> getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<FileHeaderImpl>> result =
-        new Hashtable<String, IAttributeParser<FileHeaderImpl>>();
+    Map<String, IAttributeParser<FileHeaderImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__REV_MAJOR,
         new IAttributeParser<FileHeaderImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -89,9 +63,15 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
               FileHeaderImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__REV_MAJOR, stripDollarSign(attributeValue), startMarker);
@@ -112,6 +92,7 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
     result.put(
         OscConstants.ATTRIBUTE__REV_MINOR,
         new IAttributeParser<FileHeaderImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -121,9 +102,15 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
               FileHeaderImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__REV_MINOR, stripDollarSign(attributeValue), startMarker);
@@ -144,6 +131,7 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
     result.put(
         OscConstants.ATTRIBUTE__DATE,
         new IAttributeParser<FileHeaderImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -153,9 +141,15 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
               FileHeaderImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DATE, stripDollarSign(attributeValue), startMarker);
@@ -176,6 +170,7 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
     result.put(
         OscConstants.ATTRIBUTE__DESCRIPTION,
         new IAttributeParser<FileHeaderImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -185,9 +180,15 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
               FileHeaderImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DESCRIPTION,
@@ -210,6 +211,7 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
     result.put(
         OscConstants.ATTRIBUTE__AUTHOR,
         new IAttributeParser<FileHeaderImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -219,9 +221,15 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
               FileHeaderImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    FileHeaderXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__AUTHOR, stripDollarSign(attributeValue), startMarker);
@@ -256,8 +264,9 @@ public class FileHeaderXmlParser extends XmlComplexTypeParser<FileHeaderImpl> {
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<FileHeaderImpl>> createParserList() {
-      List<IElementParser<FileHeaderImpl>> result = new ArrayList<IElementParser<FileHeaderImpl>>();
+      List<IElementParser<FileHeaderImpl>> result = new ArrayList<>();
       return result;
     }
   }

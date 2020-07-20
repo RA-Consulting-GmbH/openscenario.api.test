@@ -44,11 +44,11 @@ import net.asam.openscenario.v1_0.api.IStoryboard;
 import net.asam.openscenario.v1_0.api.IVehicle;
 import net.asam.openscenario.v1_0.checker.IScenarioChecker;
 import net.asam.openscenario.v1_0.common.OscConstants;
-import net.asam.openscenario.v1_0.impl.OpenScenarioImpl;
 import net.asam.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 
 public class TestExamples extends TestBase {
 
+  @SuppressWarnings("unused")
   @Test
   public void testExample() throws ScenarioLoaderException {
 

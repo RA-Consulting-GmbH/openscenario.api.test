@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,36 +46,13 @@ public class CollisionConditionXmlParser extends XmlComplexTypeParser<CollisionC
    */
   public CollisionConditionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, CollisionConditionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing CollisionCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing CollisionCondition",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<CollisionConditionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<CollisionConditionImpl>> result =
-        new Hashtable<String, IAttributeParser<CollisionConditionImpl>>();
+    Map<String, IAttributeParser<CollisionConditionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,21 +70,25 @@ public class CollisionConditionXmlParser extends XmlComplexTypeParser<CollisionC
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<CollisionConditionImpl>> createParserList() {
-      List<IElementParser<CollisionConditionImpl>> result =
-          new ArrayList<IElementParser<CollisionConditionImpl>>();
+      List<IElementParser<CollisionConditionImpl>> result = new ArrayList<>();
       result.add(new SubElementEntityRefParser());
       result.add(new SubElementByTypeParser());
       return result;
     }
   }
   /** A parser for subelement entityRef */
+  @SuppressWarnings("synthetic-access")
   private class SubElementEntityRefParser implements IElementParser<CollisionConditionImpl> {
 
     /** Constructor */
     public SubElementEntityRefParser() {
       super();
-      entityRefXmlParser = new EntityRefXmlParser(messageLogger, filename);
+      this.entityRefXmlParser =
+          new EntityRefXmlParser(
+              CollisionConditionXmlParser.this.messageLogger,
+              CollisionConditionXmlParser.this.filename);
     }
 
     private EntityRefXmlParser entityRefXmlParser;
@@ -121,7 +99,7 @@ public class CollisionConditionXmlParser extends XmlComplexTypeParser<CollisionC
       EntityRefImpl entityRef = new EntityRefImpl();
       // Setting the parent
       entityRef.setParent(object);
-      entityRefXmlParser.parseElement(indexedElement, parserContext, entityRef);
+      this.entityRefXmlParser.parseElement(indexedElement, parserContext, entityRef);
 
       object.setEntityRef(entityRef);
     }
@@ -147,12 +125,16 @@ public class CollisionConditionXmlParser extends XmlComplexTypeParser<CollisionC
     }
   }
   /** A parser for subelement byType */
+  @SuppressWarnings("synthetic-access")
   private class SubElementByTypeParser implements IElementParser<CollisionConditionImpl> {
 
     /** Constructor */
     public SubElementByTypeParser() {
       super();
-      byObjectTypeXmlParser = new ByObjectTypeXmlParser(messageLogger, filename);
+      this.byObjectTypeXmlParser =
+          new ByObjectTypeXmlParser(
+              CollisionConditionXmlParser.this.messageLogger,
+              CollisionConditionXmlParser.this.filename);
     }
 
     private ByObjectTypeXmlParser byObjectTypeXmlParser;
@@ -163,7 +145,7 @@ public class CollisionConditionXmlParser extends XmlComplexTypeParser<CollisionC
       ByObjectTypeImpl byType = new ByObjectTypeImpl();
       // Setting the parent
       byType.setParent(object);
-      byObjectTypeXmlParser.parseElement(indexedElement, parserContext, byType);
+      this.byObjectTypeXmlParser.parseElement(indexedElement, parserContext, byType);
 
       object.setByType(byType);
     }

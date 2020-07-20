@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class FileHeaderImpl extends BaseImpl implements IFileHeader {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -67,33 +67,34 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
     addAdapter(IFileHeader.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Integer getRevMajor() {
-    return revMajor;
+    return this.revMajor;
   }
 
   @Override
   public Integer getRevMinor() {
-    return revMinor;
+    return this.revMinor;
   }
 
   @Override
   public java.util.Date getDate() {
-    return date;
+    return this.date;
   }
 
   @Override
   public String getDescription() {
-    return description;
+    return this.description;
   }
 
   @Override
   public String getAuthor() {
-    return author;
+    return this.author;
   }
   /**
    * Sets the value of model property revMajor
@@ -145,32 +146,34 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__REV_MAJOR)) {
       // Simple type
-      revMajor =
+      this.revMajor =
           ParserHelper.parseUnsignedShort(
               logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__REV_MINOR)) {
       // Simple type
-      revMinor =
+      this.revMinor =
           ParserHelper.parseUnsignedShort(
               logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DATE)) {
       // Simple type
-      date = ParserHelper.parseDateTime(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.date =
+          ParserHelper.parseDateTime(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DESCRIPTION)) {
       // Simple type
-      description =
+      this.description =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__AUTHOR)) {
       // Simple type
-      author = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.author =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -186,8 +189,9 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -198,6 +202,7 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public FileHeaderImpl clone() {
     FileHeaderImpl clonedObject = new FileHeaderImpl();
     cloneStartMarker(clonedObject);
@@ -232,9 +237,8 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
       return getDescription();
     } else if (key.equals(OscConstants.ATTRIBUTE__AUTHOR)) {
       return getAuthor();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -261,9 +265,8 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
       return getRevMajor();
     } else if (key.equals(OscConstants.ATTRIBUTE__REV_MINOR)) {
       return getRevMinor();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -278,9 +281,8 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__DATE)) {
       return getDate();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -291,6 +293,7 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, Cloneable {
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

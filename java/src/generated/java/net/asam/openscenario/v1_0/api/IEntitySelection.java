@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -26,8 +24,7 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEntitySelection extends IOpenScenarioModelElement, IEntity {
-
+public interface IEntitySelection extends IEntity {
   /**
    * From OpenSCENARIO class model specification: Name of the entity selection. By this name, a
    * selection can be referenced as an entity.
@@ -35,7 +32,6 @@ public interface IEntitySelection extends IOpenScenarioModelElement, IEntity {
    * @return value of model property name
    */
   public String getName();
-
   /**
    * From OpenSCENARIO class model specification: Selected entities as members of the entity
    * selection.

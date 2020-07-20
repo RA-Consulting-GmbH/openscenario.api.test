@@ -28,14 +28,12 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface ITimeOfDayCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @return value of model property rule
    */
   public Rule getRule();
-
   /**
    * From OpenSCENARIO class model specification: Datetime value for comparison.
    *

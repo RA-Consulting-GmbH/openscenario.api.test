@@ -50,10 +50,9 @@ import net.asam.openscenario.v1_0.api.IVehicle;
  * @author Andreas Hege - RA Consulting
  */
 public class CatalogCache {
-  private Hashtable<String, Hashtable<String, ICatalogElement>> catalogElements =
-      new Hashtable<String, Hashtable<String, ICatalogElement>>();
+  private Hashtable<String, Hashtable<String, ICatalogElement>> catalogElements = new Hashtable<>();
   private boolean isAnyCatalogToParse = false;
-  private List<IScenarioLoaderFactory> catalogFiles = new ArrayList<IScenarioLoaderFactory>();
+  private List<IScenarioLoaderFactory> catalogFiles = new ArrayList<>();
   private IResourceLocator resourceLocator;
   private int currentLoaderFactoryIndex = 0;
   private IParserMessageLogger messageLogger;
@@ -76,8 +75,8 @@ public class CatalogCache {
    * @param scenarioLoaderFactory the loader factory that is initialized with this file.
    */
   public void addCatalogFile(IScenarioLoaderFactory scenarioLoaderFactory) {
-    catalogFiles.add(scenarioLoaderFactory);
-    isAnyCatalogToParse = true;
+    this.catalogFiles.add(scenarioLoaderFactory);
+    this.isAnyCatalogToParse = true;
   }
 
   /**
@@ -87,15 +86,15 @@ public class CatalogCache {
    *     searched.
    * @return the found catalog element or null if the catalog element is not faound in the directory
    */
+  @SuppressWarnings("null")
   public ICatalogElement importCatalogElement(ICatalogReference catalogReference) {
-    ICatalogElement catalogElement = null;
+    ICatalogElement catalogElement = getCatalogElementInternal(catalogReference);
     while (catalogElement == null) {
-      catalogElement = getCatalogElementInternal(catalogReference);
       if (catalogElement != null || !this.isAnyCatalogToParse) {
         break;
-      } else {
-        parseNextCatalog();
       }
+      parseNextCatalog();
+      catalogElement = getCatalogElementInternal(catalogReference);
     }
     return catalogElement;
   }
@@ -104,26 +103,20 @@ public class CatalogCache {
    * parses the next catalog in the list.
    */
   private void parseNextCatalog() {
-    if (currentLoaderFactoryIndex >= catalogFiles.size()) {
-      isAnyCatalogToParse = false;
+    if (this.currentLoaderFactoryIndex >= this.catalogFiles.size()) {
+      this.isAnyCatalogToParse = false;
       return;
+    }
+    // Parse Catalog
+    IScenarioLoaderFactory scenarioLoaderFactory =
+        this.catalogFiles.get(this.currentLoaderFactoryIndex++);
+    IScenarioLoader loader = scenarioLoaderFactory.createLoader(this.resourceLocator);
+    IOpenScenario openScenario = null;
 
-    } else {
-
-      // Parse Catalog
-      IScenarioLoaderFactory scenarioLoaderFactory = catalogFiles.get(currentLoaderFactoryIndex++);
-      IScenarioLoader loader = scenarioLoaderFactory.createLoader(resourceLocator);
-      IOpenScenario openScenario = null;
-      boolean isSuccessfullyParsed = true;
-      ;
-      MessageLoggerDecorator messageLogger = new MessageLoggerDecorator(this.messageLogger);
-      try {
-        openScenario = (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
-      } catch (ScenarioLoaderException e) {
-        // Ignore
-        isSuccessfullyParsed = false;
-      }
-      if (isSuccessfullyParsed && !messageLogger.hasErrors()) {
+    MessageLoggerDecorator messageLogger = new MessageLoggerDecorator(this.messageLogger);
+    try {
+      openScenario = (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
+      if (!messageLogger.hasErrors()) {
         ICatalogDefinition catalogDefinition =
             openScenario.getOpenScenarioCategory().getCatalogDefinition();
         if (catalogDefinition != null) {
@@ -131,10 +124,10 @@ public class CatalogCache {
           if (catalog != null) {
             // Does Controller already exists
             String catalogName = catalog.getName();
-            Hashtable<String, ICatalogElement> catalogMap = catalogElements.get(catalogName);
+            Hashtable<String, ICatalogElement> catalogMap = this.catalogElements.get(catalogName);
             if (catalogMap == null) {
-              catalogMap = new Hashtable<String, ICatalogElement>();
-              catalogElements.put(catalogName, catalogMap);
+              catalogMap = new Hashtable<>();
+              this.catalogElements.put(catalogName, catalogMap);
             }
 
             List<IController> controllers = catalog.getControllers();
@@ -201,6 +194,9 @@ public class CatalogCache {
           }
         }
       }
+    } catch (ScenarioLoaderException e) {
+      // Ignore
+
     }
   }
 
@@ -213,7 +209,7 @@ public class CatalogCache {
    */
   protected ICatalogElement getCatalogElementInternal(ICatalogReference catalogReference) {
     Hashtable<String, ICatalogElement> catalog =
-        catalogElements.get(catalogReference.getCatalogName());
+        this.catalogElements.get(catalogReference.getCatalogName());
     if (catalog != null) {
       ICatalogElement catalogElement = catalog.get(catalogReference.getEntryName());
       if (catalogElement != null) {

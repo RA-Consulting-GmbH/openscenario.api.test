@@ -45,12 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
-
-  /** Filling the property to type map */
-  static {
-  }
+public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   private IAssignRouteAction assignRouteAction;
   private IFollowTrajectoryAction followTrajectoryAction;
@@ -62,23 +58,24 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Clone
     addAdapter(IRoutingAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public IAssignRouteAction getAssignRouteAction() {
-    return assignRouteAction;
+    return this.assignRouteAction;
   }
 
   @Override
   public IFollowTrajectoryAction getFollowTrajectoryAction() {
-    return followTrajectoryAction;
+    return this.followTrajectoryAction;
   }
 
   @Override
   public IAcquirePositionAction getAcquirePositionAction() {
-    return acquirePositionAction;
+    return this.acquirePositionAction;
   }
   /**
    * Sets the value of model property assignRouteAction
@@ -111,7 +108,9 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Clone
 
   @Override
   public void resolveParameterInternal(
-      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {}
+      IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
+    // Empty
+  }
 
   @Override
   public Class<?> getTypeFromAttributeName(String attributeKey) {
@@ -124,8 +123,9 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Clone
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IAssignRouteAction assignRouteAction = null;
     assignRouteAction = getAssignRouteAction();
@@ -151,6 +151,7 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Clone
    *
    * @return a deep copy of the object.
    */
+  @Override
   public RoutingActionImpl clone() {
     RoutingActionImpl clonedObject = new RoutingActionImpl();
     cloneStartMarker(clonedObject);
@@ -231,18 +232,20 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, Clone
     }
     if (key.equals(OscConstants.ELEMENT__ASSIGN_ROUTE_ACTION)) {
       return (IOpenScenarioFlexElement) getAssignRouteAction();
-    } else if (key.equals(OscConstants.ELEMENT__FOLLOW_TRAJECTORY_ACTION)) {
-      return (IOpenScenarioFlexElement) getFollowTrajectoryAction();
-    } else if (key.equals(OscConstants.ELEMENT__ACQUIRE_POSITION_ACTION)) {
-      return (IOpenScenarioFlexElement) getAcquirePositionAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__FOLLOW_TRAJECTORY_ACTION)) {
+      return (IOpenScenarioFlexElement) getFollowTrajectoryAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__ACQUIRE_POSITION_ACTION)) {
+      return (IOpenScenarioFlexElement) getAcquirePositionAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

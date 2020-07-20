@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IInfrastructureAction extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Set or overwrite a signals state or a signal
    * controllers state from a road network.

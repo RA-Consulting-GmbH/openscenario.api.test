@@ -47,8 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class EntityActionImpl extends BaseImpl implements IEntityAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -65,23 +65,24 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
     addAdapter(IEntityAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public INamedReference<IEntity> getEntityRef() {
-    return entityRef;
+    return this.entityRef;
   }
 
   @Override
   public IAddEntityAction getAddEntityAction() {
-    return addEntityAction;
+    return this.addEntityAction;
   }
 
   @Override
   public IDeleteEntityAction getDeleteEntityAction() {
-    return deleteEntityAction;
+    return this.deleteEntityAction;
   }
   /**
    * Sets the value of model property entityRef
@@ -115,8 +116,8 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTITY_REF)) {
       // Proxy
-      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(parameterLiteralValue);
-      entityRef = proxy;
+      NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
+      this.entityRef = proxy;
       removeResolvedParameter(attributeKey);
     }
   }
@@ -132,8 +133,9 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IAddEntityAction addEntityAction = null;
     addEntityAction = getAddEntityAction();
@@ -154,6 +156,7 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
    *
    * @return a deep copy of the object.
    */
+  @Override
   public EntityActionImpl clone() {
     EntityActionImpl clonedObject = new EntityActionImpl();
     cloneStartMarker(clonedObject);
@@ -196,9 +199,8 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? entityRef.getNameRef() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -238,16 +240,17 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
     }
     if (key.equals(OscConstants.ELEMENT__ADD_ENTITY_ACTION)) {
       return (IOpenScenarioFlexElement) getAddEntityAction();
-    } else if (key.equals(OscConstants.ELEMENT__DELETE_ENTITY_ACTION)) {
-      return (IOpenScenarioFlexElement) getDeleteEntityAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__DELETE_ENTITY_ACTION)) {
+      return (IOpenScenarioFlexElement) getDeleteEntityAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -266,9 +269,8 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, Cloneab
       // Get the Proxy
       INamedReference<IEntity> entityRef = getEntityRef();
       return entityRef != null ? (IOpenScenarioFlexElement) entityRef.getTargetObject() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

@@ -20,14 +20,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
-import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
-import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.AbsoluteTargetLaneImpl;
 import net.asam.xml.indexer.Position;
@@ -48,39 +44,17 @@ public class AbsoluteTargetLaneXmlParser extends XmlComplexTypeParser<AbsoluteTa
    */
   public AbsoluteTargetLaneXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, AbsoluteTargetLaneImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing AbsoluteTargetLane",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing AbsoluteTargetLane",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<AbsoluteTargetLaneImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<AbsoluteTargetLaneImpl>> result =
-        new Hashtable<String, IAttributeParser<AbsoluteTargetLaneImpl>>();
+    Map<String, IAttributeParser<AbsoluteTargetLaneImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__VALUE,
         new IAttributeParser<AbsoluteTargetLaneImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -90,9 +64,15 @@ public class AbsoluteTargetLaneXmlParser extends XmlComplexTypeParser<AbsoluteTa
               AbsoluteTargetLaneImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    AbsoluteTargetLaneXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    AbsoluteTargetLaneXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__VALUE, stripDollarSign(attributeValue), startMarker);
@@ -127,9 +107,9 @@ public class AbsoluteTargetLaneXmlParser extends XmlComplexTypeParser<AbsoluteTa
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<AbsoluteTargetLaneImpl>> createParserList() {
-      List<IElementParser<AbsoluteTargetLaneImpl>> result =
-          new ArrayList<IElementParser<AbsoluteTargetLaneImpl>>();
+      List<IElementParser<AbsoluteTargetLaneImpl>> result = new ArrayList<>();
       return result;
     }
   }

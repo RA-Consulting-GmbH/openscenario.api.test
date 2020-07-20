@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.NamedReferenceProxy;
@@ -52,41 +50,17 @@ public class LateralDistanceActionXmlParser
    */
   public LateralDistanceActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      LateralDistanceActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing LateralDistanceAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing LateralDistanceAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<LateralDistanceActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<LateralDistanceActionImpl>> result =
-        new Hashtable<String, IAttributeParser<LateralDistanceActionImpl>>();
+    Map<String, IAttributeParser<LateralDistanceActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__ENTITY_REF,
         new IAttributeParser<LateralDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -96,16 +70,22 @@ public class LateralDistanceActionXmlParser
               LateralDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__ENTITY_REF, stripDollarSign(attributeValue), startMarker);
             } else {
               // Parse value
               // Proxy
-              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<IEntity>(attributeValue);
+              NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(attributeValue);
               proxy.setParent(object);
               object.setEntityRef(proxy);
             }
@@ -121,6 +101,7 @@ public class LateralDistanceActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__DISTANCE,
         new IAttributeParser<LateralDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -130,9 +111,15 @@ public class LateralDistanceActionXmlParser
               LateralDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__DISTANCE, stripDollarSign(attributeValue), startMarker);
@@ -153,6 +140,7 @@ public class LateralDistanceActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__FREESPACE,
         new IAttributeParser<LateralDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -162,9 +150,15 @@ public class LateralDistanceActionXmlParser
               LateralDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__FREESPACE, stripDollarSign(attributeValue), startMarker);
@@ -185,6 +179,7 @@ public class LateralDistanceActionXmlParser
     result.put(
         OscConstants.ATTRIBUTE__CONTINUOUS,
         new IAttributeParser<LateralDistanceActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -194,9 +189,15 @@ public class LateralDistanceActionXmlParser
               LateralDistanceActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    LateralDistanceActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__CONTINUOUS, stripDollarSign(attributeValue), startMarker);
@@ -231,21 +232,25 @@ public class LateralDistanceActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<LateralDistanceActionImpl>> createParserList() {
-      List<IElementParser<LateralDistanceActionImpl>> result =
-          new ArrayList<IElementParser<LateralDistanceActionImpl>>();
+      List<IElementParser<LateralDistanceActionImpl>> result = new ArrayList<>();
       result.add(new SubElementDynamicConstraintsParser());
       return result;
     }
   }
   /** A parser for subelement dynamicConstraints */
+  @SuppressWarnings("synthetic-access")
   private class SubElementDynamicConstraintsParser
       implements IElementParser<LateralDistanceActionImpl> {
 
     /** Constructor */
     public SubElementDynamicConstraintsParser() {
       super();
-      dynamicConstraintsXmlParser = new DynamicConstraintsXmlParser(messageLogger, filename);
+      this.dynamicConstraintsXmlParser =
+          new DynamicConstraintsXmlParser(
+              LateralDistanceActionXmlParser.this.messageLogger,
+              LateralDistanceActionXmlParser.this.filename);
     }
 
     private DynamicConstraintsXmlParser dynamicConstraintsXmlParser;
@@ -258,7 +263,8 @@ public class LateralDistanceActionXmlParser
       DynamicConstraintsImpl dynamicConstraints = new DynamicConstraintsImpl();
       // Setting the parent
       dynamicConstraints.setParent(object);
-      dynamicConstraintsXmlParser.parseElement(indexedElement, parserContext, dynamicConstraints);
+      this.dynamicConstraintsXmlParser.parseElement(
+          indexedElement, parserContext, dynamicConstraints);
 
       object.setDynamicConstraints(dynamicConstraints);
     }

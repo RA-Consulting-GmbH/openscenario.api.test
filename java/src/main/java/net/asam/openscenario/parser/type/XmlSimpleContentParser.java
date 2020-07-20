@@ -32,6 +32,7 @@ import net.asam.xml.indexer.Position;
  * Parser for XSD:simpleContent types (a complexType Parser with no elements, just content)
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public abstract class XmlSimpleContentParser<T extends BaseImpl> extends XmlComplexTypeParser<T> {
 
@@ -60,21 +61,22 @@ public abstract class XmlSimpleContentParser<T extends BaseImpl> extends XmlComp
 
     List<IndexedElement> subElements = indexedElement.getSubElements();
     for (IndexedElement subElement : subElements) {
-      messageLogger.logMessage(
+      this.messageLogger.logMessage(
           new FileContentMessage(
               "Element '" + subElement.getElement().getNodeName() + "' is not allowed here.",
               ErrorLevel.ERROR,
               new Textmarker(
                   subElement.getStartElementLocation().getLine(),
                   subElement.getStartElementLocation().getColumn(),
-                  filename)));
+                  this.filename)));
     }
 
     Position startPosition = indexedElement.getStartElementLocation();
     object.setStartMarker(
-        new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename));
+        new Textmarker(startPosition.getLine(), startPosition.getColumn(), this.filename));
     Position endPosition = indexedElement.getStartElementLocation();
-    object.setEndMarker(new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename));
+    object.setEndMarker(
+        new Textmarker(endPosition.getLine(), endPosition.getColumn(), this.filename));
 
     parserContext.setLastElementParsed(indexedElement);
   }

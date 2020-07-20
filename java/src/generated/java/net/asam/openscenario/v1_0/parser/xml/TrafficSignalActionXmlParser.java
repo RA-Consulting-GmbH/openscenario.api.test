@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -49,36 +46,13 @@ public class TrafficSignalActionXmlParser extends XmlComplexTypeParser<TrafficSi
    */
   public TrafficSignalActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrafficSignalActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficSignalAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficSignalAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficSignalActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficSignalActionImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficSignalActionImpl>>();
+    Map<String, IAttributeParser<TrafficSignalActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -96,23 +70,26 @@ public class TrafficSignalActionXmlParser extends XmlComplexTypeParser<TrafficSi
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficSignalActionImpl>> createParserList() {
-      List<IElementParser<TrafficSignalActionImpl>> result =
-          new ArrayList<IElementParser<TrafficSignalActionImpl>>();
+      List<IElementParser<TrafficSignalActionImpl>> result = new ArrayList<>();
       result.add(new SubElementTrafficSignalControllerActionParser());
       result.add(new SubElementTrafficSignalStateActionParser());
       return result;
     }
   }
   /** A parser for subelement trafficSignalControllerAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSignalControllerActionParser
       implements IElementParser<TrafficSignalActionImpl> {
 
     /** Constructor */
     public SubElementTrafficSignalControllerActionParser() {
       super();
-      trafficSignalControllerActionXmlParser =
-          new TrafficSignalControllerActionXmlParser(messageLogger, filename);
+      this.trafficSignalControllerActionXmlParser =
+          new TrafficSignalControllerActionXmlParser(
+              TrafficSignalActionXmlParser.this.messageLogger,
+              TrafficSignalActionXmlParser.this.filename);
     }
 
     private TrafficSignalControllerActionXmlParser trafficSignalControllerActionXmlParser;
@@ -126,7 +103,7 @@ public class TrafficSignalActionXmlParser extends XmlComplexTypeParser<TrafficSi
           new TrafficSignalControllerActionImpl();
       // Setting the parent
       trafficSignalControllerAction.setParent(object);
-      trafficSignalControllerActionXmlParser.parseElement(
+      this.trafficSignalControllerActionXmlParser.parseElement(
           indexedElement, parserContext, trafficSignalControllerAction);
 
       object.setTrafficSignalControllerAction(trafficSignalControllerAction);
@@ -153,14 +130,17 @@ public class TrafficSignalActionXmlParser extends XmlComplexTypeParser<TrafficSi
     }
   }
   /** A parser for subelement trafficSignalStateAction */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficSignalStateActionParser
       implements IElementParser<TrafficSignalActionImpl> {
 
     /** Constructor */
     public SubElementTrafficSignalStateActionParser() {
       super();
-      trafficSignalStateActionXmlParser =
-          new TrafficSignalStateActionXmlParser(messageLogger, filename);
+      this.trafficSignalStateActionXmlParser =
+          new TrafficSignalStateActionXmlParser(
+              TrafficSignalActionXmlParser.this.messageLogger,
+              TrafficSignalActionXmlParser.this.filename);
     }
 
     private TrafficSignalStateActionXmlParser trafficSignalStateActionXmlParser;
@@ -173,7 +153,7 @@ public class TrafficSignalActionXmlParser extends XmlComplexTypeParser<TrafficSi
       TrafficSignalStateActionImpl trafficSignalStateAction = new TrafficSignalStateActionImpl();
       // Setting the parent
       trafficSignalStateAction.setParent(object);
-      trafficSignalStateActionXmlParser.parseElement(
+      this.trafficSignalStateActionXmlParser.parseElement(
           indexedElement, parserContext, trafficSignalStateAction);
 
       object.setTrafficSignalStateAction(trafficSignalStateAction);

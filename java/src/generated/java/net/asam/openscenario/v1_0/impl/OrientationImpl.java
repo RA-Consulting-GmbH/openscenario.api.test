@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class OrientationImpl extends BaseImpl implements IOrientation {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -68,28 +68,29 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
     addAdapter(IOrientation.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public ReferenceContext getType() {
-    return type;
+    return this.type;
   }
 
   @Override
   public Double getH() {
-    return h;
+    return this.h;
   }
 
   @Override
   public Double getP() {
-    return p;
+    return this.p;
   }
 
   @Override
   public Double getR() {
-    return r;
+    return this.r;
   }
   /**
    * Sets the value of model property type
@@ -131,7 +132,7 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
       // Enumeration Type
       ReferenceContext result = ReferenceContext.getFromLiteral(parameterLiteralValue);
       if (result != null) {
-        type = result;
+        this.type = result;
         removeResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
@@ -143,17 +144,17 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__H)) {
       // Simple type
-      h = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.h = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__P)) {
       // Simple type
-      p = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.p = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__R)) {
       // Simple type
-      r = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.r = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -169,8 +170,9 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -181,6 +183,7 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
    *
    * @return a deep copy of the object.
    */
+  @Override
   public OrientationImpl clone() {
     OrientationImpl clonedObject = new OrientationImpl();
     cloneStartMarker(clonedObject);
@@ -233,9 +236,8 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
       return getP();
     } else if (key.equals(OscConstants.ATTRIBUTE__R)) {
       return getR();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -261,6 +263,7 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
@@ -283,9 +286,8 @@ public class OrientationImpl extends BaseImpl implements IOrientation, Cloneable
     if (key.equals(OscConstants.ATTRIBUTE__TYPE)) {
       ReferenceContext type = getType();
       return type != null ? type.getLiteral() : null;
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override

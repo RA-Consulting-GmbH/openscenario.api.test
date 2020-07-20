@@ -35,6 +35,7 @@ import net.asam.xml.indexer.Position;
  * Parser for a XSD:all model group (arbitrary order of elements).
  *
  * @author Andreas Hege - RA Consulting
+ * @param <T> OpenSCENARIO model element type
  */
 public abstract class XmlAllParser<T extends BaseImpl> extends XmlModelGroupParser<T> {
 
@@ -62,11 +63,11 @@ public abstract class XmlAllParser<T extends BaseImpl> extends XmlModelGroupPars
       Position start = indexedElement.getStartElementLocation();
 
       if (parser == null) {
-        messageLogger.logMessage(
+        this.messageLogger.logMessage(
             new FileContentMessage(
                 "Unknown element '" + tagName + "'",
                 ErrorLevel.ERROR,
-                new Textmarker(start.getLine(), start.getColumn(), filename)));
+                new Textmarker(start.getLine(), start.getColumn(), this.filename)));
         lastElementParsed = indexedElement;
       } else {
         parser.parse(indexedElement, parserContext, object);
@@ -89,19 +90,19 @@ public abstract class XmlAllParser<T extends BaseImpl> extends XmlModelGroupPars
 
         String[] expectedTagNames = parser.getExpectedTagNames();
         if (expectedTagNames.length > 1) {
-          messageLogger.logMessage(
+          this.messageLogger.logMessage(
               new FileContentMessage(
                   "Required element (One of "
                       + formatExpectedTagNames(expectedTagNames)
                       + ") is missing ",
                   ErrorLevel.ERROR,
-                  new Textmarker(position.getLine(), position.getColumn(), filename)));
+                  new Textmarker(position.getLine(), position.getColumn(), this.filename)));
         } else {
-          messageLogger.logMessage(
+          this.messageLogger.logMessage(
               new FileContentMessage(
                   "Required element '" + expectedTagNames[0] + "' is missing ",
                   ErrorLevel.ERROR,
-                  new Textmarker(position.getLine(), position.getColumn(), filename)));
+                  new Textmarker(position.getLine(), position.getColumn(), this.filename)));
         }
       }
     }

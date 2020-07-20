@@ -43,8 +43,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -63,23 +63,24 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction,
     addAdapter(IVisibilityAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public Boolean getGraphics() {
-    return graphics;
+    return this.graphics;
   }
 
   @Override
   public Boolean getTraffic() {
-    return traffic;
+    return this.traffic;
   }
 
   @Override
   public Boolean getSensors() {
-    return sensors;
+    return this.sensors;
   }
   /**
    * Sets the value of model property graphics
@@ -115,19 +116,19 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction,
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__GRAPHICS)) {
       // Simple type
-      graphics =
+      this.graphics =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__TRAFFIC)) {
       // Simple type
-      traffic =
+      this.traffic =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__SENSORS)) {
       // Simple type
-      sensors =
+      this.sensors =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
@@ -144,8 +145,9 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction,
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     return result;
   }
@@ -156,6 +158,7 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction,
    *
    * @return a deep copy of the object.
    */
+  @Override
   public VisibilityActionImpl clone() {
     VisibilityActionImpl clonedObject = new VisibilityActionImpl();
     cloneStartMarker(clonedObject);
@@ -213,9 +216,8 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction,
       return getTraffic();
     } else if (key.equals(OscConstants.ATTRIBUTE__SENSORS)) {
       return getSensors();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -231,6 +233,7 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction,
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 

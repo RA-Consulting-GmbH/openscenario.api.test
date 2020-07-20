@@ -27,7 +27,6 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IControlPoint extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Optional specification of the time dimension of
    * the control point. Unit: s;Range [0..inf[.
@@ -35,7 +34,6 @@ public interface IControlPoint extends IOpenScenarioModelElement {
    * @return value of model property time
    */
   public Double getTime();
-
   /**
    * From OpenSCENARIO class model specification: Optional weight specification of the control
    * point. If unspecified, all control points will be equal weighted. Range ]-inf..inf[.
@@ -43,7 +41,6 @@ public interface IControlPoint extends IOpenScenarioModelElement {
    * @return value of model property weight
    */
   public Double getWeight();
-
   /**
    * From OpenSCENARIO class model specification: Position of the control point.
    *

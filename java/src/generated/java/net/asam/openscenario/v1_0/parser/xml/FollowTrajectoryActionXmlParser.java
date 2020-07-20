@@ -20,10 +20,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
-import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
@@ -53,38 +50,13 @@ public class FollowTrajectoryActionXmlParser
    */
   public FollowTrajectoryActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement,
-      ParserContext parserContext,
-      FollowTrajectoryActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing FollowTrajectoryAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing FollowTrajectoryAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<FollowTrajectoryActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<FollowTrajectoryActionImpl>> result =
-        new Hashtable<String, IAttributeParser<FollowTrajectoryActionImpl>>();
+    Map<String, IAttributeParser<FollowTrajectoryActionImpl>> result = new Hashtable<>();
     return result;
   }
 
@@ -102,9 +74,9 @@ public class FollowTrajectoryActionXmlParser
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<FollowTrajectoryActionImpl>> createParserList() {
-      List<IElementParser<FollowTrajectoryActionImpl>> result =
-          new ArrayList<IElementParser<FollowTrajectoryActionImpl>>();
+      List<IElementParser<FollowTrajectoryActionImpl>> result = new ArrayList<>();
       result.add(new SubElementTrajectoryParser());
       result.add(new SubElementCatalogReferenceParser());
       result.add(new SubElementTimeReferenceParser());
@@ -113,12 +85,16 @@ public class FollowTrajectoryActionXmlParser
     }
   }
   /** A parser for subelement trajectory */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrajectoryParser implements IElementParser<FollowTrajectoryActionImpl> {
 
     /** Constructor */
     public SubElementTrajectoryParser() {
       super();
-      trajectoryXmlParser = new TrajectoryXmlParser(messageLogger, filename);
+      this.trajectoryXmlParser =
+          new TrajectoryXmlParser(
+              FollowTrajectoryActionXmlParser.this.messageLogger,
+              FollowTrajectoryActionXmlParser.this.filename);
     }
 
     private TrajectoryXmlParser trajectoryXmlParser;
@@ -131,7 +107,7 @@ public class FollowTrajectoryActionXmlParser
       TrajectoryImpl trajectory = new TrajectoryImpl();
       // Setting the parent
       trajectory.setParent(object);
-      trajectoryXmlParser.parseElement(indexedElement, parserContext, trajectory);
+      this.trajectoryXmlParser.parseElement(indexedElement, parserContext, trajectory);
 
       object.setTrajectory(trajectory);
     }
@@ -157,13 +133,17 @@ public class FollowTrajectoryActionXmlParser
     }
   }
   /** A parser for subelement catalogReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementCatalogReferenceParser
       implements IElementParser<FollowTrajectoryActionImpl> {
 
     /** Constructor */
     public SubElementCatalogReferenceParser() {
       super();
-      catalogReferenceXmlParser = new CatalogReferenceXmlParser(messageLogger, filename);
+      this.catalogReferenceXmlParser =
+          new CatalogReferenceXmlParser(
+              FollowTrajectoryActionXmlParser.this.messageLogger,
+              FollowTrajectoryActionXmlParser.this.filename);
     }
 
     private CatalogReferenceXmlParser catalogReferenceXmlParser;
@@ -176,7 +156,7 @@ public class FollowTrajectoryActionXmlParser
       CatalogReferenceImpl catalogReference = new CatalogReferenceImpl();
       // Setting the parent
       catalogReference.setParent(object);
-      catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
+      this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReference);
 
       object.setCatalogReference(catalogReference);
       ((CatalogReferenceParserContext) parserContext).addCatalogReference(catalogReference);
@@ -203,13 +183,17 @@ public class FollowTrajectoryActionXmlParser
     }
   }
   /** A parser for subelement timeReference */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTimeReferenceParser
       implements IElementParser<FollowTrajectoryActionImpl> {
 
     /** Constructor */
     public SubElementTimeReferenceParser() {
       super();
-      timeReferenceXmlParser = new TimeReferenceXmlParser(messageLogger, filename);
+      this.timeReferenceXmlParser =
+          new TimeReferenceXmlParser(
+              FollowTrajectoryActionXmlParser.this.messageLogger,
+              FollowTrajectoryActionXmlParser.this.filename);
     }
 
     private TimeReferenceXmlParser timeReferenceXmlParser;
@@ -222,7 +206,7 @@ public class FollowTrajectoryActionXmlParser
       TimeReferenceImpl timeReference = new TimeReferenceImpl();
       // Setting the parent
       timeReference.setParent(object);
-      timeReferenceXmlParser.parseElement(indexedElement, parserContext, timeReference);
+      this.timeReferenceXmlParser.parseElement(indexedElement, parserContext, timeReference);
 
       object.setTimeReference(timeReference);
     }
@@ -248,14 +232,17 @@ public class FollowTrajectoryActionXmlParser
     }
   }
   /** A parser for subelement trajectoryFollowingMode */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrajectoryFollowingModeParser
       implements IElementParser<FollowTrajectoryActionImpl> {
 
     /** Constructor */
     public SubElementTrajectoryFollowingModeParser() {
       super();
-      trajectoryFollowingModeXmlParser =
-          new TrajectoryFollowingModeXmlParser(messageLogger, filename);
+      this.trajectoryFollowingModeXmlParser =
+          new TrajectoryFollowingModeXmlParser(
+              FollowTrajectoryActionXmlParser.this.messageLogger,
+              FollowTrajectoryActionXmlParser.this.filename);
     }
 
     private TrajectoryFollowingModeXmlParser trajectoryFollowingModeXmlParser;
@@ -268,7 +255,7 @@ public class FollowTrajectoryActionXmlParser
       TrajectoryFollowingModeImpl trajectoryFollowingMode = new TrajectoryFollowingModeImpl();
       // Setting the parent
       trajectoryFollowingMode.setParent(object);
-      trajectoryFollowingModeXmlParser.parseElement(
+      this.trajectoryFollowingModeXmlParser.parseElement(
           indexedElement, parserContext, trajectoryFollowingMode);
 
       object.setTrajectoryFollowingMode(trajectoryFollowingMode);

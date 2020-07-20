@@ -29,28 +29,24 @@ import net.asam.openscenario.common.INamedReference;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IRelativeDistanceCondition extends IOpenScenarioModelElement {
-
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @return value of model property entityRef
    */
   public INamedReference<IEntity> getEntityRef();
-
   /**
    * From OpenSCENARIO class model specification: The domain the distance is calculated in.
    *
    * @return value of model property relativeDistanceType
    */
   public RelativeDistanceType getRelativeDistanceType();
-
   /**
    * From OpenSCENARIO class model specification: The distance value. Unit: m; Range: [0..inf[.
    *
    * @return value of model property value
    */
   public Double getValue();
-
   /**
    * From OpenSCENARIO class model specification: True: distance is measured between closest
    * bounding box points. False: reference point distance is used.
@@ -58,7 +54,6 @@ public interface IRelativeDistanceCondition extends IOpenScenarioModelElement {
    * @return value of model property freespace
    */
   public Boolean getFreespace();
-
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *

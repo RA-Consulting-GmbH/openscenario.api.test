@@ -17,10 +17,6 @@
 
 package net.asam.openscenario.v1_0.test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.Scanner;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -37,7 +33,7 @@ public class TestMain extends TestBase {
   public void testFileNoteFound() {
     OpenScenarioChecker.main(new String[] {"testFileNoteFound"});
     Assertions.assertEquals(
-        "Scenario file not found 'testFileNoteFound'", getLine(testOut.toString(), 4));
+        "Scenario file not found 'testFileNoteFound'", getLine(this.testOut.toString(), 4));
   }
 
   @Test
@@ -45,7 +41,7 @@ public class TestMain extends TestBase {
     String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
     OpenScenarioChecker.main(new String[] {filename});
     Assertions.assertEquals(
-        "Validation failed with 2 errors and 0 warnings.", getLine(testOut.toString(), 10));
+        "Validation failed with 2 errors and 0 warnings.", getLine(this.testOut.toString(), 10));
   }
 
   @Test
@@ -54,7 +50,7 @@ public class TestMain extends TestBase {
     OpenScenarioChecker.main(new String[] {filename, "Test"});
     Assertions.assertEquals(
         "Usage: [inputfile] [-paramsfile injectedParameterFile]|[-v]",
-        getLine(testOut.toString(), 4));
+        getLine(this.testOut.toString(), 4));
   }
 
   @Test
@@ -62,13 +58,14 @@ public class TestMain extends TestBase {
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = getResourceFile("params.conf").getAbsolutePath();
     OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
-    Assertions.assertEquals("\ttestBoolean\ttrue", getLine(testOut.toString(), 5));
-    Assertions.assertEquals("\ttestDateTime\t2018-02-24T10:00:00", getLine(testOut.toString(), 6));
-    Assertions.assertEquals("\ttestDouble\t2.0", getLine(testOut.toString(), 7));
-    Assertions.assertEquals("\ttestInteger\t2", getLine(testOut.toString(), 8));
-    Assertions.assertEquals("\ttestString\tinjected", getLine(testOut.toString(), 9));
-    Assertions.assertEquals("\ttestUnsignedInt\t2", getLine(testOut.toString(), 10));
-    Assertions.assertEquals("\ttestUnsignedShort\t2", getLine(testOut.toString(), 11));
+    Assertions.assertEquals("\ttestBoolean\ttrue", getLine(this.testOut.toString(), 5));
+    Assertions.assertEquals(
+        "\ttestDateTime\t2018-02-24T10:00:00", getLine(this.testOut.toString(), 6));
+    Assertions.assertEquals("\ttestDouble\t2.0", getLine(this.testOut.toString(), 7));
+    Assertions.assertEquals("\ttestInteger\t2", getLine(this.testOut.toString(), 8));
+    Assertions.assertEquals("\ttestString\tinjected", getLine(this.testOut.toString(), 9));
+    Assertions.assertEquals("\ttestUnsignedInt\t2", getLine(this.testOut.toString(), 10));
+    Assertions.assertEquals("\ttestUnsignedShort\t2", getLine(this.testOut.toString(), 11));
   }
 
   @Test
@@ -79,7 +76,7 @@ public class TestMain extends TestBase {
     String paramFileName = getResourceFile("paramsSyntaxError.conf").getAbsolutePath();
     OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
     Assertions.assertEquals(
-        "Syntax error in parameter file: line 8", getLine(testOut.toString(), 4));
+        "Syntax error in parameter file: line 8", getLine(this.testOut.toString(), 4));
   }
 
   @Test
@@ -90,7 +87,7 @@ public class TestMain extends TestBase {
     String paramFileName = getResourceFile("paramsSyntaxError2.conf").getAbsolutePath();
     OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
     Assertions.assertEquals(
-        "Syntax error in parameter file: line 5", getLine(testOut.toString(), 4));
+        "Syntax error in parameter file: line 5", getLine(this.testOut.toString(), 4));
   }
 
   @Test
@@ -100,7 +97,7 @@ public class TestMain extends TestBase {
     String paramFileName = "paramsNotFound.conf";
     OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
 
-    Assertions.assertEquals("paramsfile not found", getLine(testOut.toString(), 4));
+    Assertions.assertEquals("paramsfile not found", getLine(this.testOut.toString(), 4));
   }
 
   // Use these lines to make stout visible

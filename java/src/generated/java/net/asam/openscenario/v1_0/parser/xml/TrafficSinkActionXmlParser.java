@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.parser.ParserContext;
@@ -50,39 +48,17 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
    */
   public TrafficSinkActionXmlParser(IParserMessageLogger messageLogger, String filename) {
     super(messageLogger, filename);
-    subElementParser = new SubElementParser(messageLogger, filename);
-  }
-
-  @Override
-  public void parseElement(
-      IndexedElement indexedElement, ParserContext parserContext, TrafficSinkActionImpl object) {
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "Start Parsing TrafficSinkAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getStartElementLocation().getLine(),
-                indexedElement.getStartElementLocation().getColumn(),
-                filename)));
-    super.parseElement(indexedElement, parserContext, object);
-    messageLogger.logMessage(
-        new FileContentMessage(
-            "End Parsing TrafficSinkAction",
-            ErrorLevel.DEBUG,
-            new Textmarker(
-                indexedElement.getEndElementLocation().getLine(),
-                indexedElement.getEndElementLocation().getColumn(),
-                filename)));
+    this.subElementParser = new SubElementParser(messageLogger, filename);
   }
 
   @Override
   protected Map<String, IAttributeParser<TrafficSinkActionImpl>>
       getAttributeNameToAttributeParserMap() {
-    Map<String, IAttributeParser<TrafficSinkActionImpl>> result =
-        new Hashtable<String, IAttributeParser<TrafficSinkActionImpl>>();
+    Map<String, IAttributeParser<TrafficSinkActionImpl>> result = new Hashtable<>();
     result.put(
         OscConstants.ATTRIBUTE__RATE,
         new IAttributeParser<TrafficSinkActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -92,9 +68,15 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
               TrafficSinkActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSinkActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSinkActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RATE, stripDollarSign(attributeValue), startMarker);
@@ -115,6 +97,7 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
     result.put(
         OscConstants.ATTRIBUTE__RADIUS,
         new IAttributeParser<TrafficSinkActionImpl>() {
+          @SuppressWarnings("synthetic-access")
           @Override
           public void parse(
               Position startPosition,
@@ -124,9 +107,15 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
               TrafficSinkActionImpl object) {
 
             Textmarker startMarker =
-                new Textmarker(startPosition.getLine(), startPosition.getColumn(), filename);
+                new Textmarker(
+                    startPosition.getLine(),
+                    startPosition.getColumn(),
+                    TrafficSinkActionXmlParser.this.filename);
             Textmarker endMarker =
-                new Textmarker(endPosition.getLine(), endPosition.getColumn(), filename);
+                new Textmarker(
+                    endPosition.getLine(),
+                    endPosition.getColumn(),
+                    TrafficSinkActionXmlParser.this.filename);
             if (isParametrized(attributeValue)) {
               object.setAttributeParameter(
                   OscConstants.ATTRIBUTE__RADIUS, stripDollarSign(attributeValue), startMarker);
@@ -161,21 +150,25 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
     /*
      * Creates a list of parser
      */
+    @Override
     protected List<IElementParser<TrafficSinkActionImpl>> createParserList() {
-      List<IElementParser<TrafficSinkActionImpl>> result =
-          new ArrayList<IElementParser<TrafficSinkActionImpl>>();
+      List<IElementParser<TrafficSinkActionImpl>> result = new ArrayList<>();
       result.add(new SubElementPositionParser());
       result.add(new SubElementTrafficDefinitionParser());
       return result;
     }
   }
   /** A parser for subelement position */
+  @SuppressWarnings("synthetic-access")
   private class SubElementPositionParser implements IElementParser<TrafficSinkActionImpl> {
 
     /** Constructor */
     public SubElementPositionParser() {
       super();
-      positionXmlParser = new PositionXmlParser(messageLogger, filename);
+      this.positionXmlParser =
+          new PositionXmlParser(
+              TrafficSinkActionXmlParser.this.messageLogger,
+              TrafficSinkActionXmlParser.this.filename);
     }
 
     private PositionXmlParser positionXmlParser;
@@ -186,7 +179,7 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
       PositionImpl position = new PositionImpl();
       // Setting the parent
       position.setParent(object);
-      positionXmlParser.parseElement(indexedElement, parserContext, position);
+      this.positionXmlParser.parseElement(indexedElement, parserContext, position);
 
       object.setPosition(position);
     }
@@ -212,12 +205,16 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
     }
   }
   /** A parser for subelement trafficDefinition */
+  @SuppressWarnings("synthetic-access")
   private class SubElementTrafficDefinitionParser implements IElementParser<TrafficSinkActionImpl> {
 
     /** Constructor */
     public SubElementTrafficDefinitionParser() {
       super();
-      trafficDefinitionXmlParser = new TrafficDefinitionXmlParser(messageLogger, filename);
+      this.trafficDefinitionXmlParser =
+          new TrafficDefinitionXmlParser(
+              TrafficSinkActionXmlParser.this.messageLogger,
+              TrafficSinkActionXmlParser.this.filename);
     }
 
     private TrafficDefinitionXmlParser trafficDefinitionXmlParser;
@@ -228,7 +225,8 @@ public class TrafficSinkActionXmlParser extends XmlComplexTypeParser<TrafficSink
       TrafficDefinitionImpl trafficDefinition = new TrafficDefinitionImpl();
       // Setting the parent
       trafficDefinition.setParent(object);
-      trafficDefinitionXmlParser.parseElement(indexedElement, parserContext, trafficDefinition);
+      this.trafficDefinitionXmlParser.parseElement(
+          indexedElement, parserContext, trafficDefinition);
 
       object.setTrafficDefinition(trafficDefinition);
     }

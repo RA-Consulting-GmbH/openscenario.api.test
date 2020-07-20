@@ -46,8 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActionImpl extends BaseImpl implements IAction, Cloneable {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<String, Class<?>>();
+public class ActionImpl extends BaseImpl implements IAction {
+  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
@@ -65,28 +65,29 @@ public class ActionImpl extends BaseImpl implements IAction, Cloneable {
     addAdapter(IAction.class, this);
   }
 
+  @Override
   public IOpenScenarioFlexElement getOpenScenarioFlexElement() {
     return this;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public IGlobalAction getGlobalAction() {
-    return globalAction;
+    return this.globalAction;
   }
 
   @Override
   public IUserDefinedAction getUserDefinedAction() {
-    return userDefinedAction;
+    return this.userDefinedAction;
   }
 
   @Override
   public IPrivateAction getPrivateAction() {
-    return privateAction;
+    return this.privateAction;
   }
   /**
    * Sets the value of model property name
@@ -129,7 +130,8 @@ public class ActionImpl extends BaseImpl implements IAction, Cloneable {
       IParserMessageLogger logger, String attributeKey, String parameterLiteralValue) {
     if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
-      name = ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
+      this.name =
+          ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
       removeResolvedParameter(attributeKey);
     }
   }
@@ -145,8 +147,9 @@ public class ActionImpl extends BaseImpl implements IAction, Cloneable {
    *
    * @return a list with all children (as BaseImpl)
    */
+  @Override
   public List<BaseImpl> getChildren() {
-    List<BaseImpl> result = new ArrayList<BaseImpl>();
+    List<BaseImpl> result = new ArrayList<>();
 
     IGlobalAction globalAction = null;
     globalAction = getGlobalAction();
@@ -172,6 +175,7 @@ public class ActionImpl extends BaseImpl implements IAction, Cloneable {
    *
    * @return a deep copy of the object.
    */
+  @Override
   public ActionImpl clone() {
     ActionImpl clonedObject = new ActionImpl();
     cloneStartMarker(clonedObject);
@@ -217,9 +221,8 @@ public class ActionImpl extends BaseImpl implements IAction, Cloneable {
     }
     if (key.equals(OscConstants.ATTRIBUTE__NAME)) {
       return getName();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    throw new KeyNotSupportedException();
   }
 
   @Override
@@ -259,18 +262,20 @@ public class ActionImpl extends BaseImpl implements IAction, Cloneable {
     }
     if (key.equals(OscConstants.ELEMENT__GLOBAL_ACTION)) {
       return (IOpenScenarioFlexElement) getGlobalAction();
-    } else if (key.equals(OscConstants.ELEMENT__USER_DEFINED_ACTION)) {
-      return (IOpenScenarioFlexElement) getUserDefinedAction();
-    } else if (key.equals(OscConstants.ELEMENT__PRIVATE_ACTION)) {
-      return (IOpenScenarioFlexElement) getPrivateAction();
-    } else {
-      throw new KeyNotSupportedException();
     }
+    if (key.equals(OscConstants.ELEMENT__USER_DEFINED_ACTION)) {
+      return (IOpenScenarioFlexElement) getUserDefinedAction();
+    }
+    if (key.equals(OscConstants.ELEMENT__PRIVATE_ACTION)) {
+      return (IOpenScenarioFlexElement) getPrivateAction();
+    }
+    throw new KeyNotSupportedException();
   }
 
   @Override
   public List<IOpenScenarioFlexElement> getListChildElement(String key)
       throws KeyNotSupportedException {
+
     throw new KeyNotSupportedException();
   }
 
