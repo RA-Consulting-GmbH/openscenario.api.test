@@ -86,7 +86,7 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef {
       // Proxy
       NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
       this.entityRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

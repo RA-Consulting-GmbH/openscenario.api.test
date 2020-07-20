@@ -22,6 +22,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.sound.midi.SysexMessage;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -76,8 +78,8 @@ public class TestFlexInterface extends TestBase {
 
     try {
       // Date Time
-      String expectedDateString = "2017-02-24 10:00:00";
-      Date expectedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(expectedDateString);
+      String expectedDateString = "2001-10-26T21:32:52";
+      Date expectedDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(expectedDateString);
       Date date = flexElement.getDateTimeProperty(OscConstants.ATTRIBUTE__DATE);
       Assertions.assertEquals(expectedDate, date);
 
@@ -227,6 +229,7 @@ public class TestFlexInterface extends TestBase {
           });
 
     } catch (Error | KeyNotSupportedException | ParseException e) {
+      e.printStackTrace();
       Assertions.fail();
     }
   }

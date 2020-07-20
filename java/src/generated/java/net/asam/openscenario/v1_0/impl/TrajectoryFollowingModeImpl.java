@@ -92,7 +92,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
       FollowingMode result = FollowingMode.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.followingMode = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

@@ -143,20 +143,20 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
       // Proxy
       NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
       this.entityRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VALUE)) {
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)) {
       // Enumeration Type
       SpeedTargetValueType result = SpeedTargetValueType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.speedTargetValueType = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -169,7 +169,7 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
       // Simple type
       this.continuous =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

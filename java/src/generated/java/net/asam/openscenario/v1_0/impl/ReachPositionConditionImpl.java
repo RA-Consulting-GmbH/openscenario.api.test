@@ -102,7 +102,7 @@ public class ReachPositionConditionImpl extends BaseImpl implements IReachPositi
       // Simple type
       this.tolerance =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

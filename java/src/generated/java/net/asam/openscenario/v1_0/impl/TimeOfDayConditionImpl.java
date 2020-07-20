@@ -103,7 +103,7 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.rule = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -116,7 +116,7 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
       // Simple type
       this.dateTime =
           ParserHelper.parseDateTime(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

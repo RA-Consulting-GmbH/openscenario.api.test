@@ -170,7 +170,7 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject {
       MiscObjectCategory result = MiscObjectCategory.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.miscObjectCategory = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -183,13 +183,13 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject {
       // Simple type
       this.mass =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

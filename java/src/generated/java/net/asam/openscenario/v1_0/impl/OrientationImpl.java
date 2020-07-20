@@ -133,7 +133,7 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
       ReferenceContext result = ReferenceContext.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.type = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -145,17 +145,17 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__H)) {
       // Simple type
       this.h = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__P)) {
       // Simple type
       this.p = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__R)) {
       // Simple type
       this.r = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

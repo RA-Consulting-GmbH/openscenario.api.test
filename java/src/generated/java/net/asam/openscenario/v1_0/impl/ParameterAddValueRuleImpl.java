@@ -85,7 +85,7 @@ public class ParameterAddValueRuleImpl extends BaseImpl implements IParameterAdd
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

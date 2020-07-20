@@ -117,7 +117,7 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
       // Simple type
       this.targetLaneOffset =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

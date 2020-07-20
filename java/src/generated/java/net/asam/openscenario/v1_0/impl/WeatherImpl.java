@@ -136,7 +136,7 @@ public class WeatherImpl extends BaseImpl implements IWeather {
       CloudState result = CloudState.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.cloudState = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

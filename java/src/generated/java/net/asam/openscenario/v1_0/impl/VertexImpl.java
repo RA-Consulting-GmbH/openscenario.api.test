@@ -100,7 +100,7 @@ public class VertexImpl extends BaseImpl implements IVertex {
       // Simple type
       this.time =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

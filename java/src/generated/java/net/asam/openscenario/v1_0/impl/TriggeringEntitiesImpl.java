@@ -103,7 +103,7 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
       TriggeringEntitiesRule result = TriggeringEntitiesRule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.triggeringEntitiesRule = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

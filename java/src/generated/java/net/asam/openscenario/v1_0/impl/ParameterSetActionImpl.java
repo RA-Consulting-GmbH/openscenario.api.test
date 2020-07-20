@@ -84,7 +84,7 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
       // Simple type
       this.value =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

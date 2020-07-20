@@ -107,7 +107,7 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
       VehicleCategory result = VehicleCategory.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.category = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -120,7 +120,7 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
       // Simple type
       this.weight =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

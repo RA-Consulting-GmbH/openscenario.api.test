@@ -134,7 +134,7 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
       // Proxy
       NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
       this.masterEntityRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

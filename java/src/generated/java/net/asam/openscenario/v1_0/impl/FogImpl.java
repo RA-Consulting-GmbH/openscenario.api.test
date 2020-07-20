@@ -100,7 +100,7 @@ public class FogImpl extends BaseImpl implements IFog {
       // Simple type
       this.visualRange =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

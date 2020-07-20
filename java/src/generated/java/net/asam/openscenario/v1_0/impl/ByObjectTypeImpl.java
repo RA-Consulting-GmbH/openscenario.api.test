@@ -87,7 +87,7 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
       ObjectType result = ObjectType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.type = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

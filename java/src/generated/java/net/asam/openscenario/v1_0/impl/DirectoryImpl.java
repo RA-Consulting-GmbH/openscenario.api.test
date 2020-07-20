@@ -85,7 +85,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectory {
       // Simple type
       this.path =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

@@ -86,7 +86,7 @@ public class TraveledDistanceConditionImpl extends BaseImpl implements ITraveled
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

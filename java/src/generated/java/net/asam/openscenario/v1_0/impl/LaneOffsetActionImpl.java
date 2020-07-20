@@ -118,7 +118,7 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
       // Simple type
       this.continuous =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

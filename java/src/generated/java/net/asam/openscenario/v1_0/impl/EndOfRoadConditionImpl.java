@@ -85,7 +85,7 @@ public class EndOfRoadConditionImpl extends BaseImpl implements IEndOfRoadCondit
       // Simple type
       this.duration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

@@ -120,7 +120,7 @@ public class NurbsImpl extends BaseImpl implements INurbs {
       // Simple type
       this.order =
           ParserHelper.parseUnsignedInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

@@ -132,13 +132,13 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
       // Simple type
       this.catalogName =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ENTRY_NAME)) {
       // Simple type
       this.entryName =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

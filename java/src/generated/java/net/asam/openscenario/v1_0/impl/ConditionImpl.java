@@ -152,20 +152,20 @@ public class ConditionImpl extends BaseImpl implements ICondition {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DELAY)) {
       // Simple type
       this.delay =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__CONDITION_EDGE)) {
       // Enumeration Type
       ConditionEdge result = ConditionEdge.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.conditionEdge = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

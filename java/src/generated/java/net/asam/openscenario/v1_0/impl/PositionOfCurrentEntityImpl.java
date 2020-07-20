@@ -87,7 +87,7 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
       // Proxy
       NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
       this.entityRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

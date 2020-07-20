@@ -123,7 +123,7 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
       DynamicsShape result = DynamicsShape.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.dynamicsShape = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -136,14 +136,14 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION)) {
       // Enumeration Type
       DynamicsDimension result = DynamicsDimension.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.dynamicsDimension = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

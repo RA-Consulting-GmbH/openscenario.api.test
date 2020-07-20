@@ -101,7 +101,7 @@ public class ActorsImpl extends BaseImpl implements IActors {
       // Simple type
       this.selectTriggeringEntities =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

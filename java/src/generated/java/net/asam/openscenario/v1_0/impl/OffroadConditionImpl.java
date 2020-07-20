@@ -85,7 +85,7 @@ public class OffroadConditionImpl extends BaseImpl implements IOffroadCondition 
       // Simple type
       this.duration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

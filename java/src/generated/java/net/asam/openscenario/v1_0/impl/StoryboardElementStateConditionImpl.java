@@ -127,7 +127,7 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
       StoryboardElementType result = StoryboardElementType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.storyboardElementType = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -141,14 +141,14 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
       NamedReferenceProxy<IStoryboardElement> proxy =
           new NamedReferenceProxy<>(parameterLiteralValue);
       this.storyboardElementRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__STATE)) {
       // Enumeration Type
       StoryboardElementState result = StoryboardElementState.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.state = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

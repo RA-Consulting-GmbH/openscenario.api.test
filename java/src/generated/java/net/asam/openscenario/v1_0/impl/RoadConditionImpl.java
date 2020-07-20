@@ -101,7 +101,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
       // Simple type
       this.frictionScaleFactor =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

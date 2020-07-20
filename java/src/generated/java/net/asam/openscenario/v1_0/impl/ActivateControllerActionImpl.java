@@ -102,13 +102,13 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
       // Simple type
       this.lateral =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__LONGITUDINAL)) {
       // Simple type
       this.longitudinal =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

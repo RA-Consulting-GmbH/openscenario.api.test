@@ -116,7 +116,7 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

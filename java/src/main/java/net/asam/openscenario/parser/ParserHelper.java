@@ -17,9 +17,11 @@
 
 package net.asam.openscenario.parser;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
-
-import javax.xml.bind.DatatypeConverter;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
@@ -65,7 +67,7 @@ public class ParserHelper {
       IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
 
     try {
-      long result = DatatypeConverter.parseLong(xmlValue);
+      long result = Long.parseLong(xmlValue);
       if (result > UNSIGNED_INT_MAX_VALUE || result < 0) {
         messageLogger.logMessage(
             new FileContentMessage(
@@ -103,7 +105,7 @@ public class ParserHelper {
       IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
 
     try {
-      Integer result = DatatypeConverter.parseInt(xmlValue);
+      Integer result = Integer.parseInt(xmlValue);
       return result;
 
     } catch (NumberFormatException e) {
@@ -128,7 +130,7 @@ public class ParserHelper {
   public static Double parseDouble(
       IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
     try {
-      Double result = DatatypeConverter.parseDouble(xmlValue);
+      Double result = Double.parseDouble(xmlValue);
       return result;
 
     } catch (NumberFormatException e) {
@@ -155,7 +157,7 @@ public class ParserHelper {
       IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
 
     try {
-      Integer result = DatatypeConverter.parseInt(xmlValue);
+      Integer result = Integer.parseInt(xmlValue);
       if (result > 2 * UNSIGNED_SHORT_MAX_VALUE || result < 0) {
         messageLogger.logMessage(
             new FileContentMessage(
@@ -219,18 +221,18 @@ public class ParserHelper {
   public static Date parseDateTime(
       IParserMessageLogger messageLogger, String xmlValue, Textmarker textMarker) {
 
+    Date result = null;
     try {
-      Date result = DatatypeConverter.parseDateTime(xmlValue).getTime();
-      return result;
-
-    } catch (IllegalArgumentException e) {
+      LocalDateTime date = LocalDateTime.parse(xmlValue, DateTimeFormatter.ISO_DATE_TIME);
+      result = Date.from(date.atZone(ZoneId.systemDefault()).toInstant());
+    } catch (DateTimeParseException e) {
       messageLogger.logMessage(
           new FileContentMessage(
               "Cannot convert '" + xmlValue + "' to a dateTime. Illegal dateTime value.",
               ErrorLevel.ERROR,
               textMarker));
     }
-    return null;
+    return result;
   }
 
   /**
@@ -244,7 +246,7 @@ public class ParserHelper {
   public static void validateUnsignedInt(String xmlValue) throws Exception {
 
     try {
-      Long result = DatatypeConverter.parseLong(xmlValue);
+      Long result = Long.parseLong(xmlValue);
       if (result > UNSIGNED_INT_MAX_VALUE || result < 0) {
         throw new Exception(
             "Cannot convert '"
@@ -270,7 +272,7 @@ public class ParserHelper {
   public static void validateInt(String xmlValue) throws Exception {
 
     try {
-      DatatypeConverter.parseInt(xmlValue);
+      Integer.parseInt(xmlValue);
 
     } catch (NumberFormatException e) {
       throw new Exception("Cannot convert '" + xmlValue + "' to an int. Number format error.");
@@ -286,7 +288,7 @@ public class ParserHelper {
    */
   public static void validateDouble(String xmlValue) throws Exception {
     try {
-      DatatypeConverter.parseDouble(xmlValue);
+      Double.parseDouble(xmlValue);
 
     } catch (NumberFormatException e) {
       throw new Exception("Cannot convert '" + xmlValue + "' to a double. Number format error.");
@@ -304,7 +306,7 @@ public class ParserHelper {
   public static void validateUnsignedShort(String xmlValue) throws Exception {
 
     try {
-      Integer result = DatatypeConverter.parseInt(xmlValue);
+      Integer result = Integer.parseInt(xmlValue);
       if (result > 2 * UNSIGNED_SHORT_MAX_VALUE || result < 0) {
         throw new Exception(
             "Cannot convert '"
@@ -347,9 +349,9 @@ public class ParserHelper {
   public static void validateDateTime(String xmlValue) throws Exception {
 
     try {
-      DatatypeConverter.parseDateTime(xmlValue).getTime();
+      LocalDateTime.parse(xmlValue, DateTimeFormatter.ISO_DATE_TIME);
 
-    } catch (IllegalArgumentException e) {
+    } catch (DateTimeParseException e) {
       throw new Exception(
           "Cannot convert '" + xmlValue + "' to a dateTime. Illegal dateTime value.");
     }
