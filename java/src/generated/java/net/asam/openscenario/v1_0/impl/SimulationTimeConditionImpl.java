@@ -104,14 +104,14 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__RULE)) {
       // Enumeration Type
       Rule result = Rule.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.rule = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

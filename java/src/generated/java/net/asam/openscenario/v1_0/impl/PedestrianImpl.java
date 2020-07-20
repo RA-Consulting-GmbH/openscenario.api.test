@@ -184,26 +184,26 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
       // Simple type
       this.model =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__MASS)) {
       // Simple type
       this.mass =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY)) {
       // Enumeration Type
       PedestrianCategory result = PedestrianCategory.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.pedestrianCategory = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

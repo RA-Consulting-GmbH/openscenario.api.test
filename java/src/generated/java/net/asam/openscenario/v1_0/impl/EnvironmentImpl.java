@@ -150,7 +150,7 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

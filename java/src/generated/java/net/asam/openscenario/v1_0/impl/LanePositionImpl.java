@@ -149,24 +149,24 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
       // Simple type
       this.roadId =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__LANE_ID)) {
       // Simple type
       this.laneId =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__OFFSET)) {
       // Simple type
       this.offset =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__S)) {
       // Simple type
       this.s = ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

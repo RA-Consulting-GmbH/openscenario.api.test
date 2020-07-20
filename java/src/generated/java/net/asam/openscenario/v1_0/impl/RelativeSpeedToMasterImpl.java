@@ -105,14 +105,14 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)) {
       // Enumeration Type
       SpeedTargetValueType result = SpeedTargetValueType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.speedTargetValueType = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

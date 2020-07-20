@@ -85,7 +85,7 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
       // Simple type
       this.value =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

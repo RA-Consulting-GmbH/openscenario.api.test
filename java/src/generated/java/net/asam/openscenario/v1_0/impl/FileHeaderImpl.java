@@ -149,32 +149,32 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
       this.revMajor =
           ParserHelper.parseUnsignedShort(
               logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__REV_MINOR)) {
       // Simple type
       this.revMinor =
           ParserHelper.parseUnsignedShort(
               logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DATE)) {
       // Simple type
       this.date =
           ParserHelper.parseDateTime(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DESCRIPTION)) {
       // Simple type
       this.description =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__AUTHOR)) {
       // Simple type
       this.author =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

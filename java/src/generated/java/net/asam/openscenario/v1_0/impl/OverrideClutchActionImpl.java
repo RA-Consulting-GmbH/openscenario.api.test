@@ -101,13 +101,13 @@ public class OverrideClutchActionImpl extends BaseImpl implements IOverrideClutc
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__ACTIVE)) {
       // Simple type
       this.active =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

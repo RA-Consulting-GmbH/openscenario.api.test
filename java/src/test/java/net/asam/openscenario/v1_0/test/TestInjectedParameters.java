@@ -101,8 +101,8 @@ public class TestInjectedParameters extends TestBase {
               .getByValueCondition()
               .getTimeOfDayCondition()
               .getDateTime();
-      String formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-      Assertions.assertEquals("2018-02-24 10:00:00", formattedDate);
+      String formattedDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(date);
+      Assertions.assertEquals("2018-02-24T10:00:00", formattedDate);
       // testDouble
       Assertions.assertEquals(
           2.0d, getLaneChangeAction(event).getLaneChangeActionDynamics().getValue());
@@ -172,7 +172,6 @@ public class TestInjectedParameters extends TestBase {
               "Injected parameter 'testBoolean': Cannot convert 'wrongBoolean' to a boolean. Illegal boolean value. Injected parameter is ignored.",
               ErrorLevel.ERROR,
               new Textmarker(20, 2, filename)));
-
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.fail();

@@ -17,6 +17,7 @@
 
 package net.asam.openscenario.impl;
 
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
@@ -42,6 +43,7 @@ public abstract class BaseImpl
         Cloneable {
 
   private Hashtable<String, ParameterizedAttribute> attributeKeyToParameterName = new Hashtable<>();
+  private Set<String> resolvedAttributes = new HashSet<>();
   private Hashtable<String, Textmarker> attributeKeyToStartMarker = new Hashtable<>();
   private Hashtable<String, Textmarker> attributeKeyToEndMarker = new Hashtable<>();
   private Hashtable<Class<?>, Object> adapters = new Hashtable<>();
@@ -95,6 +97,11 @@ public abstract class BaseImpl
     this.adapters.put(classifier, object);
   }
 
+  @Override
+  public Set<String> getResolvedAttributeKeys()
+  {
+	  return this.resolvedAttributes;
+  }
   /**
    * Puts a start marker for a specific property
    *
@@ -179,12 +186,12 @@ public abstract class BaseImpl
   }
 
   /**
-   * Removes the resolved attribute value from the list of unresolved parameters.
+   * Adds the resolved attribute value to the list of resolved parameters.
    *
    * @param attributeKey attribute key of the property.
    */
-  protected void removeResolvedParameter(String attributeKey) {
-    // attributeKeyToParameterName.remove(attributeKey);
+  protected void addResolvedParameter(String attributeKey) {
+    this.resolvedAttributes.add(attributeKey);
   }
 
   @Override

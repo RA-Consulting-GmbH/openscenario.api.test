@@ -184,14 +184,14 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__VEHICLE_CATEGORY)) {
       // Enumeration Type
       VehicleCategory result = VehicleCategory.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.vehicleCategory = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

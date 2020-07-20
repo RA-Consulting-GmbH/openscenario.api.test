@@ -118,7 +118,7 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction {
       // Proxy
       NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
       this.entityRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

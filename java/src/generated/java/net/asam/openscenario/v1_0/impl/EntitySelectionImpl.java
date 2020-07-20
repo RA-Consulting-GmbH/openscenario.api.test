@@ -101,7 +101,7 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

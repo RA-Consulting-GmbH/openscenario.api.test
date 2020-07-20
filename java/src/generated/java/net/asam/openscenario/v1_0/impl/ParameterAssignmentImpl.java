@@ -103,7 +103,7 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
       // Simple type
       this.value =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

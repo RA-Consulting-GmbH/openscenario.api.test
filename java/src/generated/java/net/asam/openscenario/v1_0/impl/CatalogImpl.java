@@ -212,7 +212,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

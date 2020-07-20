@@ -150,7 +150,7 @@ public class EventImpl extends BaseImpl implements IEvent {
       Priority result = Priority.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.priority = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -163,13 +163,13 @@ public class EventImpl extends BaseImpl implements IEvent {
       // Simple type
       this.maximumExecutionCount =
           ParserHelper.parseUnsignedInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

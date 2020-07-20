@@ -118,7 +118,7 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
       ParameterType result = ParameterType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.parameterType = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -131,7 +131,7 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
       // Simple type
       this.value =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

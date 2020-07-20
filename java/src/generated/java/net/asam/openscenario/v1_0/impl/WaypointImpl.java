@@ -104,7 +104,7 @@ public class WaypointImpl extends BaseImpl implements IWaypoint {
       RouteStrategy result = RouteStrategy.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.routeStrategy = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

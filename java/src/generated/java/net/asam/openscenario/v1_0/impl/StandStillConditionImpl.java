@@ -85,7 +85,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
       // Simple type
       this.duration =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

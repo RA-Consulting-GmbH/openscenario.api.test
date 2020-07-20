@@ -146,13 +146,13 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
       // Simple type
       this.maximumExecutionCount =
           ParserHelper.parseUnsignedInt(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__NAME)) {
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

@@ -105,7 +105,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
       PrecipitationType result = PrecipitationType.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.precipitationType = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -118,7 +118,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
       // Simple type
       this.intensity =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

@@ -125,13 +125,13 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
       NamedReferenceProxy<ITrafficSignalController> proxy =
           new NamedReferenceProxy<>(parameterLiteralValue);
       this.trafficSignalControllerRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__PHASE)) {
       // Simple type
       this.phase =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

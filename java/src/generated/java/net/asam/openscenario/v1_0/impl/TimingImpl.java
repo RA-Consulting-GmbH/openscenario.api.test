@@ -122,7 +122,7 @@ public class TimingImpl extends BaseImpl implements ITiming {
       ReferenceContext result = ReferenceContext.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.domainAbsoluteRelative = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(
@@ -135,13 +135,13 @@ public class TimingImpl extends BaseImpl implements ITiming {
       // Simple type
       this.scale =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__OFFSET)) {
       // Simple type
       this.offset =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

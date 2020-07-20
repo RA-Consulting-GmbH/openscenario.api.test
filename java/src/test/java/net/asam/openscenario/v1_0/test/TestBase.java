@@ -44,7 +44,7 @@ import net.asam.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 public class TestBase {
 
   protected MessageLogger messageLogger = new MessageLogger();
-  // protected static String inputDir = "./src/test/Resources/";
+
   protected ByteArrayOutputStream testOut = new ByteArrayOutputStream();
   protected PrintStream stdout;
 

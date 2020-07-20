@@ -105,14 +105,14 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
       // Simple type
       this.maxLateralAcc =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE)) {
       // Enumeration Type
       DynamicsShape result = DynamicsShape.getFromLiteral(parameterLiteralValue);
       if (result != null) {
         this.dynamicsShape = result;
-        removeResolvedParameter(attributeKey);
+        addResolvedParameter(attributeKey);
       } else {
         logger.logMessage(
             new FileContentMessage(

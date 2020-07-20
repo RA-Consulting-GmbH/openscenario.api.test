@@ -87,7 +87,7 @@ public class CentralSwarmObjectImpl extends BaseImpl implements ICentralSwarmObj
       // Proxy
       NamedReferenceProxy<IEntity> proxy = new NamedReferenceProxy<>(parameterLiteralValue);
       this.entityRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

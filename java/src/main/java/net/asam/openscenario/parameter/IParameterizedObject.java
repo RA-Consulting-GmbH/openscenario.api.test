@@ -80,4 +80,10 @@ public interface IParameterizedObject {
    * @return the class as a type
    */
   public Class<?> getTypeFromAttributeName(String attributeKey);
+  /**
+   * The keys of the attributes that are resolved
+   * @return set with the keys
+   */
+  public Set<String> getResolvedAttributeKeys();
+  
 }

@@ -85,7 +85,7 @@ public class AbsoluteSpeedImpl extends BaseImpl implements IAbsoluteSpeed {
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

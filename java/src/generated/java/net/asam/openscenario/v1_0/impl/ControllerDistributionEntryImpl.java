@@ -118,7 +118,7 @@ public class ControllerDistributionEntryImpl extends BaseImpl
       // Simple type
       this.weight =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

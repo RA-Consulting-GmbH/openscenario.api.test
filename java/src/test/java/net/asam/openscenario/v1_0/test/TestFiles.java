@@ -60,10 +60,10 @@ public class TestFiles extends TestBase {
       executeParsing(filename);
       List<FileContentMessage> messages = new ArrayList<>();
       messages.add(
-          new FileContentMessage(
-              "Cannot resolve parameter 'UnknownParameter'",
-              ErrorLevel.ERROR,
-              new Textmarker(49, 17, filename)));
+              new FileContentMessage(
+                  "Cannot resolve parameter 'UnknownParameter'",
+                  ErrorLevel.ERROR,
+                  new Textmarker(49, 17, filename)));
       messages.add(
           new FileContentMessage(
               "Cannot convert 'wrongDouble' to a double. Number format error.",

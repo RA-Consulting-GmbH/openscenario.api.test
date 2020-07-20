@@ -85,7 +85,7 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
       // Simple type
       this.value =
           ParserHelper.parseDouble(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

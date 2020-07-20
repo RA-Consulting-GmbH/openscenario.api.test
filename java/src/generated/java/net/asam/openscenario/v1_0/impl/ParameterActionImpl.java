@@ -118,7 +118,7 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction {
       NamedReferenceProxy<IParameterDeclaration> proxy =
           new NamedReferenceProxy<>(parameterLiteralValue);
       this.parameterRef = proxy;
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

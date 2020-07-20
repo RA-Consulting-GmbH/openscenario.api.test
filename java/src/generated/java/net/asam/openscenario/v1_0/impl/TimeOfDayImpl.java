@@ -101,13 +101,13 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
       // Simple type
       this.animation =
           ParserHelper.parseBoolean(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
 
     } else if (attributeKey.equals(OscConstants.ATTRIBUTE__DATE_TIME)) {
       // Simple type
       this.dateTime =
           ParserHelper.parseDateTime(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

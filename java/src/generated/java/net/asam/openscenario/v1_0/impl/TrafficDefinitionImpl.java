@@ -117,7 +117,7 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
       // Simple type
       this.name =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 

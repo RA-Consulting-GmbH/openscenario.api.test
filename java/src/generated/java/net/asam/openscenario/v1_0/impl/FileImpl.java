@@ -85,7 +85,7 @@ public class FileImpl extends BaseImpl implements IFile {
       // Simple type
       this.filepath =
           ParserHelper.parseString(logger, parameterLiteralValue, getTextmarker(attributeKey));
-      removeResolvedParameter(attributeKey);
+      addResolvedParameter(attributeKey);
     }
   }
 
