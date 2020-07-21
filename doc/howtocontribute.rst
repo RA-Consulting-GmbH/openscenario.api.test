@@ -89,6 +89,11 @@ Formatting issues
 
 For java code, the usage of the `google formatter<https://github.com/google/google-java-format>`_ is mandatory.
 
+Build fails on warnings policy
+------------------------------
+To improve code quality the build fails on warnings (see pom.xml)
+
+
 Reporting issues
 ----------------
 
