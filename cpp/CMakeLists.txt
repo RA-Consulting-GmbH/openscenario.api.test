@@ -35,18 +35,18 @@ RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
 
 # Dependencies
-add_subdirectory( ExternalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/ExternalLibs/ANTLR4-Cpp-src)
+add_subdirectory( externalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/externalLibs/ANTLR4-Cpp-src)
 
 # CoreLibraries
-add_subdirectory( OpenScenarioLib ${PROJECT_BINARY_DIR}/OpenScenarioLib )
+add_subdirectory( openScenarioLib/v_1_0 ${PROJECT_BINARY_DIR}/openScenarioLib/v_1_0 )
 
 # Applications
-add_subdirectory( Applications/OpenScenarioReader ${PROJECT_BINARY_DIR}/Applications/OpenScenarioReader )
-add_subdirectory( Applications/OpenScenarioTester )
-add_subdirectory( Applications/IndexerTester )
+add_subdirectory( applications/openScenarioReader/v_1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioReader/v_1_0 )
+add_subdirectory( applications/openScenarioTester/v_1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioTester/v_1_0)
+add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
 
 ################################################################
 # Visual Studio Startup Project and debug cmd line args
 if( MSVC )
-  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenarioReader" )
+  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenarioReaderV_1_0" )
 endif()
