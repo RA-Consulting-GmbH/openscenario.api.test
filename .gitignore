@@ -1,2 +1,5 @@
 /cpp/build/generateWindows/VS2017/*
 /cpp/build/output/*
+.vscode/*
+cpp/CMakeLists.txt.user
+build/*

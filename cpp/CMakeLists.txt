@@ -11,8 +11,15 @@ list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}" )
 include( CMakeHelpers )
 
 ################################################################
-# Build as static or shared lib
+# Build as static or shared lib, Debug or Release, for Linuc or Windows
 option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Debug, Release" FORCE)
+endif(NOT CMAKE_BUILD_TYPE)
+set(BUILD_TARGET_PARAM ${CMAKE_BUILD_TYPE})
+if(NOT PLATFORM_PARAM)
+    set(PLATFORM_PARAM "${CMAKE_SYSTEM_NAME}" CACHE STRING "Linux, Windows, etc" FORCE)
+endif(NOT PLATFORM_PARAM)
 
 set(ENV{CMAKE_BUILD_PARALLEL_LEVEL} 4)
 
