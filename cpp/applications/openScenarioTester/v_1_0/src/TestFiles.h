@@ -60,10 +60,10 @@ public:
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Cannot resolve parameter 'UnknownParameter'",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(35, 17, kFilename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(49, 17, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Cannot convert 'wrongDouble' to a double. Number format error.",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(71, 39, kFilename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 39, kFilename)));
 
             assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
 
@@ -103,9 +103,9 @@ public:
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-                "Unknown element 'ScenarioObject'", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(33, 4, kFilename)));
+                "Unknown element 'ScenarioObject'", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(50, 4, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Unknown element 'Test'",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(59, 4, kFilename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(76, 4, kFilename)));
             assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
@@ -125,15 +125,15 @@ public:
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-                "Cannot convert 'ezert' to a double. Number format error.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(61, 58, kFilename)));
+                "Cannot convert 'ezert' to a double. Number format error.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(78, 58, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Value 'TTTT' is not allowed.",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(61, 72, kFilename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(78, 72, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-                "Cannot convert 'TEST' to a double. Number format error.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(63, 39, kFilename)));
+                "Cannot convert 'TEST' to a double. Number format error.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(80, 39, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-                "Cannot convert '-56' to an unsignedInteger. Value must be in [0..4294967295].", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(121, 23, kFilename)));
+                "Cannot convert '-56' to an unsignedInteger. Value must be in [0..4294967295].", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(138, 23, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-                "Cannot convert '-40' to an unsignedInteger. Value must be in [0..4294967295].", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(158, 69, kFilename)));
+                "Cannot convert '-40' to an unsignedInteger. Value must be in [0..4294967295].", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(175, 69, kFilename)));
             assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)

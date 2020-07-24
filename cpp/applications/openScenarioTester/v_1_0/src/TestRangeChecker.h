@@ -43,25 +43,25 @@ public:
 
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Range error: Rule (maxDeceleration>=0) is violated (value: -10.000000)",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(44, 20, filename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(58, 20, filename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Range error: Rule (maxAcceleration>=0) is violated (value: -2.000000)",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(44, 57, filename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(58, 57, filename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Range error: Rule (positionZ>=0) is violated (value: -13.000000)",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(46, 22, filename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(60, 22, filename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Range error: Rule (trackWidth>=0) is violated (value: -12.000000)",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(46, 38, filename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(60, 38, filename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Range error: Rule (wheelDiameter>0) is violated (value: -12.000000)",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(46, 55, filename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(60, 55, filename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Range error: Rule (maxSteering<=PI) is violated (value: 7.000000)",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(46, 75, filename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(60, 75, filename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Range error: Rule (positionX>=0) is violated (value: -2.000000)",
-                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(46, 91, filename)));
+                NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(60, 91, filename)));
 
 
             assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));

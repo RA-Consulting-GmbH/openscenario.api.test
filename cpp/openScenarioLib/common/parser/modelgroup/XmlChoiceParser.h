@@ -54,7 +54,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             unsigned int currentListIndex = 0;
             std::shared_ptr<IndexedElement> lastElementParsed = nullptr;
-
+            _occuredElementList.clear();
             while (currentListIndex < indexedElements.size()) 
             {
                 auto indexedElement = indexedElements[currentListIndex];

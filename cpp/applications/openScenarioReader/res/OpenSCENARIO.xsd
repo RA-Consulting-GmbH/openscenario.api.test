@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ASAM OpenSCENARIO V1.0.0
+
+© by ASAM e.V., 2020
+
+Description of dynamic content in driving simulations
+
+
+Any use is limited to the scope described in the ASAM license terms. 
+This file is distributable in accordance with the ASAM license terms. 
+See www.asam.net/license.html for further details.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
   <xsd:annotation>
     <xsd:documentation>openSCENARIO XSD Version 1.0 (Consolidated from Version 0.9.1)</xsd:documentation>
