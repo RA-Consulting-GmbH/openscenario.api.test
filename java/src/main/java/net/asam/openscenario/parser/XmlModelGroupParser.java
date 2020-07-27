@@ -31,7 +31,7 @@ import net.asam.openscenario.simple.struct.IndexedElement;
  */
 public abstract class XmlModelGroupParser<T extends BaseImpl> extends XmlParserBase<T> {
 
-  protected List<IElementParser<T>> parsers;
+  private List<IElementParser<T>> parsers;
 
   /**
    * Creates a list of parsers for the elements of the model group.

@@ -90,15 +90,15 @@ public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGrou
           currentParserIndex = nextIndex;
           Integer currentOccurs = this.occuredElementList.get(parser);
           if (currentOccurs == null) {
-            currentOccurs = 0;
+            currentOccurs = new Integer(0);
           }
-          if (currentOccurs < parser.getMaxOccur() || parser.getMaxOccur() == -1) {
+          if (currentOccurs.intValue() < parser.getMaxOccur() || parser.getMaxOccur() == -1) {
             parser.parse(indexedElement, parserContext, object);
             currentListIndex =
                 moveForwardToLastElementParsed(
                     indexedElements, currentListIndex, parserContext.getLastElementParsed());
             lastElementParsed = parserContext.getLastElementParsed();
-            this.occuredElementList.put(parser, currentOccurs + 1);
+            this.occuredElementList.put(parser, new Integer(currentOccurs.intValue() + 1));
           } else {
             this.messageLogger.logMessage(
                 new FileContentMessage(
@@ -143,9 +143,9 @@ public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGrou
       // if the element at this index is required and not yet reached minimum occurance
       Integer occured = this.occuredElementList.get(parser);
       if (occured == null) {
-        occured = 0;
+        occured = new Integer(0);
       }
-      if (parser.getMinOccur() > occured) {
+      if (parser.getMinOccur() > occured.intValue()) {
         localMessages.add(
             new FileContentMessage(
                 "Required element is missing before <" + tagName + ">",
