@@ -44,7 +44,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Absolute speed. Unit: m/s. Range: [0..inf[.]
 	 * 
 	*/
-        void AbsoluteSpeedImpl::SetValue(const double value )
+        void AbsoluteSpeedImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -55,7 +55,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -120,7 +120,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Number (ID) of the target lane the entity will change to.]
 	 * 
 	*/
-        void AbsoluteTargetLaneImpl::SetValue(const std::string value )
+        void AbsoluteTargetLaneImpl::SetValue(std::string value )
         {
             _value = value;
         }
@@ -131,7 +131,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -197,7 +197,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * offset from the center of the current lane.]
 	 * 
 	*/
-        void AbsoluteTargetLaneOffsetImpl::SetValue(const double value )
+        void AbsoluteTargetLaneOffsetImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -208,7 +208,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -273,7 +273,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Target speed in m/s the vehicle should change to.]
 	 * 
 	*/
-        void AbsoluteTargetSpeedImpl::SetValue(const double value )
+        void AbsoluteTargetSpeedImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -284,7 +284,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -354,7 +354,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Acceleration value. Unit: m/s^2.]
 	 * 
 	*/
-        void AccelerationConditionImpl::SetValue(const double value )
+        void AccelerationConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -363,7 +363,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void AccelerationConditionImpl::SetRule(const Rule rule )
+        void AccelerationConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -374,7 +374,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -383,7 +383,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -455,7 +455,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [A position to acquire.]
 	 * 
 	*/
-        void AcquirePositionActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void AcquirePositionActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -548,7 +548,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of this act.]
 	 * 
 	*/
-        void ActImpl::SetName(const std::string name )
+        void ActImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -566,7 +566,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param startTrigger from OpenSCENARIO class model specification: [Defines a trigger to that starts the act.]
 	 * 
 	*/
-        void ActImpl::SetStartTrigger(const std::shared_ptr<ITrigger> startTrigger )
+        void ActImpl::SetStartTrigger(std::shared_ptr<ITrigger> startTrigger )
         {
             _startTrigger = startTrigger;
         }
@@ -575,7 +575,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param stopTrigger from OpenSCENARIO class model specification: [Defines a trigger that stops the act.]
 	 * 
 	*/
-        void ActImpl::SetStopTrigger(const std::shared_ptr<ITrigger> stopTrigger )
+        void ActImpl::SetStopTrigger(std::shared_ptr<ITrigger> stopTrigger )
         {
             _stopTrigger = stopTrigger;
         }
@@ -586,7 +586,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -709,7 +709,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of this action.]
 	 * 
 	*/
-        void ActionImpl::SetName(const std::string name )
+        void ActionImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -719,7 +719,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Action is startedis started.]
 	 * 
 	*/
-        void ActionImpl::SetGlobalAction(const std::shared_ptr<IGlobalAction> globalAction )
+        void ActionImpl::SetGlobalAction(std::shared_ptr<IGlobalAction> globalAction )
         {
             _globalAction = globalAction;
         }
@@ -729,7 +729,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * enclosing Action is started.]
 	 * 
 	*/
-        void ActionImpl::SetUserDefinedAction(const std::shared_ptr<IUserDefinedAction> userDefinedAction )
+        void ActionImpl::SetUserDefinedAction(std::shared_ptr<IUserDefinedAction> userDefinedAction )
         {
             _userDefinedAction = userDefinedAction;
         }
@@ -739,7 +739,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Action is started.]
 	 * 
 	*/
-        void ActionImpl::SetPrivateAction(const std::shared_ptr<IPrivateAction> privateAction )
+        void ActionImpl::SetPrivateAction(std::shared_ptr<IPrivateAction> privateAction )
         {
             _privateAction = privateAction;
         }
@@ -750,7 +750,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -860,7 +860,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * defined (e.g. automated, autonomous) behavior.]
 	 * 
 	*/
-        void ActivateControllerActionImpl::SetLateral(const bool lateral )
+        void ActivateControllerActionImpl::SetLateral(bool lateral )
         {
             _lateral = lateral;
         }
@@ -870,7 +870,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * autonomous behavior.]
 	 * 
 	*/
-        void ActivateControllerActionImpl::SetLongitudinal(const bool longitudinal )
+        void ActivateControllerActionImpl::SetLongitudinal(bool longitudinal )
         {
             _longitudinal = longitudinal;
         }
@@ -881,13 +881,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _lateral = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL)
             {
                 // Simple type
                 _longitudinal = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -959,7 +959,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * are considered actors.]
 	 * 
 	*/
-        void ActorsImpl::SetSelectTriggeringEntities(const bool selectTriggeringEntities )
+        void ActorsImpl::SetSelectTriggeringEntities(bool selectTriggeringEntities )
         {
             _selectTriggeringEntities = selectTriggeringEntities;
         }
@@ -979,7 +979,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _selectTriggeringEntities = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -1063,7 +1063,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Adds an entity at the specified position.]
 	 * 
 	*/
-        void AddEntityActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void AddEntityActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -1147,7 +1147,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param controller from OpenSCENARIO class model specification: [Assigns a controller to a given entity.]
 	 * 
 	*/
-        void AssignControllerActionImpl::SetController(const std::shared_ptr<IController> controller )
+        void AssignControllerActionImpl::SetController(std::shared_ptr<IController> controller )
         {
             _controller = controller;
         }
@@ -1157,7 +1157,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * a given entity. CatalogReference must point to a Controller type.]
 	 * 
 	*/
-        void AssignControllerActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void AssignControllerActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -1254,7 +1254,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param route from OpenSCENARIO class model specification: [The route definition.]
 	 * 
 	*/
-        void AssignRouteActionImpl::SetRoute(const std::shared_ptr<IRoute> route )
+        void AssignRouteActionImpl::SetRoute(std::shared_ptr<IRoute> route )
         {
             _route = route;
         }
@@ -1264,7 +1264,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * The reference must point to a route.]
 	 * 
 	*/
-        void AssignRouteActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void AssignRouteActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -1379,7 +1379,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.]
 	 * 
 	*/
-        void AxleImpl::SetMaxSteering(const double maxSteering )
+        void AxleImpl::SetMaxSteering(double maxSteering )
         {
             _maxSteering = maxSteering;
         }
@@ -1389,7 +1389,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * ]0..inf[.]
 	 * 
 	*/
-        void AxleImpl::SetWheelDiameter(const double wheelDiameter )
+        void AxleImpl::SetWheelDiameter(double wheelDiameter )
         {
             _wheelDiameter = wheelDiameter;
         }
@@ -1399,7 +1399,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void AxleImpl::SetTrackWidth(const double trackWidth )
+        void AxleImpl::SetTrackWidth(double trackWidth )
         {
             _trackWidth = trackWidth;
         }
@@ -1409,7 +1409,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * vehicles reference point. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void AxleImpl::SetPositionX(const double positionX )
+        void AxleImpl::SetPositionX(double positionX )
         {
             _positionX = positionX;
         }
@@ -1419,7 +1419,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reference point. Usually this is half of wheel diameter. Unit:m; , Range:[0..inf[.]
 	 * 
 	*/
-        void AxleImpl::SetPositionZ(const double positionZ )
+        void AxleImpl::SetPositionZ(double positionZ )
         {
             _positionZ = positionZ;
         }
@@ -1430,31 +1430,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maxSteering = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER)
             {
                 // Simple type
                 _wheelDiameter = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH)
             {
                 // Simple type
                 _trackWidth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__POSITION_X)
             {
                 // Simple type
                 _positionX = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__POSITION_Z)
             {
                 // Simple type
                 _positionZ = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -1534,7 +1534,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param frontAxle from OpenSCENARIO class model specification: [Front axle.]
 	 * 
 	*/
-        void AxlesImpl::SetFrontAxle(const std::shared_ptr<IAxle> frontAxle )
+        void AxlesImpl::SetFrontAxle(std::shared_ptr<IAxle> frontAxle )
         {
             _frontAxle = frontAxle;
         }
@@ -1543,7 +1543,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rearAxle from OpenSCENARIO class model specification: [Rear axle.]
 	 * 
 	*/
-        void AxlesImpl::SetRearAxle(const std::shared_ptr<IAxle> rearAxle )
+        void AxlesImpl::SetRearAxle(std::shared_ptr<IAxle> rearAxle )
         {
             _rearAxle = rearAxle;
         }
@@ -1670,7 +1670,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * expressed in coordinates that refer to the coordinate system of , the entity (e.g. the vehicle coordinate system).]
 	 * 
 	*/
-        void BoundingBoxImpl::SetCenter(const std::shared_ptr<ICenter> center )
+        void BoundingBoxImpl::SetCenter(std::shared_ptr<ICenter> center )
         {
             _center = center;
         }
@@ -1679,7 +1679,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param dimensions from OpenSCENARIO class model specification: [Width, length and height of the bounding box.]
 	 * 
 	*/
-        void BoundingBoxImpl::SetDimensions(const std::shared_ptr<IDimensions> dimensions )
+        void BoundingBoxImpl::SetDimensions(std::shared_ptr<IDimensions> dimensions )
         {
             _dimensions = dimensions;
         }
@@ -1776,7 +1776,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param triggeringEntities from OpenSCENARIO class model specification: [A list of entities triggering this condition.]
 	 * 
 	*/
-        void ByEntityConditionImpl::SetTriggeringEntities(const std::shared_ptr<ITriggeringEntities> triggeringEntities )
+        void ByEntityConditionImpl::SetTriggeringEntities(std::shared_ptr<ITriggeringEntities> triggeringEntities )
         {
             _triggeringEntities = triggeringEntities;
         }
@@ -1786,7 +1786,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entities.]
 	 * 
 	*/
-        void ByEntityConditionImpl::SetEntityCondition(const std::shared_ptr<IEntityCondition> entityCondition )
+        void ByEntityConditionImpl::SetEntityCondition(std::shared_ptr<IEntityCondition> entityCondition )
         {
             _entityCondition = entityCondition;
         }
@@ -1880,7 +1880,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param type from OpenSCENARIO class model specification: [Defines the type.]
 	 * 
 	*/
-        void ByObjectTypeImpl::SetType(const ObjectType type )
+        void ByObjectTypeImpl::SetType(ObjectType type )
         {
             _type = type;
         }
@@ -1894,7 +1894,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != ObjectType::UNKNOWN)
                 {
                     _type = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -1966,7 +1966,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * is part of the entity selection.]
 	 * 
 	*/
-        void ByTypeImpl::SetObjectType(const ObjectType objectType )
+        void ByTypeImpl::SetObjectType(ObjectType objectType )
         {
             _objectType = objectType;
         }
@@ -1980,7 +1980,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != ObjectType::UNKNOWN)
                 {
                     _objectType = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -2075,7 +2075,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reference value.]
 	 * 
 	*/
-        void ByValueConditionImpl::SetParameterCondition(const std::shared_ptr<IParameterCondition> parameterCondition )
+        void ByValueConditionImpl::SetParameterCondition(std::shared_ptr<IParameterCondition> parameterCondition )
         {
             _parameterCondition = parameterCondition;
         }
@@ -2085,7 +2085,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reference value.]
 	 * 
 	*/
-        void ByValueConditionImpl::SetTimeOfDayCondition(const std::shared_ptr<ITimeOfDayCondition> timeOfDayCondition )
+        void ByValueConditionImpl::SetTimeOfDayCondition(std::shared_ptr<ITimeOfDayCondition> timeOfDayCondition )
         {
             _timeOfDayCondition = timeOfDayCondition;
         }
@@ -2095,7 +2095,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * a reference value.]
 	 * 
 	*/
-        void ByValueConditionImpl::SetSimulationTimeCondition(const std::shared_ptr<ISimulationTimeCondition> simulationTimeCondition )
+        void ByValueConditionImpl::SetSimulationTimeCondition(std::shared_ptr<ISimulationTimeCondition> simulationTimeCondition )
         {
             _simulationTimeCondition = simulationTimeCondition;
         }
@@ -2105,7 +2105,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * referenced StoryboardElement terminates according to the given rule.]
 	 * 
 	*/
-        void ByValueConditionImpl::SetStoryboardElementStateCondition(const std::shared_ptr<IStoryboardElementStateCondition> storyboardElementStateCondition )
+        void ByValueConditionImpl::SetStoryboardElementStateCondition(std::shared_ptr<IStoryboardElementStateCondition> storyboardElementStateCondition )
         {
             _storyboardElementStateCondition = storyboardElementStateCondition;
         }
@@ -2115,7 +2115,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * defined named value is compared to a reference value (less, greater, equal).]
 	 * 
 	*/
-        void ByValueConditionImpl::SetUserDefinedValueCondition(const std::shared_ptr<IUserDefinedValueCondition> userDefinedValueCondition )
+        void ByValueConditionImpl::SetUserDefinedValueCondition(std::shared_ptr<IUserDefinedValueCondition> userDefinedValueCondition )
         {
             _userDefinedValueCondition = userDefinedValueCondition;
         }
@@ -2125,7 +2125,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * signal reaches the indicated state.]
 	 * 
 	*/
-        void ByValueConditionImpl::SetTrafficSignalCondition(const std::shared_ptr<ITrafficSignalCondition> trafficSignalCondition )
+        void ByValueConditionImpl::SetTrafficSignalCondition(std::shared_ptr<ITrafficSignalCondition> trafficSignalCondition )
         {
             _trafficSignalCondition = trafficSignalCondition;
         }
@@ -2135,7 +2135,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * referenced signal controller reaches the indicated state.]
 	 * 
 	*/
-        void ByValueConditionImpl::SetTrafficSignalControllerCondition(const std::shared_ptr<ITrafficSignalControllerCondition> trafficSignalControllerCondition )
+        void ByValueConditionImpl::SetTrafficSignalControllerCondition(std::shared_ptr<ITrafficSignalControllerCondition> trafficSignalControllerCondition )
         {
             _trafficSignalControllerCondition = trafficSignalControllerCondition;
         }
@@ -2326,7 +2326,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the catalog.]
 	 * 
 	*/
-        void CatalogImpl::SetName(const std::string name )
+        void CatalogImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -2415,7 +2415,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -2639,7 +2639,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalog from OpenSCENARIO class model specification: [Definition of a catalog.]
 	 * 
 	*/
-        void CatalogDefinitionImpl::SetCatalog(const std::shared_ptr<ICatalog> catalog )
+        void CatalogDefinitionImpl::SetCatalog(std::shared_ptr<ICatalog> catalog )
         {
             _catalog = catalog;
         }
@@ -2748,7 +2748,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * CatalogReferences on vehicle types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetVehicleCatalog(const std::shared_ptr<IVehicleCatalogLocation> vehicleCatalog )
+        void CatalogLocationsImpl::SetVehicleCatalog(std::shared_ptr<IVehicleCatalogLocation> vehicleCatalog )
         {
             _vehicleCatalog = vehicleCatalog;
         }
@@ -2758,7 +2758,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * resolve CatalogReferences on controller types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetControllerCatalog(const std::shared_ptr<IControllerCatalogLocation> controllerCatalog )
+        void CatalogLocationsImpl::SetControllerCatalog(std::shared_ptr<IControllerCatalogLocation> controllerCatalog )
         {
             _controllerCatalog = controllerCatalog;
         }
@@ -2768,7 +2768,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * resolve CatalogReferences on pedestrian types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetPedestrianCatalog(const std::shared_ptr<IPedestrianCatalogLocation> pedestrianCatalog )
+        void CatalogLocationsImpl::SetPedestrianCatalog(std::shared_ptr<IPedestrianCatalogLocation> pedestrianCatalog )
         {
             _pedestrianCatalog = pedestrianCatalog;
         }
@@ -2778,7 +2778,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * resolve CatalogReferences on miscellaneous object types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetMiscObjectCatalog(const std::shared_ptr<IMiscObjectCatalogLocation> miscObjectCatalog )
+        void CatalogLocationsImpl::SetMiscObjectCatalog(std::shared_ptr<IMiscObjectCatalogLocation> miscObjectCatalog )
         {
             _miscObjectCatalog = miscObjectCatalog;
         }
@@ -2788,7 +2788,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * resolve CatalogReferences on environment types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetEnvironmentCatalog(const std::shared_ptr<IEnvironmentCatalogLocation> environmentCatalog )
+        void CatalogLocationsImpl::SetEnvironmentCatalog(std::shared_ptr<IEnvironmentCatalogLocation> environmentCatalog )
         {
             _environmentCatalog = environmentCatalog;
         }
@@ -2798,7 +2798,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * resolve CatalogReferences on maneuver types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetManeuverCatalog(const std::shared_ptr<IManeuverCatalogLocation> maneuverCatalog )
+        void CatalogLocationsImpl::SetManeuverCatalog(std::shared_ptr<IManeuverCatalogLocation> maneuverCatalog )
         {
             _maneuverCatalog = maneuverCatalog;
         }
@@ -2808,7 +2808,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * resolve CatalogReferences on trajectory types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetTrajectoryCatalog(const std::shared_ptr<ITrajectoryCatalogLocation> trajectoryCatalog )
+        void CatalogLocationsImpl::SetTrajectoryCatalog(std::shared_ptr<ITrajectoryCatalogLocation> trajectoryCatalog )
         {
             _trajectoryCatalog = trajectoryCatalog;
         }
@@ -2818,7 +2818,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * CatalogReferences on route types.]
 	 * 
 	*/
-        void CatalogLocationsImpl::SetRouteCatalog(const std::shared_ptr<IRouteCatalogLocation> routeCatalog )
+        void CatalogLocationsImpl::SetRouteCatalog(std::shared_ptr<IRouteCatalogLocation> routeCatalog )
         {
             _routeCatalog = routeCatalog;
         }
@@ -3003,7 +3003,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalogName from OpenSCENARIO class model specification: [Name of the catalog.]
 	 * 
 	*/
-        void CatalogReferenceImpl::SetCatalogName(const std::string catalogName )
+        void CatalogReferenceImpl::SetCatalogName(std::string catalogName )
         {
             _catalogName = catalogName;
         }
@@ -3012,7 +3012,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param entryName from OpenSCENARIO class model specification: [Name of catalog entry.]
 	 * 
 	*/
-        void CatalogReferenceImpl::SetEntryName(const std::string entryName )
+        void CatalogReferenceImpl::SetEntryName(std::string entryName )
         {
             _entryName = entryName;
         }
@@ -3032,7 +3032,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * catalogName and entryName). Transient means, that it is not , mapped to the schema.]
 	 * 
 	*/
-        void CatalogReferenceImpl::SetRef(const std::shared_ptr<ICatalogElement> ref )
+        void CatalogReferenceImpl::SetRef(std::shared_ptr<ICatalogElement> ref )
         {
             _ref = ref;
         }
@@ -3043,13 +3043,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _catalogName = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME)
             {
                 // Simple type
                 _entryName = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -3146,7 +3146,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param x from OpenSCENARIO class model specification: [Center offset in x direction.]
 	 * 
 	*/
-        void CenterImpl::SetX(const double x )
+        void CenterImpl::SetX(double x )
         {
             _x = x;
         }
@@ -3155,7 +3155,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param y from OpenSCENARIO class model specification: [Center offset in y direction.]
 	 * 
 	*/
-        void CenterImpl::SetY(const double y )
+        void CenterImpl::SetY(double y )
         {
             _y = y;
         }
@@ -3164,7 +3164,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param z from OpenSCENARIO class model specification: [Center offset in z direction.]
 	 * 
 	*/
-        void CenterImpl::SetZ(const double z )
+        void CenterImpl::SetZ(double z )
         {
             _z = z;
         }
@@ -3175,19 +3175,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _x = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
             {
                 // Simple type
                 _y = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
             {
                 // Simple type
                 _z = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -3268,7 +3268,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -3359,7 +3359,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param curvature from OpenSCENARIO class model specification: [Start curvature of clothoid.]
 	 * 
 	*/
-        void ClothoidImpl::SetCurvature(const double curvature )
+        void ClothoidImpl::SetCurvature(double curvature )
         {
             _curvature = curvature;
         }
@@ -3369,7 +3369,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * 1/s;Range [0..inf[.]
 	 * 
 	*/
-        void ClothoidImpl::SetCurvatureDot(const double curvatureDot )
+        void ClothoidImpl::SetCurvatureDot(double curvatureDot )
         {
             _curvatureDot = curvatureDot;
         }
@@ -3378,7 +3378,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param length from OpenSCENARIO class model specification: [Length of clothoid.]
 	 * 
 	*/
-        void ClothoidImpl::SetLength(const double length )
+        void ClothoidImpl::SetLength(double length )
         {
             _length = length;
         }
@@ -3388,7 +3388,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Unit: s;Range [0..inf[.]
 	 * 
 	*/
-        void ClothoidImpl::SetStartTime(const double startTime )
+        void ClothoidImpl::SetStartTime(double startTime )
         {
             _startTime = startTime;
         }
@@ -3398,7 +3398,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Unit: s;Range ]0..inf[.]
 	 * 
 	*/
-        void ClothoidImpl::SetStopTime(const double stopTime )
+        void ClothoidImpl::SetStopTime(double stopTime )
         {
             _stopTime = stopTime;
         }
@@ -3407,7 +3407,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Start position of a clothoid.]
 	 * 
 	*/
-        void ClothoidImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void ClothoidImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -3418,31 +3418,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _curvature = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT)
             {
                 // Simple type
                 _curvatureDot = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
             {
                 // Simple type
                 _length = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__START_TIME)
             {
                 // Simple type
                 _startTime = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STOP_TIME)
             {
                 // Simple type
                 _stopTime = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -3531,7 +3531,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param entityRef from OpenSCENARIO class model specification: [Name of a specific entity.]
 	 * 
 	*/
-        void CollisionConditionImpl::SetEntityRef(const std::shared_ptr<IEntityRef> entityRef )
+        void CollisionConditionImpl::SetEntityRef(std::shared_ptr<IEntityRef> entityRef )
         {
             _entityRef = entityRef;
         }
@@ -3541,7 +3541,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * collide.]
 	 * 
 	*/
-        void CollisionConditionImpl::SetByType(const std::shared_ptr<IByObjectType> byType )
+        void CollisionConditionImpl::SetByType(std::shared_ptr<IByObjectType> byType )
         {
             _byType = byType;
         }
@@ -3653,7 +3653,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the condition.]
 	 * 
 	*/
-        void ConditionImpl::SetName(const std::string name )
+        void ConditionImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -3663,7 +3663,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * condition returns true to the scenario. Unit: s; Range: , [0..inf[.]
 	 * 
 	*/
-        void ConditionImpl::SetDelay(const double delay )
+        void ConditionImpl::SetDelay(double delay )
         {
             _delay = delay;
         }
@@ -3673,7 +3673,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * true (rising, falling, any).]
 	 * 
 	*/
-        void ConditionImpl::SetConditionEdge(const ConditionEdge conditionEdge )
+        void ConditionImpl::SetConditionEdge(ConditionEdge conditionEdge )
         {
             _conditionEdge = conditionEdge;
         }
@@ -3682,7 +3682,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param byEntityCondition from OpenSCENARIO class model specification: [A condition that refers to an entity.]
 	 * 
 	*/
-        void ConditionImpl::SetByEntityCondition(const std::shared_ptr<IByEntityCondition> byEntityCondition )
+        void ConditionImpl::SetByEntityCondition(std::shared_ptr<IByEntityCondition> byEntityCondition )
         {
             _byEntityCondition = byEntityCondition;
         }
@@ -3691,7 +3691,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param byValueCondition from OpenSCENARIO class model specification: [A condition that refers to a runtime value.]
 	 * 
 	*/
-        void ConditionImpl::SetByValueCondition(const std::shared_ptr<IByValueCondition> byValueCondition )
+        void ConditionImpl::SetByValueCondition(std::shared_ptr<IByValueCondition> byValueCondition )
         {
             _byValueCondition = byValueCondition;
         }
@@ -3702,13 +3702,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DELAY)
             {
                 // Simple type
                 _delay = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE)
             {
@@ -3717,7 +3717,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != ConditionEdge::UNKNOWN)
                 {
                     _conditionEdge = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -3915,7 +3915,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * point. Unit: s;Range [0..inf[.]
 	 * 
 	*/
-        void ControlPointImpl::SetTime(const double time )
+        void ControlPointImpl::SetTime(double time )
         {
             _time = time;
         }
@@ -3925,7 +3925,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * unspecified, all control points will be equal weighted. Range , ]-inf..inf[.]
 	 * 
 	*/
-        void ControlPointImpl::SetWeight(const double weight )
+        void ControlPointImpl::SetWeight(double weight )
         {
             _weight = weight;
         }
@@ -3934,7 +3934,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Position of the control point.]
 	 * 
 	*/
-        void ControlPointImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void ControlPointImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -3945,13 +3945,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _time = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
             {
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -4039,7 +4039,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the controller type.]
 	 * 
 	*/
-        void ControllerImpl::SetName(const std::string name )
+        void ControllerImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -4057,7 +4057,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Describing properties for the controller.]
 	 * 
 	*/
-        void ControllerImpl::SetProperties(const std::shared_ptr<IProperties> properties )
+        void ControllerImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
         }
@@ -4068,7 +4068,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -4189,7 +4189,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param assignControllerAction from OpenSCENARIO class model specification: [Assign a controller to an entity.]
 	 * 
 	*/
-        void ControllerActionImpl::SetAssignControllerAction(const std::shared_ptr<IAssignControllerAction> assignControllerAction )
+        void ControllerActionImpl::SetAssignControllerAction(std::shared_ptr<IAssignControllerAction> assignControllerAction )
         {
             _assignControllerAction = assignControllerAction;
         }
@@ -4199,7 +4199,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * parking brake, steering wheel or gear.]
 	 * 
 	*/
-        void ControllerActionImpl::SetOverrideControllerValueAction(const std::shared_ptr<IOverrideControllerValueAction> overrideControllerValueAction )
+        void ControllerActionImpl::SetOverrideControllerValueAction(std::shared_ptr<IOverrideControllerValueAction> overrideControllerValueAction )
         {
             _overrideControllerValueAction = overrideControllerValueAction;
         }
@@ -4292,7 +4292,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalog files in this directory must be evaluated.]
 	 * 
 	*/
-        void ControllerCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void ControllerCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -4469,7 +4469,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param weight from OpenSCENARIO class model specification: [The weight of the entry. Range: ]0..inf[.]
 	 * 
 	*/
-        void ControllerDistributionEntryImpl::SetWeight(const double weight )
+        void ControllerDistributionEntryImpl::SetWeight(double weight )
         {
             _weight = weight;
         }
@@ -4478,7 +4478,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param controller from OpenSCENARIO class model specification: [The specified controller type.]
 	 * 
 	*/
-        void ControllerDistributionEntryImpl::SetController(const std::shared_ptr<IController> controller )
+        void ControllerDistributionEntryImpl::SetController(std::shared_ptr<IController> controller )
         {
             _controller = controller;
         }
@@ -4487,7 +4487,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [A controller type import from a catalog.]
 	 * 
 	*/
-        void ControllerDistributionEntryImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void ControllerDistributionEntryImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -4498,7 +4498,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -4595,7 +4595,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * environment provider and the author of a scenario.]
 	 * 
 	*/
-        void CustomCommandActionImpl::SetType(const std::string type )
+        void CustomCommandActionImpl::SetType(std::string type )
         {
             _type = type;
         }
@@ -4605,7 +4605,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * simulation environment provider and the author of a scenario.]
 	 * 
 	*/
-        void CustomCommandActionImpl::SetContent(const std::string content )
+        void CustomCommandActionImpl::SetContent(std::string content )
         {
             _content = content;
         }
@@ -4616,13 +4616,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _type = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTENT)
             {
                 // Simple type
                 _content = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -4752,7 +4752,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void DimensionsImpl::SetWidth(const double width )
+        void DimensionsImpl::SetWidth(double width )
         {
             _width = width;
         }
@@ -4762,7 +4762,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void DimensionsImpl::SetLength(const double length )
+        void DimensionsImpl::SetLength(double length )
         {
             _length = length;
         }
@@ -4772,7 +4772,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void DimensionsImpl::SetHeight(const double height )
+        void DimensionsImpl::SetHeight(double height )
         {
             _height = height;
         }
@@ -4783,19 +4783,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _width = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
             {
                 // Simple type
                 _length = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__HEIGHT)
             {
                 // Simple type
                 _height = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -4864,7 +4864,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param path from OpenSCENARIO class model specification: [File system path, e.g. path=/home/simulation/.]
 	 * 
 	*/
-        void DirectoryImpl::SetPath(const std::string path )
+        void DirectoryImpl::SetPath(std::string path )
         {
             _path = path;
         }
@@ -4875,7 +4875,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _path = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -4959,7 +4959,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The distance value. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-        void DistanceConditionImpl::SetValue(const double value )
+        void DistanceConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -4969,7 +4969,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * points. False: reference point distance is used.]
 	 * 
 	*/
-        void DistanceConditionImpl::SetFreespace(const bool freespace )
+        void DistanceConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
@@ -4979,7 +4979,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * increase distance. False: straight line distance is used.]
 	 * 
 	*/
-        void DistanceConditionImpl::SetAlongRoute(const bool alongRoute )
+        void DistanceConditionImpl::SetAlongRoute(bool alongRoute )
         {
             _alongRoute = alongRoute;
         }
@@ -4988,7 +4988,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void DistanceConditionImpl::SetRule(const Rule rule )
+        void DistanceConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -4997,7 +4997,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The given position the distance is related to.]
 	 * 
 	*/
-        void DistanceConditionImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void DistanceConditionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -5008,19 +5008,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
             {
                 // Simple type
                 _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -5029,7 +5029,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -5130,7 +5130,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
 	 * 
 	*/
-        void DynamicConstraintsImpl::SetMaxAcceleration(const double maxAcceleration )
+        void DynamicConstraintsImpl::SetMaxAcceleration(double maxAcceleration )
         {
             _maxAcceleration = maxAcceleration;
         }
@@ -5140,7 +5140,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
 	 * 
 	*/
-        void DynamicConstraintsImpl::SetMaxDeceleration(const double maxDeceleration )
+        void DynamicConstraintsImpl::SetMaxDeceleration(double maxDeceleration )
         {
             _maxDeceleration = maxDeceleration;
         }
@@ -5150,7 +5150,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * for keeping the distance. Unit: m/s; Range: [0..inf[.]
 	 * 
 	*/
-        void DynamicConstraintsImpl::SetMaxSpeed(const double maxSpeed )
+        void DynamicConstraintsImpl::SetMaxSpeed(double maxSpeed )
         {
             _maxSpeed = maxSpeed;
         }
@@ -5161,19 +5161,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maxAcceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
             {
                 // Simple type
                 _maxDeceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
             {
                 // Simple type
                 _maxSpeed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -5242,7 +5242,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param duration from OpenSCENARIO class model specification: [Amount of time at end of road. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-        void EndOfRoadConditionImpl::SetDuration(const double duration )
+        void EndOfRoadConditionImpl::SetDuration(double duration )
         {
             _duration = duration;
         }
@@ -5253,7 +5253,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -5457,7 +5457,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * scenario.]
 	 * 
 	*/
-        void EntityActionImpl::SetAddEntityAction(const std::shared_ptr<IAddEntityAction> addEntityAction )
+        void EntityActionImpl::SetAddEntityAction(std::shared_ptr<IAddEntityAction> addEntityAction )
         {
             _addEntityAction = addEntityAction;
         }
@@ -5467,7 +5467,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the scenario.]
 	 * 
 	*/
-        void EntityActionImpl::SetDeleteEntityAction(const std::shared_ptr<IDeleteEntityAction> deleteEntityAction )
+        void EntityActionImpl::SetDeleteEntityAction(std::shared_ptr<IDeleteEntityAction> deleteEntityAction )
         {
             _deleteEntityAction = deleteEntityAction;
         }
@@ -5478,7 +5478,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -5619,7 +5619,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity has reached the end of the road.]
 	 * 
 	*/
-        void EntityConditionImpl::SetEndOfRoadCondition(const std::shared_ptr<IEndOfRoadCondition> endOfRoadCondition )
+        void EntityConditionImpl::SetEndOfRoadCondition(std::shared_ptr<IEndOfRoadCondition> endOfRoadCondition )
         {
             _endOfRoadCondition = endOfRoadCondition;
         }
@@ -5629,7 +5629,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * was involved in a collision.]
 	 * 
 	*/
-        void EntityConditionImpl::SetCollisionCondition(const std::shared_ptr<ICollisionCondition> collisionCondition )
+        void EntityConditionImpl::SetCollisionCondition(std::shared_ptr<ICollisionCondition> collisionCondition )
         {
             _collisionCondition = collisionCondition;
         }
@@ -5639,7 +5639,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity has left the road.]
 	 * 
 	*/
-        void EntityConditionImpl::SetOffroadCondition(const std::shared_ptr<IOffroadCondition> offroadCondition )
+        void EntityConditionImpl::SetOffroadCondition(std::shared_ptr<IOffroadCondition> offroadCondition )
         {
             _offroadCondition = offroadCondition;
         }
@@ -5649,7 +5649,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * two entities.]
 	 * 
 	*/
-        void EntityConditionImpl::SetTimeHeadwayCondition(const std::shared_ptr<ITimeHeadwayCondition> timeHeadwayCondition )
+        void EntityConditionImpl::SetTimeHeadwayCondition(std::shared_ptr<ITimeHeadwayCondition> timeHeadwayCondition )
         {
             _timeHeadwayCondition = timeHeadwayCondition;
         }
@@ -5659,7 +5659,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * between two entities.]
 	 * 
 	*/
-        void EntityConditionImpl::SetTimeToCollisionCondition(const std::shared_ptr<ITimeToCollisionCondition> timeToCollisionCondition )
+        void EntityConditionImpl::SetTimeToCollisionCondition(std::shared_ptr<ITimeToCollisionCondition> timeToCollisionCondition )
         {
             _timeToCollisionCondition = timeToCollisionCondition;
         }
@@ -5669,7 +5669,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * of an entity.]
 	 * 
 	*/
-        void EntityConditionImpl::SetAccelerationCondition(const std::shared_ptr<IAccelerationCondition> accelerationCondition )
+        void EntityConditionImpl::SetAccelerationCondition(std::shared_ptr<IAccelerationCondition> accelerationCondition )
         {
             _accelerationCondition = accelerationCondition;
         }
@@ -5679,7 +5679,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity has not moved.]
 	 * 
 	*/
-        void EntityConditionImpl::SetStandStillCondition(const std::shared_ptr<IStandStillCondition> standStillCondition )
+        void EntityConditionImpl::SetStandStillCondition(std::shared_ptr<IStandStillCondition> standStillCondition )
         {
             _standStillCondition = standStillCondition;
         }
@@ -5689,7 +5689,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * referenced entities.]
 	 * 
 	*/
-        void EntityConditionImpl::SetSpeedCondition(const std::shared_ptr<ISpeedCondition> speedCondition )
+        void EntityConditionImpl::SetSpeedCondition(std::shared_ptr<ISpeedCondition> speedCondition )
         {
             _speedCondition = speedCondition;
         }
@@ -5699,7 +5699,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * between two entity.]
 	 * 
 	*/
-        void EntityConditionImpl::SetRelativeSpeedCondition(const std::shared_ptr<IRelativeSpeedCondition> relativeSpeedCondition )
+        void EntityConditionImpl::SetRelativeSpeedCondition(std::shared_ptr<IRelativeSpeedCondition> relativeSpeedCondition )
         {
             _relativeSpeedCondition = relativeSpeedCondition;
         }
@@ -5709,7 +5709,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * distance of the reference entity since the start of the scenario.]
 	 * 
 	*/
-        void EntityConditionImpl::SetTraveledDistanceCondition(const std::shared_ptr<ITraveledDistanceCondition> traveledDistanceCondition )
+        void EntityConditionImpl::SetTraveledDistanceCondition(std::shared_ptr<ITraveledDistanceCondition> traveledDistanceCondition )
         {
             _traveledDistanceCondition = traveledDistanceCondition;
         }
@@ -5719,7 +5719,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity has reached a given position within a given uncertainty.]
 	 * 
 	*/
-        void EntityConditionImpl::SetReachPositionCondition(const std::shared_ptr<IReachPositionCondition> reachPositionCondition )
+        void EntityConditionImpl::SetReachPositionCondition(std::shared_ptr<IReachPositionCondition> reachPositionCondition )
         {
             _reachPositionCondition = reachPositionCondition;
         }
@@ -5729,7 +5729,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entities or an entity and a position.]
 	 * 
 	*/
-        void EntityConditionImpl::SetDistanceCondition(const std::shared_ptr<IDistanceCondition> distanceCondition )
+        void EntityConditionImpl::SetDistanceCondition(std::shared_ptr<IDistanceCondition> distanceCondition )
         {
             _distanceCondition = distanceCondition;
         }
@@ -5739,7 +5739,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * between two entities.]
 	 * 
 	*/
-        void EntityConditionImpl::SetRelativeDistanceCondition(const std::shared_ptr<IRelativeDistanceCondition> relativeDistanceCondition )
+        void EntityConditionImpl::SetRelativeDistanceCondition(std::shared_ptr<IRelativeDistanceCondition> relativeDistanceCondition )
         {
             _relativeDistanceCondition = relativeDistanceCondition;
         }
@@ -5988,7 +5988,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Vehicle or Pedestrian.]
 	 * 
 	*/
-        void EntityObjectImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void EntityObjectImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -5997,7 +5997,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param vehicle from OpenSCENARIO class model specification: [Vehicle definition.]
 	 * 
 	*/
-        void EntityObjectImpl::SetVehicle(const std::shared_ptr<IVehicle> vehicle )
+        void EntityObjectImpl::SetVehicle(std::shared_ptr<IVehicle> vehicle )
         {
             _vehicle = vehicle;
         }
@@ -6006,7 +6006,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param pedestrian from OpenSCENARIO class model specification: [Pedestrian definition.]
 	 * 
 	*/
-        void EntityObjectImpl::SetPedestrian(const std::shared_ptr<IPedestrian> pedestrian )
+        void EntityObjectImpl::SetPedestrian(std::shared_ptr<IPedestrian> pedestrian )
         {
             _pedestrian = pedestrian;
         }
@@ -6015,7 +6015,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param miscObject from OpenSCENARIO class model specification: [Definition of a MiscObject.]
 	 * 
 	*/
-        void EntityObjectImpl::SetMiscObject(const std::shared_ptr<IMiscObject> miscObject )
+        void EntityObjectImpl::SetMiscObject(std::shared_ptr<IMiscObject> miscObject )
         {
             _miscObject = miscObject;
         }
@@ -6146,7 +6146,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -6218,7 +6218,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * referenced as an entity.]
 	 * 
 	*/
-        void EntitySelectionImpl::SetName(const std::string name )
+        void EntitySelectionImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -6227,7 +6227,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param members from OpenSCENARIO class model specification: [Selected entities as members of the entity selection.]
 	 * 
 	*/
-        void EntitySelectionImpl::SetMembers(const std::shared_ptr<ISelectedEntities> members )
+        void EntitySelectionImpl::SetMembers(std::shared_ptr<ISelectedEntities> members )
         {
             _members = members;
         }
@@ -6238,7 +6238,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -6332,7 +6332,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the environment. If used in catalog name is required.]
 	 * 
 	*/
-        void EnvironmentImpl::SetName(const std::string name )
+        void EnvironmentImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -6350,7 +6350,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param timeOfDay from OpenSCENARIO class model specification: [Time of the day during the simulation.]
 	 * 
 	*/
-        void EnvironmentImpl::SetTimeOfDay(const std::shared_ptr<ITimeOfDay> timeOfDay )
+        void EnvironmentImpl::SetTimeOfDay(std::shared_ptr<ITimeOfDay> timeOfDay )
         {
             _timeOfDay = timeOfDay;
         }
@@ -6359,7 +6359,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param weather from OpenSCENARIO class model specification: [Weather conditions during the simulation.]
 	 * 
 	*/
-        void EnvironmentImpl::SetWeather(const std::shared_ptr<IWeather> weather )
+        void EnvironmentImpl::SetWeather(std::shared_ptr<IWeather> weather )
         {
             _weather = weather;
         }
@@ -6368,7 +6368,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param roadCondition from OpenSCENARIO class model specification: [Road conditions during the simulation.]
 	 * 
 	*/
-        void EnvironmentImpl::SetRoadCondition(const std::shared_ptr<IRoadCondition> roadCondition )
+        void EnvironmentImpl::SetRoadCondition(std::shared_ptr<IRoadCondition> roadCondition )
         {
             _roadCondition = roadCondition;
         }
@@ -6379,7 +6379,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -6526,7 +6526,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param environment from OpenSCENARIO class model specification: [New environment definition.]
 	 * 
 	*/
-        void EnvironmentActionImpl::SetEnvironment(const std::shared_ptr<IEnvironment> environment )
+        void EnvironmentActionImpl::SetEnvironment(std::shared_ptr<IEnvironment> environment )
         {
             _environment = environment;
         }
@@ -6535,7 +6535,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type Environment.]
 	 * 
 	*/
-        void EnvironmentActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void EnvironmentActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -6628,7 +6628,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-        void EnvironmentCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void EnvironmentCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -6727,7 +6727,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param priority from OpenSCENARIO class model specification: [Priority of each event.]
 	 * 
 	*/
-        void EventImpl::SetPriority(const Priority priority )
+        void EventImpl::SetPriority(Priority priority )
         {
             _priority = priority;
         }
@@ -6737,7 +6737,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * is 1. Range: [1..inf[.]
 	 * 
 	*/
-        void EventImpl::SetMaximumExecutionCount(const long long maximumExecutionCount )
+        void EventImpl::SetMaximumExecutionCount(long long maximumExecutionCount )
         {
             _maximumExecutionCount = maximumExecutionCount;
         }
@@ -6746,7 +6746,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the event.]
 	 * 
 	*/
-        void EventImpl::SetName(const std::string name )
+        void EventImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -6765,7 +6765,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * fires. This point in time represents the start of the event.]
 	 * 
 	*/
-        void EventImpl::SetStartTrigger(const std::shared_ptr<ITrigger> startTrigger )
+        void EventImpl::SetStartTrigger(std::shared_ptr<ITrigger> startTrigger )
         {
             _startTrigger = startTrigger;
         }
@@ -6779,7 +6779,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Priority::UNKNOWN)
                 {
                     _priority = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -6791,13 +6791,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maximumExecutionCount = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -6900,7 +6900,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * filepath=/home/simulator/customDriverSpecification.xml.]
 	 * 
 	*/
-        void FileImpl::SetFilepath(const std::string filepath )
+        void FileImpl::SetFilepath(std::string filepath )
         {
             _filepath = filepath;
         }
@@ -6911,7 +6911,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _filepath = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -6997,7 +6997,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void FileHeaderImpl::SetRevMajor(const long revMajor )
+        void FileHeaderImpl::SetRevMajor(long revMajor )
         {
             _revMajor = revMajor;
         }
@@ -7007,7 +7007,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void FileHeaderImpl::SetRevMinor(const long revMinor )
+        void FileHeaderImpl::SetRevMinor(long revMinor )
         {
             _revMinor = revMinor;
         }
@@ -7016,7 +7016,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param date from OpenSCENARIO class model specification: [User specific date and time recommended: YYYY-MM-DDThh:mm:ss.]
 	 * 
 	*/
-        void FileHeaderImpl::SetDate(const DateTime date )
+        void FileHeaderImpl::SetDate(DateTime date )
         {
             _date = date;
         }
@@ -7025,7 +7025,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param description from OpenSCENARIO class model specification: [User specific description.]
 	 * 
 	*/
-        void FileHeaderImpl::SetDescription(const std::string description )
+        void FileHeaderImpl::SetDescription(std::string description )
         {
             _description = description;
         }
@@ -7034,7 +7034,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param author from OpenSCENARIO class model specification: [Author of the scenario or the catalog.]
 	 * 
 	*/
-        void FileHeaderImpl::SetAuthor(const std::string author )
+        void FileHeaderImpl::SetAuthor(std::string author )
         {
             _author = author;
         }
@@ -7045,31 +7045,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _revMajor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MINOR)
             {
                 // Simple type
                 _revMinor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DATE)
             {
                 // Simple type
                 _date = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION)
             {
                 // Simple type
                 _description = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__AUTHOR)
             {
                 // Simple type
                 _author = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -7146,7 +7146,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * at its target position.]
 	 * 
 	*/
-        void FinalSpeedImpl::SetAbsoluteSpeed(const std::shared_ptr<IAbsoluteSpeed> absoluteSpeed )
+        void FinalSpeedImpl::SetAbsoluteSpeed(std::shared_ptr<IAbsoluteSpeed> absoluteSpeed )
         {
             _absoluteSpeed = absoluteSpeed;
         }
@@ -7156,7 +7156,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * relative to its master entity at its target position.]
 	 * 
 	*/
-        void FinalSpeedImpl::SetRelativeSpeedToMaster(const std::shared_ptr<IRelativeSpeedToMaster> relativeSpeedToMaster )
+        void FinalSpeedImpl::SetRelativeSpeedToMaster(std::shared_ptr<IRelativeSpeedToMaster> relativeSpeedToMaster )
         {
             _relativeSpeedToMaster = relativeSpeedToMaster;
         }
@@ -7254,7 +7254,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param visualRange from OpenSCENARIO class model specification: [Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void FogImpl::SetVisualRange(const double visualRange )
+        void FogImpl::SetVisualRange(double visualRange )
         {
             _visualRange = visualRange;
         }
@@ -7263,7 +7263,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param boundingBox from OpenSCENARIO class model specification: [Dimensions and center of fog in fixed coordinates.]
 	 * 
 	*/
-        void FogImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
+        void FogImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
         }
@@ -7274,7 +7274,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _visualRange = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -7363,7 +7363,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param trajectory from OpenSCENARIO class model specification: [Trajectory definition.]
 	 * 
 	*/
-        void FollowTrajectoryActionImpl::SetTrajectory(const std::shared_ptr<ITrajectory> trajectory )
+        void FollowTrajectoryActionImpl::SetTrajectory(std::shared_ptr<ITrajectory> trajectory )
         {
             _trajectory = trajectory;
         }
@@ -7372,7 +7372,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [A reference to the trajectory type in a catalog.]
 	 * 
 	*/
-        void FollowTrajectoryActionImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void FollowTrajectoryActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -7383,7 +7383,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * order to define longitudinal velocity of the actor. Moreover, a time , offset or time scaling may be applied.]
 	 * 
 	*/
-        void FollowTrajectoryActionImpl::SetTimeReference(const std::shared_ptr<ITimeReference> timeReference )
+        void FollowTrajectoryActionImpl::SetTimeReference(std::shared_ptr<ITimeReference> timeReference )
         {
             _timeReference = timeReference;
         }
@@ -7393,7 +7393,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * trajectory.]
 	 * 
 	*/
-        void FollowTrajectoryActionImpl::SetTrajectoryFollowingMode(const std::shared_ptr<ITrajectoryFollowingMode> trajectoryFollowingMode )
+        void FollowTrajectoryActionImpl::SetTrajectoryFollowingMode(std::shared_ptr<ITrajectoryFollowingMode> trajectoryFollowingMode )
         {
             _trajectoryFollowingMode = trajectoryFollowingMode;
         }
@@ -7529,7 +7529,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * of the day.]
 	 * 
 	*/
-        void GlobalActionImpl::SetEnvironmentAction(const std::shared_ptr<IEnvironmentAction> environmentAction )
+        void GlobalActionImpl::SetEnvironmentAction(std::shared_ptr<IEnvironmentAction> environmentAction )
         {
             _environmentAction = environmentAction;
         }
@@ -7538,7 +7538,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param entityAction from OpenSCENARIO class model specification: [Removing or adding entities.]
 	 * 
 	*/
-        void GlobalActionImpl::SetEntityAction(const std::shared_ptr<IEntityAction> entityAction )
+        void GlobalActionImpl::SetEntityAction(std::shared_ptr<IEntityAction> entityAction )
         {
             _entityAction = entityAction;
         }
@@ -7547,7 +7547,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param parameterAction from OpenSCENARIO class model specification: [Setting/modifying values of parameters.]
 	 * 
 	*/
-        void GlobalActionImpl::SetParameterAction(const std::shared_ptr<IParameterAction> parameterAction )
+        void GlobalActionImpl::SetParameterAction(std::shared_ptr<IParameterAction> parameterAction )
         {
             _parameterAction = parameterAction;
         }
@@ -7556,7 +7556,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param infrastructureAction from OpenSCENARIO class model specification: [Setting/modifying traffic signals.]
 	 * 
 	*/
-        void GlobalActionImpl::SetInfrastructureAction(const std::shared_ptr<IInfrastructureAction> infrastructureAction )
+        void GlobalActionImpl::SetInfrastructureAction(std::shared_ptr<IInfrastructureAction> infrastructureAction )
         {
             _infrastructureAction = infrastructureAction;
         }
@@ -7565,7 +7565,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param trafficAction from OpenSCENARIO class model specification: [Populating ambient traffic.]
 	 * 
 	*/
-        void GlobalActionImpl::SetTrafficAction(const std::shared_ptr<ITrafficAction> trafficAction )
+        void GlobalActionImpl::SetTrafficAction(std::shared_ptr<ITrafficAction> trafficAction )
         {
             _trafficAction = trafficAction;
         }
@@ -7706,7 +7706,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * position of a given entity.]
 	 * 
 	*/
-        void InRoutePositionImpl::SetFromCurrentEntity(const std::shared_ptr<IPositionOfCurrentEntity> fromCurrentEntity )
+        void InRoutePositionImpl::SetFromCurrentEntity(std::shared_ptr<IPositionOfCurrentEntity> fromCurrentEntity )
         {
             _fromCurrentEntity = fromCurrentEntity;
         }
@@ -7715,7 +7715,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param fromRoadCoordinates from OpenSCENARIO class model specification: [Route position in road coordinate system.]
 	 * 
 	*/
-        void InRoutePositionImpl::SetFromRoadCoordinates(const std::shared_ptr<IPositionInRoadCoordinates> fromRoadCoordinates )
+        void InRoutePositionImpl::SetFromRoadCoordinates(std::shared_ptr<IPositionInRoadCoordinates> fromRoadCoordinates )
         {
             _fromRoadCoordinates = fromRoadCoordinates;
         }
@@ -7724,7 +7724,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param fromLaneCoordinates from OpenSCENARIO class model specification: [Route position in lane coordinate system.]
 	 * 
 	*/
-        void InRoutePositionImpl::SetFromLaneCoordinates(const std::shared_ptr<IPositionInLaneCoordinates> fromLaneCoordinates )
+        void InRoutePositionImpl::SetFromLaneCoordinates(std::shared_ptr<IPositionInLaneCoordinates> fromLaneCoordinates )
         {
             _fromLaneCoordinates = fromLaneCoordinates;
         }
@@ -7831,7 +7831,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * controllers state from a road network.]
 	 * 
 	*/
-        void InfrastructureActionImpl::SetTrafficSignalAction(const std::shared_ptr<ITrafficSignalAction> trafficSignalAction )
+        void InfrastructureActionImpl::SetTrafficSignalAction(std::shared_ptr<ITrafficSignalAction> trafficSignalAction )
         {
             _trafficSignalAction = trafficSignalAction;
         }
@@ -7912,7 +7912,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * storyboard starts.]
 	 * 
 	*/
-        void InitImpl::SetActions(const std::shared_ptr<IInitActions> actions )
+        void InitImpl::SetActions(std::shared_ptr<IInitActions> actions )
         {
             _actions = actions;
         }
@@ -8146,7 +8146,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Knot vector value. Range ]-inf..inf[.]
 	 * 
 	*/
-        void KnotImpl::SetValue(const double value )
+        void KnotImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -8157,7 +8157,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -8231,7 +8231,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * action will end there. Unit: m.]
 	 * 
 	*/
-        void LaneChangeActionImpl::SetTargetLaneOffset(const double targetLaneOffset )
+        void LaneChangeActionImpl::SetTargetLaneOffset(double targetLaneOffset )
         {
             _targetLaneOffset = targetLaneOffset;
         }
@@ -8240,7 +8240,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param laneChangeActionDynamics from OpenSCENARIO class model specification: [Shape/time of lane change action.]
 	 * 
 	*/
-        void LaneChangeActionImpl::SetLaneChangeActionDynamics(const std::shared_ptr<ITransitionDynamics> laneChangeActionDynamics )
+        void LaneChangeActionImpl::SetLaneChangeActionDynamics(std::shared_ptr<ITransitionDynamics> laneChangeActionDynamics )
         {
             _laneChangeActionDynamics = laneChangeActionDynamics;
         }
@@ -8249,7 +8249,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param laneChangeTarget from OpenSCENARIO class model specification: [Direction of lane change action.]
 	 * 
 	*/
-        void LaneChangeActionImpl::SetLaneChangeTarget(const std::shared_ptr<ILaneChangeTarget> laneChangeTarget )
+        void LaneChangeActionImpl::SetLaneChangeTarget(std::shared_ptr<ILaneChangeTarget> laneChangeTarget )
         {
             _laneChangeTarget = laneChangeTarget;
         }
@@ -8260,7 +8260,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _targetLaneOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -8355,7 +8355,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * lane.]
 	 * 
 	*/
-        void LaneChangeTargetImpl::SetRelativeTargetLane(const std::shared_ptr<IRelativeTargetLane> relativeTargetLane )
+        void LaneChangeTargetImpl::SetRelativeTargetLane(std::shared_ptr<IRelativeTargetLane> relativeTargetLane )
         {
             _relativeTargetLane = relativeTargetLane;
         }
@@ -8364,7 +8364,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param absoluteTargetLane from OpenSCENARIO class model specification: [Lane change target lane number.]
 	 * 
 	*/
-        void LaneChangeTargetImpl::SetAbsoluteTargetLane(const std::shared_ptr<IAbsoluteTargetLane> absoluteTargetLane )
+        void LaneChangeTargetImpl::SetAbsoluteTargetLane(std::shared_ptr<IAbsoluteTargetLane> absoluteTargetLane )
         {
             _absoluteTargetLane = absoluteTargetLane;
         }
@@ -8467,7 +8467,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reached. If true it does not end but has to be stopped.]
 	 * 
 	*/
-        void LaneOffsetActionImpl::SetContinuous(const bool continuous )
+        void LaneOffsetActionImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
         }
@@ -8477,7 +8477,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * LaneOffsetAction.]
 	 * 
 	*/
-        void LaneOffsetActionImpl::SetLaneOffsetActionDynamics(const std::shared_ptr<ILaneOffsetActionDynamics> laneOffsetActionDynamics )
+        void LaneOffsetActionImpl::SetLaneOffsetActionDynamics(std::shared_ptr<ILaneOffsetActionDynamics> laneOffsetActionDynamics )
         {
             _laneOffsetActionDynamics = laneOffsetActionDynamics;
         }
@@ -8487,7 +8487,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * defined relative to another entity or absolute to the current lane's center , line.]
 	 * 
 	*/
-        void LaneOffsetActionImpl::SetLaneOffsetTarget(const std::shared_ptr<ILaneOffsetTarget> laneOffsetTarget )
+        void LaneOffsetActionImpl::SetLaneOffsetTarget(std::shared_ptr<ILaneOffsetTarget> laneOffsetTarget )
         {
             _laneOffsetTarget = laneOffsetTarget;
         }
@@ -8498,7 +8498,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -8595,7 +8595,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.]
 	 * 
 	*/
-        void LaneOffsetActionDynamicsImpl::SetMaxLateralAcc(const double maxLateralAcc )
+        void LaneOffsetActionDynamicsImpl::SetMaxLateralAcc(double maxLateralAcc )
         {
             _maxLateralAcc = maxLateralAcc;
         }
@@ -8605,7 +8605,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * dynamics.]
 	 * 
 	*/
-        void LaneOffsetActionDynamicsImpl::SetDynamicsShape(const DynamicsShape dynamicsShape )
+        void LaneOffsetActionDynamicsImpl::SetDynamicsShape(DynamicsShape dynamicsShape )
         {
             _dynamicsShape = dynamicsShape;
         }
@@ -8616,7 +8616,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maxLateralAcc = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
             {
@@ -8625,7 +8625,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != DynamicsShape::UNKNOWN)
                 {
                     _dynamicsShape = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -8702,7 +8702,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * a specific entity.]
 	 * 
 	*/
-        void LaneOffsetTargetImpl::SetRelativeTargetLaneOffset(const std::shared_ptr<IRelativeTargetLaneOffset> relativeTargetLaneOffset )
+        void LaneOffsetTargetImpl::SetRelativeTargetLaneOffset(std::shared_ptr<IRelativeTargetLaneOffset> relativeTargetLaneOffset )
         {
             _relativeTargetLaneOffset = relativeTargetLaneOffset;
         }
@@ -8712,7 +8712,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * center line.]
 	 * 
 	*/
-        void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(const std::shared_ptr<IAbsoluteTargetLaneOffset> absoluteTargetLaneOffset )
+        void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(std::shared_ptr<IAbsoluteTargetLaneOffset> absoluteTargetLaneOffset )
         {
             _absoluteTargetLaneOffset = absoluteTargetLaneOffset;
         }
@@ -8825,7 +8825,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param roadId from OpenSCENARIO class model specification: [ID of the current road (ID of a road in road network).]
 	 * 
 	*/
-        void LanePositionImpl::SetRoadId(const std::string roadId )
+        void LanePositionImpl::SetRoadId(std::string roadId )
         {
             _roadId = roadId;
         }
@@ -8834,7 +8834,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param laneId from OpenSCENARIO class model specification: [ID of the current lane (ID of a lane in road network).]
 	 * 
 	*/
-        void LanePositionImpl::SetLaneId(const std::string laneId )
+        void LanePositionImpl::SetLaneId(std::string laneId )
         {
             _laneId = laneId;
         }
@@ -8844,7 +8844,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * m.]
 	 * 
 	*/
-        void LanePositionImpl::SetOffset(const double offset )
+        void LanePositionImpl::SetOffset(double offset )
         {
             _offset = offset;
         }
@@ -8854,7 +8854,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void LanePositionImpl::SetS(const double s )
+        void LanePositionImpl::SetS(double s )
         {
             _s = s;
         }
@@ -8864,7 +8864,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the referenced road's s and t coordinates.]
 	 * 
 	*/
-        void LanePositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
+        void LanePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
@@ -8875,25 +8875,25 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _roadId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
             {
                 // Simple type
                 _laneId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__S)
             {
                 // Simple type
                 _s = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -8984,7 +8984,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param laneChangeAction from OpenSCENARIO class model specification: [Action defining a lane change.]
 	 * 
 	*/
-        void LateralActionImpl::SetLaneChangeAction(const std::shared_ptr<ILaneChangeAction> laneChangeAction )
+        void LateralActionImpl::SetLaneChangeAction(std::shared_ptr<ILaneChangeAction> laneChangeAction )
         {
             _laneChangeAction = laneChangeAction;
         }
@@ -8993,7 +8993,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param laneOffsetAction from OpenSCENARIO class model specification: [Action defining a continuously kept lane offset.]
 	 * 
 	*/
-        void LateralActionImpl::SetLaneOffsetAction(const std::shared_ptr<ILaneOffsetAction> laneOffsetAction )
+        void LateralActionImpl::SetLaneOffsetAction(std::shared_ptr<ILaneOffsetAction> laneOffsetAction )
         {
             _laneOffsetAction = laneOffsetAction;
         }
@@ -9003,7 +9003,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * distance to a specific entity.]
 	 * 
 	*/
-        void LateralActionImpl::SetLateralDistanceAction(const std::shared_ptr<ILateralDistanceAction> lateralDistanceAction )
+        void LateralActionImpl::SetLateralDistanceAction(std::shared_ptr<ILateralDistanceAction> lateralDistanceAction )
         {
             _lateralDistanceAction = lateralDistanceAction;
         }
@@ -9139,7 +9139,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param distance from OpenSCENARIO class model specification: [Lateral distance value. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void LateralDistanceActionImpl::SetDistance(const double distance )
+        void LateralDistanceActionImpl::SetDistance(double distance )
         {
             _distance = distance;
         }
@@ -9149,7 +9149,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * between closest bounding box points. False: Reference point , distance is used.]
 	 * 
 	*/
-        void LateralDistanceActionImpl::SetFreespace(const bool freespace )
+        void LateralDistanceActionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
@@ -9159,7 +9159,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reached. If true it does not end and can only be stopped.]
 	 * 
 	*/
-        void LateralDistanceActionImpl::SetContinuous(const bool continuous )
+        void LateralDistanceActionImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
         }
@@ -9169,7 +9169,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the, action.]
 	 * 
 	*/
-        void LateralDistanceActionImpl::SetDynamicConstraints(const std::shared_ptr<IDynamicConstraints> dynamicConstraints )
+        void LateralDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints> dynamicConstraints )
         {
             _dynamicConstraints = dynamicConstraints;
         }
@@ -9180,25 +9180,25 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DISTANCE)
             {
                 // Simple type
                 _distance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
             {
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -9288,7 +9288,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * current longitudinal speed of an entity and its target speed.]
 	 * 
 	*/
-        void LongitudinalActionImpl::SetSpeedAction(const std::shared_ptr<ISpeedAction> speedAction )
+        void LongitudinalActionImpl::SetSpeedAction(std::shared_ptr<ISpeedAction> speedAction )
         {
             _speedAction = speedAction;
         }
@@ -9298,7 +9298,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * longitudinal distance to a specific entity.]
 	 * 
 	*/
-        void LongitudinalActionImpl::SetLongitudinalDistanceAction(const std::shared_ptr<ILongitudinalDistanceAction> longitudinalDistanceAction )
+        void LongitudinalActionImpl::SetLongitudinalDistanceAction(std::shared_ptr<ILongitudinalDistanceAction> longitudinalDistanceAction )
         {
             _longitudinalDistanceAction = longitudinalDistanceAction;
         }
@@ -9426,7 +9426,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * attribute. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void LongitudinalDistanceActionImpl::SetDistance(const double distance )
+        void LongitudinalDistanceActionImpl::SetDistance(double distance )
         {
             _distance = distance;
         }
@@ -9436,7 +9436,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * attribute. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-        void LongitudinalDistanceActionImpl::SetTimeGap(const double timeGap )
+        void LongitudinalDistanceActionImpl::SetTimeGap(double timeGap )
         {
             _timeGap = timeGap;
         }
@@ -9446,7 +9446,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * closest bounding box points False: Reference point distance is , used.]
 	 * 
 	*/
-        void LongitudinalDistanceActionImpl::SetFreespace(const bool freespace )
+        void LongitudinalDistanceActionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
@@ -9456,7 +9456,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reached. If true it does not end and can only be stopped.]
 	 * 
 	*/
-        void LongitudinalDistanceActionImpl::SetContinuous(const bool continuous )
+        void LongitudinalDistanceActionImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
         }
@@ -9466,7 +9466,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to , the action.]
 	 * 
 	*/
-        void LongitudinalDistanceActionImpl::SetDynamicConstraints(const std::shared_ptr<IDynamicConstraints> dynamicConstraints )
+        void LongitudinalDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints> dynamicConstraints )
         {
             _dynamicConstraints = dynamicConstraints;
         }
@@ -9477,31 +9477,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DISTANCE)
             {
                 // Simple type
                 _distance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME_GAP)
             {
                 // Simple type
                 _timeGap = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
             {
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -9597,7 +9597,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the maneuver.]
 	 * 
 	*/
-        void ManeuverImpl::SetName(const std::string name )
+        void ManeuverImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -9626,7 +9626,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -9750,7 +9750,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-        void ManeuverCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void ManeuverCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -9849,7 +9849,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * group. Default value is 1. Range: [1..inf[.]
 	 * 
 	*/
-        void ManeuverGroupImpl::SetMaximumExecutionCount(const long long maximumExecutionCount )
+        void ManeuverGroupImpl::SetMaximumExecutionCount(long long maximumExecutionCount )
         {
             _maximumExecutionCount = maximumExecutionCount;
         }
@@ -9858,7 +9858,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
 	 * 
 	*/
-        void ManeuverGroupImpl::SetName(const std::string name )
+        void ManeuverGroupImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -9867,7 +9867,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param actors from OpenSCENARIO class model specification: [Actors of the maneuver group.]
 	 * 
 	*/
-        void ManeuverGroupImpl::SetActors(const std::shared_ptr<IActors> actors )
+        void ManeuverGroupImpl::SetActors(std::shared_ptr<IActors> actors )
         {
             _actors = actors;
         }
@@ -9897,13 +9897,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maximumExecutionCount = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -10045,7 +10045,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param miscObjectCategory from OpenSCENARIO class model specification: [Categorization of the miscellaneous object.]
 	 * 
 	*/
-        void MiscObjectImpl::SetMiscObjectCategory(const MiscObjectCategory miscObjectCategory )
+        void MiscObjectImpl::SetMiscObjectCategory(MiscObjectCategory miscObjectCategory )
         {
             _miscObjectCategory = miscObjectCategory;
         }
@@ -10054,7 +10054,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param mass from OpenSCENARIO class model specification: [Mass of the miscellaneous object. Unit: kg; Range: [0..inf[.]
 	 * 
 	*/
-        void MiscObjectImpl::SetMass(const double mass )
+        void MiscObjectImpl::SetMass(double mass )
         {
             _mass = mass;
         }
@@ -10063,7 +10063,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the miscellaneous object type.]
 	 * 
 	*/
-        void MiscObjectImpl::SetName(const std::string name )
+        void MiscObjectImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -10081,7 +10081,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param boundingBox from OpenSCENARIO class model specification: [Bounding box definition for the miscellaneous object.]
 	 * 
 	*/
-        void MiscObjectImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
+        void MiscObjectImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
         }
@@ -10090,7 +10090,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Property definitions for the miscellaneous object.]
 	 * 
 	*/
-        void MiscObjectImpl::SetProperties(const std::shared_ptr<IProperties> properties )
+        void MiscObjectImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
         }
@@ -10104,7 +10104,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != MiscObjectCategory::UNKNOWN)
                 {
                     _miscObjectCategory = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -10116,13 +10116,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -10256,7 +10256,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-        void MiscObjectCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void MiscObjectCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -10340,7 +10340,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param addValue from OpenSCENARIO class model specification: [Adding a value to a parameter.]
 	 * 
 	*/
-        void ModifyRuleImpl::SetAddValue(const std::shared_ptr<IParameterAddValueRule> addValue )
+        void ModifyRuleImpl::SetAddValue(std::shared_ptr<IParameterAddValueRule> addValue )
         {
             _addValue = addValue;
         }
@@ -10349,7 +10349,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param multiplyByValue from OpenSCENARIO class model specification: [Multiply a parameter by a value.]
 	 * 
 	*/
-        void ModifyRuleImpl::SetMultiplyByValue(const std::shared_ptr<IParameterMultiplyByValueRule> multiplyByValue )
+        void ModifyRuleImpl::SetMultiplyByValue(std::shared_ptr<IParameterMultiplyByValueRule> multiplyByValue )
         {
             _multiplyByValue = multiplyByValue;
         }
@@ -10506,7 +10506,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
 	 * 
 	*/
-        void NurbsImpl::SetOrder(const long long order )
+        void NurbsImpl::SetOrder(long long order )
         {
             _order = order;
         }
@@ -10538,7 +10538,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _order = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -10646,7 +10646,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [Catalog reference to a controller.]
 	 * 
 	*/
-        void ObjectControllerImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void ObjectControllerImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -10655,7 +10655,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param controller from OpenSCENARIO class model specification: [Controller type definition.]
 	 * 
 	*/
-        void ObjectControllerImpl::SetController(const std::shared_ptr<IController> controller )
+        void ObjectControllerImpl::SetController(std::shared_ptr<IController> controller )
         {
             _controller = controller;
         }
@@ -10750,7 +10750,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void OffroadConditionImpl::SetDuration(const double duration )
+        void OffroadConditionImpl::SetDuration(double duration )
         {
             _duration = duration;
         }
@@ -10761,7 +10761,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -10829,7 +10829,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param fileHeader from OpenSCENARIO class model specification: [Header information for the scenario or the catalog.]
 	 * 
 	*/
-        void OpenScenarioImpl::SetFileHeader(const std::shared_ptr<IFileHeader> fileHeader )
+        void OpenScenarioImpl::SetFileHeader(std::shared_ptr<IFileHeader> fileHeader )
         {
             _fileHeader = fileHeader;
         }
@@ -10839,7 +10839,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * OpenSCENARIO description.]
 	 * 
 	*/
-        void OpenScenarioImpl::SetOpenScenarioCategory(const std::shared_ptr<IOpenScenarioCategory> openScenarioCategory )
+        void OpenScenarioImpl::SetOpenScenarioCategory(std::shared_ptr<IOpenScenarioCategory> openScenarioCategory )
         {
             _openScenarioCategory = openScenarioCategory;
         }
@@ -10936,7 +10936,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param scenarioDefinition from OpenSCENARIO class model specification: [Definition of a scenario.]
 	 * 
 	*/
-        void OpenScenarioCategoryImpl::SetScenarioDefinition(const std::shared_ptr<IScenarioDefinition> scenarioDefinition )
+        void OpenScenarioCategoryImpl::SetScenarioDefinition(std::shared_ptr<IScenarioDefinition> scenarioDefinition )
         {
             _scenarioDefinition = scenarioDefinition;
         }
@@ -10945,7 +10945,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalogDefinition from OpenSCENARIO class model specification: [Definition of a catalog.]
 	 * 
 	*/
-        void OpenScenarioCategoryImpl::SetCatalogDefinition(const std::shared_ptr<ICatalogDefinition> catalogDefinition )
+        void OpenScenarioCategoryImpl::SetCatalogDefinition(std::shared_ptr<ICatalogDefinition> catalogDefinition )
         {
             _catalogDefinition = catalogDefinition;
         }
@@ -11054,7 +11054,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param type from OpenSCENARIO class model specification: [Relative or absolute definition.]
 	 * 
 	*/
-        void OrientationImpl::SetType(const ReferenceContext type )
+        void OrientationImpl::SetType(ReferenceContext type )
         {
             _type = type;
         }
@@ -11063,7 +11063,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param h from OpenSCENARIO class model specification: [Heading angle. Unit: rad;.]
 	 * 
 	*/
-        void OrientationImpl::SetH(const double h )
+        void OrientationImpl::SetH(double h )
         {
             _h = h;
         }
@@ -11072,7 +11072,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param p from OpenSCENARIO class model specification: [Pitch angle. Unit: rad;.]
 	 * 
 	*/
-        void OrientationImpl::SetP(const double p )
+        void OrientationImpl::SetP(double p )
         {
             _p = p;
         }
@@ -11081,7 +11081,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param r from OpenSCENARIO class model specification: [Roll angle. Unit: rad;.]
 	 * 
 	*/
-        void OrientationImpl::SetR(const double r )
+        void OrientationImpl::SetR(double r )
         {
             _r = r;
         }
@@ -11095,7 +11095,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != ReferenceContext::UNKNOWN)
                 {
                     _type = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -11107,19 +11107,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _h = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__P)
             {
                 // Simple type
                 _p = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__R)
             {
                 // Simple type
                 _r = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -11196,7 +11196,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * represents 100% of pressing the brake pedal.]
 	 * 
 	*/
-        void OverrideBrakeActionImpl::SetValue(const double value )
+        void OverrideBrakeActionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -11205,7 +11205,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-        void OverrideBrakeActionImpl::SetActive(const bool active )
+        void OverrideBrakeActionImpl::SetActive(bool active )
         {
             _active = active;
         }
@@ -11216,13 +11216,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -11295,7 +11295,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * represents 100% of pressing the clutch pedal.]
 	 * 
 	*/
-        void OverrideClutchActionImpl::SetValue(const double value )
+        void OverrideClutchActionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -11304,7 +11304,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-        void OverrideClutchActionImpl::SetActive(const bool active )
+        void OverrideClutchActionImpl::SetActive(bool active )
         {
             _active = active;
         }
@@ -11315,13 +11315,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -11407,7 +11407,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param throttle from OpenSCENARIO class model specification: [New value for throttle pedal position or unset value.]
 	 * 
 	*/
-        void OverrideControllerValueActionImpl::SetThrottle(const std::shared_ptr<IOverrideThrottleAction> throttle )
+        void OverrideControllerValueActionImpl::SetThrottle(std::shared_ptr<IOverrideThrottleAction> throttle )
         {
             _throttle = throttle;
         }
@@ -11416,7 +11416,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param brake from OpenSCENARIO class model specification: [New value for brake position or unset value.]
 	 * 
 	*/
-        void OverrideControllerValueActionImpl::SetBrake(const std::shared_ptr<IOverrideBrakeAction> brake )
+        void OverrideControllerValueActionImpl::SetBrake(std::shared_ptr<IOverrideBrakeAction> brake )
         {
             _brake = brake;
         }
@@ -11425,7 +11425,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param clutch from OpenSCENARIO class model specification: [New value for clutch position or unset value.]
 	 * 
 	*/
-        void OverrideControllerValueActionImpl::SetClutch(const std::shared_ptr<IOverrideClutchAction> clutch )
+        void OverrideControllerValueActionImpl::SetClutch(std::shared_ptr<IOverrideClutchAction> clutch )
         {
             _clutch = clutch;
         }
@@ -11434,7 +11434,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param parkingBrake from OpenSCENARIO class model specification: [New value for parking brake position or unset value.]
 	 * 
 	*/
-        void OverrideControllerValueActionImpl::SetParkingBrake(const std::shared_ptr<IOverrideParkingBrakeAction> parkingBrake )
+        void OverrideControllerValueActionImpl::SetParkingBrake(std::shared_ptr<IOverrideParkingBrakeAction> parkingBrake )
         {
             _parkingBrake = parkingBrake;
         }
@@ -11444,7 +11444,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * value.]
 	 * 
 	*/
-        void OverrideControllerValueActionImpl::SetSteeringWheel(const std::shared_ptr<IOverrideSteeringWheelAction> steeringWheel )
+        void OverrideControllerValueActionImpl::SetSteeringWheel(std::shared_ptr<IOverrideSteeringWheelAction> steeringWheel )
         {
             _steeringWheel = steeringWheel;
         }
@@ -11453,7 +11453,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param gear from OpenSCENARIO class model specification: [New value for gear position or unset value.]
 	 * 
 	*/
-        void OverrideControllerValueActionImpl::SetGear(const std::shared_ptr<IOverrideGearAction> gear )
+        void OverrideControllerValueActionImpl::SetGear(std::shared_ptr<IOverrideGearAction> gear )
         {
             _gear = gear;
         }
@@ -11604,7 +11604,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param number from OpenSCENARIO class model specification: [Gear number.]
 	 * 
 	*/
-        void OverrideGearActionImpl::SetNumber(const double number )
+        void OverrideGearActionImpl::SetNumber(double number )
         {
             _number = number;
         }
@@ -11613,7 +11613,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-        void OverrideGearActionImpl::SetActive(const bool active )
+        void OverrideGearActionImpl::SetActive(bool active )
         {
             _active = active;
         }
@@ -11624,13 +11624,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _number = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -11703,7 +11703,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * represent the maximum parking brake state.]
 	 * 
 	*/
-        void OverrideParkingBrakeActionImpl::SetValue(const double value )
+        void OverrideParkingBrakeActionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -11712,7 +11712,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-        void OverrideParkingBrakeActionImpl::SetActive(const bool active )
+        void OverrideParkingBrakeActionImpl::SetActive(bool active )
         {
             _active = active;
         }
@@ -11723,13 +11723,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -11801,7 +11801,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Steering wheel angle. Unit: rad.]
 	 * 
 	*/
-        void OverrideSteeringWheelActionImpl::SetValue(const double value )
+        void OverrideSteeringWheelActionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -11810,7 +11810,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-        void OverrideSteeringWheelActionImpl::SetActive(const bool active )
+        void OverrideSteeringWheelActionImpl::SetActive(bool active )
         {
             _active = active;
         }
@@ -11821,13 +11821,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -11900,7 +11900,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * represents 100% of pressing the throttle pedal.]
 	 * 
 	*/
-        void OverrideThrottleActionImpl::SetValue(const double value )
+        void OverrideThrottleActionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -11909,7 +11909,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
 	 * 
 	*/
-        void OverrideThrottleActionImpl::SetActive(const bool active )
+        void OverrideThrottleActionImpl::SetActive(bool active )
         {
             _active = active;
         }
@@ -11920,13 +11920,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -12010,7 +12010,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param setAction from OpenSCENARIO class model specification: [New value for the parameter.]
 	 * 
 	*/
-        void ParameterActionImpl::SetSetAction(const std::shared_ptr<IParameterSetAction> setAction )
+        void ParameterActionImpl::SetSetAction(std::shared_ptr<IParameterSetAction> setAction )
         {
             _setAction = setAction;
         }
@@ -12020,7 +12020,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * multiply by value).]
 	 * 
 	*/
-        void ParameterActionImpl::SetModifyAction(const std::shared_ptr<IParameterModifyAction> modifyAction )
+        void ParameterActionImpl::SetModifyAction(std::shared_ptr<IParameterModifyAction> modifyAction )
         {
             _modifyAction = modifyAction;
         }
@@ -12031,7 +12031,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _parameterRef = NamedReferenceProxy<IParameterDeclaration>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -12124,7 +12124,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Add value to existing parameter.]
 	 * 
 	*/
-        void ParameterAddValueRuleImpl::SetValue(const double value )
+        void ParameterAddValueRuleImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -12135,7 +12135,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -12216,7 +12216,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * parametrizable type.]
 	 * 
 	*/
-        void ParameterAssignmentImpl::SetValue(const std::string value )
+        void ParameterAssignmentImpl::SetValue(std::string value )
         {
             _value = value;
         }
@@ -12227,7 +12227,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -12315,7 +12315,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Value of the parameter.]
 	 * 
 	*/
-        void ParameterConditionImpl::SetValue(const std::string value )
+        void ParameterConditionImpl::SetValue(std::string value )
         {
             _value = value;
         }
@@ -12324,7 +12324,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void ParameterConditionImpl::SetRule(const Rule rule )
+        void ParameterConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -12335,13 +12335,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _parameterRef = NamedReferenceProxy<IParameterDeclaration>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -12350,7 +12350,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -12437,7 +12437,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the parameter.]
 	 * 
 	*/
-        void ParameterDeclarationImpl::SetName(const std::string name )
+        void ParameterDeclarationImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -12446,7 +12446,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param parameterType from OpenSCENARIO class model specification: [Type of the parameter.]
 	 * 
 	*/
-        void ParameterDeclarationImpl::SetParameterType(const ParameterType parameterType )
+        void ParameterDeclarationImpl::SetParameterType(ParameterType parameterType )
         {
             _parameterType = parameterType;
         }
@@ -12455,7 +12455,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Value of the parameter as its default value.]
 	 * 
 	*/
-        void ParameterDeclarationImpl::SetValue(const std::string value )
+        void ParameterDeclarationImpl::SetValue(std::string value )
         {
             _value = value;
         }
@@ -12469,7 +12469,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != ParameterType::UNKNOWN)
                 {
                     _parameterType = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -12481,7 +12481,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -12550,7 +12550,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * by a value. Has to match the parameter type.]
 	 * 
 	*/
-        void ParameterModifyActionImpl::SetRule(const std::shared_ptr<IModifyRule> rule )
+        void ParameterModifyActionImpl::SetRule(std::shared_ptr<IModifyRule> rule )
         {
             _rule = rule;
         }
@@ -12632,7 +12632,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * parameter data type).]
 	 * 
 	*/
-        void ParameterMultiplyByValueRuleImpl::SetValue(const double value )
+        void ParameterMultiplyByValueRuleImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -12643,7 +12643,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -12708,7 +12708,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The new value for the parameter.]
 	 * 
 	*/
-        void ParameterSetActionImpl::SetValue(const std::string value )
+        void ParameterSetActionImpl::SetValue(std::string value )
         {
             _value = value;
         }
@@ -12719,7 +12719,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -12811,7 +12811,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param model from OpenSCENARIO class model specification: [Definition of the model of the pedestrian.]
 	 * 
 	*/
-        void PedestrianImpl::SetModel(const std::string model )
+        void PedestrianImpl::SetModel(std::string model )
         {
             _model = model;
         }
@@ -12820,7 +12820,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param mass from OpenSCENARIO class model specification: [The mass of a pedestrian in kg.]
 	 * 
 	*/
-        void PedestrianImpl::SetMass(const double mass )
+        void PedestrianImpl::SetMass(double mass )
         {
             _mass = mass;
         }
@@ -12829,7 +12829,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the pedestrian type. Required when used in catalog.]
 	 * 
 	*/
-        void PedestrianImpl::SetName(const std::string name )
+        void PedestrianImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -12838,7 +12838,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param pedestrianCategory from OpenSCENARIO class model specification: [Category type of pedestrian.]
 	 * 
 	*/
-        void PedestrianImpl::SetPedestrianCategory(const PedestrianCategory pedestrianCategory )
+        void PedestrianImpl::SetPedestrianCategory(PedestrianCategory pedestrianCategory )
         {
             _pedestrianCategory = pedestrianCategory;
         }
@@ -12856,7 +12856,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param boundingBox from OpenSCENARIO class model specification: [Bounding box of the pedestrian.]
 	 * 
 	*/
-        void PedestrianImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
+        void PedestrianImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
         }
@@ -12865,7 +12865,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Properties (values/files) of the pedestrian.]
 	 * 
 	*/
-        void PedestrianImpl::SetProperties(const std::shared_ptr<IProperties> properties )
+        void PedestrianImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
         }
@@ -12876,19 +12876,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _model = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MASS)
             {
                 // Simple type
                 _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY)
             {
@@ -12897,7 +12897,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != PedestrianCategory::UNKNOWN)
                 {
                     _pedestrianCategory = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -13039,7 +13039,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [File path for the pedestrian catalog files.]
 	 * 
 	*/
-        void PedestrianCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void PedestrianCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -13130,7 +13130,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed of the vehicle. Unit: m/s.]
 	 * 
 	*/
-        void PerformanceImpl::SetMaxSpeed(const double maxSpeed )
+        void PerformanceImpl::SetMaxSpeed(double maxSpeed )
         {
             _maxSpeed = maxSpeed;
         }
@@ -13140,7 +13140,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Range: [0..inf[.]
 	 * 
 	*/
-        void PerformanceImpl::SetMaxAcceleration(const double maxAcceleration )
+        void PerformanceImpl::SetMaxAcceleration(double maxAcceleration )
         {
             _maxAcceleration = maxAcceleration;
         }
@@ -13150,7 +13150,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Range: [0..inf[.]
 	 * 
 	*/
-        void PerformanceImpl::SetMaxDeceleration(const double maxDeceleration )
+        void PerformanceImpl::SetMaxDeceleration(double maxDeceleration )
         {
             _maxDeceleration = maxDeceleration;
         }
@@ -13161,19 +13161,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maxSpeed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION)
             {
                 // Simple type
                 _maxAcceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
             {
                 // Simple type
                 _maxDeceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -13251,7 +13251,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the phase.]
 	 * 
 	*/
-        void PhaseImpl::SetName(const std::string name )
+        void PhaseImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -13260,7 +13260,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param duration from OpenSCENARIO class model specification: [Duration of the phase. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-        void PhaseImpl::SetDuration(const double duration )
+        void PhaseImpl::SetDuration(double duration )
         {
             _duration = duration;
         }
@@ -13282,13 +13282,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DURATION)
             {
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -13489,7 +13489,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param worldPosition from OpenSCENARIO class model specification: [Position that uses global coordinates.]
 	 * 
 	*/
-        void PositionImpl::SetWorldPosition(const std::shared_ptr<IWorldPosition> worldPosition )
+        void PositionImpl::SetWorldPosition(std::shared_ptr<IWorldPosition> worldPosition )
         {
             _worldPosition = worldPosition;
         }
@@ -13499,7 +13499,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * position.]
 	 * 
 	*/
-        void PositionImpl::SetRelativeWorldPosition(const std::shared_ptr<IRelativeWorldPosition> relativeWorldPosition )
+        void PositionImpl::SetRelativeWorldPosition(std::shared_ptr<IRelativeWorldPosition> relativeWorldPosition )
         {
             _relativeWorldPosition = relativeWorldPosition;
         }
@@ -13508,7 +13508,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param relativeObjectPosition from OpenSCENARIO class model specification: [Position is given relative to an entity.]
 	 * 
 	*/
-        void PositionImpl::SetRelativeObjectPosition(const std::shared_ptr<IRelativeObjectPosition> relativeObjectPosition )
+        void PositionImpl::SetRelativeObjectPosition(std::shared_ptr<IRelativeObjectPosition> relativeObjectPosition )
         {
             _relativeObjectPosition = relativeObjectPosition;
         }
@@ -13518,7 +13518,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-        void PositionImpl::SetRoadPosition(const std::shared_ptr<IRoadPosition> roadPosition )
+        void PositionImpl::SetRoadPosition(std::shared_ptr<IRoadPosition> roadPosition )
         {
             _roadPosition = roadPosition;
         }
@@ -13528,7 +13528,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * (ds, dt).]
 	 * 
 	*/
-        void PositionImpl::SetRelativeRoadPosition(const std::shared_ptr<IRelativeRoadPosition> relativeRoadPosition )
+        void PositionImpl::SetRelativeRoadPosition(std::shared_ptr<IRelativeRoadPosition> relativeRoadPosition )
         {
             _relativeRoadPosition = relativeRoadPosition;
         }
@@ -13538,7 +13538,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the s coordinate of a given road.]
 	 * 
 	*/
-        void PositionImpl::SetLanePosition(const std::shared_ptr<ILanePosition> lanePosition )
+        void PositionImpl::SetLanePosition(std::shared_ptr<ILanePosition> lanePosition )
         {
             _lanePosition = lanePosition;
         }
@@ -13548,7 +13548,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * lane coordinates of a given entity. (Relative lane and relative s to this , entity).]
 	 * 
 	*/
-        void PositionImpl::SetRelativeLanePosition(const std::shared_ptr<IRelativeLanePosition> relativeLanePosition )
+        void PositionImpl::SetRelativeLanePosition(std::shared_ptr<IRelativeLanePosition> relativeLanePosition )
         {
             _relativeLanePosition = relativeLanePosition;
         }
@@ -13557,7 +13557,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param routePosition from OpenSCENARIO class model specification: [Position that is determined by a given route.]
 	 * 
 	*/
-        void PositionImpl::SetRoutePosition(const std::shared_ptr<IRoutePosition> routePosition )
+        void PositionImpl::SetRoutePosition(std::shared_ptr<IRoutePosition> routePosition )
         {
             _routePosition = routePosition;
         }
@@ -13740,7 +13740,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void PositionInLaneCoordinatesImpl::SetPathS(const double pathS )
+        void PositionInLaneCoordinatesImpl::SetPathS(double pathS )
         {
             _pathS = pathS;
         }
@@ -13749,7 +13749,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param laneId from OpenSCENARIO class model specification: [Lane ID of the actual position.]
 	 * 
 	*/
-        void PositionInLaneCoordinatesImpl::SetLaneId(const std::string laneId )
+        void PositionInLaneCoordinatesImpl::SetLaneId(std::string laneId )
         {
             _laneId = laneId;
         }
@@ -13759,7 +13759,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * actual position. Unit: m.]
 	 * 
 	*/
-        void PositionInLaneCoordinatesImpl::SetLaneOffset(const double laneOffset )
+        void PositionInLaneCoordinatesImpl::SetLaneOffset(double laneOffset )
         {
             _laneOffset = laneOffset;
         }
@@ -13770,19 +13770,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _pathS = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
             {
                 // Simple type
                 _laneId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET)
             {
                 // Simple type
                 _laneOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -13857,7 +13857,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-        void PositionInRoadCoordinatesImpl::SetPathS(const double pathS )
+        void PositionInRoadCoordinatesImpl::SetPathS(double pathS )
         {
             _pathS = pathS;
         }
@@ -13867,7 +13867,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-        void PositionInRoadCoordinatesImpl::SetT(const double t )
+        void PositionInRoadCoordinatesImpl::SetT(double t )
         {
             _t = t;
         }
@@ -13878,13 +13878,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _pathS = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -13962,7 +13962,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -14034,7 +14034,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param precipitationType from OpenSCENARIO class model specification: [Type of the precipitation.]
 	 * 
 	*/
-        void PrecipitationImpl::SetPrecipitationType(const PrecipitationType precipitationType )
+        void PrecipitationImpl::SetPrecipitationType(PrecipitationType precipitationType )
         {
             _precipitationType = precipitationType;
         }
@@ -14043,7 +14043,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param intensity from OpenSCENARIO class model specification: [The intensity of the precipitation. Range: [0..1].]
 	 * 
 	*/
-        void PrecipitationImpl::SetIntensity(const double intensity )
+        void PrecipitationImpl::SetIntensity(double intensity )
         {
             _intensity = intensity;
         }
@@ -14057,7 +14057,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != PrecipitationType::UNKNOWN)
                 {
                     _precipitationType = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -14069,7 +14069,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -14161,7 +14161,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -14276,7 +14276,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reference entity/entities. Either a SpeedAction or a , LongitudinalDistanceAction.]
 	 * 
 	*/
-        void PrivateActionImpl::SetLongitudinalAction(const std::shared_ptr<ILongitudinalAction> longitudinalAction )
+        void PrivateActionImpl::SetLongitudinalAction(std::shared_ptr<ILongitudinalAction> longitudinalAction )
         {
             _longitudinalAction = longitudinalAction;
         }
@@ -14286,7 +14286,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a , LateralDistanceAction.]
 	 * 
 	*/
-        void PrivateActionImpl::SetLateralAction(const std::shared_ptr<ILateralAction> lateralAction )
+        void PrivateActionImpl::SetLateralAction(std::shared_ptr<ILateralAction> lateralAction )
         {
             _lateralAction = lateralAction;
         }
@@ -14296,7 +14296,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity/entities.]
 	 * 
 	*/
-        void PrivateActionImpl::SetVisibilityAction(const std::shared_ptr<IVisibilityAction> visibilityAction )
+        void PrivateActionImpl::SetVisibilityAction(std::shared_ptr<IVisibilityAction> visibilityAction )
         {
             _visibilityAction = visibilityAction;
         }
@@ -14306,7 +14306,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * master entity. A target position is provided for the entity and for , the master entity to be reached at the same time.]
 	 * 
 	*/
-        void PrivateActionImpl::SetSynchronizeAction(const std::shared_ptr<ISynchronizeAction> synchronizeAction )
+        void PrivateActionImpl::SetSynchronizeAction(std::shared_ptr<ISynchronizeAction> synchronizeAction )
         {
             _synchronizeAction = synchronizeAction;
         }
@@ -14316,7 +14316,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reference entity/entities.]
 	 * 
 	*/
-        void PrivateActionImpl::SetActivateControllerAction(const std::shared_ptr<IActivateControllerAction> activateControllerAction )
+        void PrivateActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerAction> activateControllerAction )
         {
             _activateControllerAction = activateControllerAction;
         }
@@ -14326,7 +14326,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity/entities.]
 	 * 
 	*/
-        void PrivateActionImpl::SetControllerAction(const std::shared_ptr<IControllerAction> controllerAction )
+        void PrivateActionImpl::SetControllerAction(std::shared_ptr<IControllerAction> controllerAction )
         {
             _controllerAction = controllerAction;
         }
@@ -14336,7 +14336,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity/entities.]
 	 * 
 	*/
-        void PrivateActionImpl::SetTeleportAction(const std::shared_ptr<ITeleportAction> teleportAction )
+        void PrivateActionImpl::SetTeleportAction(std::shared_ptr<ITeleportAction> teleportAction )
         {
             _teleportAction = teleportAction;
         }
@@ -14346,7 +14346,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.]
 	 * 
 	*/
-        void PrivateActionImpl::SetRoutingAction(const std::shared_ptr<IRoutingAction> routingAction )
+        void PrivateActionImpl::SetRoutingAction(std::shared_ptr<IRoutingAction> routingAction )
         {
             _routingAction = routingAction;
         }
@@ -14646,7 +14646,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of a user defined property.]
 	 * 
 	*/
-        void PropertyImpl::SetName(const std::string name )
+        void PropertyImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -14655,7 +14655,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Value of a user defined property.]
 	 * 
 	*/
-        void PropertyImpl::SetValue(const std::string value )
+        void PropertyImpl::SetValue(std::string value )
         {
             _value = value;
         }
@@ -14666,13 +14666,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -14744,7 +14744,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * m; Range: [0..inf[.]
 	 * 
 	*/
-        void ReachPositionConditionImpl::SetTolerance(const double tolerance )
+        void ReachPositionConditionImpl::SetTolerance(double tolerance )
         {
             _tolerance = tolerance;
         }
@@ -14753,7 +14753,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The position to be reached with the defined tolerance.]
 	 * 
 	*/
-        void ReachPositionConditionImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void ReachPositionConditionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -14764,7 +14764,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _tolerance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -14871,7 +14871,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param relativeDistanceType from OpenSCENARIO class model specification: [The domain the distance is calculated in.]
 	 * 
 	*/
-        void RelativeDistanceConditionImpl::SetRelativeDistanceType(const RelativeDistanceType relativeDistanceType )
+        void RelativeDistanceConditionImpl::SetRelativeDistanceType(RelativeDistanceType relativeDistanceType )
         {
             _relativeDistanceType = relativeDistanceType;
         }
@@ -14880,7 +14880,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The distance value. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void RelativeDistanceConditionImpl::SetValue(const double value )
+        void RelativeDistanceConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -14890,7 +14890,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * points. False: reference point distance is used.]
 	 * 
 	*/
-        void RelativeDistanceConditionImpl::SetFreespace(const bool freespace )
+        void RelativeDistanceConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
@@ -14899,7 +14899,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void RelativeDistanceConditionImpl::SetRule(const Rule rule )
+        void RelativeDistanceConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -14910,7 +14910,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE)
             {
@@ -14919,7 +14919,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != RelativeDistanceType::UNKNOWN)
                 {
                     _relativeDistanceType = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -14931,13 +14931,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -14946,7 +14946,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -15055,7 +15055,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param dLane from OpenSCENARIO class model specification: [Relative dlane to the lane of the reference entity.]
 	 * 
 	*/
-        void RelativeLanePositionImpl::SetDLane(const int dLane )
+        void RelativeLanePositionImpl::SetDLane(int dLane )
         {
             _dLane = dLane;
         }
@@ -15064,7 +15064,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param ds from OpenSCENARIO class model specification: [Relative ds to the s of reference entity.]
 	 * 
 	*/
-        void RelativeLanePositionImpl::SetDs(const double ds )
+        void RelativeLanePositionImpl::SetDs(double ds )
         {
             _ds = ds;
         }
@@ -15074,7 +15074,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * ]-inf..inf[]
 	 * 
 	*/
-        void RelativeLanePositionImpl::SetOffset(const double offset )
+        void RelativeLanePositionImpl::SetOffset(double offset )
         {
             _offset = offset;
         }
@@ -15084,7 +15084,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the referenced lane's s and t coordinates.]
 	 * 
 	*/
-        void RelativeLanePositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
+        void RelativeLanePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
@@ -15095,25 +15095,25 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__D_LANE)
             {
                 // Simple type
                 _dLane = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DS)
             {
                 // Simple type
                 _ds = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -15228,7 +15228,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the reference entity.]
 	 * 
 	*/
-        void RelativeObjectPositionImpl::SetDx(const double dx )
+        void RelativeObjectPositionImpl::SetDx(double dx )
         {
             _dx = dx;
         }
@@ -15238,7 +15238,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the reference entity.]
 	 * 
 	*/
-        void RelativeObjectPositionImpl::SetDy(const double dy )
+        void RelativeObjectPositionImpl::SetDy(double dy )
         {
             _dy = dy;
         }
@@ -15248,7 +15248,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the reference entity.]
 	 * 
 	*/
-        void RelativeObjectPositionImpl::SetDz(const double dz )
+        void RelativeObjectPositionImpl::SetDz(double dz )
         {
             _dz = dz;
         }
@@ -15258,7 +15258,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the orientation of the reference entity.]
 	 * 
 	*/
-        void RelativeObjectPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
+        void RelativeObjectPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
@@ -15269,25 +15269,25 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DX)
             {
                 // Simple type
                 _dx = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DY)
             {
                 // Simple type
                 _dy = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DZ)
             {
                 // Simple type
                 _dz = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -15397,7 +15397,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity.]
 	 * 
 	*/
-        void RelativeRoadPositionImpl::SetDs(const double ds )
+        void RelativeRoadPositionImpl::SetDs(double ds )
         {
             _ds = ds;
         }
@@ -15407,7 +15407,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity.]
 	 * 
 	*/
-        void RelativeRoadPositionImpl::SetDt(const double dt )
+        void RelativeRoadPositionImpl::SetDt(double dt )
         {
             _dt = dt;
         }
@@ -15417,7 +15417,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the referenced road's s and t coordinates.]
 	 * 
 	*/
-        void RelativeRoadPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
+        void RelativeRoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
@@ -15428,19 +15428,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DS)
             {
                 // Simple type
                 _ds = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DT)
             {
                 // Simple type
                 _dt = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -15543,7 +15543,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Relative speed value. Unit: m/s.]
 	 * 
 	*/
-        void RelativeSpeedConditionImpl::SetValue(const double value )
+        void RelativeSpeedConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -15552,7 +15552,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void RelativeSpeedConditionImpl::SetRule(const Rule rule )
+        void RelativeSpeedConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -15563,13 +15563,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -15578,7 +15578,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -15660,7 +15660,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Relative speed. Unit: m/s. Range: ]-inf..inf[.]
 	 * 
 	*/
-        void RelativeSpeedToMasterImpl::SetValue(const double value )
+        void RelativeSpeedToMasterImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -15670,7 +15670,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * factor).]
 	 * 
 	*/
-        void RelativeSpeedToMasterImpl::SetSpeedTargetValueType(const SpeedTargetValueType speedTargetValueType )
+        void RelativeSpeedToMasterImpl::SetSpeedTargetValueType(SpeedTargetValueType speedTargetValueType )
         {
             _speedTargetValueType = speedTargetValueType;
         }
@@ -15681,7 +15681,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
             {
@@ -15690,7 +15690,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != SpeedTargetValueType::UNKNOWN)
                 {
                     _speedTargetValueType = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -15778,7 +15778,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * current lane.]
 	 * 
 	*/
-        void RelativeTargetLaneImpl::SetValue(const int value )
+        void RelativeTargetLaneImpl::SetValue(int value )
         {
             _value = value;
         }
@@ -15789,13 +15789,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -15879,7 +15879,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * lane position. Unit: m.]
 	 * 
 	*/
-        void RelativeTargetLaneOffsetImpl::SetValue(const double value )
+        void RelativeTargetLaneOffsetImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -15890,13 +15890,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -15992,7 +15992,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity/entities are supposed to drive 10% faster than the target, reference entity. Unit: m/s or 1.]
 	 * 
 	*/
-        void RelativeTargetSpeedImpl::SetValue(const double value )
+        void RelativeTargetSpeedImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -16002,7 +16002,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * factor (no Unit).]
 	 * 
 	*/
-        void RelativeTargetSpeedImpl::SetSpeedTargetValueType(const SpeedTargetValueType speedTargetValueType )
+        void RelativeTargetSpeedImpl::SetSpeedTargetValueType(SpeedTargetValueType speedTargetValueType )
         {
             _speedTargetValueType = speedTargetValueType;
         }
@@ -16013,7 +16013,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Dynamics.distance.]
 	 * 
 	*/
-        void RelativeTargetSpeedImpl::SetContinuous(const bool continuous )
+        void RelativeTargetSpeedImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
         }
@@ -16024,13 +16024,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
             {
@@ -16039,7 +16039,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != SpeedTargetValueType::UNKNOWN)
                 {
                     _speedTargetValueType = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -16051,7 +16051,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -16153,7 +16153,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param dx from OpenSCENARIO class model specification: [Relative x coordinate in the world coordinate system.]
 	 * 
 	*/
-        void RelativeWorldPositionImpl::SetDx(const double dx )
+        void RelativeWorldPositionImpl::SetDx(double dx )
         {
             _dx = dx;
         }
@@ -16162,7 +16162,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param dy from OpenSCENARIO class model specification: [Relative y coordinate in the world coordinate system.]
 	 * 
 	*/
-        void RelativeWorldPositionImpl::SetDy(const double dy )
+        void RelativeWorldPositionImpl::SetDy(double dy )
         {
             _dy = dy;
         }
@@ -16171,7 +16171,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param dz from OpenSCENARIO class model specification: [Relative z coordinate in the world coordinate system.]
 	 * 
 	*/
-        void RelativeWorldPositionImpl::SetDz(const double dz )
+        void RelativeWorldPositionImpl::SetDz(double dz )
         {
             _dz = dz;
         }
@@ -16181,7 +16181,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the reference entity's orientation.]
 	 * 
 	*/
-        void RelativeWorldPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
+        void RelativeWorldPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
@@ -16192,25 +16192,25 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DX)
             {
                 // Simple type
                 _dx = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DY)
             {
                 // Simple type
                 _dy = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DZ)
             {
                 // Simple type
                 _dz = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -16300,7 +16300,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param frictionScaleFactor from OpenSCENARIO class model specification: [Friction scale factor. Range: [0..inf[]
 	 * 
 	*/
-        void RoadConditionImpl::SetFrictionScaleFactor(const double frictionScaleFactor )
+        void RoadConditionImpl::SetFrictionScaleFactor(double frictionScaleFactor )
         {
             _frictionScaleFactor = frictionScaleFactor;
         }
@@ -16309,7 +16309,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Additional properties to describe the road condition.]
 	 * 
 	*/
-        void RoadConditionImpl::SetProperties(const std::shared_ptr<IProperties> properties )
+        void RoadConditionImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
         }
@@ -16320,7 +16320,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _frictionScaleFactor = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -16406,7 +16406,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * OpenDRIVE file).]
 	 * 
 	*/
-        void RoadNetworkImpl::SetLogicFile(const std::shared_ptr<IFile> logicFile )
+        void RoadNetworkImpl::SetLogicFile(std::shared_ptr<IFile> logicFile )
         {
             _logicFile = logicFile;
         }
@@ -16416,7 +16416,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * environment. This may be used for visual representation (rendering).]
 	 * 
 	*/
-        void RoadNetworkImpl::SetSceneGraphFile(const std::shared_ptr<IFile> sceneGraphFile )
+        void RoadNetworkImpl::SetSceneGraphFile(std::shared_ptr<IFile> sceneGraphFile )
         {
             _sceneGraphFile = sceneGraphFile;
         }
@@ -16555,7 +16555,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * definition file (external to ASAM OpenSCENARIO).]
 	 * 
 	*/
-        void RoadPositionImpl::SetRoadId(const std::string roadId )
+        void RoadPositionImpl::SetRoadId(std::string roadId )
         {
             _roadId = roadId;
         }
@@ -16564,7 +16564,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param s from OpenSCENARIO class model specification: [Represents s coordinate along the reference line of the road.]
 	 * 
 	*/
-        void RoadPositionImpl::SetS(const double s )
+        void RoadPositionImpl::SetS(double s )
         {
             _s = s;
         }
@@ -16574,7 +16574,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * road.]
 	 * 
 	*/
-        void RoadPositionImpl::SetT(const double t )
+        void RoadPositionImpl::SetT(double t )
         {
             _t = t;
         }
@@ -16584,7 +16584,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the referenced road's s and t coordinates.]
 	 * 
 	*/
-        void RoadPositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
+        void RoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
@@ -16595,19 +16595,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _roadId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__S)
             {
                 // Simple type
                 _s = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -16702,7 +16702,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the route. Required in catalogs.]
 	 * 
 	*/
-        void RouteImpl::SetName(const std::string name )
+        void RouteImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -16712,7 +16712,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * first waypoint to create a closed route.]
 	 * 
 	*/
-        void RouteImpl::SetClosed(const bool closed )
+        void RouteImpl::SetClosed(bool closed )
         {
             _closed = closed;
         }
@@ -16741,13 +16741,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
             {
                 // Simple type
                 _closed = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -16873,7 +16873,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-        void RouteCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void RouteCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -16961,7 +16961,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param routeRef from OpenSCENARIO class model specification: [Reference to the route the position is calculated from.]
 	 * 
 	*/
-        void RoutePositionImpl::SetRouteRef(const std::shared_ptr<IRouteRef> routeRef )
+        void RoutePositionImpl::SetRouteRef(std::shared_ptr<IRouteRef> routeRef )
         {
             _routeRef = routeRef;
         }
@@ -16972,7 +16972,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reference entity.]
 	 * 
 	*/
-        void RoutePositionImpl::SetOrientation(const std::shared_ptr<IOrientation> orientation )
+        void RoutePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
@@ -16981,7 +16981,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param inRoutePosition from OpenSCENARIO class model specification: [Position along the route.]
 	 * 
 	*/
-        void RoutePositionImpl::SetInRoutePosition(const std::shared_ptr<IInRoutePosition> inRoutePosition )
+        void RoutePositionImpl::SetInRoutePosition(std::shared_ptr<IInRoutePosition> inRoutePosition )
         {
             _inRoutePosition = inRoutePosition;
         }
@@ -17091,7 +17091,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param route from OpenSCENARIO class model specification: [Route definition.]
 	 * 
 	*/
-        void RouteRefImpl::SetRoute(const std::shared_ptr<IRoute> route )
+        void RouteRefImpl::SetRoute(std::shared_ptr<IRoute> route )
         {
             _route = route;
         }
@@ -17100,7 +17100,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param catalogReference from OpenSCENARIO class model specification: [Reference to route in the catalog.]
 	 * 
 	*/
-        void RouteRefImpl::SetCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference )
+        void RouteRefImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
@@ -17202,7 +17202,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * defined by at least two waypoints.]
 	 * 
 	*/
-        void RoutingActionImpl::SetAssignRouteAction(const std::shared_ptr<IAssignRouteAction> assignRouteAction )
+        void RoutingActionImpl::SetAssignRouteAction(std::shared_ptr<IAssignRouteAction> assignRouteAction )
         {
             _assignRouteAction = assignRouteAction;
         }
@@ -17211,7 +17211,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param followTrajectoryAction from OpenSCENARIO class model specification: [Controls an entity to follow a trajectory.]
 	 * 
 	*/
-        void RoutingActionImpl::SetFollowTrajectoryAction(const std::shared_ptr<IFollowTrajectoryAction> followTrajectoryAction )
+        void RoutingActionImpl::SetFollowTrajectoryAction(std::shared_ptr<IFollowTrajectoryAction> followTrajectoryAction )
         {
             _followTrajectoryAction = followTrajectoryAction;
         }
@@ -17221,7 +17221,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * assigned will be the shortest route (along roads) between the entity's current , position and the position specified.]
 	 * 
 	*/
-        void RoutingActionImpl::SetAcquirePositionAction(const std::shared_ptr<IAcquirePositionAction> acquirePositionAction )
+        void RoutingActionImpl::SetAcquirePositionAction(std::shared_ptr<IAcquirePositionAction> acquirePositionAction )
         {
             _acquirePositionAction = acquirePositionAction;
         }
@@ -17355,7 +17355,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * catalog element type has its own list.]
 	 * 
 	*/
-        void ScenarioDefinitionImpl::SetCatalogLocations(const std::shared_ptr<ICatalogLocations> catalogLocations )
+        void ScenarioDefinitionImpl::SetCatalogLocations(std::shared_ptr<ICatalogLocations> catalogLocations )
         {
             _catalogLocations = catalogLocations;
         }
@@ -17364,7 +17364,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param roadNetwork from OpenSCENARIO class model specification: [Reference to the road network.]
 	 * 
 	*/
-        void ScenarioDefinitionImpl::SetRoadNetwork(const std::shared_ptr<IRoadNetwork> roadNetwork )
+        void ScenarioDefinitionImpl::SetRoadNetwork(std::shared_ptr<IRoadNetwork> roadNetwork )
         {
             _roadNetwork = roadNetwork;
         }
@@ -17374,7 +17374,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * definitions. Instances of ScenarioObject, of EntitySelection and of , SpawnedObject considered instances of Entity.]
 	 * 
 	*/
-        void ScenarioDefinitionImpl::SetEntities(const std::shared_ptr<IEntities> entities )
+        void ScenarioDefinitionImpl::SetEntities(std::shared_ptr<IEntities> entities )
         {
             _entities = entities;
         }
@@ -17383,7 +17383,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param storyboard from OpenSCENARIO class model specification: [Container for the dynamic content of the scenario.]
 	 * 
 	*/
-        void ScenarioDefinitionImpl::SetStoryboard(const std::shared_ptr<IStoryboard> storyboard )
+        void ScenarioDefinitionImpl::SetStoryboard(std::shared_ptr<IStoryboard> storyboard )
         {
             _storyboard = storyboard;
         }
@@ -17551,7 +17551,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Identifier of the scenario object.]
 	 * 
 	*/
-        void ScenarioObjectImpl::SetName(const std::string name )
+        void ScenarioObjectImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -17561,7 +17561,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Pedestrian or MiscObject).]
 	 * 
 	*/
-        void ScenarioObjectImpl::SetEntityObject(const std::shared_ptr<IEntityObject> entityObject )
+        void ScenarioObjectImpl::SetEntityObject(std::shared_ptr<IEntityObject> entityObject )
         {
             _entityObject = entityObject;
         }
@@ -17570,7 +17570,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param objectController from OpenSCENARIO class model specification: [Controller of the EntityObject instance.]
 	 * 
 	*/
-        void ScenarioObjectImpl::SetObjectController(const std::shared_ptr<IObjectController> objectController )
+        void ScenarioObjectImpl::SetObjectController(std::shared_ptr<IObjectController> objectController )
         {
             _objectController = objectController;
         }
@@ -17581,7 +17581,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -17800,7 +17800,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param polyline from OpenSCENARIO class model specification: [Polyline property of a shape.]
 	 * 
 	*/
-        void ShapeImpl::SetPolyline(const std::shared_ptr<IPolyline> polyline )
+        void ShapeImpl::SetPolyline(std::shared_ptr<IPolyline> polyline )
         {
             _polyline = polyline;
         }
@@ -17809,7 +17809,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param clothoid from OpenSCENARIO class model specification: [Clothoid property of a shape.]
 	 * 
 	*/
-        void ShapeImpl::SetClothoid(const std::shared_ptr<IClothoid> clothoid )
+        void ShapeImpl::SetClothoid(std::shared_ptr<IClothoid> clothoid )
         {
             _clothoid = clothoid;
         }
@@ -17818,7 +17818,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param nurbs from OpenSCENARIO class model specification: [NURBS property of a shape.]
 	 * 
 	*/
-        void ShapeImpl::SetNurbs(const std::shared_ptr<INurbs> nurbs )
+        void ShapeImpl::SetNurbs(std::shared_ptr<INurbs> nurbs )
         {
             _nurbs = nurbs;
         }
@@ -17930,7 +17930,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Time value of the simulation time condition. Unit: s.]
 	 * 
 	*/
-        void SimulationTimeConditionImpl::SetValue(const double value )
+        void SimulationTimeConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -17939,7 +17939,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void SimulationTimeConditionImpl::SetRule(const Rule rule )
+        void SimulationTimeConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -17950,7 +17950,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -17959,7 +17959,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -18035,7 +18035,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param speedActionDynamics from OpenSCENARIO class model specification: [Defines how the target speed is reached.]
 	 * 
 	*/
-        void SpeedActionImpl::SetSpeedActionDynamics(const std::shared_ptr<ITransitionDynamics> speedActionDynamics )
+        void SpeedActionImpl::SetSpeedActionDynamics(std::shared_ptr<ITransitionDynamics> speedActionDynamics )
         {
             _speedActionDynamics = speedActionDynamics;
         }
@@ -18045,7 +18045,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reached.]
 	 * 
 	*/
-        void SpeedActionImpl::SetSpeedActionTarget(const std::shared_ptr<ISpeedActionTarget> speedActionTarget )
+        void SpeedActionImpl::SetSpeedActionTarget(std::shared_ptr<ISpeedActionTarget> speedActionTarget )
         {
             _speedActionTarget = speedActionTarget;
         }
@@ -18143,7 +18143,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * reference entity. Unit: m/s.]
 	 * 
 	*/
-        void SpeedActionTargetImpl::SetRelativeTargetSpeed(const std::shared_ptr<IRelativeTargetSpeed> relativeTargetSpeed )
+        void SpeedActionTargetImpl::SetRelativeTargetSpeed(std::shared_ptr<IRelativeTargetSpeed> relativeTargetSpeed )
         {
             _relativeTargetSpeed = relativeTargetSpeed;
         }
@@ -18153,7 +18153,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * speed.Unit: m/s.]
 	 * 
 	*/
-        void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(const std::shared_ptr<IAbsoluteTargetSpeed> absoluteTargetSpeed )
+        void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(std::shared_ptr<IAbsoluteTargetSpeed> absoluteTargetSpeed )
         {
             _absoluteTargetSpeed = absoluteTargetSpeed;
         }
@@ -18252,7 +18252,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Speed value of the speed condition. Unit m/s.]
 	 * 
 	*/
-        void SpeedConditionImpl::SetValue(const double value )
+        void SpeedConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -18261,7 +18261,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void SpeedConditionImpl::SetRule(const Rule rule )
+        void SpeedConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -18272,7 +18272,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -18281,7 +18281,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -18355,7 +18355,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * expression become true. Unit: s. Range [0..inf[.]
 	 * 
 	*/
-        void StandStillConditionImpl::SetDuration(const double duration )
+        void StandStillConditionImpl::SetDuration(double duration )
         {
             _duration = duration;
         }
@@ -18366,7 +18366,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -18440,7 +18440,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * file.]
 	 * 
 	*/
-        void StoryImpl::SetName(const std::string name )
+        void StoryImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -18469,7 +18469,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -18602,7 +18602,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * are set and initial actions are applied to entities.]
 	 * 
 	*/
-        void StoryboardImpl::SetInit(const std::shared_ptr<IInit> init )
+        void StoryboardImpl::SetInit(std::shared_ptr<IInit> init )
         {
             _init = init;
         }
@@ -18620,7 +18620,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param stopTrigger from OpenSCENARIO class model specification: [Trigger to stop the Storyboard instance.]
 	 * 
 	*/
-        void StoryboardImpl::SetStopTrigger(const std::shared_ptr<ITrigger> stopTrigger )
+        void StoryboardImpl::SetStopTrigger(std::shared_ptr<ITrigger> stopTrigger )
         {
             _stopTrigger = stopTrigger;
         }
@@ -18744,7 +18744,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param storyboardElementType from OpenSCENARIO class model specification: [Type of storyboard element instance.]
 	 * 
 	*/
-        void StoryboardElementStateConditionImpl::SetStoryboardElementType(const StoryboardElementType storyboardElementType )
+        void StoryboardElementStateConditionImpl::SetStoryboardElementType(StoryboardElementType storyboardElementType )
         {
             _storyboardElementType = storyboardElementType;
         }
@@ -18763,7 +18763,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * instance for which the condition becomes true.]
 	 * 
 	*/
-        void StoryboardElementStateConditionImpl::SetState(const StoryboardElementState state )
+        void StoryboardElementStateConditionImpl::SetState(StoryboardElementState state )
         {
             _state = state;
         }
@@ -18777,7 +18777,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != StoryboardElementType::UNKNOWN)
                 {
                     _storyboardElementType = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -18789,7 +18789,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _storyboardElementRef = NamedReferenceProxy<IStoryboardElement>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
@@ -18798,7 +18798,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != StoryboardElementState::UNKNOWN)
                 {
                     _state = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -18886,7 +18886,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * lx. Unit: lux; Range: [0..inf[.]
 	 * 
 	*/
-        void SunImpl::SetIntensity(const double intensity )
+        void SunImpl::SetIntensity(double intensity )
         {
             _intensity = intensity;
         }
@@ -18896,7 +18896,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * = east, PI=south, 3/2 PI=west. Unit: radian; Range: , [0..2PI].]
 	 * 
 	*/
-        void SunImpl::SetAzimuth(const double azimuth )
+        void SunImpl::SetAzimuth(double azimuth )
         {
             _azimuth = azimuth;
         }
@@ -18906,7 +18906,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * rad; Range: [-PI..PI].]
 	 * 
 	*/
-        void SunImpl::SetElevation(const double elevation )
+        void SunImpl::SetElevation(double elevation )
         {
             _elevation = elevation;
         }
@@ -18917,19 +18917,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__AZIMUTH)
             {
                 // Simple type
                 _azimuth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ELEVATION)
             {
                 // Simple type
                 _elevation = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -19019,7 +19019,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param targetPositionMaster from OpenSCENARIO class model specification: [The target position for the master entity.]
 	 * 
 	*/
-        void SynchronizeActionImpl::SetTargetPositionMaster(const std::shared_ptr<IPosition> targetPositionMaster )
+        void SynchronizeActionImpl::SetTargetPositionMaster(std::shared_ptr<IPosition> targetPositionMaster )
         {
             _targetPositionMaster = targetPositionMaster;
         }
@@ -19029,7 +19029,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * synchronized.]
 	 * 
 	*/
-        void SynchronizeActionImpl::SetTargetPosition(const std::shared_ptr<IPosition> targetPosition )
+        void SynchronizeActionImpl::SetTargetPosition(std::shared_ptr<IPosition> targetPosition )
         {
             _targetPosition = targetPosition;
         }
@@ -19039,7 +19039,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * its target position.]
 	 * 
 	*/
-        void SynchronizeActionImpl::SetFinalSpeed(const std::shared_ptr<IFinalSpeed> finalSpeed )
+        void SynchronizeActionImpl::SetFinalSpeed(std::shared_ptr<IFinalSpeed> finalSpeed )
         {
             _finalSpeed = finalSpeed;
         }
@@ -19050,7 +19050,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _masterEntityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -19155,7 +19155,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The position the entity/entities are teleported to.]
 	 * 
 	*/
-        void TeleportActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void TeleportActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -19265,7 +19265,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The time headway value. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-        void TimeHeadwayConditionImpl::SetValue(const double value )
+        void TimeHeadwayConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -19275,7 +19275,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * closest bounding box points. False: reference point distance , is used.]
 	 * 
 	*/
-        void TimeHeadwayConditionImpl::SetFreespace(const bool freespace )
+        void TimeHeadwayConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
@@ -19285,7 +19285,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * increase distance. False: straight line distance is used.]
 	 * 
 	*/
-        void TimeHeadwayConditionImpl::SetAlongRoute(const bool alongRoute )
+        void TimeHeadwayConditionImpl::SetAlongRoute(bool alongRoute )
         {
             _alongRoute = alongRoute;
         }
@@ -19294,7 +19294,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void TimeHeadwayConditionImpl::SetRule(const Rule rule )
+        void TimeHeadwayConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -19305,25 +19305,25 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
             {
                 // Simple type
                 _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -19332,7 +19332,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -19419,7 +19419,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * simulation time, e.g. in order to animate the position of the sun.]
 	 * 
 	*/
-        void TimeOfDayImpl::SetAnimation(const bool animation )
+        void TimeOfDayImpl::SetAnimation(bool animation )
         {
             _animation = animation;
         }
@@ -19428,7 +19428,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param dateTime from OpenSCENARIO class model specification: [Datetime value.]
 	 * 
 	*/
-        void TimeOfDayImpl::SetDateTime(const DateTime dateTime )
+        void TimeOfDayImpl::SetDateTime(DateTime dateTime )
         {
             _dateTime = dateTime;
         }
@@ -19439,13 +19439,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _animation = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DATE_TIME)
             {
                 // Simple type
                 _dateTime = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -19517,7 +19517,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void TimeOfDayConditionImpl::SetRule(const Rule rule )
+        void TimeOfDayConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -19526,7 +19526,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param dateTime from OpenSCENARIO class model specification: [Datetime value for comparison.]
 	 * 
 	*/
-        void TimeOfDayConditionImpl::SetDateTime(const DateTime dateTime )
+        void TimeOfDayConditionImpl::SetDateTime(DateTime dateTime )
         {
             _dateTime = dateTime;
         }
@@ -19540,7 +19540,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -19552,7 +19552,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _dateTime = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -19622,7 +19622,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param none from OpenSCENARIO class model specification: [This property indicates Timing information is neglected.]
 	 * 
 	*/
-        void TimeReferenceImpl::SetNone(const std::shared_ptr<INone> none )
+        void TimeReferenceImpl::SetNone(std::shared_ptr<INone> none )
         {
             _none = none;
         }
@@ -19633,7 +19633,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * global time offset.]
 	 * 
 	*/
-        void TimeReferenceImpl::SetTiming(const std::shared_ptr<ITiming> timing )
+        void TimeReferenceImpl::SetTiming(std::shared_ptr<ITiming> timing )
         {
             _timing = timing;
         }
@@ -19746,7 +19746,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [The time to collision value. Unit: s; Range: [0..inf[.]
 	 * 
 	*/
-        void TimeToCollisionConditionImpl::SetValue(const double value )
+        void TimeToCollisionConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -19756,7 +19756,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * between closest bounding box points.False: reference point , distance is used.]
 	 * 
 	*/
-        void TimeToCollisionConditionImpl::SetFreespace(const bool freespace )
+        void TimeToCollisionConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
@@ -19766,7 +19766,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * increase distance. False: straight line distance is used.]
 	 * 
 	*/
-        void TimeToCollisionConditionImpl::SetAlongRoute(const bool alongRoute )
+        void TimeToCollisionConditionImpl::SetAlongRoute(bool alongRoute )
         {
             _alongRoute = alongRoute;
         }
@@ -19775,7 +19775,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void TimeToCollisionConditionImpl::SetRule(const Rule rule )
+        void TimeToCollisionConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -19785,7 +19785,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * defined through the current position of a reference entity.]
 	 * 
 	*/
-        void TimeToCollisionConditionImpl::SetTimeToCollisionConditionTarget(const std::shared_ptr<ITimeToCollisionConditionTarget> timeToCollisionConditionTarget )
+        void TimeToCollisionConditionImpl::SetTimeToCollisionConditionTarget(std::shared_ptr<ITimeToCollisionConditionTarget> timeToCollisionConditionTarget )
         {
             _timeToCollisionConditionTarget = timeToCollisionConditionTarget;
         }
@@ -19796,19 +19796,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
             {
                 // Simple type
                 _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -19817,7 +19817,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -19910,7 +19910,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Position.]
 	 * 
 	*/
-        void TimeToCollisionConditionTargetImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void TimeToCollisionConditionTargetImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -19919,7 +19919,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
 	 * 
 	*/
-        void TimeToCollisionConditionTargetImpl::SetEntityRef(const std::shared_ptr<IEntityRef> entityRef )
+        void TimeToCollisionConditionTargetImpl::SetEntityRef(std::shared_ptr<IEntityRef> entityRef )
         {
             _entityRef = entityRef;
         }
@@ -20024,7 +20024,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * absolute or relative.]
 	 * 
 	*/
-        void TimingImpl::SetDomainAbsoluteRelative(const ReferenceContext domainAbsoluteRelative )
+        void TimingImpl::SetDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative )
         {
             _domainAbsoluteRelative = domainAbsoluteRelative;
         }
@@ -20035,7 +20035,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Range: ]0..inf[.]
 	 * 
 	*/
-        void TimingImpl::SetScale(const double scale )
+        void TimingImpl::SetScale(double scale )
         {
             _scale = scale;
         }
@@ -20045,7 +20045,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * s; Range: ]-inf..inf[.]
 	 * 
 	*/
-        void TimingImpl::SetOffset(const double offset )
+        void TimingImpl::SetOffset(double offset )
         {
             _offset = offset;
         }
@@ -20059,7 +20059,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != ReferenceContext::UNKNOWN)
                 {
                     _domainAbsoluteRelative = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -20071,13 +20071,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _scale = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -20154,7 +20154,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * position.]
 	 * 
 	*/
-        void TrafficActionImpl::SetTrafficSourceAction(const std::shared_ptr<ITrafficSourceAction> trafficSourceAction )
+        void TrafficActionImpl::SetTrafficSourceAction(std::shared_ptr<ITrafficSourceAction> trafficSourceAction )
         {
             _trafficSourceAction = trafficSourceAction;
         }
@@ -20164,7 +20164,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * position.]
 	 * 
 	*/
-        void TrafficActionImpl::SetTrafficSinkAction(const std::shared_ptr<ITrafficSinkAction> trafficSinkAction )
+        void TrafficActionImpl::SetTrafficSinkAction(std::shared_ptr<ITrafficSinkAction> trafficSinkAction )
         {
             _trafficSinkAction = trafficSinkAction;
         }
@@ -20174,7 +20174,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity.]
 	 * 
 	*/
-        void TrafficActionImpl::SetTrafficSwarmAction(const std::shared_ptr<ITrafficSwarmAction> trafficSwarmAction )
+        void TrafficActionImpl::SetTrafficSwarmAction(std::shared_ptr<ITrafficSwarmAction> trafficSwarmAction )
         {
             _trafficSwarmAction = trafficSwarmAction;
         }
@@ -20289,7 +20289,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the traffic definition.]
 	 * 
 	*/
-        void TrafficDefinitionImpl::SetName(const std::string name )
+        void TrafficDefinitionImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -20299,7 +20299,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * within the traffic.]
 	 * 
 	*/
-        void TrafficDefinitionImpl::SetVehicleCategoryDistribution(const std::shared_ptr<IVehicleCategoryDistribution> vehicleCategoryDistribution )
+        void TrafficDefinitionImpl::SetVehicleCategoryDistribution(std::shared_ptr<IVehicleCategoryDistribution> vehicleCategoryDistribution )
         {
             _vehicleCategoryDistribution = vehicleCategoryDistribution;
         }
@@ -20309,7 +20309,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * traffic.]
 	 * 
 	*/
-        void TrafficDefinitionImpl::SetControllerDistribution(const std::shared_ptr<IControllerDistribution> controllerDistribution )
+        void TrafficDefinitionImpl::SetControllerDistribution(std::shared_ptr<IControllerDistribution> controllerDistribution )
         {
             _controllerDistribution = controllerDistribution;
         }
@@ -20320,7 +20320,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -20415,7 +20415,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * signal.]
 	 * 
 	*/
-        void TrafficSignalActionImpl::SetTrafficSignalControllerAction(const std::shared_ptr<ITrafficSignalControllerAction> trafficSignalControllerAction )
+        void TrafficSignalActionImpl::SetTrafficSignalControllerAction(std::shared_ptr<ITrafficSignalControllerAction> trafficSignalControllerAction )
         {
             _trafficSignalControllerAction = trafficSignalControllerAction;
         }
@@ -20425,7 +20425,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * signal controller.]
 	 * 
 	*/
-        void TrafficSignalActionImpl::SetTrafficSignalStateAction(const std::shared_ptr<ITrafficSignalStateAction> trafficSignalStateAction )
+        void TrafficSignalActionImpl::SetTrafficSignalStateAction(std::shared_ptr<ITrafficSignalStateAction> trafficSignalStateAction )
         {
             _trafficSignalStateAction = trafficSignalStateAction;
         }
@@ -20525,7 +20525,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * signal ID must be listed in the TrafficSignal list of the , RoadNetwork section.]
 	 * 
 	*/
-        void TrafficSignalConditionImpl::SetName(const std::string name )
+        void TrafficSignalConditionImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -20535,7 +20535,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * true.]
 	 * 
 	*/
-        void TrafficSignalConditionImpl::SetState(const std::string state )
+        void TrafficSignalConditionImpl::SetState(std::string state )
         {
             _state = state;
         }
@@ -20546,13 +20546,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -20633,7 +20633,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [ID of the traffic signal controller in the road network.]
 	 * 
 	*/
-        void TrafficSignalControllerImpl::SetName(const std::string name )
+        void TrafficSignalControllerImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -20646,7 +20646,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * [0..inf[.]
 	 * 
 	*/
-        void TrafficSignalControllerImpl::SetDelay(const double delay )
+        void TrafficSignalControllerImpl::SetDelay(double delay )
         {
             _delay = delay;
         }
@@ -20656,7 +20656,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * network. If reference is set, a delay is required.]
 	 * 
 	*/
-        void TrafficSignalControllerImpl::SetReference(const std::string reference )
+        void TrafficSignalControllerImpl::SetReference(std::string reference )
         {
             _reference = reference;
         }
@@ -20676,19 +20676,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DELAY)
             {
                 // Simple type
                 _delay = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REFERENCE)
             {
                 // Simple type
                 _reference = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -20797,7 +20797,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * are defined in type RoadNetwork under the property , trafficSignalControllers.]
 	 * 
 	*/
-        void TrafficSignalControllerActionImpl::SetPhase(const std::string phase )
+        void TrafficSignalControllerActionImpl::SetPhase(std::string phase )
         {
             _phase = phase;
         }
@@ -20818,13 +20818,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _trafficSignalControllerRef = NamedReferenceProxy<ITrafficSignalController>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PHASE)
             {
                 // Simple type
                 _phase = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -20914,7 +20914,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * trafficSignalControllers.]
 	 * 
 	*/
-        void TrafficSignalControllerConditionImpl::SetPhase(const std::string phase )
+        void TrafficSignalControllerConditionImpl::SetPhase(std::string phase )
         {
             _phase = phase;
         }
@@ -20935,13 +20935,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Proxy
                 _trafficSignalControllerRef = NamedReferenceProxy<ITrafficSignalController>(parameterLiteralValue);
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PHASE)
             {
                 // Simple type
                 _phase = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -21016,7 +21016,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * signal ID must be listed in TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-        void TrafficSignalStateImpl::SetTrafficSignalId(const std::string trafficSignalId )
+        void TrafficSignalStateImpl::SetTrafficSignalId(std::string trafficSignalId )
         {
             _trafficSignalId = trafficSignalId;
         }
@@ -21026,7 +21026,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-        void TrafficSignalStateImpl::SetState(const std::string state )
+        void TrafficSignalStateImpl::SetState(std::string state )
         {
             _state = state;
         }
@@ -21037,13 +21037,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _trafficSignalId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -21116,7 +21116,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * in the TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-        void TrafficSignalStateActionImpl::SetName(const std::string name )
+        void TrafficSignalStateActionImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -21126,7 +21126,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * in the TrafficSignal list of the RoadNetwork.]
 	 * 
 	*/
-        void TrafficSignalStateActionImpl::SetState(const std::string state )
+        void TrafficSignalStateActionImpl::SetState(std::string state )
         {
             _state = state;
         }
@@ -21137,13 +21137,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -21224,7 +21224,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * location. Unit: vehicles/s Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSinkActionImpl::SetRate(const double rate )
+        void TrafficSinkActionImpl::SetRate(double rate )
         {
             _rate = rate;
         }
@@ -21234,7 +21234,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * disappear around the specified position. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSinkActionImpl::SetRadius(const double radius )
+        void TrafficSinkActionImpl::SetRadius(double radius )
         {
             _radius = radius;
         }
@@ -21243,7 +21243,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic sink.]
 	 * 
 	*/
-        void TrafficSinkActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void TrafficSinkActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -21253,7 +21253,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * for the sink.]
 	 * 
 	*/
-        void TrafficSinkActionImpl::SetTrafficDefinition(const std::shared_ptr<ITrafficDefinition> trafficDefinition )
+        void TrafficSinkActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
         {
             _trafficDefinition = trafficDefinition;
         }
@@ -21264,13 +21264,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
             {
                 // Simple type
                 _radius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -21382,7 +21382,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * location. Unit: vehicles/s. Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSourceActionImpl::SetRate(const double rate )
+        void TrafficSourceActionImpl::SetRate(double rate )
         {
             _rate = rate;
         }
@@ -21392,7 +21392,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * appear around the specific position. Unit: m. Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSourceActionImpl::SetRadius(const double radius )
+        void TrafficSourceActionImpl::SetRadius(double radius )
         {
             _radius = radius;
         }
@@ -21402,7 +21402,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * m/s; Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSourceActionImpl::SetVelocity(const double velocity )
+        void TrafficSourceActionImpl::SetVelocity(double velocity )
         {
             _velocity = velocity;
         }
@@ -21411,7 +21411,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic source.]
 	 * 
 	*/
-        void TrafficSourceActionImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void TrafficSourceActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -21421,7 +21421,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * for the source.]
 	 * 
 	*/
-        void TrafficSourceActionImpl::SetTrafficDefinition(const std::shared_ptr<ITrafficDefinition> trafficDefinition )
+        void TrafficSourceActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
         {
             _trafficDefinition = trafficDefinition;
         }
@@ -21432,19 +21432,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
             {
                 // Simple type
                 _radius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
             {
                 // Simple type
                 _velocity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -21574,7 +21574,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetSemiMajorAxis(const double semiMajorAxis )
+        void TrafficSwarmActionImpl::SetSemiMajorAxis(double semiMajorAxis )
         {
             _semiMajorAxis = semiMajorAxis;
         }
@@ -21585,7 +21585,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetSemiMinorAxis(const double semiMinorAxis )
+        void TrafficSwarmActionImpl::SetSemiMinorAxis(double semiMinorAxis )
         {
             _semiMinorAxis = semiMinorAxis;
         }
@@ -21595,7 +21595,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * entity. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetInnerRadius(const double innerRadius )
+        void TrafficSwarmActionImpl::SetInnerRadius(double innerRadius )
         {
             _innerRadius = innerRadius;
         }
@@ -21605,7 +21605,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * the central entity. Unit: m;.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetOffset(const double offset )
+        void TrafficSwarmActionImpl::SetOffset(double offset )
         {
             _offset = offset;
         }
@@ -21615,7 +21615,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetNumberOfVehicles(const long long numberOfVehicles )
+        void TrafficSwarmActionImpl::SetNumberOfVehicles(long long numberOfVehicles )
         {
             _numberOfVehicles = numberOfVehicles;
         }
@@ -21625,7 +21625,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * m/s; Range: [0..inf[.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetVelocity(const double velocity )
+        void TrafficSwarmActionImpl::SetVelocity(double velocity )
         {
             _velocity = velocity;
         }
@@ -21634,7 +21634,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param centralObject from OpenSCENARIO class model specification: [The entity that represents the center of a swarm.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetCentralObject(const std::shared_ptr<ICentralSwarmObject> centralObject )
+        void TrafficSwarmActionImpl::SetCentralObject(std::shared_ptr<ICentralSwarmObject> centralObject )
         {
             _centralObject = centralObject;
         }
@@ -21644,7 +21644,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * respect to vehicle and driver distributions.]
 	 * 
 	*/
-        void TrafficSwarmActionImpl::SetTrafficDefinition(const std::shared_ptr<ITrafficDefinition> trafficDefinition )
+        void TrafficSwarmActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
         {
             _trafficDefinition = trafficDefinition;
         }
@@ -21655,37 +21655,37 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _semiMajorAxis = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS)
             {
                 // Simple type
                 _semiMinorAxis = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS)
             {
                 // Simple type
                 _innerRadius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES)
             {
                 // Simple type
                 _numberOfVehicles = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
             {
                 // Simple type
                 _velocity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -21799,7 +21799,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the trajectory type. Required if used in catalog.]
 	 * 
 	*/
-        void TrajectoryImpl::SetName(const std::string name )
+        void TrajectoryImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -21808,7 +21808,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param closed from OpenSCENARIO class model specification: [True if trajectory is closed.]
 	 * 
 	*/
-        void TrajectoryImpl::SetClosed(const bool closed )
+        void TrajectoryImpl::SetClosed(bool closed )
         {
             _closed = closed;
         }
@@ -21826,7 +21826,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param shape from OpenSCENARIO class model specification: [The shape of a trajectory (Polyline, Clothoid or Nurbs)]
 	 * 
 	*/
-        void TrajectoryImpl::SetShape(const std::shared_ptr<IShape> shape )
+        void TrajectoryImpl::SetShape(std::shared_ptr<IShape> shape )
         {
             _shape = shape;
         }
@@ -21837,13 +21837,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
             {
                 // Simple type
                 _closed = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -21962,7 +21962,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-        void TrajectoryCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void TrajectoryCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -22046,7 +22046,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * by dynamics constraints and/or control loop implementation.]
 	 * 
 	*/
-        void TrajectoryFollowingModeImpl::SetFollowingMode(const FollowingMode followingMode )
+        void TrajectoryFollowingModeImpl::SetFollowingMode(FollowingMode followingMode )
         {
             _followingMode = followingMode;
         }
@@ -22060,7 +22060,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != FollowingMode::UNKNOWN)
                 {
                     _followingMode = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -22142,7 +22142,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * current and target value.]
 	 * 
 	*/
-        void TransitionDynamicsImpl::SetDynamicsShape(const DynamicsShape dynamicsShape )
+        void TransitionDynamicsImpl::SetDynamicsShape(DynamicsShape dynamicsShape )
         {
             _dynamicsShape = dynamicsShape;
         }
@@ -22152,7 +22152,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * s) or distance (Unit: m) to acquire the target value. , Range: [0..inf[.]
 	 * 
 	*/
-        void TransitionDynamicsImpl::SetValue(const double value )
+        void TransitionDynamicsImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -22162,7 +22162,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * 'distance'.]
 	 * 
 	*/
-        void TransitionDynamicsImpl::SetDynamicsDimension(const DynamicsDimension dynamicsDimension )
+        void TransitionDynamicsImpl::SetDynamicsDimension(DynamicsDimension dynamicsDimension )
         {
             _dynamicsDimension = dynamicsDimension;
         }
@@ -22176,7 +22176,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != DynamicsShape::UNKNOWN)
                 {
                     _dynamicsShape = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -22188,7 +22188,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION)
             {
@@ -22197,7 +22197,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != DynamicsDimension::UNKNOWN)
                 {
                     _dynamicsDimension = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -22272,7 +22272,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Amount of traveled distance. Unit: m; Range: [0..inf[.]
 	 * 
 	*/
-        void TraveledDistanceConditionImpl::SetValue(const double value )
+        void TraveledDistanceConditionImpl::SetValue(double value )
         {
             _value = value;
         }
@@ -22283,7 +22283,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -22440,7 +22440,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param triggeringEntitiesRule from OpenSCENARIO class model specification: [All or any.]
 	 * 
 	*/
-        void TriggeringEntitiesImpl::SetTriggeringEntitiesRule(const TriggeringEntitiesRule triggeringEntitiesRule )
+        void TriggeringEntitiesImpl::SetTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule )
         {
             _triggeringEntitiesRule = triggeringEntitiesRule;
         }
@@ -22463,7 +22463,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != TriggeringEntitiesRule::UNKNOWN)
                 {
                     _triggeringEntitiesRule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -22554,7 +22554,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * contract between simulation environment provider and scenario author.]
 	 * 
 	*/
-        void UserDefinedActionImpl::SetCustomCommandAction(const std::shared_ptr<ICustomCommandAction> customCommandAction )
+        void UserDefinedActionImpl::SetCustomCommandAction(std::shared_ptr<ICustomCommandAction> customCommandAction )
         {
             _customCommandAction = customCommandAction;
         }
@@ -22645,7 +22645,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the external value.]
 	 * 
 	*/
-        void UserDefinedValueConditionImpl::SetName(const std::string name )
+        void UserDefinedValueConditionImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -22654,7 +22654,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param value from OpenSCENARIO class model specification: [Reference value the external value is compared to.]
 	 * 
 	*/
-        void UserDefinedValueConditionImpl::SetValue(const std::string value )
+        void UserDefinedValueConditionImpl::SetValue(std::string value )
         {
             _value = value;
         }
@@ -22663,7 +22663,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
 	 * 
 	*/
-        void UserDefinedValueConditionImpl::SetRule(const Rule rule )
+        void UserDefinedValueConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
@@ -22674,13 +22674,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -22689,7 +22689,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != Rule::UNKNOWN)
                 {
                     _rule = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -22789,7 +22789,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param name from OpenSCENARIO class model specification: [Name of the vehicle type.]
 	 * 
 	*/
-        void VehicleImpl::SetName(const std::string name )
+        void VehicleImpl::SetName(std::string name )
         {
             _name = name;
         }
@@ -22798,7 +22798,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param vehicleCategory from OpenSCENARIO class model specification: [Category of the vehicle (bicycle, train,...).]
 	 * 
 	*/
-        void VehicleImpl::SetVehicleCategory(const VehicleCategory vehicleCategory )
+        void VehicleImpl::SetVehicleCategory(VehicleCategory vehicleCategory )
         {
             _vehicleCategory = vehicleCategory;
         }
@@ -22817,7 +22817,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * vehicle.]
 	 * 
 	*/
-        void VehicleImpl::SetBoundingBox(const std::shared_ptr<IBoundingBox> boundingBox )
+        void VehicleImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
         }
@@ -22826,7 +22826,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param performance from OpenSCENARIO class model specification: [Performance properties of the vehicle.]
 	 * 
 	*/
-        void VehicleImpl::SetPerformance(const std::shared_ptr<IPerformance> performance )
+        void VehicleImpl::SetPerformance(std::shared_ptr<IPerformance> performance )
         {
             _performance = performance;
         }
@@ -22836,7 +22836,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * locations.]
 	 * 
 	*/
-        void VehicleImpl::SetAxles(const std::shared_ptr<IAxles> axles )
+        void VehicleImpl::SetAxles(std::shared_ptr<IAxles> axles )
         {
             _axles = axles;
         }
@@ -22845,7 +22845,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param properties from OpenSCENARIO class model specification: [Additional properties as name value pairs.]
 	 * 
 	*/
-        void VehicleImpl::SetProperties(const std::shared_ptr<IProperties> properties )
+        void VehicleImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
         }
@@ -22856,7 +22856,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY)
             {
@@ -22865,7 +22865,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != VehicleCategory::UNKNOWN)
                 {
                     _vehicleCategory = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -23029,7 +23029,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
 	 * 
 	*/
-        void VehicleCatalogLocationImpl::SetDirectory(const std::shared_ptr<IDirectory> directory )
+        void VehicleCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
         }
@@ -23203,7 +23203,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param category from OpenSCENARIO class model specification: [The category of the vehicles that appear in traffic.]
 	 * 
 	*/
-        void VehicleCategoryDistributionEntryImpl::SetCategory(const VehicleCategory category )
+        void VehicleCategoryDistributionEntryImpl::SetCategory(VehicleCategory category )
         {
             _category = category;
         }
@@ -23213,7 +23213,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * distribution. Range: [0..inf[.]
 	 * 
 	*/
-        void VehicleCategoryDistributionEntryImpl::SetWeight(const double weight )
+        void VehicleCategoryDistributionEntryImpl::SetWeight(double weight )
         {
             _weight = weight;
         }
@@ -23227,7 +23227,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != VehicleCategory::UNKNOWN)
                 {
                     _category = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -23239,7 +23239,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -23310,7 +23310,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param time from OpenSCENARIO class model specification: [Optional time specification of the vertex.]
 	 * 
 	*/
-        void VertexImpl::SetTime(const double time )
+        void VertexImpl::SetTime(double time )
         {
             _time = time;
         }
@@ -23319,7 +23319,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [Position of the vertex.]
 	 * 
 	*/
-        void VertexImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void VertexImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -23330,7 +23330,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _time = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -23419,7 +23419,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * is not visible in image generator(s).]
 	 * 
 	*/
-        void VisibilityActionImpl::SetGraphics(const bool graphics )
+        void VisibilityActionImpl::SetGraphics(bool graphics )
         {
             _graphics = graphics;
         }
@@ -23429,7 +23429,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * particularly for autonomous driver models. False: actor is not , visible for other traffic participants.]
 	 * 
 	*/
-        void VisibilityActionImpl::SetTraffic(const bool traffic )
+        void VisibilityActionImpl::SetTraffic(bool traffic )
         {
             _traffic = traffic;
         }
@@ -23439,7 +23439,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * visible in sensor(s).]
 	 * 
 	*/
-        void VisibilityActionImpl::SetSensors(const bool sensors )
+        void VisibilityActionImpl::SetSensors(bool sensors )
         {
             _sensors = sensors;
         }
@@ -23450,19 +23450,19 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _graphics = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC)
             {
                 // Simple type
                 _traffic = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SENSORS)
             {
                 // Simple type
                 _sensors = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -23536,7 +23536,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * shortest, random, leastIntersections).]
 	 * 
 	*/
-        void WaypointImpl::SetRouteStrategy(const RouteStrategy routeStrategy )
+        void WaypointImpl::SetRouteStrategy(RouteStrategy routeStrategy )
         {
             _routeStrategy = routeStrategy;
         }
@@ -23545,7 +23545,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param position from OpenSCENARIO class model specification: [The reference position to form the route.]
 	 * 
 	*/
-        void WaypointImpl::SetPosition(const std::shared_ptr<IPosition> position )
+        void WaypointImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
@@ -23559,7 +23559,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != RouteStrategy::UNKNOWN)
                 {
                     _routeStrategy = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -23656,7 +23656,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * visualization settings.]
 	 * 
 	*/
-        void WeatherImpl::SetCloudState(const CloudState cloudState )
+        void WeatherImpl::SetCloudState(CloudState cloudState )
         {
             _cloudState = cloudState;
         }
@@ -23665,7 +23665,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param sun from OpenSCENARIO class model specification: [Definition of the sun, i.e. position and intensity.]
 	 * 
 	*/
-        void WeatherImpl::SetSun(const std::shared_ptr<ISun> sun )
+        void WeatherImpl::SetSun(std::shared_ptr<ISun> sun )
         {
             _sun = sun;
         }
@@ -23674,7 +23674,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param fog from OpenSCENARIO class model specification: [Definition of fog, i.e. visual range and bounding box.]
 	 * 
 	*/
-        void WeatherImpl::SetFog(const std::shared_ptr<IFog> fog )
+        void WeatherImpl::SetFog(std::shared_ptr<IFog> fog )
         {
             _fog = fog;
         }
@@ -23684,7 +23684,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * intensity.]
 	 * 
 	*/
-        void WeatherImpl::SetPrecipitation(const std::shared_ptr<IPrecipitation> precipitation )
+        void WeatherImpl::SetPrecipitation(std::shared_ptr<IPrecipitation> precipitation )
         {
             _precipitation = precipitation;
         }
@@ -23698,7 +23698,7 @@ namespace NET_ASAM_OPENSCENARIO
                 if (kResult != CloudState::UNKNOWN)
                 {
                     _cloudState = kResult;
-                    RemoveResolvedParameter(attributeKey);
+                    AddResolvedParameter(attributeKey);
                 }
                 else
                 {
@@ -23833,7 +23833,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param x from OpenSCENARIO class model specification: [The x coordinate value.]
 	 * 
 	*/
-        void WorldPositionImpl::SetX(const double x )
+        void WorldPositionImpl::SetX(double x )
         {
             _x = x;
         }
@@ -23842,7 +23842,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param y from OpenSCENARIO class model specification: [The y coordinate value.]
 	 * 
 	*/
-        void WorldPositionImpl::SetY(const double y )
+        void WorldPositionImpl::SetY(double y )
         {
             _y = y;
         }
@@ -23851,7 +23851,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * @param z from OpenSCENARIO class model specification: [The z coordinate value.]
 	 * 
 	*/
-        void WorldPositionImpl::SetZ(const double z )
+        void WorldPositionImpl::SetZ(double z )
         {
             _z = z;
         }
@@ -23861,7 +23861,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * positive rotation about the z-axis (see ISO 8855:2011).]
 	 * 
 	*/
-        void WorldPositionImpl::SetH(const double h )
+        void WorldPositionImpl::SetH(double h )
         {
             _h = h;
         }
@@ -23871,7 +23871,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * rotation about the y-axis (see ISO 8855:2011).]
 	 * 
 	*/
-        void WorldPositionImpl::SetP(const double p )
+        void WorldPositionImpl::SetP(double p )
         {
             _p = p;
         }
@@ -23881,7 +23881,7 @@ namespace NET_ASAM_OPENSCENARIO
 	 * rotation about the x-axis (see ISO 8855:2011).]
 	 * 
 	*/
-        void WorldPositionImpl::SetR(const double r )
+        void WorldPositionImpl::SetR(double r )
         {
             _r = r;
         }
@@ -23892,37 +23892,37 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _x = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
             {
                 // Simple type
                 _y = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
             {
                 // Simple type
                 _z = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__H)
             {
                 // Simple type
                 _h = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__P)
             {
                 // Simple type
                 _p = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__R)
             {
                 // Simple type
                 _r = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                RemoveResolvedParameter(attributeKey);
+                AddResolvedParameter(attributeKey);
             }
         }
 

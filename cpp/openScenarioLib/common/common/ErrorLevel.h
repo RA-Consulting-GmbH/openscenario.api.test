@@ -34,7 +34,14 @@ namespace NET_ASAM_OPENSCENARIO
      * </ul>
      *
      */
-    enum ErrorLevel { FATAL, ERROR, WARNING, INFO, DEBUG };
+    enum ErrorLevel
+    {
+        DEBUG,
+        INFO,
+        WARNING,
+        ERROR,
+        FATAL
+    };
 
     class ErrorLevelString
     {

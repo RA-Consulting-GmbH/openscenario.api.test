@@ -135,8 +135,6 @@ namespace NET_ASAM_OPENSCENARIO
                 messageLogger->LogMessage(msg);
                 return nullptr;
             }
-
-            return nullptr;
         }
     }
 }

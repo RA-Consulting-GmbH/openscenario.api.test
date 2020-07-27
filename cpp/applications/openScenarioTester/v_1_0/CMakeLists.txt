@@ -21,6 +21,7 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 ################################################################
 # Include folders
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/helper )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../common)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../externalLibs/Filesystem)
@@ -30,6 +31,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/loader )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/parameter )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/parser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/checker )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/api )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/checker )
@@ -72,8 +74,14 @@ set( HEADERS
   "src/TestFiles.h"
   "src/TestReader.h"
   "src/TestImports.h"
+  "src/TestSimpleDemos.h"
   "src/TestRangeChecker.h"
   "src/MessageLogger.h"
+)
+
+set( HEADERS_HELPER
+  ${HEADERS_HELPER}
+  "src/helper/EgoCheckerRule.h"
 )
 
 ################################################################
@@ -84,12 +92,13 @@ if( MSVC )
 
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
+  source_group( Headers\\Helper FILES ${HEADERS_HELPER} )
 
 endif()
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} )
+add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} ${HEADERS_HELPER})
 
 target_link_libraries( ${PROJECT_NAME} OpenScenarioLibV_1_0 )
 

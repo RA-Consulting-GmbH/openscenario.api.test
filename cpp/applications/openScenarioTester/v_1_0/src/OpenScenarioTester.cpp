@@ -20,6 +20,7 @@
 #include "TestFiles.h"
 #include "TestImports.h"
 #include "TestReader.h"
+#include "TestSimpleDemos.h"
 
 int main(int argc, char** argv)
 {
@@ -32,6 +33,7 @@ int main(int argc, char** argv)
     TestFiles testFiles;
     TestImports testImports;
     TestReader testReader;
+    TestSimpleDemos testSimpleDemos;
 
     testExamples.TestExample();
     testRangeChecker.TestParamsFailure();
@@ -51,5 +53,10 @@ int main(int argc, char** argv)
 
     testReader.TestImportSuccess();
     testReader.TestWithErrors();
+
+    testSimpleDemos.TestSimpleDemo();
+    testSimpleDemos.TestImportDemo();
+    testSimpleDemos.TestCheckerRuleDemo();
+    testSimpleDemos.TestCheckerRuleEgoDemo();
 
 }

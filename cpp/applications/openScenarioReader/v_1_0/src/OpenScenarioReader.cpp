@@ -17,10 +17,10 @@
 
 #include <iostream>
 
-#include "MessageLogger.h"
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
+#include "SimpleMessageLogger.h"
 #include "Textmarker.h"
 #include "ApiClassImpl.h"
 #include "XmlScenarioImportLoaderFactory.h"
@@ -40,8 +40,9 @@
 
 static std::string version = "1.0";
 static bool isDebug = false;
+static NET_ASAM_OPENSCENARIO::ErrorLevel logLevel = NET_ASAM_OPENSCENARIO::ErrorLevel::DEBUG;
 
-std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl> ExecuteImportParsing(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger)
+std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl> ExecuteImportParsing(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger)
 {
     auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
     auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
@@ -85,8 +86,8 @@ int main(int argc, char** argv)
 
     std::cout << "Checking '" << argv[2] << "'" << std::endl;
 
-    auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
-    auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+    auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(logLevel);
+    auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(logLevel);
 
     try
     {

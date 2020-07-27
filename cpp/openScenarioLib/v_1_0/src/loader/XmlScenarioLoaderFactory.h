@@ -38,7 +38,7 @@ namespace NET_ASAM_OPENSCENARIO
              * Constructor
              * @param filename for the created loader
              */
-            XmlScenarioLoaderFactory(std::string& filename) : _filename(filename) {}
+            XmlScenarioLoaderFactory(const std::string filename) : _filename(filename) {}
 
             std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override
             {

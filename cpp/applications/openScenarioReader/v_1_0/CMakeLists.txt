@@ -68,7 +68,6 @@ set( SOURCES
 # Header files
 set( HEADERS
   ${HEADERS}
-  "src/MessageLogger.h"
 )
 
 ################################################################

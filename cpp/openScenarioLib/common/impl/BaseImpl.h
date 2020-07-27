@@ -91,6 +91,7 @@ namespace NET_ASAM_OPENSCENARIO
         };
 
         std::map<std::string, std::shared_ptr<ParameterizedAttribute>> _attributeKeyToParameterName{};
+        std::vector<std::string> _resolvedAttributes{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToStartMarker{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToEndMarker{};
         std::map<std::string, std::shared_ptr<void>> _adapters{};
@@ -165,12 +166,18 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
         /**
-         * Removes the resolved attribute value from the list of unresolved parameters.
+         * Adds the resolved attribute value to the list of resolved parameters.
+         *
          * @param attributeKey attribute key of the property.
          */
-        void RemoveResolvedParameter(std::string& attributeKey)
+        void AddResolvedParameter(std::string& attributeKey) 
         {
-            _attributeKeyToParameterName.erase(attributeKey);
+            _resolvedAttributes.push_back(attributeKey);
+        }
+
+        std::vector<std::string> GetResolvedAttributeKeys() override
+        {
+            return _resolvedAttributes;
         }
 
         /**

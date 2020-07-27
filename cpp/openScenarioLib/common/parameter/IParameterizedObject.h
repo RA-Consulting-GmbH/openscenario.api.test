@@ -100,5 +100,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return "";
         }
+
+        /**
+        * The keys of the attributes that are resolved
+        * @return set with the keys
+        */
+        virtual std::vector<std::string> GetResolvedAttributeKeys()
+        {
+            return {};
+        }
     };
 }

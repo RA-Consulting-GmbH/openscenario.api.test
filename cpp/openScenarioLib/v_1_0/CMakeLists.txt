@@ -119,6 +119,7 @@ set( HEADERS_COMMON_COMMON
   ${HEADERS_COMMON_COMMON}
   "../common/common/INamedReference.h"
   "../common/common/ILocator.h"
+  "../common/common/SimpleMessageLogger.h"
   "../common/common/DateTime.h"
   "../common/common/IParserMessageLogger.h"
   "../common/common/Textmarker.h"
@@ -220,6 +221,11 @@ set( HEADERS_PARSER
   "src/parser/CatalogReferenceParserContext.h"
 )
 
+set( HEADERS_CHECKER
+  ${HEADERS_CHECKER}
+  "src/checker/VersionCheckerRule.h"
+)
+
 set( HEADERS_GENERATED_API
   ${HEADERS_GENERATED_API}
   "generated/api/Enumerations.h"
@@ -296,6 +302,7 @@ if( MSVC )
   source_group( Headers\\Loaders FILES ${HEADERS_LOADER})
   source_group( Headers\\Parameter FILES ${HEADERS_PARAMETER})
   source_group( Headers\\Parser FILES ${HEADERS_PARSER})
+  source_group( Headers\\Checker FILES ${HEADERS_CHECKER})
 
   source_group( Headers\\Generated\\Api FILES ${HEADERS_GENERATED_API} )
   source_group( Headers\\Generated\\Common FILES ${HEADERS_GENERATED_COMMON} )
@@ -316,7 +323,7 @@ add_library ( ${PROJECT_NAME} ${SOURCES} ${SOURCES_GENERATED_API} ${SOURCES_GENE
               ${HEADERS_COMMON_API} ${HEADERS_COMMON_COMMON} ${HEADERS_COMMON_CHECKER} ${HEADERS_COMMON_IMPL} ${HEADERS_COMMON_PARAMETER}
               ${HEADERS_COMMON_PARSER} ${HEADERS_COMMON_PARSER_MODEL_GROUP} ${HEADERS_COMMON_PARSER_TYPE} ${HEADERS_COMMON_XMLINDEXER}
               ${HEADERS_COMMON_SIMPLE_STRUCT} ${HEADERS_COMMON_LOADER}
-              ${HEADERS_PARAMETER} ${HEADERS_PARSER} ${HEADERS_CATALOG} ${HEADERS_LOADER}
+              ${HEADERS_PARAMETER} ${HEADERS_PARSER} ${HEADERS_CATALOG} ${HEADERS_LOADER} ${HEADERS_CHECKER}
               ${HEADERS_GENERATED_API} ${HEADERS_GENERATED_COMMON} ${HEADERS_GENERATED_CHECKER} ${HEADERS_GENERATED_CHECKER_IMPL} 
               ${HEADERS_GENERATED_CHECKER_RANGE} ${HEADERS_GENERATED_CATALOG} ${HEADERS_GENERATED_IMPL} ${HEADERS_GENERATED_XMLPARSER})
 
