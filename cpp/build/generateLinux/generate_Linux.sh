@@ -21,12 +21,12 @@ echo $ROOT_DIR
 . ${SCRIPT_DIR}/parse_generate_params.sh $1 $2
 
 # Create build folder
-BUILDFOLDER="gcc_${PLATFORM_NAME}_${BUILD_TARGET}"
+BUILDFOLDER="gcc${PLATFORM_NAME}${BUILD_TARGET}"
 mkdir -p "${BUILDFOLDER}"
 cd "${BUILDFOLDER}"
 
 # Call cmake
-cmake -DBUILD_TARGET_PARAM="${BUILD_TARGET}" -DPLATFORM_PARAM="${PLATFORM_NAME}" $ROOT_DIR/
+cmake -DCMAKE_BUILD_TYPE="${BUILD_TARGET}" -DPLATFORM_PARAM="${PLATFORM_NAME}" $ROOT_DIR/cpp/
 
 # Build solution if requested
 if [ $MAKE != "yes" ]
