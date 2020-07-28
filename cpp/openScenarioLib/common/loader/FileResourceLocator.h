@@ -35,7 +35,7 @@ namespace NET_ASAM_OPENSCENARIO
                 auto infile = std::make_shared<std::ifstream>(symbolicFilename, std::ios::binary);
                 if (infile->bad() || infile->fail())
                 {
-                    auto msg = "File" + symbolicFilename + " not found";
+                    auto msg = "File " + symbolicFilename + " not found";
                     throw ResourceNotFoundException(msg);
                 }
                 return infile;

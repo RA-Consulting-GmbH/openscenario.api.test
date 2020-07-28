@@ -3,14 +3,16 @@ cmake_minimum_required (VERSION 2.8)
 # 2.8 needed because of ExternalProject
 
 # Detect build type, fallback to release and throw a warning if use didn't specify any
-if(NOT CMAKE_BUILD_TYPE)
-  message(WARNING "Build type not set, falling back to Release mode.
- To specify build type use:
- -DCMAKE_BUILD_TYPE=<mode> where <mode> is Debug or Release.")
-  set(CMAKE_BUILD_TYPE "Release" CACHE STRING
-       "Choose the type of build, options are: Debug Release."
-       FORCE)
-endif(NOT CMAKE_BUILD_TYPE)
+if( UNIX )
+  if(NOT CMAKE_BUILD_TYPE)
+    message(WARNING "Build type not set, falling back to Release mode.
+   To specify build type use:
+   -DCMAKE_BUILD_TYPE=<mode> where <mode> is Debug or Release.")
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING
+         "Choose the type of build, options are: Debug Release."
+         FORCE)
+  endif(NOT CMAKE_BUILD_TYPE)
+endif( UNIX )
 
 if(NOT WITH_DEMO)
   message(STATUS "Building without demo. To enable demo build use: -DWITH_DEMO=True")
@@ -28,6 +30,12 @@ project(LIBANTLR4)
 if(CMAKE_VERSION VERSION_EQUAL "3.0.0" OR
    CMAKE_VERSION VERSION_GREATER "3.0.0")
   CMAKE_POLICY(SET CMP0026 NEW)
+  CMAKE_POLICY(SET CMP0054 OLD)
+endif()
+
+if(CMAKE_VERSION VERSION_EQUAL "3.3.0" OR
+   CMAKE_VERSION VERSION_GREATER "3.3.0")
+  CMAKE_POLICY(SET CMP0054 OLD)
 endif()
 
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
