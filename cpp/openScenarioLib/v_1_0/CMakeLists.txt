@@ -39,17 +39,17 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/xmlParser )
 
 #external files
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/Filesystem)
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/TinyXML2 )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/atn )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/dfa )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/misc )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/support )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/tree/pattern )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLibs/ANTLR4-Cpp-src/runtime/src/tree/xpath )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/atn )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/dfa )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/misc )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/support )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/pattern )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/xpath )
 
 #version independent
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common/api )
@@ -69,7 +69,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common/xmlIndexer )
 # Source files
 set( SOURCES
   ${SOURCES}
-    "../../ExternalLibs/TinyXML2/tinyxml2.cpp"
+    "../../externalLibs/TinyXML2/tinyxml2.cpp"
 )
 
 set( SOURCES_GENERATED_API
