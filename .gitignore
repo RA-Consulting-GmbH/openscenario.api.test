@@ -1,2 +1,8 @@
 /cpp/build/generateWindows/VS2017/*
 /cpp/build/output/*
+/cpp/build/generateLinux/gccLinuxRelease/*
+/cpp/build/generateLinux/gccLinuxDebug/*
+.vscode/*
+cpp/CMakeLists.txt.user
+build/*
+
