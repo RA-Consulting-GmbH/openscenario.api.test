@@ -50,12 +50,12 @@ namespace NET_ASAM_OPENSCENARIO
              * @param logger to log messages
              * @param openScenario the loaded instance of IOpenScenario
              */
-            static void Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<OpenScenarioImpl> openScenario)
+            static void Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<OpenScenarioImpl> openScenario, std::map<std::string, std::string>& injectedParameters)
             {
                 if (!IsCatalog(openScenario))
                 {
                     ParameterResolver parameterResolver;
-                    parameterResolver.Resolve(logger, openScenario, true);
+                    parameterResolver.Resolve(logger, openScenario, injectedParameters, true);
                 }
             }
 

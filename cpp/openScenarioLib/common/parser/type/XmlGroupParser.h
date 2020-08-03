@@ -69,7 +69,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             ParseSubElements(elementsToParse, parserContext, object);
             const auto kEndPosition = parserContext->GetLastElementParsed()->GetEndElementLocation();
-            object->SetStartMarker(Textmarker(kEndPosition.GetLine(), kEndPosition.GetColumn(), this->_filename));
+            object->SetEndMarker(Textmarker(kEndPosition.GetLine(), kEndPosition.GetColumn(), this->_filename));
         }
 
         void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override

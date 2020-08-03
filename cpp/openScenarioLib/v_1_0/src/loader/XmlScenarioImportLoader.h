@@ -58,6 +58,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger) override
             {
+                std::map<std::string, std::string> injectedParameters;
+                return Load(messageLogger, injectedParameters);
+            }
+
+            std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters) override
+            {
                 auto messageLoggerEnvelope = std::make_shared<MessageLoggerDecorator>(messageLogger);
                 auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(_innerScenarioLoader->Load(messageLoggerEnvelope));
 

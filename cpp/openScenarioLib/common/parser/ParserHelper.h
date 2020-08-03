@@ -234,5 +234,135 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+        /**
+         * Parsing a string representation of an unsigned integer value into an unsigned integer value and
+         * check the limits of unsigned integer (32 bit range). unsigned integer value is represented in a
+         * Long data object.
+         *
+         * @param xmlValue the value
+         * @throws Exception when validation fails
+         */
+        static void ValidateUnsignedInt(std::string& xmlValue)
+        {
+            try 
+            {
+                const auto kResult = std::stoll(xmlValue, nullptr, 0);
+
+                if (kResult > UNSIGNED_INT_MAX_VALUE || kResult < 0)
+                {
+                    const std::string kErrorMessage = "Cannot convert '" + xmlValue + "' to an unsignedInteger. Value must be in [0.." + std::to_string(UNSIGNED_INT_MAX_VALUE)+ "].";
+                    throw std::range_error(kErrorMessage);
+                }
+
+            }
+            catch (...) 
+            {
+                throw std::runtime_error("Cannot convert '" + xmlValue + "' to an unsignedInteger. Number format error.");
+            }
+        }
+
+        /**
+         * Parsing a string representation of an integer value into an integer value. Integer value is
+         * represented in a Integer data object.
+         *
+         * @param xmlValue the value
+         * @throws Exception when validation fails
+         */
+        static void ValidateInt(std::string& xmlValue)
+        {
+            try 
+            {
+                (void) std::stoi(xmlValue, nullptr, 0);
+            }
+            catch (...) 
+            {
+                throw std::runtime_error("Cannot convert '" + xmlValue + "' to an int. Number format error.");
+            }
+        }
+
+        /**
+         * Parsing a string representation of a double value into a double value. Integer value is
+         * represented in a Double data object.
+         *
+         * @param xmlValue the value
+         * @throws Exception when validation fails
+         */
+        static void ValidateDouble(std::string& xmlValue)
+        {
+            try 
+            {
+                (void) std::stod(xmlValue);
+            }
+            catch (...)
+            {
+                throw std::runtime_error("Cannot convert '" + xmlValue + "' to a double. Number format error.");
+            }
+        }
+
+        /**
+         * Parsing a string representation of an unsigned short value into an unsigned short value. and
+         * check the limits of unsigned short (16 bit). unsigned short value is represented in a Integer
+         * data object.
+         *
+         * @param xmlValue the value
+         * @throws Exception when validation fails
+         */
+        static void ValidateUnsignedShort(std::string& xmlValue)
+        {
+            try 
+            {
+                const auto kResult = std::stol(xmlValue, nullptr, 0);
+                if (kResult > 2 * UNSIGNED_SHORT_MAX_VALUE || kResult < 0)
+                {
+                    const std::string kErrorMessage = "Cannot convert '" + xmlValue + "' to an unsignedShort. Value must be in [0.." + std::to_string(UNSIGNED_SHORT_MAX_VALUE) + "].";
+                    throw std::range_error(kErrorMessage);
+                }
+            }
+            catch (...)
+            {
+                throw std::runtime_error("Cannot convert '" + xmlValue + "' to an unsignedShort. Number format error.");
+            }
+        }
+
+        /**
+         * Parsing a string representation of a boolean into an boolean value. boolean value is
+         * represented in a Boolean data object.
+         *
+         * @param xmlValue the value
+         * @throws Exception when validation fails
+         */
+        static void ValidateBoolean(std::string& xmlValue)
+        {
+            auto xmlValueCpy = xmlValue;
+            for (std::string::iterator it = xmlValueCpy.begin(); it != xmlValueCpy.end(); ++it)
+                *it = std::tolower(*it, std::locale());
+
+            if (xmlValueCpy !="true" && xmlValueCpy != "false" && xmlValueCpy != "0" && xmlValueCpy != "1")
+                throw std::runtime_error("Cannot convert '" + xmlValue + "' to a boolean. Illegal boolean value.");
+        }
+
+        /**
+         * Parsing a string representation of a date into a date value. Date value is represented in a
+         * java.util.Date data object.
+         *
+         * @param xmlValue the value
+         * @throws Exception when validation fails
+         */
+         static void ValidateDateTime(std::string& xmlValue)
+        {
+            try 
+            {
+                DateTime result{};
+                if (!DateTimeParser::ToDateTime(xmlValue, result))
+                {
+                    if (xmlValue != "true" && xmlValue != "false" && xmlValue != "0" && xmlValue != "1")
+                        throw std::runtime_error("Cannot convert '" + xmlValue + "' to a dateTime. Illegal dateTime value.");
+                }
+            }
+            catch (...)
+            {
+                throw std::runtime_error("Cannot convert '" + xmlValue + "' to a dateTime. Illegal dateTime value.");
+            }
+        }
     };
 }

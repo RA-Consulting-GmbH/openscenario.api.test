@@ -21,6 +21,9 @@
 #include "TestImports.h"
 #include "TestReader.h"
 #include "TestSimpleDemos.h"
+#include "TestVersionChecker.h"
+#include "TestFlexInterface.h"
+#include "TestInjectedParameters.h"
 
 int main(int argc, char** argv)
 {
@@ -34,29 +37,43 @@ int main(int argc, char** argv)
     TestImports testImports;
     TestReader testReader;
     TestSimpleDemos testSimpleDemos;
+    TestVersionChecker testVersionChecker;
+    TestFlexInterface testFlexInterface;
+    TestInjectedParameters testInjectedParameters;
 
-    testExamples.TestExample();
-    testRangeChecker.TestParamsFailure();
+        testExamples.TestExample();
+        testRangeChecker.TestParamsFailure();
 
-    testFiles.TestSimpleSuccess();
-    testFiles.TestParamsSuccess();
-    testFiles.TestParamsFailure();
-    testFiles.TestUnvalidXml();
-    testFiles.TestUnknownElement();
-    testFiles.TestWrongAttributes();
-    testFiles.TestWrongEndElement();
-    testFiles.TestCustomCommandAction();
-    testFiles.TestFileNotFound();
+        testFiles.TestSimpleSuccess();
+        testFiles.TestParamsSuccess();
+        testFiles.TestParamsFailure();
+        testFiles.TestUnvalidXml();
+        testFiles.TestUnknownElement();
+        testFiles.TestWrongAttributes();
+        testFiles.TestWrongEndElement();
+        testFiles.TestCustomCommandAction();
+        testFiles.TestFileNotFound();
 
-    testImports.TestImportSuccess();
-    testImports.TestImportWithParametersSuccess();
+        testImports.TestImportSuccess();
+        testImports.TestImportWithParametersSuccess();
 
-    testReader.TestImportSuccess();
-    testReader.TestWithErrors();
+        testReader.TestImportSuccess();
+        testReader.TestWithErrors();
 
-    testSimpleDemos.TestSimpleDemo();
-    testSimpleDemos.TestImportDemo();
-    testSimpleDemos.TestCheckerRuleDemo();
-    testSimpleDemos.TestCheckerRuleEgoDemo();
+        testSimpleDemos.TestSimpleDemo();
+        testSimpleDemos.TestImportDemo();
+        testSimpleDemos.TestCheckerRuleDemo();
+        testSimpleDemos.TestCheckerRuleEgoDemo();
+
+        testVersionChecker.TestSuccess();
+
+        testFlexInterface.TestExample();
+
+        testInjectedParameters.TestNullInjectedParameters();
+        testInjectedParameters.TestEmptyInjectedParameters();
+        testInjectedParameters.TestInjectionsForSuccess();
+        testInjectedParameters.TestWrongFormats();
+        testInjectedParameters.TestNotDefined();
+        testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
 
 }

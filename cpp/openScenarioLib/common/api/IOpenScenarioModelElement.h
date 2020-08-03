@@ -18,6 +18,7 @@
 #pragma once
 #include <string>
 #include "MemLeakDetection.h"
+#include "IOpenScenarioFlexElement.h"
 #include <memory>
 
 namespace NET_ASAM_OPENSCENARIO
@@ -42,6 +43,15 @@ namespace NET_ASAM_OPENSCENARIO
          */
         virtual std::weak_ptr<IOpenScenarioModelElement> GetParent() { return {}; }
 
+        /**
+         * Return the flexible interface
+         *
+         * @return the flexible interface
+         */
+        virtual IOpenScenarioFlexElement* GetOpenScenarioFlexElement()
+        {
+            return nullptr;
+        }
     };
 
 }

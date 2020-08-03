@@ -80,6 +80,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger) override;
 
+            std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters) override;
+
         };
     }
 }

@@ -65,7 +65,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             const auto kStartPosition = indexedElement->GetStartElementLocation();
             object->SetStartMarker( Textmarker(kStartPosition.GetLine(), kStartPosition.GetColumn(), this->_filename));
-            const auto kEndPosition = indexedElement->GetStartElementLocation();
+            const auto kEndPosition = indexedElement->GetEndElementLocation();
             object->SetEndMarker( Textmarker(kEndPosition.GetLine(), kEndPosition.GetColumn(), this->_filename));
             parserContext->SetLastElementParsed(indexedElement);
         }

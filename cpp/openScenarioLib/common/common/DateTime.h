@@ -37,6 +37,21 @@ namespace NET_ASAM_OPENSCENARIO
         int isdst;    // daylight savings time flag
         int gmtHours; //hours +- GMT
         int gmtMin;   //min +- GMT
+
+        bool operator== (const DateTime& other) const
+        {
+            return sec == other.sec &&
+                min == other.min &&
+                hour == other.hour &&
+                mday == other.mday &&
+                mon == other.mon &&
+                year == other.year &&
+                wday == other.wday &&
+                yday == other.yday &&
+                isdst == other.isdst &&
+                gmtHours == other.gmtHours &&
+                gmtMin == other.gmtMin;
+        }
     };
 
     class DateTimeParser

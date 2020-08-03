@@ -31,6 +31,12 @@ namespace NET_ASAM_OPENSCENARIO
     {
         std::shared_ptr<IOpenScenarioModelElement> XmlScenarioLoader::Load(std::shared_ptr<IParserMessageLogger> messageLogger)
         {
+            std::map<std::string, std::string> injectedParameters;
+            return Load(messageLogger, injectedParameters);
+        }
+
+        std::shared_ptr<IOpenScenarioModelElement> XmlScenarioLoader::Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters)
+        {
             try
             {
                 auto inputStream = _resourceLocator->GetInputStream(_filename);
@@ -111,7 +117,7 @@ namespace NET_ASAM_OPENSCENARIO
                 auto parserContext = std::dynamic_pointer_cast<ParserContext>(std::make_shared<CatalogReferenceParserContext>());
                 openScenarioXmlParser.ParseElement(indexedElement, parserContext, openScenarioImpl);
 
-                OpenScenarioProcessingHelper::Resolve(messageLogger, openScenarioImpl);
+                OpenScenarioProcessingHelper::Resolve(messageLogger, openScenarioImpl, injectedParameters);
                 openScenarioImpl->AddAdapter(typeid(ICatalogReferenceProvider).name(), std::dynamic_pointer_cast<ICatalogReferenceProvider>(parserContext));
                 auto scenarioCheckerImpl = std::make_shared<ScenarioCheckerImpl>();
                 openScenarioImpl->AddAdapter(typeid(IScenarioChecker).name(), scenarioCheckerImpl);

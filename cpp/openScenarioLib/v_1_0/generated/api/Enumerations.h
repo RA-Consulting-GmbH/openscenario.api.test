@@ -64,6 +64,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kCloudStateEnumString 
             {
+                "UNKNOWN",
                 "skyOff",
                 "free",
                 "cloudy",
@@ -118,7 +119,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _cloudStateEnum = rhs._cloudStateEnum;
                 return *this;
             }
-    
+
+            bool operator== (const CloudStateEnum &rhs) const
+            {
+                return _cloudStateEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -174,6 +180,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kConditionEdgeEnumString 
             {
+                "UNKNOWN",
                 "rising",
                 "falling",
                 "risingOrFalling",
@@ -227,7 +234,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _conditionEdgeEnum = rhs._conditionEdgeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const ConditionEdgeEnum &rhs) const
+            {
+                return _conditionEdgeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -276,6 +288,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kDynamicsDimensionEnumString 
             {
+                "UNKNOWN",
                 "rate",
                 "time",
                 "distance",
@@ -328,7 +341,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _dynamicsDimensionEnum = rhs._dynamicsDimensionEnum;
                 return *this;
             }
-    
+
+            bool operator== (const DynamicsDimensionEnum &rhs) const
+            {
+                return _dynamicsDimensionEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -379,6 +397,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kDynamicsShapeEnumString 
             {
+                "UNKNOWN",
                 "linear",
                 "cubic",
                 "sinusoidal",
@@ -432,7 +451,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _dynamicsShapeEnum = rhs._dynamicsShapeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const DynamicsShapeEnum &rhs) const
+            {
+                return _dynamicsShapeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -479,6 +503,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kFollowingModeEnumString 
             {
+                "UNKNOWN",
                 "position",
                 "follow",
             };
@@ -530,7 +555,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _followingModeEnum = rhs._followingModeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const FollowingModeEnum &rhs) const
+            {
+                return _followingModeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -607,6 +637,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kMiscObjectCategoryEnumString 
             {
+                "UNKNOWN",
                 "none",
                 "obstacle",
                 "pole",
@@ -673,7 +704,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _miscObjectCategoryEnum = rhs._miscObjectCategoryEnum;
                 return *this;
             }
-    
+
+            bool operator== (const MiscObjectCategoryEnum &rhs) const
+            {
+                return _miscObjectCategoryEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -722,6 +758,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kObjectTypeEnumString 
             {
+                "UNKNOWN",
                 "pedestrian",
                 "vehicle",
                 "miscellaneous",
@@ -774,7 +811,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _objectTypeEnum = rhs._objectTypeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const ObjectTypeEnum &rhs) const
+            {
+                return _objectTypeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -831,6 +873,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kParameterTypeEnumString 
             {
+                "UNKNOWN",
                 "integer",
                 "double",
                 "string",
@@ -887,7 +930,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _parameterTypeEnum = rhs._parameterTypeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const ParameterTypeEnum &rhs) const
+            {
+                return _parameterTypeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -936,6 +984,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kPedestrianCategoryEnumString 
             {
+                "UNKNOWN",
                 "pedestrian",
                 "wheelchair",
                 "animal",
@@ -988,7 +1037,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _pedestrianCategoryEnum = rhs._pedestrianCategoryEnum;
                 return *this;
             }
-    
+
+            bool operator== (const PedestrianCategoryEnum &rhs) const
+            {
+                return _pedestrianCategoryEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1037,6 +1091,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kPrecipitationTypeEnumString 
             {
+                "UNKNOWN",
                 "dry",
                 "rain",
                 "snow",
@@ -1089,7 +1144,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _precipitationTypeEnum = rhs._precipitationTypeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const PrecipitationTypeEnum &rhs) const
+            {
+                return _precipitationTypeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1140,6 +1200,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kPriorityEnumString 
             {
+                "UNKNOWN",
                 "overwrite",
                 "skip",
                 "parallel",
@@ -1192,7 +1253,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _priorityEnum = rhs._priorityEnum;
                 return *this;
             }
-    
+
+            bool operator== (const PriorityEnum &rhs) const
+            {
+                return _priorityEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1239,6 +1305,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kReferenceContextEnumString 
             {
+                "UNKNOWN",
                 "relative",
                 "absolute",
             };
@@ -1290,7 +1357,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _referenceContextEnum = rhs._referenceContextEnum;
                 return *this;
             }
-    
+
+            bool operator== (const ReferenceContextEnum &rhs) const
+            {
+                return _referenceContextEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1339,6 +1411,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kRelativeDistanceTypeEnumString 
             {
+                "UNKNOWN",
                 "longitudinal",
                 "lateral",
                 "cartesianDistance",
@@ -1391,7 +1464,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _relativeDistanceTypeEnum = rhs._relativeDistanceTypeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const RelativeDistanceTypeEnum &rhs) const
+            {
+                return _relativeDistanceTypeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1442,6 +1520,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kRouteStrategyEnumString 
             {
+                "UNKNOWN",
                 "fastest",
                 "shortest",
                 "leastIntersections",
@@ -1495,7 +1574,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _routeStrategyEnum = rhs._routeStrategyEnum;
                 return *this;
             }
-    
+
+            bool operator== (const RouteStrategyEnum &rhs) const
+            {
+                return _routeStrategyEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1544,6 +1628,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kRuleEnumString 
             {
+                "UNKNOWN",
                 "greaterThan",
                 "lessThan",
                 "equalTo",
@@ -1596,7 +1681,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _ruleEnum = rhs._ruleEnum;
                 return *this;
             }
-    
+
+            bool operator== (const RuleEnum &rhs) const
+            {
+                return _ruleEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1645,6 +1735,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kSpeedTargetValueTypeEnumString 
             {
+                "UNKNOWN",
                 "delta",
                 "factor",
             };
@@ -1696,7 +1787,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _speedTargetValueTypeEnum = rhs._speedTargetValueTypeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const SpeedTargetValueTypeEnum &rhs) const
+            {
+                return _speedTargetValueTypeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1758,6 +1854,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kStoryboardElementStateEnumString 
             {
+                "UNKNOWN",
                 "startTransition",
                 "endTransition",
                 "stopTransition",
@@ -1814,7 +1911,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _storyboardElementStateEnum = rhs._storyboardElementStateEnum;
                 return *this;
             }
-    
+
+            bool operator== (const StoryboardElementStateEnum &rhs) const
+            {
+                return _storyboardElementStateEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1869,6 +1971,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kStoryboardElementTypeEnumString 
             {
+                "UNKNOWN",
                 "story",
                 "act",
                 "maneuver",
@@ -1924,7 +2027,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _storyboardElementTypeEnum = rhs._storyboardElementTypeEnum;
                 return *this;
             }
-    
+
+            bool operator== (const StoryboardElementTypeEnum &rhs) const
+            {
+                return _storyboardElementTypeEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1971,6 +2079,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kTriggeringEntitiesRuleEnumString 
             {
+                "UNKNOWN",
                 "any",
                 "all",
             };
@@ -2022,7 +2131,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _triggeringEntitiesRuleEnum = rhs._triggeringEntitiesRuleEnum;
                 return *this;
             }
-    
+
+            bool operator== (const TriggeringEntitiesRuleEnum &rhs) const
+            {
+                return _triggeringEntitiesRuleEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -2085,6 +2199,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             const std::vector<std::string> kVehicleCategoryEnumString 
             {
+                "UNKNOWN",
                 "car",
                 "van",
                 "truck",
@@ -2144,7 +2259,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _vehicleCategoryEnum = rhs._vehicleCategoryEnum;
                 return *this;
             }
-    
+
+            bool operator== (const VehicleCategoryEnum &rhs) const
+            {
+                return _vehicleCategoryEnum == rhs;
+            }
+
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO

@@ -29,6 +29,7 @@
 #include "ParameterValue.h"
 #include "DateTime.h"
 #include <cassert>
+#include "IOpenScenarioFlexElement.h"
 #include "MemLeakDetection.h"
 
 /**
@@ -38,7 +39,7 @@
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    class BaseImpl : public IParameterizedObject, public virtual IOpenScenarioModelElement
+    class BaseImpl : public IParameterizedObject, public virtual IOpenScenarioModelElement, public virtual IOpenScenarioFlexElement
     {
     private:
         /**
@@ -190,11 +191,11 @@ namespace NET_ASAM_OPENSCENARIO
             if (typeName == "string")
                 return typeid(std::string).name();
             if (typeName == "unsignedInt")
-                return typeid(unsigned long).name();
+                return typeid(long long).name();
             if (typeName == "integer")
                 return typeid(int).name();
             if (typeName == "unsignedShort")
-                return typeid(unsigned int).name();
+                return typeid(long).name();
             if (typeName == "dateTime")
                 return typeid(DateTime).name();
             if (typeName == "boolean")

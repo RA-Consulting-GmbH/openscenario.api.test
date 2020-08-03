@@ -100,6 +100,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string AbsoluteSpeedImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteSpeedImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteSpeedImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AbsoluteSpeedImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         AbsoluteTargetLaneImpl::AbsoluteTargetLaneImpl()
@@ -174,6 +200,41 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string AbsoluteTargetLaneImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                return GetValue();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetLaneImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AbsoluteTargetLaneImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -253,6 +314,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string AbsoluteTargetLaneOffsetImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneOffsetImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetLaneOffsetImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneOffsetImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AbsoluteTargetLaneOffsetImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         AbsoluteTargetSpeedImpl::AbsoluteTargetSpeedImpl()
@@ -327,6 +414,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string AbsoluteTargetSpeedImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetSpeedImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetSpeedImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AbsoluteTargetSpeedImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -436,6 +549,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string AccelerationConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AccelerationConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AccelerationConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AccelerationConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AccelerationConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         AcquirePositionActionImpl::AcquirePositionActionImpl()
@@ -514,6 +663,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPosition(clonedChildIPosition);
             }
             return clonedObject;
+        }
+
+        std::string AcquirePositionActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AcquirePositionActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AcquirePositionActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AcquirePositionActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AcquirePositionActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -677,6 +861,68 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ActImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__START_TRIGGER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetStartTrigger());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__STOP_TRIGGER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetStopTrigger());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__MANEUVER_GROUP)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetManeuverGroups())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ActImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ActionImpl::ActionImpl()
@@ -834,6 +1080,60 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetGlobalAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetUserDefinedAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPrivateAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ActivateControllerActionImpl::ActivateControllerActionImpl()
@@ -932,6 +1232,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetLongitudinal(_longitudinal);
             // clone children
             return clonedObject;
+        }
+
+        std::string ActivateControllerActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActivateControllerActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActivateControllerActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActivateControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ActivateControllerActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -1044,6 +1370,45 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ActorsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActorsImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActorsImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_REF)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetEntityRefs())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ActorsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ActorsImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         AddEntityActionImpl::AddEntityActionImpl()
@@ -1122,6 +1487,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPosition(clonedChildIPosition);
             }
             return clonedObject;
+        }
+
+        std::string AddEntityActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AddEntityActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AddEntityActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AddEntityActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AddEntityActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -1231,6 +1631,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string AssignControllerActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AssignControllerActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetController());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AssignControllerActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AssignControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AssignControllerActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         AssignRouteActionImpl::AssignRouteActionImpl()
@@ -1336,6 +1776,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetCatalogReference(clonedChildICatalogReference);
             }
             return clonedObject;
+        }
+
+        std::string AssignRouteActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AssignRouteActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROUTE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRoute());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AssignRouteActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AssignRouteActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AssignRouteActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -1507,6 +1987,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string AxleImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AxleImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AxleImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AxleImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AxleImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         AxlesImpl::AxlesImpl()
@@ -1646,6 +2152,59 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string AxlesImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AxlesImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FRONT_AXLE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFrontAxle());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__REAR_AXLE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRearAxle());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AxlesImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__ADDITIONAL_AXLE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetAdditionalAxles())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> AxlesImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string AxlesImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         BoundingBoxImpl::BoundingBoxImpl()
@@ -1751,6 +2310,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDimensions(clonedChildIDimensions);
             }
             return clonedObject;
+        }
+
+        std::string BoundingBoxImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> BoundingBoxImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CENTER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCenter());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIMENSIONS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDimensions());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> BoundingBoxImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> BoundingBoxImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string BoundingBoxImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -1860,6 +2459,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ByEntityConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByEntityConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRIGGERING_ENTITIES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTriggeringEntities());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEntityCondition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByEntityConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByEntityConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ByEntityConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ByObjectTypeImpl::ByObjectTypeImpl()
@@ -1943,6 +2582,42 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetType(_type);
             // clone children
             return clonedObject;
+        }
+
+        std::string ByObjectTypeImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByObjectTypeImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByObjectTypeImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByObjectTypeImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ByObjectTypeImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TYPE)
+            {
+                auto type = GetType();
+                return type.GetLiteral() != "UNKNOWN" ? type.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -2029,6 +2704,42 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetObjectType(_objectType);
             // clone children
             return clonedObject;
+        }
+
+        std::string ByTypeImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByTypeImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByTypeImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByTypeImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ByTypeImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE)
+            {
+                auto objectType = GetObjectType();
+                return objectType.GetLiteral() != "UNKNOWN" ? objectType.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -2272,6 +2983,71 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetTrafficSignalControllerCondition(clonedChildITrafficSignalControllerCondition);
             }
             return clonedObject;
+        }
+
+        std::string ByValueConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByValueConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParameterCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TIME_OF_DAY_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTimeOfDayCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SIMULATION_TIME_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSimulationTimeCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__STORYBOARD_ELEMENT_STATE_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetStoryboardElementStateCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__USER_DEFINED_VALUE_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetUserDefinedValueCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSignalCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSignalControllerCondition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByValueConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ByValueConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ByValueConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -2620,6 +3396,110 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string CatalogImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__VEHICLE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetVehicles())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetControllers())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__PEDESTRIAN)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetPedestrians())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__MISC_OBJECT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetMiscObjects())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__ENVIRONMENT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetEnvironments())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__MANEUVER)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetManeuvers())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__TRAJECTORY)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetTrajectories())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__ROUTE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetRoutes())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string CatalogImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         CatalogDefinitionImpl::CatalogDefinitionImpl()
@@ -2698,6 +3578,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetCatalog(clonedChildICatalog);
             }
             return clonedObject;
+        }
+
+        std::string CatalogDefinitionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogDefinitionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalog());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogDefinitionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogDefinitionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string CatalogDefinitionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -2970,6 +3885,76 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string CatalogLocationsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogLocationsImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__VEHICLE_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetVehicleCatalog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetControllerCatalog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PEDESTRIAN_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPedestrianCatalog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__MISC_OBJECT_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetMiscObjectCatalog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENVIRONMENT_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEnvironmentCatalog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__MANEUVER_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetManeuverCatalog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAJECTORY_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrajectoryCatalog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROUTE_CATALOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRouteCatalog());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogLocationsImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogLocationsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string CatalogLocationsImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         CatalogReferenceImpl::CatalogReferenceImpl()
@@ -3116,6 +4101,58 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string CatalogReferenceImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME)
+            {
+                return GetCatalogName();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME)
+            {
+                return GetEntryName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogReferenceImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogReferenceImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterAssignments())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogReferenceImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string CatalogReferenceImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         CenterImpl::CenterImpl()
@@ -3236,6 +4273,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string CenterImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CenterImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CenterImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CenterImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string CenterImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         CentralSwarmObjectImpl::CentralSwarmObjectImpl()
@@ -3313,6 +4376,54 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetEntityRef(proxy);
             // clone children
             return clonedObject;
+        }
+
+        std::string CentralSwarmObjectImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CentralSwarmObjectImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CentralSwarmObjectImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CentralSwarmObjectImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string CentralSwarmObjectImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -3508,6 +4619,41 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ClothoidImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ClothoidImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ClothoidImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ClothoidImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ClothoidImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         CollisionConditionImpl::CollisionConditionImpl()
@@ -3613,6 +4759,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetByType(clonedChildIByObjectType);
             }
             return clonedObject;
+        }
+
+        std::string CollisionConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CollisionConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_REF)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEntityRef());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BY_TYPE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetByType());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CollisionConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CollisionConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string CollisionConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -3798,6 +4984,65 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BY_ENTITY_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetByEntityCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BY_VALUE_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetByValueCondition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE)
+            {
+                auto conditionEdge = GetConditionEdge();
+                return conditionEdge.GetLiteral() != "UNKNOWN" ? conditionEdge.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         ConditionGroupImpl::ConditionGroupImpl()
@@ -3883,6 +5128,45 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetConditions(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string ConditionGroupImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionGroupImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ConditionGroupImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__CONDITION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetConditions())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionGroupImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ConditionGroupImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -4009,6 +5293,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPosition(clonedChildIPosition);
             }
             return clonedObject;
+        }
+
+        std::string ControlPointImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControlPointImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControlPointImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControlPointImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ControlPointImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -4166,6 +5485,62 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ControllerImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PROPERTIES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetProperties());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ControllerImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ControllerActionImpl::ControllerActionImpl()
@@ -4273,6 +5648,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ControllerActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ASSIGN_CONTROLLER_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAssignControllerAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__OVERRIDE_CONTROLLER_VALUE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOverrideControllerValueAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ControllerActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ControllerCatalogLocationImpl::ControllerCatalogLocationImpl()
@@ -4351,6 +5766,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string ControllerCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ControllerCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -4439,6 +5889,45 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetControllerDistributionEntries(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string ControllerDistributionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerDistributionImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetControllerDistributionEntries())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ControllerDistributionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -4569,6 +6058,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ControllerDistributionEntryImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionEntryImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetController());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerDistributionEntryImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionEntryImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ControllerDistributionEntryImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         CustomCommandActionImpl::CustomCommandActionImpl()
@@ -4667,6 +6196,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string CustomCommandActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TYPE)
+            {
+                return GetType();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__CONTENT)
+            {
+                return GetContent();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CustomCommandActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CustomCommandActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> CustomCommandActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string CustomCommandActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         DeleteEntityActionImpl::DeleteEntityActionImpl()
@@ -4719,6 +6288,32 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // clone children
             return clonedObject;
+        }
+
+        std::string DeleteEntityActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DeleteEntityActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DeleteEntityActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DeleteEntityActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string DeleteEntityActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -4844,6 +6439,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string DimensionsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DimensionsImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DimensionsImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DimensionsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string DimensionsImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         DirectoryImpl::DirectoryImpl()
@@ -4918,6 +6539,41 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetPath(_path);
             // clone children
             return clonedObject;
+        }
+
+        std::string DirectoryImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PATH)
+            {
+                return GetPath();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DirectoryImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DirectoryImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DirectoryImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string DirectoryImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -5099,6 +6755,51 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string DistanceConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DistanceConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DistanceConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string DistanceConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         DynamicConstraintsImpl::DynamicConstraintsImpl()
@@ -5222,6 +6923,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string DynamicConstraintsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DynamicConstraintsImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DynamicConstraintsImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> DynamicConstraintsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string DynamicConstraintsImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         EndOfRoadConditionImpl::EndOfRoadConditionImpl()
@@ -5296,6 +7023,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetDuration(_duration);
             // clone children
             return clonedObject;
+        }
+
+        std::string EndOfRoadConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EndOfRoadConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EndOfRoadConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EndOfRoadConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EndOfRoadConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -5417,6 +7170,53 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetEntitySelections(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string EntitiesImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntitiesImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntitiesImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__SCENARIO_OBJECT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetScenarioObjects())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_SELECTION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetEntitySelections())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntitiesImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EntitiesImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -5549,6 +7349,68 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDeleteEntityAction(clonedChildIDeleteEntityAction);
             }
             return clonedObject;
+        }
+
+        std::string EntityActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ADD_ENTITY_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAddEntityAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DELETE_ENTITY_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDeleteEntityAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string EntityActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -5956,6 +7818,101 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string EntityConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__END_OF_ROAD_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEndOfRoadCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__COLLISION_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCollisionCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__OFFROAD_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOffroadCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TIME_HEADWAY_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTimeHeadwayCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTimeToCollisionCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ACCELERATION_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAccelerationCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__STAND_STILL_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetStandStillCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SPEED_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSpeedCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_SPEED_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeSpeedCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAVELED_DISTANCE_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTraveledDistanceCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__REACH_POSITION_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetReachPositionCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DISTANCE_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDistanceCondition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_DISTANCE_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeDistanceCondition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EntityConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         EntityObjectImpl::EntityObjectImpl()
@@ -6115,6 +8072,56 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string EntityObjectImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityObjectImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__VEHICLE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetVehicle());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PEDESTRIAN)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPedestrian());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__MISC_OBJECT)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetMiscObject());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityObjectImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityObjectImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EntityObjectImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         EntityRefImpl::EntityRefImpl()
@@ -6191,6 +8198,54 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetEntityRef(proxy);
             // clone children
             return clonedObject;
+        }
+
+        std::string EntityRefImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityRefImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityRefImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntityRefImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string EntityRefImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -6294,6 +8349,50 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetMembers(clonedChildISelectedEntities);
             }
             return clonedObject;
+        }
+
+        std::string EntitySelectionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntitySelectionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__MEMBERS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetMembers());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntitySelectionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EntitySelectionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EntitySelectionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -6503,6 +8602,72 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string EnvironmentImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TIME_OF_DAY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTimeOfDay());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__WEATHER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetWeather());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROAD_CONDITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRoadCondition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EnvironmentImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         EnvironmentActionImpl::EnvironmentActionImpl()
@@ -6609,6 +8774,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string EnvironmentActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENVIRONMENT)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEnvironment());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EnvironmentActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         EnvironmentCatalogLocationImpl::EnvironmentCatalogLocationImpl()
@@ -6687,6 +8892,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string EnvironmentCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EnvironmentCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -6879,6 +9119,73 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string EventImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EventImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__START_TRIGGER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetStartTrigger());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EventImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__ACTION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetActions())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> EventImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string EventImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PRIORITY)
+            {
+                auto priority = GetPriority();
+                return priority.GetLiteral() != "UNKNOWN" ? priority.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         FileImpl::FileImpl()
@@ -6954,6 +9261,41 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetFilepath(_filepath);
             // clone children
             return clonedObject;
+        }
+
+        std::string FileImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__FILEPATH)
+            {
+                return GetFilepath();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FileImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FileImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FileImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string FileImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -7122,6 +9464,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string FileHeaderImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION)
+            {
+                return GetDescription();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__AUTHOR)
+            {
+                return GetAuthor();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FileHeaderImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FileHeaderImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FileHeaderImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string FileHeaderImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         FinalSpeedImpl::FinalSpeedImpl()
@@ -7230,6 +9612,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string FinalSpeedImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FinalSpeedImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ABSOLUTE_SPEED)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAbsoluteSpeed());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_SPEED_TO_MASTER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeSpeedToMaster());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FinalSpeedImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FinalSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string FinalSpeedImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         FogImpl::FogImpl()
@@ -7330,6 +9752,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetBoundingBox(clonedChildIBoundingBox);
             }
             return clonedObject;
+        }
+
+        std::string FogImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FogImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetBoundingBox());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FogImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FogImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string FogImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -7491,6 +9948,56 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetTrajectoryFollowingMode(clonedChildITrajectoryFollowingMode);
             }
             return clonedObject;
+        }
+
+        std::string FollowTrajectoryActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FollowTrajectoryActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAJECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrajectory());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TIME_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTimeReference());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAJECTORY_FOLLOWING_MODE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrajectoryFollowingMode());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FollowTrajectoryActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> FollowTrajectoryActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string FollowTrajectoryActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -7678,6 +10185,61 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string GlobalActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> GlobalActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENVIRONMENT_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEnvironmentAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEntityAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParameterAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__INFRASTRUCTURE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetInfrastructureAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GlobalActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> GlobalActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string GlobalActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         InRoutePositionImpl::InRoutePositionImpl()
@@ -7811,6 +10373,51 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string InRoutePositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InRoutePositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FROM_CURRENT_ENTITY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFromCurrentEntity());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FROM_ROAD_COORDINATES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFromRoadCoordinates());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FROM_LANE_COORDINATES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFromLaneCoordinates());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InRoutePositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InRoutePositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string InRoutePositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         InfrastructureActionImpl::InfrastructureActionImpl()
@@ -7892,6 +10499,41 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string InfrastructureActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InfrastructureActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSignalAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InfrastructureActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InfrastructureActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string InfrastructureActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         InitImpl::InitImpl()
@@ -7971,6 +10613,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetActions(clonedChildIInitActions);
             }
             return clonedObject;
+        }
+
+        std::string InitImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InitImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ACTIONS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetActions());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InitImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InitImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string InitImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -8126,6 +10803,61 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string InitActionsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InitActionsImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InitActionsImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetGlobalActions())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetUserDefinedActions())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__PRIVATE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetPrivates())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> InitActionsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string InitActionsImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         KnotImpl::KnotImpl()
@@ -8200,6 +10932,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string KnotImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> KnotImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> KnotImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> KnotImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string KnotImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -8331,6 +11089,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string LaneChangeActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION_DYNAMICS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLaneChangeActionDynamics());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LANE_CHANGE_TARGET)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLaneChangeTarget());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneChangeActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LaneChangeActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         LaneChangeTargetImpl::LaneChangeTargetImpl()
@@ -8436,6 +11234,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetAbsoluteTargetLane(clonedChildIAbsoluteTargetLane);
             }
             return clonedObject;
+        }
+
+        std::string LaneChangeTargetImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeTargetImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeTargetLane());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_LANE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAbsoluteTargetLane());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneChangeTargetImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeTargetImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LaneChangeTargetImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -8569,6 +11407,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string LaneOffsetActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION_DYNAMICS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLaneOffsetActionDynamics());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LANE_OFFSET_TARGET)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLaneOffsetTarget());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LaneOffsetActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         LaneOffsetActionDynamicsImpl::LaneOffsetActionDynamicsImpl()
@@ -8678,6 +11556,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string LaneOffsetActionDynamicsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionDynamicsImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetActionDynamicsImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionDynamicsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LaneOffsetActionDynamicsImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
+            {
+                auto dynamicsShape = GetDynamicsShape();
+                return dynamicsShape.GetLiteral() != "UNKNOWN" ? dynamicsShape.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         LaneOffsetTargetImpl::LaneOffsetTargetImpl()
@@ -8784,6 +11698,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetAbsoluteTargetLaneOffset(clonedChildIAbsoluteTargetLaneOffset);
             }
             return clonedObject;
+        }
+
+        std::string LaneOffsetTargetImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetTargetImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE_OFFSET)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeTargetLaneOffset());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_LANE_OFFSET)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAbsoluteTargetLaneOffset());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetTargetImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetTargetImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LaneOffsetTargetImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -8957,6 +11911,55 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string LanePositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
+            {
+                return GetRoadId();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
+            {
+                return GetLaneId();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LanePositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ORIENTATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOrientation());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LanePositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LanePositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LanePositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         LateralActionImpl::LateralActionImpl()
@@ -9088,6 +12091,51 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetLateralDistanceAction(clonedChildILateralDistanceAction);
             }
             return clonedObject;
+        }
+
+        std::string LateralActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LateralActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLaneChangeAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLaneOffsetAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LATERAL_DISTANCE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLateralDistanceAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LateralActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LateralActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LateralActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -9264,6 +12312,63 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string LateralDistanceActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LateralDistanceActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DYNAMIC_CONSTRAINTS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDynamicConstraints());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LateralDistanceActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LateralDistanceActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string LateralDistanceActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         LongitudinalActionImpl::LongitudinalActionImpl()
@@ -9370,6 +12475,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetLongitudinalDistanceAction(clonedChildILongitudinalDistanceAction);
             }
             return clonedObject;
+        }
+
+        std::string LongitudinalActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SPEED_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSpeedAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LONGITUDINAL_DISTANCE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLongitudinalDistanceAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LongitudinalActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string LongitudinalActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -9569,6 +12714,63 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string LongitudinalDistanceActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalDistanceActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DYNAMIC_CONSTRAINTS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDynamicConstraints());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LongitudinalDistanceActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalDistanceActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string LongitudinalDistanceActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ManeuverImpl::ManeuverImpl()
@@ -9731,6 +12933,61 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ManeuverImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__EVENT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetEvents())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ManeuverImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ManeuverCatalogLocationImpl::ManeuverCatalogLocationImpl()
@@ -9809,6 +13066,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string ManeuverCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ManeuverCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -10001,6 +13293,71 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetManeuvers(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string ManeuverGroupImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverGroupImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ACTORS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetActors());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverGroupImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetCatalogReferences())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__MANEUVER)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetManeuvers())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverGroupImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ManeuverGroupImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -10237,6 +13594,77 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string MiscObjectImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetBoundingBox());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PROPERTIES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetProperties());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> MiscObjectImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string MiscObjectImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY)
+            {
+                auto miscObjectCategory = GetMiscObjectCategory();
+                return miscObjectCategory.GetLiteral() != "UNKNOWN" ? miscObjectCategory.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         MiscObjectCatalogLocationImpl::MiscObjectCatalogLocationImpl()
@@ -10315,6 +13743,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string MiscObjectCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> MiscObjectCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string MiscObjectCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -10423,6 +13886,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ModifyRuleImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ModifyRuleImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ADD_VALUE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAddValue());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__MULTIPLY_BY_VALUE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetMultiplyByValue());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ModifyRuleImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ModifyRuleImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ModifyRuleImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         NoneImpl::NoneImpl()
@@ -10475,6 +13978,32 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // clone children
             return clonedObject;
+        }
+
+        std::string NoneImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> NoneImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> NoneImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> NoneImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string NoneImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -10623,6 +14152,53 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string NurbsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> NurbsImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> NurbsImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROL_POINT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetControlPoints())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__KNOT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetKnots())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> NurbsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string NurbsImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ObjectControllerImpl::ObjectControllerImpl()
@@ -10729,6 +14305,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ObjectControllerImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ObjectControllerImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetController());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ObjectControllerImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ObjectControllerImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ObjectControllerImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         OffroadConditionImpl::OffroadConditionImpl()
@@ -10804,6 +14420,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetDuration(_duration);
             // clone children
             return clonedObject;
+        }
+
+        std::string OffroadConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OffroadConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OffroadConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OffroadConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OffroadConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -10913,6 +14555,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string OpenScenarioImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FILE_HEADER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFileHeader());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__OPEN_SCENARIO_CATEGORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOpenScenarioCategory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OpenScenarioImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OpenScenarioImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         OpenScenarioCategoryImpl::OpenScenarioCategoryImpl()
@@ -11017,6 +14699,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetCatalogDefinition(clonedChildICatalogDefinition);
             }
             return clonedObject;
+        }
+
+        std::string OpenScenarioCategoryImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioCategoryImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SCENARIO_DEFINITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetScenarioDefinition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_DEFINITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogDefinition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OpenScenarioCategoryImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioCategoryImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OpenScenarioCategoryImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -11170,6 +14892,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string OrientationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OrientationImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OrientationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OrientationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OrientationImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TYPE)
+            {
+                auto type = GetType();
+                return type.GetLiteral() != "UNKNOWN" ? type.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         OverrideBrakeActionImpl::OverrideBrakeActionImpl()
@@ -11269,6 +15027,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string OverrideBrakeActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideBrakeActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideBrakeActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideBrakeActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OverrideBrakeActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         OverrideClutchActionImpl::OverrideClutchActionImpl()
@@ -11366,6 +15150,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetActive(_active);
             // clone children
             return clonedObject;
+        }
+
+        std::string OverrideClutchActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideClutchActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideClutchActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideClutchActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OverrideClutchActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -11579,6 +15389,66 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string OverrideControllerValueActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideControllerValueActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__THROTTLE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetThrottle());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BRAKE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetBrake());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CLUTCH)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetClutch());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PARKING_BRAKE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParkingBrake());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__STEERING_WHEEL)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSteeringWheel());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__GEAR)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetGear());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideControllerValueActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideControllerValueActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OverrideControllerValueActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         OverrideGearActionImpl::OverrideGearActionImpl()
@@ -11675,6 +15545,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetActive(_active);
             // clone children
             return clonedObject;
+        }
+
+        std::string OverrideGearActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideGearActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideGearActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideGearActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OverrideGearActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -11776,6 +15672,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string OverrideParkingBrakeActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideParkingBrakeActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideParkingBrakeActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideParkingBrakeActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OverrideParkingBrakeActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         OverrideSteeringWheelActionImpl::OverrideSteeringWheelActionImpl()
@@ -11872,6 +15794,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetActive(_active);
             // clone children
             return clonedObject;
+        }
+
+        std::string OverrideSteeringWheelActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideSteeringWheelActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideSteeringWheelActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideSteeringWheelActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OverrideSteeringWheelActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -11971,6 +15919,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetActive(_active);
             // clone children
             return clonedObject;
+        }
+
+        std::string OverrideThrottleActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideThrottleActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideThrottleActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideThrottleActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string OverrideThrottleActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -12104,6 +16078,68 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ParameterActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
+            {
+                // Get the Proxy
+                auto parameterRef = GetParameterRef();
+                return parameterRef!= nullptr ? parameterRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SET_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSetAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__MODIFY_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetModifyAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
+            {
+                // Get the Proxy
+                auto parameterRef = GetParameterRef();
+                return parameterRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(parameterRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string ParameterActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ParameterAddValueRuleImpl::ParameterAddValueRuleImpl()
@@ -12178,6 +16214,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string ParameterAddValueRuleImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAddValueRuleImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterAddValueRuleImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAddValueRuleImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ParameterAddValueRuleImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -12274,6 +16336,59 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string ParameterAssignmentImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
+            {
+                // Get the Proxy
+                auto parameterRef = GetParameterRef();
+                return parameterRef!= nullptr ? parameterRef->GetNameRef() : "";
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                return GetValue();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAssignmentImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterAssignmentImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAssignmentImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
+            {
+                // Get the Proxy
+                auto parameterRef = GetParameterRef();
+                return parameterRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(parameterRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string ParameterAssignmentImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -12407,6 +16522,69 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ParameterConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
+            {
+                // Get the Proxy
+                auto parameterRef = GetParameterRef();
+                return parameterRef!= nullptr ? parameterRef->GetNameRef() : "";
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                return GetValue();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
+            {
+                // Get the Proxy
+                auto parameterRef = GetParameterRef();
+                return parameterRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(parameterRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string ParameterConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         ParameterDeclarationImpl::ParameterDeclarationImpl()
@@ -12530,6 +16708,56 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ParameterDeclarationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                return GetValue();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterDeclarationImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterDeclarationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterDeclarationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ParameterDeclarationImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE)
+            {
+                auto parameterType = GetParameterType();
+                return parameterType.GetLiteral() != "UNKNOWN" ? parameterType.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         ParameterModifyActionImpl::ParameterModifyActionImpl()
@@ -12611,6 +16839,41 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ParameterModifyActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterModifyActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RULE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRule());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterModifyActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterModifyActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ParameterModifyActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ParameterMultiplyByValueRuleImpl::ParameterMultiplyByValueRuleImpl()
@@ -12688,6 +16951,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ParameterMultiplyByValueRuleImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterMultiplyByValueRuleImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterMultiplyByValueRuleImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterMultiplyByValueRuleImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ParameterMultiplyByValueRuleImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ParameterSetActionImpl::ParameterSetActionImpl()
@@ -12762,6 +17051,41 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string ParameterSetActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                return GetValue();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterSetActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterSetActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterSetActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ParameterSetActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -13020,6 +17344,82 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string PedestrianImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__MODEL)
+            {
+                return GetModel();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetBoundingBox());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PROPERTIES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetProperties());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PedestrianImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PedestrianImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY)
+            {
+                auto pedestrianCategory = GetPedestrianCategory();
+                return pedestrianCategory.GetLiteral() != "UNKNOWN" ? pedestrianCategory.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         PedestrianCatalogLocationImpl::PedestrianCatalogLocationImpl()
@@ -13098,6 +17498,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string PedestrianCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PedestrianCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PedestrianCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -13220,6 +17655,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetMaxDeceleration(_maxDeceleration);
             // clone children
             return clonedObject;
+        }
+
+        std::string PerformanceImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PerformanceImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PerformanceImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PerformanceImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PerformanceImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -13355,6 +17816,54 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string PhaseImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PhaseImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PhaseImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetTrafficSignalStates())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PhaseImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PhaseImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         PolylineImpl::PolylineImpl()
@@ -13440,6 +17949,45 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetVertices(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string PolylineImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PolylineImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PolylineImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__VERTEX)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetVertices())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PolylineImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PolylineImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -13709,6 +18257,76 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string PositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__WORLD_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetWorldPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_WORLD_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeWorldPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_OBJECT_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeObjectPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROAD_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRoadPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_ROAD_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeRoadPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LANE_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLanePosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_LANE_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeLanePosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROUTE_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRoutePosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         PositionInLaneCoordinatesImpl::PositionInLaneCoordinatesImpl()
@@ -13831,6 +18449,41 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string PositionInLaneCoordinatesImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
+            {
+                return GetLaneId();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInLaneCoordinatesImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionInLaneCoordinatesImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInLaneCoordinatesImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PositionInLaneCoordinatesImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         PositionInRoadCoordinatesImpl::PositionInRoadCoordinatesImpl()
@@ -13931,6 +18584,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string PositionInRoadCoordinatesImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInRoadCoordinatesImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionInRoadCoordinatesImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInRoadCoordinatesImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PositionInRoadCoordinatesImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         PositionOfCurrentEntityImpl::PositionOfCurrentEntityImpl()
@@ -14007,6 +18686,54 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetEntityRef(proxy);
             // clone children
             return clonedObject;
+        }
+
+        std::string PositionOfCurrentEntityImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionOfCurrentEntityImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionOfCurrentEntityImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PositionOfCurrentEntityImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string PositionOfCurrentEntityImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -14114,6 +18841,42 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetIntensity(_intensity);
             // clone children
             return clonedObject;
+        }
+
+        std::string PrecipitationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PrecipitationImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrecipitationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PrecipitationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PrecipitationImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE)
+            {
+                auto precipitationType = GetPrecipitationType();
+                return precipitationType.GetLiteral() != "UNKNOWN" ? precipitationType.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -14226,6 +18989,67 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPrivateActions(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string PrivateImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrivateImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetPrivateActions())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string PrivateImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -14498,6 +19322,76 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string PrivateActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LONGITUDINAL_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLongitudinalAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LATERAL_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLateralAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__VISIBILITY_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetVisibilityAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SYNCHRONIZE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSynchronizeAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ACTIVATE_CONTROLLER_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetActivateControllerAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetControllerAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TELEPORT_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTeleportAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROUTING_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRoutingAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrivateActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PrivateActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         PropertiesImpl::PropertiesImpl()
@@ -14621,6 +19515,53 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string PropertiesImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PropertiesImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PropertiesImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__PROPERTY)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetProperties())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__FILE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetFiles())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PropertiesImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PropertiesImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         PropertyImpl::PropertyImpl()
@@ -14717,6 +19658,46 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string PropertyImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                return GetValue();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PropertyImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PropertyImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> PropertyImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string PropertyImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -14820,6 +19801,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPosition(clonedChildIPosition);
             }
             return clonedObject;
+        }
+
+        std::string ReachPositionConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ReachPositionConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ReachPositionConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ReachPositionConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ReachPositionConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -15007,6 +20023,69 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RelativeDistanceConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeDistanceConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeDistanceConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeDistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeDistanceConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE)
+            {
+                auto relativeDistanceType = GetRelativeDistanceType();
+                return relativeDistanceType.GetLiteral() != "UNKNOWN" ? relativeDistanceType.GetLiteral() : "";
+            }            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         RelativeLanePositionImpl::RelativeLanePositionImpl()
@@ -15177,6 +20256,63 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetOrientation(clonedChildIOrientation);
             }
             return clonedObject;
+        }
+
+        std::string RelativeLanePositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeLanePositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ORIENTATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOrientation());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeLanePositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeLanePositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeLanePositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -15353,6 +20489,63 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RelativeObjectPositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeObjectPositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ORIENTATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOrientation());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeObjectPositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeObjectPositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeObjectPositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         RelativeRoadPositionImpl::RelativeRoadPositionImpl()
@@ -15504,6 +20697,63 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RelativeRoadPositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeRoadPositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ORIENTATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOrientation());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeRoadPositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeRoadPositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeRoadPositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         RelativeSpeedConditionImpl::RelativeSpeedConditionImpl()
@@ -15635,6 +20885,64 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RelativeSpeedConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeSpeedConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeSpeedConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         RelativeSpeedToMasterImpl::RelativeSpeedToMasterImpl()
@@ -15743,6 +21051,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RelativeSpeedToMasterImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedToMasterImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeSpeedToMasterImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedToMasterImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RelativeSpeedToMasterImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
+            {
+                auto speedTargetValueType = GetSpeedTargetValueType();
+                return speedTargetValueType.GetLiteral() != "UNKNOWN" ? speedTargetValueType.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         RelativeTargetLaneImpl::RelativeTargetLaneImpl()
@@ -15844,6 +21188,54 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RelativeTargetLaneImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetLaneImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeTargetLaneImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         RelativeTargetLaneOffsetImpl::RelativeTargetLaneOffsetImpl()
@@ -15943,6 +21335,54 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string RelativeTargetLaneOffsetImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneOffsetImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetLaneOffsetImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneOffsetImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeTargetLaneOffsetImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -16102,6 +21542,64 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetContinuous(_continuous);
             // clone children
             return clonedObject;
+        }
+
+        std::string RelativeTargetSpeedImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetSpeedImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetSpeedImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeTargetSpeedImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
+            {
+                auto speedTargetValueType = GetSpeedTargetValueType();
+                return speedTargetValueType.GetLiteral() != "UNKNOWN" ? speedTargetValueType.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -16276,6 +21774,63 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RelativeWorldPositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeWorldPositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ORIENTATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOrientation());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeWorldPositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeWorldPositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string RelativeWorldPositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         RoadConditionImpl::RoadConditionImpl()
@@ -16376,6 +21931,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetProperties(clonedChildIProperties);
             }
             return clonedObject;
+        }
+
+        std::string RoadConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoadConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PROPERTIES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetProperties());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoadConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RoadConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -16518,6 +22108,58 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetTrafficSignals(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string RoadNetworkImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoadNetworkImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__LOGIC_FILE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetLogicFile());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SCENE_GRAPH_FILE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSceneGraphFile());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadNetworkImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetTrafficSignals())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoadNetworkImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RoadNetworkImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -16667,6 +22309,50 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetOrientation(clonedChildIOrientation);
             }
             return clonedObject;
+        }
+
+        std::string RoadPositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
+            {
+                return GetRoadId();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoadPositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ORIENTATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOrientation());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadPositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoadPositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RoadPositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -16854,6 +22540,61 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RouteImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RouteImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__WAYPOINT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetWaypoints())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RouteImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RouteImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         RouteCatalogLocationImpl::RouteCatalogLocationImpl()
@@ -16932,6 +22673,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string RouteCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RouteCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RouteCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RouteCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -17068,6 +22844,51 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string RoutePositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoutePositionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROUTE_REF)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRouteRef());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ORIENTATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetOrientation());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__IN_ROUTE_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetInRoutePosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoutePositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoutePositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RoutePositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         RouteRefImpl::RouteRefImpl()
@@ -17172,6 +22993,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetCatalogReference(clonedChildICatalogReference);
             }
             return clonedObject;
+        }
+
+        std::string RouteRefImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RouteRefImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROUTE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRoute());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogReference());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteRefImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RouteRefImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RouteRefImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -17306,6 +23167,51 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetAcquirePositionAction(clonedChildIAcquirePositionAction);
             }
             return clonedObject;
+        }
+
+        std::string RoutingActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoutingActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ASSIGN_ROUTE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAssignRouteAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FOLLOW_TRAJECTORY_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFollowTrajectoryAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ACQUIRE_POSITION_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAcquirePositionAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoutingActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> RoutingActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string RoutingActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -17523,6 +23429,68 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ScenarioDefinitionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioDefinitionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCatalogLocations());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ROAD_NETWORK)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRoadNetwork());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITIES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEntities());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__STORYBOARD)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetStoryboard());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ScenarioDefinitionImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioDefinitionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ScenarioDefinitionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         ScenarioObjectImpl::ScenarioObjectImpl()
@@ -17652,6 +23620,55 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ScenarioObjectImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioObjectImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_OBJECT)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEntityObject());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__OBJECT_CONTROLLER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetObjectController());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ScenarioObjectImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioObjectImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ScenarioObjectImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         SelectedEntitiesImpl::SelectedEntitiesImpl()
@@ -17771,6 +23788,53 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetByType(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string SelectedEntitiesImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SelectedEntitiesImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SelectedEntitiesImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_REF)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetEntityRef())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__BY_TYPE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetByType())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SelectedEntitiesImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string SelectedEntitiesImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -17905,6 +23969,51 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string ShapeImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ShapeImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POLYLINE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPolyline());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CLOTHOID)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetClothoid());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__NURBS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetNurbs());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ShapeImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> ShapeImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string ShapeImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         SimulationTimeConditionImpl::SimulationTimeConditionImpl()
@@ -18012,6 +24121,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string SimulationTimeConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SimulationTimeConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SimulationTimeConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SimulationTimeConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string SimulationTimeConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         SpeedActionImpl::SpeedActionImpl()
@@ -18117,6 +24262,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetSpeedActionTarget(clonedChildISpeedActionTarget);
             }
             return clonedObject;
+        }
+
+        std::string SpeedActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SPEED_ACTION_DYNAMICS)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSpeedActionDynamics());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SPEED_ACTION_TARGET)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSpeedActionTarget());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string SpeedActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -18227,6 +24412,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string SpeedActionTargetImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionTargetImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_SPEED)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetRelativeTargetSpeed());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_SPEED)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAbsoluteTargetSpeed());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedActionTargetImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionTargetImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string SpeedActionTargetImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         SpeedConditionImpl::SpeedConditionImpl()
@@ -18334,6 +24559,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string SpeedConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string SpeedConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         StandStillConditionImpl::StandStillConditionImpl()
@@ -18409,6 +24670,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetDuration(_duration);
             // clone children
             return clonedObject;
+        }
+
+        std::string StandStillConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StandStillConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StandStillConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StandStillConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string StandStillConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -18574,6 +24861,61 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string StoryImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StoryImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }                
+            if (key == OSC_CONSTANTS::ELEMENT__ACT)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetActs())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StoryImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string StoryImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         StoryboardImpl::StoryboardImpl()
@@ -18712,6 +25054,59 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetStopTrigger(clonedChildITrigger);
             }
             return clonedObject;
+        }
+
+        std::string StoryboardImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__INIT)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetInit());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__STOP_TRIGGER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetStopTrigger());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryboardImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__STORY)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetStories())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string StoryboardImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -18855,6 +25250,69 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string StoryboardElementStateConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF)
+            {
+                // Get the Proxy
+                auto storyboardElementRef = GetStoryboardElementRef();
+                return storyboardElementRef!= nullptr ? storyboardElementRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardElementStateConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryboardElementStateConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardElementStateConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF)
+            {
+                // Get the Proxy
+                auto storyboardElementRef = GetStoryboardElementRef();
+                return storyboardElementRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(storyboardElementRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string StoryboardElementStateConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE)
+            {
+                auto storyboardElementType = GetStoryboardElementType();
+                return storyboardElementType.GetLiteral() != "UNKNOWN" ? storyboardElementType.GetLiteral() : "";
+            }            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STATE)
+            {
+                auto state = GetState();
+                return state.GetLiteral() != "UNKNOWN" ? state.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         SunImpl::SunImpl()
@@ -18976,6 +25434,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetElevation(_elevation);
             // clone children
             return clonedObject;
+        }
+
+        std::string SunImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SunImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SunImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SunImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string SunImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -19136,6 +25620,73 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string SynchronizeActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF)
+            {
+                // Get the Proxy
+                auto masterEntityRef = GetMasterEntityRef();
+                return masterEntityRef!= nullptr ? masterEntityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SynchronizeActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TARGET_POSITION_MASTER)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTargetPositionMaster());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TARGET_POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTargetPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FINAL_SPEED)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFinalSpeed());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SynchronizeActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> SynchronizeActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF)
+            {
+                // Get the Proxy
+                auto masterEntityRef = GetMasterEntityRef();
+                return masterEntityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(masterEntityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string SynchronizeActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TeleportActionImpl::TeleportActionImpl()
@@ -19214,6 +25765,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPosition(clonedChildIPosition);
             }
             return clonedObject;
+        }
+
+        std::string TeleportActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TeleportActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TeleportActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TeleportActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TeleportActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -19393,6 +25979,64 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TimeHeadwayConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef!= nullptr ? entityRef->GetNameRef() : "";
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeHeadwayConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeHeadwayConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeHeadwayConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Get the Proxy
+                auto entityRef = GetEntityRef();
+                return entityRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(entityRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string TimeHeadwayConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         TimeOfDayImpl::TimeOfDayImpl()
@@ -19490,6 +26134,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetDateTime(_dateTime);
             // clone children
             return clonedObject;
+        }
+
+        std::string TimeOfDayImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeOfDayImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TimeOfDayImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -19599,6 +26269,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TimeOfDayConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeOfDayConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TimeOfDayConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         TimeReferenceImpl::TimeReferenceImpl()
@@ -19705,6 +26411,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetTiming(clonedChildITiming);
             }
             return clonedObject;
+        }
+
+        std::string TimeReferenceImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeReferenceImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__NONE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetNone());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TIMING)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTiming());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeReferenceImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeReferenceImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TimeReferenceImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -19887,6 +26633,51 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TimeToCollisionConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTimeToCollisionConditionTarget());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeToCollisionConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TimeToCollisionConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         TimeToCollisionConditionTargetImpl::TimeToCollisionConditionTargetImpl()
@@ -19991,6 +26782,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetEntityRef(clonedChildIEntityRef);
             }
             return clonedObject;
+        }
+
+        std::string TimeToCollisionConditionTargetImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionTargetImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_REF)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetEntityRef());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeToCollisionConditionTargetImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionTargetImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TimeToCollisionConditionTargetImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -20124,6 +26955,42 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetOffset(_offset);
             // clone children
             return clonedObject;
+        }
+
+        std::string TimingImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimingImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimingImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TimingImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TimingImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE)
+            {
+                auto domainAbsoluteRelative = GetDomainAbsoluteRelative();
+                return domainAbsoluteRelative.GetLiteral() != "UNKNOWN" ? domainAbsoluteRelative.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -20261,6 +27128,51 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrafficActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SOURCE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSourceAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SINK_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSinkAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SWARM_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSwarmAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrafficDefinitionImpl::TrafficDefinitionImpl()
@@ -20391,6 +27303,55 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrafficDefinitionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficDefinitionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetVehicleCategoryDistribution());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetControllerDistribution());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficDefinitionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficDefinitionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficDefinitionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrafficSignalActionImpl::TrafficSignalActionImpl()
@@ -20499,6 +27460,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrafficSignalActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSignalControllerAction());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficSignalStateAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSignalActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrafficSignalConditionImpl::TrafficSignalConditionImpl()
@@ -20597,6 +27598,46 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetState(_state);
             // clone children
             return clonedObject;
+        }
+
+        std::string TrafficSignalConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STATE)
+            {
+                return GetState();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSignalConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -20757,6 +27798,59 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrafficSignalControllerImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__REFERENCE)
+            {
+                return GetReference();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__PHASE)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetPhases())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSignalControllerImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrafficSignalControllerActionImpl::TrafficSignalControllerActionImpl()
@@ -20871,6 +27965,59 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetPhase(_phase);
             // clone children
             return clonedObject;
+        }
+
+        std::string TrafficSignalControllerActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
+            {
+                // Get the Proxy
+                auto trafficSignalControllerRef = GetTrafficSignalControllerRef();
+                return trafficSignalControllerRef!= nullptr ? trafficSignalControllerRef->GetNameRef() : "";
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PHASE)
+            {
+                return GetPhase();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
+            {
+                // Get the Proxy
+                auto trafficSignalControllerRef = GetTrafficSignalControllerRef();
+                return trafficSignalControllerRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(trafficSignalControllerRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSignalControllerActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -20990,6 +28137,59 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrafficSignalControllerConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
+            {
+                // Get the Proxy
+                auto trafficSignalControllerRef = GetTrafficSignalControllerRef();
+                return trafficSignalControllerRef!= nullptr ? trafficSignalControllerRef->GetNameRef() : "";
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PHASE)
+            {
+                return GetPhase();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
+            {
+                // Get the Proxy
+                auto trafficSignalControllerRef = GetTrafficSignalControllerRef();
+                return trafficSignalControllerRef != nullptr ? std::dynamic_pointer_cast<IOpenScenarioFlexElement>(trafficSignalControllerRef->GetTargetObject()) : nullptr;
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSignalControllerConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrafficSignalStateImpl::TrafficSignalStateImpl()
@@ -21090,6 +28290,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrafficSignalStateImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID)
+            {
+                return GetTrafficSignalId();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STATE)
+            {
+                return GetState();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalStateImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSignalStateImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrafficSignalStateActionImpl::TrafficSignalStateActionImpl()
@@ -21188,6 +28428,46 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetState(_state);
             // clone children
             return clonedObject;
+        }
+
+        std::string TrafficSignalStateActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STATE)
+            {
+                return GetState();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalStateActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSignalStateActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -21341,6 +28621,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
             }
             return clonedObject;
+        }
+
+        std::string TrafficSinkActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSinkActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficDefinition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSinkActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSinkActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSinkActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -21517,6 +28837,46 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
             }
             return clonedObject;
+        }
+
+        std::string TrafficSourceActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSourceActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficDefinition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSourceActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSourceActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSourceActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -21766,6 +29126,46 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrafficSwarmActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSwarmActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CENTRAL_OBJECT)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCentralObject());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetTrafficDefinition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSwarmActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSwarmActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrafficSwarmActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrajectoryImpl::TrajectoryImpl()
@@ -21943,6 +29343,62 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TrajectoryImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SHAPE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetShape());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrajectoryImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         TrajectoryCatalogLocationImpl::TrajectoryCatalogLocationImpl()
@@ -22021,6 +29477,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string TrajectoryCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrajectoryCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -22109,6 +29600,42 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetFollowingMode(_followingMode);
             // clone children
             return clonedObject;
+        }
+
+        std::string TrajectoryFollowingModeImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryFollowingModeImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryFollowingModeImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryFollowingModeImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TrajectoryFollowingModeImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE)
+            {
+                auto followingMode = GetFollowingMode();
+                return followingMode.GetLiteral() != "UNKNOWN" ? followingMode.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -22252,6 +29779,47 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TransitionDynamicsImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TransitionDynamicsImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TransitionDynamicsImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TransitionDynamicsImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TransitionDynamicsImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
+            {
+                auto dynamicsShape = GetDynamicsShape();
+                return dynamicsShape.GetLiteral() != "UNKNOWN" ? dynamicsShape.GetLiteral() : "";
+            }            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION)
+            {
+                auto dynamicsDimension = GetDynamicsDimension();
+                return dynamicsDimension.GetLiteral() != "UNKNOWN" ? dynamicsDimension.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         TraveledDistanceConditionImpl::TraveledDistanceConditionImpl()
@@ -22326,6 +29894,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetValue(_value);
             // clone children
             return clonedObject;
+        }
+
+        std::string TraveledDistanceConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TraveledDistanceConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TraveledDistanceConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TraveledDistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TraveledDistanceConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -22414,6 +30008,45 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetConditionGroups(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string TriggerImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TriggerImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TriggerImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__CONDITION_GROUP)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetConditionGroups())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TriggerImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TriggerImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -22534,6 +30167,55 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string TriggeringEntitiesImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TriggeringEntitiesImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TriggeringEntitiesImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__ENTITY_REF)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetEntityRefs())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> TriggeringEntitiesImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string TriggeringEntitiesImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE)
+            {
+                auto triggeringEntitiesRule = GetTriggeringEntitiesRule();
+                return triggeringEntitiesRule.GetLiteral() != "UNKNOWN" ? triggeringEntitiesRule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         UserDefinedActionImpl::UserDefinedActionImpl()
@@ -22613,6 +30295,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetCustomCommandAction(clonedChildICustomCommandAction);
             }
             return clonedObject;
+        }
+
+        std::string UserDefinedActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedActionImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__CUSTOM_COMMAND_ACTION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetCustomCommandAction());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> UserDefinedActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string UserDefinedActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -22742,6 +30459,56 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetRule(_rule);
             // clone children
             return clonedObject;
+        }
+
+        std::string UserDefinedValueConditionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                return GetValue();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedValueConditionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> UserDefinedValueConditionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedValueConditionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string UserDefinedValueConditionImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            {
+                auto rule = GetRule();
+                return rule.GetLiteral() != "UNKNOWN" ? rule.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -23010,6 +30777,87 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string VehicleImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                return GetName();
+            } 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetBoundingBox());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PERFORMANCE)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPerformance());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__AXLES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetAxles());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PROPERTIES)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetProperties());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            if (key == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetParameterDeclarations())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string VehicleImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY)
+            {
+                auto vehicleCategory = GetVehicleCategory();
+                return vehicleCategory.GetLiteral() != "UNKNOWN" ? vehicleCategory.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         VehicleCatalogLocationImpl::VehicleCatalogLocationImpl()
@@ -23088,6 +30936,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetDirectory(clonedChildIDirectory);
             }
             return clonedObject;
+        }
+
+        std::string VehicleCatalogLocationImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCatalogLocationImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__DIRECTORY)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetDirectory());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCatalogLocationImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string VehicleCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -23176,6 +31059,45 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetVehicleCategoryDistributionEntries(clonedList);
             }
             return clonedObject;
+        }
+
+        std::string VehicleCategoryDistributionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCategoryDistributionImpl::GetListChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+                
+            if (key == OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY)
+            {
+                std::vector<std::shared_ptr<IOpenScenarioFlexElement>> vect;
+                for (auto&& elem : GetVehicleCategoryDistributionEntries())
+                    vect.push_back(std::dynamic_pointer_cast<IOpenScenarioFlexElement>(elem));
+                return vect;
+
+            }
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string VehicleCategoryDistributionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -23286,6 +31208,42 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string VehicleCategoryDistributionEntryImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionEntryImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCategoryDistributionEntryImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionEntryImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string VehicleCategoryDistributionEntryImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__CATEGORY)
+            {
+                auto category = GetCategory();
+                return category.GetLiteral() != "UNKNOWN" ? category.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
+        }
+
 
 
         VertexImpl::VertexImpl()
@@ -23386,6 +31344,41 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPosition(clonedChildIPosition);
             }
             return clonedObject;
+        }
+
+        std::string VertexImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VertexImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VertexImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VertexImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string VertexImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 
@@ -23511,6 +31504,32 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
+        std::string VisibilityActionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VisibilityActionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VisibilityActionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> VisibilityActionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string VisibilityActionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
 
 
         WaypointImpl::WaypointImpl()
@@ -23621,6 +31640,51 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPosition(clonedChildIPosition);
             }
             return clonedObject;
+        }
+
+        std::string WaypointImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> WaypointImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__POSITION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPosition());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WaypointImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> WaypointImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string WaypointImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY)
+            {
+                auto routeStrategy = GetRouteStrategy();
+                return routeStrategy.GetLiteral() != "UNKNOWN" ? routeStrategy.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -23786,6 +31850,61 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->SetPrecipitation(clonedChildIPrecipitation);
             }
             return clonedObject;
+        }
+
+        std::string WeatherImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> WeatherImpl::GetChildElement(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__SUN)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetSun());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__FOG)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetFog());
+            }
+            
+            if (key == OSC_CONSTANTS::ELEMENT__PRECIPITATION)
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetPrecipitation());
+            }
+            throw  KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WeatherImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> WeatherImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string WeatherImpl::GetEnumerationLiteral(std::string key)
+        {
+            if (key.empty())
+            {
+                throw KeyNotSupportedException();
+            }
+             
+            if (key == OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE)
+            {
+                auto cloudState = GetCloudState();
+                return cloudState.GetLiteral() != "UNKNOWN" ? cloudState.GetLiteral() : "";
+            }
+            throw KeyNotSupportedException();
         }
 
 
@@ -23975,6 +32094,32 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->SetR(_r);
             // clone children
             return clonedObject;
+        }
+
+        std::string WorldPositionImpl::GetStringProperty(std::string key)
+        {
+            // proxies and string attributes 
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> WorldPositionImpl::GetChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WorldPositionImpl::GetListChildElement(std::string key)
+        {
+            throw KeyNotSupportedException();
+        }
+
+        std::shared_ptr<IOpenScenarioFlexElement> WorldPositionImpl::GetReferencedElement(std::string key, std::string name)
+        {
+                throw KeyNotSupportedException();
+        }
+
+        std::string WorldPositionImpl::GetEnumerationLiteral(std::string key)
+        {
+            throw KeyNotSupportedException();
         }
 
 

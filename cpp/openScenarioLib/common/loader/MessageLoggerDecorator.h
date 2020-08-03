@@ -40,7 +40,7 @@ namespace NET_ASAM_OPENSCENARIO
          * Constructor
          * @param innerMessageLogger decrated message logger
          */
-         MessageLoggerDecorator(std::shared_ptr<IParserMessageLogger>& innerMessageLogger): _innerMessageLogger(innerMessageLogger) {}
+         MessageLoggerDecorator(std::shared_ptr<IParserMessageLogger> innerMessageLogger): _innerMessageLogger(innerMessageLogger) {}
 
         void LogMessage(FileContentMessage& message) override
         {

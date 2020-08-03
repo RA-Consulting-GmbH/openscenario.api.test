@@ -42,5 +42,19 @@ namespace NET_ASAM_OPENSCENARIO
          {
              return {};
          }
+
+         /**
+          * Loads a scenario with injected parameters
+          *
+          * @param messageLogger
+          * @param injectedParameters name value pairs of injected parameters.
+          * @return the IOpenScenario root object of a scenario. it may be inconsistent when errors
+          *     occurred.
+          * @throws ScenarioLoaderException An Exception when the loader stops with a fatal error.
+          */
+         virtual std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters)
+         {
+             return {};
+         }
     };
 }

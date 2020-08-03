@@ -25,6 +25,8 @@
 #include "NamedReferenceProxy.h"
 #include "INamedReference.h"
 #include "MemLeakDetection.h"
+#include "KeyNotSupportedException.h"
+#include "OscConstants.h"
 
 // helper.getTypeImportCpp(element,packageName).each{importedType->%>import =importedType%>
 
@@ -54,6 +56,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AbsoluteSpeedImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
 
@@ -91,6 +98,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AbsoluteSpeed";
+            }
         };
 
     /**
@@ -115,6 +189,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AbsoluteTargetLaneImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetValue() override;
 
@@ -152,6 +231,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AbsoluteTargetLane";
+            }
         };
 
     /**
@@ -176,6 +313,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AbsoluteTargetLaneOffsetImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
 
@@ -214,6 +356,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AbsoluteTargetLaneOffset";
+            }
         };
 
     /**
@@ -238,6 +447,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AbsoluteTargetSpeedImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
 
@@ -275,6 +489,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AbsoluteTargetSpeed";
+            }
         };
 
     /**
@@ -300,6 +581,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AccelerationConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             Rule GetRule() override;
@@ -344,6 +630,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AccelerationCondition";
+            }
         };
 
     /**
@@ -368,6 +721,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AcquirePositionActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IPosition> GetPosition() override;
 
@@ -405,6 +763,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AcquirePositionAction";
+            }
         };
 
     /**
@@ -432,6 +848,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ActImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::vector<std::shared_ptr<IManeuverGroup>> GetManeuverGroups() override;
@@ -490,6 +911,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Act";
+            }
         };
 
     /**
@@ -517,6 +996,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::shared_ptr<IGlobalAction> GetGlobalAction() override;
@@ -578,6 +1062,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Action";
+            }
         };
 
     /**
@@ -603,6 +1145,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ActivateControllerActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             bool GetLateral() override;
             bool GetLongitudinal() override;
@@ -649,6 +1196,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__LATERAL)
+                {
+                    return GetLateral();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL)
+                {
+                    return GetLongitudinal();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ActivateControllerAction";
+            }
         };
 
     /**
@@ -674,6 +1292,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ActorsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             bool GetSelectTriggeringEntities() override;
             std::vector<std::shared_ptr<IEntityRef>> GetEntityRefs() override;
@@ -719,6 +1342,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES)
+                {
+                    return GetSelectTriggeringEntities();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Actors";
+            }
         };
 
     /**
@@ -743,6 +1433,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AddEntityActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IPosition> GetPosition() override;
 
@@ -780,6 +1475,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AddEntityAction";
+            }
         };
 
     /**
@@ -805,6 +1558,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AssignControllerActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IController> GetController() override;
             std::shared_ptr<ICatalogReference> GetCatalogReference() override;
@@ -850,6 +1608,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AssignControllerAction";
+            }
         };
 
     /**
@@ -875,6 +1691,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AssignRouteActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IRoute> GetRoute() override;
             std::shared_ptr<ICatalogReference> GetCatalogReference() override;
@@ -920,6 +1741,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "AssignRouteAction";
+            }
         };
 
     /**
@@ -948,6 +1827,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AxleImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetMaxSteering() override;
             double GetWheelDiameter() override;
@@ -1018,6 +1902,89 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING)
+                {
+                    return GetMaxSteering();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER)
+                {
+                    return GetWheelDiameter();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH)
+                {
+                    return GetTrackWidth();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__POSITION_X)
+                {
+                    return GetPositionX();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__POSITION_Z)
+                {
+                    return GetPositionZ();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Axle";
+            }
         };
 
     /**
@@ -1044,6 +2011,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             AxlesImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IAxle> GetFrontAxle() override;
             std::shared_ptr<IAxle> GetRearAxle() override;
@@ -1095,6 +2067,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Axles";
+            }
         };
 
     /**
@@ -1120,6 +2150,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             BoundingBoxImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ICenter> GetCenter() override;
             std::shared_ptr<IDimensions> GetDimensions() override;
@@ -1165,6 +2200,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "BoundingBox";
+            }
         };
 
     /**
@@ -1190,6 +2283,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ByEntityConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ITriggeringEntities> GetTriggeringEntities() override;
             std::shared_ptr<IEntityCondition> GetEntityCondition() override;
@@ -1235,6 +2333,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ByEntityCondition";
+            }
         };
 
     /**
@@ -1259,6 +2415,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ByObjectTypeImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             ObjectType GetType() override;
 
@@ -1296,6 +2457,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ByObjectType";
+            }
         };
 
     /**
@@ -1320,6 +2539,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ByTypeImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             ObjectType GetObjectType() override;
 
@@ -1358,6 +2582,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ByType";
+            }
         };
 
     /**
@@ -1388,6 +2670,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ByValueConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IParameterCondition> GetParameterCondition() override;
             std::shared_ptr<ITimeOfDayCondition> GetTimeOfDayCondition() override;
@@ -1474,6 +2761,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ByValueCondition";
+            }
         };
 
     /**
@@ -1506,6 +2851,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CatalogImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::vector<std::shared_ptr<IVehicle>> GetVehicles() override;
@@ -1605,6 +2955,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Catalog";
+            }
         };
 
     /**
@@ -1629,6 +3037,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CatalogDefinitionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ICatalog> GetCatalog() override;
 
@@ -1666,6 +3079,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "CatalogDefinition";
+            }
         };
 
     /**
@@ -1697,6 +3168,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CatalogLocationsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IVehicleCatalogLocation> GetVehicleCatalog() override;
             std::shared_ptr<IControllerCatalogLocation> GetControllerCatalog() override;
@@ -1791,6 +3267,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "CatalogLocations";
+            }
         };
 
     /**
@@ -1818,6 +3352,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CatalogReferenceImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetCatalogName() override;
             std::string GetEntryName() override;
@@ -1878,6 +3417,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "CatalogReference";
+            }
         };
 
     /**
@@ -1904,6 +3501,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CenterImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetX() override;
             double GetY() override;
@@ -1955,6 +3557,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__X)
+                {
+                    return GetX();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__Y)
+                {
+                    return GetY();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__Z)
+                {
+                    return GetZ();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Center";
+            }
         };
 
     /**
@@ -1979,6 +3656,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CentralSwarmObjectImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
 
@@ -2017,6 +3699,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "CentralSwarmObject";
+            }
         };
 
     /**
@@ -2046,6 +3786,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ClothoidImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetCurvature() override;
             double GetCurvatureDot() override;
@@ -2121,6 +3866,89 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CURVATURE)
+                {
+                    return GetCurvature();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT)
+                {
+                    return GetCurvatureDot();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
+                {
+                    return GetLength();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__START_TIME)
+                {
+                    return GetStartTime();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__STOP_TIME)
+                {
+                    return GetStopTime();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Clothoid";
+            }
         };
 
     /**
@@ -2146,6 +3974,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CollisionConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IEntityRef> GetEntityRef() override;
             std::shared_ptr<IByObjectType> GetByType() override;
@@ -2191,6 +4024,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "CollisionCondition";
+            }
         };
 
     /**
@@ -2219,6 +4110,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             double GetDelay() override;
@@ -2286,6 +4182,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DELAY)
+                {
+                    return GetDelay();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Condition";
+            }
         };
 
     /**
@@ -2310,6 +4273,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ConditionGroupImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<ICondition>> GetConditions() override;
 
@@ -2347,6 +4315,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ConditionGroup";
+            }
         };
 
     /**
@@ -2373,6 +4399,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ControlPointImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetTime() override;
             double GetWeight() override;
@@ -2426,6 +4457,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__TIME)
+                {
+                    return GetTime();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
+                {
+                    return GetWeight();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ControlPoint";
+            }
         };
 
     /**
@@ -2452,6 +4554,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ControllerImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() override;
@@ -2505,6 +4612,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Controller";
+            }
         };
 
     /**
@@ -2530,6 +4695,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ControllerActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IAssignControllerAction> GetAssignControllerAction() override;
             std::shared_ptr<IOverrideControllerValueAction> GetOverrideControllerValueAction() override;
@@ -2575,6 +4745,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ControllerAction";
+            }
         };
 
     /**
@@ -2599,6 +4827,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ControllerCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -2636,6 +4869,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ControllerCatalogLocation";
+            }
         };
 
     /**
@@ -2660,6 +4951,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ControllerDistributionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IControllerDistributionEntry>> GetControllerDistributionEntries() override;
 
@@ -2698,6 +4994,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ControllerDistribution";
+            }
         };
 
     /**
@@ -2724,6 +5078,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ControllerDistributionEntryImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetWeight() override;
             std::shared_ptr<IController> GetController() override;
@@ -2775,6 +5134,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
+                {
+                    return GetWeight();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ControllerDistributionEntry";
+            }
         };
 
     /**
@@ -2800,6 +5226,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             CustomCommandActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetType() override;
             std::string GetContent() override;
@@ -2846,6 +5277,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "CustomCommandAction";
+            }
         };
 
     /**
@@ -2869,6 +5358,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             DeleteEntityActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
 
 
@@ -2899,6 +5393,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "DeleteEntityAction";
+            }
         };
 
     /**
@@ -2925,6 +5477,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             DimensionsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetWidth() override;
             double GetLength() override;
@@ -2979,6 +5536,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__WIDTH)
+                {
+                    return GetWidth();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
+                {
+                    return GetLength();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__HEIGHT)
+                {
+                    return GetHeight();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Dimensions";
+            }
         };
 
     /**
@@ -3003,6 +5635,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             DirectoryImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetPath() override;
 
@@ -3040,6 +5677,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Directory";
+            }
         };
 
     /**
@@ -3068,6 +5763,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             DistanceConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             bool GetFreespace() override;
@@ -3135,6 +5835,86 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
+                {
+                    return GetFreespace();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
+                {
+                    return GetAlongRoute();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "DistanceCondition";
+            }
         };
 
     /**
@@ -3161,6 +5941,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             DynamicConstraintsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetMaxAcceleration() override;
             double GetMaxDeceleration() override;
@@ -3215,6 +6000,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION)
+                {
+                    return GetMaxAcceleration();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
+                {
+                    return GetMaxDeceleration();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
+                {
+                    return GetMaxSpeed();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "DynamicConstraints";
+            }
         };
 
     /**
@@ -3239,6 +6099,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EndOfRoadConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetDuration() override;
 
@@ -3276,6 +6141,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DURATION)
+                {
+                    return GetDuration();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EndOfRoadCondition";
+            }
         };
 
     /**
@@ -3301,6 +6233,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EntitiesImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IScenarioObject>> GetScenarioObjects() override;
             std::vector<std::shared_ptr<IEntitySelection>> GetEntitySelections() override;
@@ -3346,6 +6283,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Entities";
+            }
         };
 
     /**
@@ -3372,6 +6367,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EntityActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             std::shared_ptr<IAddEntityAction> GetAddEntityAction() override;
@@ -3425,6 +6425,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EntityAction";
+            }
         };
 
     /**
@@ -3461,6 +6519,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EntityConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IEndOfRoadCondition> GetEndOfRoadCondition() override;
             std::shared_ptr<ICollisionCondition> GetCollisionCondition() override;
@@ -3595,6 +6658,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EntityCondition";
+            }
         };
 
     /**
@@ -3622,6 +6743,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EntityObjectImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ICatalogReference> GetCatalogReference() override;
             std::shared_ptr<IVehicle> GetVehicle() override;
@@ -3681,6 +6807,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EntityObject";
+            }
         };
 
     /**
@@ -3705,6 +6889,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EntityRefImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
 
@@ -3742,6 +6931,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EntityRef";
+            }
         };
 
     /**
@@ -3767,6 +7014,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EntitySelectionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::shared_ptr<ISelectedEntities> GetMembers() override;
@@ -3812,6 +7064,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EntitySelection";
+            }
         };
 
     /**
@@ -3840,6 +7150,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EnvironmentImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() override;
@@ -3907,6 +7222,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Environment";
+            }
         };
 
     /**
@@ -3932,6 +7305,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EnvironmentActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IEnvironment> GetEnvironment() override;
             std::shared_ptr<ICatalogReference> GetCatalogReference() override;
@@ -3976,6 +7354,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EnvironmentAction";
+            }
         };
 
     /**
@@ -4000,6 +7436,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EnvironmentCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -4037,6 +7478,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "EnvironmentCatalogLocation";
+            }
         };
 
     /**
@@ -4065,6 +7564,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             EventImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             Priority GetPriority() override;
             long long GetMaximumExecutionCount() override;
@@ -4132,6 +7636,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)
+                {
+                    return GetMaximumExecutionCount();
+                }
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Event";
+            }
         };
 
     /**
@@ -4156,6 +7727,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             FileImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetFilepath() override;
 
@@ -4194,6 +7770,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "File";
+            }
         };
 
     /**
@@ -4222,6 +7856,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             FileHeaderImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             long GetRevMajor() override;
             long GetRevMinor() override;
@@ -4289,6 +7928,86 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR)
+                {
+                    return GetRevMajor();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__REV_MINOR)
+                {
+                    return GetRevMinor();
+                }
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DATE)
+                {
+                    return GetDate();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "FileHeader";
+            }
         };
 
     /**
@@ -4314,6 +8033,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             FinalSpeedImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IAbsoluteSpeed> GetAbsoluteSpeed() override;
             std::shared_ptr<IRelativeSpeedToMaster> GetRelativeSpeedToMaster() override;
@@ -4360,6 +8084,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "FinalSpeed";
+            }
         };
 
     /**
@@ -4385,6 +8167,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             FogImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetVisualRange() override;
             std::shared_ptr<IBoundingBox> GetBoundingBox() override;
@@ -4429,6 +8216,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE)
+                {
+                    return GetVisualRange();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Fog";
+            }
         };
 
     /**
@@ -4456,6 +8310,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             FollowTrajectoryActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ITrajectory> GetTrajectory() override;
             std::shared_ptr<ICatalogReference> GetCatalogReference() override;
@@ -4517,6 +8376,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "FollowTrajectoryAction";
+            }
         };
 
     /**
@@ -4545,6 +8462,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             GlobalActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IEnvironmentAction> GetEnvironmentAction() override;
             std::shared_ptr<IEntityAction> GetEntityAction() override;
@@ -4611,6 +8533,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "GlobalAction";
+            }
         };
 
     /**
@@ -4637,6 +8617,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             InRoutePositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IPositionOfCurrentEntity> GetFromCurrentEntity() override;
             std::shared_ptr<IPositionInRoadCoordinates> GetFromRoadCoordinates() override;
@@ -4689,6 +8674,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "InRoutePosition";
+            }
         };
 
     /**
@@ -4713,6 +8756,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             InfrastructureActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ITrafficSignalAction> GetTrafficSignalAction() override;
 
@@ -4751,6 +8799,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "InfrastructureAction";
+            }
         };
 
     /**
@@ -4775,6 +8881,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             InitImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IInitActions> GetActions() override;
 
@@ -4813,6 +8924,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Init";
+            }
         };
 
     /**
@@ -4839,6 +9008,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             InitActionsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IGlobalAction>> GetGlobalActions() override;
             std::vector<std::shared_ptr<IUserDefinedAction>> GetUserDefinedActions() override;
@@ -4890,6 +9064,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "InitActions";
+            }
         };
 
     /**
@@ -4914,6 +9146,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             KnotImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
 
@@ -4951,6 +9188,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Knot";
+            }
         };
 
     /**
@@ -4977,6 +9281,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LaneChangeActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetTargetLaneOffset() override;
             std::shared_ptr<ITransitionDynamics> GetLaneChangeActionDynamics() override;
@@ -5029,6 +9338,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET)
+                {
+                    return GetTargetLaneOffset();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LaneChangeAction";
+            }
         };
 
     /**
@@ -5054,6 +9430,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LaneChangeTargetImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IRelativeTargetLane> GetRelativeTargetLane() override;
             std::shared_ptr<IAbsoluteTargetLane> GetAbsoluteTargetLane() override;
@@ -5099,6 +9480,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LaneChangeTarget";
+            }
         };
 
     /**
@@ -5125,6 +9564,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LaneOffsetActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             bool GetContinuous() override;
             std::shared_ptr<ILaneOffsetActionDynamics> GetLaneOffsetActionDynamics() override;
@@ -5179,6 +9623,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
+                {
+                    return GetContinuous();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LaneOffsetAction";
+            }
         };
 
     /**
@@ -5204,6 +9715,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LaneOffsetActionDynamicsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetMaxLateralAcc() override;
             DynamicsShape GetDynamicsShape() override;
@@ -5250,6 +9766,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC)
+                {
+                    return GetMaxLateralAcc();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LaneOffsetActionDynamics";
+            }
         };
 
     /**
@@ -5275,6 +9858,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LaneOffsetTargetImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IRelativeTargetLaneOffset> GetRelativeTargetLaneOffset() override;
             std::shared_ptr<IAbsoluteTargetLaneOffset> GetAbsoluteTargetLaneOffset() override;
@@ -5321,6 +9909,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LaneOffsetTarget";
+            }
         };
 
     /**
@@ -5349,6 +9995,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LanePositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetRoadId() override;
             std::string GetLaneId() override;
@@ -5417,6 +10068,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
+                {
+                    return GetOffset();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__S)
+                {
+                    return GetS();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LanePosition";
+            }
         };
 
     /**
@@ -5443,6 +10165,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LateralActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ILaneChangeAction> GetLaneChangeAction() override;
             std::shared_ptr<ILaneOffsetAction> GetLaneOffsetAction() override;
@@ -5495,6 +10222,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LateralAction";
+            }
         };
 
     /**
@@ -5523,6 +10308,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LateralDistanceActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetDistance() override;
@@ -5592,6 +10382,86 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DISTANCE)
+                {
+                    return GetDistance();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
+                {
+                    return GetFreespace();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
+                {
+                    return GetContinuous();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LateralDistanceAction";
+            }
         };
 
     /**
@@ -5617,6 +10487,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LongitudinalActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ISpeedAction> GetSpeedAction() override;
             std::shared_ptr<ILongitudinalDistanceAction> GetLongitudinalDistanceAction() override;
@@ -5663,6 +10538,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LongitudinalAction";
+            }
         };
 
     /**
@@ -5692,6 +10625,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             LongitudinalDistanceActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetDistance() override;
@@ -5769,6 +10707,90 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DISTANCE)
+                {
+                    return GetDistance();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__TIME_GAP)
+                {
+                    return GetTimeGap();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
+                {
+                    return GetFreespace();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
+                {
+                    return GetContinuous();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "LongitudinalDistanceAction";
+            }
         };
 
     /**
@@ -5795,6 +10817,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ManeuverImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() override;
@@ -5848,6 +10875,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Maneuver";
+            }
         };
 
     /**
@@ -5872,6 +10957,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ManeuverCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -5909,6 +10999,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ManeuverCatalogLocation";
+            }
         };
 
     /**
@@ -5937,6 +11085,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ManeuverGroupImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             long long GetMaximumExecutionCount() override;
             std::string GetName() override;
@@ -6004,6 +11157,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)
+                {
+                    return GetMaximumExecutionCount();
+                }
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ManeuverGroup";
+            }
         };
 
     /**
@@ -6033,6 +11253,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             MiscObjectImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             MiscObjectCategory GetMiscObjectCategory() override;
             double GetMass() override;
@@ -6107,6 +11332,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MASS)
+                {
+                    return GetMass();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "MiscObject";
+            }
         };
 
     /**
@@ -6131,6 +11423,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             MiscObjectCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -6168,6 +11465,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "MiscObjectCatalogLocation";
+            }
         };
 
     /**
@@ -6193,6 +11548,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ModifyRuleImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IParameterAddValueRule> GetAddValue() override;
             std::shared_ptr<IParameterMultiplyByValueRule> GetMultiplyByValue() override;
@@ -6237,6 +11597,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ModifyRule";
+            }
         };
 
     /**
@@ -6260,6 +11678,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             NoneImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
 
 
@@ -6290,6 +11713,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "None";
+            }
         };
 
     /**
@@ -6316,6 +11797,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             NurbsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             long long GetOrder() override;
             std::vector<std::shared_ptr<IControlPoint>> GetControlPoints() override;
@@ -6371,6 +11857,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ORDER)
+                {
+                    return GetOrder();
+                }
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Nurbs";
+            }
         };
 
     /**
@@ -6396,6 +11949,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ObjectControllerImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ICatalogReference> GetCatalogReference() override;
             std::shared_ptr<IController> GetController() override;
@@ -6440,6 +11998,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ObjectController";
+            }
         };
 
     /**
@@ -6464,6 +12080,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OffroadConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetDuration() override;
 
@@ -6502,6 +12123,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DURATION)
+                {
+                    return GetDuration();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OffroadCondition";
+            }
         };
 
     /**
@@ -6527,6 +12215,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OpenScenarioImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IFileHeader> GetFileHeader() override;
             std::shared_ptr<IOpenScenarioCategory> GetOpenScenarioCategory() override;
@@ -6572,6 +12265,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OpenScenario";
+            }
         };
 
     /**
@@ -6597,6 +12348,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OpenScenarioCategoryImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IScenarioDefinition> GetScenarioDefinition() override;
             std::shared_ptr<ICatalogDefinition> GetCatalogDefinition() override;
@@ -6641,6 +12397,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OpenScenarioCategory";
+            }
         };
 
     /**
@@ -6668,6 +12482,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OrientationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             ReferenceContext GetType() override;
             double GetH() override;
@@ -6726,6 +12545,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__H)
+                {
+                    return GetH();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__P)
+                {
+                    return GetP();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__R)
+                {
+                    return GetR();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Orientation";
+            }
         };
 
     /**
@@ -6751,6 +12645,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OverrideBrakeActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             bool GetActive() override;
@@ -6796,6 +12695,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+                {
+                    return GetActive();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OverrideBrakeAction";
+            }
         };
 
     /**
@@ -6821,6 +12796,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OverrideClutchActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             bool GetActive() override;
@@ -6866,6 +12846,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+                {
+                    return GetActive();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OverrideClutchAction";
+            }
         };
 
     /**
@@ -6895,6 +12951,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OverrideControllerValueActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IOverrideThrottleAction> GetThrottle() override;
             std::shared_ptr<IOverrideBrakeAction> GetBrake() override;
@@ -6968,6 +13029,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OverrideControllerValueAction";
+            }
         };
 
     /**
@@ -6993,6 +13112,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OverrideGearActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetNumber() override;
             bool GetActive() override;
@@ -7037,6 +13161,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__NUMBER)
+                {
+                    return GetNumber();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+                {
+                    return GetActive();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OverrideGearAction";
+            }
         };
 
     /**
@@ -7062,6 +13262,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OverrideParkingBrakeActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             bool GetActive() override;
@@ -7107,6 +13312,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+                {
+                    return GetActive();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OverrideParkingBrakeAction";
+            }
         };
 
     /**
@@ -7132,6 +13413,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OverrideSteeringWheelActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             bool GetActive() override;
@@ -7176,6 +13462,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+                {
+                    return GetActive();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OverrideSteeringWheelAction";
+            }
         };
 
     /**
@@ -7201,6 +13563,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             OverrideThrottleActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             bool GetActive() override;
@@ -7246,6 +13613,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+                {
+                    return GetActive();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "OverrideThrottleAction";
+            }
         };
 
     /**
@@ -7272,6 +13715,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IParameterDeclaration>* GetParameterRef() override;
             std::shared_ptr<IParameterSetAction> GetSetAction() override;
@@ -7324,6 +13772,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterAction";
+            }
         };
 
     /**
@@ -7348,6 +13854,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterAddValueRuleImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
 
@@ -7385,6 +13896,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterAddValueRule";
+            }
         };
 
     /**
@@ -7410,6 +13988,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterAssignmentImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IParameterDeclaration>* GetParameterRef() override;
             std::string GetValue() override;
@@ -7456,6 +14039,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterAssignment";
+            }
         };
 
     /**
@@ -7482,6 +14123,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IParameterDeclaration>* GetParameterRef() override;
             std::string GetValue() override;
@@ -7533,6 +14179,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterCondition";
+            }
         };
 
     /**
@@ -7559,6 +14263,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterDeclarationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             ParameterType GetParameterType() override;
@@ -7610,6 +14319,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterDeclaration";
+            }
         };
 
     /**
@@ -7634,6 +14401,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterModifyActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IModifyRule> GetRule() override;
 
@@ -7672,6 +14444,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterModifyAction";
+            }
         };
 
     /**
@@ -7696,6 +14526,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterMultiplyByValueRuleImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
 
@@ -7734,6 +14569,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterMultiplyByValueRule";
+            }
         };
 
     /**
@@ -7758,6 +14660,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ParameterSetActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetValue() override;
 
@@ -7795,6 +14702,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ParameterSetAction";
+            }
         };
 
     /**
@@ -7825,6 +14790,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PedestrianImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetModel() override;
             double GetMass() override;
@@ -7906,6 +14876,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MASS)
+                {
+                    return GetMass();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Pedestrian";
+            }
         };
 
     /**
@@ -7930,6 +14967,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PedestrianCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -7967,6 +15009,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "PedestrianCatalogLocation";
+            }
         };
 
     /**
@@ -7993,6 +15093,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PerformanceImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetMaxSpeed() override;
             double GetMaxAcceleration() override;
@@ -8046,6 +15151,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
+                {
+                    return GetMaxSpeed();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION)
+                {
+                    return GetMaxAcceleration();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
+                {
+                    return GetMaxDeceleration();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Performance";
+            }
         };
 
     /**
@@ -8072,6 +15252,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PhaseImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             double GetDuration() override;
@@ -8125,6 +15310,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DURATION)
+                {
+                    return GetDuration();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Phase";
+            }
         };
 
     /**
@@ -8149,6 +15401,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PolylineImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IVertex>> GetVertices() override;
 
@@ -8186,6 +15443,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Polyline";
+            }
         };
 
     /**
@@ -8217,6 +15532,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IWorldPosition> GetWorldPosition() override;
             std::shared_ptr<IRelativeWorldPosition> GetRelativeWorldPosition() override;
@@ -8308,6 +15628,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Position";
+            }
         };
 
     /**
@@ -8334,6 +15712,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PositionInLaneCoordinatesImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetPathS() override;
             std::string GetLaneId() override;
@@ -8387,6 +15770,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__PATH_S)
+                {
+                    return GetPathS();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET)
+                {
+                    return GetLaneOffset();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "PositionInLaneCoordinates";
+            }
         };
 
     /**
@@ -8412,6 +15866,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PositionInRoadCoordinatesImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetPathS() override;
             double GetT() override;
@@ -8458,6 +15917,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__PATH_S)
+                {
+                    return GetPathS();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__T)
+                {
+                    return GetT();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "PositionInRoadCoordinates";
+            }
         };
 
     /**
@@ -8482,6 +16012,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PositionOfCurrentEntityImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
 
@@ -8519,6 +16054,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "PositionOfCurrentEntity";
+            }
         };
 
     /**
@@ -8544,6 +16137,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PrecipitationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             PrecipitationType GetPrecipitationType() override;
             double GetIntensity() override;
@@ -8588,6 +16186,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
+                {
+                    return GetIntensity();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Precipitation";
+            }
         };
 
     /**
@@ -8613,6 +16278,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PrivateImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             std::vector<std::shared_ptr<IPrivateAction>> GetPrivateActions() override;
@@ -8658,6 +16328,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Private";
+            }
         };
 
     /**
@@ -8689,6 +16417,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PrivateActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ILongitudinalAction> GetLongitudinalAction() override;
             std::shared_ptr<ILateralAction> GetLateralAction() override;
@@ -8783,6 +16516,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "PrivateAction";
+            }
         };
 
     /**
@@ -8808,6 +16599,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PropertiesImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IProperty>> GetProperties() override;
             std::vector<std::shared_ptr<IFile>> GetFiles() override;
@@ -8855,6 +16651,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Properties";
+            }
         };
 
     /**
@@ -8880,6 +16734,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             PropertyImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::string GetValue() override;
@@ -8924,6 +16783,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Property";
+            }
         };
 
     /**
@@ -8949,6 +16866,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ReachPositionConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetTolerance() override;
             std::shared_ptr<IPosition> GetPosition() override;
@@ -8994,6 +16916,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__TOLERANCE)
+                {
+                    return GetTolerance();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ReachPositionCondition";
+            }
         };
 
     /**
@@ -9022,6 +17011,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeDistanceConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             RelativeDistanceType GetRelativeDistanceType() override;
@@ -9088,6 +17082,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
+                {
+                    return GetFreespace();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeDistanceCondition";
+            }
         };
 
     /**
@@ -9116,6 +17186,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeLanePositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             int GetDLane() override;
@@ -9183,6 +17258,86 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__D_LANE)
+                {
+                    return GetDLane();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DS)
+                {
+                    return GetDs();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
+                {
+                    return GetOffset();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeLanePosition";
+            }
         };
 
     /**
@@ -9211,6 +17366,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeObjectPositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetDx() override;
@@ -9280,6 +17440,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DX)
+                {
+                    return GetDx();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DY)
+                {
+                    return GetDy();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DZ)
+                {
+                    return GetDz();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeObjectPosition";
+            }
         };
 
     /**
@@ -9307,6 +17542,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeRoadPositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetDs() override;
@@ -9368,6 +17608,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DS)
+                {
+                    return GetDs();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DT)
+                {
+                    return GetDt();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeRoadPosition";
+            }
         };
 
     /**
@@ -9394,6 +17705,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeSpeedConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetValue() override;
@@ -9445,6 +17761,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeSpeedCondition";
+            }
         };
 
     /**
@@ -9470,6 +17853,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeSpeedToMasterImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             SpeedTargetValueType GetSpeedTargetValueType() override;
@@ -9515,6 +17903,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeSpeedToMaster";
+            }
         };
 
     /**
@@ -9540,6 +17995,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeTargetLaneImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             int GetValue() override;
@@ -9585,6 +18045,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeTargetLane";
+            }
         };
 
     /**
@@ -9610,6 +18137,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeTargetLaneOffsetImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetValue() override;
@@ -9655,6 +18187,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeTargetLaneOffset";
+            }
         };
 
     /**
@@ -9682,6 +18281,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeTargetSpeedImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetValue() override;
@@ -9746,6 +18350,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
+                {
+                    return GetContinuous();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeTargetSpeed";
+            }
         };
 
     /**
@@ -9774,6 +18454,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RelativeWorldPositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetDx() override;
@@ -9841,6 +18526,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DX)
+                {
+                    return GetDx();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DY)
+                {
+                    return GetDy();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DZ)
+                {
+                    return GetDz();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RelativeWorldPosition";
+            }
         };
 
     /**
@@ -9866,6 +18626,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RoadConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetFrictionScaleFactor() override;
             std::shared_ptr<IProperties> GetProperties() override;
@@ -9910,6 +18675,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR)
+                {
+                    return GetFrictionScaleFactor();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RoadCondition";
+            }
         };
 
     /**
@@ -9936,6 +18768,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RoadNetworkImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IFile> GetLogicFile() override;
             std::shared_ptr<IFile> GetSceneGraphFile() override;
@@ -9990,6 +18827,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RoadNetwork";
+            }
         };
 
     /**
@@ -10017,6 +18912,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RoadPositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetRoadId() override;
             double GetS() override;
@@ -10078,6 +18978,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__S)
+                {
+                    return GetS();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__T)
+                {
+                    return GetT();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RoadPosition";
+            }
         };
 
     /**
@@ -10105,6 +19076,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RouteImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             bool GetClosed() override;
@@ -10166,6 +19142,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
+                {
+                    return GetClosed();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Route";
+            }
         };
 
     /**
@@ -10190,6 +19233,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RouteCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -10227,6 +19275,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RouteCatalogLocation";
+            }
         };
 
     /**
@@ -10253,6 +19359,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RoutePositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IRouteRef> GetRouteRef() override;
             std::shared_ptr<IOrientation> GetOrientation() override;
@@ -10306,6 +19417,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RoutePosition";
+            }
         };
 
     /**
@@ -10331,6 +19500,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RouteRefImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IRoute> GetRoute() override;
             std::shared_ptr<ICatalogReference> GetCatalogReference() override;
@@ -10375,6 +19549,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RouteRef";
+            }
         };
 
     /**
@@ -10401,6 +19633,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             RoutingActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IAssignRouteAction> GetAssignRouteAction() override;
             std::shared_ptr<IFollowTrajectoryAction> GetFollowTrajectoryAction() override;
@@ -10454,6 +19691,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "RoutingAction";
+            }
         };
 
     /**
@@ -10482,6 +19777,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ScenarioDefinitionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() override;
             std::shared_ptr<ICatalogLocations> GetCatalogLocations() override;
@@ -10553,6 +19853,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ScenarioDefinition";
+            }
         };
 
     /**
@@ -10579,6 +19937,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ScenarioObjectImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::shared_ptr<IEntityObject> GetEntityObject() override;
@@ -10631,6 +19994,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "ScenarioObject";
+            }
         };
 
     /**
@@ -10656,6 +20077,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             SelectedEntitiesImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IEntityRef>> GetEntityRef() override;
             std::vector<std::shared_ptr<IByType>> GetByType() override;
@@ -10701,6 +20127,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "SelectedEntities";
+            }
         };
 
     /**
@@ -10727,6 +20211,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             ShapeImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IPolyline> GetPolyline() override;
             std::shared_ptr<IClothoid> GetClothoid() override;
@@ -10778,6 +20267,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Shape";
+            }
         };
 
     /**
@@ -10803,6 +20350,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             SimulationTimeConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             Rule GetRule() override;
@@ -10847,6 +20399,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "SimulationTimeCondition";
+            }
         };
 
     /**
@@ -10872,6 +20491,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             SpeedActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ITransitionDynamics> GetSpeedActionDynamics() override;
             std::shared_ptr<ISpeedActionTarget> GetSpeedActionTarget() override;
@@ -10917,6 +20541,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "SpeedAction";
+            }
         };
 
     /**
@@ -10942,6 +20624,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             SpeedActionTargetImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IRelativeTargetSpeed> GetRelativeTargetSpeed() override;
             std::shared_ptr<IAbsoluteTargetSpeed> GetAbsoluteTargetSpeed() override;
@@ -10988,6 +20675,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "SpeedActionTarget";
+            }
         };
 
     /**
@@ -11013,6 +20758,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             SpeedConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             Rule GetRule() override;
@@ -11057,6 +20807,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "SpeedCondition";
+            }
         };
 
     /**
@@ -11081,6 +20898,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             StandStillConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetDuration() override;
 
@@ -11119,6 +20941,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DURATION)
+                {
+                    return GetDuration();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "StandStillCondition";
+            }
         };
 
     /**
@@ -11145,6 +21034,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             StoryImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() override;
@@ -11199,6 +21093,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Story";
+            }
         };
 
     /**
@@ -11225,6 +21177,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             StoryboardImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IInit> GetInit() override;
             std::vector<std::shared_ptr<IStory>> GetStories() override;
@@ -11277,6 +21234,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Storyboard";
+            }
         };
 
     /**
@@ -11303,6 +21318,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             StoryboardElementStateConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             StoryboardElementType GetStoryboardElementType() override;
             INamedReference<IStoryboardElement>* GetStoryboardElementRef() override;
@@ -11355,6 +21375,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "StoryboardElementStateCondition";
+            }
         };
 
     /**
@@ -11381,6 +21459,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             SunImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetIntensity() override;
             double GetAzimuth() override;
@@ -11435,6 +21518,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
+                {
+                    return GetIntensity();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__AZIMUTH)
+                {
+                    return GetAzimuth();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ELEVATION)
+                {
+                    return GetElevation();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Sun";
+            }
         };
 
     /**
@@ -11462,6 +21620,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             SynchronizeActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetMasterEntityRef() override;
             std::shared_ptr<IPosition> GetTargetPositionMaster() override;
@@ -11522,6 +21685,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "SynchronizeAction";
+            }
         };
 
     /**
@@ -11546,6 +21767,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TeleportActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IPosition> GetPosition() override;
 
@@ -11583,6 +21809,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TeleportAction";
+            }
         };
 
     /**
@@ -11611,6 +21895,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TimeHeadwayConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<IEntity>* GetEntityRef() override;
             double GetValue() override;
@@ -11678,6 +21967,86 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
+                {
+                    return GetFreespace();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
+                {
+                    return GetAlongRoute();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TimeHeadwayCondition";
+            }
         };
 
     /**
@@ -11703,6 +22072,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TimeOfDayImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             bool GetAnimation() override;
             DateTime GetDateTime() override;
@@ -11748,6 +22122,82 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ANIMATION)
+                {
+                    return GetAnimation();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DATE_TIME)
+                {
+                    return GetDateTime();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TimeOfDay";
+            }
         };
 
     /**
@@ -11773,6 +22223,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TimeOfDayConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             Rule GetRule() override;
             DateTime GetDateTime() override;
@@ -11817,6 +22272,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DATE_TIME)
+                {
+                    return GetDateTime();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TimeOfDayCondition";
+            }
         };
 
     /**
@@ -11842,6 +22364,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TimeReferenceImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<INone> GetNone() override;
             std::shared_ptr<ITiming> GetTiming() override;
@@ -11888,6 +22415,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TimeReference";
+            }
         };
 
     /**
@@ -11916,6 +22501,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TimeToCollisionConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
             bool GetFreespace() override;
@@ -11984,6 +22574,86 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
+                {
+                    return GetFreespace();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
+                {
+                    return GetAlongRoute();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TimeToCollisionCondition";
+            }
         };
 
     /**
@@ -12009,6 +22679,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TimeToCollisionConditionTargetImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IPosition> GetPosition() override;
             std::shared_ptr<IEntityRef> GetEntityRef() override;
@@ -12053,6 +22728,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TimeToCollisionConditionTarget";
+            }
         };
 
     /**
@@ -12079,6 +22812,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TimingImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             ReferenceContext GetDomainAbsoluteRelative() override;
             double GetScale() override;
@@ -12134,6 +22872,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__SCALE)
+                {
+                    return GetScale();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
+                {
+                    return GetOffset();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Timing";
+            }
         };
 
     /**
@@ -12160,6 +22969,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ITrafficSourceAction> GetTrafficSourceAction() override;
             std::shared_ptr<ITrafficSinkAction> GetTrafficSinkAction() override;
@@ -12214,6 +23028,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficAction";
+            }
         };
 
     /**
@@ -12240,6 +23112,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficDefinitionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::shared_ptr<IVehicleCategoryDistribution> GetVehicleCategoryDistribution() override;
@@ -12293,6 +23170,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficDefinition";
+            }
         };
 
     /**
@@ -12318,6 +23253,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSignalActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ITrafficSignalControllerAction> GetTrafficSignalControllerAction() override;
             std::shared_ptr<ITrafficSignalStateAction> GetTrafficSignalStateAction() override;
@@ -12364,6 +23304,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSignalAction";
+            }
         };
 
     /**
@@ -12389,6 +23387,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSignalConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::string GetState() override;
@@ -12435,6 +23438,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSignalCondition";
+            }
         };
 
     /**
@@ -12462,6 +23523,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSignalControllerImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             double GetDelay() override;
@@ -12525,6 +23591,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__DELAY)
+                {
+                    return GetDelay();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSignalController";
+            }
         };
 
     /**
@@ -12551,6 +23684,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSignalControllerActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<ITrafficSignalController>* GetTrafficSignalControllerRef() override;
             std::string GetPhase() override;
@@ -12605,6 +23743,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSignalControllerAction";
+            }
         };
 
     /**
@@ -12631,6 +23827,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSignalControllerConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             INamedReference<ITrafficSignalController>* GetTrafficSignalControllerRef() override;
             std::string GetPhase() override;
@@ -12686,6 +23887,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSignalControllerCondition";
+            }
         };
 
     /**
@@ -12711,6 +23970,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSignalStateImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetTrafficSignalId() override;
             std::string GetState() override;
@@ -12757,6 +24021,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSignalState";
+            }
         };
 
     /**
@@ -12782,6 +24104,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSignalStateActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::string GetState() override;
@@ -12828,6 +24155,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSignalStateAction";
+            }
         };
 
     /**
@@ -12855,6 +24240,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSinkActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetRate() override;
             double GetRadius() override;
@@ -12916,6 +24306,77 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__RATE)
+                {
+                    return GetRate();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
+                {
+                    return GetRadius();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSinkAction";
+            }
         };
 
     /**
@@ -12944,6 +24405,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSourceActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetRate() override;
             double GetRadius() override;
@@ -13013,6 +24479,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__RATE)
+                {
+                    return GetRate();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
+                {
+                    return GetRadius();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
+                {
+                    return GetVelocity();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSourceAction";
+            }
         };
 
     /**
@@ -13044,6 +24585,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrafficSwarmActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetSemiMajorAxis() override;
             double GetSemiMinorAxis() override;
@@ -13139,6 +24685,98 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES)
+                {
+                    return GetNumberOfVehicles();
+                }
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS)
+                {
+                    return GetSemiMajorAxis();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS)
+                {
+                    return GetSemiMinorAxis();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS)
+                {
+                    return GetInnerRadius();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
+                {
+                    return GetOffset();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
+                {
+                    return GetVelocity();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrafficSwarmAction";
+            }
         };
 
     /**
@@ -13166,6 +24804,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrajectoryImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             bool GetClosed() override;
@@ -13226,6 +24869,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
+                {
+                    return GetClosed();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Trajectory";
+            }
         };
 
     /**
@@ -13250,6 +24960,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrajectoryCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -13287,6 +25002,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrajectoryCatalogLocation";
+            }
         };
 
     /**
@@ -13311,6 +25084,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TrajectoryFollowingModeImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             FollowingMode GetFollowingMode() override;
 
@@ -13351,6 +25129,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TrajectoryFollowingMode";
+            }
         };
 
     /**
@@ -13377,6 +25213,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TransitionDynamicsImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             DynamicsShape GetDynamicsShape() override;
             double GetValue() override;
@@ -13431,6 +25272,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TransitionDynamics";
+            }
         };
 
     /**
@@ -13455,6 +25363,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TraveledDistanceConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetValue() override;
 
@@ -13492,6 +25405,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+                {
+                    return GetValue();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TraveledDistanceCondition";
+            }
         };
 
     /**
@@ -13516,6 +25496,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TriggerImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IConditionGroup>> GetConditionGroups() override;
 
@@ -13554,6 +25539,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Trigger";
+            }
         };
 
     /**
@@ -13579,6 +25622,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             TriggeringEntitiesImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             TriggeringEntitiesRule GetTriggeringEntitiesRule() override;
             std::vector<std::shared_ptr<IEntityRef>> GetEntityRefs() override;
@@ -13623,6 +25671,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "TriggeringEntities";
+            }
         };
 
     /**
@@ -13647,6 +25753,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             UserDefinedActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<ICustomCommandAction> GetCustomCommandAction() override;
 
@@ -13685,6 +25796,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "UserDefinedAction";
+            }
         };
 
     /**
@@ -13711,6 +25880,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             UserDefinedValueConditionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             std::string GetValue() override;
@@ -13762,6 +25936,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "UserDefinedValueCondition";
+            }
         };
 
     /**
@@ -13792,6 +26024,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             VehicleImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::string GetName() override;
             VehicleCategory GetVehicleCategory() override;
@@ -13875,6 +26112,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Vehicle";
+            }
         };
 
     /**
@@ -13899,6 +26194,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             VehicleCatalogLocationImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::shared_ptr<IDirectory> GetDirectory() override;
 
@@ -13936,6 +26236,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "VehicleCatalogLocation";
+            }
         };
 
     /**
@@ -13960,6 +26318,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             VehicleCategoryDistributionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> GetVehicleCategoryDistributionEntries() override;
 
@@ -13998,6 +26361,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "VehicleCategoryDistribution";
+            }
         };
 
     /**
@@ -14023,6 +26444,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             VehicleCategoryDistributionEntryImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             VehicleCategory GetCategory() override;
             double GetWeight() override;
@@ -14068,6 +26494,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
+                {
+                    return GetWeight();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "VehicleCategoryDistributionEntry";
+            }
         };
 
     /**
@@ -14093,6 +26586,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             VertexImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetTime() override;
             std::shared_ptr<IPosition> GetPosition() override;
@@ -14137,6 +26635,73 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__TIME)
+                {
+                    return GetTime();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Vertex";
+            }
         };
 
     /**
@@ -14163,6 +26728,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             VisibilityActionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             bool GetGraphics() override;
             bool GetTraffic() override;
@@ -14217,6 +26787,81 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__GRAPHICS)
+                {
+                    return GetGraphics();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC)
+                {
+                    return GetTraffic();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__SENSORS)
+                {
+                    return GetSensors();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "VisibilityAction";
+            }
         };
 
     /**
@@ -14242,6 +26887,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             WaypointImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             RouteStrategy GetRouteStrategy() override;
             std::shared_ptr<IPosition> GetPosition() override;
@@ -14287,6 +26937,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Waypoint";
+            }
         };
 
     /**
@@ -14314,6 +27022,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             WeatherImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             CloudState GetCloudState() override;
             std::shared_ptr<ISun> GetSun() override;
@@ -14374,6 +27087,64 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "Weather";
+            }
         };
 
     /**
@@ -14403,6 +27174,11 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
             WorldPositionImpl();
+
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
+            {
+                return this;
+            }
 
             double GetX() override;
             double GetY() override;
@@ -14478,8 +27254,96 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return BaseImpl::GetParent();
             }
+
+            // Implement the IOpenScenarioFlexElement interface
+
+            std::string GetStringProperty(std::string key) override;
+
+            long long GetUnsignedIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }  
+
+            int GetIntProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            double GetDoubleProperty(std::string key) override
+            {
+                if (key.empty())
+                {
+                    throw KeyNotSupportedException();
+                }
+     
+                if (key == OSC_CONSTANTS::ATTRIBUTE__X)
+                {
+                    return GetX();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__Y)
+                {
+                    return GetY();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__Z)
+                {
+                    return GetZ();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__H)
+                {
+                    return GetH();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__P)
+                {
+                    return GetP();
+                }    else 
+                if (key == OSC_CONSTANTS::ATTRIBUTE__R)
+                {
+                    return GetR();
+                }
+                throw KeyNotSupportedException();
+
+            }
+
+            int GetUnsignedShortProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+ 
+            bool GetBooleanProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            DateTime GetDateTimeProperty(std::string key) override
+            {
+                throw KeyNotSupportedException();
+
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) override;
+ 
+            std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) override;
+
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() override
+            {
+                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+            }
+
+            std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) override;
+
+            std::string GetEnumerationLiteral(std::string key) override;
+
+            std::string GetModelType() override
+            {
+                return "WorldPosition";
+            }
         };
 
 
     }
 }
+
