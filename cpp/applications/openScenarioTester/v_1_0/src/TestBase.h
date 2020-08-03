@@ -34,7 +34,7 @@ protected:
     std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger> _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
 
 #ifdef _WINDOWS
-    const std::string kInputDir = "../../../../applications/openScenarioReader/res/";
+    const std::string kInputDir = "../../../../../../applications/openScenarioReader/res/";
 #elif defined(__unix__) && defined(__linux__)
     const std::string kInputDir = "../../../../applications/openScenarioReader/res/";
 #else
