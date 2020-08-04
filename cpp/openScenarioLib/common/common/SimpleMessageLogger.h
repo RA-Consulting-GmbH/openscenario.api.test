@@ -63,7 +63,7 @@ namespace NET_ASAM_OPENSCENARIO
         * @param errorLevel the error level to filter the messages.
         * @return the filtered messages
         */
-        std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(ErrorLevel& errorLevel) 
+        std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel) 
         {
             std::vector<FileContentMessage> result;
             for (auto&& message : _messages)

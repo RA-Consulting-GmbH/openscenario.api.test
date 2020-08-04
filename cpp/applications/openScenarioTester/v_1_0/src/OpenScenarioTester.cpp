@@ -31,49 +31,68 @@ int main(int argc, char** argv)
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
+#ifdef WIN32
+    char basePath[_MAX_PATH] = "";
+    _fullpath(basePath, argv[0], sizeof(basePath));
+#elif defined __linux__
+    char basePath[PATH_MAX] = "";
+    realpath(basePath, argv[0]);
+#else
+#error "Operating system not supported."
+#endif
+
+    std::string executablePath(basePath);
+    executablePath = executablePath.substr(0, executablePath.size() - 28);
+
     TestExamples testExamples;
     TestRangeChecker testRangeChecker;
     TestFiles testFiles;
     TestImports testImports;
-    TestReader testReader;
+    TestReader testReader(executablePath);
     TestSimpleDemos testSimpleDemos;
     TestVersionChecker testVersionChecker;
     TestFlexInterface testFlexInterface;
     TestInjectedParameters testInjectedParameters;
 
-        testExamples.TestExample();
-        testRangeChecker.TestParamsFailure();
+    testExamples.TestExample();
+    testRangeChecker.TestParamsFailure();
 
-        testFiles.TestSimpleSuccess();
-        testFiles.TestParamsSuccess();
-        testFiles.TestParamsFailure();
-        testFiles.TestUnvalidXml();
-        testFiles.TestUnknownElement();
-        testFiles.TestWrongAttributes();
-        testFiles.TestWrongEndElement();
-        testFiles.TestCustomCommandAction();
-        testFiles.TestFileNotFound();
+    testFiles.TestSimpleSuccess();
+    testFiles.TestParamsSuccess();
+    testFiles.TestParamsFailure();
+    testFiles.TestUnvalidXml();
+    testFiles.TestUnknownElement();
+    testFiles.TestWrongAttributes();
+    testFiles.TestWrongEndElement();
+    testFiles.TestCustomCommandAction();
+    testFiles.TestFileNotFound();
 
-        testImports.TestImportSuccess();
-        testImports.TestImportWithParametersSuccess();
+    testImports.TestImportSuccess();
+    testImports.TestImportWithParametersSuccess();
 
-        testReader.TestImportSuccess();
-        testReader.TestWithErrors();
+    testReader.TestImportSuccess();
+    testReader.TestFileNotFound();
+    testReader.TestWithErrors();
+    testReader.TestWrongCommandLine();
+    testReader.TestWithParamFile();
+    testReader.TestWithParamFileSyntaxError();
+    testReader.TestWithParamFileSyntaxError2();
+    testReader.TestWithParamFileNotFound();
 
-        testSimpleDemos.TestSimpleDemo();
-        testSimpleDemos.TestImportDemo();
-        testSimpleDemos.TestCheckerRuleDemo();
-        testSimpleDemos.TestCheckerRuleEgoDemo();
+    testSimpleDemos.TestSimpleDemo();
+    testSimpleDemos.TestImportDemo();
+    testSimpleDemos.TestCheckerRuleDemo();
+    testSimpleDemos.TestCheckerRuleEgoDemo();
 
-        testVersionChecker.TestSuccess();
+    testVersionChecker.TestSuccess();
 
-        testFlexInterface.TestExample();
+    testFlexInterface.TestExample();
 
-        testInjectedParameters.TestNullInjectedParameters();
-        testInjectedParameters.TestEmptyInjectedParameters();
-        testInjectedParameters.TestInjectionsForSuccess();
-        testInjectedParameters.TestWrongFormats();
-        testInjectedParameters.TestNotDefined();
-        testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
+    testInjectedParameters.TestNullInjectedParameters();
+    testInjectedParameters.TestEmptyInjectedParameters();
+    testInjectedParameters.TestInjectionsForSuccess();
+    testInjectedParameters.TestWrongFormats();
+    testInjectedParameters.TestNotDefined();
+    testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
 
 }

@@ -24,6 +24,9 @@
 #include "XmlScenarioImportLoaderFactory.h"
 #include "ErrorLevel.h"
 #include <algorithm>
+#include <fstream>
+#include <string>
+#include <iostream>
 
 #undef ERROR
 
@@ -105,4 +108,30 @@ protected:
         });
         return result;
     }
+
+    std::string GetLine(const std::string fileName, const int lineNum) const
+    {
+        std::ifstream file(kInputDir + fileName);
+        std::string line;
+
+        if (file.bad() || file.fail())
+        {
+            return "";
+        }
+
+        int counter = 0;
+
+        while (std::getline(file, line))
+        {
+            counter++;
+            if (counter == lineNum)
+            {
+                file.close();
+                return line;
+            }
+        }
+        file.close();
+        return "";
+    }
+
 };

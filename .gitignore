@@ -6,3 +6,4 @@
 cpp/CMakeLists.txt.user
 build/*
 
+/cpp/applications/openScenarioReader/res/result.txt

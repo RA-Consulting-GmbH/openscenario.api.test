@@ -18,105 +18,112 @@
 #pragma once
 #include "TestBase.h"
 
+#ifdef WIN32
+#include <direct.h>
+#define GetCwd _getcwd
+#elif defined __linux__
+#include <unistd.h>
+#define GetCwd getcwd
+#else
+#error "Operating system not supported."
+#endif
 
 class TestReader : public TestBase
 {
 private:
+    std::string _executablePath;
+    const std::string kResultFileName = "result.txt";
 
-    std::string version = "1.0";
-    bool isDebug = false;
-
-    int ReadOpenScenarioFile(int argc, const char** argv) const
+    static std::string GetCurrentDir() 
     {
-        std::cout << "**************************************" << std::endl;
-        std::cout << " ASAM OpenSCENARIO 1.0 Checker (2020) " << std::endl;
-        std::cout << "**************************************" << std::endl;
-
-        if (argc == 1)
-        {
-            std::cout << "OpenScenarioChecker [option]" << std::endl;
-            std::cout << "Options:" << std::endl;
-            std::cout << "-i\tinput file name" << std::endl;
-            std::cout << "-v\tprogram version" << std::endl;
-            return 0;
-        }
-
-        if (std::string(argv[1]) == "-v")
-        {
-            std::cout << "Program version " << version << std::endl;
-            return 0;
-        }
-
-        if (std::string(argv[1]) != "-i" || argc < 3)
-            return -1;
-
-        std::cout << "Checking '" << argv[2] << "'" << std::endl;
-
-        auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
-
-        try
-        {
-            std::string fileName(argv[2]);
-            ExecuteImportParsing(fileName, catalogMessageLogger);
-
-            std::cout << "Errors and Warnings" << std::endl;
-            std::cout << "===================" << std::endl;
-
-            for (auto&& message : _messageLogger->GetMessages())
-            {
-                auto textmarker = message.GetTextmarker();
-                if (message.GetErrorLevel() != NET_ASAM_OPENSCENARIO::ErrorLevel::DEBUG || isDebug)
-                {
-                    std::cout << NET_ASAM_OPENSCENARIO::ErrorLevelString::ToString(message.GetErrorLevel());
-                    std::cout << ": " + message.GetMsg();
-                    std::cout << " (" << textmarker.GetLine() << "," << textmarker.GetColumn() << ")";
-                    std::cout << std::endl;
-                }
-            }
-
-            if (!catalogMessageLogger->GetMessages().empty() && isDebug)
-            {
-                std::cout << "Info from catalog referencing" << std::endl;
-                std::cout << "=============================" << std::endl;
-
-                for (auto&& message : catalogMessageLogger->GetMessages())
-                {
-                    auto textmarker = message.GetTextmarker();
-                    if (message.GetErrorLevel() != NET_ASAM_OPENSCENARIO::ErrorLevel::DEBUG || isDebug)
-                    {
-                        std::cout << NET_ASAM_OPENSCENARIO::ErrorLevelString::ToString(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
-                        std::cout << ": (File:" + textmarker.GetFilename() + ") ";
-                        std::cout << message.GetMsg();
-                        std::cout << " (" << textmarker.GetLine() << "," << textmarker.GetColumn() << ")";
-                        std::cout << std::endl;
-                    }
-                }
-            }
-        }
-        catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
-        {
-            (void)e;
-            std::cout << "Internal error Ocuured" << std::endl;
-            return -1;
-        }
-        return 0;
+        char buff[FILENAME_MAX];
+        GetCwd(buff, FILENAME_MAX);
+        std::string currentWorkingDir(buff);
+        return currentWorkingDir;
     }
+
 public:
+    TestReader(std::string& executablePath): _executablePath(executablePath) {}
 
     void TestImportSuccess() const
     {
-        const std::string kFilePath = kInputDir + "simpleImport/simpleImport.xosc";
-        const char* argv[3] = { "TestReader", "-i", &kFilePath[0] };
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " -i " + GetCurrentDir() + "/" + kInputDir + "simpleImport/simpleImport.xosc";
+        command += " > "+ GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+    }
 
-        ReadOpenScenarioFile(3, argv);
+    void TestFileNotFound() const
+    {
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " -i " "testFileNotFound";
+        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+        assert("Scenario file not found 'testFileNotFound'" == GetLine(kResultFileName, 4));
     }
 
     void TestWithErrors() const
     {
-        const std::string kFilePath = kInputDir + "DoubleLaneChangerParamsError.xosc";
-        const char* argv[3] = { "TestReader", "-i", &kFilePath[0] };
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerParamsError.xosc";
+        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+        assert("Validation failed with 2 errors and 0 warnings." == GetLine(kResultFileName, 10));
+    }
 
-        ReadOpenScenarioFile(3, argv);
+    void TestWrongCommandLine() const
+    {
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " Test ";
+        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+        assert("OpenScenarioChecker [option] [-p]" == GetLine(kResultFileName, 4));
+    }
+
+    void TestWithParamFile() const
+    {
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -p " + GetCurrentDir() + "/" + kInputDir + "params.conf";
+        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+        assert("\ttestBoolean\ttrue" == GetLine(kResultFileName, 5));
+        assert("\ttestDateTime\t2018-02-24T10:00:00" == GetLine(kResultFileName, 6));
+        assert("\ttestDouble\t2.0" == GetLine(kResultFileName, 7));
+        assert("\ttestInteger\t2" == GetLine(kResultFileName, 8));
+        assert("\ttestString\tinjected" == GetLine(kResultFileName, 9));
+        assert("\ttestUnsignedInt\t2" == GetLine(kResultFileName, 10));
+        assert("\ttestUnsignedShort\t2" == GetLine(kResultFileName, 11));
+    }
+
+    void TestWithParamFileSyntaxError() const
+    {
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -p " + GetCurrentDir() + "/" + kInputDir + "paramsSyntaxError.conf";
+        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+        assert("Syntax error in parameter file: line 8" == GetLine(kResultFileName, 4));
+    }
+
+    void TestWithParamFileSyntaxError2() const
+    {
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -p " + GetCurrentDir() + "/" + kInputDir + "paramsSyntaxError2.conf";
+        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+        assert("Syntax error in parameter file: line 5" == GetLine(kResultFileName, 4));
+    }
+
+    void TestWithParamFileNotFound() const
+    {
+        std::string command = _executablePath + "/OpenScenarioReaderV_1_0.exe";
+        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -p paramsNotFound.conf";
+        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        system(command.c_str());
+        assert("paramsfile not found" == GetLine(kResultFileName, 4));
     }
 
 };
