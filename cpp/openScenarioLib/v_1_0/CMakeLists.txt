@@ -94,7 +94,8 @@ set( SOURCES_GENERATED_IMPL
 
 set( SOURCES_GENERATED_XMLPARSER
   ${SOURCES_GENERATED_XMLPARSER}
-  "generated/xmlParser/XmlParsers.cpp"
+  "generated/xmlParser/XmlParsers1.cpp"
+  "generated/xmlParser/XmlParsers2.cpp"
   "generated/xmlParser/XMLParser.cpp"
   "generated/xmlParser/XMLLexer.cpp"
 )
