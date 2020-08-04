@@ -173,6 +173,6 @@ private:
             exceptionThrown = true;
         }
 
-        assert(true);
+        assert(exceptionThrown);
     }
 };
