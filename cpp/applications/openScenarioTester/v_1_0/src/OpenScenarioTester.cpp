@@ -34,15 +34,16 @@ int main(int argc, char** argv)
 #ifdef WIN32
     char basePath[_MAX_PATH] = "";
     _fullpath(basePath, argv[0], sizeof(basePath));
+    std::string executablePath(basePath);
+    executablePath = executablePath.substr(0, executablePath.size() - 28);
 #elif defined __linux__
     char basePath[PATH_MAX] = "";
-    realpath(basePath, argv[0]);
+    realpath(argv[0], basePath);
+    std::string executablePath(basePath);
+    executablePath = executablePath.substr(0, executablePath.size() - 24);
 #else
 #error "Operating system not supported."
 #endif
-
-    std::string executablePath(basePath);
-    executablePath = executablePath.substr(0, executablePath.size() - 28);
 
     TestExamples testExamples;
     TestRangeChecker testRangeChecker;
