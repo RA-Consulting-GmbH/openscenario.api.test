@@ -87,7 +87,7 @@ Placing this script into a file called ``.git/hooks/commit-msg`` and making it e
 Formatting issues
 -----------------
 
-For java code, the usage of the `google formatter<https://github.com/google/google-java-format>`_ is mandatory.
+For java code, the usage of the `google formatter <https://github.com/google/google-java-format>`_ is mandatory.
 
 Build fails on warnings policy
 ------------------------------
