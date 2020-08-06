@@ -77,7 +77,7 @@ namespace NET_ASAM_OPENSCENARIO
             return rhs.ToString() == this->ToString();
         }
 
-        int HashCode() const { return std::hash<std::string>{}(this->ToString()); }
+        size_t HashCode() const { return std::hash<std::string>{}(this->ToString()); }
 
         std::string ToString() const
         {

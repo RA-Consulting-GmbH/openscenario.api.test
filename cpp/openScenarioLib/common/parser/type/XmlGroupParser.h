@@ -59,7 +59,7 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kIt = std::find(parentSubElements.begin(), parentSubElements.end(), indexedElement);
             int index = 0;
             if (kIt != parentSubElements.end())
-                index = std::distance(parentSubElements.begin(), kIt);
+                index = static_cast<int>(std::distance(parentSubElements.begin(), kIt));
 
             std::vector<std::shared_ptr<IndexedElement>> elementsToParse;
             for (unsigned int i = index; i < parentSubElements.size(); i++)

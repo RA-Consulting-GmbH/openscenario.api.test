@@ -39,8 +39,8 @@ namespace NET_ASAM_OPENSCENARIO
          * @param endLine line of the end position
          * @param endColumn column of the end position
          */
-        AttributeNode(std::string& name, const int startLine, const int startColumn, const int endLine, const int endColumn):
-            PositionNode(startLine, startColumn, endLine, endColumn), _name(name) {}
+        AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn):
+            PositionNode(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn)), _name(name) {}
 
         /**
          * The name of the attribute

@@ -93,7 +93,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return i;
                 }
             }
-            return indexedElements.size();
+            return static_cast<int>(indexedElements.size());
         }
 
     public:

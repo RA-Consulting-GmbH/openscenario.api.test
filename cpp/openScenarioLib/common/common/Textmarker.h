@@ -59,7 +59,7 @@ namespace NET_ASAM_OPENSCENARIO
             return rhs._filename == this->_filename && rhs._line == this->_line && rhs._column == this->_column;
         }
 
-        int HashCode() const { return std::hash<std::string>{}(this->ToString()); }
+        size_t HashCode() const { return std::hash<std::string>{}(this->ToString()); }
 
         std::string ToString() const { return _filename + "(" + std::to_string(_line) + "," + std::to_string(_column) + ")"; }
     };

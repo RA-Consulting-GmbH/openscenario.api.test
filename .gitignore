@@ -1,4 +1,5 @@
 /cpp/build/generateWindows/VS2017/*
+/cpp/build/generateWindows/VS2017_x64/*
 /cpp/build/output/*
 /cpp/build/generateLinux/gccLinuxRelease/*
 /cpp/build/generateLinux/gccLinuxDebug/*

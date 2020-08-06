@@ -40,9 +40,9 @@ namespace NET_ASAM_OPENSCENARIO
          * @param column start column of the element node
          * @param attributeNodes the attribute nodes of the element node.
          */
-        void PushElementNode(const int line, const int column, std::vector<AttributeNode> attributeNodes)
+        void PushElementNode(const size_t line, const size_t column, std::vector<AttributeNode> attributeNodes)
         {
-            auto node = std::make_shared<ElementNode>(line, column);
+            auto node = std::make_shared<ElementNode>(static_cast<int>(line), static_cast<int>(column));
             node->AddAttributes(attributeNodes);
             _dictionary.emplace(std::make_pair(_counter++, node));
             _stack.push(node);
@@ -52,10 +52,10 @@ namespace NET_ASAM_OPENSCENARIO
          * @param line end line of the element node
          * @param column end column of the element node
          */
-        void SetEndPosition(const int line, const int column)
+        void SetEndPosition(const size_t line, const size_t column)
         {
             auto node = _stack.top();
-            node->AddEndPosition(line, column);
+            node->AddEndPosition(static_cast<int>(line), static_cast<int>(column));
             _stack.pop();
         }
 

@@ -54,7 +54,7 @@ std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl> ExecuteImportPar
     return std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters));
 }
 
-std::string GetFilledString(const int length, const char charToFill) 
+std::string GetFilledString(const size_t length, const char charToFill) 
 {
     std::stringstream ss;
     ss << std::setfill(charToFill) << std::setw(length) << charToFill;
