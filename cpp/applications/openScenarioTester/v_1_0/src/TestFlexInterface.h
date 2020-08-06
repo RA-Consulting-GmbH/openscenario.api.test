@@ -23,12 +23,15 @@
 class TestFlexInterface : public TestBase
 {
 public:
+
+    TestFlexInterface(std::string& executablePath) : TestBase(executablePath) {}
+
     void TestExample()
     {
         auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLoggerDecorator>(_messageLogger);
 
         // Instantiating the factory
-        auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(kInputDir + "DoubleLaneChanger.xosc");
+        auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
 
         // Creating the loader
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());

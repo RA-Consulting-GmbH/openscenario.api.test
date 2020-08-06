@@ -45,15 +45,15 @@ int main(int argc, char** argv)
 #error "Operating system not supported."
 #endif
 
-    TestExamples testExamples;
-    TestRangeChecker testRangeChecker;
-    TestFiles testFiles;
-    TestImports testImports;
+    TestExamples testExamples(executablePath);
+    TestRangeChecker testRangeChecker(executablePath);
+    TestFiles testFiles(executablePath);
+    TestImports testImports(executablePath);
     TestReader testReader(executablePath);
-    TestSimpleDemos testSimpleDemos;
-    TestVersionChecker testVersionChecker;
-    TestFlexInterface testFlexInterface;
-    TestInjectedParameters testInjectedParameters;
+    TestSimpleDemos testSimpleDemos(executablePath);
+    TestVersionChecker testVersionChecker(executablePath);
+    TestFlexInterface testFlexInterface(executablePath);
+    TestInjectedParameters testInjectedParameters(executablePath);
 
     testExamples.TestExample();
     testRangeChecker.TestParamsFailure();

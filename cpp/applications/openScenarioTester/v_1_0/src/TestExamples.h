@@ -21,13 +21,16 @@
 class TestExamples: public TestBase 
 {
 public:
+
+    TestExamples(std::string& executablePath) : TestBase(executablePath) {}
+
     void TestExample() const
     {
         auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
         const auto kMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLoggerDecorator>(msgLogger);
 
         // Instantiating the factory
-        std::string fileName = kInputDir + "DoubleLaneChanger.xosc";
+        std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
         auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(fileName);
 
         // Creating the loader

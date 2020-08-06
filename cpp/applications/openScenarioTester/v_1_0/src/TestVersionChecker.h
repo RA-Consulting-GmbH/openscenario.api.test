@@ -33,11 +33,14 @@ private:
     }
 
 public:
+
+    TestVersionChecker(std::string& executablePath) : TestBase(executablePath) {}
+
     void TestSuccess() 
     {
         try 
         {
-            std::string filename = kInputDir + "DoubleLaneChanger.xosc";
+            std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
             auto openScenario = ExecuteParsing(filename);
             ApplyCheckerRules(openScenario, 0, 9);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;

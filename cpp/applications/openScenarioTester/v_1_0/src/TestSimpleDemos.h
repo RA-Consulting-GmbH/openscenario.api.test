@@ -29,6 +29,8 @@ class TestSimpleDemos : public TestBase
 
 public:
 
+    TestSimpleDemos(std::string& executablePath) : TestBase(executablePath) {}
+
     void TestSimpleDemo() const
     {
 
@@ -36,7 +38,7 @@ public:
         auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
         // Instantiating the factory
-        NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory loaderFactory(kInputDir + "DoubleLaneChanger.xosc");
+        NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory loaderFactory(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
 
         // Creating the loader with a file resource locator (we are reading directly from a file system)
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
@@ -64,7 +66,7 @@ public:
         auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
         // Instantiating the factory
-        NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioImportLoaderFactory loaderFactory(catalogMessageLogger, kInputDir + "simpleImport/simpleImport.xosc");
+        NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioImportLoaderFactory loaderFactory(catalogMessageLogger, _executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc");
 
         // Creating the loader with a file resource locator (we are reading directly from a file system)
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
@@ -113,7 +115,7 @@ public:
     {
         try 
         {
-            auto openScenario = ExecuteParsing(kInputDir + "DoubleLaneChanger.xosc");
+            auto openScenario = ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
 
             // the root of the tree is available in the IOpenScenario openScenario variable
             // Instantiate a checker now
@@ -148,7 +150,7 @@ public:
     {
         try 
         {
-            auto openScenario = ExecuteParsing(kInputDir + "DoubleLaneChanger.xosc");
+            auto openScenario = ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
 
             // the root of the tree is available in the IOpenScenario openScenario variable
 

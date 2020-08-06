@@ -42,6 +42,9 @@ private:
     }
 
 public:
+
+    TestImports(std::string& executablePath) : TestBase(executablePath) {}
+
     void TestImportSuccess() 
     {
     
@@ -50,7 +53,7 @@ public:
             // ReSharper disable once CppLocalVariableMayBeConst
             auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
             // ReSharper disable once CppLocalVariableMayBeConst
-            auto openScenario = ExecuteImportParsing(kInputDir + "simpleImport/simpleImport.xosc", catalogMessageLogger);
+            auto openScenario = ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc", catalogMessageLogger);
             // Ego parameterAssignement for maxSpeed
             auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
             assert(catalogReference != nullptr);
@@ -85,7 +88,7 @@ public:
             // ReSharper disable once CppLocalVariableMayBeConst
             auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
             // ReSharper disable once CppLocalVariableMayBeConst
-            auto openScenario = ExecuteImportParsing(kInputDir + "simpleImportWithParameters/importWithParameters.xosc", catalogMessageLogger);
+            auto openScenario = ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImportWithParameters/importWithParameters.xosc", catalogMessageLogger);
 
             // Ego parameterAssignement for maxSpeed
             auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");

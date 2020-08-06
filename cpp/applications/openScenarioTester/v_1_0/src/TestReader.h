@@ -31,25 +31,26 @@
 class TestReader : public TestBase
 {
 private:
-    std::string _executablePath;
+    
     const std::string kResultFileName = "result.txt";
 
-    static std::string GetCurrentDir() 
-    {
-        char buff[FILENAME_MAX];
-        GetCwd(buff, FILENAME_MAX);
-        std::string currentWorkingDir(buff);
-        return currentWorkingDir;
-    }
+    //static std::string GetCurrentDir() 
+    //{
+    //    char buff[FILENAME_MAX];
+    //    GetCwd(buff, FILENAME_MAX);
+    //    std::string currentWorkingDir(buff);
+    //    return currentWorkingDir;
+    //}
 
 public:
-    TestReader(std::string& executablePath): _executablePath(executablePath) {}
+
+    TestReader(std::string& executablePath): TestBase(executablePath) {}
 
     void TestImportSuccess() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
-        command += " -i " + GetCurrentDir() + "/" + kInputDir + "simpleImport/simpleImport.xosc";
-        command += " > "+ GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " -i " + _executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc";
+        command += " > "+ _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
     }
 
@@ -57,7 +58,7 @@ public:
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " "testFileNotFound";
-        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
         assert("Scenario file not found 'testFileNotFound'" == GetLine(kResultFileName, 4));
     }
@@ -65,8 +66,8 @@ public:
     void TestWithErrors() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
-        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerParamsError.xosc";
-        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerParamsError.xosc";
+        command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
         assert("Validation failed with 2 errors and 0 warnings." == GetLine(kResultFileName, 10));
     }
@@ -75,7 +76,7 @@ public:
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " Test ";
-        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
         assert("OpenScenarioChecker [option] [-p]" == GetLine(kResultFileName, 4));
     }
@@ -83,9 +84,9 @@ public:
     void TestWithParamFile() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
-        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
-        command += " -p " + GetCurrentDir() + "/" + kInputDir + "params.conf";
-        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -p " + _executablePath + "/" + kInputDir + "params.conf";
+        command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
         assert("\ttestBoolean\ttrue" == GetLine(kResultFileName, 5));
         assert("\ttestDateTime\t2018-02-24T10:00:00" == GetLine(kResultFileName, 6));
@@ -99,9 +100,9 @@ public:
     void TestWithParamFileSyntaxError() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
-        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
-        command += " -p " + GetCurrentDir() + "/" + kInputDir + "paramsSyntaxError.conf";
-        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -p " + _executablePath + "/" + kInputDir + "paramsSyntaxError.conf";
+        command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
         assert("Syntax error in parameter file: line 8" == GetLine(kResultFileName, 4));
     }
@@ -109,9 +110,9 @@ public:
     void TestWithParamFileSyntaxError2() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
-        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
-        command += " -p " + GetCurrentDir() + "/" + kInputDir + "paramsSyntaxError2.conf";
-        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -p " + _executablePath + "/" + kInputDir + "paramsSyntaxError2.conf";
+        command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
         assert("Syntax error in parameter file: line 5" == GetLine(kResultFileName, 4));
     }
@@ -119,9 +120,9 @@ public:
     void TestWithParamFileNotFound() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
-        command += " -i " + GetCurrentDir() + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+        command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
         command += " -p paramsNotFound.conf";
-        command += " > " + GetCurrentDir() + "/" + kInputDir + kResultFileName;
+        command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
         assert("paramsfile not found" == GetLine(kResultFileName, 4));
     }

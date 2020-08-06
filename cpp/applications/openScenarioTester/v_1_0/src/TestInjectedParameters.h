@@ -23,12 +23,15 @@
 class TestInjectedParameters : public TestBase
 {
 public:
+
+    TestInjectedParameters(std::string& executablePath) : TestBase(executablePath) {}
+
     void TestNullInjectedParameters()
     {
         try
         {
             const std::map<std::string, std::string> kEmptyMap;
-            (void)ExecuteParsing(kInputDir + "DoubleLaneChangerInjectedParams.xosc", kEmptyMap);
+            (void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", kEmptyMap);
         }
         catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
@@ -42,7 +45,7 @@ public:
         try
         {
             const std::map<std::string, std::string> kEmptyMap;
-            (void)ExecuteParsing(kInputDir + "DoubleLaneChangerInjectedParams.xosc", kEmptyMap);
+            (void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", kEmptyMap);
         }
         catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
@@ -65,7 +68,7 @@ public:
 
         try
         {
-            auto openScenario = ExecuteParsing(kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters);
+            auto openScenario = ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters);
 
             // testString
             assert("injected" == openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath());
@@ -109,7 +112,7 @@ public:
         try
         {
             _messageLogger->Clear();
-            std::string filename = kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+            std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc";
             (void) ExecuteParsing(filename, injectedParamters);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'testInteger': Cannot convert 'wrongInteger' to an int. Number format error. Injected parameter is ignored.",
@@ -141,7 +144,7 @@ public:
         try
         {
             _messageLogger->Clear();
-            std::string filename = kInputDir + "DoubleLaneChangerInjectedParams.xosc";
+            std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc";
             (void) ExecuteParsing(filename, injectedParamters);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
@@ -164,7 +167,7 @@ public:
         try
         {
             _messageLogger->Clear();
-            std::string filename = kInputDir + "DoubleLaneChanger.xosc";
+            std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChanger.xosc";
             (void) ExecuteParsing(filename, injectedParamters);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",

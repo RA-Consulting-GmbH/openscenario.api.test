@@ -31,11 +31,14 @@ private:
         scenarioChecker->CheckScenario(_messageLogger, openScenario);
     }
 public:
+
+    TestRangeChecker(std::string& executablePath) : TestBase(executablePath) {}
+
     void TestParamsFailure() 
     {
         try 
         {
-            std::string filename = kInputDir + "DoubleLaneChangerCheckerErrors.xosc";
+            std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCheckerErrors.xosc";
             auto openScenario = ExecuteParsing(filename);
             ApplyCheckerRules(openScenario);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;

@@ -36,16 +36,14 @@ class TestBase
 protected:
     std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger> _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
 
-#ifdef _WINDOWS
-    const std::string kInputDir = "../../../../../../applications/openScenarioReader/res/";
-#elif defined(__unix__) && defined(__linux__)
     const std::string kInputDir = "../../../../applications/openScenarioReader/res/";
-#else
-# error "CAN: Unknown OS"
-#endif
 
+    std::string _executablePath;
 
 public:
+
+    TestBase(std::string& executablePath) : _executablePath(executablePath) {}
+
     std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl> ExecuteParsing(std::string filename, std::map<std::string, std::string> injectedProperties) const
     {
         auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(filename);
@@ -111,7 +109,7 @@ protected:
 
     std::string GetLine(const std::string fileName, const int lineNum) const
     {
-        std::ifstream file(kInputDir + fileName);
+        std::ifstream file(_executablePath + "/" + kInputDir + fileName);
         std::string line;
 
         if (file.bad() || file.fail())
