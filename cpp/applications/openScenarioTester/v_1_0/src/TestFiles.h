@@ -17,8 +17,6 @@
 
 #pragma once
 #include "TestBase.h"
-#include <cassert>
-
 
 class TestFiles : public TestBase
 {
@@ -27,32 +25,35 @@ public:
 
     TestFiles(std::string& executablePath) : TestBase(executablePath) {}
 
-    void TestSimpleSuccess() const
+    bool TestSimpleSuccess() const
     {
         try 
         {
             (void) ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
+            return true;
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
             std::cout << e.what() << std::endl;
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestParamsSuccess() 
+    bool TestParamsSuccess() 
     {
         try 
         {
             (void) ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChangerParams.xosc");
-            assert(!HasErrors(_messageLogger));
+            return Assert(!HasErrors(_messageLogger), ASSERT_LOCATION);
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
             std::cout << e.what() << std::endl;
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestParamsFailure() 
+    bool TestParamsFailure() 
     {
         try 
         {
@@ -67,16 +68,17 @@ public:
                 "Cannot convert 'wrongDouble' to a double. Number format error.",
                 NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 39, kFilename)));
 
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
 
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
             std::cout << e.what() << std::endl;
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestUnvalidXml() 
+    bool TestUnvalidXml() 
     {
         try 
         {
@@ -87,16 +89,16 @@ public:
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "XML-Dokumentstrukturen müssen innerhalb derselben Entity beginnen und enden.",
                 NET_ASAM_OPENSCENARIO::FATAL, NET_ASAM_OPENSCENARIO::Textmarker(30, 3, kFilename)));
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::FATAL, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::FATAL, _messageLogger), ASSERT_LOCATION);
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
-            //Assertions.assertTrue( e.getCause() instanceof XMLParseException);
             std::cout << e.what() << std::endl;
+            return Assert(true, ASSERT_LOCATION);
         }
     }
 
-    void TestUnknownElement() 
+    bool TestUnknownElement() 
     {
         try 
         {
@@ -108,17 +110,16 @@ public:
                 "Unknown element 'ScenarioObject'", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(50, 4, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Unknown element 'Test'",
                 NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(76, 4, kFilename)));
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
-            //Assertions.assertTrue(e.getCause() instanceof XMLParseException);
             std::cout << e.what() << std::endl;
-
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestWrongAttributes() 
+    bool TestWrongAttributes() 
     {
         try 
         {
@@ -136,16 +137,17 @@ public:
                 "Cannot convert '-56' to an unsignedInteger. Value must be in [0..4294967295].", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(138, 23, kFilename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Cannot convert '-40' to an unsignedInteger. Value must be in [0..4294967295].", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(175, 69, kFilename)));
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
+
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
-            //Assertions.assertTrue(e.getCause() instanceof XMLParseException);
             std::cout << e.what() << std::endl;
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestWrongEndElement() 
+    bool TestWrongEndElement() 
     {
         try 
         {
@@ -155,16 +157,16 @@ public:
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
                 "Elementtyp \"PrivateActions\" muss mit dem entsprechenden Endtag \"</PrivateActions>\" beendet werden.", NET_ASAM_OPENSCENARIO::FATAL, NET_ASAM_OPENSCENARIO::Textmarker(73, 12, filename)));
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::FATAL, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::FATAL, _messageLogger), ASSERT_LOCATION);
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
-            //Assertions.assertTrue(e.getCause() instanceof XMLParseException);
             std::cout << e.what() << std::endl;
+            return Assert(true, ASSERT_LOCATION);
         }
     }
 
-    void TestCustomCommandAction() 
+    bool TestCustomCommandAction() 
     {
         try 
         {
@@ -172,29 +174,30 @@ public:
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCustomCommandAction.xosc";
             auto openScenarioImpl = ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
+            auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
             const auto kContent = openScenarioImpl->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetInit()->GetActions()->GetUserDefinedActions()[0]->GetCustomCommandAction()->GetContent();
-            assert("\n				This is text defined  Inhalt" == kContent);
+            res = res && Assert("\n				This is text defined  Inhalt" == kContent, ASSERT_LOCATION);
+            return res;
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException e)
         {
-            //Assertions.assertTrue(e.getCause() instanceof XMLParseException);
             std::cout << e.what() << std::endl;
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestFileNotFound() const
+    bool TestFileNotFound() const
     {
         try 
         {
             const std::string kFilename = _executablePath + "/" + kInputDir + "FileNotFound.xosc";
             (void) ExecuteParsing(kFilename);
-
+            return true;
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
-            //Assertions.assertTrue(e.getCause() instanceof FileNotFoundException);
             std::cout << e.what() << std::endl;
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 };

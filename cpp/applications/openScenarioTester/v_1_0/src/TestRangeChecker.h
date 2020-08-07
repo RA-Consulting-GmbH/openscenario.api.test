@@ -18,7 +18,6 @@
 #pragma once
 #include "TestBase.h"
 #include "RangeCheckerHelper.h"
-#include <cassert>
 #include "ScenarioCheckerImpl.h"
 
 class TestRangeChecker : public TestBase
@@ -34,7 +33,7 @@ public:
 
     TestRangeChecker(std::string& executablePath) : TestBase(executablePath) {}
 
-    void TestParamsFailure() 
+    bool TestParamsFailure() 
     {
         try 
         {
@@ -66,13 +65,14 @@ public:
                 "Range error: Rule (positionX>=0) is violated (value: -2.000000)",
                 NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(60, 91, filename)));
 
-
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
 
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
             std::cout << e.what();
+            return Assert(false, ASSERT_LOCATION);
         }
+
     }
 };

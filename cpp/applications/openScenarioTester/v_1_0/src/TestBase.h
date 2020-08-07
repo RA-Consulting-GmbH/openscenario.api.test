@@ -30,6 +30,8 @@
 
 #undef ERROR
 
+#define ASSERT_LOCATION __FILE__, __func__, __LINE__
+
 class TestBase 
 {
 
@@ -70,6 +72,13 @@ public:
         _messageLogger->Clear();
     }
 
+    static bool Assert(const bool condition, const std::string fileName, const std::string function, const int lineNumber)
+    {
+        if (!condition)
+            std::cout << "Assert failed in file " << fileName << " at line " << lineNumber << " " << function << std::endl;
+        return condition;
+    }
+
 protected:
     static bool HasErrors(std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger>& messageLogger)
     {
@@ -83,8 +92,8 @@ protected:
         return false;
     }
 
-     bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger>& logger) const
-     {
+    bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger>& logger) const
+    {
         const auto kFilterByErrorLevelMessages = FilterByErrorLevel(messages, errorLevel);
         const auto kFilterByErrorLevelLogger = FilterByErrorLevel(logger->GetMessages(), errorLevel);
         return kFilterByErrorLevelMessages == kFilterByErrorLevelLogger && kFilterByErrorLevelMessages.size() == kFilterByErrorLevelLogger.size();

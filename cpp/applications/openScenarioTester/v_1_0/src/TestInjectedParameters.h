@@ -17,7 +17,6 @@
 
 #pragma once
 #include "TestBase.h"
-#include <cassert>
 #include "XmlScenarioLoaderFactory.h"
 
 class TestInjectedParameters : public TestBase
@@ -26,36 +25,38 @@ public:
 
     TestInjectedParameters(std::string& executablePath) : TestBase(executablePath) {}
 
-    void TestNullInjectedParameters()
+    bool TestNullInjectedParameters() const
     {
         try
         {
             const std::map<std::string, std::string> kEmptyMap;
             (void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", kEmptyMap);
+            return true;
         }
         catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestEmptyInjectedParameters()
+    bool TestEmptyInjectedParameters() const
     {
         try
         {
             const std::map<std::string, std::string> kEmptyMap;
             (void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", kEmptyMap);
+            return true;
         }
         catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
 
-    void TestInjectionsForSuccess()
+    bool TestInjectionsForSuccess()
     {
         std::map<std::string, std::string> injectedParamters;
         injectedParamters.emplace("testBoolean", "true");
@@ -71,35 +72,38 @@ public:
             auto openScenario = ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters);
 
             // testString
-            assert("injected" == openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath());
+            auto res = Assert("injected" == openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath(), ASSERT_LOCATION);
+
             // testUnsignedInt
             auto eventPtr = GetEvent(openScenario);
-            assert(2 == eventPtr->GetMaximumExecutionCount());
+            res = res && Assert(2 == eventPtr->GetMaximumExecutionCount(), ASSERT_LOCATION);
 
             // testInteger
-            assert(2 == GetLaneChangeAction(eventPtr)->GetLaneChangeTarget()->GetRelativeTargetLane()->GetValue());
+            res = res && Assert(2 == GetLaneChangeAction(eventPtr)->GetLaneChangeTarget()->GetRelativeTargetLane()->GetValue(), ASSERT_LOCATION);
 
             // testDateTime
             auto date = eventPtr->GetStartTrigger()->GetConditionGroups()[0]->GetConditions()[0]->GetByValueCondition()->GetTimeOfDayCondition()->GetDateTime();
-            assert("2018-02-24T10:00:00" == NET_ASAM_OPENSCENARIO::DateTimeParser::ToString(date));
+            res = res && Assert("2018-02-24T10:00:00" == NET_ASAM_OPENSCENARIO::DateTimeParser::ToString(date), ASSERT_LOCATION);
 
             // testDouble
-            assert(2 == GetLaneChangeAction(eventPtr)->GetLaneChangeActionDynamics()->GetValue());
+            res = res && Assert(2 == GetLaneChangeAction(eventPtr)->GetLaneChangeActionDynamics()->GetValue(), ASSERT_LOCATION);
 
             // testBoolean
-            assert(openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetActors()->GetSelectTriggeringEntities());
+            res = res && Assert(openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetActors()->GetSelectTriggeringEntities(), ASSERT_LOCATION);
 
             // testUnsignedShort
             // cannot be tested because data structures are above the Parameter definitions
+
+            return res;
         }
         catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestWrongFormats()
+    bool TestWrongFormats()
     {
         std::map<std::string, std::string> injectedParamters;
         injectedParamters.emplace("testBoolean", "wrongBoolean");
@@ -127,16 +131,16 @@ public:
                             NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(20, 2, filename)));
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'testBoolean': Cannot convert 'wrongBoolean' to a boolean. Illegal boolean value. Injected parameter is ignored.",
                             NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(20, 2, filename)));
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, _messageLogger), ASSERT_LOCATION);
         }
         catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestNotDefined()
+    bool TestNotDefined()
     {
         std::map<std::string, std::string> injectedParamters;
         injectedParamters.emplace("notDefined", "wrongBoolean");
@@ -149,17 +153,16 @@ public:
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
                             NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, NET_ASAM_OPENSCENARIO::Textmarker(20, 2, filename)));
-
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger), ASSERT_LOCATION);
         }
         catch(NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestNotDefinedWithNoGlobalParameters()
+    bool TestNotDefinedWithNoGlobalParameters()
     {
         std::map<std::string, std::string> injectedParamters;
         injectedParamters.emplace("notDefined", "wrongBoolean");
@@ -172,12 +175,12 @@ public:
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
                             NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, NET_ASAM_OPENSCENARIO::Textmarker(21, 2, filename)));
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger));
+            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger), ASSERT_LOCATION);
         }
         catch(NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 

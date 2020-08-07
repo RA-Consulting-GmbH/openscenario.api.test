@@ -24,7 +24,7 @@ public:
 
     TestExamples(std::string& executablePath) : TestBase(executablePath) {}
 
-    void TestExample() const
+    bool TestExample() const
     {
         auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
         const auto kMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLoggerDecorator>(msgLogger);
@@ -49,7 +49,7 @@ public:
         }
 
         if (!openScenario)
-            return;
+            return Assert(false, ASSERT_LOCATION);
 
         auto openScenarioCategory = openScenario->GetOpenScenarioCategory();
 
@@ -112,5 +112,7 @@ public:
             // e.g. display the error 
             std::cout << message.GetMsg() << std::endl;
         }
+
+        return true;
     }
 };

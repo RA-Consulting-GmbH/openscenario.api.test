@@ -18,7 +18,6 @@
 #pragma once
 #include "TestBase.h"
 #include "RangeCheckerHelper.h"
-#include <cassert>
 #include "ScenarioCheckerImpl.h"
 #include "VersionCheckerRule.h"
 
@@ -36,7 +35,7 @@ public:
 
     TestVersionChecker(std::string& executablePath) : TestBase(executablePath) {}
 
-    void TestSuccess() 
+    bool TestSuccess() 
     {
         try 
         {
@@ -44,20 +43,21 @@ public:
             auto openScenario = ExecuteParsing(filename);
             ApplyCheckerRules(openScenario, 0, 9);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger));
+            auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger), ASSERT_LOCATION);
             ApplyCheckerRules(openScenario, 1, 0);
             auto msg = NET_ASAM_OPENSCENARIO::FileContentMessage("Major revision and minor revision are expected to be 1 and 0",
                                                             NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING,
                                                                     NET_ASAM_OPENSCENARIO::Textmarker(20, 2, filename));
             messages.push_back(msg);
 
-            assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger));
+            res = res && Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger), ASSERT_LOCATION);
+            return res;
 
         }
         catch ( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e) 
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 };

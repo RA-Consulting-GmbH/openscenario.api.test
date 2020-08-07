@@ -55,45 +55,50 @@ int main(int argc, char** argv)
     TestFlexInterface testFlexInterface(executablePath);
     TestInjectedParameters testInjectedParameters(executablePath);
 
-    testExamples.TestExample();
-    testRangeChecker.TestParamsFailure();
+    auto res = testExamples.TestExample();
 
-    testFiles.TestSimpleSuccess();
-    testFiles.TestParamsSuccess();
-    testFiles.TestParamsFailure();
-    testFiles.TestUnvalidXml();
-    testFiles.TestUnknownElement();
-    testFiles.TestWrongAttributes();
-    testFiles.TestWrongEndElement();
-    testFiles.TestCustomCommandAction();
-    testFiles.TestFileNotFound();
+    res = res && testRangeChecker.TestParamsFailure();
 
-    testImports.TestImportSuccess();
-    testImports.TestImportWithParametersSuccess();
+    res = res && testFiles.TestSimpleSuccess();
+    res = res && testFiles.TestParamsSuccess();
+    res = res && testFiles.TestParamsFailure();
+    res = res && testFiles.TestUnvalidXml();
+    res = res && testFiles.TestUnknownElement();
+    res = res && testFiles.TestWrongAttributes();
+    res = res && testFiles.TestWrongEndElement();
+    res = res && testFiles.TestCustomCommandAction();
+    res = res && testFiles.TestFileNotFound();
 
-    testReader.TestImportSuccess();
-    testReader.TestFileNotFound();
-    testReader.TestWithErrors();
-    testReader.TestWrongCommandLine();
-    testReader.TestWithParamFile();
-    testReader.TestWithParamFileSyntaxError();
-    testReader.TestWithParamFileSyntaxError2();
-    testReader.TestWithParamFileNotFound();
+    res = res && testImports.TestImportSuccess();
+    res = res && testImports.TestImportWithParametersSuccess();
 
-    testSimpleDemos.TestSimpleDemo();
-    testSimpleDemos.TestImportDemo();
-    testSimpleDemos.TestCheckerRuleDemo();
-    testSimpleDemos.TestCheckerRuleEgoDemo();
+    res = res && testReader.TestImportSuccess();
+    res = res && testReader.TestFileNotFound();
+    res = res && testReader.TestWithErrors();
+    res = res && testReader.TestWrongCommandLine();
+    res = res && testReader.TestWithParamFile();
+    res = res && testReader.TestWithParamFileSyntaxError();
+    res = res && testReader.TestWithParamFileSyntaxError2();
+    res = res && testReader.TestWithParamFileNotFound();
 
-    testVersionChecker.TestSuccess();
+    res = res && testSimpleDemos.TestSimpleDemo();
+    res = res && testSimpleDemos.TestImportDemo();
+    res = res && testSimpleDemos.TestCheckerRuleDemo();
+    res = res && testSimpleDemos.TestCheckerRuleEgoDemo();
 
-    testFlexInterface.TestExample();
+    res = res && testVersionChecker.TestSuccess();
 
-    testInjectedParameters.TestNullInjectedParameters();
-    testInjectedParameters.TestEmptyInjectedParameters();
-    testInjectedParameters.TestInjectionsForSuccess();
-    testInjectedParameters.TestWrongFormats();
-    testInjectedParameters.TestNotDefined();
-    testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
+    res = res && testFlexInterface.TestExample();
 
+    res = res && testInjectedParameters.TestNullInjectedParameters();
+    res = res && testInjectedParameters.TestEmptyInjectedParameters();
+    res = res && testInjectedParameters.TestInjectionsForSuccess();
+    res = res && testInjectedParameters.TestWrongFormats();
+    res = res && testInjectedParameters.TestNotDefined();
+    res = res && testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
+
+    if (res)
+        return 0;
+
+    return -1;
 }

@@ -18,113 +18,97 @@
 #pragma once
 #include "TestBase.h"
 
-#ifdef WIN32
-#include <direct.h>
-#define GetCwd _getcwd
-#elif defined __linux__
-#include <unistd.h>
-#define GetCwd getcwd
-#else
-#error "Operating system not supported."
-#endif
-
 class TestReader : public TestBase
 {
 private:
     
     const std::string kResultFileName = "result.txt";
 
-    //static std::string GetCurrentDir() 
-    //{
-    //    char buff[FILENAME_MAX];
-    //    GetCwd(buff, FILENAME_MAX);
-    //    std::string currentWorkingDir(buff);
-    //    return currentWorkingDir;
-    //}
-
 public:
 
     TestReader(std::string& executablePath): TestBase(executablePath) {}
 
-    void TestImportSuccess() const
+    bool TestImportSuccess() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " + _executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc";
         command += " > "+ _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
+        return true;
     }
 
-    void TestFileNotFound() const
+    bool TestFileNotFound() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " "testFileNotFound";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
-        assert("Scenario file not found 'testFileNotFound'" == GetLine(kResultFileName, 4));
+        return Assert("Scenario file not found 'testFileNotFound'" == GetLine(kResultFileName, 4), ASSERT_LOCATION);
     }
 
-    void TestWithErrors() const
+    bool TestWithErrors() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerParamsError.xosc";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
-        assert("Validation failed with 2 errors and 0 warnings." == GetLine(kResultFileName, 10));
+        return Assert("Validation failed with 2 errors and 0 warnings." == GetLine(kResultFileName, 10), ASSERT_LOCATION);
     }
 
-    void TestWrongCommandLine() const
+    bool TestWrongCommandLine() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " Test ";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
-        assert("OpenScenarioChecker [option] [-p]" == GetLine(kResultFileName, 4));
+        return Assert("OpenScenarioChecker [option] [-p]" == GetLine(kResultFileName, 4), ASSERT_LOCATION);
     }
 
-    void TestWithParamFile() const
+    bool TestWithParamFile() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
         command += " -p " + _executablePath + "/" + kInputDir + "params.conf";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
-        assert("\ttestBoolean\ttrue" == GetLine(kResultFileName, 5));
-        assert("\ttestDateTime\t2018-02-24T10:00:00" == GetLine(kResultFileName, 6));
-        assert("\ttestDouble\t2.0" == GetLine(kResultFileName, 7));
-        assert("\ttestInteger\t2" == GetLine(kResultFileName, 8));
-        assert("\ttestString\tinjected" == GetLine(kResultFileName, 9));
-        assert("\ttestUnsignedInt\t2" == GetLine(kResultFileName, 10));
-        assert("\ttestUnsignedShort\t2" == GetLine(kResultFileName, 11));
+        auto res = Assert("\ttestBoolean\ttrue" == GetLine(kResultFileName, 5), ASSERT_LOCATION);
+        res = res && Assert("\ttestDateTime\t2018-02-24T10:00:00" == GetLine(kResultFileName, 6), ASSERT_LOCATION);
+        res = res && Assert("\ttestDouble\t2.0" == GetLine(kResultFileName, 7), ASSERT_LOCATION);
+        res = res && Assert("\ttestInteger\t2" == GetLine(kResultFileName, 8), ASSERT_LOCATION);
+        res = res && Assert("\ttestString\tinjected" == GetLine(kResultFileName, 9), ASSERT_LOCATION);
+        res = res && Assert("\ttestUnsignedInt\t2" == GetLine(kResultFileName, 10), ASSERT_LOCATION);
+        res = res && Assert("\ttestUnsignedShort\t2" == GetLine(kResultFileName, 11), ASSERT_LOCATION);
+        return res;
     }
 
-    void TestWithParamFileSyntaxError() const
+    bool TestWithParamFileSyntaxError() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
         command += " -p " + _executablePath + "/" + kInputDir + "paramsSyntaxError.conf";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
-        assert("Syntax error in parameter file: line 8" == GetLine(kResultFileName, 4));
+        return Assert("Syntax error in parameter file: line 8" == GetLine(kResultFileName, 4), ASSERT_LOCATION);
     }
 
-    void TestWithParamFileSyntaxError2() const
+    bool TestWithParamFileSyntaxError2() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
         command += " -p " + _executablePath + "/" + kInputDir + "paramsSyntaxError2.conf";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
-        assert("Syntax error in parameter file: line 5" == GetLine(kResultFileName, 4));
+        return Assert("Syntax error in parameter file: line 5" == GetLine(kResultFileName, 4), ASSERT_LOCATION);
     }
 
-    void TestWithParamFileNotFound() const
+    bool TestWithParamFileNotFound() const
     {
         std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
         command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams.xosc";
         command += " -p paramsNotFound.conf";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         system(command.c_str());
-        assert("paramsfile not found" == GetLine(kResultFileName, 4));
+        return Assert("paramsfile not found" == GetLine(kResultFileName, 4), ASSERT_LOCATION);
     }
 
 };

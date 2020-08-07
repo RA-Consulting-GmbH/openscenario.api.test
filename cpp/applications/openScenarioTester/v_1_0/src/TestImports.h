@@ -17,7 +17,6 @@
 
 #pragma once
 #include "TestBase.h"
-#include <cassert>
 #include "CatalogHelper.h"
 
 
@@ -45,7 +44,7 @@ public:
 
     TestImports(std::string& executablePath) : TestBase(executablePath) {}
 
-    void TestImportSuccess() 
+    bool TestImportSuccess() 
     {
     
         try 
@@ -56,32 +55,34 @@ public:
             auto openScenario = ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc", catalogMessageLogger);
             // Ego parameterAssignement for maxSpeed
             auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
-            assert(catalogReference != nullptr);
-            assert(catalogReference->GetRef() != nullptr);
+            auto res = Assert(catalogReference != nullptr, ASSERT_LOCATION);
+            res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
             auto ref = catalogReference->GetRef();
             auto vehicleImportEgo = NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::AsVehicle(ref);
-            assert(vehicleImportEgo != nullptr);
-            assert(vehicleImportEgo->GetPerformance()->GetMaxSpeed() == 69.0);
+            res = res && Assert(vehicleImportEgo != nullptr, ASSERT_LOCATION);
+            res = res && Assert(vehicleImportEgo->GetPerformance()->GetMaxSpeed() == 69.0, ASSERT_LOCATION);
 
             catalogReference = GetVehicleImport(openScenario, "OverTaker", "car_red");
-            assert(catalogReference != nullptr);
-            assert(catalogReference->GetRef() != nullptr);
+            res = res && Assert(catalogReference != nullptr, ASSERT_LOCATION);
+            res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
             ref = catalogReference->GetRef();
             auto vehicleImportOvertaker = NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::AsVehicle(ref);
-            assert(vehicleImportOvertaker != nullptr);
-            assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 70.0);
-            assert(vehicleImportOvertaker != vehicleImportEgo);
+            res = res && Assert(vehicleImportOvertaker != nullptr, ASSERT_LOCATION);
+            res = res && Assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 70.0, ASSERT_LOCATION);
+            res = res && Assert(vehicleImportOvertaker != vehicleImportEgo, ASSERT_LOCATION);
 
-            assert(!HasErrors(_messageLogger));
+            res = res && Assert(!HasErrors(_messageLogger), ASSERT_LOCATION);
+            return res;
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
             std::cout << e.what();
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
 
-    void TestImportWithParametersSuccess() 
+    bool TestImportWithParametersSuccess() 
     {
         try 
         {
@@ -92,37 +93,40 @@ public:
 
             // Ego parameterAssignement for maxSpeed
             auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
-            assert(catalogReference != nullptr);
-            assert(catalogReference->GetRef() != nullptr);
+            auto res = Assert(catalogReference != nullptr, ASSERT_LOCATION);
+            res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
             auto ref = catalogReference->GetRef();
             auto vehicleImportEgo = NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::AsVehicle(ref);
-            assert(vehicleImportEgo != nullptr);
-            assert(vehicleImportEgo->GetPerformance()->GetMaxSpeed() == 70.0);
+            res = res && Assert(vehicleImportEgo != nullptr, ASSERT_LOCATION);
+            res = res && Assert(vehicleImportEgo->GetPerformance()->GetMaxSpeed() == 70.0, ASSERT_LOCATION);
 
             // Overtaker: Same import, different ParamterAssignements for maxSpeed
             catalogReference = GetVehicleImport(openScenario, "OverTaker", "car_white");
-            assert(catalogReference != nullptr);
-            assert(catalogReference->GetRef() != nullptr);
+            res = res && Assert(catalogReference != nullptr, ASSERT_LOCATION);
+            res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
             ref = catalogReference->GetRef();
             auto vehicleImportOvertaker = NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::AsVehicle(ref);
-            assert(vehicleImportOvertaker != nullptr);
-            assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 31.0);
-            assert(vehicleImportOvertaker != vehicleImportEgo);
+            res = res && Assert(vehicleImportOvertaker != nullptr, ASSERT_LOCATION);
+            res = res && Assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 31.0, ASSERT_LOCATION);
+            res = res && Assert(vehicleImportOvertaker != vehicleImportEgo, ASSERT_LOCATION);
 
             // ThirdEntity: No ParameterAssignements => Default Value for maxSpeed
             catalogReference = GetVehicleImport(openScenario, "ThirdEntity", "car_white");
-            assert(catalogReference != nullptr);
-            assert(catalogReference->GetRef() != nullptr);
+            res = res && Assert(catalogReference != nullptr, ASSERT_LOCATION);
+            res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
             ref = catalogReference->GetRef();
             auto vehicleImportThirdVehicle = NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::AsVehicle(ref);
-            assert(vehicleImportThirdVehicle != nullptr);
-            assert(vehicleImportThirdVehicle->GetPerformance()->GetMaxSpeed() == 60.0);
+            res = res && Assert(vehicleImportThirdVehicle != nullptr, ASSERT_LOCATION);
+            res = res && Assert(vehicleImportThirdVehicle->GetPerformance()->GetMaxSpeed() == 60.0, ASSERT_LOCATION);
 
-            assert(!HasErrors(_messageLogger));
+            res = res && Assert(!HasErrors(_messageLogger), ASSERT_LOCATION);
+
+            return res;
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
             std::cout << e.what();
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 

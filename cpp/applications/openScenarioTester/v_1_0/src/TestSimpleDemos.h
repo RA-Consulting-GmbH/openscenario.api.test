@@ -21,7 +21,6 @@
 #include "CatalogHelper.h"
 #include "VersionCheckerRule.h"
 #include "EgoCheckerRule.h"
-#include <cassert>
 #include "ScenarioCheckerImpl.h"
 
 class TestSimpleDemos : public TestBase
@@ -31,7 +30,7 @@ public:
 
     TestSimpleDemos(std::string& executablePath) : TestBase(executablePath) {}
 
-    void TestSimpleDemo() const
+    bool TestSimpleDemo() const
     {
 
         // Creating a message Logger to pick up the messages
@@ -54,9 +53,11 @@ public:
             std::cout << "Major Revision :" << fileHeader->GetRevMajor() << std::endl;
             std::cout << "Minor Revision :" << fileHeader->GetRevMinor() << std::endl;
         }
+
+        return true;
     }
 
-    void TestImportDemo() const
+    bool TestImportDemo() const
     {
 
         // Creating a message Logger to pick up the messages
@@ -109,9 +110,11 @@ public:
                 }
             }
         }
+
+        return true;
     }
 
-    void TestCheckerRuleDemo() const
+    bool TestCheckerRuleDemo() const
     {
         try 
         {
@@ -137,16 +140,17 @@ public:
                 (void)message;
                 // do somethong with the messaged that are picked up during the check
             }
+            return true;
 
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e) 
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 
-    void TestCheckerRuleEgoDemo() const
+    bool TestCheckerRuleEgoDemo() const
     {
         try 
         {
@@ -174,11 +178,12 @@ public:
                 // do somethong with the messaged that are picked up during the check
             }
 
+            return true;
         }
         catch ( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e) 
         {
             (void)e;
-            assert(false);
+            return Assert(false, ASSERT_LOCATION);
         }
     }
 };
