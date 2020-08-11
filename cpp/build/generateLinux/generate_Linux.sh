@@ -33,4 +33,4 @@ if [ $MAKE != "yes" ]
     then
         exit 0
 fi
-make -j4
+make -j8
