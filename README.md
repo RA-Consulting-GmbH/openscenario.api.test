@@ -3,7 +3,7 @@
 ## Abstract
 * Extensive library for reading and checking scenarios.
 * Fully compliant to [OpenSCENARIO 1.0.](https://www.asam.net/standards/detail/openscenario/)
-* Includes an executable checker (See [Getting Started](https://github.com/ahege/openscenario.api.test/wiki/Getting-started)).
+* Includes an executable checker (See [Getting Started](https://github.com/ra-consulting-gmbh/openscenario.api.test/wiki/Getting-started)).
 * Implementation platforms JAVA (C++ in progress).
 
 ## Features
@@ -53,9 +53,5 @@ Three packages are built in the `target` folder.
 | de.rac.openscenario.v1_0.reader-X.Y.Z.jar | A package that includes the compiled source code |
 | de.rac.openscenario.v1_0.reader-X.Y.Z-jar-with-dependencies.jar | A package that includes the compiled source code with any dependency embedded. |
 | de.rac.openscenario.v1_0.reader-X.Y.Z-javadoc.jar | The javadoc documentation|
-
-
-
-
 
 
