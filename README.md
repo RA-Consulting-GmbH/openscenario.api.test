@@ -57,7 +57,7 @@ Three packages are built in the `target` folder.
 
 ## C++
 **Note:**
-The Linux and Windows (post) build steps are still under development and work in progress!
+The Linux and Windows (post) build steps are still under development and work in progress!  Post build step for Windows is not yet implemented.
 
 ### Linux and Windows
 * Clone the master branch (the `cpp` path from this project).
