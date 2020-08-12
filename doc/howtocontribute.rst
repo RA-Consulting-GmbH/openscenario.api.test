@@ -102,7 +102,7 @@ find with the project on `github <https://github.com/ra-consulting-gmbh/openscen
 Always make sure to search the existing issues before reporting a new one.
 Issues may be created to discuss:
 
-- `Feature <issues/new?assignees=&labels=feature&template=feature_request.md&title=>`_
+- `Feature </issues/new?assignees=&labels=feature&template=feature_request.md&title=>`_
 - `Bugs <https://github.com/ra-consulting-gmbh/openscenario.api.test/issues/new?assignees=&labels=bug&template=bug_report.md&title=>`_
 - `Questions <https://github.com/ra-consulting-gmbh/openscenario.api.test/issues/new?assignees=&labels=question&template=question.md&title=>`_
 - `Other <https://github.com/ra-consulting-gmbh/openscenario.api.test/issues/new>`_
