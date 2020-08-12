@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright 2020 by ASAM e.V.
+ *
+ * ASAM licenses this file under the Apache License, 
+ * Version 2.0 (the "License"); you may not use this file except 
+ * in compliance with the License. 
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *-->
+ <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./../OpenSCENARIO.xsd">
+  <FileHeader revMajor="0" revMinor="9" date="2018-11-08T17:00:00" description="Added" author="Erik Gunnarsson"/>
+  <Catalog name="VehicleCatalog">
+    <Vehicle name="car_white" vehicleCategory="car">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.9"/>
+        <Dimensions width="2.0" length="5.0" height="1.8"/>
+      </BoundingBox>
+       <ParameterDeclarations>
+    	<ParameterDeclaration name="$maxSpeed" value="60" parameterType="double"/>
+    </ParameterDeclarations>
+   
+      <Performance maxSpeed="$maxSpeed" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="model_id" value="0"/>
+        <File filepath="car_white.osgb"/>
+      </Properties>
+    </Vehicle>
+    <Vehicle name="car_white_external" vehicleCategory="car">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.9"/>
+        <Dimensions width="2.0" length="5.0" height="1.8"/>
+      </BoundingBox>
+      <Performance maxSpeed="69" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="control" value="external"/>
+        <Property name="model_id" value="0"/>
+        <File filepath="car_white.osgb"/>
+      </Properties>
+    </Vehicle>
+    <Vehicle name="car_blue" vehicleCategory="car">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.9"/>
+        <Dimensions width="2.0" length="5.0" height="1.8"/>
+      </BoundingBox>
+      <Performance maxSpeed="69" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="model_id" value="1"/>
+        <File filepath="car_blue.osgb"/>
+      </Properties>
+    </Vehicle>
+    <Vehicle name="car_red" vehicleCategory="car">
+      <BoundingBox>
+        <Center x="1.3" y="0.0" z="0.8"/>
+        <Dimensions width="1.8" length="4.5" height="1.5"/>
+      </BoundingBox>
+      <Performance maxSpeed="70" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="model_id" value="2"/>
+        <File filepath="car_red.osgb"/>
+      </Properties>
+    </Vehicle>
+    <Vehicle name="car_yellow" vehicleCategory="car">
+      <BoundingBox>
+        <Center x="1.3" y="0.0" z="0.8"/>
+        <Dimensions width="1.8" length="4.5" height="1.5"/>
+      </BoundingBox>
+      <Performance maxSpeed="70" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="model_id" value="3"/>
+        <File filepath="car_yellow.osgb"/>
+      </Properties>
+    </Vehicle>
+    <Vehicle name="truck_yellow" vehicleCategory="truck">
+      <BoundingBox>
+        <Center x="1.3" y="0.0" z="0.8"/>
+        <Dimensions width="1.8" length="4.5" height="1.5"/>
+      </BoundingBox>
+      <Performance maxSpeed="70" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="model_id" value="4"/>
+        <File filepath="truck_yellow.osgb"/>
+      </Properties>
+    </Vehicle>
+    <Vehicle name="van_red" vehicleCategory="truck">
+      <BoundingBox>
+        <Center x="1.3" y="0.0" z="0.8"/>
+        <Dimensions width="1.8" length="4.5" height="1.5"/>
+      </BoundingBox>
+      <Performance maxSpeed="70" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="model_id" value="5"/>
+        <File filepath="van_red.osgb"/>
+      </Properties>
+    </Vehicle>
+    <Vehicle name="bus_blue" vehicleCategory="bus">
+      <BoundingBox>
+        <Center x="1.3" y="0.0" z="0.8"/>
+        <Dimensions width="1.8" length="4.5" height="1.5"/>
+      </BoundingBox>
+      <Performance maxSpeed="70" maxAcceleration="20" maxDeceleration="30"/>
+      <Axles>
+        <FrontAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="30" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+      </Axles>
+      <Properties>
+        <Property name="model_id" value="6"/>
+        <File filepath="bus_blue.osgb"/>
+      </Properties>
+    </Vehicle>
+  </Catalog>
+</OpenSCENARIO>
