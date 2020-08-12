@@ -55,3 +55,32 @@ Three packages are built in the `target` folder.
 | de.rac.openscenario.v1_0.reader-X.Y.Z-javadoc.jar | The javadoc documentation|
 
 
+## C++
+**Note:**
+The Linux and Windows (post) build steps are still under development and work in progress!  Post build step for Windows is not yet implemented.
+
+### Linux and Windows
+* Clone the master branch (the `cpp` path from this project).
+* Make sure you have `cmake` installed.
+
+### Linux
+* Install `uuid-dev`:
+```bash
+$ sudo apt install uuid-dev
+```
+* Change your current directory to `cpp/build/generateLinux` and execute:
+```bash
+$ ./generateLinux.sh Release make
+```
+* The general call to the script above is `./generateLinux.sh [Release|Debug] [make]`.
+* To create a package containing all necessary include files and binaries (libraries) execute the bash script below. A file named `openSCENARIO_<date>.tgz` will be created.
+```bash
+$ ./createLinuxBinPackage.sh
+```
+
+### Windows
+* Make sure you have Visual Studio 2015 or 2017 installed.
+* Open a file explorer and navigate to your `openSCENARIO` folder and there to `cpp/build/generateWindows`.
+* Execute `generate_vs20[15|17]_x64].bat` according to your Visual Studio installation and a Visual Studio solution in the folder `VS20[15|17][_x64]` will be created.
+* Inside that folder open the solution `OpenScenario-Cpp.sln` and build the project.
+* The created binaries are then located in the folder `cpp/build/output/[Win32|x64]`.
