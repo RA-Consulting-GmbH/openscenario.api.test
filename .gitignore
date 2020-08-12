@@ -8,3 +8,8 @@ cpp/CMakeLists.txt.user
 build/*
 
 /cpp/applications/openScenarioReader/res/result.txt
+RabbitVCSwithGitHub/*
+/cpp/applications/openScenarioTester/v_1_0/src/openScenarioAPI/*
+cpp/applications/openScenarioTester/v_1_0/src/findHeaders.sh
+cpp/dirs_all.txt
+cpp/build/generateLinux/openSCENARIO_2020.08.11.tgz
