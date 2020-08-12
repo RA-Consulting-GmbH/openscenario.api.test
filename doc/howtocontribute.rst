@@ -115,7 +115,7 @@ First steps
 
 First, make up your mind to which programming platform (Java, C++) you wanna contribute.
 
-See the `README.md <README.md>`_ page for bulding instructions.
+See the `README.md <https://github.com/ra-consulting-gmbh/openscenario.api.test/blob/master/README.md>`_ page for bulding instructions.
 
 For contribution you also need be proficient in Git. You can download and read the book Pro Git by Scott Chacon and Ben Straub `here <https://link.springer.com/book/10.1007%2F978-1-4842-0076-6>`_ for free.
 Learn `how to fork a repository <https://help.github.com/en/articles/fork-a-repo>`_ and follow the suggested `fork workflow <https://www.atlassian.com/git/tutorials/comparing-workflows>`_ by Atlassian.
