@@ -10,6 +10,9 @@ if [ ! -d "${SCRIPT_DIR}/../output/Linux/Release" ]; then
     exit -1
 fi
 
+echo "Script not finished, yet."
+exit -1
+
 ################################################################
 # prepare include files
 ################################################################
