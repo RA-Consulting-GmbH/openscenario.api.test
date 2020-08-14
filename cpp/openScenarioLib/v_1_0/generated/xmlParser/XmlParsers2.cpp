@@ -36,6 +36,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -44,6 +45,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterActionImpl>>> ParameterActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -128,6 +130,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterAddValueRuleXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterAddValueRuleImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterAddValueRule", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -136,6 +139,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterAddValueRule", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAddValueRuleImpl>>> ParameterAddValueRuleXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -188,6 +192,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterAssignmentXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterAssignmentImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterAssignment", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -196,6 +201,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterAssignment", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAssignmentImpl>>> ParameterAssignmentXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -270,6 +276,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -278,6 +285,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterConditionImpl>>> ParameterConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -401,6 +409,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterDeclarationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterDeclarationImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterDeclaration", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -409,6 +418,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterDeclaration", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterDeclarationImpl>>> ParameterDeclarationXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -520,6 +530,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterModifyActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterModifyActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterModifyAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -528,6 +539,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterModifyAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterModifyActionImpl>>> ParameterModifyActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -565,6 +577,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterMultiplyByValueRuleXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterMultiplyByValueRuleImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterMultiplyByValueRule", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -573,6 +586,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterMultiplyByValueRule", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterMultiplyByValueRuleImpl>>> ParameterMultiplyByValueRuleXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -625,6 +639,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ParameterSetActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterSetActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ParameterSetAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -633,6 +648,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ParameterSetAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterSetActionImpl>>> ParameterSetActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -685,6 +701,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PedestrianXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Pedestrian", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -693,6 +710,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Pedestrian", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianImpl>>> PedestrianXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -890,6 +908,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PedestrianCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianCatalogLocationImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing PedestrianCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -898,6 +917,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing PedestrianCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianCatalogLocationImpl>>> PedestrianCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -935,6 +955,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PerformanceXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PerformanceImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Performance", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -943,6 +964,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Performance", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PerformanceImpl>>> PerformanceXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1055,6 +1077,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PhaseXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PhaseImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Phase", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1063,6 +1086,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Phase", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PhaseImpl>>> PhaseXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1161,6 +1185,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PolylineXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PolylineImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Polyline", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1169,6 +1194,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Polyline", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PolylineImpl>>> PolylineXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1207,6 +1233,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Position", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1215,6 +1242,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Position", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionImpl>>> PositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1357,6 +1385,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PositionInLaneCoordinatesXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionInLaneCoordinatesImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing PositionInLaneCoordinates", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1365,6 +1394,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing PositionInLaneCoordinates", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionInLaneCoordinatesImpl>>> PositionInLaneCoordinatesXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1477,6 +1507,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PositionInRoadCoordinatesXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionInRoadCoordinatesImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing PositionInRoadCoordinates", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1485,6 +1516,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing PositionInRoadCoordinates", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionInRoadCoordinatesImpl>>> PositionInRoadCoordinatesXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1567,6 +1599,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PositionOfCurrentEntityXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionOfCurrentEntityImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing PositionOfCurrentEntity", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1575,6 +1608,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing PositionOfCurrentEntity", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionOfCurrentEntityImpl>>> PositionOfCurrentEntityXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1629,6 +1663,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PrecipitationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrecipitationImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Precipitation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1637,6 +1672,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Precipitation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PrecipitationImpl>>> PrecipitationXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1728,6 +1764,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PrivateXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Private", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1736,6 +1773,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Private", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PrivateImpl>>> PrivateXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1806,6 +1844,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PrivateActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing PrivateAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1814,6 +1853,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing PrivateAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PrivateActionImpl>>> PrivateActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1956,6 +1996,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PropertiesXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Properties", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -1964,6 +2005,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Properties", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PropertiesImpl>>> PropertiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2018,6 +2060,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void PropertyXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertyImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Property", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2026,6 +2069,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Property", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<PropertyImpl>>> PropertyXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2108,6 +2152,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ReachPositionConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ReachPositionConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ReachPositionCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2116,6 +2161,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ReachPositionCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ReachPositionConditionImpl>>> ReachPositionConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2183,6 +2229,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeDistanceConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeDistanceConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeDistanceCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2191,6 +2238,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeDistanceCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeDistanceConditionImpl>>> RelativeDistanceConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2383,6 +2431,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeLanePositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeLanePositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeLanePosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2391,6 +2440,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeLanePosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeLanePositionImpl>>> RelativeLanePositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2550,6 +2600,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeObjectPositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeObjectPositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeObjectPosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2558,6 +2609,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeObjectPosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeObjectPositionImpl>>> RelativeObjectPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2717,6 +2769,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeRoadPositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeRoadPositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeRoadPosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2725,6 +2778,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeRoadPosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeRoadPositionImpl>>> RelativeRoadPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2854,6 +2908,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeSpeedConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeSpeedConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeSpeedCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2862,6 +2917,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeSpeedCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedConditionImpl>>> RelativeSpeedConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2985,6 +3041,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeSpeedToMasterXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeSpeedToMasterImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeSpeedToMaster", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -2993,6 +3050,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeSpeedToMaster", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedToMasterImpl>>> RelativeSpeedToMasterXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3084,6 +3142,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeTargetLaneXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetLaneImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeTargetLane", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3092,6 +3151,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeTargetLane", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneImpl>>> RelativeTargetLaneXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3176,6 +3236,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeTargetLaneOffsetXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetLaneOffsetImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeTargetLaneOffset", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3184,6 +3245,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeTargetLaneOffset", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneOffsetImpl>>> RelativeTargetLaneOffsetXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3268,6 +3330,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeTargetSpeedXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetSpeedImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeTargetSpeed", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3276,6 +3339,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeTargetSpeed", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetSpeedImpl>>> RelativeTargetSpeedXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3429,6 +3493,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RelativeWorldPositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeWorldPositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RelativeWorldPosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3437,6 +3502,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RelativeWorldPosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeWorldPositionImpl>>> RelativeWorldPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3596,6 +3662,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RoadConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RoadCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3604,6 +3671,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RoadCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RoadConditionImpl>>> RoadConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3671,6 +3739,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RoadNetworkXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RoadNetwork", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3679,6 +3748,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RoadNetwork", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RoadNetworkImpl>>> RoadNetworkXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3747,6 +3817,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RoadPositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadPositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RoadPosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3755,6 +3826,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RoadPosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RoadPositionImpl>>> RoadPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3882,6 +3954,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RouteXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Route", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -3890,6 +3963,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Route", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RouteImpl>>> RouteXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4004,6 +4078,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RouteCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteCatalogLocationImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RouteCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4012,6 +4087,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RouteCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RouteCatalogLocationImpl>>> RouteCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4049,6 +4125,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RoutePositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RoutePosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4057,6 +4134,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RoutePosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RoutePositionImpl>>> RoutePositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4124,6 +4202,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RouteRefXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RouteRef", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4132,6 +4211,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RouteRef", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RouteRefImpl>>> RouteRefXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4185,6 +4265,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void RoutingActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing RoutingAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4193,6 +4274,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing RoutingAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<RoutingActionImpl>>> RoutingActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4260,6 +4342,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ScenarioDefinitionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ScenarioDefinition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4268,6 +4351,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ScenarioDefinition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
 
         std::vector<std::shared_ptr<IElementParser<ScenarioDefinitionImpl>>> ScenarioDefinitionXmlParser::SubElementParser::CreateParserList()
@@ -4360,6 +4444,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ScenarioObjectXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing ScenarioObject", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4368,6 +4453,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing ScenarioObject", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ScenarioObjectImpl>>> ScenarioObjectXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4450,6 +4536,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void SelectedEntitiesXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing SelectedEntities", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4458,6 +4545,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing SelectedEntities", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<SelectedEntitiesImpl>>> SelectedEntitiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4512,6 +4600,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void ShapeXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Shape", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4520,6 +4609,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Shape", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<ShapeImpl>>> ShapeXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4587,6 +4677,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void SimulationTimeConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SimulationTimeConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing SimulationTimeCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4595,6 +4686,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing SimulationTimeCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<SimulationTimeConditionImpl>>> SimulationTimeConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4686,6 +4778,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void SpeedActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing SpeedAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4694,6 +4787,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing SpeedAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionImpl>>> SpeedActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4746,6 +4840,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void SpeedActionTargetXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing SpeedActionTarget", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4754,6 +4849,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing SpeedActionTarget", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionTargetImpl>>> SpeedActionTargetXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4806,6 +4902,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void SpeedConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing SpeedCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4814,6 +4911,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing SpeedCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<SpeedConditionImpl>>> SpeedConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4905,6 +5003,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void StandStillConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StandStillConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing StandStillCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4913,6 +5012,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing StandStillCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<StandStillConditionImpl>>> StandStillConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4965,6 +5065,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void StoryXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Story", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -4973,6 +5074,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Story", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<StoryImpl>>> StoryXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5057,6 +5159,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void StoryboardXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Storyboard", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5065,6 +5168,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Storyboard", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardImpl>>> StoryboardXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5133,6 +5237,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void StoryboardElementStateConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardElementStateConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing StoryboardElementStateCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5141,6 +5246,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing StoryboardElementStateCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardElementStateConditionImpl>>> StoryboardElementStateConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5273,6 +5379,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void SunXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SunImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Sun", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5281,6 +5388,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Sun", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<SunImpl>>> SunXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5393,6 +5501,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void SynchronizeActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing SynchronizeAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5401,6 +5510,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing SynchronizeAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<SynchronizeActionImpl>>> SynchronizeActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5500,6 +5610,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TeleportActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TeleportActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TeleportAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5508,6 +5619,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TeleportAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TeleportActionImpl>>> TeleportActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5545,6 +5657,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TimeHeadwayConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeHeadwayConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TimeHeadwayCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5553,6 +5666,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TimeHeadwayCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeHeadwayConditionImpl>>> TimeHeadwayConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5736,6 +5850,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TimeOfDayXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeOfDayImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TimeOfDay", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5744,6 +5859,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TimeOfDay", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayImpl>>> TimeOfDayXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5826,6 +5942,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TimeOfDayConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeOfDayConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TimeOfDayCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5834,6 +5951,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TimeOfDayCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayConditionImpl>>> TimeOfDayConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5925,6 +6043,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TimeReferenceXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TimeReference", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5933,6 +6052,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TimeReference", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeReferenceImpl>>> TimeReferenceXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5985,6 +6105,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TimeToCollisionConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TimeToCollisionCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -5993,6 +6114,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TimeToCollisionCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionImpl>>> TimeToCollisionConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6159,6 +6281,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TimeToCollisionConditionTargetXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TimeToCollisionConditionTarget", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6167,6 +6290,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TimeToCollisionConditionTarget", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionTargetImpl>>> TimeToCollisionConditionTargetXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6219,6 +6343,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TimingXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimingImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Timing", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6227,6 +6352,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Timing", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TimingImpl>>> TimingXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6348,6 +6474,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6356,6 +6483,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficActionImpl>>> TrafficActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6423,6 +6551,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficDefinitionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficDefinition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6431,6 +6560,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficDefinition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficDefinitionImpl>>> TrafficDefinitionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6513,6 +6643,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSignalActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSignalAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6521,6 +6652,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSignalAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalActionImpl>>> TrafficSignalActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6573,6 +6705,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSignalConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSignalCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6581,6 +6714,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSignalCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalConditionImpl>>> TrafficSignalConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6663,6 +6797,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSignalControllerXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSignalController", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6671,6 +6806,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSignalController", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerImpl>>> TrafficSignalControllerXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6799,6 +6935,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSignalControllerActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSignalControllerAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6807,6 +6944,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSignalControllerAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerActionImpl>>> TrafficSignalControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6891,6 +7029,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSignalControllerConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSignalControllerCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6899,6 +7038,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSignalControllerCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerConditionImpl>>> TrafficSignalControllerConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6983,6 +7123,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSignalStateXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalStateImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSignalState", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -6991,6 +7132,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSignalState", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateImpl>>> TrafficSignalStateXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7073,6 +7215,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSignalStateActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalStateActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSignalStateAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7081,6 +7224,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSignalStateAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateActionImpl>>> TrafficSignalStateActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7163,6 +7307,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSinkActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSinkAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7171,6 +7316,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSinkAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSinkActionImpl>>> TrafficSinkActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7283,6 +7429,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSourceActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSourceAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7291,6 +7438,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSourceAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSourceActionImpl>>> TrafficSourceActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7433,6 +7581,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrafficSwarmActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrafficSwarmAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7441,6 +7590,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrafficSwarmAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSwarmActionImpl>>> TrafficSwarmActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7673,6 +7823,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrajectoryXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Trajectory", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7681,6 +7832,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Trajectory", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryImpl>>> TrajectoryXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7794,6 +7946,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrajectoryCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryCatalogLocationImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrajectoryCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7802,6 +7955,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrajectoryCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryCatalogLocationImpl>>> TrajectoryCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7839,6 +7993,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TrajectoryFollowingModeXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryFollowingModeImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TrajectoryFollowingMode", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7847,6 +8002,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TrajectoryFollowingMode", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryFollowingModeImpl>>> TrajectoryFollowingModeXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7908,6 +8064,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TransitionDynamicsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TransitionDynamicsImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TransitionDynamics", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -7916,6 +8073,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TransitionDynamics", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TransitionDynamicsImpl>>> TransitionDynamicsXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8046,6 +8204,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TraveledDistanceConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TraveledDistanceConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TraveledDistanceCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8054,6 +8213,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TraveledDistanceCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TraveledDistanceConditionImpl>>> TraveledDistanceConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8106,6 +8266,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TriggerXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggerImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Trigger", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8114,6 +8275,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Trigger", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TriggerImpl>>> TriggerXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8152,6 +8314,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void TriggeringEntitiesXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggeringEntitiesImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing TriggeringEntities", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8160,6 +8323,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing TriggeringEntities", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<TriggeringEntitiesImpl>>> TriggeringEntitiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8237,6 +8401,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void UserDefinedActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing UserDefinedAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8245,6 +8410,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing UserDefinedAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedActionImpl>>> UserDefinedActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8282,6 +8448,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void UserDefinedValueConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedValueConditionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing UserDefinedValueCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8290,6 +8457,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing UserDefinedValueCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedValueConditionImpl>>> UserDefinedValueConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8411,6 +8579,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void VehicleXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Vehicle", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8419,6 +8588,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Vehicle", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleImpl>>> VehicleXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8586,6 +8756,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void VehicleCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCatalogLocationImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing VehicleCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8594,6 +8765,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing VehicleCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCatalogLocationImpl>>> VehicleCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8631,6 +8803,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void VehicleCategoryDistributionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing VehicleCategoryDistribution", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8639,6 +8812,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing VehicleCategoryDistribution", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionImpl>>> VehicleCategoryDistributionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8677,6 +8851,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void VehicleCategoryDistributionEntryXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionEntryImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing VehicleCategoryDistributionEntry", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8685,6 +8860,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing VehicleCategoryDistributionEntry", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionEntryImpl>>> VehicleCategoryDistributionEntryXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8776,6 +8952,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void VertexXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VertexImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Vertex", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8784,6 +8961,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Vertex", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<VertexImpl>>> VertexXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8851,6 +9029,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void VisibilityActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VisibilityActionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing VisibilityAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8859,6 +9038,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing VisibilityAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<VisibilityActionImpl>>> VisibilityActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8971,6 +9151,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void WaypointXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WaypointImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Waypoint", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -8979,6 +9160,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Waypoint", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<WaypointImpl>>> WaypointXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -9055,6 +9237,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void WeatherXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing Weather", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -9063,6 +9246,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing Weather", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<WeatherImpl>>> WeatherXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -9169,6 +9353,7 @@ namespace NET_ASAM_OPENSCENARIO
  * @author RA Consulting OpenSCENARIO generation facility
 */
 
+		/*
         void WorldPositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WorldPositionImpl>& object)
         {
             auto msg = FileContentMessage("Start Parsing WorldPosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
@@ -9177,6 +9362,7 @@ namespace NET_ASAM_OPENSCENARIO
             msg = FileContentMessage("End Parsing WorldPosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
             _messageLogger.LogMessage(msg);
         }
+        */
 
         std::map<std::string, std::shared_ptr<IAttributeParser<WorldPositionImpl>>> WorldPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {

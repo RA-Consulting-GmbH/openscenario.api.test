@@ -271,7 +271,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteSpeedImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteSpeedImpl>& object) override;
         
         };
 
@@ -321,7 +321,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetLaneImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetLaneImpl>& object) override;
         
         };
 
@@ -371,7 +371,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetLaneOffsetImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetLaneOffsetImpl>& object) override;
         
         };
 
@@ -421,7 +421,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetSpeedImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetSpeedImpl>& object) override;
         
         };
 
@@ -471,7 +471,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AccelerationConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AccelerationConditionImpl>& object) override;
         
         };
 
@@ -561,7 +561,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AcquirePositionActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AcquirePositionActionImpl>& object) override;
         
         };
 
@@ -728,7 +728,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
         
         };
 
@@ -896,7 +896,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
         
         };
 
@@ -946,7 +946,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActivateControllerActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActivateControllerActionImpl>& object) override;
         
         };
 
@@ -1035,7 +1035,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActorsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActorsImpl>& object) override;
         
         };
 
@@ -1125,7 +1125,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AddEntityActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AddEntityActionImpl>& object) override;
         
         };
 
@@ -1254,7 +1254,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
         
         };
 
@@ -1383,7 +1383,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
         
         };
 
@@ -1433,7 +1433,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxleImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxleImpl>& object) override;
         
         };
 
@@ -1600,7 +1600,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
         
         };
 
@@ -1729,7 +1729,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
         
         };
 
@@ -1858,7 +1858,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
         
         };
 
@@ -1908,7 +1908,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByObjectTypeImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByObjectTypeImpl>& object) override;
         
         };
 
@@ -1958,7 +1958,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByTypeImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByTypeImpl>& object) override;
         
         };
 
@@ -2282,7 +2282,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
         
         };
 
@@ -2644,7 +2644,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
         
         };
 
@@ -2732,7 +2732,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogDefinitionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogDefinitionImpl>& object) override;
         
         };
 
@@ -3095,7 +3095,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
         
         };
 
@@ -3181,7 +3181,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogReferenceImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogReferenceImpl>& object) override;
         
         };
 
@@ -3231,7 +3231,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CenterImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CenterImpl>& object) override;
         
         };
 
@@ -3281,7 +3281,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CentralSwarmObjectImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CentralSwarmObjectImpl>& object) override;
         
         };
 
@@ -3370,7 +3370,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ClothoidImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ClothoidImpl>& object) override;
         
         };
 
@@ -3499,7 +3499,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
         
         };
 
@@ -3628,7 +3628,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
         
         };
 
@@ -3717,7 +3717,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionGroupImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionGroupImpl>& object) override;
         
         };
 
@@ -3806,7 +3806,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControlPointImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControlPointImpl>& object) override;
         
         };
 
@@ -3932,7 +3932,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
         
         };
 
@@ -4061,7 +4061,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
         
         };
 
@@ -4151,7 +4151,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerCatalogLocationImpl>& object) override;
         
         };
 
@@ -4240,7 +4240,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionImpl>& object) override;
         
         };
 
@@ -4369,7 +4369,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
         
         };
 
@@ -4403,7 +4403,7 @@ namespace NET_ASAM_OPENSCENARIO
             CustomCommandActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
                 XmlSimpleContentParser(messageLogger, filename) {}
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CustomCommandActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CustomCommandActionImpl>& object) override;
         
         };
 
@@ -4453,7 +4453,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeleteEntityActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeleteEntityActionImpl>& object) override;
         
         };
 
@@ -4503,7 +4503,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DimensionsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DimensionsImpl>& object) override;
         
         };
 
@@ -4553,7 +4553,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DirectoryImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DirectoryImpl>& object) override;
         
         };
 
@@ -4643,7 +4643,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistanceConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistanceConditionImpl>& object) override;
         
         };
 
@@ -4693,7 +4693,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DynamicConstraintsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DynamicConstraintsImpl>& object) override;
         
         };
 
@@ -4743,7 +4743,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EndOfRoadConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EndOfRoadConditionImpl>& object) override;
         
         };
 
@@ -4871,7 +4871,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
         
         };
 
@@ -5000,7 +5000,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
         
         };
 
@@ -5558,7 +5558,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
         
         };
 
@@ -5764,7 +5764,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
         
         };
 
@@ -5814,7 +5814,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityRefImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityRefImpl>& object) override;
         
         };
 
@@ -5903,7 +5903,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitySelectionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitySelectionImpl>& object) override;
         
         };
 
@@ -6107,7 +6107,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
         
         };
 
@@ -6236,7 +6236,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
         
         };
 
@@ -6326,7 +6326,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentCatalogLocationImpl>& object) override;
         
         };
 
@@ -6454,7 +6454,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
         
         };
 
@@ -6504,7 +6504,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FileImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FileImpl>& object) override;
         
         };
 
@@ -6554,7 +6554,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FileHeaderImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FileHeaderImpl>& object) override;
         
         };
 
@@ -6683,7 +6683,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
         
         };
 
@@ -6773,7 +6773,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FogImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FogImpl>& object) override;
         
         };
 
@@ -6980,7 +6980,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
         
         };
 
@@ -7226,7 +7226,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
         
         };
 
@@ -7394,7 +7394,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
         
         };
 
@@ -7484,7 +7484,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InfrastructureActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InfrastructureActionImpl>& object) override;
         
         };
 
@@ -7573,7 +7573,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitImpl>& object) override;
         
         };
 
@@ -7740,7 +7740,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
         
         };
 
@@ -7790,7 +7790,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<KnotImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<KnotImpl>& object) override;
         
         };
 
@@ -7919,7 +7919,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
         
         };
 
@@ -8048,7 +8048,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
         
         };
 
@@ -8177,7 +8177,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
         
         };
 
@@ -8227,7 +8227,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionDynamicsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionDynamicsImpl>& object) override;
         
         };
 
@@ -8356,7 +8356,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
         
         };
 
@@ -8446,7 +8446,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LanePositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LanePositionImpl>& object) override;
         
         };
 
@@ -8614,7 +8614,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
         
         };
 
@@ -8704,7 +8704,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralDistanceActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralDistanceActionImpl>& object) override;
         
         };
 
@@ -8833,7 +8833,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
         
         };
 
@@ -8923,7 +8923,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override;
         
         };
 
@@ -9048,7 +9048,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
         
         };
 
@@ -9138,7 +9138,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverCatalogLocationImpl>& object) override;
         
         };
 
@@ -9305,7 +9305,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
         
         };
 
@@ -9470,7 +9470,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
         
         };
 
@@ -9560,7 +9560,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectCatalogLocationImpl>& object) override;
         
         };
 
@@ -9689,7 +9689,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
         
         };
 
@@ -9739,7 +9739,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NoneImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NoneImpl>& object) override;
         
         };
 
@@ -9867,7 +9867,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
         
         };
 
@@ -9996,7 +9996,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
         
         };
 
@@ -10046,7 +10046,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OffroadConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OffroadConditionImpl>& object) override;
         
         };
 
@@ -10178,7 +10178,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
         
         };
 
@@ -10308,7 +10308,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
         
         };
 
@@ -10358,7 +10358,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OrientationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OrientationImpl>& object) override;
         
         };
 
@@ -10408,7 +10408,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideBrakeActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideBrakeActionImpl>& object) override;
         
         };
 
@@ -10458,7 +10458,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideClutchActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideClutchActionImpl>& object) override;
         
         };
 
@@ -10743,7 +10743,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
         
         };
 
@@ -10793,7 +10793,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideGearActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideGearActionImpl>& object) override;
         
         };
 
@@ -10843,7 +10843,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideParkingBrakeActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideParkingBrakeActionImpl>& object) override;
         
         };
 
@@ -10893,7 +10893,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideSteeringWheelActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideSteeringWheelActionImpl>& object) override;
         
         };
 
@@ -10943,7 +10943,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideThrottleActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideThrottleActionImpl>& object) override;
         
         };
 
@@ -11072,7 +11072,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
         
         };
 
@@ -11122,7 +11122,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterAddValueRuleImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterAddValueRuleImpl>& object) override;
         
         };
 
@@ -11172,7 +11172,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterAssignmentImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterAssignmentImpl>& object) override;
         
         };
 
@@ -11222,7 +11222,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterConditionImpl>& object) override;
         
         };
 
@@ -11272,7 +11272,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterDeclarationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterDeclarationImpl>& object) override;
         
         };
 
@@ -11362,7 +11362,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterModifyActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterModifyActionImpl>& object) override;
         
         };
 
@@ -11412,7 +11412,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterMultiplyByValueRuleImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterMultiplyByValueRuleImpl>& object) override;
         
         };
 
@@ -11462,7 +11462,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterSetActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterSetActionImpl>& object) override;
         
         };
 
@@ -11627,7 +11627,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
         
         };
 
@@ -11717,7 +11717,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianCatalogLocationImpl>& object) override;
         
         };
 
@@ -11767,7 +11767,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PerformanceImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PerformanceImpl>& object) override;
         
         };
 
@@ -11856,7 +11856,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PhaseImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PhaseImpl>& object) override;
         
         };
 
@@ -11945,7 +11945,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PolylineImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PolylineImpl>& object) override;
         
         };
 
@@ -12308,7 +12308,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
         
         };
 
@@ -12358,7 +12358,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionInLaneCoordinatesImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionInLaneCoordinatesImpl>& object) override;
         
         };
 
@@ -12408,7 +12408,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionInRoadCoordinatesImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionInRoadCoordinatesImpl>& object) override;
         
         };
 
@@ -12458,7 +12458,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionOfCurrentEntityImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionOfCurrentEntityImpl>& object) override;
         
         };
 
@@ -12508,7 +12508,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrecipitationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrecipitationImpl>& object) override;
         
         };
 
@@ -12597,7 +12597,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateImpl>& object) override;
         
         };
 
@@ -12960,7 +12960,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
         
         };
 
@@ -13088,7 +13088,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
         
         };
 
@@ -13138,7 +13138,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertyImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertyImpl>& object) override;
         
         };
 
@@ -13228,7 +13228,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ReachPositionConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ReachPositionConditionImpl>& object) override;
         
         };
 
@@ -13278,7 +13278,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeDistanceConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeDistanceConditionImpl>& object) override;
         
         };
 
@@ -13368,7 +13368,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeLanePositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeLanePositionImpl>& object) override;
         
         };
 
@@ -13458,7 +13458,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeObjectPositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeObjectPositionImpl>& object) override;
         
         };
 
@@ -13548,7 +13548,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeRoadPositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeRoadPositionImpl>& object) override;
         
         };
 
@@ -13598,7 +13598,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeSpeedConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeSpeedConditionImpl>& object) override;
         
         };
 
@@ -13648,7 +13648,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeSpeedToMasterImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeSpeedToMasterImpl>& object) override;
         
         };
 
@@ -13698,7 +13698,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetLaneImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetLaneImpl>& object) override;
         
         };
 
@@ -13748,7 +13748,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetLaneOffsetImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetLaneOffsetImpl>& object) override;
         
         };
 
@@ -13798,7 +13798,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetSpeedImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeTargetSpeedImpl>& object) override;
         
         };
 
@@ -13888,7 +13888,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeWorldPositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeWorldPositionImpl>& object) override;
         
         };
 
@@ -13977,7 +13977,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadConditionImpl>& object) override;
         
         };
 
@@ -14141,7 +14141,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
         
         };
 
@@ -14231,7 +14231,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadPositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadPositionImpl>& object) override;
         
         };
 
@@ -14356,7 +14356,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
         
         };
 
@@ -14446,7 +14446,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteCatalogLocationImpl>& object) override;
         
         };
 
@@ -14614,7 +14614,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
         
         };
 
@@ -14743,7 +14743,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
         
         };
 
@@ -14911,7 +14911,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
         
         };
 
@@ -15152,7 +15152,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
         
         };
 
@@ -15286,7 +15286,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
         
         };
 
@@ -15415,7 +15415,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
         
         };
 
@@ -15583,7 +15583,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
         
         };
 
@@ -15633,7 +15633,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SimulationTimeConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SimulationTimeConditionImpl>& object) override;
         
         };
 
@@ -15762,7 +15762,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
         
         };
 
@@ -15891,7 +15891,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
         
         };
 
@@ -15941,7 +15941,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedConditionImpl>& object) override;
         
         };
 
@@ -15991,7 +15991,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StandStillConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StandStillConditionImpl>& object) override;
         
         };
 
@@ -16116,7 +16116,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
         
         };
 
@@ -16283,7 +16283,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
         
         };
 
@@ -16333,7 +16333,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardElementStateConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardElementStateConditionImpl>& object) override;
         
         };
 
@@ -16383,7 +16383,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SunImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SunImpl>& object) override;
         
         };
 
@@ -16551,7 +16551,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
         
         };
 
@@ -16640,7 +16640,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TeleportActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TeleportActionImpl>& object) override;
         
         };
 
@@ -16690,7 +16690,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeHeadwayConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeHeadwayConditionImpl>& object) override;
         
         };
 
@@ -16740,7 +16740,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeOfDayImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeOfDayImpl>& object) override;
         
         };
 
@@ -16790,7 +16790,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeOfDayConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeOfDayConditionImpl>& object) override;
         
         };
 
@@ -16919,7 +16919,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
         
         };
 
@@ -17009,7 +17009,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionImpl>& object) override;
         
         };
 
@@ -17138,7 +17138,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
         
         };
 
@@ -17188,7 +17188,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimingImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimingImpl>& object) override;
         
         };
 
@@ -17356,7 +17356,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
         
         };
 
@@ -17485,7 +17485,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
         
         };
 
@@ -17614,7 +17614,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
         
         };
 
@@ -17664,7 +17664,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalConditionImpl>& object) override;
         
         };
 
@@ -17753,7 +17753,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerImpl>& object) override;
         
         };
 
@@ -17803,7 +17803,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerActionImpl>& object) override;
         
         };
 
@@ -17853,7 +17853,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerConditionImpl>& object) override;
         
         };
 
@@ -17903,7 +17903,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalStateImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalStateImpl>& object) override;
         
         };
 
@@ -17953,7 +17953,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalStateActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalStateActionImpl>& object) override;
         
         };
 
@@ -18082,7 +18082,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
         
         };
 
@@ -18211,7 +18211,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
         
         };
 
@@ -18340,7 +18340,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
         
         };
 
@@ -18465,7 +18465,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
         
         };
 
@@ -18555,7 +18555,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryCatalogLocationImpl>& object) override;
         
         };
 
@@ -18605,7 +18605,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryFollowingModeImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryFollowingModeImpl>& object) override;
         
         };
 
@@ -18655,7 +18655,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TransitionDynamicsImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TransitionDynamicsImpl>& object) override;
         
         };
 
@@ -18705,7 +18705,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TraveledDistanceConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TraveledDistanceConditionImpl>& object) override;
         
         };
 
@@ -18794,7 +18794,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggerImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggerImpl>& object) override;
         
         };
 
@@ -18883,7 +18883,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggeringEntitiesImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggeringEntitiesImpl>& object) override;
         
         };
 
@@ -18972,7 +18972,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedActionImpl>& object) override;
         
         };
 
@@ -19022,7 +19022,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedValueConditionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedValueConditionImpl>& object) override;
         
         };
 
@@ -19265,7 +19265,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
         
         };
 
@@ -19355,7 +19355,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCatalogLocationImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCatalogLocationImpl>& object) override;
         
         };
 
@@ -19444,7 +19444,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionImpl>& object) override;
         
         };
 
@@ -19494,7 +19494,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionEntryImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionEntryImpl>& object) override;
         
         };
 
@@ -19583,7 +19583,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VertexImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VertexImpl>& object) override;
         
         };
 
@@ -19633,7 +19633,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VisibilityActionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VisibilityActionImpl>& object) override;
         
         };
 
@@ -19722,7 +19722,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WaypointImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WaypointImpl>& object) override;
         
         };
 
@@ -19890,7 +19890,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
         
         };
 
@@ -19940,7 +19940,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
                 }
 
-            void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WorldPositionImpl>& object) override;
+            //void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WorldPositionImpl>& object) override;
         
         };
 
