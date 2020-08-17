@@ -30,7 +30,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../externalLibs/Filesyste
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/catalog )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/loader )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/parser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/checker )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/api )
@@ -40,8 +39,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/loader )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/parameter )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/parser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/parser/modelgroup )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/parser/type )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/simple/struct )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/xmlIndexer )
 
@@ -52,9 +49,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/checker/range )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/catalog)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/xmlParser )
-
-
 
 
 ################################################################

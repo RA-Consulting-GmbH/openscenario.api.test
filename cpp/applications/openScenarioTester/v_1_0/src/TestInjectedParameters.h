@@ -69,7 +69,7 @@ public:
 
         try
         {
-            auto openScenario = ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters);
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters));
 
             // testString
             auto res = Assert("injected" == openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath(), ASSERT_LOCATION);

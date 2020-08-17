@@ -38,7 +38,7 @@ public:
         try 
         {
             std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCheckerErrors.xosc";
-            auto openScenario = ExecuteParsing(filename);
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>( ExecuteParsing(filename));
             ApplyCheckerRules(openScenario);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 

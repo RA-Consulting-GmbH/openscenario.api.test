@@ -26,23 +26,23 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace V_1_0
     {
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Definition of cloud states.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Turns off the sky visualization.
- * <li>Cloud free conditions.
- * <li>Cloudy. There are more clouds than sunshine.
- * <li>Overcast sky. Dull and gray looking.
- * <li>Rain clouds.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Definition of cloud states.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Turns off the sky visualization.
+         * <li>Cloud free conditions.
+         * <li>Cloudy. There are more clouds than sunshine.
+         * <li>Overcast sky. Dull and gray looking.
+         * <li>Rain clouds.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class CloudState 
         {
         public:
@@ -55,12 +55,12 @@ namespace NET_ASAM_OPENSCENARIO
                 OVERCAST,
                 RAINY,
             };
-    
+
         private:
             std::string _literal;
             CloudStateEnum _cloudStateEnum;
             static std::map<std::string, CloudStateEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kCloudStateEnumString 
             {
@@ -71,7 +71,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "overcast",
                 "rainy",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -80,13 +80,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kCloudStateEnumString[0];
                 _cloudStateEnum = GetFromLiteral(_literal);
             }
-    
+
             CloudState(CloudStateEnum& cloudState)
             {
                 _literal = kCloudStateEnumString[cloudState];
                 _cloudStateEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -95,14 +95,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _cloudStateEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             CloudState& operator= (const CloudStateEnum &rhs)
             {
                 _cloudStateEnum = rhs;
@@ -112,7 +111,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             CloudState& operator= (const CloudState &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -137,29 +136,31 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Edge types that can be used for conditions.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>A condition defined with a rising edge shall return true at discrete time t if its logical expression is true at 
- * discrete time t and its logical expression was false at discrete time t-ts, where ts is the simulation sampling time.
- * <li>A condition defined with a falling edge shall return true at discrete time t if its logical expression is false at 
- * discrete time t and its logical expression was true at discrete time t-ts, where ts is the simulation sampling time.
- * <li>A condition defined with a 'risingOrFalling' edge shall return true at discrete time t if its logical expression is 
- * true at discrete time t and its logical expression was false at discrete time t-ts OR if its logical expression is false
- * at discrete time t and its logical expression was true at discrete time t-ts. ts is the simulation sampling time.
- * <li>A condition defined with a 'none' edge shall return true at discrete time t if its logical expression is true at 
- * discrete time t.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Edge types that can be used for conditions.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>A condition defined with a rising edge shall return true at discrete time t if its logical expression is true at 
+         * discrete time t and its logical expression was false at discrete time t-ts, where ts is the simulation sampling time.
+         * <li>A condition defined with a falling edge shall return true at discrete time t if its logical expression is false at 
+         * discrete time t and its logical expression was true at discrete time t-ts, where ts is the simulation sampling time.
+         * <li>A condition defined with a 'risingOrFalling' edge shall return true at discrete time t if its logical expression is 
+         * true at discrete time t and its logical expression was false at discrete time t-ts OR if its logical expression is false
+         * at discrete time t and its logical expression was true at discrete time t-ts. ts is the simulation sampling time.
+         * <li>A condition defined with a 'none' edge shall return true at discrete time t if its logical expression is true at 
+         * discrete time t.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ConditionEdge 
         {
         public:
@@ -171,12 +172,12 @@ namespace NET_ASAM_OPENSCENARIO
                 RISING_OR_FALLING,
                 NONE,
             };
-    
+
         private:
             std::string _literal;
             ConditionEdgeEnum _conditionEdgeEnum;
             static std::map<std::string, ConditionEdgeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kConditionEdgeEnumString 
             {
@@ -186,7 +187,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "risingOrFalling",
                 "none",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -195,13 +196,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kConditionEdgeEnumString[0];
                 _conditionEdgeEnum = GetFromLiteral(_literal);
             }
-    
+
             ConditionEdge(ConditionEdgeEnum& conditionEdge)
             {
                 _literal = kConditionEdgeEnumString[conditionEdge];
                 _conditionEdgeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -210,14 +211,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _conditionEdgeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             ConditionEdge& operator= (const ConditionEdgeEnum &rhs)
             {
                 _conditionEdgeEnum = rhs;
@@ -227,7 +227,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             ConditionEdge& operator= (const ConditionEdge &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -252,23 +252,25 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Defines how a target value will be acquired (with a constant rate, in a defined distance, within a defined time).
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>A predefined constant rate is used to acquire the target value.
- * <li>A predefined time (duration) is used to acquire the target value.
- * <li>A predefined distance used to acquire the target value.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Defines how a target value will be acquired (with a constant rate, in a defined distance, within a defined time).
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>A predefined constant rate is used to acquire the target value.
+         * <li>A predefined time (duration) is used to acquire the target value.
+         * <li>A predefined distance used to acquire the target value.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class DynamicsDimension 
         {
         public:
@@ -279,12 +281,12 @@ namespace NET_ASAM_OPENSCENARIO
                 TIME,
                 DISTANCE,
             };
-    
+
         private:
             std::string _literal;
             DynamicsDimensionEnum _dynamicsDimensionEnum;
             static std::map<std::string, DynamicsDimensionEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kDynamicsDimensionEnumString 
             {
@@ -293,7 +295,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "time",
                 "distance",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -302,13 +304,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kDynamicsDimensionEnumString[0];
                 _dynamicsDimensionEnum = GetFromLiteral(_literal);
             }
-    
+
             DynamicsDimension(DynamicsDimensionEnum& dynamicsDimension)
             {
                 _literal = kDynamicsDimensionEnumString[dynamicsDimension];
                 _dynamicsDimensionEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -317,14 +319,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _dynamicsDimensionEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             DynamicsDimension& operator= (const DynamicsDimensionEnum &rhs)
             {
                 _dynamicsDimensionEnum = rhs;
@@ -334,7 +335,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             DynamicsDimension& operator= (const DynamicsDimension &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -359,24 +360,26 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Function type used to represent the change of a given variable over time or distance.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Value changes in a linear function: f(x) = f_0 + rate * x.
- * <li>Cubical transition f(x)=A*x^3+B*x^2+C*x+D with the constraint that the gradient must be zero at start and end.
- * <li>Sinusoidal transition f(x)=A*sin(x)+B with the constraint that the gradient must be zero at start and end.
- * <li>Step transition.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Function type used to represent the change of a given variable over time or distance.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Value changes in a linear function: f(x) = f_0 + rate * x.
+         * <li>Cubical transition f(x)=A*x^3+B*x^2+C*x+D with the constraint that the gradient must be zero at start and end.
+         * <li>Sinusoidal transition f(x)=A*sin(x)+B with the constraint that the gradient must be zero at start and end.
+         * <li>Step transition.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class DynamicsShape 
         {
         public:
@@ -388,12 +391,12 @@ namespace NET_ASAM_OPENSCENARIO
                 SINUSOIDAL,
                 STEP,
             };
-    
+
         private:
             std::string _literal;
             DynamicsShapeEnum _dynamicsShapeEnum;
             static std::map<std::string, DynamicsShapeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kDynamicsShapeEnumString 
             {
@@ -403,7 +406,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "sinusoidal",
                 "step",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -412,13 +415,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kDynamicsShapeEnumString[0];
                 _dynamicsShapeEnum = GetFromLiteral(_literal);
             }
-    
+
             DynamicsShape(DynamicsShapeEnum& dynamicsShape)
             {
                 _literal = kDynamicsShapeEnumString[dynamicsShape];
                 _dynamicsShapeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -427,14 +430,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _dynamicsShapeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             DynamicsShape& operator= (const DynamicsShapeEnum &rhs)
             {
                 _dynamicsShapeEnum = rhs;
@@ -444,7 +446,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             DynamicsShape& operator= (const DynamicsShape &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -469,22 +471,24 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Type of lateral control actuation when following a trajectory.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Explicit definition of the lateral position of an entity.
- * <li>Follow of the steering target (e.g. for a driver model).
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Type of lateral control actuation when following a trajectory.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Explicit definition of the lateral position of an entity.
+         * <li>Follow of the steering target (e.g. for a driver model).
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class FollowingMode 
         {
         public:
@@ -494,12 +498,12 @@ namespace NET_ASAM_OPENSCENARIO
                 POSITION,
                 FOLLOW,
             };
-    
+
         private:
             std::string _literal;
             FollowingModeEnum _followingModeEnum;
             static std::map<std::string, FollowingModeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kFollowingModeEnumString 
             {
@@ -507,7 +511,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "position",
                 "follow",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -516,13 +520,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kFollowingModeEnumString[0];
                 _followingModeEnum = GetFromLiteral(_literal);
             }
-    
+
             FollowingMode(FollowingModeEnum& followingMode)
             {
                 _literal = kFollowingModeEnumString[followingMode];
                 _followingModeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -531,14 +535,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _followingModeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             FollowingMode& operator= (const FollowingModeEnum &rhs)
             {
                 _followingModeEnum = rhs;
@@ -548,7 +551,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             FollowingMode& operator= (const FollowingMode &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -573,37 +576,39 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Categories for entity objects which are not pedestrians or vehicles.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>None, other
- * <li>Not further defined obstacle
- * <li>A pole
- * <li>A tree
- * <li>Not further defined vegetation.
- * <li>A barrier.
- * <li>A building.
- * <li>A parking space.
- * <li>A patch.
- * <li>A railing or guard rail.
- * <li>A traffic island.
- * <li>A crosswalk.
- * <li>A street lamp.
- * <li>A gantry.
- * <li>A sound barrier.
- * <li>Wind.
- * <li>Not further defined road mark.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Categories for entity objects which are not pedestrians or vehicles.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>None, other
+         * <li>Not further defined obstacle
+         * <li>A pole
+         * <li>A tree
+         * <li>Not further defined vegetation.
+         * <li>A barrier.
+         * <li>A building.
+         * <li>A parking space.
+         * <li>A patch.
+         * <li>A railing or guard rail.
+         * <li>A traffic island.
+         * <li>A crosswalk.
+         * <li>A street lamp.
+         * <li>A gantry.
+         * <li>A sound barrier.
+         * <li>Wind.
+         * <li>Not further defined road mark.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class MiscObjectCategory 
         {
         public:
@@ -628,12 +633,12 @@ namespace NET_ASAM_OPENSCENARIO
                 WIND,
                 ROAD_MARK,
             };
-    
+
         private:
             std::string _literal;
             MiscObjectCategoryEnum _miscObjectCategoryEnum;
             static std::map<std::string, MiscObjectCategoryEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kMiscObjectCategoryEnumString 
             {
@@ -656,7 +661,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "wind",
                 "roadMark",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -665,13 +670,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kMiscObjectCategoryEnumString[0];
                 _miscObjectCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             MiscObjectCategory(MiscObjectCategoryEnum& miscObjectCategory)
             {
                 _literal = kMiscObjectCategoryEnumString[miscObjectCategory];
                 _miscObjectCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -680,14 +685,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _miscObjectCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             MiscObjectCategory& operator= (const MiscObjectCategoryEnum &rhs)
             {
                 _miscObjectCategoryEnum = rhs;
@@ -697,7 +701,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             MiscObjectCategory& operator= (const MiscObjectCategory &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -722,23 +726,25 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Types of entity objects available in a scenario.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>A Pedestrian.
- * <li>Ac Vehicle.
- * <li>Miscellaneous object.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Types of entity objects available in a scenario.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>A Pedestrian.
+         * <li>Ac Vehicle.
+         * <li>Miscellaneous object.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ObjectType 
         {
         public:
@@ -749,12 +755,12 @@ namespace NET_ASAM_OPENSCENARIO
                 VEHICLE,
                 MISCELLANEOUS,
             };
-    
+
         private:
             std::string _literal;
             ObjectTypeEnum _objectTypeEnum;
             static std::map<std::string, ObjectTypeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kObjectTypeEnumString 
             {
@@ -763,7 +769,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "vehicle",
                 "miscellaneous",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -772,13 +778,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kObjectTypeEnumString[0];
                 _objectTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             ObjectType(ObjectTypeEnum& objectType)
             {
                 _literal = kObjectTypeEnumString[objectType];
                 _objectTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -787,14 +793,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _objectTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             ObjectType& operator= (const ObjectTypeEnum &rhs)
             {
                 _objectTypeEnum = rhs;
@@ -804,7 +809,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             ObjectType& operator= (const ObjectType &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -829,27 +834,29 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Allowed data types for parameters defined in a parameter declaration.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Integer.
- * <li>Double.
- * <li>String.
- * <li>UnsignedInt.
- * <li>UnsignedShort.
- * <li>Boolean.
- * <li>DateTime.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Allowed data types for parameters defined in a parameter declaration.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Integer.
+         * <li>Double.
+         * <li>String.
+         * <li>UnsignedInt.
+         * <li>UnsignedShort.
+         * <li>Boolean.
+         * <li>DateTime.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ParameterType 
         {
         public:
@@ -864,12 +871,12 @@ namespace NET_ASAM_OPENSCENARIO
                 BOOLEAN,
                 DATE_TIME,
             };
-    
+
         private:
             std::string _literal;
             ParameterTypeEnum _parameterTypeEnum;
             static std::map<std::string, ParameterTypeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kParameterTypeEnumString 
             {
@@ -882,7 +889,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "boolean",
                 "dateTime",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -891,13 +898,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kParameterTypeEnumString[0];
                 _parameterTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             ParameterType(ParameterTypeEnum& parameterType)
             {
                 _literal = kParameterTypeEnumString[parameterType];
                 _parameterTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -906,14 +913,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _parameterTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             ParameterType& operator= (const ParameterTypeEnum &rhs)
             {
                 _parameterTypeEnum = rhs;
@@ -923,7 +929,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             ParameterType& operator= (const ParameterType &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -948,23 +954,25 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Categories for entity objects of type pedestrian.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>A pedestrian.
- * <li>A wheelchair.
- * <li>An animal.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Categories for entity objects of type pedestrian.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>A pedestrian.
+         * <li>A wheelchair.
+         * <li>An animal.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class PedestrianCategory 
         {
         public:
@@ -975,12 +983,12 @@ namespace NET_ASAM_OPENSCENARIO
                 WHEELCHAIR,
                 ANIMAL,
             };
-    
+
         private:
             std::string _literal;
             PedestrianCategoryEnum _pedestrianCategoryEnum;
             static std::map<std::string, PedestrianCategoryEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kPedestrianCategoryEnumString 
             {
@@ -989,7 +997,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "wheelchair",
                 "animal",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -998,13 +1006,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kPedestrianCategoryEnumString[0];
                 _pedestrianCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             PedestrianCategory(PedestrianCategoryEnum& pedestrianCategory)
             {
                 _literal = kPedestrianCategoryEnumString[pedestrianCategory];
                 _pedestrianCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1013,14 +1021,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _pedestrianCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             PedestrianCategory& operator= (const PedestrianCategoryEnum &rhs)
             {
                 _pedestrianCategoryEnum = rhs;
@@ -1030,7 +1037,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             PedestrianCategory& operator= (const PedestrianCategory &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1055,23 +1062,25 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Types of precipitation.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>No precipitation.
- * <li>Rain.
- * <li>Snow.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Types of precipitation.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>No precipitation.
+         * <li>Rain.
+         * <li>Snow.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class PrecipitationType 
         {
         public:
@@ -1082,12 +1091,12 @@ namespace NET_ASAM_OPENSCENARIO
                 RAIN,
                 SNOW,
             };
-    
+
         private:
             std::string _literal;
             PrecipitationTypeEnum _precipitationTypeEnum;
             static std::map<std::string, PrecipitationTypeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kPrecipitationTypeEnumString 
             {
@@ -1096,7 +1105,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "rain",
                 "snow",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1105,13 +1114,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kPrecipitationTypeEnumString[0];
                 _precipitationTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             PrecipitationType(PrecipitationTypeEnum& precipitationType)
             {
                 _literal = kPrecipitationTypeEnumString[precipitationType];
                 _precipitationTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1120,14 +1129,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _precipitationTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             PrecipitationType& operator= (const PrecipitationTypeEnum &rhs)
             {
                 _precipitationTypeEnum = rhs;
@@ -1137,7 +1145,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             PrecipitationType& operator= (const PrecipitationType &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1162,25 +1170,27 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Rules that govern interaction between events that belong to the same maneuver.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>If a starting event has priority Overwrite, all events in running state, within the same scope (maneuver) as the 
- * starting event, should be issued a stop command (stop transition).
- * <li>If a starting event has priority Skip, then it will not be ran if there is any other event in the same scope 
- * (maneuver) in the running state.
- * <li>Execute in parallel to other events.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Rules that govern interaction between events that belong to the same maneuver.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>If a starting event has priority Overwrite, all events in running state, within the same scope (maneuver) as the 
+         * starting event, should be issued a stop command (stop transition).
+         * <li>If a starting event has priority Skip, then it will not be ran if there is any other event in the same scope 
+         * (maneuver) in the running state.
+         * <li>Execute in parallel to other events.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class Priority 
         {
         public:
@@ -1191,12 +1201,12 @@ namespace NET_ASAM_OPENSCENARIO
                 SKIP,
                 PARALLEL,
             };
-    
+
         private:
             std::string _literal;
             PriorityEnum _priorityEnum;
             static std::map<std::string, PriorityEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kPriorityEnumString 
             {
@@ -1205,7 +1215,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "skip",
                 "parallel",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1214,13 +1224,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kPriorityEnumString[0];
                 _priorityEnum = GetFromLiteral(_literal);
             }
-    
+
             Priority(PriorityEnum& priority)
             {
                 _literal = kPriorityEnumString[priority];
                 _priorityEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1229,14 +1239,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _priorityEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             Priority& operator= (const PriorityEnum &rhs)
             {
                 _priorityEnum = rhs;
@@ -1246,7 +1255,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             Priority& operator= (const Priority &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1271,22 +1280,24 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Definition of the nature for a given signal, or variable, in terms of absolute or relative.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Relative reference.
- * <li>Absolute reference.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Definition of the nature for a given signal, or variable, in terms of absolute or relative.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Relative reference.
+         * <li>Absolute reference.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ReferenceContext 
         {
         public:
@@ -1296,12 +1307,12 @@ namespace NET_ASAM_OPENSCENARIO
                 RELATIVE,
                 ABSOLUTE,
             };
-    
+
         private:
             std::string _literal;
             ReferenceContextEnum _referenceContextEnum;
             static std::map<std::string, ReferenceContextEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kReferenceContextEnumString 
             {
@@ -1309,7 +1320,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "relative",
                 "absolute",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1318,13 +1329,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kReferenceContextEnumString[0];
                 _referenceContextEnum = GetFromLiteral(_literal);
             }
-    
+
             ReferenceContext(ReferenceContextEnum& referenceContext)
             {
                 _literal = kReferenceContextEnumString[referenceContext];
                 _referenceContextEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1333,14 +1344,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _referenceContextEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             ReferenceContext& operator= (const ReferenceContextEnum &rhs)
             {
                 _referenceContextEnum = rhs;
@@ -1350,7 +1360,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             ReferenceContext& operator= (const ReferenceContext &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1375,23 +1385,25 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Alternative ways in which to calculate the distance in a RelativeDistanceCondition.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Longitudinal distance offset.
- * <li>Lateral distance offset.
- * <li>Cartesian distance offset.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Alternative ways in which to calculate the distance in a RelativeDistanceCondition.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Longitudinal distance offset.
+         * <li>Lateral distance offset.
+         * <li>Cartesian distance offset.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class RelativeDistanceType 
         {
         public:
@@ -1402,12 +1414,12 @@ namespace NET_ASAM_OPENSCENARIO
                 LATERAL,
                 CARTESIAN_DISTANCE,
             };
-    
+
         private:
             std::string _literal;
             RelativeDistanceTypeEnum _relativeDistanceTypeEnum;
             static std::map<std::string, RelativeDistanceTypeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kRelativeDistanceTypeEnumString 
             {
@@ -1416,7 +1428,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "lateral",
                 "cartesianDistance",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1425,13 +1437,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kRelativeDistanceTypeEnumString[0];
                 _relativeDistanceTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             RelativeDistanceType(RelativeDistanceTypeEnum& relativeDistanceType)
             {
                 _literal = kRelativeDistanceTypeEnumString[relativeDistanceType];
                 _relativeDistanceTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1440,14 +1452,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _relativeDistanceTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             RelativeDistanceType& operator= (const RelativeDistanceTypeEnum &rhs)
             {
                 _relativeDistanceTypeEnum = rhs;
@@ -1457,7 +1468,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             RelativeDistanceType& operator= (const RelativeDistanceType &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1482,24 +1493,26 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Strategy for path selection between waypoints in a route.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Fastest route.
- * <li>Shortest route.
- * <li>Route with least number of intersections.
- * <li>Random route.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Strategy for path selection between waypoints in a route.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Fastest route.
+         * <li>Shortest route.
+         * <li>Route with least number of intersections.
+         * <li>Random route.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class RouteStrategy 
         {
         public:
@@ -1511,12 +1524,12 @@ namespace NET_ASAM_OPENSCENARIO
                 LEAST_INTERSECTIONS,
                 RANDOM,
             };
-    
+
         private:
             std::string _literal;
             RouteStrategyEnum _routeStrategyEnum;
             static std::map<std::string, RouteStrategyEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kRouteStrategyEnumString 
             {
@@ -1526,7 +1539,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "leastIntersections",
                 "random",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1535,13 +1548,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kRouteStrategyEnumString[0];
                 _routeStrategyEnum = GetFromLiteral(_literal);
             }
-    
+
             RouteStrategy(RouteStrategyEnum& routeStrategy)
             {
                 _literal = kRouteStrategyEnumString[routeStrategy];
                 _routeStrategyEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1550,14 +1563,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _routeStrategyEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             RouteStrategy& operator= (const RouteStrategyEnum &rhs)
             {
                 _routeStrategyEnum = rhs;
@@ -1567,7 +1579,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             RouteStrategy& operator= (const RouteStrategy &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1592,23 +1604,25 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Rules (operators) used to compare quantitative variables or signals.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>'Greater than' operator.
- * <li>'Less than' operator.
- * <li>'Equal to' operator.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Rules (operators) used to compare quantitative variables or signals.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>'Greater than' operator.
+         * <li>'Less than' operator.
+         * <li>'Equal to' operator.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class Rule 
         {
         public:
@@ -1619,12 +1633,12 @@ namespace NET_ASAM_OPENSCENARIO
                 LESS_THAN,
                 EQUAL_TO,
             };
-    
+
         private:
             std::string _literal;
             RuleEnum _ruleEnum;
             static std::map<std::string, RuleEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kRuleEnumString 
             {
@@ -1633,7 +1647,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "lessThan",
                 "equalTo",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1642,13 +1656,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kRuleEnumString[0];
                 _ruleEnum = GetFromLiteral(_literal);
             }
-    
+
             Rule(RuleEnum& rule)
             {
                 _literal = kRuleEnumString[rule];
                 _ruleEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1657,14 +1671,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _ruleEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             Rule& operator= (const RuleEnum &rhs)
             {
                 _ruleEnum = rhs;
@@ -1674,7 +1687,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             Rule& operator= (const Rule &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1699,24 +1712,26 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Type definition that relates a speed value relative to another one.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>The relative value is interpreted as a difference to a referenced value. Unit: m/s. As an example, a speed value of 
- * 10 equals a speed that's 10m/s faster than the reference speed.
- * <li>The relative value is interpreted as a factor to a referenced value. No unit. As an example, a speed value of 1.1 
- * equals a speed that's 10% faster than the reference speed.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Type definition that relates a speed value relative to another one.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>The relative value is interpreted as a difference to a referenced value. Unit: m/s. As an example, a speed value of 
+         * 10 equals a speed that's 10m/s faster than the reference speed.
+         * <li>The relative value is interpreted as a factor to a referenced value. No unit. As an example, a speed value of 1.1 
+         * equals a speed that's 10% faster than the reference speed.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class SpeedTargetValueType 
         {
         public:
@@ -1726,12 +1741,12 @@ namespace NET_ASAM_OPENSCENARIO
                 DELTA,
                 FACTOR,
             };
-    
+
         private:
             std::string _literal;
             SpeedTargetValueTypeEnum _speedTargetValueTypeEnum;
             static std::map<std::string, SpeedTargetValueTypeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kSpeedTargetValueTypeEnumString 
             {
@@ -1739,7 +1754,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "delta",
                 "factor",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1748,13 +1763,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kSpeedTargetValueTypeEnumString[0];
                 _speedTargetValueTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             SpeedTargetValueType(SpeedTargetValueTypeEnum& speedTargetValueType)
             {
                 _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType];
                 _speedTargetValueTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1763,14 +1778,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _speedTargetValueTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             SpeedTargetValueType& operator= (const SpeedTargetValueTypeEnum &rhs)
             {
                 _speedTargetValueTypeEnum = rhs;
@@ -1780,7 +1794,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             SpeedTargetValueType& operator= (const SpeedTargetValueType &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1805,32 +1819,34 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * The states and the transitions that can be used to define a StoryboardElementStateCondition.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>Transition between the standby and running state. The moment the referenced StoryboardElement instance starts its 
- * execution.
- * <li>Transition between the running state and the standby state. The moment the referenced StoryboardElement terminates 
- * its execution by completing its goal.
- * <li>Transition between the running or standby states to the complete state. Occurs when the execution of the referenced 
- * StoryboardElement instance is stopped via a stop trigger or overriding.
- * <li>Transition marking the moment an element is asked to move to the running state but is instead skipped so it remains 
- * in the standby state (Only for Event instances).
- * <li>State from which the Storyboard element cannot return to the running state without external interference (forced by 
- * a parent element).
- * <li>State in which the storyboard element is executing its actions.
- * <li>State in which the storyboard element could move to the running state given a start trigger.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * The states and the transitions that can be used to define a StoryboardElementStateCondition.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>Transition between the standby and running state. The moment the referenced StoryboardElement instance starts its 
+         * execution.
+         * <li>Transition between the running state and the standby state. The moment the referenced StoryboardElement terminates 
+         * its execution by completing its goal.
+         * <li>Transition between the running or standby states to the complete state. Occurs when the execution of the referenced 
+         * StoryboardElement instance is stopped via a stop trigger or overriding.
+         * <li>Transition marking the moment an element is asked to move to the running state but is instead skipped so it remains 
+         * in the standby state (Only for Event instances).
+         * <li>State from which the Storyboard element cannot return to the running state without external interference (forced by 
+         * a parent element).
+         * <li>State in which the storyboard element is executing its actions.
+         * <li>State in which the storyboard element could move to the running state given a start trigger.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class StoryboardElementState 
         {
         public:
@@ -1845,12 +1861,12 @@ namespace NET_ASAM_OPENSCENARIO
                 RUNNING_STATE,
                 STANDBY_STATE,
             };
-    
+
         private:
             std::string _literal;
             StoryboardElementStateEnum _storyboardElementStateEnum;
             static std::map<std::string, StoryboardElementStateEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kStoryboardElementStateEnumString 
             {
@@ -1863,7 +1879,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "runningState",
                 "standbyState",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1872,13 +1888,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kStoryboardElementStateEnumString[0];
                 _storyboardElementStateEnum = GetFromLiteral(_literal);
             }
-    
+
             StoryboardElementState(StoryboardElementStateEnum& storyboardElementState)
             {
                 _literal = kStoryboardElementStateEnumString[storyboardElementState];
                 _storyboardElementStateEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1887,14 +1903,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _storyboardElementStateEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             StoryboardElementState& operator= (const StoryboardElementStateEnum &rhs)
             {
                 _storyboardElementStateEnum = rhs;
@@ -1904,7 +1919,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             StoryboardElementState& operator= (const StoryboardElementState &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -1929,26 +1944,28 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Types of storyboard elements in a scenario.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>The referenced StoryboardElement instance is a Story.
- * <li>The referenced StoryboardElement instance is an Act.
- * <li>The referenced StoryboardElement instance is a Maneuver.
- * <li>The referenced StoryboardElement instance is an Event.
- * <li>The referenced StoryboardElement instance is an Action.
- * <li>The referenced StoryboardElement instance is a ManeuverGroup.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Types of storyboard elements in a scenario.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>The referenced StoryboardElement instance is a Story.
+         * <li>The referenced StoryboardElement instance is an Act.
+         * <li>The referenced StoryboardElement instance is a Maneuver.
+         * <li>The referenced StoryboardElement instance is an Event.
+         * <li>The referenced StoryboardElement instance is an Action.
+         * <li>The referenced StoryboardElement instance is a ManeuverGroup.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class StoryboardElementType 
         {
         public:
@@ -1962,12 +1979,12 @@ namespace NET_ASAM_OPENSCENARIO
                 ACTION,
                 MANEUVER_GROUP,
             };
-    
+
         private:
             std::string _literal;
             StoryboardElementTypeEnum _storyboardElementTypeEnum;
             static std::map<std::string, StoryboardElementTypeEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kStoryboardElementTypeEnumString 
             {
@@ -1979,7 +1996,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "action",
                 "maneuverGroup",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -1988,13 +2005,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kStoryboardElementTypeEnumString[0];
                 _storyboardElementTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             StoryboardElementType(StoryboardElementTypeEnum& storyboardElementType)
             {
                 _literal = kStoryboardElementTypeEnumString[storyboardElementType];
                 _storyboardElementTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -2003,14 +2020,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _storyboardElementTypeEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             StoryboardElementType& operator= (const StoryboardElementTypeEnum &rhs)
             {
                 _storyboardElementTypeEnum = rhs;
@@ -2020,7 +2036,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             StoryboardElementType& operator= (const StoryboardElementType &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -2045,22 +2061,24 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Rules which determine how triggering entities are used to verify a given condition.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>One of the triggering entities reaching the position is enough to trigger the lane change.
- * <li>All listed triggering entities must reach the specifies position in order to start the lane change.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Rules which determine how triggering entities are used to verify a given condition.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>One of the triggering entities reaching the position is enough to trigger the lane change.
+         * <li>All listed triggering entities must reach the specifies position in order to start the lane change.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TriggeringEntitiesRule 
         {
         public:
@@ -2070,12 +2088,12 @@ namespace NET_ASAM_OPENSCENARIO
                 ANY,
                 ALL,
             };
-    
+
         private:
             std::string _literal;
             TriggeringEntitiesRuleEnum _triggeringEntitiesRuleEnum;
             static std::map<std::string, TriggeringEntitiesRuleEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kTriggeringEntitiesRuleEnumString 
             {
@@ -2083,7 +2101,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "any",
                 "all",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -2092,13 +2110,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kTriggeringEntitiesRuleEnumString[0];
                 _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
             }
-    
+
             TriggeringEntitiesRule(TriggeringEntitiesRuleEnum& triggeringEntitiesRule)
             {
                 _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule];
                 _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -2107,14 +2125,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             TriggeringEntitiesRule& operator= (const TriggeringEntitiesRuleEnum &rhs)
             {
                 _triggeringEntitiesRuleEnum = rhs;
@@ -2124,7 +2141,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             TriggeringEntitiesRule& operator= (const TriggeringEntitiesRule &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -2149,30 +2166,32 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * <p>
- * From OpenSCENARIO class model specification:
- * Categories for entity objects of type vehicle.
- * 
- * Values from OpenSCENARIO class model specification:
- * <ul>
- * <li>The vehicle is a car.
- * <li>The vehicle is a van.
- * <li>The vehicle is a truck.
- * <li>The vehicle is a trailer.
- * <li>The vehicle is a semi trailer.
- * <li>The vehicle is a bus.
- * <li>The vehicle is a motor bike.
- * <li>The vehicle is a bicycle.
- * <li>The vehicle is a train.
- * <li>The vehicle is a tram.
- * </ul>
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/    
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * <p>
+         * From OpenSCENARIO class model specification:
+         * Categories for entity objects of type vehicle.
+         * 
+         * Values from OpenSCENARIO class model specification:
+         * <ul>
+         * <li>The vehicle is a car.
+         * <li>The vehicle is a van.
+         * <li>The vehicle is a truck.
+         * <li>The vehicle is a trailer.
+         * <li>The vehicle is a semi trailer.
+         * <li>The vehicle is a bus.
+         * <li>The vehicle is a motor bike.
+         * <li>The vehicle is a bicycle.
+         * <li>The vehicle is a train.
+         * <li>The vehicle is a tram.
+         * </ul>
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class VehicleCategory 
         {
         public:
@@ -2190,12 +2209,12 @@ namespace NET_ASAM_OPENSCENARIO
                 TRAIN,
                 TRAM,
             };
-    
+
         private:
             std::string _literal;
             VehicleCategoryEnum _vehicleCategoryEnum;
             static std::map<std::string, VehicleCategoryEnum> _stringToEnum;
-    
+
         public:
             const std::vector<std::string> kVehicleCategoryEnumString 
             {
@@ -2211,7 +2230,7 @@ namespace NET_ASAM_OPENSCENARIO
                 "train",
                 "tram",
             };
-    
+
             /**
              * Default Constructor
              */
@@ -2220,13 +2239,13 @@ namespace NET_ASAM_OPENSCENARIO
                 _literal = kVehicleCategoryEnumString[0];
                 _vehicleCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             VehicleCategory(VehicleCategoryEnum& vehicleCategory)
             {
                 _literal = kVehicleCategoryEnumString[vehicleCategory];
                 _vehicleCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -2235,14 +2254,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _vehicleCategoryEnum = GetFromLiteral(_literal);
             }
-    
+
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
             std::string GetLiteral() const { return _literal;}
-    
-    
+
             VehicleCategory& operator= (const VehicleCategoryEnum &rhs)
             {
                 _vehicleCategoryEnum = rhs;
@@ -2252,7 +2270,7 @@ namespace NET_ASAM_OPENSCENARIO
                     _literal = "unknown";
                 return *this;
             }
-    
+
             VehicleCategory& operator= (const VehicleCategory &rhs ) 
             { 
                  _literal = rhs._literal;
@@ -2277,7 +2295,9 @@ namespace NET_ASAM_OPENSCENARIO
                     return kIt->second;
                 return UNKNOWN;
             }
-    
+
         };
+
+
     }
 }

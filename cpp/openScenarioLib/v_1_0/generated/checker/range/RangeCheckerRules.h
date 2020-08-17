@@ -26,12 +26,12 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace V_1_0
     {
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IAbsoluteSpeed according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IAbsoluteSpeed according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class AbsoluteSpeedRangeCheckerRule: public RangeCheckerRule<IAbsoluteSpeed>
         {
         public:
@@ -39,12 +39,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IAxle according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IAxle according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class AxleRangeCheckerRule: public RangeCheckerRule<IAxle>
         {
         public:
@@ -52,12 +52,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAxle> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IClothoid according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IClothoid according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ClothoidRangeCheckerRule: public RangeCheckerRule<IClothoid>
         {
         public:
@@ -65,12 +65,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IClothoid> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ICondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ICondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ConditionRangeCheckerRule: public RangeCheckerRule<ICondition>
         {
         public:
@@ -78,12 +78,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ICondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IControlPoint according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IControlPoint according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ControlPointRangeCheckerRule: public RangeCheckerRule<IControlPoint>
         {
         public:
@@ -91,12 +91,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControlPoint> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IControllerDistributionEntry according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IControllerDistributionEntry according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ControllerDistributionEntryRangeCheckerRule: public RangeCheckerRule<IControllerDistributionEntry>
         {
         public:
@@ -104,12 +104,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IDimensions according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IDimensions according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class DimensionsRangeCheckerRule: public RangeCheckerRule<IDimensions>
         {
         public:
@@ -117,12 +117,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDimensions> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IDistanceCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IDistanceCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class DistanceConditionRangeCheckerRule: public RangeCheckerRule<IDistanceCondition>
         {
         public:
@@ -130,12 +130,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDistanceCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IDynamicConstraints according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IDynamicConstraints according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class DynamicConstraintsRangeCheckerRule: public RangeCheckerRule<IDynamicConstraints>
         {
         public:
@@ -143,12 +143,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDynamicConstraints> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IEndOfRoadCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IEndOfRoadCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class EndOfRoadConditionRangeCheckerRule: public RangeCheckerRule<IEndOfRoadCondition>
         {
         public:
@@ -156,12 +156,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IEvent according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IEvent according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class EventRangeCheckerRule: public RangeCheckerRule<IEvent>
         {
         public:
@@ -169,12 +169,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEvent> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IFog according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IFog according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class FogRangeCheckerRule: public RangeCheckerRule<IFog>
         {
         public:
@@ -182,12 +182,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IFog> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ILaneOffsetActionDynamics according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ILaneOffsetActionDynamics according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class LaneOffsetActionDynamicsRangeCheckerRule: public RangeCheckerRule<ILaneOffsetActionDynamics>
         {
         public:
@@ -195,12 +195,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ILanePosition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ILanePosition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class LanePositionRangeCheckerRule: public RangeCheckerRule<ILanePosition>
         {
         public:
@@ -208,12 +208,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILanePosition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ILateralDistanceAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ILateralDistanceAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class LateralDistanceActionRangeCheckerRule: public RangeCheckerRule<ILateralDistanceAction>
         {
         public:
@@ -221,12 +221,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILateralDistanceAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ILongitudinalDistanceAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ILongitudinalDistanceAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class LongitudinalDistanceActionRangeCheckerRule: public RangeCheckerRule<ILongitudinalDistanceAction>
         {
         public:
@@ -234,12 +234,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IManeuverGroup according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IManeuverGroup according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ManeuverGroupRangeCheckerRule: public RangeCheckerRule<IManeuverGroup>
         {
         public:
@@ -247,12 +247,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IManeuverGroup> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IMiscObject according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IMiscObject according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class MiscObjectRangeCheckerRule: public RangeCheckerRule<IMiscObject>
         {
         public:
@@ -260,12 +260,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IMiscObject> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type INurbs according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type INurbs according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class NurbsRangeCheckerRule: public RangeCheckerRule<INurbs>
         {
         public:
@@ -273,12 +273,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<INurbs> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IOffroadCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IOffroadCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class OffroadConditionRangeCheckerRule: public RangeCheckerRule<IOffroadCondition>
         {
         public:
@@ -286,12 +286,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOffroadCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IOverrideBrakeAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IOverrideBrakeAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class OverrideBrakeActionRangeCheckerRule: public RangeCheckerRule<IOverrideBrakeAction>
         {
         public:
@@ -299,12 +299,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IOverrideClutchAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IOverrideClutchAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class OverrideClutchActionRangeCheckerRule: public RangeCheckerRule<IOverrideClutchAction>
         {
         public:
@@ -312,12 +312,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideClutchAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IOverrideParkingBrakeAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IOverrideParkingBrakeAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class OverrideParkingBrakeActionRangeCheckerRule: public RangeCheckerRule<IOverrideParkingBrakeAction>
         {
         public:
@@ -325,12 +325,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IOverrideThrottleAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IOverrideThrottleAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class OverrideThrottleActionRangeCheckerRule: public RangeCheckerRule<IOverrideThrottleAction>
         {
         public:
@@ -338,12 +338,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IPerformance according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IPerformance according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class PerformanceRangeCheckerRule: public RangeCheckerRule<IPerformance>
         {
         public:
@@ -351,12 +351,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPerformance> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IPhase according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IPhase according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class PhaseRangeCheckerRule: public RangeCheckerRule<IPhase>
         {
         public:
@@ -364,12 +364,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPhase> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IPositionInLaneCoordinates according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IPositionInLaneCoordinates according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class PositionInLaneCoordinatesRangeCheckerRule: public RangeCheckerRule<IPositionInLaneCoordinates>
         {
         public:
@@ -377,12 +377,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IPrecipitation according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IPrecipitation according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class PrecipitationRangeCheckerRule: public RangeCheckerRule<IPrecipitation>
         {
         public:
@@ -390,12 +390,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPrecipitation> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IReachPositionCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IReachPositionCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class ReachPositionConditionRangeCheckerRule: public RangeCheckerRule<IReachPositionCondition>
         {
         public:
@@ -403,12 +403,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IReachPositionCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IRelativeDistanceCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IRelativeDistanceCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class RelativeDistanceConditionRangeCheckerRule: public RangeCheckerRule<IRelativeDistanceCondition>
         {
         public:
@@ -416,12 +416,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IRoadCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IRoadCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class RoadConditionRangeCheckerRule: public RangeCheckerRule<IRoadCondition>
         {
         public:
@@ -429,12 +429,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRoadCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IStandStillCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IStandStillCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class StandStillConditionRangeCheckerRule: public RangeCheckerRule<IStandStillCondition>
         {
         public:
@@ -442,12 +442,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IStandStillCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ISun according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ISun according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class SunRangeCheckerRule: public RangeCheckerRule<ISun>
         {
         public:
@@ -455,12 +455,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ISun> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITimeHeadwayCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITimeHeadwayCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TimeHeadwayConditionRangeCheckerRule: public RangeCheckerRule<ITimeHeadwayCondition>
         {
         public:
@@ -468,12 +468,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITimeToCollisionCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITimeToCollisionCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TimeToCollisionConditionRangeCheckerRule: public RangeCheckerRule<ITimeToCollisionCondition>
         {
         public:
@@ -481,12 +481,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITiming according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITiming according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TimingRangeCheckerRule: public RangeCheckerRule<ITiming>
         {
         public:
@@ -494,12 +494,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITiming> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITrafficSignalController according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITrafficSignalController according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TrafficSignalControllerRangeCheckerRule: public RangeCheckerRule<ITrafficSignalController>
         {
         public:
@@ -507,12 +507,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSignalController> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITrafficSinkAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITrafficSinkAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TrafficSinkActionRangeCheckerRule: public RangeCheckerRule<ITrafficSinkAction>
         {
         public:
@@ -520,12 +520,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSinkAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITrafficSourceAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITrafficSourceAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TrafficSourceActionRangeCheckerRule: public RangeCheckerRule<ITrafficSourceAction>
         {
         public:
@@ -533,12 +533,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSourceAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITrafficSwarmAction according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITrafficSwarmAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TrafficSwarmActionRangeCheckerRule: public RangeCheckerRule<ITrafficSwarmAction>
         {
         public:
@@ -546,12 +546,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITransitionDynamics according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITransitionDynamics according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TransitionDynamicsRangeCheckerRule: public RangeCheckerRule<ITransitionDynamics>
         {
         public:
@@ -559,12 +559,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITransitionDynamics> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type ITraveledDistanceCondition according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type ITraveledDistanceCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class TraveledDistanceConditionRangeCheckerRule: public RangeCheckerRule<ITraveledDistanceCondition>
         {
         public:
@@ -572,12 +572,12 @@ namespace NET_ASAM_OPENSCENARIO
             void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override;
         };
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A range checker rule class for the type IVehicleCategoryDistributionEntry according to OpenSCENARIO standard
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A range checker rule class for the type IVehicleCategoryDistributionEntry according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class VehicleCategoryDistributionEntryRangeCheckerRule: public RangeCheckerRule<IVehicleCategoryDistributionEntry>
         {
         public:

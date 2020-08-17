@@ -25,12 +25,12 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace V_1_0
     {
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Provides a method for every type of the osc model to add checker rules.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Provides a method for every type of the osc model to add checker rules.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class IScenarioChecker 
         {
         public:

@@ -39,11 +39,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Absolute speed. Unit: m/s. Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Absolute speed. Unit: m/s. Range: [0..inf[.]
+         * 
+        */
         void AbsoluteSpeedImpl::SetValue(double value )
         {
             _value = value;
@@ -118,14 +118,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AbsoluteSpeedImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AbsoluteSpeedImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AbsoluteTargetLaneImpl::AbsoluteTargetLaneImpl()
@@ -141,11 +140,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Number (ID) of the target lane the entity will change to.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Number (ID) of the target lane the entity will change to.]
+         * 
+        */
         void AbsoluteTargetLaneImpl::SetValue(std::string value )
         {
             _value = value;
@@ -229,14 +228,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AbsoluteTargetLaneImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AbsoluteTargetLaneOffsetImpl::AbsoluteTargetLaneOffsetImpl()
@@ -252,12 +250,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Signed number in meters the vehicle should respect as an 
-	 * offset from the center of the current lane.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Signed number in meters the vehicle should respect as an 
+         * offset from the center of the current lane.]
+         * 
+        */
         void AbsoluteTargetLaneOffsetImpl::SetValue(double value )
         {
             _value = value;
@@ -332,14 +330,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneOffsetImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AbsoluteTargetLaneOffsetImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AbsoluteTargetSpeedImpl::AbsoluteTargetSpeedImpl()
@@ -355,11 +352,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Target speed in m/s the vehicle should change to.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Target speed in m/s the vehicle should change to.]
+         * 
+        */
         void AbsoluteTargetSpeedImpl::SetValue(double value )
         {
             _value = value;
@@ -434,14 +431,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetSpeedImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AbsoluteTargetSpeedImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AccelerationConditionImpl::AccelerationConditionImpl()
@@ -462,20 +458,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Acceleration value. Unit: m/s^2.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Acceleration value. Unit: m/s^2.]
+         * 
+        */
         void AccelerationConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void AccelerationConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -567,7 +563,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AccelerationConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AccelerationConditionImpl::GetEnumerationLiteral(std::string key)
@@ -586,7 +582,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         AcquirePositionActionImpl::AcquirePositionActionImpl()
         {
             /**
@@ -599,11 +594,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [A position to acquire.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [A position to acquire.]
+         * 
+        */
         void AcquirePositionActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -692,14 +687,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AcquirePositionActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AcquirePositionActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ActImpl::ActImpl()
@@ -727,38 +721,38 @@ namespace NET_ASAM_OPENSCENARIO
             return _stopTrigger;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of this act.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of this act.]
+         * 
+        */
         void ActImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property maneuverGroups
-	 * @param maneuverGroups from OpenSCENARIO class model specification: [A list of maneuver groups representing the act.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maneuverGroups
+         * @param maneuverGroups from OpenSCENARIO class model specification: [A list of maneuver groups representing the act.]
+         * 
+        */
         void ActImpl::SetManeuverGroups(std::vector<std::shared_ptr<IManeuverGroup>>& maneuverGroups)
         {
             _maneuverGroups = maneuverGroups;
         }
-    	/**
-	 * Sets the value of model property startTrigger
-	 * @param startTrigger from OpenSCENARIO class model specification: [Defines a trigger to that starts the act.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property startTrigger
+         * @param startTrigger from OpenSCENARIO class model specification: [Defines a trigger to that starts the act.]
+         * 
+        */
         void ActImpl::SetStartTrigger(std::shared_ptr<ITrigger> startTrigger )
         {
             _startTrigger = startTrigger;
         }
-    	/**
-	 * Sets the value of model property stopTrigger
-	 * @param stopTrigger from OpenSCENARIO class model specification: [Defines a trigger that stops the act.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property stopTrigger
+         * @param stopTrigger from OpenSCENARIO class model specification: [Defines a trigger that stops the act.]
+         * 
+        */
         void ActImpl::SetStopTrigger(std::shared_ptr<ITrigger> stopTrigger )
         {
             _stopTrigger = stopTrigger;
@@ -915,14 +909,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ActImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ActImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ActionImpl::ActionImpl()
@@ -950,41 +943,41 @@ namespace NET_ASAM_OPENSCENARIO
             return _privateAction;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of this action.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of this action.]
+         * 
+        */
         void ActionImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property globalAction
-	 * @param globalAction from OpenSCENARIO class model specification: [The GlobalAction to be executed when the enclosing 
-	 * Action is startedis started.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property globalAction
+         * @param globalAction from OpenSCENARIO class model specification: [The GlobalAction to be executed when the enclosing 
+         * Action is startedis started.]
+         * 
+        */
         void ActionImpl::SetGlobalAction(std::shared_ptr<IGlobalAction> globalAction )
         {
             _globalAction = globalAction;
         }
-    	/**
-	 * Sets the value of model property userDefinedAction
-	 * @param userDefinedAction from OpenSCENARIO class model specification: [The UserDefinedAction to be executed when the 
-	 * enclosing Action is started.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property userDefinedAction
+         * @param userDefinedAction from OpenSCENARIO class model specification: [The UserDefinedAction to be executed when the 
+         * enclosing Action is started.]
+         * 
+        */
         void ActionImpl::SetUserDefinedAction(std::shared_ptr<IUserDefinedAction> userDefinedAction )
         {
             _userDefinedAction = userDefinedAction;
         }
-    	/**
-	 * Sets the value of model property privateAction
-	 * @param privateAction from OpenSCENARIO class model specification: [The PrivateAction to be executed when the enclosing 
-	 * Action is started.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property privateAction
+         * @param privateAction from OpenSCENARIO class model specification: [The PrivateAction to be executed when the enclosing 
+         * Action is started.]
+         * 
+        */
         void ActionImpl::SetPrivateAction(std::shared_ptr<IPrivateAction> privateAction )
         {
             _privateAction = privateAction;
@@ -1126,14 +1119,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ActivateControllerActionImpl::ActivateControllerActionImpl()
@@ -1154,22 +1146,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _longitudinal;
         }
 
-    	/**
-	 * Sets the value of model property lateral
-	 * @param lateral from OpenSCENARIO class model specification: [In lateral domain: Activate or deactivate controller 
-	 * defined (e.g. automated, autonomous) behavior.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property lateral
+         * @param lateral from OpenSCENARIO class model specification: [In lateral domain: Activate or deactivate controller 
+         * defined (e.g. automated, autonomous) behavior.]
+         * 
+        */
         void ActivateControllerActionImpl::SetLateral(bool lateral )
         {
             _lateral = lateral;
         }
-    	/**
-	 * Sets the value of model property longitudinal
-	 * @param longitudinal from OpenSCENARIO class model specification: [In longitudinal domain: Activate or deactivate 
-	 * autonomous behavior.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property longitudinal
+         * @param longitudinal from OpenSCENARIO class model specification: [In longitudinal domain: Activate or deactivate 
+         * autonomous behavior.]
+         * 
+        */
         void ActivateControllerActionImpl::SetLongitudinal(bool longitudinal )
         {
             _longitudinal = longitudinal;
@@ -1252,14 +1244,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ActivateControllerActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ActivateControllerActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ActorsImpl::ActorsImpl()
@@ -1279,21 +1270,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _entityRefs;
         }
 
-    	/**
-	 * Sets the value of model property selectTriggeringEntities
-	 * @param selectTriggeringEntities from OpenSCENARIO class model specification: [Indicates whether the triggering entities 
-	 * are considered actors.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property selectTriggeringEntities
+         * @param selectTriggeringEntities from OpenSCENARIO class model specification: [Indicates whether the triggering entities 
+         * are considered actors.]
+         * 
+        */
         void ActorsImpl::SetSelectTriggeringEntities(bool selectTriggeringEntities )
         {
             _selectTriggeringEntities = selectTriggeringEntities;
         }
-    	/**
-	 * Sets the value of model property entityRefs
-	 * @param entityRefs from OpenSCENARIO class model specification: [A list of entities this actor is referencing.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRefs
+         * @param entityRefs from OpenSCENARIO class model specification: [A list of entities this actor is referencing.]
+         * 
+        */
         void ActorsImpl::SetEntityRefs(std::vector<std::shared_ptr<IEntityRef>>& entityRefs)
         {
             _entityRefs = entityRefs;
@@ -1401,14 +1392,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ActorsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ActorsImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AddEntityActionImpl::AddEntityActionImpl()
@@ -1423,11 +1413,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [Adds an entity at the specified position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [Adds an entity at the specified position.]
+         * 
+        */
         void AddEntityActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -1516,14 +1506,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AddEntityActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AddEntityActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AssignControllerActionImpl::AssignControllerActionImpl()
@@ -1542,21 +1531,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-    	/**
-	 * Sets the value of model property controller
-	 * @param controller from OpenSCENARIO class model specification: [Assigns a controller to a given entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controller
+         * @param controller from OpenSCENARIO class model specification: [Assigns a controller to a given entity.]
+         * 
+        */
         void AssignControllerActionImpl::SetController(std::shared_ptr<IController> controller )
         {
             _controller = controller;
         }
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [Uses a CatalogReference to assign a controller to 
-	 * a given entity. CatalogReference must point to a Controller type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [Uses a CatalogReference to assign a controller to 
+         * a given entity. CatalogReference must point to a Controller type.]
+         * 
+        */
         void AssignControllerActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
@@ -1663,14 +1652,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AssignControllerActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AssignControllerActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AssignRouteActionImpl::AssignRouteActionImpl()
@@ -1689,21 +1677,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-    	/**
-	 * Sets the value of model property route
-	 * @param route from OpenSCENARIO class model specification: [The route definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property route
+         * @param route from OpenSCENARIO class model specification: [The route definition.]
+         * 
+        */
         void AssignRouteActionImpl::SetRoute(std::shared_ptr<IRoute> route )
         {
             _route = route;
         }
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [A reference to the route definition in a catalog. 
-	 * The reference must point to a route.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [A reference to the route definition in a catalog. 
+         * The reference must point to a route.]
+         * 
+        */
         void AssignRouteActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
@@ -1810,14 +1798,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AssignRouteActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AssignRouteActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AxleImpl::AxleImpl()
@@ -1853,52 +1840,52 @@ namespace NET_ASAM_OPENSCENARIO
             return _positionZ;
         }
 
-    	/**
-	 * Sets the value of model property maxSteering
-	 * @param maxSteering from OpenSCENARIO class model specification: [Maximum steering angle which can be performed by the 
-	 * wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxSteering
+         * @param maxSteering from OpenSCENARIO class model specification: [Maximum steering angle which can be performed by the 
+         * wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.]
+         * 
+        */
         void AxleImpl::SetMaxSteering(double maxSteering )
         {
             _maxSteering = maxSteering;
         }
-    	/**
-	 * Sets the value of model property wheelDiameter
-	 * @param wheelDiameter from OpenSCENARIO class model specification: [Diameter of the wheels on this axle. Unit: m; Range: 
-	 * ]0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property wheelDiameter
+         * @param wheelDiameter from OpenSCENARIO class model specification: [Diameter of the wheels on this axle. Unit: m; Range: 
+         * ]0..inf[.]
+         * 
+        */
         void AxleImpl::SetWheelDiameter(double wheelDiameter )
         {
             _wheelDiameter = wheelDiameter;
         }
-    	/**
-	 * Sets the value of model property trackWidth
-	 * @param trackWidth from OpenSCENARIO class model specification: [Distance of the wheels center lines at zero steering. 
-	 * Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trackWidth
+         * @param trackWidth from OpenSCENARIO class model specification: [Distance of the wheels center lines at zero steering. 
+         * Unit: m; Range: [0..inf[.]
+         * 
+        */
         void AxleImpl::SetTrackWidth(double trackWidth )
         {
             _trackWidth = trackWidth;
         }
-    	/**
-	 * Sets the value of model property positionX
-	 * @param positionX from OpenSCENARIO class model specification: [Longitudinal position of the axle with respect to the 
-	 * vehicles reference point. Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property positionX
+         * @param positionX from OpenSCENARIO class model specification: [Longitudinal position of the axle with respect to the 
+         * vehicles reference point. Unit: m; Range: [0..inf[.]
+         * 
+        */
         void AxleImpl::SetPositionX(double positionX )
         {
             _positionX = positionX;
         }
-    	/**
-	 * Sets the value of model property positionZ
-	 * @param positionZ from OpenSCENARIO class model specification: [Z-position of the axle with respect to the vehicles 
-	 * reference point. Usually this is half of wheel diameter. Unit:m; , Range:[0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property positionZ
+         * @param positionZ from OpenSCENARIO class model specification: [Z-position of the axle with respect to the vehicles 
+         * reference point. Usually this is half of wheel diameter. Unit:m; , Range:[0..inf[.]
+         * 
+        */
         void AxleImpl::SetPositionZ(double positionZ )
         {
             _positionZ = positionZ;
@@ -2005,14 +1992,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AxleImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AxleImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         AxlesImpl::AxlesImpl()
@@ -2035,29 +2021,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _additionalAxles;
         }
 
-    	/**
-	 * Sets the value of model property frontAxle
-	 * @param frontAxle from OpenSCENARIO class model specification: [Front axle.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property frontAxle
+         * @param frontAxle from OpenSCENARIO class model specification: [Front axle.]
+         * 
+        */
         void AxlesImpl::SetFrontAxle(std::shared_ptr<IAxle> frontAxle )
         {
             _frontAxle = frontAxle;
         }
-    	/**
-	 * Sets the value of model property rearAxle
-	 * @param rearAxle from OpenSCENARIO class model specification: [Rear axle.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rearAxle
+         * @param rearAxle from OpenSCENARIO class model specification: [Rear axle.]
+         * 
+        */
         void AxlesImpl::SetRearAxle(std::shared_ptr<IAxle> rearAxle )
         {
             _rearAxle = rearAxle;
         }
-    	/**
-	 * Sets the value of model property additionalAxles
-	 * @param additionalAxles from OpenSCENARIO class model specification: [A list of optional additional axles.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property additionalAxles
+         * @param additionalAxles from OpenSCENARIO class model specification: [A list of optional additional axles.]
+         * 
+        */
         void AxlesImpl::SetAdditionalAxles(std::vector<std::shared_ptr<IAxle>>& additionalAxles)
         {
             _additionalAxles = additionalAxles;
@@ -2197,14 +2183,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> AxlesImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string AxlesImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         BoundingBoxImpl::BoundingBoxImpl()
@@ -2223,21 +2208,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _dimensions;
         }
 
-    	/**
-	 * Sets the value of model property center
-	 * @param center from OpenSCENARIO class model specification: [Represents the geometrical center of the bounding box 
-	 * expressed in coordinates that refer to the coordinate system of , the entity (e.g. the vehicle coordinate system).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property center
+         * @param center from OpenSCENARIO class model specification: [Represents the geometrical center of the bounding box 
+         * expressed in coordinates that refer to the coordinate system of , the entity (e.g. the vehicle coordinate system).]
+         * 
+        */
         void BoundingBoxImpl::SetCenter(std::shared_ptr<ICenter> center )
         {
             _center = center;
         }
-    	/**
-	 * Sets the value of model property dimensions
-	 * @param dimensions from OpenSCENARIO class model specification: [Width, length and height of the bounding box.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dimensions
+         * @param dimensions from OpenSCENARIO class model specification: [Width, length and height of the bounding box.]
+         * 
+        */
         void BoundingBoxImpl::SetDimensions(std::shared_ptr<IDimensions> dimensions )
         {
             _dimensions = dimensions;
@@ -2344,14 +2329,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> BoundingBoxImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string BoundingBoxImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ByEntityConditionImpl::ByEntityConditionImpl()
@@ -2370,21 +2354,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _entityCondition;
         }
 
-    	/**
-	 * Sets the value of model property triggeringEntities
-	 * @param triggeringEntities from OpenSCENARIO class model specification: [A list of entities triggering this condition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property triggeringEntities
+         * @param triggeringEntities from OpenSCENARIO class model specification: [A list of entities triggering this condition.]
+         * 
+        */
         void ByEntityConditionImpl::SetTriggeringEntities(std::shared_ptr<ITriggeringEntities> triggeringEntities )
         {
             _triggeringEntities = triggeringEntities;
         }
-    	/**
-	 * Sets the value of model property entityCondition
-	 * @param entityCondition from OpenSCENARIO class model specification: [The condition which is related to the triggering 
-	 * entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityCondition
+         * @param entityCondition from OpenSCENARIO class model specification: [The condition which is related to the triggering 
+         * entities.]
+         * 
+        */
         void ByEntityConditionImpl::SetEntityCondition(std::shared_ptr<IEntityCondition> entityCondition )
         {
             _entityCondition = entityCondition;
@@ -2491,14 +2475,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ByEntityConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ByEntityConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ByObjectTypeImpl::ByObjectTypeImpl()
@@ -2514,11 +2497,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _type;
         }
 
-    	/**
-	 * Sets the value of model property type
-	 * @param type from OpenSCENARIO class model specification: [Defines the type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property type
+         * @param type from OpenSCENARIO class model specification: [Defines the type.]
+         * 
+        */
         void ByObjectTypeImpl::SetType(ObjectType type )
         {
             _type = type;
@@ -2602,7 +2585,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ByObjectTypeImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ByObjectTypeImpl::GetEnumerationLiteral(std::string key)
@@ -2621,7 +2604,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ByTypeImpl::ByTypeImpl()
         {
             /**
@@ -2635,12 +2617,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _objectType;
         }
 
-    	/**
-	 * Sets the value of model property objectType
-	 * @param objectType from OpenSCENARIO class model specification: [If a scenario object's entity object is of this type, it
-	 * is part of the entity selection.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property objectType
+         * @param objectType from OpenSCENARIO class model specification: [If a scenario object's entity object is of this type, it
+         * is part of the entity selection.]
+         * 
+        */
         void ByTypeImpl::SetObjectType(ObjectType objectType )
         {
             _objectType = objectType;
@@ -2724,7 +2706,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ByTypeImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ByTypeImpl::GetEnumerationLiteral(std::string key)
@@ -2741,7 +2723,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         ByValueConditionImpl::ByValueConditionImpl()
@@ -2780,72 +2761,72 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignalControllerCondition;
         }
 
-    	/**
-	 * Sets the value of model property parameterCondition
-	 * @param parameterCondition from OpenSCENARIO class model specification: [A current parameter value is compared to a 
-	 * reference value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterCondition
+         * @param parameterCondition from OpenSCENARIO class model specification: [A current parameter value is compared to a 
+         * reference value.]
+         * 
+        */
         void ByValueConditionImpl::SetParameterCondition(std::shared_ptr<IParameterCondition> parameterCondition )
         {
             _parameterCondition = parameterCondition;
         }
-    	/**
-	 * Sets the value of model property timeOfDayCondition
-	 * @param timeOfDayCondition from OpenSCENARIO class model specification: [The current time of day is compared to a 
-	 * reference value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timeOfDayCondition
+         * @param timeOfDayCondition from OpenSCENARIO class model specification: [The current time of day is compared to a 
+         * reference value.]
+         * 
+        */
         void ByValueConditionImpl::SetTimeOfDayCondition(std::shared_ptr<ITimeOfDayCondition> timeOfDayCondition )
         {
             _timeOfDayCondition = timeOfDayCondition;
         }
-    	/**
-	 * Sets the value of model property simulationTimeCondition
-	 * @param simulationTimeCondition from OpenSCENARIO class model specification: [The current simulation time is compared to 
-	 * a reference value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property simulationTimeCondition
+         * @param simulationTimeCondition from OpenSCENARIO class model specification: [The current simulation time is compared to 
+         * a reference value.]
+         * 
+        */
         void ByValueConditionImpl::SetSimulationTimeCondition(std::shared_ptr<ISimulationTimeCondition> simulationTimeCondition )
         {
             _simulationTimeCondition = simulationTimeCondition;
         }
-    	/**
-	 * Sets the value of model property storyboardElementStateCondition
-	 * @param storyboardElementStateCondition from OpenSCENARIO class model specification: [Condition becomes true if the 
-	 * referenced StoryboardElement terminates according to the given rule.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property storyboardElementStateCondition
+         * @param storyboardElementStateCondition from OpenSCENARIO class model specification: [Condition becomes true if the 
+         * referenced StoryboardElement terminates according to the given rule.]
+         * 
+        */
         void ByValueConditionImpl::SetStoryboardElementStateCondition(std::shared_ptr<IStoryboardElementStateCondition> storyboardElementStateCondition )
         {
             _storyboardElementStateCondition = storyboardElementStateCondition;
         }
-    	/**
-	 * Sets the value of model property userDefinedValueCondition
-	 * @param userDefinedValueCondition from OpenSCENARIO class model specification: [The current value of an externally 
-	 * defined named value is compared to a reference value (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property userDefinedValueCondition
+         * @param userDefinedValueCondition from OpenSCENARIO class model specification: [The current value of an externally 
+         * defined named value is compared to a reference value (less, greater, equal).]
+         * 
+        */
         void ByValueConditionImpl::SetUserDefinedValueCondition(std::shared_ptr<IUserDefinedValueCondition> userDefinedValueCondition )
         {
             _userDefinedValueCondition = userDefinedValueCondition;
         }
-    	/**
-	 * Sets the value of model property trafficSignalCondition
-	 * @param trafficSignalCondition from OpenSCENARIO class model specification: [Condition becomes true if the referenced 
-	 * signal reaches the indicated state.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalCondition
+         * @param trafficSignalCondition from OpenSCENARIO class model specification: [Condition becomes true if the referenced 
+         * signal reaches the indicated state.]
+         * 
+        */
         void ByValueConditionImpl::SetTrafficSignalCondition(std::shared_ptr<ITrafficSignalCondition> trafficSignalCondition )
         {
             _trafficSignalCondition = trafficSignalCondition;
         }
-    	/**
-	 * Sets the value of model property trafficSignalControllerCondition
-	 * @param trafficSignalControllerCondition from OpenSCENARIO class model specification: [Condition becomes true if the 
-	 * referenced signal controller reaches the indicated state.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalControllerCondition
+         * @param trafficSignalControllerCondition from OpenSCENARIO class model specification: [Condition becomes true if the 
+         * referenced signal controller reaches the indicated state.]
+         * 
+        */
         void ByValueConditionImpl::SetTrafficSignalControllerCondition(std::shared_ptr<ITrafficSignalControllerCondition> trafficSignalControllerCondition )
         {
             _trafficSignalControllerCondition = trafficSignalControllerCondition;
@@ -3042,14 +3023,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ByValueConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ByValueConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CatalogImpl::CatalogImpl()
@@ -3097,89 +3077,89 @@ namespace NET_ASAM_OPENSCENARIO
             return _routes;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the catalog.]
+         * 
+        */
         void CatalogImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property vehicles
-	 * @param vehicles from OpenSCENARIO class model specification: [A list of vehicle types that can be reused in a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property vehicles
+         * @param vehicles from OpenSCENARIO class model specification: [A list of vehicle types that can be reused in a scenario.]
+         * 
+        */
         void CatalogImpl::SetVehicles(std::vector<std::shared_ptr<IVehicle>>& vehicles)
         {
             _vehicles = vehicles;
         }
-    	/**
-	 * Sets the value of model property controllers
-	 * @param controllers from OpenSCENARIO class model specification: [A list of controller types that can be reused in a 
-	 * scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controllers
+         * @param controllers from OpenSCENARIO class model specification: [A list of controller types that can be reused in a 
+         * scenario.]
+         * 
+        */
         void CatalogImpl::SetControllers(std::vector<std::shared_ptr<IController>>& controllers)
         {
             _controllers = controllers;
         }
-    	/**
-	 * Sets the value of model property pedestrians
-	 * @param pedestrians from OpenSCENARIO class model specification: [A list of pedestrian types that can be reused in a 
-	 * scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property pedestrians
+         * @param pedestrians from OpenSCENARIO class model specification: [A list of pedestrian types that can be reused in a 
+         * scenario.]
+         * 
+        */
         void CatalogImpl::SetPedestrians(std::vector<std::shared_ptr<IPedestrian>>& pedestrians)
         {
             _pedestrians = pedestrians;
         }
-    	/**
-	 * Sets the value of model property miscObjects
-	 * @param miscObjects from OpenSCENARIO class model specification: [A list of miscellaneous object type that that can be 
-	 * reused in a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property miscObjects
+         * @param miscObjects from OpenSCENARIO class model specification: [A list of miscellaneous object type that that can be 
+         * reused in a scenario.]
+         * 
+        */
         void CatalogImpl::SetMiscObjects(std::vector<std::shared_ptr<IMiscObject>>& miscObjects)
         {
             _miscObjects = miscObjects;
         }
-    	/**
-	 * Sets the value of model property environments
-	 * @param environments from OpenSCENARIO class model specification: [A list of environment types that can be reused in a 
-	 * scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property environments
+         * @param environments from OpenSCENARIO class model specification: [A list of environment types that can be reused in a 
+         * scenario.]
+         * 
+        */
         void CatalogImpl::SetEnvironments(std::vector<std::shared_ptr<IEnvironment>>& environments)
         {
             _environments = environments;
         }
-    	/**
-	 * Sets the value of model property maneuvers
-	 * @param maneuvers from OpenSCENARIO class model specification: [A list of maneuver types that can be reused in a 
-	 * scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maneuvers
+         * @param maneuvers from OpenSCENARIO class model specification: [A list of maneuver types that can be reused in a 
+         * scenario.]
+         * 
+        */
         void CatalogImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuver>>& maneuvers)
         {
             _maneuvers = maneuvers;
         }
-    	/**
-	 * Sets the value of model property trajectories
-	 * @param trajectories from OpenSCENARIO class model specification: [A list of trajectory types that can be reused in a 
-	 * scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trajectories
+         * @param trajectories from OpenSCENARIO class model specification: [A list of trajectory types that can be reused in a 
+         * scenario.]
+         * 
+        */
         void CatalogImpl::SetTrajectories(std::vector<std::shared_ptr<ITrajectory>>& trajectories)
         {
             _trajectories = trajectories;
         }
-    	/**
-	 * Sets the value of model property routes
-	 * @param routes from OpenSCENARIO class model specification: [A list of route types that can be reused in a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property routes
+         * @param routes from OpenSCENARIO class model specification: [A list of route types that can be reused in a scenario.]
+         * 
+        */
         void CatalogImpl::SetRoutes(std::vector<std::shared_ptr<IRoute>>& routes)
         {
             _routes = routes;
@@ -3492,14 +3472,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> CatalogImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string CatalogImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CatalogDefinitionImpl::CatalogDefinitionImpl()
@@ -3514,11 +3493,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalog;
         }
 
-    	/**
-	 * Sets the value of model property catalog
-	 * @param catalog from OpenSCENARIO class model specification: [Definition of a catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalog
+         * @param catalog from OpenSCENARIO class model specification: [Definition of a catalog.]
+         * 
+        */
         void CatalogDefinitionImpl::SetCatalog(std::shared_ptr<ICatalog> catalog )
         {
             _catalog = catalog;
@@ -3607,14 +3586,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> CatalogDefinitionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string CatalogDefinitionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CatalogLocationsImpl::CatalogLocationsImpl()
@@ -3657,82 +3635,82 @@ namespace NET_ASAM_OPENSCENARIO
             return _routeCatalog;
         }
 
-    	/**
-	 * Sets the value of model property vehicleCatalog
-	 * @param vehicleCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to resolve
-	 * CatalogReferences on vehicle types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property vehicleCatalog
+         * @param vehicleCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to resolve
+         * CatalogReferences on vehicle types.]
+         * 
+        */
         void CatalogLocationsImpl::SetVehicleCatalog(std::shared_ptr<IVehicleCatalogLocation> vehicleCatalog )
         {
             _vehicleCatalog = vehicleCatalog;
         }
-    	/**
-	 * Sets the value of model property controllerCatalog
-	 * @param controllerCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-	 * resolve CatalogReferences on controller types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controllerCatalog
+         * @param controllerCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
+         * resolve CatalogReferences on controller types.]
+         * 
+        */
         void CatalogLocationsImpl::SetControllerCatalog(std::shared_ptr<IControllerCatalogLocation> controllerCatalog )
         {
             _controllerCatalog = controllerCatalog;
         }
-    	/**
-	 * Sets the value of model property pedestrianCatalog
-	 * @param pedestrianCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-	 * resolve CatalogReferences on pedestrian types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property pedestrianCatalog
+         * @param pedestrianCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
+         * resolve CatalogReferences on pedestrian types.]
+         * 
+        */
         void CatalogLocationsImpl::SetPedestrianCatalog(std::shared_ptr<IPedestrianCatalogLocation> pedestrianCatalog )
         {
             _pedestrianCatalog = pedestrianCatalog;
         }
-    	/**
-	 * Sets the value of model property miscObjectCatalog
-	 * @param miscObjectCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-	 * resolve CatalogReferences on miscellaneous object types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property miscObjectCatalog
+         * @param miscObjectCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
+         * resolve CatalogReferences on miscellaneous object types.]
+         * 
+        */
         void CatalogLocationsImpl::SetMiscObjectCatalog(std::shared_ptr<IMiscObjectCatalogLocation> miscObjectCatalog )
         {
             _miscObjectCatalog = miscObjectCatalog;
         }
-    	/**
-	 * Sets the value of model property environmentCatalog
-	 * @param environmentCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-	 * resolve CatalogReferences on environment types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property environmentCatalog
+         * @param environmentCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
+         * resolve CatalogReferences on environment types.]
+         * 
+        */
         void CatalogLocationsImpl::SetEnvironmentCatalog(std::shared_ptr<IEnvironmentCatalogLocation> environmentCatalog )
         {
             _environmentCatalog = environmentCatalog;
         }
-    	/**
-	 * Sets the value of model property maneuverCatalog
-	 * @param maneuverCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-	 * resolve CatalogReferences on maneuver types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maneuverCatalog
+         * @param maneuverCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
+         * resolve CatalogReferences on maneuver types.]
+         * 
+        */
         void CatalogLocationsImpl::SetManeuverCatalog(std::shared_ptr<IManeuverCatalogLocation> maneuverCatalog )
         {
             _maneuverCatalog = maneuverCatalog;
         }
-    	/**
-	 * Sets the value of model property trajectoryCatalog
-	 * @param trajectoryCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-	 * resolve CatalogReferences on trajectory types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trajectoryCatalog
+         * @param trajectoryCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
+         * resolve CatalogReferences on trajectory types.]
+         * 
+        */
         void CatalogLocationsImpl::SetTrajectoryCatalog(std::shared_ptr<ITrajectoryCatalogLocation> trajectoryCatalog )
         {
             _trajectoryCatalog = trajectoryCatalog;
         }
-    	/**
-	 * Sets the value of model property routeCatalog
-	 * @param routeCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to resolve 
-	 * CatalogReferences on route types.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property routeCatalog
+         * @param routeCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to resolve 
+         * CatalogReferences on route types.]
+         * 
+        */
         void CatalogLocationsImpl::SetRouteCatalog(std::shared_ptr<IRouteCatalogLocation> routeCatalog )
         {
             _routeCatalog = routeCatalog;
@@ -3947,14 +3925,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> CatalogLocationsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string CatalogLocationsImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CatalogReferenceImpl::CatalogReferenceImpl()
@@ -3983,40 +3960,40 @@ namespace NET_ASAM_OPENSCENARIO
             return _ref;
         }
 
-    	/**
-	 * Sets the value of model property catalogName
-	 * @param catalogName from OpenSCENARIO class model specification: [Name of the catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogName
+         * @param catalogName from OpenSCENARIO class model specification: [Name of the catalog.]
+         * 
+        */
         void CatalogReferenceImpl::SetCatalogName(std::string catalogName )
         {
             _catalogName = catalogName;
         }
-    	/**
-	 * Sets the value of model property entryName
-	 * @param entryName from OpenSCENARIO class model specification: [Name of catalog entry.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entryName
+         * @param entryName from OpenSCENARIO class model specification: [Name of catalog entry.]
+         * 
+        */
         void CatalogReferenceImpl::SetEntryName(std::string entryName )
         {
             _entryName = entryName;
         }
-    	/**
-	 * Sets the value of model property parameterAssignments
-	 * @param parameterAssignments from OpenSCENARIO class model specification: [List of parameter assignments for 
-	 * instantiation.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterAssignments
+         * @param parameterAssignments from OpenSCENARIO class model specification: [List of parameter assignments for 
+         * instantiation.]
+         * 
+        */
         void CatalogReferenceImpl::SetParameterAssignments(std::vector<std::shared_ptr<IParameterAssignment>>& parameterAssignments)
         {
             _parameterAssignments = parameterAssignments;
         }
-    	/**
-	 * Sets the value of model property ref
-	 * @param ref from OpenSCENARIO class model specification: [The resolved reference to a catalog element (out of the 
-	 * catalogName and entryName). Transient means, that it is not , mapped to the schema.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property ref
+         * @param ref from OpenSCENARIO class model specification: [The resolved reference to a catalog element (out of the 
+         * catalogName and entryName). Transient means, that it is not , mapped to the schema.]
+         * 
+        */
         void CatalogReferenceImpl::SetRef(std::shared_ptr<ICatalogElement> ref )
         {
             _ref = ref;
@@ -4145,14 +4122,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> CatalogReferenceImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string CatalogReferenceImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CenterImpl::CenterImpl()
@@ -4178,29 +4154,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _z;
         }
 
-    	/**
-	 * Sets the value of model property x
-	 * @param x from OpenSCENARIO class model specification: [Center offset in x direction.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property x
+         * @param x from OpenSCENARIO class model specification: [Center offset in x direction.]
+         * 
+        */
         void CenterImpl::SetX(double x )
         {
             _x = x;
         }
-    	/**
-	 * Sets the value of model property y
-	 * @param y from OpenSCENARIO class model specification: [Center offset in y direction.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property y
+         * @param y from OpenSCENARIO class model specification: [Center offset in y direction.]
+         * 
+        */
         void CenterImpl::SetY(double y )
         {
             _y = y;
         }
-    	/**
-	 * Sets the value of model property z
-	 * @param z from OpenSCENARIO class model specification: [Center offset in z direction.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property z
+         * @param z from OpenSCENARIO class model specification: [Center offset in z direction.]
+         * 
+        */
         void CenterImpl::SetZ(double z )
         {
             _z = z;
@@ -4291,14 +4267,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> CenterImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string CenterImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CentralSwarmObjectImpl::CentralSwarmObjectImpl()
@@ -4314,12 +4289,12 @@ namespace NET_ASAM_OPENSCENARIO
             return &_entityRef;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Name of the central entity the swarm traffic is created 
-	 * around.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Name of the central entity the swarm traffic is created 
+         * around.]
+         * 
+        */
         void CentralSwarmObjectImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
@@ -4427,7 +4402,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ClothoidImpl::ClothoidImpl()
         {
             /**
@@ -4465,59 +4439,59 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property curvature
-	 * @param curvature from OpenSCENARIO class model specification: [Start curvature of clothoid.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property curvature
+         * @param curvature from OpenSCENARIO class model specification: [Start curvature of clothoid.]
+         * 
+        */
         void ClothoidImpl::SetCurvature(double curvature )
         {
             _curvature = curvature;
         }
-    	/**
-	 * Sets the value of model property curvatureDot
-	 * @param curvatureDot from OpenSCENARIO class model specification: [Rate of change of the curvature of the clothoid.Unit: 
-	 * 1/s;Range [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property curvatureDot
+         * @param curvatureDot from OpenSCENARIO class model specification: [Rate of change of the curvature of the clothoid.Unit: 
+         * 1/s;Range [0..inf[.]
+         * 
+        */
         void ClothoidImpl::SetCurvatureDot(double curvatureDot )
         {
             _curvatureDot = curvatureDot;
         }
-    	/**
-	 * Sets the value of model property length
-	 * @param length from OpenSCENARIO class model specification: [Length of clothoid.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property length
+         * @param length from OpenSCENARIO class model specification: [Length of clothoid.]
+         * 
+        */
         void ClothoidImpl::SetLength(double length )
         {
             _length = length;
         }
-    	/**
-	 * Sets the value of model property startTime
-	 * @param startTime from OpenSCENARIO class model specification: [Optional time specification at the start of the clothoid.
-	 * Unit: s;Range [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property startTime
+         * @param startTime from OpenSCENARIO class model specification: [Optional time specification at the start of the clothoid.
+         * Unit: s;Range [0..inf[.]
+         * 
+        */
         void ClothoidImpl::SetStartTime(double startTime )
         {
             _startTime = startTime;
         }
-    	/**
-	 * Sets the value of model property stopTime
-	 * @param stopTime from OpenSCENARIO class model specification: [Optional time specification at the end of the clothoid. 
-	 * Unit: s;Range ]0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property stopTime
+         * @param stopTime from OpenSCENARIO class model specification: [Optional time specification at the end of the clothoid. 
+         * Unit: s;Range ]0..inf[.]
+         * 
+        */
         void ClothoidImpl::SetStopTime(double stopTime )
         {
             _stopTime = stopTime;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [Start position of a clothoid.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [Start position of a clothoid.]
+         * 
+        */
         void ClothoidImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -4646,14 +4620,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ClothoidImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ClothoidImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CollisionConditionImpl::CollisionConditionImpl()
@@ -4672,21 +4645,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _byType;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Name of a specific entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Name of a specific entity.]
+         * 
+        */
         void CollisionConditionImpl::SetEntityRef(std::shared_ptr<IEntityRef> entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property byType
-	 * @param byType from OpenSCENARIO class model specification: [Entities of this type can trigger the condition when 
-	 * collide.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property byType
+         * @param byType from OpenSCENARIO class model specification: [Entities of this type can trigger the condition when 
+         * collide.]
+         * 
+        */
         void CollisionConditionImpl::SetByType(std::shared_ptr<IByObjectType> byType )
         {
             _byType = byType;
@@ -4793,14 +4766,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> CollisionConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string CollisionConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ConditionImpl::ConditionImpl()
@@ -4834,49 +4806,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _byValueCondition;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the condition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the condition.]
+         * 
+        */
         void ConditionImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property delay
-	 * @param delay from OpenSCENARIO class model specification: [Time elapsed after the edge condition is verified, until the 
-	 * condition returns true to the scenario. Unit: s; Range: , [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property delay
+         * @param delay from OpenSCENARIO class model specification: [Time elapsed after the edge condition is verified, until the 
+         * condition returns true to the scenario. Unit: s; Range: , [0..inf[.]
+         * 
+        */
         void ConditionImpl::SetDelay(double delay )
         {
             _delay = delay;
         }
-    	/**
-	 * Sets the value of model property conditionEdge
-	 * @param conditionEdge from OpenSCENARIO class model specification: [Specifies the edge when the condition is evaluated to
-	 * true (rising, falling, any).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property conditionEdge
+         * @param conditionEdge from OpenSCENARIO class model specification: [Specifies the edge when the condition is evaluated to
+         * true (rising, falling, any).]
+         * 
+        */
         void ConditionImpl::SetConditionEdge(ConditionEdge conditionEdge )
         {
             _conditionEdge = conditionEdge;
         }
-    	/**
-	 * Sets the value of model property byEntityCondition
-	 * @param byEntityCondition from OpenSCENARIO class model specification: [A condition that refers to an entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property byEntityCondition
+         * @param byEntityCondition from OpenSCENARIO class model specification: [A condition that refers to an entity.]
+         * 
+        */
         void ConditionImpl::SetByEntityCondition(std::shared_ptr<IByEntityCondition> byEntityCondition )
         {
             _byEntityCondition = byEntityCondition;
         }
-    	/**
-	 * Sets the value of model property byValueCondition
-	 * @param byValueCondition from OpenSCENARIO class model specification: [A condition that refers to a runtime value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property byValueCondition
+         * @param byValueCondition from OpenSCENARIO class model specification: [A condition that refers to a runtime value.]
+         * 
+        */
         void ConditionImpl::SetByValueCondition(std::shared_ptr<IByValueCondition> byValueCondition )
         {
             _byValueCondition = byValueCondition;
@@ -5025,7 +4997,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ConditionImpl::GetEnumerationLiteral(std::string key)
@@ -5044,7 +5016,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ConditionGroupImpl::ConditionGroupImpl()
         {
             /**
@@ -5057,11 +5028,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _conditions;
         }
 
-    	/**
-	 * Sets the value of model property conditions
-	 * @param conditions from OpenSCENARIO class model specification: [A associated list of conditions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property conditions
+         * @param conditions from OpenSCENARIO class model specification: [A associated list of conditions.]
+         * 
+        */
         void ConditionGroupImpl::SetConditions(std::vector<std::shared_ptr<ICondition>>& conditions)
         {
             _conditions = conditions;
@@ -5161,14 +5132,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ConditionGroupImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ConditionGroupImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ControlPointImpl::ControlPointImpl()
@@ -5193,31 +5163,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property time
-	 * @param time from OpenSCENARIO class model specification: [Optional specification of the time dimension of the control 
-	 * point. Unit: s;Range [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property time
+         * @param time from OpenSCENARIO class model specification: [Optional specification of the time dimension of the control 
+         * point. Unit: s;Range [0..inf[.]
+         * 
+        */
         void ControlPointImpl::SetTime(double time )
         {
             _time = time;
         }
-    	/**
-	 * Sets the value of model property weight
-	 * @param weight from OpenSCENARIO class model specification: [Optional weight specification of the control point. If 
-	 * unspecified, all control points will be equal weighted. Range , ]-inf..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property weight
+         * @param weight from OpenSCENARIO class model specification: [Optional weight specification of the control point. If 
+         * unspecified, all control points will be equal weighted. Range , ]-inf..inf[.]
+         * 
+        */
         void ControlPointImpl::SetWeight(double weight )
         {
             _weight = weight;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [Position of the control point.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [Position of the control point.]
+         * 
+        */
         void ControlPointImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -5322,14 +5292,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ControlPointImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ControlPointImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ControllerImpl::ControllerImpl()
@@ -5353,29 +5322,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the controller type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the controller type.]
+         * 
+        */
         void ControllerImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void ControllerImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property properties
-	 * @param properties from OpenSCENARIO class model specification: [Describing properties for the controller.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property properties
+         * @param properties from OpenSCENARIO class model specification: [Describing properties for the controller.]
+         * 
+        */
         void ControllerImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
@@ -5533,14 +5502,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ControllerImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ControllerImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ControllerActionImpl::ControllerActionImpl()
@@ -5559,21 +5527,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _overrideControllerValueAction;
         }
 
-    	/**
-	 * Sets the value of model property assignControllerAction
-	 * @param assignControllerAction from OpenSCENARIO class model specification: [Assign a controller to an entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property assignControllerAction
+         * @param assignControllerAction from OpenSCENARIO class model specification: [Assign a controller to an entity.]
+         * 
+        */
         void ControllerActionImpl::SetAssignControllerAction(std::shared_ptr<IAssignControllerAction> assignControllerAction )
         {
             _assignControllerAction = assignControllerAction;
         }
-    	/**
-	 * Sets the value of model property overrideControllerValueAction
-	 * @param overrideControllerValueAction from OpenSCENARIO class model specification: [Values for throttle, brake, clutch, 
-	 * parking brake, steering wheel or gear.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property overrideControllerValueAction
+         * @param overrideControllerValueAction from OpenSCENARIO class model specification: [Values for throttle, brake, clutch, 
+         * parking brake, steering wheel or gear.]
+         * 
+        */
         void ControllerActionImpl::SetOverrideControllerValueAction(std::shared_ptr<IOverrideControllerValueAction> overrideControllerValueAction )
         {
             _overrideControllerValueAction = overrideControllerValueAction;
@@ -5680,14 +5648,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ControllerActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ControllerActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ControllerCatalogLocationImpl::ControllerCatalogLocationImpl()
@@ -5702,11 +5669,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [All catalog files in this directory must be evaluated.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [All catalog files in this directory must be evaluated.]
+         * 
+        */
         void ControllerCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -5795,14 +5762,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ControllerCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ControllerCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ControllerDistributionImpl::ControllerDistributionImpl()
@@ -5817,12 +5783,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _controllerDistributionEntries;
         }
 
-    	/**
-	 * Sets the value of model property controllerDistributionEntries
-	 * @param controllerDistributionEntries from OpenSCENARIO class model specification: [The weights of controllers of a 
-	 * specific type in a traffic.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controllerDistributionEntries
+         * @param controllerDistributionEntries from OpenSCENARIO class model specification: [The weights of controllers of a 
+         * specific type in a traffic.]
+         * 
+        */
         void ControllerDistributionImpl::SetControllerDistributionEntries(std::vector<std::shared_ptr<IControllerDistributionEntry>>& controllerDistributionEntries)
         {
             _controllerDistributionEntries = controllerDistributionEntries;
@@ -5922,14 +5888,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ControllerDistributionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ControllerDistributionEntryImpl::ControllerDistributionEntryImpl()
@@ -5953,29 +5918,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-    	/**
-	 * Sets the value of model property weight
-	 * @param weight from OpenSCENARIO class model specification: [The weight of the entry. Range: ]0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property weight
+         * @param weight from OpenSCENARIO class model specification: [The weight of the entry. Range: ]0..inf[.]
+         * 
+        */
         void ControllerDistributionEntryImpl::SetWeight(double weight )
         {
             _weight = weight;
         }
-    	/**
-	 * Sets the value of model property controller
-	 * @param controller from OpenSCENARIO class model specification: [The specified controller type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controller
+         * @param controller from OpenSCENARIO class model specification: [The specified controller type.]
+         * 
+        */
         void ControllerDistributionEntryImpl::SetController(std::shared_ptr<IController> controller )
         {
             _controller = controller;
         }
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [A controller type import from a catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [A controller type import from a catalog.]
+         * 
+        */
         void ControllerDistributionEntryImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
@@ -6090,14 +6055,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionEntryImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ControllerDistributionEntryImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         CustomCommandActionImpl::CustomCommandActionImpl()
@@ -6118,22 +6082,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _content;
         }
 
-    	/**
-	 * Sets the value of model property type
-	 * @param type from OpenSCENARIO class model specification: [Type that is defined as a contract between the simulation 
-	 * environment provider and the author of a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property type
+         * @param type from OpenSCENARIO class model specification: [Type that is defined as a contract between the simulation 
+         * environment provider and the author of a scenario.]
+         * 
+        */
         void CustomCommandActionImpl::SetType(std::string type )
         {
             _type = type;
         }
-    	/**
-	 * Sets the value of model property content
-	 * @param content from OpenSCENARIO class model specification: [The command that is defined as a contract between the 
-	 * simulation environment provider and the author of a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property content
+         * @param content from OpenSCENARIO class model specification: [The command that is defined as a contract between the 
+         * simulation environment provider and the author of a scenario.]
+         * 
+        */
         void CustomCommandActionImpl::SetContent(std::string content )
         {
             _content = content;
@@ -6228,14 +6192,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> CustomCommandActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string CustomCommandActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         DeleteEntityActionImpl::DeleteEntityActionImpl()
@@ -6308,14 +6271,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> DeleteEntityActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string DeleteEntityActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         DimensionsImpl::DimensionsImpl()
@@ -6341,32 +6303,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _height;
         }
 
-    	/**
-	 * Sets the value of model property width
-	 * @param width from OpenSCENARIO class model specification: [Width of the entity's bounding box. Unit: m; Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property width
+         * @param width from OpenSCENARIO class model specification: [Width of the entity's bounding box. Unit: m; Range: 
+         * [0..inf[.]
+         * 
+        */
         void DimensionsImpl::SetWidth(double width )
         {
             _width = width;
         }
-    	/**
-	 * Sets the value of model property length
-	 * @param length from OpenSCENARIO class model specification: [Length of the entity's bounding box. Unit: m; Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property length
+         * @param length from OpenSCENARIO class model specification: [Length of the entity's bounding box. Unit: m; Range: 
+         * [0..inf[.]
+         * 
+        */
         void DimensionsImpl::SetLength(double length )
         {
             _length = length;
         }
-    	/**
-	 * Sets the value of model property height
-	 * @param height from OpenSCENARIO class model specification: [Height of the entity's bounding box. Unit: m; Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property height
+         * @param height from OpenSCENARIO class model specification: [Height of the entity's bounding box. Unit: m; Range: 
+         * [0..inf[.]
+         * 
+        */
         void DimensionsImpl::SetHeight(double height )
         {
             _height = height;
@@ -6457,14 +6419,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> DimensionsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string DimensionsImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         DirectoryImpl::DirectoryImpl()
@@ -6480,11 +6441,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _path;
         }
 
-    	/**
-	 * Sets the value of model property path
-	 * @param path from OpenSCENARIO class model specification: [File system path, e.g. path=/home/simulation/.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property path
+         * @param path from OpenSCENARIO class model specification: [File system path, e.g. path=/home/simulation/.]
+         * 
+        */
         void DirectoryImpl::SetPath(std::string path )
         {
             _path = path;
@@ -6568,14 +6529,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> DirectoryImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string DirectoryImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         DistanceConditionImpl::DistanceConditionImpl()
@@ -6610,49 +6570,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [The distance value. Unit: s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [The distance value. Unit: s; Range: [0..inf[.]
+         * 
+        */
         void DistanceConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property freespace
-	 * @param freespace from OpenSCENARIO class model specification: [True: distance is measured between closest bounding box 
-	 * points. False: reference point distance is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property freespace
+         * @param freespace from OpenSCENARIO class model specification: [True: distance is measured between closest bounding box 
+         * points. False: reference point distance is used.]
+         * 
+        */
         void DistanceConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
-    	/**
-	 * Sets the value of model property alongRoute
-	 * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
-	 * increase distance. False: straight line distance is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property alongRoute
+         * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
+         * increase distance. False: straight line distance is used.]
+         * 
+        */
         void DistanceConditionImpl::SetAlongRoute(bool alongRoute )
         {
             _alongRoute = alongRoute;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void DistanceConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [The given position the distance is related to.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [The given position the distance is related to.]
+         * 
+        */
         void DistanceConditionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -6782,7 +6742,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> DistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string DistanceConditionImpl::GetEnumerationLiteral(std::string key)
@@ -6799,7 +6759,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         DynamicConstraintsImpl::DynamicConstraintsImpl()
@@ -6825,32 +6784,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _maxSpeed;
         }
 
-    	/**
-	 * Sets the value of model property maxAcceleration
-	 * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration the distance controller is 
-	 * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxAcceleration
+         * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration the distance controller is 
+         * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
+         * 
+        */
         void DynamicConstraintsImpl::SetMaxAcceleration(double maxAcceleration )
         {
             _maxAcceleration = maxAcceleration;
         }
-    	/**
-	 * Sets the value of model property maxDeceleration
-	 * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration the distance controller is 
-	 * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxDeceleration
+         * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration the distance controller is 
+         * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
+         * 
+        */
         void DynamicConstraintsImpl::SetMaxDeceleration(double maxDeceleration )
         {
             _maxDeceleration = maxDeceleration;
         }
-    	/**
-	 * Sets the value of model property maxSpeed
-	 * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed the distance controller is allowed to use 
-	 * for keeping the distance. Unit: m/s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxSpeed
+         * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed the distance controller is allowed to use 
+         * for keeping the distance. Unit: m/s; Range: [0..inf[.]
+         * 
+        */
         void DynamicConstraintsImpl::SetMaxSpeed(double maxSpeed )
         {
             _maxSpeed = maxSpeed;
@@ -6941,14 +6900,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> DynamicConstraintsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string DynamicConstraintsImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EndOfRoadConditionImpl::EndOfRoadConditionImpl()
@@ -6964,11 +6922,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _duration;
         }
 
-    	/**
-	 * Sets the value of model property duration
-	 * @param duration from OpenSCENARIO class model specification: [Amount of time at end of road. Unit: s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property duration
+         * @param duration from OpenSCENARIO class model specification: [Amount of time at end of road. Unit: s; Range: [0..inf[.]
+         * 
+        */
         void EndOfRoadConditionImpl::SetDuration(double duration )
         {
             _duration = duration;
@@ -7043,14 +7001,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EndOfRoadConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EndOfRoadConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EntitiesImpl::EntitiesImpl()
@@ -7069,21 +7026,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _entitySelections;
         }
 
-    	/**
-	 * Sets the value of model property scenarioObjects
-	 * @param scenarioObjects from OpenSCENARIO class model specification: [A list of scenario object definitions that pairs an
-	 * entity object and a controller.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property scenarioObjects
+         * @param scenarioObjects from OpenSCENARIO class model specification: [A list of scenario object definitions that pairs an
+         * entity object and a controller.]
+         * 
+        */
         void EntitiesImpl::SetScenarioObjects(std::vector<std::shared_ptr<IScenarioObject>>& scenarioObjects)
         {
             _scenarioObjects = scenarioObjects;
         }
-    	/**
-	 * Sets the value of model property entitySelections
-	 * @param entitySelections from OpenSCENARIO class model specification: [A list of entity selection definitions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entitySelections
+         * @param entitySelections from OpenSCENARIO class model specification: [A list of entity selection definitions.]
+         * 
+        */
         void EntitiesImpl::SetEntitySelections(std::vector<std::shared_ptr<IEntitySelection>>& entitySelections)
         {
             _entitySelections = entitySelections;
@@ -7211,14 +7168,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EntitiesImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EntitiesImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EntityActionImpl::EntityActionImpl()
@@ -7242,31 +7198,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _deleteEntityAction;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
+         * 
+        */
         void EntityActionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property addEntityAction
-	 * @param addEntityAction from OpenSCENARIO class model specification: [Action that adds the reference entity to the 
-	 * scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property addEntityAction
+         * @param addEntityAction from OpenSCENARIO class model specification: [Action that adds the reference entity to the 
+         * scenario.]
+         * 
+        */
         void EntityActionImpl::SetAddEntityAction(std::shared_ptr<IAddEntityAction> addEntityAction )
         {
             _addEntityAction = addEntityAction;
         }
-    	/**
-	 * Sets the value of model property deleteEntityAction
-	 * @param deleteEntityAction from OpenSCENARIO class model specification: [Action that deletes the reference entity from 
-	 * the scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property deleteEntityAction
+         * @param deleteEntityAction from OpenSCENARIO class model specification: [Action that deletes the reference entity from 
+         * the scenario.]
+         * 
+        */
         void EntityActionImpl::SetDeleteEntityAction(std::shared_ptr<IDeleteEntityAction> deleteEntityAction )
         {
             _deleteEntityAction = deleteEntityAction;
@@ -7414,7 +7370,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         EntityConditionImpl::EntityConditionImpl()
         {
             /**
@@ -7475,132 +7430,132 @@ namespace NET_ASAM_OPENSCENARIO
             return _relativeDistanceCondition;
         }
 
-    	/**
-	 * Sets the value of model property endOfRoadCondition
-	 * @param endOfRoadCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
-	 * entity has reached the end of the road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property endOfRoadCondition
+         * @param endOfRoadCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
+         * entity has reached the end of the road.]
+         * 
+        */
         void EntityConditionImpl::SetEndOfRoadCondition(std::shared_ptr<IEndOfRoadCondition> endOfRoadCondition )
         {
             _endOfRoadCondition = endOfRoadCondition;
         }
-    	/**
-	 * Sets the value of model property collisionCondition
-	 * @param collisionCondition from OpenSCENARIO class model specification: [Condition checking whether the reference entity 
-	 * was involved in a collision.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property collisionCondition
+         * @param collisionCondition from OpenSCENARIO class model specification: [Condition checking whether the reference entity 
+         * was involved in a collision.]
+         * 
+        */
         void EntityConditionImpl::SetCollisionCondition(std::shared_ptr<ICollisionCondition> collisionCondition )
         {
             _collisionCondition = collisionCondition;
         }
-    	/**
-	 * Sets the value of model property offroadCondition
-	 * @param offroadCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
-	 * entity has left the road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property offroadCondition
+         * @param offroadCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
+         * entity has left the road.]
+         * 
+        */
         void EntityConditionImpl::SetOffroadCondition(std::shared_ptr<IOffroadCondition> offroadCondition )
         {
             _offroadCondition = offroadCondition;
         }
-    	/**
-	 * Sets the value of model property timeHeadwayCondition
-	 * @param timeHeadwayCondition from OpenSCENARIO class model specification: [Condition checking the time headway between 
-	 * two entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timeHeadwayCondition
+         * @param timeHeadwayCondition from OpenSCENARIO class model specification: [Condition checking the time headway between 
+         * two entities.]
+         * 
+        */
         void EntityConditionImpl::SetTimeHeadwayCondition(std::shared_ptr<ITimeHeadwayCondition> timeHeadwayCondition )
         {
             _timeHeadwayCondition = timeHeadwayCondition;
         }
-    	/**
-	 * Sets the value of model property timeToCollisionCondition
-	 * @param timeToCollisionCondition from OpenSCENARIO class model specification: [Condition checking the time to collision 
-	 * between two entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timeToCollisionCondition
+         * @param timeToCollisionCondition from OpenSCENARIO class model specification: [Condition checking the time to collision 
+         * between two entities.]
+         * 
+        */
         void EntityConditionImpl::SetTimeToCollisionCondition(std::shared_ptr<ITimeToCollisionCondition> timeToCollisionCondition )
         {
             _timeToCollisionCondition = timeToCollisionCondition;
         }
-    	/**
-	 * Sets the value of model property accelerationCondition
-	 * @param accelerationCondition from OpenSCENARIO class model specification: [Condition checking the current acceleration 
-	 * of an entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property accelerationCondition
+         * @param accelerationCondition from OpenSCENARIO class model specification: [Condition checking the current acceleration 
+         * of an entity.]
+         * 
+        */
         void EntityConditionImpl::SetAccelerationCondition(std::shared_ptr<IAccelerationCondition> accelerationCondition )
         {
             _accelerationCondition = accelerationCondition;
         }
-    	/**
-	 * Sets the value of model property standStillCondition
-	 * @param standStillCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
-	 * entity has not moved.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property standStillCondition
+         * @param standStillCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
+         * entity has not moved.]
+         * 
+        */
         void EntityConditionImpl::SetStandStillCondition(std::shared_ptr<IStandStillCondition> standStillCondition )
         {
             _standStillCondition = standStillCondition;
         }
-    	/**
-	 * Sets the value of model property speedCondition
-	 * @param speedCondition from OpenSCENARIO class model specification: [Condition checking the current speed of the 
-	 * referenced entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property speedCondition
+         * @param speedCondition from OpenSCENARIO class model specification: [Condition checking the current speed of the 
+         * referenced entities.]
+         * 
+        */
         void EntityConditionImpl::SetSpeedCondition(std::shared_ptr<ISpeedCondition> speedCondition )
         {
             _speedCondition = speedCondition;
         }
-    	/**
-	 * Sets the value of model property relativeSpeedCondition
-	 * @param relativeSpeedCondition from OpenSCENARIO class model specification: [Condition checking the relative speed 
-	 * between two entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeSpeedCondition
+         * @param relativeSpeedCondition from OpenSCENARIO class model specification: [Condition checking the relative speed 
+         * between two entity.]
+         * 
+        */
         void EntityConditionImpl::SetRelativeSpeedCondition(std::shared_ptr<IRelativeSpeedCondition> relativeSpeedCondition )
         {
             _relativeSpeedCondition = relativeSpeedCondition;
         }
-    	/**
-	 * Sets the value of model property traveledDistanceCondition
-	 * @param traveledDistanceCondition from OpenSCENARIO class model specification: [Condition checking the total traveled 
-	 * distance of the reference entity since the start of the scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property traveledDistanceCondition
+         * @param traveledDistanceCondition from OpenSCENARIO class model specification: [Condition checking the total traveled 
+         * distance of the reference entity since the start of the scenario.]
+         * 
+        */
         void EntityConditionImpl::SetTraveledDistanceCondition(std::shared_ptr<ITraveledDistanceCondition> traveledDistanceCondition )
         {
             _traveledDistanceCondition = traveledDistanceCondition;
         }
-    	/**
-	 * Sets the value of model property reachPositionCondition
-	 * @param reachPositionCondition from OpenSCENARIO class model specification: [Condition checking whether the reference 
-	 * entity has reached a given position within a given uncertainty.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property reachPositionCondition
+         * @param reachPositionCondition from OpenSCENARIO class model specification: [Condition checking whether the reference 
+         * entity has reached a given position within a given uncertainty.]
+         * 
+        */
         void EntityConditionImpl::SetReachPositionCondition(std::shared_ptr<IReachPositionCondition> reachPositionCondition )
         {
             _reachPositionCondition = reachPositionCondition;
         }
-    	/**
-	 * Sets the value of model property distanceCondition
-	 * @param distanceCondition from OpenSCENARIO class model specification: [Condition checking the distance between two 
-	 * entities or an entity and a position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property distanceCondition
+         * @param distanceCondition from OpenSCENARIO class model specification: [Condition checking the distance between two 
+         * entities or an entity and a position.]
+         * 
+        */
         void EntityConditionImpl::SetDistanceCondition(std::shared_ptr<IDistanceCondition> distanceCondition )
         {
             _distanceCondition = distanceCondition;
         }
-    	/**
-	 * Sets the value of model property relativeDistanceCondition
-	 * @param relativeDistanceCondition from OpenSCENARIO class model specification: [Condition checking the relative distance 
-	 * between two entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeDistanceCondition
+         * @param relativeDistanceCondition from OpenSCENARIO class model specification: [Condition checking the relative distance 
+         * between two entities.]
+         * 
+        */
         void EntityConditionImpl::SetRelativeDistanceCondition(std::shared_ptr<IRelativeDistanceCondition> relativeDistanceCondition )
         {
             _relativeDistanceCondition = relativeDistanceCondition;
@@ -7905,14 +7860,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EntityConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EntityConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EntityObjectImpl::EntityObjectImpl()
@@ -7939,39 +7893,39 @@ namespace NET_ASAM_OPENSCENARIO
             return _miscObject;
         }
 
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type MiscObject, 
-	 * Vehicle or Pedestrian.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type MiscObject, 
+         * Vehicle or Pedestrian.]
+         * 
+        */
         void EntityObjectImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
-    	/**
-	 * Sets the value of model property vehicle
-	 * @param vehicle from OpenSCENARIO class model specification: [Vehicle definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property vehicle
+         * @param vehicle from OpenSCENARIO class model specification: [Vehicle definition.]
+         * 
+        */
         void EntityObjectImpl::SetVehicle(std::shared_ptr<IVehicle> vehicle )
         {
             _vehicle = vehicle;
         }
-    	/**
-	 * Sets the value of model property pedestrian
-	 * @param pedestrian from OpenSCENARIO class model specification: [Pedestrian definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property pedestrian
+         * @param pedestrian from OpenSCENARIO class model specification: [Pedestrian definition.]
+         * 
+        */
         void EntityObjectImpl::SetPedestrian(std::shared_ptr<IPedestrian> pedestrian )
         {
             _pedestrian = pedestrian;
         }
-    	/**
-	 * Sets the value of model property miscObject
-	 * @param miscObject from OpenSCENARIO class model specification: [Definition of a MiscObject.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property miscObject
+         * @param miscObject from OpenSCENARIO class model specification: [Definition of a MiscObject.]
+         * 
+        */
         void EntityObjectImpl::SetMiscObject(std::shared_ptr<IMiscObject> miscObject )
         {
             _miscObject = miscObject;
@@ -8114,14 +8068,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EntityObjectImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EntityObjectImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EntityRefImpl::EntityRefImpl()
@@ -8137,11 +8090,11 @@ namespace NET_ASAM_OPENSCENARIO
             return &_entityRef;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
+         * 
+        */
         void EntityRefImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
@@ -8249,7 +8202,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         EntitySelectionImpl::EntitySelectionImpl()
         {
             /**
@@ -8267,21 +8219,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _members;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the entity selection. By this name, a selection can be
-	 * referenced as an entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the entity selection. By this name, a selection can be
+         * referenced as an entity.]
+         * 
+        */
         void EntitySelectionImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property members
-	 * @param members from OpenSCENARIO class model specification: [Selected entities as members of the entity selection.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property members
+         * @param members from OpenSCENARIO class model specification: [Selected entities as members of the entity selection.]
+         * 
+        */
         void EntitySelectionImpl::SetMembers(std::shared_ptr<ISelectedEntities> members )
         {
             _members = members;
@@ -8387,14 +8339,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EntitySelectionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EntitySelectionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EnvironmentImpl::EnvironmentImpl()
@@ -8426,47 +8377,47 @@ namespace NET_ASAM_OPENSCENARIO
             return _roadCondition;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the environment. If used in catalog name is required.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the environment. If used in catalog name is required.]
+         * 
+        */
         void EnvironmentImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void EnvironmentImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property timeOfDay
-	 * @param timeOfDay from OpenSCENARIO class model specification: [Time of the day during the simulation.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timeOfDay
+         * @param timeOfDay from OpenSCENARIO class model specification: [Time of the day during the simulation.]
+         * 
+        */
         void EnvironmentImpl::SetTimeOfDay(std::shared_ptr<ITimeOfDay> timeOfDay )
         {
             _timeOfDay = timeOfDay;
         }
-    	/**
-	 * Sets the value of model property weather
-	 * @param weather from OpenSCENARIO class model specification: [Weather conditions during the simulation.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property weather
+         * @param weather from OpenSCENARIO class model specification: [Weather conditions during the simulation.]
+         * 
+        */
         void EnvironmentImpl::SetWeather(std::shared_ptr<IWeather> weather )
         {
             _weather = weather;
         }
-    	/**
-	 * Sets the value of model property roadCondition
-	 * @param roadCondition from OpenSCENARIO class model specification: [Road conditions during the simulation.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property roadCondition
+         * @param roadCondition from OpenSCENARIO class model specification: [Road conditions during the simulation.]
+         * 
+        */
         void EnvironmentImpl::SetRoadCondition(std::shared_ptr<IRoadCondition> roadCondition )
         {
             _roadCondition = roadCondition;
@@ -8660,14 +8611,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EnvironmentImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EnvironmentImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EnvironmentActionImpl::EnvironmentActionImpl()
@@ -8686,20 +8636,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-    	/**
-	 * Sets the value of model property environment
-	 * @param environment from OpenSCENARIO class model specification: [New environment definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property environment
+         * @param environment from OpenSCENARIO class model specification: [New environment definition.]
+         * 
+        */
         void EnvironmentActionImpl::SetEnvironment(std::shared_ptr<IEnvironment> environment )
         {
             _environment = environment;
         }
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type Environment.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type Environment.]
+         * 
+        */
         void EnvironmentActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
@@ -8806,14 +8756,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EnvironmentActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EnvironmentActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EnvironmentCatalogLocationImpl::EnvironmentCatalogLocationImpl()
@@ -8828,11 +8777,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
+         * 
+        */
         void EnvironmentCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -8921,14 +8870,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EnvironmentCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EnvironmentCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         EventImpl::EventImpl()
@@ -8962,49 +8910,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _startTrigger;
         }
 
-    	/**
-	 * Sets the value of model property priority
-	 * @param priority from OpenSCENARIO class model specification: [Priority of each event.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property priority
+         * @param priority from OpenSCENARIO class model specification: [Priority of each event.]
+         * 
+        */
         void EventImpl::SetPriority(Priority priority )
         {
             _priority = priority;
         }
-    	/**
-	 * Sets the value of model property maximumExecutionCount
-	 * @param maximumExecutionCount from OpenSCENARIO class model specification: [Maximum number of executions. Default value 
-	 * is 1. Range: [1..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maximumExecutionCount
+         * @param maximumExecutionCount from OpenSCENARIO class model specification: [Maximum number of executions. Default value 
+         * is 1. Range: [1..inf[.]
+         * 
+        */
         void EventImpl::SetMaximumExecutionCount(long long maximumExecutionCount )
         {
             _maximumExecutionCount = maximumExecutionCount;
         }
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the event.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the event.]
+         * 
+        */
         void EventImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property actions
-	 * @param actions from OpenSCENARIO class model specification: [List of actions in an event.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property actions
+         * @param actions from OpenSCENARIO class model specification: [List of actions in an event.]
+         * 
+        */
         void EventImpl::SetActions(std::vector<std::shared_ptr<IAction>>& actions)
         {
             _actions = actions;
         }
-    	/**
-	 * Sets the value of model property startTrigger
-	 * @param startTrigger from OpenSCENARIO class model specification: [Actions are executed as soon as the start trigger 
-	 * fires. This point in time represents the start of the event.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property startTrigger
+         * @param startTrigger from OpenSCENARIO class model specification: [Actions are executed as soon as the start trigger 
+         * fires. This point in time represents the start of the event.]
+         * 
+        */
         void EventImpl::SetStartTrigger(std::shared_ptr<ITrigger> startTrigger )
         {
             _startTrigger = startTrigger;
@@ -9168,7 +9116,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> EventImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string EventImpl::GetEnumerationLiteral(std::string key)
@@ -9187,7 +9135,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         FileImpl::FileImpl()
         {
             /**
@@ -9201,12 +9148,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _filepath;
         }
 
-    	/**
-	 * Sets the value of model property filepath
-	 * @param filepath from OpenSCENARIO class model specification: [Filepath e.g. 
-	 * filepath=/home/simulator/customDriverSpecification.xml.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property filepath
+         * @param filepath from OpenSCENARIO class model specification: [Filepath e.g. 
+         * filepath=/home/simulator/customDriverSpecification.xml.]
+         * 
+        */
         void FileImpl::SetFilepath(std::string filepath )
         {
             _filepath = filepath;
@@ -9290,14 +9237,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> FileImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string FileImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         FileHeaderImpl::FileHeaderImpl()
@@ -9333,49 +9279,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _author;
         }
 
-    	/**
-	 * Sets the value of model property revMajor
-	 * @param revMajor from OpenSCENARIO class model specification: [Major OpenSCENARIO revision, this file conforms to Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property revMajor
+         * @param revMajor from OpenSCENARIO class model specification: [Major OpenSCENARIO revision, this file conforms to Range: 
+         * [0..inf[.]
+         * 
+        */
         void FileHeaderImpl::SetRevMajor(long revMajor )
         {
             _revMajor = revMajor;
         }
-    	/**
-	 * Sets the value of model property revMinor
-	 * @param revMinor from OpenSCENARIO class model specification: [Minor OpenSCENARIO revision, this file conforms to Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property revMinor
+         * @param revMinor from OpenSCENARIO class model specification: [Minor OpenSCENARIO revision, this file conforms to Range: 
+         * [0..inf[.]
+         * 
+        */
         void FileHeaderImpl::SetRevMinor(long revMinor )
         {
             _revMinor = revMinor;
         }
-    	/**
-	 * Sets the value of model property date
-	 * @param date from OpenSCENARIO class model specification: [User specific date and time recommended: YYYY-MM-DDThh:mm:ss.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property date
+         * @param date from OpenSCENARIO class model specification: [User specific date and time recommended: YYYY-MM-DDThh:mm:ss.]
+         * 
+        */
         void FileHeaderImpl::SetDate(DateTime date )
         {
             _date = date;
         }
-    	/**
-	 * Sets the value of model property description
-	 * @param description from OpenSCENARIO class model specification: [User specific description.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property description
+         * @param description from OpenSCENARIO class model specification: [User specific description.]
+         * 
+        */
         void FileHeaderImpl::SetDescription(std::string description )
         {
             _description = description;
         }
-    	/**
-	 * Sets the value of model property author
-	 * @param author from OpenSCENARIO class model specification: [Author of the scenario or the catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property author
+         * @param author from OpenSCENARIO class model specification: [Author of the scenario or the catalog.]
+         * 
+        */
         void FileHeaderImpl::SetAuthor(std::string author )
         {
             _author = author;
@@ -9496,14 +9442,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> FileHeaderImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string FileHeaderImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         FinalSpeedImpl::FinalSpeedImpl()
@@ -9522,22 +9467,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _relativeSpeedToMaster;
         }
 
-    	/**
-	 * Sets the value of model property absoluteSpeed
-	 * @param absoluteSpeed from OpenSCENARIO class model specification: [The absolute speed a synchronized entity should have 
-	 * at its target position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property absoluteSpeed
+         * @param absoluteSpeed from OpenSCENARIO class model specification: [The absolute speed a synchronized entity should have 
+         * at its target position.]
+         * 
+        */
         void FinalSpeedImpl::SetAbsoluteSpeed(std::shared_ptr<IAbsoluteSpeed> absoluteSpeed )
         {
             _absoluteSpeed = absoluteSpeed;
         }
-    	/**
-	 * Sets the value of model property relativeSpeedToMaster
-	 * @param relativeSpeedToMaster from OpenSCENARIO class model specification: [The speed a synchronized entity should have 
-	 * relative to its master entity at its target position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeSpeedToMaster
+         * @param relativeSpeedToMaster from OpenSCENARIO class model specification: [The speed a synchronized entity should have 
+         * relative to its master entity at its target position.]
+         * 
+        */
         void FinalSpeedImpl::SetRelativeSpeedToMaster(std::shared_ptr<IRelativeSpeedToMaster> relativeSpeedToMaster )
         {
             _relativeSpeedToMaster = relativeSpeedToMaster;
@@ -9644,14 +9589,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> FinalSpeedImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string FinalSpeedImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         FogImpl::FogImpl()
@@ -9671,20 +9615,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _boundingBox;
         }
 
-    	/**
-	 * Sets the value of model property visualRange
-	 * @param visualRange from OpenSCENARIO class model specification: [Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property visualRange
+         * @param visualRange from OpenSCENARIO class model specification: [Unit: m; Range: [0..inf[.]
+         * 
+        */
         void FogImpl::SetVisualRange(double visualRange )
         {
             _visualRange = visualRange;
         }
-    	/**
-	 * Sets the value of model property boundingBox
-	 * @param boundingBox from OpenSCENARIO class model specification: [Dimensions and center of fog in fixed coordinates.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property boundingBox
+         * @param boundingBox from OpenSCENARIO class model specification: [Dimensions and center of fog in fixed coordinates.]
+         * 
+        */
         void FogImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
@@ -9781,14 +9725,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> FogImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string FogImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         FollowTrajectoryActionImpl::FollowTrajectoryActionImpl()
@@ -9815,41 +9758,41 @@ namespace NET_ASAM_OPENSCENARIO
             return _trajectoryFollowingMode;
         }
 
-    	/**
-	 * Sets the value of model property trajectory
-	 * @param trajectory from OpenSCENARIO class model specification: [Trajectory definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trajectory
+         * @param trajectory from OpenSCENARIO class model specification: [Trajectory definition.]
+         * 
+        */
         void FollowTrajectoryActionImpl::SetTrajectory(std::shared_ptr<ITrajectory> trajectory )
         {
             _trajectory = trajectory;
         }
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [A reference to the trajectory type in a catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [A reference to the trajectory type in a catalog.]
+         * 
+        */
         void FollowTrajectoryActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
-    	/**
-	 * Sets the value of model property timeReference
-	 * @param timeReference from OpenSCENARIO class model specification: [Defines if time information provided within the 
-	 * trajectory should be considered. If so, it may be used as either , absolute or relative time along the trajectory in 
-	 * order to define longitudinal velocity of the actor. Moreover, a time , offset or time scaling may be applied.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timeReference
+         * @param timeReference from OpenSCENARIO class model specification: [Defines if time information provided within the 
+         * trajectory should be considered. If so, it may be used as either , absolute or relative time along the trajectory in 
+         * order to define longitudinal velocity of the actor. Moreover, a time , offset or time scaling may be applied.]
+         * 
+        */
         void FollowTrajectoryActionImpl::SetTimeReference(std::shared_ptr<ITimeReference> timeReference )
         {
             _timeReference = timeReference;
         }
-    	/**
-	 * Sets the value of model property trajectoryFollowingMode
-	 * @param trajectoryFollowingMode from OpenSCENARIO class model specification: [The mode how to follow the given 
-	 * trajectory.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trajectoryFollowingMode
+         * @param trajectoryFollowingMode from OpenSCENARIO class model specification: [The mode how to follow the given 
+         * trajectory.]
+         * 
+        */
         void FollowTrajectoryActionImpl::SetTrajectoryFollowingMode(std::shared_ptr<ITrajectoryFollowingMode> trajectoryFollowingMode )
         {
             _trajectoryFollowingMode = trajectoryFollowingMode;
@@ -9992,14 +9935,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> FollowTrajectoryActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string FollowTrajectoryActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         GlobalActionImpl::GlobalActionImpl()
@@ -10030,48 +9972,48 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficAction;
         }
 
-    	/**
-	 * Sets the value of model property environmentAction
-	 * @param environmentAction from OpenSCENARIO class model specification: [Sets the weather state, road conditions, and time
-	 * of the day.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property environmentAction
+         * @param environmentAction from OpenSCENARIO class model specification: [Sets the weather state, road conditions, and time
+         * of the day.]
+         * 
+        */
         void GlobalActionImpl::SetEnvironmentAction(std::shared_ptr<IEnvironmentAction> environmentAction )
         {
             _environmentAction = environmentAction;
         }
-    	/**
-	 * Sets the value of model property entityAction
-	 * @param entityAction from OpenSCENARIO class model specification: [Removing or adding entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityAction
+         * @param entityAction from OpenSCENARIO class model specification: [Removing or adding entities.]
+         * 
+        */
         void GlobalActionImpl::SetEntityAction(std::shared_ptr<IEntityAction> entityAction )
         {
             _entityAction = entityAction;
         }
-    	/**
-	 * Sets the value of model property parameterAction
-	 * @param parameterAction from OpenSCENARIO class model specification: [Setting/modifying values of parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterAction
+         * @param parameterAction from OpenSCENARIO class model specification: [Setting/modifying values of parameters.]
+         * 
+        */
         void GlobalActionImpl::SetParameterAction(std::shared_ptr<IParameterAction> parameterAction )
         {
             _parameterAction = parameterAction;
         }
-    	/**
-	 * Sets the value of model property infrastructureAction
-	 * @param infrastructureAction from OpenSCENARIO class model specification: [Setting/modifying traffic signals.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property infrastructureAction
+         * @param infrastructureAction from OpenSCENARIO class model specification: [Setting/modifying traffic signals.]
+         * 
+        */
         void GlobalActionImpl::SetInfrastructureAction(std::shared_ptr<IInfrastructureAction> infrastructureAction )
         {
             _infrastructureAction = infrastructureAction;
         }
-    	/**
-	 * Sets the value of model property trafficAction
-	 * @param trafficAction from OpenSCENARIO class model specification: [Populating ambient traffic.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficAction
+         * @param trafficAction from OpenSCENARIO class model specification: [Populating ambient traffic.]
+         * 
+        */
         void GlobalActionImpl::SetTrafficAction(std::shared_ptr<ITrafficAction> trafficAction )
         {
             _trafficAction = trafficAction;
@@ -10232,14 +10174,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> GlobalActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string GlobalActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         InRoutePositionImpl::InRoutePositionImpl()
@@ -10262,30 +10203,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _fromLaneCoordinates;
         }
 
-    	/**
-	 * Sets the value of model property fromCurrentEntity
-	 * @param fromCurrentEntity from OpenSCENARIO class model specification: [The position is defined through the current 
-	 * position of a given entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property fromCurrentEntity
+         * @param fromCurrentEntity from OpenSCENARIO class model specification: [The position is defined through the current 
+         * position of a given entity.]
+         * 
+        */
         void InRoutePositionImpl::SetFromCurrentEntity(std::shared_ptr<IPositionOfCurrentEntity> fromCurrentEntity )
         {
             _fromCurrentEntity = fromCurrentEntity;
         }
-    	/**
-	 * Sets the value of model property fromRoadCoordinates
-	 * @param fromRoadCoordinates from OpenSCENARIO class model specification: [Route position in road coordinate system.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property fromRoadCoordinates
+         * @param fromRoadCoordinates from OpenSCENARIO class model specification: [Route position in road coordinate system.]
+         * 
+        */
         void InRoutePositionImpl::SetFromRoadCoordinates(std::shared_ptr<IPositionInRoadCoordinates> fromRoadCoordinates )
         {
             _fromRoadCoordinates = fromRoadCoordinates;
         }
-    	/**
-	 * Sets the value of model property fromLaneCoordinates
-	 * @param fromLaneCoordinates from OpenSCENARIO class model specification: [Route position in lane coordinate system.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property fromLaneCoordinates
+         * @param fromLaneCoordinates from OpenSCENARIO class model specification: [Route position in lane coordinate system.]
+         * 
+        */
         void InRoutePositionImpl::SetFromLaneCoordinates(std::shared_ptr<IPositionInLaneCoordinates> fromLaneCoordinates )
         {
             _fromLaneCoordinates = fromLaneCoordinates;
@@ -10410,14 +10351,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> InRoutePositionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string InRoutePositionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         InfrastructureActionImpl::InfrastructureActionImpl()
@@ -10432,12 +10372,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignalAction;
         }
 
-    	/**
-	 * Sets the value of model property trafficSignalAction
-	 * @param trafficSignalAction from OpenSCENARIO class model specification: [Set or overwrite a signals state or a signal 
-	 * controllers state from a road network.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalAction
+         * @param trafficSignalAction from OpenSCENARIO class model specification: [Set or overwrite a signals state or a signal 
+         * controllers state from a road network.]
+         * 
+        */
         void InfrastructureActionImpl::SetTrafficSignalAction(std::shared_ptr<ITrafficSignalAction> trafficSignalAction )
         {
             _trafficSignalAction = trafficSignalAction;
@@ -10526,14 +10466,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> InfrastructureActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string InfrastructureActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         InitImpl::InitImpl()
@@ -10548,12 +10487,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _actions;
         }
 
-    	/**
-	 * Sets the value of model property actions
-	 * @param actions from OpenSCENARIO class model specification: [A list of actions initially executed when the enclosing 
-	 * storyboard starts.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property actions
+         * @param actions from OpenSCENARIO class model specification: [A list of actions initially executed when the enclosing 
+         * storyboard starts.]
+         * 
+        */
         void InitImpl::SetActions(std::shared_ptr<IInitActions> actions )
         {
             _actions = actions;
@@ -10642,14 +10581,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> InitImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string InitImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         InitActionsImpl::InitActionsImpl()
@@ -10672,29 +10610,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _privates;
         }
 
-    	/**
-	 * Sets the value of model property globalActions
-	 * @param globalActions from OpenSCENARIO class model specification: [An optional list of global actions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property globalActions
+         * @param globalActions from OpenSCENARIO class model specification: [An optional list of global actions.]
+         * 
+        */
         void InitActionsImpl::SetGlobalActions(std::vector<std::shared_ptr<IGlobalAction>>& globalActions)
         {
             _globalActions = globalActions;
         }
-    	/**
-	 * Sets the value of model property userDefinedActions
-	 * @param userDefinedActions from OpenSCENARIO class model specification: [An optional list of user defined actions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property userDefinedActions
+         * @param userDefinedActions from OpenSCENARIO class model specification: [An optional list of user defined actions.]
+         * 
+        */
         void InitActionsImpl::SetUserDefinedActions(std::vector<std::shared_ptr<IUserDefinedAction>>& userDefinedActions)
         {
             _userDefinedActions = userDefinedActions;
         }
-    	/**
-	 * Sets the value of model property privates
-	 * @param privates from OpenSCENARIO class model specification: [An optional list of private actions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property privates
+         * @param privates from OpenSCENARIO class model specification: [An optional list of private actions.]
+         * 
+        */
         void InitActionsImpl::SetPrivates(std::vector<std::shared_ptr<IPrivate>>& privates)
         {
             _privates = privates;
@@ -10850,14 +10788,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> InitActionsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string InitActionsImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         KnotImpl::KnotImpl()
@@ -10873,11 +10810,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Knot vector value. Range ]-inf..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Knot vector value. Range ]-inf..inf[.]
+         * 
+        */
         void KnotImpl::SetValue(double value )
         {
             _value = value;
@@ -10952,14 +10889,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> KnotImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string KnotImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LaneChangeActionImpl::LaneChangeActionImpl()
@@ -10983,30 +10919,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _laneChangeTarget;
         }
 
-    	/**
-	 * Sets the value of model property targetLaneOffset
-	 * @param targetLaneOffset from OpenSCENARIO class model specification: [Lane offset to be reached at the target lane; the 
-	 * action will end there. Unit: m.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property targetLaneOffset
+         * @param targetLaneOffset from OpenSCENARIO class model specification: [Lane offset to be reached at the target lane; the 
+         * action will end there. Unit: m.]
+         * 
+        */
         void LaneChangeActionImpl::SetTargetLaneOffset(double targetLaneOffset )
         {
             _targetLaneOffset = targetLaneOffset;
         }
-    	/**
-	 * Sets the value of model property laneChangeActionDynamics
-	 * @param laneChangeActionDynamics from OpenSCENARIO class model specification: [Shape/time of lane change action.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneChangeActionDynamics
+         * @param laneChangeActionDynamics from OpenSCENARIO class model specification: [Shape/time of lane change action.]
+         * 
+        */
         void LaneChangeActionImpl::SetLaneChangeActionDynamics(std::shared_ptr<ITransitionDynamics> laneChangeActionDynamics )
         {
             _laneChangeActionDynamics = laneChangeActionDynamics;
         }
-    	/**
-	 * Sets the value of model property laneChangeTarget
-	 * @param laneChangeTarget from OpenSCENARIO class model specification: [Direction of lane change action.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneChangeTarget
+         * @param laneChangeTarget from OpenSCENARIO class model specification: [Direction of lane change action.]
+         * 
+        */
         void LaneChangeActionImpl::SetLaneChangeTarget(std::shared_ptr<ILaneChangeTarget> laneChangeTarget )
         {
             _laneChangeTarget = laneChangeTarget;
@@ -11121,14 +11057,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LaneChangeActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LaneChangeActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LaneChangeTargetImpl::LaneChangeTargetImpl()
@@ -11147,21 +11082,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _absoluteTargetLane;
         }
 
-    	/**
-	 * Sets the value of model property relativeTargetLane
-	 * @param relativeTargetLane from OpenSCENARIO class model specification: [Lane change direction relative to entity's 
-	 * lane.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeTargetLane
+         * @param relativeTargetLane from OpenSCENARIO class model specification: [Lane change direction relative to entity's 
+         * lane.]
+         * 
+        */
         void LaneChangeTargetImpl::SetRelativeTargetLane(std::shared_ptr<IRelativeTargetLane> relativeTargetLane )
         {
             _relativeTargetLane = relativeTargetLane;
         }
-    	/**
-	 * Sets the value of model property absoluteTargetLane
-	 * @param absoluteTargetLane from OpenSCENARIO class model specification: [Lane change target lane number.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property absoluteTargetLane
+         * @param absoluteTargetLane from OpenSCENARIO class model specification: [Lane change target lane number.]
+         * 
+        */
         void LaneChangeTargetImpl::SetAbsoluteTargetLane(std::shared_ptr<IAbsoluteTargetLane> absoluteTargetLane )
         {
             _absoluteTargetLane = absoluteTargetLane;
@@ -11268,14 +11203,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LaneChangeTargetImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LaneChangeTargetImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LaneOffsetActionImpl::LaneOffsetActionImpl()
@@ -11299,32 +11233,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _laneOffsetTarget;
         }
 
-    	/**
-	 * Sets the value of model property continuous
-	 * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target lane is 
-	 * reached. If true it does not end but has to be stopped.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property continuous
+         * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target lane is 
+         * reached. If true it does not end but has to be stopped.]
+         * 
+        */
         void LaneOffsetActionImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
         }
-    	/**
-	 * Sets the value of model property laneOffsetActionDynamics
-	 * @param laneOffsetActionDynamics from OpenSCENARIO class model specification: [Parameters defining the dynamics of the 
-	 * LaneOffsetAction.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneOffsetActionDynamics
+         * @param laneOffsetActionDynamics from OpenSCENARIO class model specification: [Parameters defining the dynamics of the 
+         * LaneOffsetAction.]
+         * 
+        */
         void LaneOffsetActionImpl::SetLaneOffsetActionDynamics(std::shared_ptr<ILaneOffsetActionDynamics> laneOffsetActionDynamics )
         {
             _laneOffsetActionDynamics = laneOffsetActionDynamics;
         }
-    	/**
-	 * Sets the value of model property laneOffsetTarget
-	 * @param laneOffsetTarget from OpenSCENARIO class model specification: [Parameters indicating if the lane offset is 
-	 * defined relative to another entity or absolute to the current lane's center , line.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneOffsetTarget
+         * @param laneOffsetTarget from OpenSCENARIO class model specification: [Parameters indicating if the lane offset is 
+         * defined relative to another entity or absolute to the current lane's center , line.]
+         * 
+        */
         void LaneOffsetActionImpl::SetLaneOffsetTarget(std::shared_ptr<ILaneOffsetTarget> laneOffsetTarget )
         {
             _laneOffsetTarget = laneOffsetTarget;
@@ -11439,14 +11373,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LaneOffsetActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LaneOffsetActionDynamicsImpl::LaneOffsetActionDynamicsImpl()
@@ -11467,22 +11400,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _dynamicsShape;
         }
 
-    	/**
-	 * Sets the value of model property maxLateralAcc
-	 * @param maxLateralAcc from OpenSCENARIO class model specification: [Maximum lateral acceleration used to initially reach 
-	 * and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxLateralAcc
+         * @param maxLateralAcc from OpenSCENARIO class model specification: [Maximum lateral acceleration used to initially reach 
+         * and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.]
+         * 
+        */
         void LaneOffsetActionDynamicsImpl::SetMaxLateralAcc(double maxLateralAcc )
         {
             _maxLateralAcc = maxLateralAcc;
         }
-    	/**
-	 * Sets the value of model property dynamicsShape
-	 * @param dynamicsShape from OpenSCENARIO class model specification: [Geometrical shape of the LaneOffsetAction's 
-	 * dynamics.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dynamicsShape
+         * @param dynamicsShape from OpenSCENARIO class model specification: [Geometrical shape of the LaneOffsetAction's 
+         * dynamics.]
+         * 
+        */
         void LaneOffsetActionDynamicsImpl::SetDynamicsShape(DynamicsShape dynamicsShape )
         {
             _dynamicsShape = dynamicsShape;
@@ -11574,7 +11507,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionDynamicsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LaneOffsetActionDynamicsImpl::GetEnumerationLiteral(std::string key)
@@ -11593,7 +11526,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         LaneOffsetTargetImpl::LaneOffsetTargetImpl()
         {
             /**
@@ -11610,22 +11542,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _absoluteTargetLaneOffset;
         }
 
-    	/**
-	 * Sets the value of model property relativeTargetLaneOffset
-	 * @param relativeTargetLaneOffset from OpenSCENARIO class model specification: [Relative reference to the lane position of
-	 * a specific entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeTargetLaneOffset
+         * @param relativeTargetLaneOffset from OpenSCENARIO class model specification: [Relative reference to the lane position of
+         * a specific entity.]
+         * 
+        */
         void LaneOffsetTargetImpl::SetRelativeTargetLaneOffset(std::shared_ptr<IRelativeTargetLaneOffset> relativeTargetLaneOffset )
         {
             _relativeTargetLaneOffset = relativeTargetLaneOffset;
         }
-    	/**
-	 * Sets the value of model property absoluteTargetLaneOffset
-	 * @param absoluteTargetLaneOffset from OpenSCENARIO class model specification: [Absolute reference to the current lane's 
-	 * center line.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property absoluteTargetLaneOffset
+         * @param absoluteTargetLaneOffset from OpenSCENARIO class model specification: [Absolute reference to the current lane's 
+         * center line.]
+         * 
+        */
         void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(std::shared_ptr<IAbsoluteTargetLaneOffset> absoluteTargetLaneOffset )
         {
             _absoluteTargetLaneOffset = absoluteTargetLaneOffset;
@@ -11732,14 +11664,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetTargetImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LaneOffsetTargetImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LanePositionImpl::LanePositionImpl()
@@ -11774,50 +11705,50 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-    	/**
-	 * Sets the value of model property roadId
-	 * @param roadId from OpenSCENARIO class model specification: [ID of the current road (ID of a road in road network).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property roadId
+         * @param roadId from OpenSCENARIO class model specification: [ID of the current road (ID of a road in road network).]
+         * 
+        */
         void LanePositionImpl::SetRoadId(std::string roadId )
         {
             _roadId = roadId;
         }
-    	/**
-	 * Sets the value of model property laneId
-	 * @param laneId from OpenSCENARIO class model specification: [ID of the current lane (ID of a lane in road network).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneId
+         * @param laneId from OpenSCENARIO class model specification: [ID of the current lane (ID of a lane in road network).]
+         * 
+        */
         void LanePositionImpl::SetLaneId(std::string laneId )
         {
             _laneId = laneId;
         }
-    	/**
-	 * Sets the value of model property offset
-	 * @param offset from OpenSCENARIO class model specification: [Lateral offset to the centerline of the current lane. Unit: 
-	 * m.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property offset
+         * @param offset from OpenSCENARIO class model specification: [Lateral offset to the centerline of the current lane. Unit: 
+         * m.]
+         * 
+        */
         void LanePositionImpl::SetOffset(double offset )
         {
             _offset = offset;
         }
-    	/**
-	 * Sets the value of model property s
-	 * @param s from OpenSCENARIO class model specification: [The s coordinate of the current position. Unit: m; Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property s
+         * @param s from OpenSCENARIO class model specification: [The s coordinate of the current position. Unit: m; Range: 
+         * [0..inf[.]
+         * 
+        */
         void LanePositionImpl::SetS(double s )
         {
             _s = s;
         }
-    	/**
-	 * Sets the value of model property orientation
-	 * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-	 * the referenced road's s and t coordinates.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property orientation
+         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
+         * the referenced road's s and t coordinates.]
+         * 
+        */
         void LanePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
@@ -11952,14 +11883,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LanePositionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LanePositionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LateralActionImpl::LateralActionImpl()
@@ -11982,30 +11912,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _lateralDistanceAction;
         }
 
-    	/**
-	 * Sets the value of model property laneChangeAction
-	 * @param laneChangeAction from OpenSCENARIO class model specification: [Action defining a lane change.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneChangeAction
+         * @param laneChangeAction from OpenSCENARIO class model specification: [Action defining a lane change.]
+         * 
+        */
         void LateralActionImpl::SetLaneChangeAction(std::shared_ptr<ILaneChangeAction> laneChangeAction )
         {
             _laneChangeAction = laneChangeAction;
         }
-    	/**
-	 * Sets the value of model property laneOffsetAction
-	 * @param laneOffsetAction from OpenSCENARIO class model specification: [Action defining a continuously kept lane offset.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneOffsetAction
+         * @param laneOffsetAction from OpenSCENARIO class model specification: [Action defining a continuously kept lane offset.]
+         * 
+        */
         void LateralActionImpl::SetLaneOffsetAction(std::shared_ptr<ILaneOffsetAction> laneOffsetAction )
         {
             _laneOffsetAction = laneOffsetAction;
         }
-    	/**
-	 * Sets the value of model property lateralDistanceAction
-	 * @param lateralDistanceAction from OpenSCENARIO class model specification: [Action defining a continuously kept lateral 
-	 * distance to a specific entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property lateralDistanceAction
+         * @param lateralDistanceAction from OpenSCENARIO class model specification: [Action defining a continuously kept lateral 
+         * distance to a specific entity.]
+         * 
+        */
         void LateralActionImpl::SetLateralDistanceAction(std::shared_ptr<ILateralDistanceAction> lateralDistanceAction )
         {
             _lateralDistanceAction = lateralDistanceAction;
@@ -12130,14 +12060,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LateralActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LateralActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LateralDistanceActionImpl::LateralDistanceActionImpl()
@@ -12172,51 +12101,51 @@ namespace NET_ASAM_OPENSCENARIO
             return _dynamicConstraints;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity the lateral distance shall 
-	 * be kept to.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity the lateral distance shall 
+         * be kept to.]
+         * 
+        */
         void LateralDistanceActionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property distance
-	 * @param distance from OpenSCENARIO class model specification: [Lateral distance value. Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property distance
+         * @param distance from OpenSCENARIO class model specification: [Lateral distance value. Unit: m; Range: [0..inf[.]
+         * 
+        */
         void LateralDistanceActionImpl::SetDistance(double distance )
         {
             _distance = distance;
         }
-    	/**
-	 * Sets the value of model property freespace
-	 * @param freespace from OpenSCENARIO class model specification: [True: Lateral distance is measured using the distance 
-	 * between closest bounding box points. False: Reference point , distance is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property freespace
+         * @param freespace from OpenSCENARIO class model specification: [True: Lateral distance is measured using the distance 
+         * between closest bounding box points. False: Reference point , distance is used.]
+         * 
+        */
         void LateralDistanceActionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
-    	/**
-	 * Sets the value of model property continuous
-	 * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target distance is 
-	 * reached. If true it does not end and can only be stopped.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property continuous
+         * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target distance is 
+         * reached. If true it does not end and can only be stopped.]
+         * 
+        */
         void LateralDistanceActionImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
         }
-    	/**
-	 * Sets the value of model property dynamicConstraints
-	 * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns either unlimited dynamics
-	 * (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the, action.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dynamicConstraints
+         * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns either unlimited dynamics
+         * (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the, action.]
+         * 
+        */
         void LateralDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints> dynamicConstraints )
         {
             _dynamicConstraints = dynamicConstraints;
@@ -12370,7 +12299,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         LongitudinalActionImpl::LongitudinalActionImpl()
         {
             /**
@@ -12387,22 +12315,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _longitudinalDistanceAction;
         }
 
-    	/**
-	 * Sets the value of model property speedAction
-	 * @param speedAction from OpenSCENARIO class model specification: [This action describes the transition between the 
-	 * current longitudinal speed of an entity and its target speed.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property speedAction
+         * @param speedAction from OpenSCENARIO class model specification: [This action describes the transition between the 
+         * current longitudinal speed of an entity and its target speed.]
+         * 
+        */
         void LongitudinalActionImpl::SetSpeedAction(std::shared_ptr<ISpeedAction> speedAction )
         {
             _speedAction = speedAction;
         }
-    	/**
-	 * Sets the value of model property longitudinalDistanceAction
-	 * @param longitudinalDistanceAction from OpenSCENARIO class model specification: [This Action defines a continuously kept 
-	 * longitudinal distance to a specific entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property longitudinalDistanceAction
+         * @param longitudinalDistanceAction from OpenSCENARIO class model specification: [This Action defines a continuously kept 
+         * longitudinal distance to a specific entity.]
+         * 
+        */
         void LongitudinalActionImpl::SetLongitudinalDistanceAction(std::shared_ptr<ILongitudinalDistanceAction> longitudinalDistanceAction )
         {
             _longitudinalDistanceAction = longitudinalDistanceAction;
@@ -12509,14 +12437,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> LongitudinalActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string LongitudinalActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         LongitudinalDistanceActionImpl::LongitudinalDistanceActionImpl()
@@ -12556,61 +12483,61 @@ namespace NET_ASAM_OPENSCENARIO
             return _dynamicConstraints;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity the distance shall be kept to.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity the distance shall be kept to.]
+         * 
+        */
         void LongitudinalDistanceActionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property distance
-	 * @param distance from OpenSCENARIO class model specification: [Distance value, not to be used together with timeGap 
-	 * attribute. Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property distance
+         * @param distance from OpenSCENARIO class model specification: [Distance value, not to be used together with timeGap 
+         * attribute. Unit: m; Range: [0..inf[.]
+         * 
+        */
         void LongitudinalDistanceActionImpl::SetDistance(double distance )
         {
             _distance = distance;
         }
-    	/**
-	 * Sets the value of model property timeGap
-	 * @param timeGap from OpenSCENARIO class model specification: [Time gap value, not to be used together with distance 
-	 * attribute. Unit: s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timeGap
+         * @param timeGap from OpenSCENARIO class model specification: [Time gap value, not to be used together with distance 
+         * attribute. Unit: s; Range: [0..inf[.]
+         * 
+        */
         void LongitudinalDistanceActionImpl::SetTimeGap(double timeGap )
         {
             _timeGap = timeGap;
         }
-    	/**
-	 * Sets the value of model property freespace
-	 * @param freespace from OpenSCENARIO class model specification: [True: Distance is measured using the distance between 
-	 * closest bounding box points False: Reference point distance is , used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property freespace
+         * @param freespace from OpenSCENARIO class model specification: [True: Distance is measured using the distance between 
+         * closest bounding box points False: Reference point distance is , used.]
+         * 
+        */
         void LongitudinalDistanceActionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
-    	/**
-	 * Sets the value of model property continuous
-	 * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target distance is 
-	 * reached. If true it does not end and can only be stopped.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property continuous
+         * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target distance is 
+         * reached. If true it does not end and can only be stopped.]
+         * 
+        */
         void LongitudinalDistanceActionImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
         }
-    	/**
-	 * Sets the value of model property dynamicConstraints
-	 * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns either unlimited dynamics
-	 * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to , the action.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dynamicConstraints
+         * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns either unlimited dynamics
+         * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to , the action.]
+         * 
+        */
         void LongitudinalDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints> dynamicConstraints )
         {
             _dynamicConstraints = dynamicConstraints;
@@ -12772,7 +12699,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ManeuverImpl::ManeuverImpl()
         {
             /**
@@ -12794,29 +12720,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _events;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the maneuver.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the maneuver.]
+         * 
+        */
         void ManeuverImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void ManeuverImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property events
-	 * @param events from OpenSCENARIO class model specification: [List of events that are comprised by the maneuver.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property events
+         * @param events from OpenSCENARIO class model specification: [List of events that are comprised by the maneuver.]
+         * 
+        */
         void ManeuverImpl::SetEvents(std::vector<std::shared_ptr<IEvent>>& events)
         {
             _events = events;
@@ -12980,14 +12906,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ManeuverImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ManeuverImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ManeuverCatalogLocationImpl::ManeuverCatalogLocationImpl()
@@ -13002,11 +12927,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
+         * 
+        */
         void ManeuverCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -13095,14 +13020,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ManeuverCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ManeuverCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ManeuverGroupImpl::ManeuverGroupImpl()
@@ -13135,49 +13059,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _maneuvers;
         }
 
-    	/**
-	 * Sets the value of model property maximumExecutionCount
-	 * @param maximumExecutionCount from OpenSCENARIO class model specification: [Number of allowed executions of the maneuver 
-	 * group. Default value is 1. Range: [1..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maximumExecutionCount
+         * @param maximumExecutionCount from OpenSCENARIO class model specification: [Number of allowed executions of the maneuver 
+         * group. Default value is 1. Range: [1..inf[.]
+         * 
+        */
         void ManeuverGroupImpl::SetMaximumExecutionCount(long long maximumExecutionCount )
         {
             _maximumExecutionCount = maximumExecutionCount;
         }
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
+         * 
+        */
         void ManeuverGroupImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property actors
-	 * @param actors from OpenSCENARIO class model specification: [Actors of the maneuver group.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property actors
+         * @param actors from OpenSCENARIO class model specification: [Actors of the maneuver group.]
+         * 
+        */
         void ManeuverGroupImpl::SetActors(std::shared_ptr<IActors> actors )
         {
             _actors = actors;
         }
-    	/**
-	 * Sets the value of model property catalogReferences
-	 * @param catalogReferences from OpenSCENARIO class model specification: [Each element of this list of must reference a 
-	 * maneuver type in a catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReferences
+         * @param catalogReferences from OpenSCENARIO class model specification: [Each element of this list of must reference a 
+         * maneuver type in a catalog.]
+         * 
+        */
         void ManeuverGroupImpl::SetCatalogReferences(std::vector<std::shared_ptr<ICatalogReference>>& catalogReferences)
         {
             _catalogReferences = catalogReferences;
         }
-    	/**
-	 * Sets the value of model property maneuvers
-	 * @param maneuvers from OpenSCENARIO class model specification: [Maneuver type definitions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maneuvers
+         * @param maneuvers from OpenSCENARIO class model specification: [Maneuver type definitions.]
+         * 
+        */
         void ManeuverGroupImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuver>>& maneuvers)
         {
             _maneuvers = maneuvers;
@@ -13352,14 +13276,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ManeuverGroupImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ManeuverGroupImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         MiscObjectImpl::MiscObjectImpl()
@@ -13397,56 +13320,56 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-    	/**
-	 * Sets the value of model property miscObjectCategory
-	 * @param miscObjectCategory from OpenSCENARIO class model specification: [Categorization of the miscellaneous object.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property miscObjectCategory
+         * @param miscObjectCategory from OpenSCENARIO class model specification: [Categorization of the miscellaneous object.]
+         * 
+        */
         void MiscObjectImpl::SetMiscObjectCategory(MiscObjectCategory miscObjectCategory )
         {
             _miscObjectCategory = miscObjectCategory;
         }
-    	/**
-	 * Sets the value of model property mass
-	 * @param mass from OpenSCENARIO class model specification: [Mass of the miscellaneous object. Unit: kg; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property mass
+         * @param mass from OpenSCENARIO class model specification: [Mass of the miscellaneous object. Unit: kg; Range: [0..inf[.]
+         * 
+        */
         void MiscObjectImpl::SetMass(double mass )
         {
             _mass = mass;
         }
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the miscellaneous object type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the miscellaneous object type.]
+         * 
+        */
         void MiscObjectImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void MiscObjectImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property boundingBox
-	 * @param boundingBox from OpenSCENARIO class model specification: [Bounding box definition for the miscellaneous object.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property boundingBox
+         * @param boundingBox from OpenSCENARIO class model specification: [Bounding box definition for the miscellaneous object.]
+         * 
+        */
         void MiscObjectImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
         }
-    	/**
-	 * Sets the value of model property properties
-	 * @param properties from OpenSCENARIO class model specification: [Property definitions for the miscellaneous object.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property properties
+         * @param properties from OpenSCENARIO class model specification: [Property definitions for the miscellaneous object.]
+         * 
+        */
         void MiscObjectImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
@@ -13647,7 +13570,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> MiscObjectImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string MiscObjectImpl::GetEnumerationLiteral(std::string key)
@@ -13666,7 +13589,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         MiscObjectCatalogLocationImpl::MiscObjectCatalogLocationImpl()
         {
             /**
@@ -13679,11 +13601,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
+         * 
+        */
         void MiscObjectCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -13772,14 +13694,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> MiscObjectCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string MiscObjectCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ModifyRuleImpl::ModifyRuleImpl()
@@ -13798,20 +13719,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _multiplyByValue;
         }
 
-    	/**
-	 * Sets the value of model property addValue
-	 * @param addValue from OpenSCENARIO class model specification: [Adding a value to a parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property addValue
+         * @param addValue from OpenSCENARIO class model specification: [Adding a value to a parameter.]
+         * 
+        */
         void ModifyRuleImpl::SetAddValue(std::shared_ptr<IParameterAddValueRule> addValue )
         {
             _addValue = addValue;
         }
-    	/**
-	 * Sets the value of model property multiplyByValue
-	 * @param multiplyByValue from OpenSCENARIO class model specification: [Multiply a parameter by a value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property multiplyByValue
+         * @param multiplyByValue from OpenSCENARIO class model specification: [Multiply a parameter by a value.]
+         * 
+        */
         void ModifyRuleImpl::SetMultiplyByValue(std::shared_ptr<IParameterMultiplyByValueRule> multiplyByValue )
         {
             _multiplyByValue = multiplyByValue;
@@ -13918,14 +13839,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ModifyRuleImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ModifyRuleImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         NoneImpl::NoneImpl()
@@ -13998,14 +13918,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> NoneImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string NoneImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         NurbsImpl::NurbsImpl()
@@ -14029,33 +13948,33 @@ namespace NET_ASAM_OPENSCENARIO
             return _knots;
         }
 
-    	/**
-	 * Sets the value of model property order
-	 * @param order from OpenSCENARIO class model specification: [Order of the NURBS trajectory. This is the order of the 
-	 * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property order
+         * @param order from OpenSCENARIO class model specification: [Order of the NURBS trajectory. This is the order of the 
+         * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
+         * 
+        */
         void NurbsImpl::SetOrder(long long order )
         {
             _order = order;
         }
-    	/**
-	 * Sets the value of model property controlPoints
-	 * @param controlPoints from OpenSCENARIO class model specification: [Control point vector of the NURBS trajectory. The 
-	 * number of control points must be greater or equal to the order of the , curve.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controlPoints
+         * @param controlPoints from OpenSCENARIO class model specification: [Control point vector of the NURBS trajectory. The 
+         * number of control points must be greater or equal to the order of the , curve.]
+         * 
+        */
         void NurbsImpl::SetControlPoints(std::vector<std::shared_ptr<IControlPoint>>& controlPoints)
         {
             _controlPoints = controlPoints;
         }
-    	/**
-	 * Sets the value of model property knots
-	 * @param knots from OpenSCENARIO class model specification: [Knot vector of the NURBS trajectory. Knot values must be 
-	 * given in ascending order. The number of knot vector values must, be equal to the number of control points plus the order
-	 * of the curve.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property knots
+         * @param knots from OpenSCENARIO class model specification: [Knot vector of the NURBS trajectory. Knot values must be 
+         * given in ascending order. The number of knot vector values must, be equal to the number of control points plus the order
+         * of the curve.]
+         * 
+        */
         void NurbsImpl::SetKnots(std::vector<std::shared_ptr<IKnot>>& knots)
         {
             _knots = knots;
@@ -14191,14 +14110,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> NurbsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string NurbsImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ObjectControllerImpl::ObjectControllerImpl()
@@ -14217,20 +14135,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _controller;
         }
 
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [Catalog reference to a controller.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [Catalog reference to a controller.]
+         * 
+        */
         void ObjectControllerImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
         }
-    	/**
-	 * Sets the value of model property controller
-	 * @param controller from OpenSCENARIO class model specification: [Controller type definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controller
+         * @param controller from OpenSCENARIO class model specification: [Controller type definition.]
+         * 
+        */
         void ObjectControllerImpl::SetController(std::shared_ptr<IController> controller )
         {
             _controller = controller;
@@ -14337,14 +14255,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ObjectControllerImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ObjectControllerImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OffroadConditionImpl::OffroadConditionImpl()
@@ -14360,12 +14277,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _duration;
         }
 
-    	/**
-	 * Sets the value of model property duration
-	 * @param duration from OpenSCENARIO class model specification: [Amount of time of driving offroad. Unit: s; Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property duration
+         * @param duration from OpenSCENARIO class model specification: [Amount of time of driving offroad. Unit: s; Range: 
+         * [0..inf[.]
+         * 
+        */
         void OffroadConditionImpl::SetDuration(double duration )
         {
             _duration = duration;
@@ -14440,14 +14357,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OffroadConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OffroadConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OpenScenarioImpl::OpenScenarioImpl()
@@ -14466,21 +14382,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _openScenarioCategory;
         }
 
-    	/**
-	 * Sets the value of model property fileHeader
-	 * @param fileHeader from OpenSCENARIO class model specification: [Header information for the scenario or the catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property fileHeader
+         * @param fileHeader from OpenSCENARIO class model specification: [Header information for the scenario or the catalog.]
+         * 
+        */
         void OpenScenarioImpl::SetFileHeader(std::shared_ptr<IFileHeader> fileHeader )
         {
             _fileHeader = fileHeader;
         }
-    	/**
-	 * Sets the value of model property openScenarioCategory
-	 * @param openScenarioCategory from OpenSCENARIO class model specification: [Category (catalog or scenario) of the 
-	 * OpenSCENARIO description.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property openScenarioCategory
+         * @param openScenarioCategory from OpenSCENARIO class model specification: [Category (catalog or scenario) of the 
+         * OpenSCENARIO description.]
+         * 
+        */
         void OpenScenarioImpl::SetOpenScenarioCategory(std::shared_ptr<IOpenScenarioCategory> openScenarioCategory )
         {
             _openScenarioCategory = openScenarioCategory;
@@ -14587,14 +14503,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OpenScenarioImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OpenScenarioCategoryImpl::OpenScenarioCategoryImpl()
@@ -14613,20 +14528,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogDefinition;
         }
 
-    	/**
-	 * Sets the value of model property scenarioDefinition
-	 * @param scenarioDefinition from OpenSCENARIO class model specification: [Definition of a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property scenarioDefinition
+         * @param scenarioDefinition from OpenSCENARIO class model specification: [Definition of a scenario.]
+         * 
+        */
         void OpenScenarioCategoryImpl::SetScenarioDefinition(std::shared_ptr<IScenarioDefinition> scenarioDefinition )
         {
             _scenarioDefinition = scenarioDefinition;
         }
-    	/**
-	 * Sets the value of model property catalogDefinition
-	 * @param catalogDefinition from OpenSCENARIO class model specification: [Definition of a catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogDefinition
+         * @param catalogDefinition from OpenSCENARIO class model specification: [Definition of a catalog.]
+         * 
+        */
         void OpenScenarioCategoryImpl::SetCatalogDefinition(std::shared_ptr<ICatalogDefinition> catalogDefinition )
         {
             _catalogDefinition = catalogDefinition;
@@ -14733,14 +14648,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioCategoryImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OpenScenarioCategoryImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OrientationImpl::OrientationImpl()
@@ -14771,38 +14685,38 @@ namespace NET_ASAM_OPENSCENARIO
             return _r;
         }
 
-    	/**
-	 * Sets the value of model property type
-	 * @param type from OpenSCENARIO class model specification: [Relative or absolute definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property type
+         * @param type from OpenSCENARIO class model specification: [Relative or absolute definition.]
+         * 
+        */
         void OrientationImpl::SetType(ReferenceContext type )
         {
             _type = type;
         }
-    	/**
-	 * Sets the value of model property h
-	 * @param h from OpenSCENARIO class model specification: [Heading angle. Unit: rad;.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property h
+         * @param h from OpenSCENARIO class model specification: [Heading angle. Unit: rad;.]
+         * 
+        */
         void OrientationImpl::SetH(double h )
         {
             _h = h;
         }
-    	/**
-	 * Sets the value of model property p
-	 * @param p from OpenSCENARIO class model specification: [Pitch angle. Unit: rad;.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property p
+         * @param p from OpenSCENARIO class model specification: [Pitch angle. Unit: rad;.]
+         * 
+        */
         void OrientationImpl::SetP(double p )
         {
             _p = p;
         }
-    	/**
-	 * Sets the value of model property r
-	 * @param r from OpenSCENARIO class model specification: [Roll angle. Unit: rad;.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property r
+         * @param r from OpenSCENARIO class model specification: [Roll angle. Unit: rad;.]
+         * 
+        */
         void OrientationImpl::SetR(double r )
         {
             _r = r;
@@ -14910,7 +14824,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OrientationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OrientationImpl::GetEnumerationLiteral(std::string key)
@@ -14927,7 +14841,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         OverrideBrakeActionImpl::OverrideBrakeActionImpl()
@@ -14948,21 +14861,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _active;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Brake pedal value. Range: [0..1]. 0 represents 0%, 1 
-	 * represents 100% of pressing the brake pedal.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Brake pedal value. Range: [0..1]. 0 represents 0%, 1 
+         * represents 100% of pressing the brake pedal.]
+         * 
+        */
         void OverrideBrakeActionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property active
-	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property active
+         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
+         * 
+        */
         void OverrideBrakeActionImpl::SetActive(bool active )
         {
             _active = active;
@@ -15045,14 +14958,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OverrideBrakeActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OverrideBrakeActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OverrideClutchActionImpl::OverrideClutchActionImpl()
@@ -15073,21 +14985,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _active;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Clutch pedal value. Range: [0..1]. 0 represents 0%, 1 
-	 * represents 100% of pressing the clutch pedal.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Clutch pedal value. Range: [0..1]. 0 represents 0%, 1 
+         * represents 100% of pressing the clutch pedal.]
+         * 
+        */
         void OverrideClutchActionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property active
-	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property active
+         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
+         * 
+        */
         void OverrideClutchActionImpl::SetActive(bool active )
         {
             _active = active;
@@ -15170,14 +15082,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OverrideClutchActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OverrideClutchActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OverrideControllerValueActionImpl::OverrideControllerValueActionImpl()
@@ -15212,57 +15123,57 @@ namespace NET_ASAM_OPENSCENARIO
             return _gear;
         }
 
-    	/**
-	 * Sets the value of model property throttle
-	 * @param throttle from OpenSCENARIO class model specification: [New value for throttle pedal position or unset value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property throttle
+         * @param throttle from OpenSCENARIO class model specification: [New value for throttle pedal position or unset value.]
+         * 
+        */
         void OverrideControllerValueActionImpl::SetThrottle(std::shared_ptr<IOverrideThrottleAction> throttle )
         {
             _throttle = throttle;
         }
-    	/**
-	 * Sets the value of model property brake
-	 * @param brake from OpenSCENARIO class model specification: [New value for brake position or unset value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property brake
+         * @param brake from OpenSCENARIO class model specification: [New value for brake position or unset value.]
+         * 
+        */
         void OverrideControllerValueActionImpl::SetBrake(std::shared_ptr<IOverrideBrakeAction> brake )
         {
             _brake = brake;
         }
-    	/**
-	 * Sets the value of model property clutch
-	 * @param clutch from OpenSCENARIO class model specification: [New value for clutch position or unset value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property clutch
+         * @param clutch from OpenSCENARIO class model specification: [New value for clutch position or unset value.]
+         * 
+        */
         void OverrideControllerValueActionImpl::SetClutch(std::shared_ptr<IOverrideClutchAction> clutch )
         {
             _clutch = clutch;
         }
-    	/**
-	 * Sets the value of model property parkingBrake
-	 * @param parkingBrake from OpenSCENARIO class model specification: [New value for parking brake position or unset value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parkingBrake
+         * @param parkingBrake from OpenSCENARIO class model specification: [New value for parking brake position or unset value.]
+         * 
+        */
         void OverrideControllerValueActionImpl::SetParkingBrake(std::shared_ptr<IOverrideParkingBrakeAction> parkingBrake )
         {
             _parkingBrake = parkingBrake;
         }
-    	/**
-	 * Sets the value of model property steeringWheel
-	 * @param steeringWheel from OpenSCENARIO class model specification: [New value for steering wheel position or unset 
-	 * value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property steeringWheel
+         * @param steeringWheel from OpenSCENARIO class model specification: [New value for steering wheel position or unset 
+         * value.]
+         * 
+        */
         void OverrideControllerValueActionImpl::SetSteeringWheel(std::shared_ptr<IOverrideSteeringWheelAction> steeringWheel )
         {
             _steeringWheel = steeringWheel;
         }
-    	/**
-	 * Sets the value of model property gear
-	 * @param gear from OpenSCENARIO class model specification: [New value for gear position or unset value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property gear
+         * @param gear from OpenSCENARIO class model specification: [New value for gear position or unset value.]
+         * 
+        */
         void OverrideControllerValueActionImpl::SetGear(std::shared_ptr<IOverrideGearAction> gear )
         {
             _gear = gear;
@@ -15441,14 +15352,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OverrideControllerValueActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OverrideControllerValueActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OverrideGearActionImpl::OverrideGearActionImpl()
@@ -15469,20 +15379,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _active;
         }
 
-    	/**
-	 * Sets the value of model property number
-	 * @param number from OpenSCENARIO class model specification: [Gear number.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property number
+         * @param number from OpenSCENARIO class model specification: [Gear number.]
+         * 
+        */
         void OverrideGearActionImpl::SetNumber(double number )
         {
             _number = number;
         }
-    	/**
-	 * Sets the value of model property active
-	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property active
+         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
+         * 
+        */
         void OverrideGearActionImpl::SetActive(bool active )
         {
             _active = active;
@@ -15565,14 +15475,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OverrideGearActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OverrideGearActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OverrideParkingBrakeActionImpl::OverrideParkingBrakeActionImpl()
@@ -15593,21 +15502,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _active;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Parking brake value. Unit: %; Range: [0..1]. The value 1 
-	 * represent the maximum parking brake state.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Parking brake value. Unit: %; Range: [0..1]. The value 1 
+         * represent the maximum parking brake state.]
+         * 
+        */
         void OverrideParkingBrakeActionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property active
-	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property active
+         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
+         * 
+        */
         void OverrideParkingBrakeActionImpl::SetActive(bool active )
         {
             _active = active;
@@ -15690,14 +15599,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OverrideParkingBrakeActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OverrideParkingBrakeActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OverrideSteeringWheelActionImpl::OverrideSteeringWheelActionImpl()
@@ -15718,20 +15626,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _active;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Steering wheel angle. Unit: rad.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Steering wheel angle. Unit: rad.]
+         * 
+        */
         void OverrideSteeringWheelActionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property active
-	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property active
+         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
+         * 
+        */
         void OverrideSteeringWheelActionImpl::SetActive(bool active )
         {
             _active = active;
@@ -15814,14 +15722,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OverrideSteeringWheelActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OverrideSteeringWheelActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         OverrideThrottleActionImpl::OverrideThrottleActionImpl()
@@ -15842,21 +15749,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _active;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Throttle pedal value. Range: [0..1].0 represents 0%, 1 
-	 * represents 100% of pressing the throttle pedal.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Throttle pedal value. Range: [0..1].0 represents 0%, 1 
+         * represents 100% of pressing the throttle pedal.]
+         * 
+        */
         void OverrideThrottleActionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property active
-	 * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property active
+         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
+         * 
+        */
         void OverrideThrottleActionImpl::SetActive(bool active )
         {
             _active = active;
@@ -15939,14 +15846,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> OverrideThrottleActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string OverrideThrottleActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ParameterActionImpl::ParameterActionImpl()
@@ -15970,30 +15876,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _modifyAction;
         }
 
-    	/**
-	 * Sets the value of model property parameterRef
-	 * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterRef
+         * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter.]
+         * 
+        */
         void ParameterActionImpl::SetParameterRef(NamedReferenceProxy<IParameterDeclaration>& parameterRef )
         {
             _parameterRef = parameterRef;
         }
-    	/**
-	 * Sets the value of model property setAction
-	 * @param setAction from OpenSCENARIO class model specification: [New value for the parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property setAction
+         * @param setAction from OpenSCENARIO class model specification: [New value for the parameter.]
+         * 
+        */
         void ParameterActionImpl::SetSetAction(std::shared_ptr<IParameterSetAction> setAction )
         {
             _setAction = setAction;
         }
-    	/**
-	 * Sets the value of model property modifyAction
-	 * @param modifyAction from OpenSCENARIO class model specification: [Modifying rule for the parameter (Add value or 
-	 * multiply by value).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property modifyAction
+         * @param modifyAction from OpenSCENARIO class model specification: [Modifying rule for the parameter (Add value or 
+         * multiply by value).]
+         * 
+        */
         void ParameterActionImpl::SetModifyAction(std::shared_ptr<IParameterModifyAction> modifyAction )
         {
             _modifyAction = modifyAction;
@@ -16141,7 +16047,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ParameterAddValueRuleImpl::ParameterAddValueRuleImpl()
         {
             /**
@@ -16155,11 +16060,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Add value to existing parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Add value to existing parameter.]
+         * 
+        */
         void ParameterAddValueRuleImpl::SetValue(double value )
         {
             _value = value;
@@ -16234,14 +16139,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ParameterAddValueRuleImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ParameterAddValueRuleImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ParameterAssignmentImpl::ParameterAssignmentImpl()
@@ -16262,22 +16166,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property parameterRef
-	 * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that must be declared in the 
-	 * catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterRef
+         * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that must be declared in the 
+         * catalog.]
+         * 
+        */
         void ParameterAssignmentImpl::SetParameterRef(NamedReferenceProxy<IParameterDeclaration>& parameterRef )
         {
             _parameterRef = parameterRef;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Value of the parameter that is handed over to the 
-	 * parametrizable type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Value of the parameter that is handed over to the 
+         * parametrizable type.]
+         * 
+        */
         void ParameterAssignmentImpl::SetValue(std::string value )
         {
             _value = value;
@@ -16392,7 +16296,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ParameterConditionImpl::ParameterConditionImpl()
         {
             /**
@@ -16416,29 +16319,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property parameterRef
-	 * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that must be defined.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterRef
+         * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that must be defined.]
+         * 
+        */
         void ParameterConditionImpl::SetParameterRef(NamedReferenceProxy<IParameterDeclaration>& parameterRef )
         {
             _parameterRef = parameterRef;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Value of the parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Value of the parameter.]
+         * 
+        */
         void ParameterConditionImpl::SetValue(std::string value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void ParameterConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -16586,7 +16489,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ParameterDeclarationImpl::ParameterDeclarationImpl()
         {
             /**
@@ -16610,29 +16512,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the parameter.]
+         * 
+        */
         void ParameterDeclarationImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property parameterType
-	 * @param parameterType from OpenSCENARIO class model specification: [Type of the parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterType
+         * @param parameterType from OpenSCENARIO class model specification: [Type of the parameter.]
+         * 
+        */
         void ParameterDeclarationImpl::SetParameterType(ParameterType parameterType )
         {
             _parameterType = parameterType;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Value of the parameter as its default value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Value of the parameter as its default value.]
+         * 
+        */
         void ParameterDeclarationImpl::SetValue(std::string value )
         {
             _value = value;
@@ -16740,7 +16642,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ParameterDeclarationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ParameterDeclarationImpl::GetEnumerationLiteral(std::string key)
@@ -16759,7 +16661,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         ParameterModifyActionImpl::ParameterModifyActionImpl()
         {
             /**
@@ -16772,12 +16673,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [Either adding a value to a parameter or multiply a parameter 
-	 * by a value. Has to match the parameter type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [Either adding a value to a parameter or multiply a parameter 
+         * by a value. Has to match the parameter type.]
+         * 
+        */
         void ParameterModifyActionImpl::SetRule(std::shared_ptr<IModifyRule> rule )
         {
             _rule = rule;
@@ -16866,14 +16767,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ParameterModifyActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ParameterModifyActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ParameterMultiplyByValueRuleImpl::ParameterMultiplyByValueRuleImpl()
@@ -16889,12 +16789,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Multiply existing parameter by the value (be aware of the 
-	 * parameter data type).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Multiply existing parameter by the value (be aware of the 
+         * parameter data type).]
+         * 
+        */
         void ParameterMultiplyByValueRuleImpl::SetValue(double value )
         {
             _value = value;
@@ -16969,14 +16869,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ParameterMultiplyByValueRuleImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ParameterMultiplyByValueRuleImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ParameterSetActionImpl::ParameterSetActionImpl()
@@ -16992,11 +16891,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [The new value for the parameter.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [The new value for the parameter.]
+         * 
+        */
         void ParameterSetActionImpl::SetValue(std::string value )
         {
             _value = value;
@@ -17080,14 +16979,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ParameterSetActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ParameterSetActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PedestrianImpl::PedestrianImpl()
@@ -17130,65 +17028,65 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-    	/**
-	 * Sets the value of model property model
-	 * @param model from OpenSCENARIO class model specification: [Definition of the model of the pedestrian.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property model
+         * @param model from OpenSCENARIO class model specification: [Definition of the model of the pedestrian.]
+         * 
+        */
         void PedestrianImpl::SetModel(std::string model )
         {
             _model = model;
         }
-    	/**
-	 * Sets the value of model property mass
-	 * @param mass from OpenSCENARIO class model specification: [The mass of a pedestrian in kg.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property mass
+         * @param mass from OpenSCENARIO class model specification: [The mass of a pedestrian in kg.]
+         * 
+        */
         void PedestrianImpl::SetMass(double mass )
         {
             _mass = mass;
         }
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the pedestrian type. Required when used in catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the pedestrian type. Required when used in catalog.]
+         * 
+        */
         void PedestrianImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property pedestrianCategory
-	 * @param pedestrianCategory from OpenSCENARIO class model specification: [Category type of pedestrian.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property pedestrianCategory
+         * @param pedestrianCategory from OpenSCENARIO class model specification: [Category type of pedestrian.]
+         * 
+        */
         void PedestrianImpl::SetPedestrianCategory(PedestrianCategory pedestrianCategory )
         {
             _pedestrianCategory = pedestrianCategory;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void PedestrianImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property boundingBox
-	 * @param boundingBox from OpenSCENARIO class model specification: [Bounding box of the pedestrian.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property boundingBox
+         * @param boundingBox from OpenSCENARIO class model specification: [Bounding box of the pedestrian.]
+         * 
+        */
         void PedestrianImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
         }
-    	/**
-	 * Sets the value of model property properties
-	 * @param properties from OpenSCENARIO class model specification: [Properties (values/files) of the pedestrian.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property properties
+         * @param properties from OpenSCENARIO class model specification: [Properties (values/files) of the pedestrian.]
+         * 
+        */
         void PedestrianImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
@@ -17402,7 +17300,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PedestrianImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PedestrianImpl::GetEnumerationLiteral(std::string key)
@@ -17421,7 +17319,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         PedestrianCatalogLocationImpl::PedestrianCatalogLocationImpl()
         {
             /**
@@ -17434,11 +17331,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [File path for the pedestrian catalog files.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [File path for the pedestrian catalog files.]
+         * 
+        */
         void PedestrianCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -17527,14 +17424,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PedestrianCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PedestrianCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PerformanceImpl::PerformanceImpl()
@@ -17560,31 +17456,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _maxDeceleration;
         }
 
-    	/**
-	 * Sets the value of model property maxSpeed
-	 * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed of the vehicle. Unit: m/s.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxSpeed
+         * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed of the vehicle. Unit: m/s.]
+         * 
+        */
         void PerformanceImpl::SetMaxSpeed(double maxSpeed )
         {
             _maxSpeed = maxSpeed;
         }
-    	/**
-	 * Sets the value of model property maxAcceleration
-	 * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration of the vehicle. Unit: m/s^2. 
-	 * Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxAcceleration
+         * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration of the vehicle. Unit: m/s^2. 
+         * Range: [0..inf[.]
+         * 
+        */
         void PerformanceImpl::SetMaxAcceleration(double maxAcceleration )
         {
             _maxAcceleration = maxAcceleration;
         }
-    	/**
-	 * Sets the value of model property maxDeceleration
-	 * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration of the vehicle. Unit: m/s^2. 
-	 * Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property maxDeceleration
+         * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration of the vehicle. Unit: m/s^2. 
+         * Range: [0..inf[.]
+         * 
+        */
         void PerformanceImpl::SetMaxDeceleration(double maxDeceleration )
         {
             _maxDeceleration = maxDeceleration;
@@ -17675,14 +17571,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PerformanceImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PerformanceImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PhaseImpl::PhaseImpl()
@@ -17707,31 +17602,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignalStates;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the phase.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the phase.]
+         * 
+        */
         void PhaseImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property duration
-	 * @param duration from OpenSCENARIO class model specification: [Duration of the phase. Unit: s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property duration
+         * @param duration from OpenSCENARIO class model specification: [Duration of the phase. Unit: s; Range: [0..inf[.]
+         * 
+        */
         void PhaseImpl::SetDuration(double duration )
         {
             _duration = duration;
         }
-    	/**
-	 * Sets the value of model property trafficSignalStates
-	 * @param trafficSignalStates from OpenSCENARIO class model specification: [Each phase has multiple TrafficSignalStates. 
-	 * One for each TrafficSignal that is controlled. E.g. phase1 , (trafficSignal1:true;false;false, 
-	 * trafficSignal2:false;false;true).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalStates
+         * @param trafficSignalStates from OpenSCENARIO class model specification: [Each phase has multiple TrafficSignalStates. 
+         * One for each TrafficSignal that is controlled. E.g. phase1 , (trafficSignal1:true;false;false, 
+         * trafficSignal2:false;false;true).]
+         * 
+        */
         void PhaseImpl::SetTrafficSignalStates(std::vector<std::shared_ptr<ITrafficSignalState>>& trafficSignalStates)
         {
             _trafficSignalStates = trafficSignalStates;
@@ -17856,14 +17751,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PhaseImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PhaseImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PolylineImpl::PolylineImpl()
@@ -17878,11 +17772,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _vertices;
         }
 
-    	/**
-	 * Sets the value of model property vertices
-	 * @param vertices from OpenSCENARIO class model specification: [Ordered chain of vertices of the polygonal chain.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property vertices
+         * @param vertices from OpenSCENARIO class model specification: [Ordered chain of vertices of the polygonal chain.]
+         * 
+        */
         void PolylineImpl::SetVertices(std::vector<std::shared_ptr<IVertex>>& vertices)
         {
             _vertices = vertices;
@@ -17982,14 +17876,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PolylineImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PolylineImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PositionImpl::PositionImpl()
@@ -18032,79 +17925,79 @@ namespace NET_ASAM_OPENSCENARIO
             return _routePosition;
         }
 
-    	/**
-	 * Sets the value of model property worldPosition
-	 * @param worldPosition from OpenSCENARIO class model specification: [Position that uses global coordinates.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property worldPosition
+         * @param worldPosition from OpenSCENARIO class model specification: [Position that uses global coordinates.]
+         * 
+        */
         void PositionImpl::SetWorldPosition(std::shared_ptr<IWorldPosition> worldPosition )
         {
             _worldPosition = worldPosition;
         }
-    	/**
-	 * Sets the value of model property relativeWorldPosition
-	 * @param relativeWorldPosition from OpenSCENARIO class model specification: [Position is given relative to a world 
-	 * position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeWorldPosition
+         * @param relativeWorldPosition from OpenSCENARIO class model specification: [Position is given relative to a world 
+         * position.]
+         * 
+        */
         void PositionImpl::SetRelativeWorldPosition(std::shared_ptr<IRelativeWorldPosition> relativeWorldPosition )
         {
             _relativeWorldPosition = relativeWorldPosition;
         }
-    	/**
-	 * Sets the value of model property relativeObjectPosition
-	 * @param relativeObjectPosition from OpenSCENARIO class model specification: [Position is given relative to an entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeObjectPosition
+         * @param relativeObjectPosition from OpenSCENARIO class model specification: [Position is given relative to an entity.]
+         * 
+        */
         void PositionImpl::SetRelativeObjectPosition(std::shared_ptr<IRelativeObjectPosition> relativeObjectPosition )
         {
             _relativeObjectPosition = relativeObjectPosition;
         }
-    	/**
-	 * Sets the value of model property roadPosition
-	 * @param roadPosition from OpenSCENARIO class model specification: [Position in road coordinates (t,s) applied to a given 
-	 * road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property roadPosition
+         * @param roadPosition from OpenSCENARIO class model specification: [Position in road coordinates (t,s) applied to a given 
+         * road.]
+         * 
+        */
         void PositionImpl::SetRoadPosition(std::shared_ptr<IRoadPosition> roadPosition )
         {
             _roadPosition = roadPosition;
         }
-    	/**
-	 * Sets the value of model property relativeRoadPosition
-	 * @param relativeRoadPosition from OpenSCENARIO class model specification: [Position relative to an entity's road position
-	 * (ds, dt).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeRoadPosition
+         * @param relativeRoadPosition from OpenSCENARIO class model specification: [Position relative to an entity's road position
+         * (ds, dt).]
+         * 
+        */
         void PositionImpl::SetRelativeRoadPosition(std::shared_ptr<IRelativeRoadPosition> relativeRoadPosition )
         {
             _relativeRoadPosition = relativeRoadPosition;
         }
-    	/**
-	 * Sets the value of model property lanePosition
-	 * @param lanePosition from OpenSCENARIO class model specification: [Position that is determined by a lane (lane ID) and 
-	 * the s coordinate of a given road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property lanePosition
+         * @param lanePosition from OpenSCENARIO class model specification: [Position that is determined by a lane (lane ID) and 
+         * the s coordinate of a given road.]
+         * 
+        */
         void PositionImpl::SetLanePosition(std::shared_ptr<ILanePosition> lanePosition )
         {
             _lanePosition = lanePosition;
         }
-    	/**
-	 * Sets the value of model property relativeLanePosition
-	 * @param relativeLanePosition from OpenSCENARIO class model specification: [Position that is determined relative to the 
-	 * lane coordinates of a given entity. (Relative lane and relative s to this , entity).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeLanePosition
+         * @param relativeLanePosition from OpenSCENARIO class model specification: [Position that is determined relative to the 
+         * lane coordinates of a given entity. (Relative lane and relative s to this , entity).]
+         * 
+        */
         void PositionImpl::SetRelativeLanePosition(std::shared_ptr<IRelativeLanePosition> relativeLanePosition )
         {
             _relativeLanePosition = relativeLanePosition;
         }
-    	/**
-	 * Sets the value of model property routePosition
-	 * @param routePosition from OpenSCENARIO class model specification: [Position that is determined by a given route.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property routePosition
+         * @param routePosition from OpenSCENARIO class model specification: [Position that is determined by a given route.]
+         * 
+        */
         void PositionImpl::SetRoutePosition(std::shared_ptr<IRoutePosition> routePosition )
         {
             _routePosition = routePosition;
@@ -18319,14 +18212,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PositionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PositionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PositionInLaneCoordinatesImpl::PositionInLaneCoordinatesImpl()
@@ -18352,31 +18244,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _laneOffset;
         }
 
-    	/**
-	 * Sets the value of model property pathS
-	 * @param pathS from OpenSCENARIO class model specification: [s-coordinate of the actual position. Unit: m; Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property pathS
+         * @param pathS from OpenSCENARIO class model specification: [s-coordinate of the actual position. Unit: m; Range: 
+         * [0..inf[.]
+         * 
+        */
         void PositionInLaneCoordinatesImpl::SetPathS(double pathS )
         {
             _pathS = pathS;
         }
-    	/**
-	 * Sets the value of model property laneId
-	 * @param laneId from OpenSCENARIO class model specification: [Lane ID of the actual position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneId
+         * @param laneId from OpenSCENARIO class model specification: [Lane ID of the actual position.]
+         * 
+        */
         void PositionInLaneCoordinatesImpl::SetLaneId(std::string laneId )
         {
             _laneId = laneId;
         }
-    	/**
-	 * Sets the value of model property laneOffset
-	 * @param laneOffset from OpenSCENARIO class model specification: [Lateral offset (relative to the lane centerline) of the 
-	 * actual position. Unit: m.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property laneOffset
+         * @param laneOffset from OpenSCENARIO class model specification: [Lateral offset (relative to the lane centerline) of the 
+         * actual position. Unit: m.]
+         * 
+        */
         void PositionInLaneCoordinatesImpl::SetLaneOffset(double laneOffset )
         {
             _laneOffset = laneOffset;
@@ -18476,14 +18368,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PositionInLaneCoordinatesImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PositionInLaneCoordinatesImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PositionInRoadCoordinatesImpl::PositionInRoadCoordinatesImpl()
@@ -18504,22 +18395,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _t;
         }
 
-    	/**
-	 * Sets the value of model property pathS
-	 * @param pathS from OpenSCENARIO class model specification: [Position in s coordinates along the reference line of the 
-	 * road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property pathS
+         * @param pathS from OpenSCENARIO class model specification: [Position in s coordinates along the reference line of the 
+         * road.]
+         * 
+        */
         void PositionInRoadCoordinatesImpl::SetPathS(double pathS )
         {
             _pathS = pathS;
         }
-    	/**
-	 * Sets the value of model property t
-	 * @param t from OpenSCENARIO class model specification: [Position in t coordinates orthogonal to the reference line of the
-	 * road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property t
+         * @param t from OpenSCENARIO class model specification: [Position in t coordinates orthogonal to the reference line of the
+         * road.]
+         * 
+        */
         void PositionInRoadCoordinatesImpl::SetT(double t )
         {
             _t = t;
@@ -18602,14 +18493,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PositionInRoadCoordinatesImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PositionInRoadCoordinatesImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PositionOfCurrentEntityImpl::PositionOfCurrentEntityImpl()
@@ -18625,11 +18515,11 @@ namespace NET_ASAM_OPENSCENARIO
             return &_entityRef;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference to an entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference to an entity.]
+         * 
+        */
         void PositionOfCurrentEntityImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
@@ -18737,7 +18627,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         PrecipitationImpl::PrecipitationImpl()
         {
             /**
@@ -18756,20 +18645,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _intensity;
         }
 
-    	/**
-	 * Sets the value of model property precipitationType
-	 * @param precipitationType from OpenSCENARIO class model specification: [Type of the precipitation.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property precipitationType
+         * @param precipitationType from OpenSCENARIO class model specification: [Type of the precipitation.]
+         * 
+        */
         void PrecipitationImpl::SetPrecipitationType(PrecipitationType precipitationType )
         {
             _precipitationType = precipitationType;
         }
-    	/**
-	 * Sets the value of model property intensity
-	 * @param intensity from OpenSCENARIO class model specification: [The intensity of the precipitation. Range: [0..1].]
-	 * 
-	*/
+        /**
+         * Sets the value of model property intensity
+         * @param intensity from OpenSCENARIO class model specification: [The intensity of the precipitation. Range: [0..1].]
+         * 
+        */
         void PrecipitationImpl::SetIntensity(double intensity )
         {
             _intensity = intensity;
@@ -18861,7 +18750,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PrecipitationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PrecipitationImpl::GetEnumerationLiteral(std::string key)
@@ -18878,7 +18767,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         PrivateImpl::PrivateImpl()
@@ -18898,21 +18786,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _privateActions;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: []
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: []
+         * 
+        */
         void PrivateImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property privateActions
-	 * @param privateActions from OpenSCENARIO class model specification: [List of private actions to be executed when the 
-	 * enclosing container gets triggered.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property privateActions
+         * @param privateActions from OpenSCENARIO class model specification: [List of private actions to be executed when the 
+         * enclosing container gets triggered.]
+         * 
+        */
         void PrivateImpl::SetPrivateActions(std::vector<std::shared_ptr<IPrivateAction>>& privateActions)
         {
             _privateActions = privateActions;
@@ -19053,7 +18941,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         PrivateActionImpl::PrivateActionImpl()
         {
             /**
@@ -19094,82 +18981,82 @@ namespace NET_ASAM_OPENSCENARIO
             return _routingAction;
         }
 
-    	/**
-	 * Sets the value of model property longitudinalAction
-	 * @param longitudinalAction from OpenSCENARIO class model specification: [Applies longitudinal control behavior on the 
-	 * reference entity/entities. Either a SpeedAction or a , LongitudinalDistanceAction.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property longitudinalAction
+         * @param longitudinalAction from OpenSCENARIO class model specification: [Applies longitudinal control behavior on the 
+         * reference entity/entities. Either a SpeedAction or a , LongitudinalDistanceAction.]
+         * 
+        */
         void PrivateActionImpl::SetLongitudinalAction(std::shared_ptr<ILongitudinalAction> longitudinalAction )
         {
             _longitudinalAction = longitudinalAction;
         }
-    	/**
-	 * Sets the value of model property lateralAction
-	 * @param lateralAction from OpenSCENARIO class model specification: [Applies lateral control behavior on the reference 
-	 * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a , LateralDistanceAction.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property lateralAction
+         * @param lateralAction from OpenSCENARIO class model specification: [Applies lateral control behavior on the reference 
+         * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a , LateralDistanceAction.]
+         * 
+        */
         void PrivateActionImpl::SetLateralAction(std::shared_ptr<ILateralAction> lateralAction )
         {
             _lateralAction = lateralAction;
         }
-    	/**
-	 * Sets the value of model property visibilityAction
-	 * @param visibilityAction from OpenSCENARIO class model specification: [Sets visibility attributes on the reference 
-	 * entity/entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property visibilityAction
+         * @param visibilityAction from OpenSCENARIO class model specification: [Sets visibility attributes on the reference 
+         * entity/entities.]
+         * 
+        */
         void PrivateActionImpl::SetVisibilityAction(std::shared_ptr<IVisibilityAction> visibilityAction )
         {
             _visibilityAction = visibilityAction;
         }
-    	/**
-	 * Sets the value of model property synchronizeAction
-	 * @param synchronizeAction from OpenSCENARIO class model specification: [Synchronizes the reference entity/entities with a
-	 * master entity. A target position is provided for the entity and for , the master entity to be reached at the same time.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property synchronizeAction
+         * @param synchronizeAction from OpenSCENARIO class model specification: [Synchronizes the reference entity/entities with a
+         * master entity. A target position is provided for the entity and for , the master entity to be reached at the same time.]
+         * 
+        */
         void PrivateActionImpl::SetSynchronizeAction(std::shared_ptr<ISynchronizeAction> synchronizeAction )
         {
             _synchronizeAction = synchronizeAction;
         }
-    	/**
-	 * Sets the value of model property activateControllerAction
-	 * @param activateControllerAction from OpenSCENARIO class model specification: [Activates/ deactivates a controller on the
-	 * reference entity/entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property activateControllerAction
+         * @param activateControllerAction from OpenSCENARIO class model specification: [Activates/ deactivates a controller on the
+         * reference entity/entities.]
+         * 
+        */
         void PrivateActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerAction> activateControllerAction )
         {
             _activateControllerAction = activateControllerAction;
         }
-    	/**
-	 * Sets the value of model property controllerAction
-	 * @param controllerAction from OpenSCENARIO class model specification: [Assigns a controller to the reference 
-	 * entity/entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controllerAction
+         * @param controllerAction from OpenSCENARIO class model specification: [Assigns a controller to the reference 
+         * entity/entities.]
+         * 
+        */
         void PrivateActionImpl::SetControllerAction(std::shared_ptr<IControllerAction> controllerAction )
         {
             _controllerAction = controllerAction;
         }
-    	/**
-	 * Sets the value of model property teleportAction
-	 * @param teleportAction from OpenSCENARIO class model specification: [Assigns a position to the reference 
-	 * entity/entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property teleportAction
+         * @param teleportAction from OpenSCENARIO class model specification: [Assigns a position to the reference 
+         * entity/entities.]
+         * 
+        */
         void PrivateActionImpl::SetTeleportAction(std::shared_ptr<ITeleportAction> teleportAction )
         {
             _teleportAction = teleportAction;
         }
-    	/**
-	 * Sets the value of model property routingAction
-	 * @param routingAction from OpenSCENARIO class model specification: [Applies an AssignRouteAction, a 
-	 * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property routingAction
+         * @param routingAction from OpenSCENARIO class model specification: [Applies an AssignRouteAction, a 
+         * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.]
+         * 
+        */
         void PrivateActionImpl::SetRoutingAction(std::shared_ptr<IRoutingAction> routingAction )
         {
             _routingAction = routingAction;
@@ -19384,14 +19271,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PrivateActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PrivateActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PropertiesImpl::PropertiesImpl()
@@ -19410,23 +19296,23 @@ namespace NET_ASAM_OPENSCENARIO
             return _files;
         }
 
-    	/**
-	 * Sets the value of model property properties
-	 * @param properties from OpenSCENARIO class model specification: [A name/value pair. The semantic of the name/values are 
-	 * subject of a contract between the provider of a simulation , environment and the author of a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property properties
+         * @param properties from OpenSCENARIO class model specification: [A name/value pair. The semantic of the name/values are 
+         * subject of a contract between the provider of a simulation , environment and the author of a scenario.]
+         * 
+        */
         void PropertiesImpl::SetProperties(std::vector<std::shared_ptr<IProperty>>& properties)
         {
             _properties = properties;
         }
-    	/**
-	 * Sets the value of model property files
-	 * @param files from OpenSCENARIO class model specification: [A list of arbitrary files attached to an object that owns the
-	 * properties. The semantic and the file formats are subject , of a contract between the provider of a simulation 
-	 * environment and the author of a scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property files
+         * @param files from OpenSCENARIO class model specification: [A list of arbitrary files attached to an object that owns the
+         * properties. The semantic and the file formats are subject , of a contract between the provider of a simulation 
+         * environment and the author of a scenario.]
+         * 
+        */
         void PropertiesImpl::SetFiles(std::vector<std::shared_ptr<IFile>>& files)
         {
             _files = files;
@@ -19554,14 +19440,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PropertiesImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PropertiesImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         PropertyImpl::PropertyImpl()
@@ -19582,20 +19467,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of a user defined property.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of a user defined property.]
+         * 
+        */
         void PropertyImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Value of a user defined property.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Value of a user defined property.]
+         * 
+        */
         void PropertyImpl::SetValue(std::string value )
         {
             _value = value;
@@ -19692,14 +19577,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> PropertyImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string PropertyImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ReachPositionConditionImpl::ReachPositionConditionImpl()
@@ -19719,21 +19603,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property tolerance
-	 * @param tolerance from OpenSCENARIO class model specification: [Radius of tolerance circle around given position. Unit: 
-	 * m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property tolerance
+         * @param tolerance from OpenSCENARIO class model specification: [Radius of tolerance circle around given position. Unit: 
+         * m; Range: [0..inf[.]
+         * 
+        */
         void ReachPositionConditionImpl::SetTolerance(double tolerance )
         {
             _tolerance = tolerance;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [The position to be reached with the defined tolerance.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [The position to be reached with the defined tolerance.]
+         * 
+        */
         void ReachPositionConditionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -19830,14 +19714,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ReachPositionConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ReachPositionConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RelativeDistanceConditionImpl::RelativeDistanceConditionImpl()
@@ -19873,48 +19756,48 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void RelativeDistanceConditionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property relativeDistanceType
-	 * @param relativeDistanceType from OpenSCENARIO class model specification: [The domain the distance is calculated in.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeDistanceType
+         * @param relativeDistanceType from OpenSCENARIO class model specification: [The domain the distance is calculated in.]
+         * 
+        */
         void RelativeDistanceConditionImpl::SetRelativeDistanceType(RelativeDistanceType relativeDistanceType )
         {
             _relativeDistanceType = relativeDistanceType;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [The distance value. Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [The distance value. Unit: m; Range: [0..inf[.]
+         * 
+        */
         void RelativeDistanceConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property freespace
-	 * @param freespace from OpenSCENARIO class model specification: [True: distance is measured between closest bounding box 
-	 * points. False: reference point distance is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property freespace
+         * @param freespace from OpenSCENARIO class model specification: [True: distance is measured between closest bounding box 
+         * points. False: reference point distance is used.]
+         * 
+        */
         void RelativeDistanceConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void RelativeDistanceConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -20087,7 +19970,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeLanePositionImpl::RelativeLanePositionImpl()
         {
             /**
@@ -20120,49 +20002,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void RelativeLanePositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property dLane
-	 * @param dLane from OpenSCENARIO class model specification: [Relative dlane to the lane of the reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dLane
+         * @param dLane from OpenSCENARIO class model specification: [Relative dlane to the lane of the reference entity.]
+         * 
+        */
         void RelativeLanePositionImpl::SetDLane(int dLane )
         {
             _dLane = dLane;
         }
-    	/**
-	 * Sets the value of model property ds
-	 * @param ds from OpenSCENARIO class model specification: [Relative ds to the s of reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property ds
+         * @param ds from OpenSCENARIO class model specification: [Relative ds to the s of reference entity.]
+         * 
+        */
         void RelativeLanePositionImpl::SetDs(double ds )
         {
             _ds = ds;
         }
-    	/**
-	 * Sets the value of model property offset
-	 * @param offset from OpenSCENARIO class model specification: [Lateral offset to the taqrget lane. Unit: m; Range: 
-	 * ]-inf..inf[]
-	 * 
-	*/
+        /**
+         * Sets the value of model property offset
+         * @param offset from OpenSCENARIO class model specification: [Lateral offset to the taqrget lane. Unit: m; Range: 
+         * ]-inf..inf[]
+         * 
+        */
         void RelativeLanePositionImpl::SetOffset(double offset )
         {
             _offset = offset;
         }
-    	/**
-	 * Sets the value of model property orientation
-	 * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-	 * the referenced lane's s and t coordinates.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property orientation
+         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
+         * the referenced lane's s and t coordinates.]
+         * 
+        */
         void RelativeLanePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
@@ -20316,7 +20198,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeObjectPositionImpl::RelativeObjectPositionImpl()
         {
             /**
@@ -20349,51 +20230,51 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void RelativeObjectPositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property dx
-	 * @param dx from OpenSCENARIO class model specification: [Relative position in the x axis, using the coordinate system of 
-	 * the reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dx
+         * @param dx from OpenSCENARIO class model specification: [Relative position in the x axis, using the coordinate system of 
+         * the reference entity.]
+         * 
+        */
         void RelativeObjectPositionImpl::SetDx(double dx )
         {
             _dx = dx;
         }
-    	/**
-	 * Sets the value of model property dy
-	 * @param dy from OpenSCENARIO class model specification: [Relative position in the y axis, using the coordinate system of 
-	 * the reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dy
+         * @param dy from OpenSCENARIO class model specification: [Relative position in the y axis, using the coordinate system of 
+         * the reference entity.]
+         * 
+        */
         void RelativeObjectPositionImpl::SetDy(double dy )
         {
             _dy = dy;
         }
-    	/**
-	 * Sets the value of model property dz
-	 * @param dz from OpenSCENARIO class model specification: [Relative position in the z axis, using the coordinate system of 
-	 * the reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dz
+         * @param dz from OpenSCENARIO class model specification: [Relative position in the z axis, using the coordinate system of 
+         * the reference entity.]
+         * 
+        */
         void RelativeObjectPositionImpl::SetDz(double dz )
         {
             _dz = dz;
         }
-    	/**
-	 * Sets the value of model property orientation
-	 * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-	 * the orientation of the reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property orientation
+         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
+         * the orientation of the reference entity.]
+         * 
+        */
         void RelativeObjectPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
@@ -20547,7 +20428,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeRoadPositionImpl::RelativeRoadPositionImpl()
         {
             /**
@@ -20575,41 +20455,41 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [reference entity.]
+         * 
+        */
         void RelativeRoadPositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property ds
-	 * @param ds from OpenSCENARIO class model specification: [Relative ds road coordinate to s coordinate of the reference 
-	 * entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property ds
+         * @param ds from OpenSCENARIO class model specification: [Relative ds road coordinate to s coordinate of the reference 
+         * entity.]
+         * 
+        */
         void RelativeRoadPositionImpl::SetDs(double ds )
         {
             _ds = ds;
         }
-    	/**
-	 * Sets the value of model property dt
-	 * @param dt from OpenSCENARIO class model specification: [Relative dt road coordinate to t coordinate of the reference 
-	 * entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dt
+         * @param dt from OpenSCENARIO class model specification: [Relative dt road coordinate to t coordinate of the reference 
+         * entity.]
+         * 
+        */
         void RelativeRoadPositionImpl::SetDt(double dt )
         {
             _dt = dt;
         }
-    	/**
-	 * Sets the value of model property orientation
-	 * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-	 * the referenced road's s and t coordinates.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property orientation
+         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
+         * the referenced road's s and t coordinates.]
+         * 
+        */
         void RelativeRoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
@@ -20755,7 +20635,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeSpeedConditionImpl::RelativeSpeedConditionImpl()
         {
             /**
@@ -20779,29 +20658,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void RelativeSpeedConditionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Relative speed value. Unit: m/s.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Relative speed value. Unit: m/s.]
+         * 
+        */
         void RelativeSpeedConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void RelativeSpeedConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -20944,7 +20823,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeSpeedToMasterImpl::RelativeSpeedToMasterImpl()
         {
             /**
@@ -20963,21 +20841,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _speedTargetValueType;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Relative speed. Unit: m/s. Range: ]-inf..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Relative speed. Unit: m/s. Range: ]-inf..inf[.]
+         * 
+        */
         void RelativeSpeedToMasterImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property speedTargetValueType
-	 * @param speedTargetValueType from OpenSCENARIO class model specification: [The semantics of the value (delta, offset, 
-	 * factor).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property speedTargetValueType
+         * @param speedTargetValueType from OpenSCENARIO class model specification: [The semantics of the value (delta, offset, 
+         * factor).]
+         * 
+        */
         void RelativeSpeedToMasterImpl::SetSpeedTargetValueType(SpeedTargetValueType speedTargetValueType )
         {
             _speedTargetValueType = speedTargetValueType;
@@ -21069,7 +20947,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedToMasterImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RelativeSpeedToMasterImpl::GetEnumerationLiteral(std::string key)
@@ -21086,7 +20964,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         RelativeTargetLaneImpl::RelativeTargetLaneImpl()
@@ -21107,21 +20984,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void RelativeTargetLaneImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Signed number of lanes that is offset the reference entity's 
-	 * current lane.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Signed number of lanes that is offset the reference entity's 
+         * current lane.]
+         * 
+        */
         void RelativeTargetLaneImpl::SetValue(int value )
         {
             _value = value;
@@ -21237,7 +21114,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeTargetLaneOffsetImpl::RelativeTargetLaneOffsetImpl()
         {
             /**
@@ -21256,21 +21132,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void RelativeTargetLaneOffsetImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Lane offset with respect to the reference entity's current 
-	 * lane position. Unit: m.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Lane offset with respect to the reference entity's current 
+         * lane position. Unit: m.]
+         * 
+        */
         void RelativeTargetLaneOffsetImpl::SetValue(double value )
         {
             _value = value;
@@ -21386,7 +21262,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeTargetSpeedImpl::RelativeTargetSpeedImpl()
         {
             /**
@@ -21415,44 +21290,44 @@ namespace NET_ASAM_OPENSCENARIO
             return _continuous;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void RelativeTargetSpeedImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Value of the relative speed. This value is either given as a 
-	 * delta or as a factor. E.g. value=10 together with , valueType=delta means the entity/entities are supposed to drive 
-	 * 10m/s faster than the target reference entity. E.g. , value=1.1 together with valueType=factor means that the 
-	 * entity/entities are supposed to drive 10% faster than the target, reference entity. Unit: m/s or 1.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Value of the relative speed. This value is either given as a 
+         * delta or as a factor. E.g. value=10 together with , valueType=delta means the entity/entities are supposed to drive 
+         * 10m/s faster than the target reference entity. E.g. , value=1.1 together with valueType=factor means that the 
+         * entity/entities are supposed to drive 10% faster than the target, reference entity. Unit: m/s or 1.]
+         * 
+        */
         void RelativeTargetSpeedImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property speedTargetValueType
-	 * @param speedTargetValueType from OpenSCENARIO class model specification: [The value is either a delta (Unit m/s) or a 
-	 * factor (no Unit).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property speedTargetValueType
+         * @param speedTargetValueType from OpenSCENARIO class model specification: [The value is either a delta (Unit m/s) or a 
+         * factor (no Unit).]
+         * 
+        */
         void RelativeTargetSpeedImpl::SetSpeedTargetValueType(SpeedTargetValueType speedTargetValueType )
         {
             _speedTargetValueType = speedTargetValueType;
         }
-    	/**
-	 * Sets the value of model property continuous
-	 * @param continuous from OpenSCENARIO class model specification: [By setting continuous to true a controller comes into 
-	 * place and tries to maintain a continuous relative speed. This may , not be used together with Dynamics.time or 
-	 * Dynamics.distance.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property continuous
+         * @param continuous from OpenSCENARIO class model specification: [By setting continuous to true a controller comes into 
+         * place and tries to maintain a continuous relative speed. This may , not be used together with Dynamics.time or 
+         * Dynamics.distance.]
+         * 
+        */
         void RelativeTargetSpeedImpl::SetContinuous(bool continuous )
         {
             _continuous = continuous;
@@ -21603,7 +21478,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RelativeWorldPositionImpl::RelativeWorldPositionImpl()
         {
             /**
@@ -21636,49 +21510,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity from which the relative world position 
-	 * is measured.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity from which the relative world position 
+         * is measured.]
+         * 
+        */
         void RelativeWorldPositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property dx
-	 * @param dx from OpenSCENARIO class model specification: [Relative x coordinate in the world coordinate system.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dx
+         * @param dx from OpenSCENARIO class model specification: [Relative x coordinate in the world coordinate system.]
+         * 
+        */
         void RelativeWorldPositionImpl::SetDx(double dx )
         {
             _dx = dx;
         }
-    	/**
-	 * Sets the value of model property dy
-	 * @param dy from OpenSCENARIO class model specification: [Relative y coordinate in the world coordinate system.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dy
+         * @param dy from OpenSCENARIO class model specification: [Relative y coordinate in the world coordinate system.]
+         * 
+        */
         void RelativeWorldPositionImpl::SetDy(double dy )
         {
             _dy = dy;
         }
-    	/**
-	 * Sets the value of model property dz
-	 * @param dz from OpenSCENARIO class model specification: [Relative z coordinate in the world coordinate system.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dz
+         * @param dz from OpenSCENARIO class model specification: [Relative z coordinate in the world coordinate system.]
+         * 
+        */
         void RelativeWorldPositionImpl::SetDz(double dz )
         {
             _dz = dz;
         }
-    	/**
-	 * Sets the value of model property orientation
-	 * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-	 * the reference entity's orientation.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property orientation
+         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
+         * the reference entity's orientation.]
+         * 
+        */
         void RelativeWorldPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
@@ -21832,7 +21706,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         RoadConditionImpl::RoadConditionImpl()
         {
             /**
@@ -21850,20 +21723,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-    	/**
-	 * Sets the value of model property frictionScaleFactor
-	 * @param frictionScaleFactor from OpenSCENARIO class model specification: [Friction scale factor. Range: [0..inf[]
-	 * 
-	*/
+        /**
+         * Sets the value of model property frictionScaleFactor
+         * @param frictionScaleFactor from OpenSCENARIO class model specification: [Friction scale factor. Range: [0..inf[]
+         * 
+        */
         void RoadConditionImpl::SetFrictionScaleFactor(double frictionScaleFactor )
         {
             _frictionScaleFactor = frictionScaleFactor;
         }
-    	/**
-	 * Sets the value of model property properties
-	 * @param properties from OpenSCENARIO class model specification: [Additional properties to describe the road condition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property properties
+         * @param properties from OpenSCENARIO class model specification: [Additional properties to describe the road condition.]
+         * 
+        */
         void RoadConditionImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
@@ -21960,14 +21833,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RoadConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RoadConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RoadNetworkImpl::RoadNetworkImpl()
@@ -21990,32 +21862,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignals;
         }
 
-    	/**
-	 * Sets the value of model property logicFile
-	 * @param logicFile from OpenSCENARIO class model specification: [File path of the road network file (e.g. an ASAM 
-	 * OpenDRIVE file).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property logicFile
+         * @param logicFile from OpenSCENARIO class model specification: [File path of the road network file (e.g. an ASAM 
+         * OpenDRIVE file).]
+         * 
+        */
         void RoadNetworkImpl::SetLogicFile(std::shared_ptr<IFile> logicFile )
         {
             _logicFile = logicFile;
         }
-    	/**
-	 * Sets the value of model property sceneGraphFile
-	 * @param sceneGraphFile from OpenSCENARIO class model specification: [File path of a 3D model representing the virtual 
-	 * environment. This may be used for visual representation (rendering).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property sceneGraphFile
+         * @param sceneGraphFile from OpenSCENARIO class model specification: [File path of a 3D model representing the virtual 
+         * environment. This may be used for visual representation (rendering).]
+         * 
+        */
         void RoadNetworkImpl::SetSceneGraphFile(std::shared_ptr<IFile> sceneGraphFile )
         {
             _sceneGraphFile = sceneGraphFile;
         }
-    	/**
-	 * Sets the value of model property trafficSignals
-	 * @param trafficSignals from OpenSCENARIO class model specification: [Name references and description of dynamic behavior 
-	 * for traffic signals defined in the road network file.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignals
+         * @param trafficSignals from OpenSCENARIO class model specification: [Name references and description of dynamic behavior 
+         * for traffic signals defined in the road network file.]
+         * 
+        */
         void RoadNetworkImpl::SetTrafficSignals(std::vector<std::shared_ptr<ITrafficSignalController>>& trafficSignals)
         {
             _trafficSignals = trafficSignals;
@@ -22154,14 +22026,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RoadNetworkImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RoadNetworkImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RoadPositionImpl::RoadPositionImpl()
@@ -22191,41 +22062,41 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-    	/**
-	 * Sets the value of model property roadId
-	 * @param roadId from OpenSCENARIO class model specification: [Identifier of the road, defined in the road network 
-	 * definition file (external to ASAM OpenSCENARIO).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property roadId
+         * @param roadId from OpenSCENARIO class model specification: [Identifier of the road, defined in the road network 
+         * definition file (external to ASAM OpenSCENARIO).]
+         * 
+        */
         void RoadPositionImpl::SetRoadId(std::string roadId )
         {
             _roadId = roadId;
         }
-    	/**
-	 * Sets the value of model property s
-	 * @param s from OpenSCENARIO class model specification: [Represents s coordinate along the reference line of the road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property s
+         * @param s from OpenSCENARIO class model specification: [Represents s coordinate along the reference line of the road.]
+         * 
+        */
         void RoadPositionImpl::SetS(double s )
         {
             _s = s;
         }
-    	/**
-	 * Sets the value of model property t
-	 * @param t from OpenSCENARIO class model specification: [Represents t coordinate orthogonal to the reference line of the 
-	 * road.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property t
+         * @param t from OpenSCENARIO class model specification: [Represents t coordinate orthogonal to the reference line of the 
+         * road.]
+         * 
+        */
         void RoadPositionImpl::SetT(double t )
         {
             _t = t;
         }
-    	/**
-	 * Sets the value of model property orientation
-	 * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-	 * the referenced road's s and t coordinates.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property orientation
+         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
+         * the referenced road's s and t coordinates.]
+         * 
+        */
         void RoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
@@ -22347,14 +22218,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RoadPositionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RoadPositionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RouteImpl::RouteImpl()
@@ -22383,39 +22253,39 @@ namespace NET_ASAM_OPENSCENARIO
             return _waypoints;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the route. Required in catalogs.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the route. Required in catalogs.]
+         * 
+        */
         void RouteImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property closed
-	 * @param closed from OpenSCENARIO class model specification: [In a closed route, the last waypoint is followed by the 
-	 * first waypoint to create a closed route.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property closed
+         * @param closed from OpenSCENARIO class model specification: [In a closed route, the last waypoint is followed by the 
+         * first waypoint to create a closed route.]
+         * 
+        */
         void RouteImpl::SetClosed(bool closed )
         {
             _closed = closed;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void RouteImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property waypoints
-	 * @param waypoints from OpenSCENARIO class model specification: [At least two waypoints are needed to define a route.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property waypoints
+         * @param waypoints from OpenSCENARIO class model specification: [At least two waypoints are needed to define a route.]
+         * 
+        */
         void RouteImpl::SetWaypoints(std::vector<std::shared_ptr<IWaypoint>>& waypoints)
         {
             _waypoints = waypoints;
@@ -22587,14 +22457,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RouteImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RouteImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RouteCatalogLocationImpl::RouteCatalogLocationImpl()
@@ -22609,11 +22478,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
+         * 
+        */
         void RouteCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -22702,14 +22571,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RouteCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RouteCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RoutePositionImpl::RoutePositionImpl()
@@ -22732,31 +22600,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _inRoutePosition;
         }
 
-    	/**
-	 * Sets the value of model property routeRef
-	 * @param routeRef from OpenSCENARIO class model specification: [Reference to the route the position is calculated from.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property routeRef
+         * @param routeRef from OpenSCENARIO class model specification: [Reference to the route the position is calculated from.]
+         * 
+        */
         void RoutePositionImpl::SetRouteRef(std::shared_ptr<IRouteRef> routeRef )
         {
             _routeRef = routeRef;
         }
-    	/**
-	 * Sets the value of model property orientation
-	 * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-	 * the referenced road's s and t coordinates, to the current lane's s, and t coordinates or to the orientation of the 
-	 * reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property orientation
+         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
+         * the referenced road's s and t coordinates, to the current lane's s, and t coordinates or to the orientation of the 
+         * reference entity.]
+         * 
+        */
         void RoutePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
         {
             _orientation = orientation;
         }
-    	/**
-	 * Sets the value of model property inRoutePosition
-	 * @param inRoutePosition from OpenSCENARIO class model specification: [Position along the route.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property inRoutePosition
+         * @param inRoutePosition from OpenSCENARIO class model specification: [Position along the route.]
+         * 
+        */
         void RoutePositionImpl::SetInRoutePosition(std::shared_ptr<IInRoutePosition> inRoutePosition )
         {
             _inRoutePosition = inRoutePosition;
@@ -22881,14 +22749,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RoutePositionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RoutePositionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RouteRefImpl::RouteRefImpl()
@@ -22907,20 +22774,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-    	/**
-	 * Sets the value of model property route
-	 * @param route from OpenSCENARIO class model specification: [Route definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property route
+         * @param route from OpenSCENARIO class model specification: [Route definition.]
+         * 
+        */
         void RouteRefImpl::SetRoute(std::shared_ptr<IRoute> route )
         {
             _route = route;
         }
-    	/**
-	 * Sets the value of model property catalogReference
-	 * @param catalogReference from OpenSCENARIO class model specification: [Reference to route in the catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogReference
+         * @param catalogReference from OpenSCENARIO class model specification: [Reference to route in the catalog.]
+         * 
+        */
         void RouteRefImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
         {
             _catalogReference = catalogReference;
@@ -23027,14 +22894,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RouteRefImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RouteRefImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         RoutingActionImpl::RoutingActionImpl()
@@ -23057,31 +22923,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _acquirePositionAction;
         }
 
-    	/**
-	 * Sets the value of model property assignRouteAction
-	 * @param assignRouteAction from OpenSCENARIO class model specification: [Assigns a route to an entity. The route is 
-	 * defined by at least two waypoints.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property assignRouteAction
+         * @param assignRouteAction from OpenSCENARIO class model specification: [Assigns a route to an entity. The route is 
+         * defined by at least two waypoints.]
+         * 
+        */
         void RoutingActionImpl::SetAssignRouteAction(std::shared_ptr<IAssignRouteAction> assignRouteAction )
         {
             _assignRouteAction = assignRouteAction;
         }
-    	/**
-	 * Sets the value of model property followTrajectoryAction
-	 * @param followTrajectoryAction from OpenSCENARIO class model specification: [Controls an entity to follow a trajectory.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property followTrajectoryAction
+         * @param followTrajectoryAction from OpenSCENARIO class model specification: [Controls an entity to follow a trajectory.]
+         * 
+        */
         void RoutingActionImpl::SetFollowTrajectoryAction(std::shared_ptr<IFollowTrajectoryAction> followTrajectoryAction )
         {
             _followTrajectoryAction = followTrajectoryAction;
         }
-    	/**
-	 * Sets the value of model property acquirePositionAction
-	 * @param acquirePositionAction from OpenSCENARIO class model specification: [Assigns a route to an entity. The route 
-	 * assigned will be the shortest route (along roads) between the entity's current , position and the position specified.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property acquirePositionAction
+         * @param acquirePositionAction from OpenSCENARIO class model specification: [Assigns a route to an entity. The route 
+         * assigned will be the shortest route (along roads) between the entity's current , position and the position specified.]
+         * 
+        */
         void RoutingActionImpl::SetAcquirePositionAction(std::shared_ptr<IAcquirePositionAction> acquirePositionAction )
         {
             _acquirePositionAction = acquirePositionAction;
@@ -23206,14 +23072,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> RoutingActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string RoutingActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ScenarioDefinitionImpl::ScenarioDefinitionImpl()
@@ -23244,51 +23109,51 @@ namespace NET_ASAM_OPENSCENARIO
             return _storyboard;
         }
 
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Global Parameter declaration. Some parameter 
-	 * represent placeholders to be resolved when the scenario file is loaded. , Some parameters represent runtime values that 
-	 * can be controlled with ParameterActions and ParameterConditions during , simulation time.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Global Parameter declaration. Some parameter 
+         * represent placeholders to be resolved when the scenario file is loaded. , Some parameters represent runtime values that 
+         * can be controlled with ParameterActions and ParameterConditions during , simulation time.]
+         * 
+        */
         void ScenarioDefinitionImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property catalogLocations
-	 * @param catalogLocations from OpenSCENARIO class model specification: [A list of locations to look up catalog files. Each
-	 * catalog element type has its own list.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property catalogLocations
+         * @param catalogLocations from OpenSCENARIO class model specification: [A list of locations to look up catalog files. Each
+         * catalog element type has its own list.]
+         * 
+        */
         void ScenarioDefinitionImpl::SetCatalogLocations(std::shared_ptr<ICatalogLocations> catalogLocations )
         {
             _catalogLocations = catalogLocations;
         }
-    	/**
-	 * Sets the value of model property roadNetwork
-	 * @param roadNetwork from OpenSCENARIO class model specification: [Reference to the road network.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property roadNetwork
+         * @param roadNetwork from OpenSCENARIO class model specification: [Reference to the road network.]
+         * 
+        */
         void ScenarioDefinitionImpl::SetRoadNetwork(std::shared_ptr<IRoadNetwork> roadNetwork )
         {
             _roadNetwork = roadNetwork;
         }
-    	/**
-	 * Sets the value of model property entities
-	 * @param entities from OpenSCENARIO class model specification: [Container for entity selections and scenario object 
-	 * definitions. Instances of ScenarioObject, of EntitySelection and of , SpawnedObject considered instances of Entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entities
+         * @param entities from OpenSCENARIO class model specification: [Container for entity selections and scenario object 
+         * definitions. Instances of ScenarioObject, of EntitySelection and of , SpawnedObject considered instances of Entity.]
+         * 
+        */
         void ScenarioDefinitionImpl::SetEntities(std::shared_ptr<IEntities> entities )
         {
             _entities = entities;
         }
-    	/**
-	 * Sets the value of model property storyboard
-	 * @param storyboard from OpenSCENARIO class model specification: [Container for the dynamic content of the scenario.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property storyboard
+         * @param storyboard from OpenSCENARIO class model specification: [Container for the dynamic content of the scenario.]
+         * 
+        */
         void ScenarioDefinitionImpl::SetStoryboard(std::shared_ptr<IStoryboard> storyboard )
         {
             _storyboard = storyboard;
@@ -23483,14 +23348,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ScenarioDefinitionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ScenarioDefinitionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ScenarioObjectImpl::ScenarioObjectImpl()
@@ -23514,30 +23378,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _objectController;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Identifier of the scenario object.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Identifier of the scenario object.]
+         * 
+        */
         void ScenarioObjectImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property entityObject
-	 * @param entityObject from OpenSCENARIO class model specification: [The EntityObject (either instance of type Vehicle, 
-	 * Pedestrian or MiscObject).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityObject
+         * @param entityObject from OpenSCENARIO class model specification: [The EntityObject (either instance of type Vehicle, 
+         * Pedestrian or MiscObject).]
+         * 
+        */
         void ScenarioObjectImpl::SetEntityObject(std::shared_ptr<IEntityObject> entityObject )
         {
             _entityObject = entityObject;
         }
-    	/**
-	 * Sets the value of model property objectController
-	 * @param objectController from OpenSCENARIO class model specification: [Controller of the EntityObject instance.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property objectController
+         * @param objectController from OpenSCENARIO class model specification: [Controller of the EntityObject instance.]
+         * 
+        */
         void ScenarioObjectImpl::SetObjectController(std::shared_ptr<IObjectController> objectController )
         {
             _objectController = objectController;
@@ -23661,14 +23525,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ScenarioObjectImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ScenarioObjectImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         SelectedEntitiesImpl::SelectedEntitiesImpl()
@@ -23687,21 +23550,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _byType;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [References to the selected entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [References to the selected entities.]
+         * 
+        */
         void SelectedEntitiesImpl::SetEntityRef(std::vector<std::shared_ptr<IEntityRef>>& entityRef)
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property byType
-	 * @param byType from OpenSCENARIO class model specification: [Defines the type to determine that all entities of a 
-	 * specific type are members.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property byType
+         * @param byType from OpenSCENARIO class model specification: [Defines the type to determine that all entities of a 
+         * specific type are members.]
+         * 
+        */
         void SelectedEntitiesImpl::SetByType(std::vector<std::shared_ptr<IByType>>& byType)
         {
             _byType = byType;
@@ -23829,14 +23692,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> SelectedEntitiesImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string SelectedEntitiesImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         ShapeImpl::ShapeImpl()
@@ -23859,29 +23721,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _nurbs;
         }
 
-    	/**
-	 * Sets the value of model property polyline
-	 * @param polyline from OpenSCENARIO class model specification: [Polyline property of a shape.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property polyline
+         * @param polyline from OpenSCENARIO class model specification: [Polyline property of a shape.]
+         * 
+        */
         void ShapeImpl::SetPolyline(std::shared_ptr<IPolyline> polyline )
         {
             _polyline = polyline;
         }
-    	/**
-	 * Sets the value of model property clothoid
-	 * @param clothoid from OpenSCENARIO class model specification: [Clothoid property of a shape.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property clothoid
+         * @param clothoid from OpenSCENARIO class model specification: [Clothoid property of a shape.]
+         * 
+        */
         void ShapeImpl::SetClothoid(std::shared_ptr<IClothoid> clothoid )
         {
             _clothoid = clothoid;
         }
-    	/**
-	 * Sets the value of model property nurbs
-	 * @param nurbs from OpenSCENARIO class model specification: [NURBS property of a shape.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property nurbs
+         * @param nurbs from OpenSCENARIO class model specification: [NURBS property of a shape.]
+         * 
+        */
         void ShapeImpl::SetNurbs(std::shared_ptr<INurbs> nurbs )
         {
             _nurbs = nurbs;
@@ -24006,14 +23868,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> ShapeImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string ShapeImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         SimulationTimeConditionImpl::SimulationTimeConditionImpl()
@@ -24034,20 +23895,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Time value of the simulation time condition. Unit: s.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Time value of the simulation time condition. Unit: s.]
+         * 
+        */
         void SimulationTimeConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void SimulationTimeConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -24139,7 +24000,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> SimulationTimeConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string SimulationTimeConditionImpl::GetEnumerationLiteral(std::string key)
@@ -24158,7 +24019,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         SpeedActionImpl::SpeedActionImpl()
         {
             /**
@@ -24175,21 +24035,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _speedActionTarget;
         }
 
-    	/**
-	 * Sets the value of model property speedActionDynamics
-	 * @param speedActionDynamics from OpenSCENARIO class model specification: [Defines how the target speed is reached.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property speedActionDynamics
+         * @param speedActionDynamics from OpenSCENARIO class model specification: [Defines how the target speed is reached.]
+         * 
+        */
         void SpeedActionImpl::SetSpeedActionDynamics(std::shared_ptr<ITransitionDynamics> speedActionDynamics )
         {
             _speedActionDynamics = speedActionDynamics;
         }
-    	/**
-	 * Sets the value of model property speedActionTarget
-	 * @param speedActionTarget from OpenSCENARIO class model specification: [Defines the target speed which should be 
-	 * reached.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property speedActionTarget
+         * @param speedActionTarget from OpenSCENARIO class model specification: [Defines the target speed which should be 
+         * reached.]
+         * 
+        */
         void SpeedActionImpl::SetSpeedActionTarget(std::shared_ptr<ISpeedActionTarget> speedActionTarget )
         {
             _speedActionTarget = speedActionTarget;
@@ -24296,14 +24156,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> SpeedActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string SpeedActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         SpeedActionTargetImpl::SpeedActionTargetImpl()
@@ -24322,22 +24181,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _absoluteTargetSpeed;
         }
 
-    	/**
-	 * Sets the value of model property relativeTargetSpeed
-	 * @param relativeTargetSpeed from OpenSCENARIO class model specification: [Defines the target speed as relative speed to a
-	 * reference entity. Unit: m/s.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property relativeTargetSpeed
+         * @param relativeTargetSpeed from OpenSCENARIO class model specification: [Defines the target speed as relative speed to a
+         * reference entity. Unit: m/s.]
+         * 
+        */
         void SpeedActionTargetImpl::SetRelativeTargetSpeed(std::shared_ptr<IRelativeTargetSpeed> relativeTargetSpeed )
         {
             _relativeTargetSpeed = relativeTargetSpeed;
         }
-    	/**
-	 * Sets the value of model property absoluteTargetSpeed
-	 * @param absoluteTargetSpeed from OpenSCENARIO class model specification: [Defines the target speed as absolute 
-	 * speed.Unit: m/s.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property absoluteTargetSpeed
+         * @param absoluteTargetSpeed from OpenSCENARIO class model specification: [Defines the target speed as absolute 
+         * speed.Unit: m/s.]
+         * 
+        */
         void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(std::shared_ptr<IAbsoluteTargetSpeed> absoluteTargetSpeed )
         {
             _absoluteTargetSpeed = absoluteTargetSpeed;
@@ -24444,14 +24303,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> SpeedActionTargetImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string SpeedActionTargetImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         SpeedConditionImpl::SpeedConditionImpl()
@@ -24472,20 +24330,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Speed value of the speed condition. Unit m/s.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Speed value of the speed condition. Unit m/s.]
+         * 
+        */
         void SpeedConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void SpeedConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -24577,7 +24435,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> SpeedConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string SpeedConditionImpl::GetEnumerationLiteral(std::string key)
@@ -24596,7 +24454,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         StandStillConditionImpl::StandStillConditionImpl()
         {
             /**
@@ -24610,12 +24467,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _duration;
         }
 
-    	/**
-	 * Sets the value of model property duration
-	 * @param duration from OpenSCENARIO class model specification: [Duration time of still standing to let the logical 
-	 * expression become true. Unit: s. Range [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property duration
+         * @param duration from OpenSCENARIO class model specification: [Duration time of still standing to let the logical 
+         * expression become true. Unit: s. Range [0..inf[.]
+         * 
+        */
         void StandStillConditionImpl::SetDuration(double duration )
         {
             _duration = duration;
@@ -24690,14 +24547,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> StandStillConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string StandStillConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         StoryImpl::StoryImpl()
@@ -24721,30 +24577,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _acts;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the story, must be unique within an OpenSCENARIO 
-	 * file.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the story, must be unique within an OpenSCENARIO 
+         * file.]
+         * 
+        */
         void StoryImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void StoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property acts
-	 * @param acts from OpenSCENARIO class model specification: [Defines the acts of the story.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property acts
+         * @param acts from OpenSCENARIO class model specification: [Defines the acts of the story.]
+         * 
+        */
         void StoryImpl::SetActs(std::vector<std::shared_ptr<IAct>>& acts)
         {
             _acts = acts;
@@ -24908,14 +24764,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> StoryImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string StoryImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         StoryboardImpl::StoryboardImpl()
@@ -24938,30 +24793,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _stopTrigger;
         }
 
-    	/**
-	 * Sets the value of model property init
-	 * @param init from OpenSCENARIO class model specification: [Initialization of the storyboard instance. Initial conditions 
-	 * are set and initial actions are applied to entities.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property init
+         * @param init from OpenSCENARIO class model specification: [Initialization of the storyboard instance. Initial conditions 
+         * are set and initial actions are applied to entities.]
+         * 
+        */
         void StoryboardImpl::SetInit(std::shared_ptr<IInit> init )
         {
             _init = init;
         }
-    	/**
-	 * Sets the value of model property stories
-	 * @param stories from OpenSCENARIO class model specification: [List of stories defined in a story board.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property stories
+         * @param stories from OpenSCENARIO class model specification: [List of stories defined in a story board.]
+         * 
+        */
         void StoryboardImpl::SetStories(std::vector<std::shared_ptr<IStory>>& stories)
         {
             _stories = stories;
         }
-    	/**
-	 * Sets the value of model property stopTrigger
-	 * @param stopTrigger from OpenSCENARIO class model specification: [Trigger to stop the Storyboard instance.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property stopTrigger
+         * @param stopTrigger from OpenSCENARIO class model specification: [Trigger to stop the Storyboard instance.]
+         * 
+        */
         void StoryboardImpl::SetStopTrigger(std::shared_ptr<ITrigger> stopTrigger )
         {
             _stopTrigger = stopTrigger;
@@ -25101,14 +24956,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> StoryboardImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string StoryboardImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         StoryboardElementStateConditionImpl::StoryboardElementStateConditionImpl()
@@ -25134,30 +24988,30 @@ namespace NET_ASAM_OPENSCENARIO
             return _state;
         }
 
-    	/**
-	 * Sets the value of model property storyboardElementType
-	 * @param storyboardElementType from OpenSCENARIO class model specification: [Type of storyboard element instance.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property storyboardElementType
+         * @param storyboardElementType from OpenSCENARIO class model specification: [Type of storyboard element instance.]
+         * 
+        */
         void StoryboardElementStateConditionImpl::SetStoryboardElementType(StoryboardElementType storyboardElementType )
         {
             _storyboardElementType = storyboardElementType;
         }
-    	/**
-	 * Sets the value of model property storyboardElementRef
-	 * @param storyboardElementRef from OpenSCENARIO class model specification: [Name of the referenced Storyboard instance.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property storyboardElementRef
+         * @param storyboardElementRef from OpenSCENARIO class model specification: [Name of the referenced Storyboard instance.]
+         * 
+        */
         void StoryboardElementStateConditionImpl::SetStoryboardElementRef(NamedReferenceProxy<IStoryboardElement>& storyboardElementRef )
         {
             _storyboardElementRef = storyboardElementRef;
         }
-    	/**
-	 * Sets the value of model property state
-	 * @param state from OpenSCENARIO class model specification: [The state or the transition of the storyboard element 
-	 * instance for which the condition becomes true.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property state
+         * @param state from OpenSCENARIO class model specification: [The state or the transition of the storyboard element 
+         * instance for which the condition becomes true.]
+         * 
+        */
         void StoryboardElementStateConditionImpl::SetState(StoryboardElementState state )
         {
             _state = state;
@@ -25314,7 +25168,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         SunImpl::SunImpl()
         {
             /**
@@ -25338,32 +25191,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _elevation;
         }
 
-    	/**
-	 * Sets the value of model property intensity
-	 * @param intensity from OpenSCENARIO class model specification: [Illuminance of the sun, direct sunlight is around 100,00 
-	 * lx. Unit: lux; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property intensity
+         * @param intensity from OpenSCENARIO class model specification: [Illuminance of the sun, direct sunlight is around 100,00 
+         * lx. Unit: lux; Range: [0..inf[.]
+         * 
+        */
         void SunImpl::SetIntensity(double intensity )
         {
             _intensity = intensity;
         }
-    	/**
-	 * Sets the value of model property azimuth
-	 * @param azimuth from OpenSCENARIO class model specification: [Azimuth of the sun, counted counterclockwise, 0=north, PI/2
-	 * = east, PI=south, 3/2 PI=west. Unit: radian; Range: , [0..2PI].]
-	 * 
-	*/
+        /**
+         * Sets the value of model property azimuth
+         * @param azimuth from OpenSCENARIO class model specification: [Azimuth of the sun, counted counterclockwise, 0=north, PI/2
+         * = east, PI=south, 3/2 PI=west. Unit: radian; Range: , [0..2PI].]
+         * 
+        */
         void SunImpl::SetAzimuth(double azimuth )
         {
             _azimuth = azimuth;
         }
-    	/**
-	 * Sets the value of model property elevation
-	 * @param elevation from OpenSCENARIO class model specification: [Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: 
-	 * rad; Range: [-PI..PI].]
-	 * 
-	*/
+        /**
+         * Sets the value of model property elevation
+         * @param elevation from OpenSCENARIO class model specification: [Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: 
+         * rad; Range: [-PI..PI].]
+         * 
+        */
         void SunImpl::SetElevation(double elevation )
         {
             _elevation = elevation;
@@ -25454,14 +25307,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> SunImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string SunImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         SynchronizeActionImpl::SynchronizeActionImpl()
@@ -25489,40 +25341,40 @@ namespace NET_ASAM_OPENSCENARIO
             return _finalSpeed;
         }
 
-    	/**
-	 * Sets the value of model property masterEntityRef
-	 * @param masterEntityRef from OpenSCENARIO class model specification: [A reference to the master entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property masterEntityRef
+         * @param masterEntityRef from OpenSCENARIO class model specification: [A reference to the master entity.]
+         * 
+        */
         void SynchronizeActionImpl::SetMasterEntityRef(NamedReferenceProxy<IEntity>& masterEntityRef )
         {
             _masterEntityRef = masterEntityRef;
         }
-    	/**
-	 * Sets the value of model property targetPositionMaster
-	 * @param targetPositionMaster from OpenSCENARIO class model specification: [The target position for the master entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property targetPositionMaster
+         * @param targetPositionMaster from OpenSCENARIO class model specification: [The target position for the master entity.]
+         * 
+        */
         void SynchronizeActionImpl::SetTargetPositionMaster(std::shared_ptr<IPosition> targetPositionMaster )
         {
             _targetPositionMaster = targetPositionMaster;
         }
-    	/**
-	 * Sets the value of model property targetPosition
-	 * @param targetPosition from OpenSCENARIO class model specification: [The target position for the entity that should be 
-	 * synchronized.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property targetPosition
+         * @param targetPosition from OpenSCENARIO class model specification: [The target position for the entity that should be 
+         * synchronized.]
+         * 
+        */
         void SynchronizeActionImpl::SetTargetPosition(std::shared_ptr<IPosition> targetPosition )
         {
             _targetPosition = targetPosition;
         }
-    	/**
-	 * Sets the value of model property finalSpeed
-	 * @param finalSpeed from OpenSCENARIO class model specification: [The speed that the synchronized entity should have at 
-	 * its target position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property finalSpeed
+         * @param finalSpeed from OpenSCENARIO class model specification: [The speed that the synchronized entity should have at 
+         * its target position.]
+         * 
+        */
         void SynchronizeActionImpl::SetFinalSpeed(std::shared_ptr<IFinalSpeed> finalSpeed )
         {
             _finalSpeed = finalSpeed;
@@ -25688,7 +25540,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         TeleportActionImpl::TeleportActionImpl()
         {
             /**
@@ -25701,11 +25552,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [The position the entity/entities are teleported to.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [The position the entity/entities are teleported to.]
+         * 
+        */
         void TeleportActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -25794,14 +25645,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TeleportActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TeleportActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TimeHeadwayConditionImpl::TimeHeadwayConditionImpl()
@@ -25837,49 +25687,49 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity to which the time headway is computed.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity to which the time headway is computed.]
+         * 
+        */
         void TimeHeadwayConditionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
         {
             _entityRef = entityRef;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [The time headway value. Unit: s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [The time headway value. Unit: s; Range: [0..inf[.]
+         * 
+        */
         void TimeHeadwayConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property freespace
-	 * @param freespace from OpenSCENARIO class model specification: [True: time headway is measured using the distance between
-	 * closest bounding box points. False: reference point distance , is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property freespace
+         * @param freespace from OpenSCENARIO class model specification: [True: time headway is measured using the distance between
+         * closest bounding box points. False: reference point distance , is used.]
+         * 
+        */
         void TimeHeadwayConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
-    	/**
-	 * Sets the value of model property alongRoute
-	 * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
-	 * increase distance. False: straight line distance is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property alongRoute
+         * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
+         * increase distance. False: straight line distance is used.]
+         * 
+        */
         void TimeHeadwayConditionImpl::SetAlongRoute(bool alongRoute )
         {
             _alongRoute = alongRoute;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void TimeHeadwayConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -26038,7 +25888,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         TimeOfDayImpl::TimeOfDayImpl()
         {
             /**
@@ -26057,21 +25906,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _dateTime;
         }
 
-    	/**
-	 * Sets the value of model property animation
-	 * @param animation from OpenSCENARIO class model specification: [If true, the timeofday is animated with progressing 
-	 * simulation time, e.g. in order to animate the position of the sun.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property animation
+         * @param animation from OpenSCENARIO class model specification: [If true, the timeofday is animated with progressing 
+         * simulation time, e.g. in order to animate the position of the sun.]
+         * 
+        */
         void TimeOfDayImpl::SetAnimation(bool animation )
         {
             _animation = animation;
         }
-    	/**
-	 * Sets the value of model property dateTime
-	 * @param dateTime from OpenSCENARIO class model specification: [Datetime value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dateTime
+         * @param dateTime from OpenSCENARIO class model specification: [Datetime value.]
+         * 
+        */
         void TimeOfDayImpl::SetDateTime(DateTime dateTime )
         {
             _dateTime = dateTime;
@@ -26154,14 +26003,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TimeOfDayImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TimeOfDayConditionImpl::TimeOfDayConditionImpl()
@@ -26182,20 +26030,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _dateTime;
         }
 
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void TimeOfDayConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
-    	/**
-	 * Sets the value of model property dateTime
-	 * @param dateTime from OpenSCENARIO class model specification: [Datetime value for comparison.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dateTime
+         * @param dateTime from OpenSCENARIO class model specification: [Datetime value for comparison.]
+         * 
+        */
         void TimeOfDayConditionImpl::SetDateTime(DateTime dateTime )
         {
             _dateTime = dateTime;
@@ -26287,7 +26135,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TimeOfDayConditionImpl::GetEnumerationLiteral(std::string key)
@@ -26306,7 +26154,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         TimeReferenceImpl::TimeReferenceImpl()
         {
             /**
@@ -26323,22 +26170,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _timing;
         }
 
-    	/**
-	 * Sets the value of model property none
-	 * @param none from OpenSCENARIO class model specification: [This property indicates Timing information is neglected.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property none
+         * @param none from OpenSCENARIO class model specification: [This property indicates Timing information is neglected.]
+         * 
+        */
         void TimeReferenceImpl::SetNone(std::shared_ptr<INone> none )
         {
             _none = none;
         }
-    	/**
-	 * Sets the value of model property timing
-	 * @param timing from OpenSCENARIO class model specification: [This property indicates timing information is taken into 
-	 * account. Its underlying properties allow specification of the , time domain (absolute or relative), time scaling and a 
-	 * global time offset.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timing
+         * @param timing from OpenSCENARIO class model specification: [This property indicates timing information is taken into 
+         * account. Its underlying properties allow specification of the , time domain (absolute or relative), time scaling and a 
+         * global time offset.]
+         * 
+        */
         void TimeReferenceImpl::SetTiming(std::shared_ptr<ITiming> timing )
         {
             _timing = timing;
@@ -26445,14 +26292,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TimeReferenceImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TimeReferenceImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TimeToCollisionConditionImpl::TimeToCollisionConditionImpl()
@@ -26487,50 +26333,50 @@ namespace NET_ASAM_OPENSCENARIO
             return _timeToCollisionConditionTarget;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [The time to collision value. Unit: s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [The time to collision value. Unit: s; Range: [0..inf[.]
+         * 
+        */
         void TimeToCollisionConditionImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property freespace
-	 * @param freespace from OpenSCENARIO class model specification: [True: time to collision is measured using the distance 
-	 * between closest bounding box points.False: reference point , distance is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property freespace
+         * @param freespace from OpenSCENARIO class model specification: [True: time to collision is measured using the distance 
+         * between closest bounding box points.False: reference point , distance is used.]
+         * 
+        */
         void TimeToCollisionConditionImpl::SetFreespace(bool freespace )
         {
             _freespace = freespace;
         }
-    	/**
-	 * Sets the value of model property alongRoute
-	 * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
-	 * increase distance. False: straight line distance is used.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property alongRoute
+         * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
+         * increase distance. False: straight line distance is used.]
+         * 
+        */
         void TimeToCollisionConditionImpl::SetAlongRoute(bool alongRoute )
         {
             _alongRoute = alongRoute;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void TimeToCollisionConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
         }
-    	/**
-	 * Sets the value of model property timeToCollisionConditionTarget
-	 * @param timeToCollisionConditionTarget from OpenSCENARIO class model specification: [The explicit position or a position 
-	 * defined through the current position of a reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property timeToCollisionConditionTarget
+         * @param timeToCollisionConditionTarget from OpenSCENARIO class model specification: [The explicit position or a position 
+         * defined through the current position of a reference entity.]
+         * 
+        */
         void TimeToCollisionConditionImpl::SetTimeToCollisionConditionTarget(std::shared_ptr<ITimeToCollisionConditionTarget> timeToCollisionConditionTarget )
         {
             _timeToCollisionConditionTarget = timeToCollisionConditionTarget;
@@ -26660,7 +26506,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TimeToCollisionConditionImpl::GetEnumerationLiteral(std::string key)
@@ -26679,7 +26525,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         TimeToCollisionConditionTargetImpl::TimeToCollisionConditionTargetImpl()
         {
             /**
@@ -26696,20 +26541,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _entityRef;
         }
 
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [Position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [Position.]
+         * 
+        */
         void TimeToCollisionConditionTargetImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
-    	/**
-	 * Sets the value of model property entityRef
-	 * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRef
+         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
+         * 
+        */
         void TimeToCollisionConditionTargetImpl::SetEntityRef(std::shared_ptr<IEntityRef> entityRef )
         {
             _entityRef = entityRef;
@@ -26816,14 +26661,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionTargetImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TimeToCollisionConditionTargetImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TimingImpl::TimingImpl()
@@ -26849,33 +26693,33 @@ namespace NET_ASAM_OPENSCENARIO
             return _offset;
         }
 
-    	/**
-	 * Sets the value of model property domainAbsoluteRelative
-	 * @param domainAbsoluteRelative from OpenSCENARIO class model specification: [Definition of time value context as either 
-	 * absolute or relative.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property domainAbsoluteRelative
+         * @param domainAbsoluteRelative from OpenSCENARIO class model specification: [Definition of time value context as either 
+         * absolute or relative.]
+         * 
+        */
         void TimingImpl::SetDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative )
         {
             _domainAbsoluteRelative = domainAbsoluteRelative;
         }
-    	/**
-	 * Sets the value of model property scale
-	 * @param scale from OpenSCENARIO class model specification: [Scaling factor for time values. While values smaller than 1.0
-	 * represent negative scaling, values larger than 1.0 will , result in positive scaling. A value of 1.0 means no scaling. 
-	 * Range: ]0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property scale
+         * @param scale from OpenSCENARIO class model specification: [Scaling factor for time values. While values smaller than 1.0
+         * represent negative scaling, values larger than 1.0 will , result in positive scaling. A value of 1.0 means no scaling. 
+         * Range: ]0..inf[.]
+         * 
+        */
         void TimingImpl::SetScale(double scale )
         {
             _scale = scale;
         }
-    	/**
-	 * Sets the value of model property offset
-	 * @param offset from OpenSCENARIO class model specification: [Introduction of a global offset for all time values. Unit: 
-	 * s; Range: ]-inf..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property offset
+         * @param offset from OpenSCENARIO class model specification: [Introduction of a global offset for all time values. Unit: 
+         * s; Range: ]-inf..inf[.]
+         * 
+        */
         void TimingImpl::SetOffset(double offset )
         {
             _offset = offset;
@@ -26975,7 +26819,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TimingImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TimingImpl::GetEnumerationLiteral(std::string key)
@@ -26992,7 +26836,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficActionImpl::TrafficActionImpl()
@@ -27015,32 +26858,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSwarmAction;
         }
 
-    	/**
-	 * Sets the value of model property trafficSourceAction
-	 * @param trafficSourceAction from OpenSCENARIO class model specification: [Defines a source of traffic at a specific 
-	 * position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSourceAction
+         * @param trafficSourceAction from OpenSCENARIO class model specification: [Defines a source of traffic at a specific 
+         * position.]
+         * 
+        */
         void TrafficActionImpl::SetTrafficSourceAction(std::shared_ptr<ITrafficSourceAction> trafficSourceAction )
         {
             _trafficSourceAction = trafficSourceAction;
         }
-    	/**
-	 * Sets the value of model property trafficSinkAction
-	 * @param trafficSinkAction from OpenSCENARIO class model specification: [Defines a sink of traffic at a specific 
-	 * position.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSinkAction
+         * @param trafficSinkAction from OpenSCENARIO class model specification: [Defines a sink of traffic at a specific 
+         * position.]
+         * 
+        */
         void TrafficActionImpl::SetTrafficSinkAction(std::shared_ptr<ITrafficSinkAction> trafficSinkAction )
         {
             _trafficSinkAction = trafficSinkAction;
         }
-    	/**
-	 * Sets the value of model property trafficSwarmAction
-	 * @param trafficSwarmAction from OpenSCENARIO class model specification: [Defines swarm traffic around a given central 
-	 * entity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSwarmAction
+         * @param trafficSwarmAction from OpenSCENARIO class model specification: [Defines swarm traffic around a given central 
+         * entity.]
+         * 
+        */
         void TrafficActionImpl::SetTrafficSwarmAction(std::shared_ptr<ITrafficSwarmAction> trafficSwarmAction )
         {
             _trafficSwarmAction = trafficSwarmAction;
@@ -27165,14 +27008,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficDefinitionImpl::TrafficDefinitionImpl()
@@ -27196,31 +27038,31 @@ namespace NET_ASAM_OPENSCENARIO
             return _controllerDistribution;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the traffic definition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the traffic definition.]
+         * 
+        */
         void TrafficDefinitionImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property vehicleCategoryDistribution
-	 * @param vehicleCategoryDistribution from OpenSCENARIO class model specification: [Distribution of vehicle categories 
-	 * within the traffic.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property vehicleCategoryDistribution
+         * @param vehicleCategoryDistribution from OpenSCENARIO class model specification: [Distribution of vehicle categories 
+         * within the traffic.]
+         * 
+        */
         void TrafficDefinitionImpl::SetVehicleCategoryDistribution(std::shared_ptr<IVehicleCategoryDistribution> vehicleCategoryDistribution )
         {
             _vehicleCategoryDistribution = vehicleCategoryDistribution;
         }
-    	/**
-	 * Sets the value of model property controllerDistribution
-	 * @param controllerDistribution from OpenSCENARIO class model specification: [Distribution of controllers within this 
-	 * traffic.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property controllerDistribution
+         * @param controllerDistribution from OpenSCENARIO class model specification: [Distribution of controllers within this 
+         * traffic.]
+         * 
+        */
         void TrafficDefinitionImpl::SetControllerDistribution(std::shared_ptr<IControllerDistribution> controllerDistribution )
         {
             _controllerDistribution = controllerDistribution;
@@ -27344,14 +27186,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficDefinitionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficDefinitionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSignalActionImpl::TrafficSignalActionImpl()
@@ -27370,22 +27211,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignalStateAction;
         }
 
-    	/**
-	 * Sets the value of model property trafficSignalControllerAction
-	 * @param trafficSignalControllerAction from OpenSCENARIO class model specification: [Action used to control the state of a
-	 * signal.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalControllerAction
+         * @param trafficSignalControllerAction from OpenSCENARIO class model specification: [Action used to control the state of a
+         * signal.]
+         * 
+        */
         void TrafficSignalActionImpl::SetTrafficSignalControllerAction(std::shared_ptr<ITrafficSignalControllerAction> trafficSignalControllerAction )
         {
             _trafficSignalControllerAction = trafficSignalControllerAction;
         }
-    	/**
-	 * Sets the value of model property trafficSignalStateAction
-	 * @param trafficSignalStateAction from OpenSCENARIO class model specification: [Action used to set a specific phase of a 
-	 * signal controller.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalStateAction
+         * @param trafficSignalStateAction from OpenSCENARIO class model specification: [Action used to set a specific phase of a 
+         * signal controller.]
+         * 
+        */
         void TrafficSignalActionImpl::SetTrafficSignalStateAction(std::shared_ptr<ITrafficSignalStateAction> trafficSignalStateAction )
         {
             _trafficSignalStateAction = trafficSignalStateAction;
@@ -27492,14 +27333,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSignalActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSignalConditionImpl::TrafficSignalConditionImpl()
@@ -27520,22 +27360,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _state;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [ID of the referenced signal defined in a road network. The 
-	 * signal ID must be listed in the TrafficSignal list of the , RoadNetwork section.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [ID of the referenced signal defined in a road network. The 
+         * signal ID must be listed in the TrafficSignal list of the , RoadNetwork section.]
+         * 
+        */
         void TrafficSignalConditionImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property state
-	 * @param state from OpenSCENARIO class model specification: [State of the signal to be reached for the condition to become
-	 * true.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property state
+         * @param state from OpenSCENARIO class model specification: [State of the signal to be reached for the condition to become
+         * true.]
+         * 
+        */
         void TrafficSignalConditionImpl::SetState(std::string state )
         {
             _state = state;
@@ -27632,14 +27472,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSignalConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSignalControllerImpl::TrafficSignalControllerImpl()
@@ -27669,43 +27508,43 @@ namespace NET_ASAM_OPENSCENARIO
             return _phases;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [ID of the traffic signal controller in the road network.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [ID of the traffic signal controller in the road network.]
+         * 
+        */
         void TrafficSignalControllerImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property delay
-	 * @param delay from OpenSCENARIO class model specification: [The delay to the controller in the reference property. A 
-	 * controller having a delay to another one means that its first , phase virtually starts delaytime seconds after the start
-	 * of the reference's first phase. This can be used to define a , progressive signal system, but only makes sense, if the 
-	 * total times of all connected controllers are the same. If delay , is set, reference is required. Unit: s; Range: 
-	 * [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property delay
+         * @param delay from OpenSCENARIO class model specification: [The delay to the controller in the reference property. A 
+         * controller having a delay to another one means that its first , phase virtually starts delaytime seconds after the start
+         * of the reference's first phase. This can be used to define a , progressive signal system, but only makes sense, if the 
+         * total times of all connected controllers are the same. If delay , is set, reference is required. Unit: s; Range: 
+         * [0..inf[.]
+         * 
+        */
         void TrafficSignalControllerImpl::SetDelay(double delay )
         {
             _delay = delay;
         }
-    	/**
-	 * Sets the value of model property reference
-	 * @param reference from OpenSCENARIO class model specification: [A reference (ID) to the connected controller in the road 
-	 * network. If reference is set, a delay is required.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property reference
+         * @param reference from OpenSCENARIO class model specification: [A reference (ID) to the connected controller in the road 
+         * network. If reference is set, a delay is required.]
+         * 
+        */
         void TrafficSignalControllerImpl::SetReference(std::string reference )
         {
             _reference = reference;
         }
-    	/**
-	 * Sets the value of model property phases
-	 * @param phases from OpenSCENARIO class model specification: [Phases of a TrafficSignalController.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property phases
+         * @param phases from OpenSCENARIO class model specification: [Phases of a TrafficSignalController.]
+         * 
+        */
         void TrafficSignalControllerImpl::SetPhases(std::vector<std::shared_ptr<IPhase>>& phases)
         {
             _phases = phases;
@@ -27843,14 +27682,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSignalControllerImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSignalControllerActionImpl::TrafficSignalControllerActionImpl()
@@ -27875,32 +27713,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _phaseRef;
         }
 
-    	/**
-	 * Sets the value of model property trafficSignalControllerRef
-	 * @param trafficSignalControllerRef from OpenSCENARIO class model specification: [ID of the signal controller in a road 
-	 * network.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalControllerRef
+         * @param trafficSignalControllerRef from OpenSCENARIO class model specification: [ID of the signal controller in a road 
+         * network.]
+         * 
+        */
         void TrafficSignalControllerActionImpl::SetTrafficSignalControllerRef(NamedReferenceProxy<ITrafficSignalController>& trafficSignalControllerRef )
         {
             _trafficSignalControllerRef = trafficSignalControllerRef;
         }
-    	/**
-	 * Sets the value of model property phase
-	 * @param phase from OpenSCENARIO class model specification: [Targeted phase of the signal controller. The available phases
-	 * are defined in type RoadNetwork under the property , trafficSignalControllers.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property phase
+         * @param phase from OpenSCENARIO class model specification: [Targeted phase of the signal controller. The available phases
+         * are defined in type RoadNetwork under the property , trafficSignalControllers.]
+         * 
+        */
         void TrafficSignalControllerActionImpl::SetPhase(std::string phase )
         {
             _phase = phase;
         }
-    	/**
-	 * Sets the value of model property phaseRef
-	 * @param phaseRef from OpenSCENARIO class model specification: [The reference to the phase (phase is the referential key 
-	 * in the referenced TrafficSignalController).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property phaseRef
+         * @param phaseRef from OpenSCENARIO class model specification: [The reference to the phase (phase is the referential key 
+         * in the referenced TrafficSignalController).]
+         * 
+        */
         void TrafficSignalControllerActionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
         {
             _phaseRef = phaseRef;
@@ -28021,7 +27859,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         TrafficSignalControllerConditionImpl::TrafficSignalControllerConditionImpl()
         {
             /**
@@ -28044,33 +27881,33 @@ namespace NET_ASAM_OPENSCENARIO
             return _phaseRef;
         }
 
-    	/**
-	 * Sets the value of model property trafficSignalControllerRef
-	 * @param trafficSignalControllerRef from OpenSCENARIO class model specification: [ID of the referenced signal controller 
-	 * in a road network.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalControllerRef
+         * @param trafficSignalControllerRef from OpenSCENARIO class model specification: [ID of the referenced signal controller 
+         * in a road network.]
+         * 
+        */
         void TrafficSignalControllerConditionImpl::SetTrafficSignalControllerRef(NamedReferenceProxy<ITrafficSignalController>& trafficSignalControllerRef )
         {
             _trafficSignalControllerRef = trafficSignalControllerRef;
         }
-    	/**
-	 * Sets the value of model property phase
-	 * @param phase from OpenSCENARIO class model specification: [Name of the phase of the signal controller to be reached for 
-	 * the condition to become true. The available phases are , defined in type RoadNetwork under the property 
-	 * trafficSignalControllers.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property phase
+         * @param phase from OpenSCENARIO class model specification: [Name of the phase of the signal controller to be reached for 
+         * the condition to become true. The available phases are , defined in type RoadNetwork under the property 
+         * trafficSignalControllers.]
+         * 
+        */
         void TrafficSignalControllerConditionImpl::SetPhase(std::string phase )
         {
             _phase = phase;
         }
-    	/**
-	 * Sets the value of model property phaseRef
-	 * @param phaseRef from OpenSCENARIO class model specification: [The reference to the phase (phase is the referential key 
-	 * in the referenced TrafficSignalController).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property phaseRef
+         * @param phaseRef from OpenSCENARIO class model specification: [The reference to the phase (phase is the referential key 
+         * in the referenced TrafficSignalController).]
+         * 
+        */
         void TrafficSignalControllerConditionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
         {
             _phaseRef = phaseRef;
@@ -28191,7 +28028,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         TrafficSignalStateImpl::TrafficSignalStateImpl()
         {
             /**
@@ -28210,22 +28046,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _state;
         }
 
-    	/**
-	 * Sets the value of model property trafficSignalId
-	 * @param trafficSignalId from OpenSCENARIO class model specification: [ID of the referenced signal in a road network. The 
-	 * signal ID must be listed in TrafficSignal list of the RoadNetwork.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficSignalId
+         * @param trafficSignalId from OpenSCENARIO class model specification: [ID of the referenced signal in a road network. The 
+         * signal ID must be listed in TrafficSignal list of the RoadNetwork.]
+         * 
+        */
         void TrafficSignalStateImpl::SetTrafficSignalId(std::string trafficSignalId )
         {
             _trafficSignalId = trafficSignalId;
         }
-    	/**
-	 * Sets the value of model property state
-	 * @param state from OpenSCENARIO class model specification: [State of the signal. The available states are listed in the 
-	 * TrafficSignal list of the RoadNetwork.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property state
+         * @param state from OpenSCENARIO class model specification: [State of the signal. The available states are listed in the 
+         * TrafficSignal list of the RoadNetwork.]
+         * 
+        */
         void TrafficSignalStateImpl::SetState(std::string state )
         {
             _state = state;
@@ -28322,14 +28158,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSignalStateImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSignalStateActionImpl::TrafficSignalStateActionImpl()
@@ -28350,22 +28185,22 @@ namespace NET_ASAM_OPENSCENARIO
             return _state;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [ID of a signal in a road network. The signal ID must be listed
-	 * in the TrafficSignal list of the RoadNetwork.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [ID of a signal in a road network. The signal ID must be listed
+         * in the TrafficSignal list of the RoadNetwork.]
+         * 
+        */
         void TrafficSignalStateActionImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property state
-	 * @param state from OpenSCENARIO class model specification: [Targeted state of the signal. The available states are listed
-	 * in the TrafficSignal list of the RoadNetwork.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property state
+         * @param state from OpenSCENARIO class model specification: [Targeted state of the signal. The available states are listed
+         * in the TrafficSignal list of the RoadNetwork.]
+         * 
+        */
         void TrafficSignalStateActionImpl::SetState(std::string state )
         {
             _state = state;
@@ -28462,14 +28297,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSignalStateActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSinkActionImpl::TrafficSinkActionImpl()
@@ -28498,41 +28332,41 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficDefinition;
         }
 
-    	/**
-	 * Sets the value of model property rate
-	 * @param rate from OpenSCENARIO class model specification: [Defines the rate on which vehicles disappear at the sinks 
-	 * location. Unit: vehicles/s Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rate
+         * @param rate from OpenSCENARIO class model specification: [Defines the rate on which vehicles disappear at the sinks 
+         * location. Unit: vehicles/s Range: [0..inf[.]
+         * 
+        */
         void TrafficSinkActionImpl::SetRate(double rate )
         {
             _rate = rate;
         }
-    	/**
-	 * Sets the value of model property radius
-	 * @param radius from OpenSCENARIO class model specification: [Defines the radius of the traffic sink where vehicles 
-	 * disappear around the specified position. Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property radius
+         * @param radius from OpenSCENARIO class model specification: [Defines the radius of the traffic sink where vehicles 
+         * disappear around the specified position. Unit: m; Range: [0..inf[.]
+         * 
+        */
         void TrafficSinkActionImpl::SetRadius(double radius )
         {
             _radius = radius;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic sink.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic sink.]
+         * 
+        */
         void TrafficSinkActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
-    	/**
-	 * Sets the value of model property trafficDefinition
-	 * @param trafficDefinition from OpenSCENARIO class model specification: [Defines the vehicle and controller distribution 
-	 * for the sink.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficDefinition
+         * @param trafficDefinition from OpenSCENARIO class model specification: [Defines the vehicle and controller distribution 
+         * for the sink.]
+         * 
+        */
         void TrafficSinkActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
         {
             _trafficDefinition = trafficDefinition;
@@ -28655,14 +28489,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSinkActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSinkActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSourceActionImpl::TrafficSourceActionImpl()
@@ -28696,51 +28529,51 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficDefinition;
         }
 
-    	/**
-	 * Sets the value of model property rate
-	 * @param rate from OpenSCENARIO class model specification: [Defines the rate on which vehicles appear at the source 
-	 * location. Unit: vehicles/s. Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rate
+         * @param rate from OpenSCENARIO class model specification: [Defines the rate on which vehicles appear at the source 
+         * location. Unit: vehicles/s. Range: [0..inf[.]
+         * 
+        */
         void TrafficSourceActionImpl::SetRate(double rate )
         {
             _rate = rate;
         }
-    	/**
-	 * Sets the value of model property radius
-	 * @param radius from OpenSCENARIO class model specification: [Defines the radius of the traffic source where vehicles 
-	 * appear around the specific position. Unit: m. Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property radius
+         * @param radius from OpenSCENARIO class model specification: [Defines the radius of the traffic source where vehicles 
+         * appear around the specific position. Unit: m. Range: [0..inf[.]
+         * 
+        */
         void TrafficSourceActionImpl::SetRadius(double radius )
         {
             _radius = radius;
         }
-    	/**
-	 * Sets the value of model property velocity
-	 * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a scenario object. Unit:
-	 * m/s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property velocity
+         * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a scenario object. Unit:
+         * m/s; Range: [0..inf[.]
+         * 
+        */
         void TrafficSourceActionImpl::SetVelocity(double velocity )
         {
             _velocity = velocity;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic source.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic source.]
+         * 
+        */
         void TrafficSourceActionImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
         }
-    	/**
-	 * Sets the value of model property trafficDefinition
-	 * @param trafficDefinition from OpenSCENARIO class model specification: [Defines the vehicle and controller distribution 
-	 * for the source.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficDefinition
+         * @param trafficDefinition from OpenSCENARIO class model specification: [Defines the vehicle and controller distribution 
+         * for the source.]
+         * 
+        */
         void TrafficSourceActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
         {
             _trafficDefinition = trafficDefinition;
@@ -28871,14 +28704,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSourceActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSourceActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrafficSwarmActionImpl::TrafficSwarmActionImpl()
@@ -28927,83 +28759,83 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficDefinition;
         }
 
-    	/**
-	 * Sets the value of model property semiMajorAxis
-	 * @param semiMajorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic distribution area is given
-	 * as an ellipsis around a central entity. SemiMajorAxis defines the , half length of the major axis of this ellipsis. 
-	 * Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property semiMajorAxis
+         * @param semiMajorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic distribution area is given
+         * as an ellipsis around a central entity. SemiMajorAxis defines the , half length of the major axis of this ellipsis. 
+         * Unit: m; Range: [0..inf[.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetSemiMajorAxis(double semiMajorAxis )
         {
             _semiMajorAxis = semiMajorAxis;
         }
-    	/**
-	 * Sets the value of model property semiMinorAxis
-	 * @param semiMinorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic distribution area is given
-	 * as an ellipsis around a central entity. SemiMinorAxis defines the , half length of the minor axis of this ellipsis. 
-	 * Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property semiMinorAxis
+         * @param semiMinorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic distribution area is given
+         * as an ellipsis around a central entity. SemiMinorAxis defines the , half length of the minor axis of this ellipsis. 
+         * Unit: m; Range: [0..inf[.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetSemiMinorAxis(double semiMinorAxis )
         {
             _semiMinorAxis = semiMinorAxis;
         }
-    	/**
-	 * Sets the value of model property innerRadius
-	 * @param innerRadius from OpenSCENARIO class model specification: [Radius of the inner circular area around the central 
-	 * entity. Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property innerRadius
+         * @param innerRadius from OpenSCENARIO class model specification: [Radius of the inner circular area around the central 
+         * entity. Unit: m; Range: [0..inf[.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetInnerRadius(double innerRadius )
         {
             _innerRadius = innerRadius;
         }
-    	/**
-	 * Sets the value of model property offset
-	 * @param offset from OpenSCENARIO class model specification: [Offset in longitudinal direction related to the x-axis of 
-	 * the central entity. Unit: m;.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property offset
+         * @param offset from OpenSCENARIO class model specification: [Offset in longitudinal direction related to the x-axis of 
+         * the central entity. Unit: m;.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetOffset(double offset )
         {
             _offset = offset;
         }
-    	/**
-	 * Sets the value of model property numberOfVehicles
-	 * @param numberOfVehicles from OpenSCENARIO class model specification: [The maximum number of vehicles surrounding the 
-	 * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property numberOfVehicles
+         * @param numberOfVehicles from OpenSCENARIO class model specification: [The maximum number of vehicles surrounding the 
+         * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetNumberOfVehicles(long long numberOfVehicles )
         {
             _numberOfVehicles = numberOfVehicles;
         }
-    	/**
-	 * Sets the value of model property velocity
-	 * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a created entity. Unit: 
-	 * m/s; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property velocity
+         * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a created entity. Unit: 
+         * m/s; Range: [0..inf[.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetVelocity(double velocity )
         {
             _velocity = velocity;
         }
-    	/**
-	 * Sets the value of model property centralObject
-	 * @param centralObject from OpenSCENARIO class model specification: [The entity that represents the center of a swarm.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property centralObject
+         * @param centralObject from OpenSCENARIO class model specification: [The entity that represents the center of a swarm.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetCentralObject(std::shared_ptr<ICentralSwarmObject> centralObject )
         {
             _centralObject = centralObject;
         }
-    	/**
-	 * Sets the value of model property trafficDefinition
-	 * @param trafficDefinition from OpenSCENARIO class model specification: [Specifies properties of autonomous traffic with 
-	 * respect to vehicle and driver distributions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property trafficDefinition
+         * @param trafficDefinition from OpenSCENARIO class model specification: [Specifies properties of autonomous traffic with 
+         * respect to vehicle and driver distributions.]
+         * 
+        */
         void TrafficSwarmActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
         {
             _trafficDefinition = trafficDefinition;
@@ -29158,14 +28990,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrafficSwarmActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrafficSwarmActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrajectoryImpl::TrajectoryImpl()
@@ -29194,38 +29025,38 @@ namespace NET_ASAM_OPENSCENARIO
             return _shape;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the trajectory type. Required if used in catalog.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the trajectory type. Required if used in catalog.]
+         * 
+        */
         void TrajectoryImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property closed
-	 * @param closed from OpenSCENARIO class model specification: [True if trajectory is closed.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property closed
+         * @param closed from OpenSCENARIO class model specification: [True if trajectory is closed.]
+         * 
+        */
         void TrajectoryImpl::SetClosed(bool closed )
         {
             _closed = closed;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void TrajectoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property shape
-	 * @param shape from OpenSCENARIO class model specification: [The shape of a trajectory (Polyline, Clothoid or Nurbs)]
-	 * 
-	*/
+        /**
+         * Sets the value of model property shape
+         * @param shape from OpenSCENARIO class model specification: [The shape of a trajectory (Polyline, Clothoid or Nurbs)]
+         * 
+        */
         void TrajectoryImpl::SetShape(std::shared_ptr<IShape> shape )
         {
             _shape = shape;
@@ -29391,14 +29222,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrajectoryImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrajectoryImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrajectoryCatalogLocationImpl::TrajectoryCatalogLocationImpl()
@@ -29413,11 +29243,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
+         * 
+        */
         void TrajectoryCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -29506,14 +29336,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrajectoryCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrajectoryCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TrajectoryFollowingModeImpl::TrajectoryFollowingModeImpl()
@@ -29529,14 +29358,14 @@ namespace NET_ASAM_OPENSCENARIO
             return _followingMode;
         }
 
-    	/**
-	 * Sets the value of model property followingMode
-	 * @param followingMode from OpenSCENARIO class model specification: [Defines (lateral) trajectory following behavior of 
-	 * the actor: Mode 'position' forces the actor to strictly adhere to the, trajectory. In contrast, mode 'follow' hands over
-	 * control to the actor. In this mode, the actor tries to follow the , trajectory as best as he can. This may be restricted
-	 * by dynamics constraints and/or control loop implementation.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property followingMode
+         * @param followingMode from OpenSCENARIO class model specification: [Defines (lateral) trajectory following behavior of 
+         * the actor: Mode 'position' forces the actor to strictly adhere to the, trajectory. In contrast, mode 'follow' hands over
+         * control to the actor. In this mode, the actor tries to follow the , trajectory as best as he can. This may be restricted
+         * by dynamics constraints and/or control loop implementation.]
+         * 
+        */
         void TrajectoryFollowingModeImpl::SetFollowingMode(FollowingMode followingMode )
         {
             _followingMode = followingMode;
@@ -29620,7 +29449,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TrajectoryFollowingModeImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TrajectoryFollowingModeImpl::GetEnumerationLiteral(std::string key)
@@ -29637,7 +29466,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         TransitionDynamicsImpl::TransitionDynamicsImpl()
@@ -29663,32 +29491,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _dynamicsDimension;
         }
 
-    	/**
-	 * Sets the value of model property dynamicsShape
-	 * @param dynamicsShape from OpenSCENARIO class model specification: [The shape of the transition function f(x) between 
-	 * current and target value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dynamicsShape
+         * @param dynamicsShape from OpenSCENARIO class model specification: [The shape of the transition function f(x) between 
+         * current and target value.]
+         * 
+        */
         void TransitionDynamicsImpl::SetDynamicsShape(DynamicsShape dynamicsShape )
         {
             _dynamicsShape = dynamicsShape;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [The value for a predefined rate (Unit: delta/s), time (Unit: 
-	 * s) or distance (Unit: m) to acquire the target value. , Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [The value for a predefined rate (Unit: delta/s), time (Unit: 
+         * s) or distance (Unit: m) to acquire the target value. , Range: [0..inf[.]
+         * 
+        */
         void TransitionDynamicsImpl::SetValue(double value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property dynamicsDimension
-	 * @param dynamicsDimension from OpenSCENARIO class model specification: [The semantics of the value: 'rate', 'time' or 
-	 * 'distance'.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property dynamicsDimension
+         * @param dynamicsDimension from OpenSCENARIO class model specification: [The semantics of the value: 'rate', 'time' or 
+         * 'distance'.]
+         * 
+        */
         void TransitionDynamicsImpl::SetDynamicsDimension(DynamicsDimension dynamicsDimension )
         {
             _dynamicsDimension = dynamicsDimension;
@@ -29797,7 +29625,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TransitionDynamicsImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TransitionDynamicsImpl::GetEnumerationLiteral(std::string key)
@@ -29821,7 +29649,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         TraveledDistanceConditionImpl::TraveledDistanceConditionImpl()
         {
             /**
@@ -29835,11 +29662,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Amount of traveled distance. Unit: m; Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Amount of traveled distance. Unit: m; Range: [0..inf[.]
+         * 
+        */
         void TraveledDistanceConditionImpl::SetValue(double value )
         {
             _value = value;
@@ -29914,14 +29741,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TraveledDistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TraveledDistanceConditionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TriggerImpl::TriggerImpl()
@@ -29936,12 +29762,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _conditionGroups;
         }
 
-    	/**
-	 * Sets the value of model property conditionGroups
-	 * @param conditionGroups from OpenSCENARIO class model specification: [List of condition groups as a container of 
-	 * conditions.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property conditionGroups
+         * @param conditionGroups from OpenSCENARIO class model specification: [List of condition groups as a container of 
+         * conditions.]
+         * 
+        */
         void TriggerImpl::SetConditionGroups(std::vector<std::shared_ptr<IConditionGroup>>& conditionGroups)
         {
             _conditionGroups = conditionGroups;
@@ -30041,14 +29867,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TriggerImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TriggerImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         TriggeringEntitiesImpl::TriggeringEntitiesImpl()
@@ -30068,20 +29893,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _entityRefs;
         }
 
-    	/**
-	 * Sets the value of model property triggeringEntitiesRule
-	 * @param triggeringEntitiesRule from OpenSCENARIO class model specification: [All or any.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property triggeringEntitiesRule
+         * @param triggeringEntitiesRule from OpenSCENARIO class model specification: [All or any.]
+         * 
+        */
         void TriggeringEntitiesImpl::SetTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule )
         {
             _triggeringEntitiesRule = triggeringEntitiesRule;
         }
-    	/**
-	 * Sets the value of model property entityRefs
-	 * @param entityRefs from OpenSCENARIO class model specification: [List of referenced entities that trigger the condition.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property entityRefs
+         * @param entityRefs from OpenSCENARIO class model specification: [List of referenced entities that trigger the condition.]
+         * 
+        */
         void TriggeringEntitiesImpl::SetEntityRefs(std::vector<std::shared_ptr<IEntityRef>>& entityRefs)
         {
             _entityRefs = entityRefs;
@@ -30198,7 +30023,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> TriggeringEntitiesImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string TriggeringEntitiesImpl::GetEnumerationLiteral(std::string key)
@@ -30217,7 +30042,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         UserDefinedActionImpl::UserDefinedActionImpl()
         {
             /**
@@ -30230,12 +30054,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _customCommandAction;
         }
 
-    	/**
-	 * Sets the value of model property customCommandAction
-	 * @param customCommandAction from OpenSCENARIO class model specification: [The available commands are subject of a 
-	 * contract between simulation environment provider and scenario author.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property customCommandAction
+         * @param customCommandAction from OpenSCENARIO class model specification: [The available commands are subject of a 
+         * contract between simulation environment provider and scenario author.]
+         * 
+        */
         void UserDefinedActionImpl::SetCustomCommandAction(std::shared_ptr<ICustomCommandAction> customCommandAction )
         {
             _customCommandAction = customCommandAction;
@@ -30324,14 +30148,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> UserDefinedActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string UserDefinedActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         UserDefinedValueConditionImpl::UserDefinedValueConditionImpl()
@@ -30357,29 +30180,29 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the external value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the external value.]
+         * 
+        */
         void UserDefinedValueConditionImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property value
-	 * @param value from OpenSCENARIO class model specification: [Reference value the external value is compared to.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property value
+         * @param value from OpenSCENARIO class model specification: [Reference value the external value is compared to.]
+         * 
+        */
         void UserDefinedValueConditionImpl::SetValue(std::string value )
         {
             _value = value;
         }
-    	/**
-	 * Sets the value of model property rule
-	 * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property rule
+         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
+         * 
+        */
         void UserDefinedValueConditionImpl::SetRule(Rule rule )
         {
             _rule = rule;
@@ -30493,7 +30316,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> UserDefinedValueConditionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string UserDefinedValueConditionImpl::GetEnumerationLiteral(std::string key)
@@ -30510,7 +30333,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         VehicleImpl::VehicleImpl()
@@ -30551,67 +30373,67 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-    	/**
-	 * Sets the value of model property name
-	 * @param name from OpenSCENARIO class model specification: [Name of the vehicle type.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property name
+         * @param name from OpenSCENARIO class model specification: [Name of the vehicle type.]
+         * 
+        */
         void VehicleImpl::SetName(std::string name )
         {
             _name = name;
         }
-    	/**
-	 * Sets the value of model property vehicleCategory
-	 * @param vehicleCategory from OpenSCENARIO class model specification: [Category of the vehicle (bicycle, train,...).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property vehicleCategory
+         * @param vehicleCategory from OpenSCENARIO class model specification: [Category of the vehicle (bicycle, train,...).]
+         * 
+        */
         void VehicleImpl::SetVehicleCategory(VehicleCategory vehicleCategory )
         {
             _vehicleCategory = vehicleCategory;
         }
-    	/**
-	 * Sets the value of model property parameterDeclarations
-	 * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property parameterDeclarations
+         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
+         * 
+        */
         void VehicleImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
         }
-    	/**
-	 * Sets the value of model property boundingBox
-	 * @param boundingBox from OpenSCENARIO class model specification: [The three dimensional bounding box that encloses the 
-	 * vehicle.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property boundingBox
+         * @param boundingBox from OpenSCENARIO class model specification: [The three dimensional bounding box that encloses the 
+         * vehicle.]
+         * 
+        */
         void VehicleImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
         {
             _boundingBox = boundingBox;
         }
-    	/**
-	 * Sets the value of model property performance
-	 * @param performance from OpenSCENARIO class model specification: [Performance properties of the vehicle.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property performance
+         * @param performance from OpenSCENARIO class model specification: [Performance properties of the vehicle.]
+         * 
+        */
         void VehicleImpl::SetPerformance(std::shared_ptr<IPerformance> performance )
         {
             _performance = performance;
         }
-    	/**
-	 * Sets the value of model property axles
-	 * @param axles from OpenSCENARIO class model specification: [A set of axles (front, rear, additional) and their geometric 
-	 * locations.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property axles
+         * @param axles from OpenSCENARIO class model specification: [A set of axles (front, rear, additional) and their geometric 
+         * locations.]
+         * 
+        */
         void VehicleImpl::SetAxles(std::shared_ptr<IAxles> axles )
         {
             _axles = axles;
         }
-    	/**
-	 * Sets the value of model property properties
-	 * @param properties from OpenSCENARIO class model specification: [Additional properties as name value pairs.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property properties
+         * @param properties from OpenSCENARIO class model specification: [Additional properties as name value pairs.]
+         * 
+        */
         void VehicleImpl::SetProperties(std::shared_ptr<IProperties> properties )
         {
             _properties = properties;
@@ -30840,7 +30662,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> VehicleImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string VehicleImpl::GetEnumerationLiteral(std::string key)
@@ -30859,7 +30681,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-
         VehicleCatalogLocationImpl::VehicleCatalogLocationImpl()
         {
             /**
@@ -30872,11 +30693,11 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-    	/**
-	 * Sets the value of model property directory
-	 * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property directory
+         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
+         * 
+        */
         void VehicleCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
         {
             _directory = directory;
@@ -30965,14 +30786,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> VehicleCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string VehicleCatalogLocationImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         VehicleCategoryDistributionImpl::VehicleCategoryDistributionImpl()
@@ -30987,12 +30807,12 @@ namespace NET_ASAM_OPENSCENARIO
             return _vehicleCategoryDistributionEntries;
         }
 
-    	/**
-	 * Sets the value of model property vehicleCategoryDistributionEntries
-	 * @param vehicleCategoryDistributionEntries from OpenSCENARIO class model specification: [List of elements that pair 
-	 * vehicle categories and their weight within the distribution.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property vehicleCategoryDistributionEntries
+         * @param vehicleCategoryDistributionEntries from OpenSCENARIO class model specification: [List of elements that pair 
+         * vehicle categories and their weight within the distribution.]
+         * 
+        */
         void VehicleCategoryDistributionImpl::SetVehicleCategoryDistributionEntries(std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>>& vehicleCategoryDistributionEntries)
         {
             _vehicleCategoryDistributionEntries = vehicleCategoryDistributionEntries;
@@ -31092,14 +30912,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string VehicleCategoryDistributionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         VehicleCategoryDistributionEntryImpl::VehicleCategoryDistributionEntryImpl()
@@ -31120,21 +30939,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _weight;
         }
 
-    	/**
-	 * Sets the value of model property category
-	 * @param category from OpenSCENARIO class model specification: [The category of the vehicles that appear in traffic.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property category
+         * @param category from OpenSCENARIO class model specification: [The category of the vehicles that appear in traffic.]
+         * 
+        */
         void VehicleCategoryDistributionEntryImpl::SetCategory(VehicleCategory category )
         {
             _category = category;
         }
-    	/**
-	 * Sets the value of model property weight
-	 * @param weight from OpenSCENARIO class model specification: [The weight of a vehicle category within a traffic 
-	 * distribution. Range: [0..inf[.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property weight
+         * @param weight from OpenSCENARIO class model specification: [The weight of a vehicle category within a traffic 
+         * distribution. Range: [0..inf[.]
+         * 
+        */
         void VehicleCategoryDistributionEntryImpl::SetWeight(double weight )
         {
             _weight = weight;
@@ -31226,7 +31045,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionEntryImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string VehicleCategoryDistributionEntryImpl::GetEnumerationLiteral(std::string key)
@@ -31243,7 +31062,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         VertexImpl::VertexImpl()
@@ -31263,20 +31081,20 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property time
-	 * @param time from OpenSCENARIO class model specification: [Optional time specification of the vertex.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property time
+         * @param time from OpenSCENARIO class model specification: [Optional time specification of the vertex.]
+         * 
+        */
         void VertexImpl::SetTime(double time )
         {
             _time = time;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [Position of the vertex.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [Position of the vertex.]
+         * 
+        */
         void VertexImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -31373,14 +31191,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> VertexImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string VertexImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         VisibilityActionImpl::VisibilityActionImpl()
@@ -31406,32 +31223,32 @@ namespace NET_ASAM_OPENSCENARIO
             return _sensors;
         }
 
-    	/**
-	 * Sets the value of model property graphics
-	 * @param graphics from OpenSCENARIO class model specification: [True: actor is visible in image generator(s). False: actor
-	 * is not visible in image generator(s).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property graphics
+         * @param graphics from OpenSCENARIO class model specification: [True: actor is visible in image generator(s). False: actor
+         * is not visible in image generator(s).]
+         * 
+        */
         void VisibilityActionImpl::SetGraphics(bool graphics )
         {
             _graphics = graphics;
         }
-    	/**
-	 * Sets the value of model property traffic
-	 * @param traffic from OpenSCENARIO class model specification: [True: actor is visible for other traffic participants, 
-	 * particularly for autonomous driver models. False: actor is not , visible for other traffic participants.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property traffic
+         * @param traffic from OpenSCENARIO class model specification: [True: actor is visible for other traffic participants, 
+         * particularly for autonomous driver models. False: actor is not , visible for other traffic participants.]
+         * 
+        */
         void VisibilityActionImpl::SetTraffic(bool traffic )
         {
             _traffic = traffic;
         }
-    	/**
-	 * Sets the value of model property sensors
-	 * @param sensors from OpenSCENARIO class model specification: [True: actor is visible in sensor(s). False: actor is not 
-	 * visible in sensor(s).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property sensors
+         * @param sensors from OpenSCENARIO class model specification: [True: actor is visible in sensor(s). False: actor is not 
+         * visible in sensor(s).]
+         * 
+        */
         void VisibilityActionImpl::SetSensors(bool sensors )
         {
             _sensors = sensors;
@@ -31522,14 +31339,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> VisibilityActionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string VisibilityActionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
 
 
         WaypointImpl::WaypointImpl()
@@ -31549,21 +31365,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-    	/**
-	 * Sets the value of model property routeStrategy
-	 * @param routeStrategy from OpenSCENARIO class model specification: [The corresponding routing strategy (fastest, 
-	 * shortest, random, leastIntersections).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property routeStrategy
+         * @param routeStrategy from OpenSCENARIO class model specification: [The corresponding routing strategy (fastest, 
+         * shortest, random, leastIntersections).]
+         * 
+        */
         void WaypointImpl::SetRouteStrategy(RouteStrategy routeStrategy )
         {
             _routeStrategy = routeStrategy;
         }
-    	/**
-	 * Sets the value of model property position
-	 * @param position from OpenSCENARIO class model specification: [The reference position to form the route.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property position
+         * @param position from OpenSCENARIO class model specification: [The reference position to form the route.]
+         * 
+        */
         void WaypointImpl::SetPosition(std::shared_ptr<IPosition> position )
         {
             _position = position;
@@ -31669,7 +31485,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> WaypointImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string WaypointImpl::GetEnumerationLiteral(std::string key)
@@ -31686,7 +31502,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         WeatherImpl::WeatherImpl()
@@ -31714,40 +31529,40 @@ namespace NET_ASAM_OPENSCENARIO
             return _precipitation;
         }
 
-    	/**
-	 * Sets the value of model property cloudState
-	 * @param cloudState from OpenSCENARIO class model specification: [Definition of the cloud state, i.e. cloud state and sky 
-	 * visualization settings.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property cloudState
+         * @param cloudState from OpenSCENARIO class model specification: [Definition of the cloud state, i.e. cloud state and sky 
+         * visualization settings.]
+         * 
+        */
         void WeatherImpl::SetCloudState(CloudState cloudState )
         {
             _cloudState = cloudState;
         }
-    	/**
-	 * Sets the value of model property sun
-	 * @param sun from OpenSCENARIO class model specification: [Definition of the sun, i.e. position and intensity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property sun
+         * @param sun from OpenSCENARIO class model specification: [Definition of the sun, i.e. position and intensity.]
+         * 
+        */
         void WeatherImpl::SetSun(std::shared_ptr<ISun> sun )
         {
             _sun = sun;
         }
-    	/**
-	 * Sets the value of model property fog
-	 * @param fog from OpenSCENARIO class model specification: [Definition of fog, i.e. visual range and bounding box.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property fog
+         * @param fog from OpenSCENARIO class model specification: [Definition of fog, i.e. visual range and bounding box.]
+         * 
+        */
         void WeatherImpl::SetFog(std::shared_ptr<IFog> fog )
         {
             _fog = fog;
         }
-    	/**
-	 * Sets the value of model property precipitation
-	 * @param precipitation from OpenSCENARIO class model specification: [Definition of precipitation, i.e. type and 
-	 * intensity.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property precipitation
+         * @param precipitation from OpenSCENARIO class model specification: [Definition of precipitation, i.e. type and 
+         * intensity.]
+         * 
+        */
         void WeatherImpl::SetPrecipitation(std::shared_ptr<IPrecipitation> precipitation )
         {
             _precipitation = precipitation;
@@ -31889,7 +31704,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> WeatherImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string WeatherImpl::GetEnumerationLiteral(std::string key)
@@ -31906,7 +31721,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-
 
 
         WorldPositionImpl::WorldPositionImpl()
@@ -31947,59 +31761,59 @@ namespace NET_ASAM_OPENSCENARIO
             return _r;
         }
 
-    	/**
-	 * Sets the value of model property x
-	 * @param x from OpenSCENARIO class model specification: [The x coordinate value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property x
+         * @param x from OpenSCENARIO class model specification: [The x coordinate value.]
+         * 
+        */
         void WorldPositionImpl::SetX(double x )
         {
             _x = x;
         }
-    	/**
-	 * Sets the value of model property y
-	 * @param y from OpenSCENARIO class model specification: [The y coordinate value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property y
+         * @param y from OpenSCENARIO class model specification: [The y coordinate value.]
+         * 
+        */
         void WorldPositionImpl::SetY(double y )
         {
             _y = y;
         }
-    	/**
-	 * Sets the value of model property z
-	 * @param z from OpenSCENARIO class model specification: [The z coordinate value.]
-	 * 
-	*/
+        /**
+         * Sets the value of model property z
+         * @param z from OpenSCENARIO class model specification: [The z coordinate value.]
+         * 
+        */
         void WorldPositionImpl::SetZ(double z )
         {
             _z = z;
         }
-    	/**
-	 * Sets the value of model property h
-	 * @param h from OpenSCENARIO class model specification: [The heading angle of the object, defining a mathematically 
-	 * positive rotation about the z-axis (see ISO 8855:2011).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property h
+         * @param h from OpenSCENARIO class model specification: [The heading angle of the object, defining a mathematically 
+         * positive rotation about the z-axis (see ISO 8855:2011).]
+         * 
+        */
         void WorldPositionImpl::SetH(double h )
         {
             _h = h;
         }
-    	/**
-	 * Sets the value of model property p
-	 * @param p from OpenSCENARIO class model specification: [The pitch angle of the object, defining a mathematically positive
-	 * rotation about the y-axis (see ISO 8855:2011).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property p
+         * @param p from OpenSCENARIO class model specification: [The pitch angle of the object, defining a mathematically positive
+         * rotation about the y-axis (see ISO 8855:2011).]
+         * 
+        */
         void WorldPositionImpl::SetP(double p )
         {
             _p = p;
         }
-    	/**
-	 * Sets the value of model property r
-	 * @param r from OpenSCENARIO class model specification: [The roll angle of the object, defining a mathematically positive 
-	 * rotation about the x-axis (see ISO 8855:2011).]
-	 * 
-	*/
+        /**
+         * Sets the value of model property r
+         * @param r from OpenSCENARIO class model specification: [The roll angle of the object, defining a mathematically positive 
+         * rotation about the x-axis (see ISO 8855:2011).]
+         * 
+        */
         void WorldPositionImpl::SetR(double r )
         {
             _r = r;
@@ -32114,15 +31928,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioFlexElement> WorldPositionImpl::GetReferencedElement(std::string key, std::string name)
         {
-                throw KeyNotSupportedException();
+            throw KeyNotSupportedException();
         }
 
         std::string WorldPositionImpl::GetEnumerationLiteral(std::string key)
         {
             throw KeyNotSupportedException();
         }
-
-
 
     }
 }

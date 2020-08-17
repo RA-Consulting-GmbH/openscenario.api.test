@@ -25,19 +25,19 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace V_1_0
     {
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * A helper class for connection all RangeChecker rules to the specific classes
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * A helper class for connection all RangeChecker rules to the specific classes
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
         class RangeCheckerHelper 
         {
         public:
-        /**
-         * Connects all range checker rules to a global scenarioChecker
-         * @param scenarioChecker the global scenarioChecker
-         */
+            /**
+            * Connects all range checker rules to a global scenarioChecker
+            * @param scenarioChecker the global scenarioChecker
+            */
             static void AddAllRangeCheckerRules(std::shared_ptr<IScenarioChecker> scenarioChecker)
             {
                 scenarioChecker->AddAbsoluteSpeedCheckerRule(std::shared_ptr<AbsoluteSpeedRangeCheckerRule>(new AbsoluteSpeedRangeCheckerRule()));

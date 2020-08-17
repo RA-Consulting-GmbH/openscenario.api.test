@@ -118,7 +118,7 @@ public:
     {
         try 
         {
-            auto openScenario = ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc"));
 
             // the root of the tree is available in the IOpenScenario openScenario variable
             // Instantiate a checker now
@@ -154,7 +154,7 @@ public:
     {
         try 
         {
-            auto openScenario = ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc"));
 
             // the root of the tree is available in the IOpenScenario openScenario variable
 

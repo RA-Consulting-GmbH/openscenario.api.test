@@ -29,24 +29,12 @@ namespace NET_ASAM_OPENSCENARIO
     namespace V_1_0
     {
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AbsoluteSpeedImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AbsoluteSpeedXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteSpeedImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AbsoluteSpeed", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AbsoluteSpeed", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AbsoluteSpeedImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteSpeedImpl>>> AbsoluteSpeedXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteSpeedImpl>>> result;
@@ -91,24 +79,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AbsoluteTargetLaneImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AbsoluteTargetLaneXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetLaneImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AbsoluteTargetLane", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AbsoluteTargetLane", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AbsoluteTargetLaneImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneImpl>>> AbsoluteTargetLaneXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneImpl>>> result;
@@ -153,24 +129,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AbsoluteTargetLaneOffsetImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AbsoluteTargetLaneOffsetXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetLaneOffsetImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AbsoluteTargetLaneOffset", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AbsoluteTargetLaneOffset", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AbsoluteTargetLaneOffsetImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneOffsetImpl>>> AbsoluteTargetLaneOffsetXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneOffsetImpl>>> result;
@@ -215,24 +179,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AbsoluteTargetSpeedImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AbsoluteTargetSpeedXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteTargetSpeedImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AbsoluteTargetSpeed", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AbsoluteTargetSpeed", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AbsoluteTargetSpeedImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetSpeedImpl>>> AbsoluteTargetSpeedXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetSpeedImpl>>> result;
@@ -277,24 +229,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AccelerationConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AccelerationConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AccelerationConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AccelerationCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AccelerationCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AccelerationConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AccelerationConditionImpl>>> AccelerationConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AccelerationConditionImpl>>> result;
@@ -378,24 +318,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AcquirePositionActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AcquirePositionActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AcquirePositionActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AcquirePositionAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AcquirePositionAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AcquirePositionActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AcquirePositionActionImpl>>> AcquirePositionActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AcquirePositionActionImpl>>> result;
@@ -425,24 +353,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetPosition(position);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ActImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ActXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Act", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Act", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ActImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ActImpl>>> ActXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ActImpl>>> result;
@@ -533,24 +449,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetStopTrigger(stopTrigger);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Action", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Action", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ActionImpl>>> ActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ActionImpl>>> result;
@@ -640,24 +544,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetPrivateAction(privateAction);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ActivateControllerActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ActivateControllerActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActivateControllerActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ActivateControllerAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ActivateControllerAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ActivateControllerActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ActivateControllerActionImpl>>> ActivateControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ActivateControllerActionImpl>>> result;
@@ -732,24 +624,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ActorsImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ActorsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActorsImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Actors", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Actors", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ActorsImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ActorsImpl>>> ActorsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ActorsImpl>>> result;
@@ -810,24 +690,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetEntityRefs(entityRefsList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AddEntityActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AddEntityActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AddEntityActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AddEntityAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AddEntityAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AddEntityActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AddEntityActionImpl>>> AddEntityActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AddEntityActionImpl>>> result;
@@ -857,24 +725,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetPosition(position);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AssignControllerActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AssignControllerActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AssignControllerAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AssignControllerAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AssignControllerActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AssignControllerActionImpl>>> AssignControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AssignControllerActionImpl>>> result;
@@ -920,24 +776,12 @@ namespace NET_ASAM_OPENSCENARIO
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AssignRouteActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AssignRouteActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing AssignRouteAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing AssignRouteAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AssignRouteActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AssignRouteActionImpl>>> AssignRouteActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AssignRouteActionImpl>>> result;
@@ -983,24 +827,12 @@ namespace NET_ASAM_OPENSCENARIO
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AxleImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AxleXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxleImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Axle", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Axle", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AxleImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AxleImpl>>> AxleXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AxleImpl>>> result;
@@ -1165,24 +997,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a AxlesImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void AxlesXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Axles", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Axles", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a AxlesImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<AxlesImpl>>> AxlesXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AxlesImpl>>> result;
@@ -1243,24 +1063,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetAdditionalAxles(additionalAxlesList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a BoundingBoxImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void BoundingBoxXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing BoundingBox", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing BoundingBox", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a BoundingBoxImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<BoundingBoxImpl>>> BoundingBoxXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<BoundingBoxImpl>>> result;
@@ -1305,24 +1113,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDimensions(dimensions);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ByEntityConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ByEntityConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ByEntityCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ByEntityCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ByEntityConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ByEntityConditionImpl>>> ByEntityConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ByEntityConditionImpl>>> result;
@@ -1367,24 +1163,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetEntityCondition(entityCondition);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ByObjectTypeImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ByObjectTypeXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByObjectTypeImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ByObjectType", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ByObjectType", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ByObjectTypeImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ByObjectTypeImpl>>> ByObjectTypeXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ByObjectTypeImpl>>> result;
@@ -1438,24 +1222,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ByTypeImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ByTypeXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByTypeImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ByType", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ByType", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ByTypeImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ByTypeImpl>>> ByTypeXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ByTypeImpl>>> result;
@@ -1509,24 +1281,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ByValueConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ByValueConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ByValueCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ByValueCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ByValueConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ByValueConditionImpl>>> ByValueConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ByValueConditionImpl>>> result;
@@ -1646,24 +1406,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetTrafficSignalControllerCondition(trafficSignalControllerCondition);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CatalogImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CatalogXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Catalog", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Catalog", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CatalogImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<CatalogImpl>>> CatalogXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<CatalogImpl>>> result;
@@ -1836,24 +1584,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetRoutes(routesList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CatalogDefinitionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CatalogDefinitionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogDefinitionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing CatalogDefinition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlGroupParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing CatalogDefinition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CatalogDefinitionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
 
         std::vector<std::shared_ptr<IElementParser<CatalogDefinitionImpl>>> CatalogDefinitionXmlParser::SubElementParser::CreateParserList()
         {
@@ -1877,24 +1613,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetCatalog(catalog);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CatalogLocationsImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CatalogLocationsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing CatalogLocations", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing CatalogLocations", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CatalogLocationsImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<CatalogLocationsImpl>>> CatalogLocationsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<CatalogLocationsImpl>>> result;
@@ -2029,24 +1753,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetRouteCatalog(routeCatalog);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CatalogReferenceImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CatalogReferenceXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogReferenceImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing CatalogReference", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing CatalogReference", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CatalogReferenceImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<CatalogReferenceImpl>>> CatalogReferenceXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<CatalogReferenceImpl>>> result;
@@ -2137,24 +1849,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetParameterAssignments(parameterAssignmentsList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CenterImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CenterXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CenterImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Center", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Center", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CenterImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<CenterImpl>>> CenterXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<CenterImpl>>> result;
@@ -2259,24 +1959,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CentralSwarmObjectImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CentralSwarmObjectXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CentralSwarmObjectImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing CentralSwarmObject", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing CentralSwarmObject", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CentralSwarmObjectImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<CentralSwarmObjectImpl>>> CentralSwarmObjectXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<CentralSwarmObjectImpl>>> result;
@@ -2323,24 +2011,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ClothoidImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ClothoidXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ClothoidImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Clothoid", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Clothoid", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ClothoidImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ClothoidImpl>>> ClothoidXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ClothoidImpl>>> result;
@@ -2520,24 +2196,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetPosition(position);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CollisionConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CollisionConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing CollisionCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing CollisionCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CollisionConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<CollisionConditionImpl>>> CollisionConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<CollisionConditionImpl>>> result;
@@ -2582,24 +2246,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetByType(byType);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Condition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Condition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ConditionImpl>>> ConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ConditionImpl>>> result;
@@ -2743,24 +2395,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetByValueCondition(byValueCondition);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ConditionGroupImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ConditionGroupXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionGroupImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ConditionGroup", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ConditionGroup", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ConditionGroupImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ConditionGroupImpl>>> ConditionGroupXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ConditionGroupImpl>>> result;
@@ -2791,24 +2431,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetConditions(conditionsList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ControlPointImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ControlPointXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControlPointImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ControlPoint", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ControlPoint", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ControlPointImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ControlPointImpl>>> ControlPointXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ControlPointImpl>>> result;
@@ -2898,24 +2526,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetPosition(position);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ControllerImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ControllerXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Controller", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Controller", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ControllerImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ControllerImpl>>> ControllerXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerImpl>>> result;
@@ -2991,24 +2607,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetProperties(properties);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ControllerActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ControllerActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ControllerAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ControllerAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ControllerActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ControllerActionImpl>>> ControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerActionImpl>>> result;
@@ -3053,24 +2657,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetOverrideControllerValueAction(overrideControllerValueAction);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ControllerCatalogLocationImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ControllerCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerCatalogLocationImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ControllerCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ControllerCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ControllerCatalogLocationImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ControllerCatalogLocationImpl>>> ControllerCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerCatalogLocationImpl>>> result;
@@ -3100,24 +2692,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDirectory(directory);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ControllerDistributionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ControllerDistributionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ControllerDistribution", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ControllerDistribution", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ControllerDistributionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionImpl>>> ControllerDistributionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionImpl>>> result;
@@ -3148,24 +2728,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetControllerDistributionEntries(controllerDistributionEntriesList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ControllerDistributionEntryImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ControllerDistributionEntryXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ControllerDistributionEntry", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ControllerDistributionEntry", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ControllerDistributionEntryImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionEntryImpl>>> ControllerDistributionEntryXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionEntryImpl>>> result;
@@ -3241,24 +2809,12 @@ namespace NET_ASAM_OPENSCENARIO
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a CustomCommandActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void CustomCommandActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CustomCommandActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing CustomCommandAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlSimpleContentParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing CustomCommandAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a CustomCommandActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<CustomCommandActionImpl>>> CustomCommandActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<CustomCommandActionImpl>>> result;
@@ -3300,24 +2856,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetContent(content);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a DeleteEntityActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void DeleteEntityActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeleteEntityActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing DeleteEntityAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing DeleteEntityAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a DeleteEntityActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<DeleteEntityActionImpl>>> DeleteEntityActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<DeleteEntityActionImpl>>> result;
@@ -3332,24 +2876,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a DimensionsImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void DimensionsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DimensionsImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Dimensions", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Dimensions", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a DimensionsImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<DimensionsImpl>>> DimensionsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<DimensionsImpl>>> result;
@@ -3454,24 +2986,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a DirectoryImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void DirectoryXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DirectoryImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Directory", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Directory", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a DirectoryImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<DirectoryImpl>>> DirectoryXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<DirectoryImpl>>> result;
@@ -3516,24 +3036,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a DistanceConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void DistanceConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistanceConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing DistanceCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing DistanceCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a DistanceConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<DistanceConditionImpl>>> DistanceConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<DistanceConditionImpl>>> result;
@@ -3692,24 +3200,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetPosition(position);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a DynamicConstraintsImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void DynamicConstraintsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DynamicConstraintsImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing DynamicConstraints", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing DynamicConstraints", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a DynamicConstraintsImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<DynamicConstraintsImpl>>> DynamicConstraintsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<DynamicConstraintsImpl>>> result;
@@ -3814,24 +3310,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EndOfRoadConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EndOfRoadConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EndOfRoadConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EndOfRoadCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EndOfRoadCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EndOfRoadConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EndOfRoadConditionImpl>>> EndOfRoadConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EndOfRoadConditionImpl>>> result;
@@ -3876,24 +3360,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EntitiesImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EntitiesXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Entities", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Entities", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EntitiesImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EntitiesImpl>>> EntitiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EntitiesImpl>>> result;
@@ -3940,24 +3412,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetEntitySelections(entitySelectionsList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EntityActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EntityActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EntityAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EntityAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EntityActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EntityActionImpl>>> EntityActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EntityActionImpl>>> result;
@@ -4034,24 +3494,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDeleteEntityAction(deleteEntityAction);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EntityConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EntityConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EntityCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EntityCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EntityConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EntityConditionImpl>>> EntityConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EntityConditionImpl>>> result;
@@ -4261,24 +3709,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetRelativeDistanceCondition(relativeDistanceCondition);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EntityObjectImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EntityObjectXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EntityObject", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlGroupParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EntityObject", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EntityObjectImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
 
         std::vector<std::shared_ptr<IElementParser<EntityObjectImpl>>> EntityObjectXmlParser::SubElementParser::CreateParserList()
         {
@@ -4348,24 +3784,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetMiscObject(miscObject);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EntityRefImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EntityRefXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityRefImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EntityRef", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EntityRef", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EntityRefImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EntityRefImpl>>> EntityRefXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EntityRefImpl>>> result;
@@ -4412,24 +3836,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EntitySelectionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EntitySelectionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitySelectionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EntitySelection", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EntitySelection", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EntitySelectionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EntitySelectionImpl>>> EntitySelectionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EntitySelectionImpl>>> result;
@@ -4489,24 +3901,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetMembers(members);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EnvironmentImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EnvironmentXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Environment", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Environment", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EnvironmentImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentImpl>>> EnvironmentXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentImpl>>> result;
@@ -4612,24 +4012,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetRoadCondition(roadCondition);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EnvironmentActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EnvironmentActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EnvironmentAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EnvironmentAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EnvironmentActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentActionImpl>>> EnvironmentActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentActionImpl>>> result;
@@ -4675,24 +4063,12 @@ namespace NET_ASAM_OPENSCENARIO
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EnvironmentCatalogLocationImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EnvironmentCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentCatalogLocationImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing EnvironmentCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing EnvironmentCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EnvironmentCatalogLocationImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentCatalogLocationImpl>>> EnvironmentCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentCatalogLocationImpl>>> result;
@@ -4722,24 +4098,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDirectory(directory);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a EventImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void EventXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Event", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Event", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a EventImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<EventImpl>>> EventXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EventImpl>>> result;
@@ -4884,24 +4248,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetStartTrigger(startTrigger);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a FileImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void FileXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FileImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing File", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing File", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a FileImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<FileImpl>>> FileXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<FileImpl>>> result;
@@ -4946,24 +4298,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a FileHeaderImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void FileHeaderXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FileHeaderImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing FileHeader", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing FileHeader", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a FileHeaderImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<FileHeaderImpl>>> FileHeaderXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<FileHeaderImpl>>> result;
@@ -5128,24 +4468,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a FinalSpeedImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void FinalSpeedXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing FinalSpeed", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing FinalSpeed", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a FinalSpeedImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<FinalSpeedImpl>>> FinalSpeedXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<FinalSpeedImpl>>> result;
@@ -5190,24 +4518,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetRelativeSpeedToMaster(relativeSpeedToMaster);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a FogImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void FogXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FogImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Fog", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Fog", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a FogImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<FogImpl>>> FogXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<FogImpl>>> result;
@@ -5267,24 +4583,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetBoundingBox(boundingBox);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a FollowTrajectoryActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void FollowTrajectoryActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing FollowTrajectoryAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing FollowTrajectoryAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a FollowTrajectoryActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<FollowTrajectoryActionImpl>>> FollowTrajectoryActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<FollowTrajectoryActionImpl>>> result;
@@ -5360,24 +4664,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetTrajectoryFollowingMode(trajectoryFollowingMode);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a GlobalActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void GlobalActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing GlobalAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing GlobalAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a GlobalActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<GlobalActionImpl>>> GlobalActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<GlobalActionImpl>>> result;
@@ -5467,24 +4759,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetTrafficAction(trafficAction);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a InRoutePositionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void InRoutePositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing InRoutePosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing InRoutePosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a InRoutePositionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<InRoutePositionImpl>>> InRoutePositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<InRoutePositionImpl>>> result;
@@ -5544,24 +4824,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetFromLaneCoordinates(fromLaneCoordinates);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a InfrastructureActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void InfrastructureActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InfrastructureActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing InfrastructureAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing InfrastructureAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a InfrastructureActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<InfrastructureActionImpl>>> InfrastructureActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<InfrastructureActionImpl>>> result;
@@ -5591,24 +4859,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetTrafficSignalAction(trafficSignalAction);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a InitImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void InitXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Init", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Init", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a InitImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<InitImpl>>> InitXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<InitImpl>>> result;
@@ -5638,24 +4894,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetActions(actions);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a InitActionsImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void InitActionsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing InitActions", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing InitActions", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a InitActionsImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<InitActionsImpl>>> InitActionsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<InitActionsImpl>>> result;
@@ -5718,24 +4962,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetPrivates(privatesList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a KnotImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void KnotXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<KnotImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Knot", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Knot", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a KnotImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<KnotImpl>>> KnotXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<KnotImpl>>> result;
@@ -5780,24 +5012,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LaneChangeActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LaneChangeActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LaneChangeAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LaneChangeAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LaneChangeActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeActionImpl>>> LaneChangeActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeActionImpl>>> result;
@@ -5872,24 +5092,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetLaneChangeTarget(laneChangeTarget);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LaneChangeTargetImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LaneChangeTargetXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LaneChangeTarget", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LaneChangeTarget", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LaneChangeTargetImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeTargetImpl>>> LaneChangeTargetXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeTargetImpl>>> result;
@@ -5934,24 +5142,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetAbsoluteTargetLane(absoluteTargetLane);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LaneOffsetActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LaneOffsetActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LaneOffsetAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LaneOffsetAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LaneOffsetActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionImpl>>> LaneOffsetActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionImpl>>> result;
@@ -6026,24 +5222,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetLaneOffsetTarget(laneOffsetTarget);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LaneOffsetActionDynamicsImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LaneOffsetActionDynamicsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionDynamicsImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LaneOffsetActionDynamics", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LaneOffsetActionDynamics", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LaneOffsetActionDynamicsImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionDynamicsImpl>>> LaneOffsetActionDynamicsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionDynamicsImpl>>> result;
@@ -6127,24 +5311,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LaneOffsetTargetImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LaneOffsetTargetXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LaneOffsetTarget", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LaneOffsetTarget", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LaneOffsetTargetImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetTargetImpl>>> LaneOffsetTargetXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetTargetImpl>>> result;
@@ -6189,24 +5361,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetAbsoluteTargetLaneOffset(absoluteTargetLaneOffset);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LanePositionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LanePositionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LanePositionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LanePosition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LanePosition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LanePositionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LanePositionImpl>>> LanePositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LanePositionImpl>>> result;
@@ -6356,24 +5516,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetOrientation(orientation);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LateralActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LateralActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LateralAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LateralAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LateralActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LateralActionImpl>>> LateralActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LateralActionImpl>>> result;
@@ -6433,24 +5581,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetLateralDistanceAction(lateralDistanceAction);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LateralDistanceActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LateralDistanceActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralDistanceActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LateralDistanceAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LateralDistanceAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LateralDistanceActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LateralDistanceActionImpl>>> LateralDistanceActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LateralDistanceActionImpl>>> result;
@@ -6602,24 +5738,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDynamicConstraints(dynamicConstraints);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LongitudinalActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LongitudinalActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LongitudinalAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LongitudinalAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LongitudinalActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalActionImpl>>> LongitudinalActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalActionImpl>>> result;
@@ -6664,24 +5788,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetLongitudinalDistanceAction(longitudinalDistanceAction);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a LongitudinalDistanceActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void LongitudinalDistanceActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalDistanceActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing LongitudinalDistanceAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing LongitudinalDistanceAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a LongitudinalDistanceActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalDistanceActionImpl>>> LongitudinalDistanceActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalDistanceActionImpl>>> result;
@@ -6863,24 +5975,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDynamicConstraints(dynamicConstraints);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ManeuverImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ManeuverXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Maneuver", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Maneuver", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ManeuverImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverImpl>>> ManeuverXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverImpl>>> result;
@@ -6957,24 +6057,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetEvents(eventsList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ManeuverCatalogLocationImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ManeuverCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverCatalogLocationImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ManeuverCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ManeuverCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ManeuverCatalogLocationImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverCatalogLocationImpl>>> ManeuverCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverCatalogLocationImpl>>> result;
@@ -7004,24 +6092,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDirectory(directory);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ManeuverGroupImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ManeuverGroupXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ManeuverGroup", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ManeuverGroup", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ManeuverGroupImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverGroupImpl>>> ManeuverGroupXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverGroupImpl>>> result;
@@ -7144,24 +6220,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetManeuvers(maneuversList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a MiscObjectImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void MiscObjectXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing MiscObject", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing MiscObject", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a MiscObjectImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectImpl>>> MiscObjectXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectImpl>>> result;
@@ -7321,24 +6385,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetProperties(properties);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a MiscObjectCatalogLocationImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void MiscObjectCatalogLocationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectCatalogLocationImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing MiscObjectCatalogLocation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing MiscObjectCatalogLocation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a MiscObjectCatalogLocationImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectCatalogLocationImpl>>> MiscObjectCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectCatalogLocationImpl>>> result;
@@ -7368,24 +6420,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetDirectory(directory);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ModifyRuleImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ModifyRuleXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ModifyRule", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ModifyRule", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ModifyRuleImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ModifyRuleImpl>>> ModifyRuleXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ModifyRuleImpl>>> result;
@@ -7430,24 +6470,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetMultiplyByValue(multiplyByValue);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a NoneImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void NoneXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NoneImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing None", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing None", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a NoneImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<NoneImpl>>> NoneXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<NoneImpl>>> result;
@@ -7462,24 +6490,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a NurbsImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void NurbsXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Nurbs", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Nurbs", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a NurbsImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<NurbsImpl>>> NurbsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<NurbsImpl>>> result;
@@ -7556,24 +6572,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetKnots(knotsList);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a ObjectControllerImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void ObjectControllerXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing ObjectController", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing ObjectController", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a ObjectControllerImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<ObjectControllerImpl>>> ObjectControllerXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ObjectControllerImpl>>> result;
@@ -7619,24 +6623,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetController(controller);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OffroadConditionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OffroadConditionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OffroadConditionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OffroadCondition", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OffroadCondition", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OffroadConditionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OffroadConditionImpl>>> OffroadConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OffroadConditionImpl>>> result;
@@ -7681,24 +6673,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OpenScenarioImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OpenScenarioXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OpenScenario", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OpenScenario", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OpenScenarioImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OpenScenarioImpl>>> OpenScenarioXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OpenScenarioImpl>>> result;
@@ -7743,24 +6723,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetOpenScenarioCategory(openScenarioCategory);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OpenScenarioCategoryImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OpenScenarioCategoryXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OpenScenarioCategory", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlGroupParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OpenScenarioCategory", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OpenScenarioCategoryImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
 
         std::vector<std::shared_ptr<IElementParser<OpenScenarioCategoryImpl>>> OpenScenarioCategoryXmlParser::SubElementParser::CreateParserList()
         {
@@ -7799,24 +6767,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetCatalogDefinition(catalogDefinition);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OrientationImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OrientationXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OrientationImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing Orientation", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing Orientation", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OrientationImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OrientationImpl>>> OrientationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OrientationImpl>>> result;
@@ -7960,24 +6916,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OverrideBrakeActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OverrideBrakeActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideBrakeActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OverrideBrakeAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OverrideBrakeAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideBrakeActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OverrideBrakeActionImpl>>> OverrideBrakeActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideBrakeActionImpl>>> result;
@@ -8052,24 +6996,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OverrideClutchActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OverrideClutchActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideClutchActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OverrideClutchAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OverrideClutchAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideClutchActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> OverrideClutchActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> result;
@@ -8144,24 +7076,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OverrideControllerValueActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OverrideControllerValueActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OverrideControllerValueAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OverrideControllerValueAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideControllerValueActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OverrideControllerValueActionImpl>>> OverrideControllerValueActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideControllerValueActionImpl>>> result;
@@ -8266,24 +7186,12 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetGear(gear);
         }
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OverrideGearActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OverrideGearActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideGearActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OverrideGearAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OverrideGearAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideGearActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OverrideGearActionImpl>>> OverrideGearActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideGearActionImpl>>> result;
@@ -8358,24 +7266,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OverrideParkingBrakeActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OverrideParkingBrakeActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideParkingBrakeActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OverrideParkingBrakeAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OverrideParkingBrakeAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideParkingBrakeActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OverrideParkingBrakeActionImpl>>> OverrideParkingBrakeActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideParkingBrakeActionImpl>>> result;
@@ -8450,24 +7346,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OverrideSteeringWheelActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OverrideSteeringWheelActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideSteeringWheelActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OverrideSteeringWheelAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OverrideSteeringWheelAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideSteeringWheelActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> OverrideSteeringWheelActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> result;
@@ -8542,24 +7426,12 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-    /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
- * Filling a OverrideThrottleActionImpl instance from an xml tree.
- * 
- * @author RA Consulting OpenSCENARIO generation facility
-*/
-
-		/*
-        void OverrideThrottleActionXmlParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideThrottleActionImpl>& object)
-        {
-            auto msg = FileContentMessage("Start Parsing OverrideThrottleAction", DEBUG, Textmarker(indexedElement->GetStartElementLocation().GetLine(), indexedElement->GetStartElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-            XmlComplexTypeParser::ParseElement(indexedElement,  parserContext, object);
-            msg = FileContentMessage("End Parsing OverrideThrottleAction", DEBUG, Textmarker(indexedElement->GetEndElementLocation().GetLine(), indexedElement->GetEndElementLocation().GetColumn(), _filename));
-            _messageLogger.LogMessage(msg);
-        }
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideThrottleActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
         */
-
         std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> OverrideThrottleActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> result;

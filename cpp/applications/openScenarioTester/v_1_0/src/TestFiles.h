@@ -172,7 +172,7 @@ public:
         {
             _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCustomCommandAction.xosc";
-            auto openScenarioImpl = ExecuteParsing(kFilename);
+            auto openScenarioImpl = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(kFilename));
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
             const auto kContent = openScenarioImpl->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetInit()->GetActions()->GetUserDefinedActions()[0]->GetCustomCommandAction()->GetContent();
