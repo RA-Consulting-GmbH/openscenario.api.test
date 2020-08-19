@@ -37,7 +37,7 @@ public:
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
         // Loading 
-        auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(loader->Load(kMessageLogger));
+        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario).name()));
 
         //Check for errors
         if (!kMessageLogger->HasErrors())

@@ -49,12 +49,15 @@ public:
     {
         auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(filename);
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
-        return loader->Load(_messageLogger, injectedProperties);
+        auto ptr = loader->Load(_messageLogger, injectedProperties);
+        if (ptr != nullptr)
+            return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl>(ptr->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl).name()));
+        return nullptr;
     }
 
     std::shared_ptr<NET_ASAM_OPENSCENARIO::IOpenScenarioModelElement> ExecuteParsing(std::string filename) const
     {
-        std::map<std::string, std::string> emptyMap;
+       std::map<std::string, std::string> emptyMap;
        return ExecuteParsing(filename, emptyMap);
     }
 
@@ -63,7 +66,11 @@ public:
     {
         auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
-        return loader->Load(_messageLogger);
+        auto ptr = loader->Load(_messageLogger);
+        if (ptr != nullptr)
+            return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl>(ptr->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl).name()));
+        else
+            return nullptr;
     }
 
     void ClearMessageLogger() const
