@@ -2,70 +2,82 @@
 
 # get script folder
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-# cd to project root
-cd ${SCRIPT_DIR}/../../
-
-if [ ! -d "${SCRIPT_DIR}/../output/Linux/Release" ]; then
-    echo "Please run './generate_Linux.sh Release make' to compile the binaries!"
+# check for parameter
+if [[ $1 == "" ]] ; then
+    echo "Parameter missing."
+    echo "Usage: $0 <openSCENARIO API folder>"
     exit -1
 fi
+# cd to includes
+OPEN_SCEANARIO_API=$1
+cd ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}
 
-echo "Script not finished, yet."
-exit -1
+# CMakeLists.txt prefix
+echo "################################################################
+cmake_minimum_required( VERSION 3.8.2 )
+project( OpenScenario.v1_0.TestProject )
+message("\${PROJECT_NAME}")
+
 
 ################################################################
-# prepare include files
-################################################################
-# path and file name for findHeaders.sh
-# it is placed in the openScenarioTester project folder
-FIND_HEADERS_SH_PATH=./applications/openScenarioTester/v_1_0/src
-FIND_HEADERS_SH_FILE=findHeaders.sh
-FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
+# Preprocessor settings
+if( WIN32 )
+  add_definitions( -D_CRT_SECURE_NO_WARNINGS )
+else( WIN32 )
+  add_definitions( -Wall -fPIC -Wno-unused-variable )
+endif( WIN32 )
 
-# prepare inlude paths for C++ compiler in order to extract ALL necessary non-system include files
-# this has to be done outside the openScenarioTester project folder to also reach all referenced external dependencies
-echo "#!/bin/bash" > ${FIND_HEADERS_SH}
-echo "cpp -MM \\" >> ${FIND_HEADERS_SH}
-for i in `find . -type d -print` ; do
-    echo "-I ../../../.$i \\" >> ${FIND_HEADERS_SH} ;
+
+################################################################
+# Set compile output folder
+RAC_SET_FOLDERS()
+message ("Building all into: \${CMAKE_BINARY_DIR}")
+
+
+################################################################
+# Include folders" > CMakeLists.txt
+
+# CMakeLists.txt includes
+for i in `find ./include -type d -print` ; do
+    j=`echo $i | cut -c3-`
+    echo "include_directories( \${CMAKE_SOURCE_DIR}/$j )" >> CMakeLists.txt
 done
-echo OpenScenarioTester.cpp >> ${FIND_HEADERS_SH}
 
-# give the findHeaders.sh exec rights
-chmod a+x ${FIND_HEADERS_SH}
+# CMakeLists.txt sources, headers, target def
+echo "
 
-# go to the openScenarioTester folder where its main file OpenScenarioTester.cpp is located
-cd ${SCRIPT_DIR}/../../applications/openScenarioTester/v_1_0/src/
-# prepare the openScenario source for install folder; ok it is a bit clumsy but it works as expected
-echo "rm -rf ${SCRIPT_DIR}/../../applications/openScenarioTester/v_1_0/src/install"
-rm -rf install
-mkdir -p install/include/openSCENARIO/a/b/c/d
-# and now let the compiler collect all necessary dependent header files
-# and copy them preserving their directory structure
-for i in `./${FIND_HEADERS_SH_FILE}` ; do
-    if [[ $i != "\\" ]] && [[ $i != *".cpp"* ]] && \
-       [[ $i != *".o"* ]] && [[ $i != *"openScenarioTester"* ]] ; then
-        cp -i --parents $i install/include/openSCENARIO/a/b/c/d ;
-    fi ;
-done
-# clean up
-echo "rm -rf ${SCRIPT_DIR}/../../applications/openScenarioTester/v_1_0/src/install/include/openSCENARIO/a"
-rm -rf install/include/openSCENARIO/a
+################################################################
+# Source files
+set( SOURCES
+  \${SOURCES}
+  # your sources here
+)
+
+################################################################
+# Header files
+set( HEADERS
+  \${HEADERS}
+  # your headers here
+)
+
+################################################################
+# Create groups for VS
+if( MSVC )
+  # Groups for source files
+  source_group( Sources FILES \${SOURCES} )
+
+  # Groups for header files
+  source_group( Headers FILES \${HEADERS} )
+endif()
+
+################################################################
+# Generate executable
+add_executable( \${PROJECT_NAME} \${SOURCES} \${HEADERS} )
+target_link_libraries( \${PROJECT_NAME} OpenScenarioLib.v1_0 )
 
 
 ################################################################
-# prepare lib files
-################################################################
-# create lib folder
-mkdir -p install/lib/openSCENARIO
-
-# copy libs
-cp -a ${SCRIPT_DIR}/../output/Linux/Release/lib* install/lib/openSCENARIO
-
-# strip debug infos
-strip install/lib/openSCENARIO/*
-
-# tar and gzip
-CUR_DATE=`date '+%Y.%m.%d'`
-tar -zcf openSCENARIO_${CUR_DATE}.tgz install
-mv openSCENARIO_${CUR_DATE}.tgz ${SCRIPT_DIR}
+# Visual Studio solution settings
+if( MSVC )
+  set_target_properties( \${PROJECT_NAME} PROPERTIES FOLDER Apps )
+endif()" >> CMakeLists.txt

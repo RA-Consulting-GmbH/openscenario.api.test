@@ -1,68 +1,53 @@
 #!/bin/bash
 
+
+################################################################
+# setup some variables
+################################################################
 # get script folder
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-# cd to project root
-cd ${SCRIPT_DIR}/../../
+# cd to script dir
+cd ${SCRIPT_DIR}
+# set openSCENARIO API folder
+OPEN_SCEANARIO_API=openScenario.v1_0.API
 
-if [ ! -d "${SCRIPT_DIR}/../output/Linux/Release" ]; then
-    echo "Please run './generate_Linux.sh Release make' to compile the binaries!"
-    exit -1
+
+################################################################
+# prepare includes
+################################################################
+# check if headers are collected
+if [ ! -d "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}" ] ; then
+    echo "Collecting headers"
+    ${SCRIPT_DIR}/collectHeaderFiles.sh ${OPEN_SCEANARIO_API}
 fi
 
+
 ################################################################
-# prepare include files
+# prepare CMakeLists.txt
 ################################################################
-# path and file name for findHeaders.sh
-# it is placed in the openScenarioTester project folder
-FIND_HEADERS_SH_PATH=./applications/openScenarioTester/v_1_0/src
-FIND_HEADERS_SH_FILE=findHeaders.sh
-FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
-
-# prepare inlude paths for C++ compiler in order to extract ALL necessary non-system include files
-# this has to be done outside the openScenarioTester project folder to also reach all referenced external dependencies
-echo "#!/bin/bash" > ${FIND_HEADERS_SH}
-echo "cpp -MM \\" >> ${FIND_HEADERS_SH}
-for i in `find . -type d -print` ; do
-    echo "-I ../../../.$i \\" >> ${FIND_HEADERS_SH} ;
-done
-echo OpenScenarioTester.cpp >> ${FIND_HEADERS_SH}
-
-# give the findHeaders.sh exec rights
-chmod a+x ${FIND_HEADERS_SH}
-
-# go to the openScenarioTester folder where its main file OpenScenarioTester.cpp is located
-cd ${SCRIPT_DIR}/../../applications/openScenarioTester/v_1_0/src/
-# prepare the openScenario source for install folder; ok it is a bit clumsy but it works as expected
-echo "rm -rf ${SCRIPT_DIR}/../../applications/openScenarioTester/v_1_0/src/openScenarioAPI"
-rm -rf openScenarioAPI
-mkdir -p openScenarioAPI/include/a/b/c/d
-# and now let the compiler collect all necessary dependent header files
-# and copy them preserving their directory structure
-for i in `./${FIND_HEADERS_SH_FILE}` ; do
-    if [[ $i != "\\" ]] && [[ $i != *".cpp"* ]] && \
-       [[ $i != *".o"* ]] && [[ $i != *"openScenarioTester"* ]] ; then
-        cp -i --parents $i openScenarioAPI/include/a/b/c/d ;
-    fi ;
-done
-# clean up
-echo "rm -rf ${SCRIPT_DIR}/../../applications/openScenarioTester/v_1_0/src/openScenarioAPI/include/openSCENARIO/a"
-rm -rf openScenarioAPI/include/a
+${SCRIPT_DIR}/createCMakeListsTemplate.sh ${OPEN_SCEANARIO_API}
 
 
 ################################################################
 # prepare lib files
 ################################################################
+# check if libraries are already compiled
+if [ ! -d "${SCRIPT_DIR}/../output/Linux/Release" ] ; then
+    echo "Please run './generate_Linux.sh Release make' to compile the openSCENARIO libraries!"
+    exit -1
+fi
+
 # create lib folder
-mkdir -p openScenarioAPI/lib
+mkdir -p ${OPEN_SCEANARIO_API}/lib
 
 # copy libs
-cp -a ${SCRIPT_DIR}/../output/Linux/Release/lib* openScenarioAPI/lib
+cp -a ${SCRIPT_DIR}/../output/Linux/Release/lib* ${OPEN_SCEANARIO_API}/lib
 
 # strip debug infos
-strip openScenarioAPI/lib/*
+strip ${OPEN_SCEANARIO_API}/lib/*
 
 # tar and gzip
 CUR_DATE=`date '+%Y.%m.%d'`
-tar -zcf openSCENARIO_${CUR_DATE}.tgz openScenarioAPI
-mv openSCENARIO_${CUR_DATE}.tgz ${SCRIPT_DIR}
+tar -zcf ${OPEN_SCEANARIO_API}_${CUR_DATE}.tgz ${OPEN_SCEANARIO_API}
+
+

@@ -11,7 +11,7 @@ list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}" )
 include( CMakeHelpers )
 
 ################################################################
-# Build as static or shared lib, Debug or Release, for Linuc or Windows
+# Build as static or shared lib, Debug or Release, for Linux or Windows
 option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
 if( UNIX )
     if(NOT CMAKE_BUILD_TYPE)
@@ -31,6 +31,17 @@ RAC_SET_COMMON_PARAM()
 RAC_SET_CPP_PARAM()
 RAC_SET_BUILD_PARAM()
 
+
+################################################################
+# Get company info
+RAC_GET_COMPANY_INFO( "${PROJECT_SOURCE_DIR}/common/companyInfo.txt" )
+################################################################
+# Get version
+RAC_GET_VERSION( "common/version.h" )
+set(VERSION_COMMA "${VERSION_MAJOR},${VERSION_MINOR},${PATCHNUMBER},0")
+set(VERSION_PERIOD "${VERSION_MAJOR}.${VERSION_MINOR}.${PATCHNUMBER}.0")
+ 
+
 ################################################################
 # Add subprojects
 # DiagRA Portable dependencies, not master
@@ -47,15 +58,15 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 add_subdirectory( externalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/externalLibs/ANTLR4-Cpp-src)
 
 # CoreLibraries
-add_subdirectory( openScenarioLib/v_1_0 ${PROJECT_BINARY_DIR}/openScenarioLib/v_1_0 )
+add_subdirectory( openScenarioLib/v1_0 ${PROJECT_BINARY_DIR}/openScenarioLib/v1_0 )
 
 # Applications
-add_subdirectory( applications/openScenarioReader/v_1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioReader/v_1_0 )
-add_subdirectory( applications/openScenarioTester/v_1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioTester/v_1_0)
+add_subdirectory( applications/openScenarioReader/v1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioReader/v1_0 )
+add_subdirectory( applications/openScenarioTester/v1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioTester/v1_0)
 add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
 
 ################################################################
 # Visual Studio Startup Project and debug cmd line args
 if( MSVC )
-  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenarioReaderV_1_0" )
+  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenarioReader.v1_0" )
 endif()

@@ -35,7 +35,7 @@
 * Building customer specific sets of authoring guidelines with the generic checker rule interface.
 * Enabling reading access to backends and to the cloud.
 * Analyzing scenarios for building comparators, doing data mining etc.
-* Storing precompiled scenarios in efficient storage formats in databases.
+* Storing pre-compiled scenarios in efficient storage formats in databases.
 
 # Building the Sources
 ## JAVA
@@ -64,7 +64,15 @@ The Linux and Windows (post) build steps are still under development and work in
 * Make sure you have `cmake` installed.
 
 ### Linux
-* Install `uuid-dev`:
+##### System requirements:
+- gcc >= 5.0
+- cmake >= 3.8
+- SSD/HDD free space >= 1.5 GB
+- Main memory >= 8 GB
+If you have 8 GB then please change the last line in the script `generateLinux.sh` from `make -j8` to `make`. 
+
+##### Build steps:
+* Install `uuid-dev` (needed for building antlr4):
 ```bash
 $ sudo apt install uuid-dev
 ```
@@ -72,7 +80,8 @@ $ sudo apt install uuid-dev
 ```bash
 $ ./generateLinux.sh Release make
 ```
-* The general call to the script above is `./generateLinux.sh [Release|Debug] [make]`.
+* This creates all necessary makefiles for building the openSCENARIO library as shared library and starts the compilation process by executing `make -j8` starting 8 build threads. If you have 8 GB then change the make command to `make` only as described above in the paragraph **"System requirements"**.
+* The general call to the script above is `./generateLinux.sh [Release|Debug] [static] [make]`.
 * To create a package containing all necessary include files and binaries (libraries) execute the bash script below. A file named `openSCENARIO_<date>.tgz` will be created.
 ```bash
 $ ./createLinuxBinPackage.sh

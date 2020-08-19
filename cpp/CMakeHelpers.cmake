@@ -71,3 +71,68 @@ macro (RAC_SET_FOLDERS)
     set( EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR} )
     set( LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR} )
 endmacro (RAC_SET_FOLDERS)
+
+
+################################################################
+# Parses the version.h header file...
+function (RAC_GET_VERSION versionfilepath)
+    file(READ ${versionfilepath} version_h)
+
+    string(REGEX MATCH "MAJORVERSION[ \t]*([0-9]*)" _ ${version_h})
+    set(VERSION_MAJOR ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "MINORVERSION[ \t]*([0-9]*)" _ ${version_h})
+    set(VERSION_MINOR ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "PATCHNUMBER[ \t]*([0-9]*)" _ ${version_h})
+    set(PATCHNUMBER ${CMAKE_MATCH_1} PARENT_SCOPE)
+    
+#    string(TIMESTAMP VERSION_TIME "%H:%M:%S" UTC)
+#    set(VERSION_TIME ${VERSION_TIME} PARENT_SCOPE)
+#    add_definitions(-DVERSION_TIME="${VERSION_TIME}")
+    
+#    string(TIMESTAMP VERSION_DATE "%Y-%m-%d" UTC)
+#    set(VERSION_DATE ${VERSION_DATE} PARENT_SCOPE)
+#    add_definitions(-DVERSION_DATE="${VERSION_DATE}")
+endfunction (RAC_GET_VERSION)
+
+
+################################################################
+# Generate version, company, and product info for Windows resource file (parses the companyInfo.txt file...)
+function (RAC_GET_COMPANY_INFO companyInfoFilepath)
+    file(READ ${companyInfoFilepath} companyInfo_txt)
+
+    string(REGEX MATCH "COMPANY_NAME=([^\r\n]*)[ \t\r\n]+" _ ${companyInfo_txt})
+    set(COMPANY_NAME ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "COMPANY_ADDRESS_STREET=([^\r\n]*)[ \t\r\n]+" _ ${companyInfo_txt})
+    set(COMPANY_ADDRESS_STREET ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "COMPANY_ADDRESS_POSTAL_CODE=([^\r\n]*)[ \t\r\n]+" _ ${companyInfo_txt})
+    set(COMPANY_ADDRESS_POSTAL_CODE ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "COMPANY_ADDRESS_CITY=([^\r\n]*)[ \t\r\n]+" _ ${companyInfo_txt})
+    set(COMPANY_ADDRESS_CITY ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "COMPANY_ADDRESS_COUNTRY=([^\r\n]*)[ \t\r\n]+" _ ${companyInfo_txt})
+    set(COMPANY_ADDRESS_COUNTRY ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "LEGAL_COPYRIGHT=([^\r\n]*)[ \t\r\n]+" _ ${companyInfo_txt})
+    set(LEGAL_COPYRIGHT ${CMAKE_MATCH_1})
+    string(TIMESTAMP LEGAL_YEAR "%Y" UTC)
+    set(LEGAL_COPYRIGHT "${LEGAL_COPYRIGHT} ${LEGAL_YEAR}" PARENT_SCOPE)
+endfunction (RAC_GET_COMPANY_INFO)
+
+function (RAC_GET_PRODUCT_INFO productInfoFilepath)
+    file(READ ${productInfoFilepath} productInfo_txt)
+
+    string(REGEX MATCH "PRODUCT_NAME=([^\r\n]*)[ \t\r\n]+" _ ${productInfo_txt})
+    set(PRODUCT_NAME ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "PRODUCT_TYPE=([^\r\n]*)[ \t\r\n]+" _ ${productInfo_txt})
+    set(PRODUCT_TYPE ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "FILE_DESCRIPTION=([^\r\n]*)[ \t\r\n]+" _ ${productInfo_txt})
+    set(FILE_DESCRIPTION ${CMAKE_MATCH_1} PARENT_SCOPE)
+endfunction (RAC_GET_PRODUCT_INFO)
+

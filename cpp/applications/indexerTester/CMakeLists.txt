@@ -22,7 +22,7 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 # Include folders
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/common/xmlIndexer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/v_1_0/generated/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/v1_0/generated/xmlParser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
@@ -65,7 +65,7 @@ endif()
 # Generate executable
 add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} )
 
-target_link_libraries( ${PROJECT_NAME} OpenScenarioLibV_1_0 )
+target_link_libraries( ${PROJECT_NAME} OpenScenarioLib.v1_0 )
 
 
 ################################################################

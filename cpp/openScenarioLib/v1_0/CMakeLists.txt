@@ -1,6 +1,6 @@
 ################################################################
 cmake_minimum_required( VERSION 3.8.2 )
-project( OpenScenarioLibV_1_0 )
+project( OpenScenarioLib.v1_0 )
 message("${PROJECT_NAME}")
 
 ################################################################
@@ -14,12 +14,17 @@ endif( WIN32 )
 ################################################################
 # Preprocessor settings
 # Shared or static lib?
-if( BUILD_STATIC_LIBS )
+if( BUILD_STATIC_LIBS STREQUAL "ON" )
   set( LIB_TYPE "STATIC" )
 else()
-  add_definitions( -DEXPORT_OPENSCENARIOLIB)
+  add_definitions( -DEXPORT_OPENSCENARIOLIB )
   set( LIB_TYPE "SHARED" )
 endif()
+
+################################################################
+# Update rc file
+RAC_GET_PRODUCT_INFO("${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt")
+configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc")
 
 ################################################################
 # Include folders
@@ -274,6 +279,15 @@ set( HEADERS_GENERATED_XMLPARSER
   "generated/xmlParser/XMLLexer.h"
 )
 
+# Resource files
+if( MSVC )
+  set( RESOURCE_FILES
+    "rc/${PROJECT_NAME}.rc"
+    "rc/resource.h"
+  )
+  set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
+endif()
+
 ################################################################
 # Create groups for VS
 if( MSVC )
@@ -320,7 +334,7 @@ endif()
 
 ################################################################
 # Generate the library
-add_library ( ${PROJECT_NAME} ${SOURCES} ${SOURCES_GENERATED_API} ${SOURCES_GENERATED_CHECKER_IMPL} ${SOURCES_GENERATED_CHECKER_RANGE} 
+add_library ( ${PROJECT_NAME} ${LIB_TYPE} ${SOURCES} ${SOURCES_GENERATED_API} ${SOURCES_GENERATED_CHECKER_IMPL} ${SOURCES_GENERATED_CHECKER_RANGE} 
               ${SOURCES_GENERATED_IMPL} ${SOURCES_GENERATED_XMLPARSER} ${SOURCES_LOADER} 
               ${HEADERS}
               ${HEADERS_COMMON_API} ${HEADERS_COMMON_COMMON} ${HEADERS_COMMON_CHECKER} ${HEADERS_COMMON_IMPL} ${HEADERS_COMMON_PARAMETER}
@@ -328,15 +342,23 @@ add_library ( ${PROJECT_NAME} ${SOURCES} ${SOURCES_GENERATED_API} ${SOURCES_GENE
               ${HEADERS_COMMON_SIMPLE_STRUCT} ${HEADERS_COMMON_LOADER}
               ${HEADERS_PARAMETER} ${HEADERS_PARSER} ${HEADERS_CATALOG} ${HEADERS_LOADER} ${HEADERS_CHECKER}
               ${HEADERS_GENERATED_API} ${HEADERS_GENERATED_COMMON} ${HEADERS_GENERATED_CHECKER} ${HEADERS_GENERATED_CHECKER_IMPL} 
-              ${HEADERS_GENERATED_CHECKER_RANGE} ${HEADERS_GENERATED_CATALOG} ${HEADERS_GENERATED_IMPL} ${HEADERS_GENERATED_XMLPARSER})
+              ${HEADERS_GENERATED_CHECKER_RANGE} ${HEADERS_GENERATED_CATALOG} ${HEADERS_GENERATED_IMPL} ${HEADERS_GENERATED_XMLPARSER} 
+              ${RESOURCE_FILES} )
 
-if( BUILD_STATIC_LIBS )
+if( BUILD_STATIC_LIBS STREQUAL "ON" )
   target_link_libraries( ${PROJECT_NAME} antlr4_static )
 else()
   target_link_libraries( ${PROJECT_NAME} antlr4_shared )
 endif()
 
 ################################################################
+# Linux lib versioning
+if( UNIX )
+  set_target_properties( ${PROJECT_NAME} PROPERTIES VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${PATCHNUMBER} )
+  set_target_properties( ${PROJECT_NAME} PROPERTIES SOVERSION ${VERSION_MAJOR} )
+endif()
+ 
+ ################################################################
 # Visual Studio solution folders
 if( MSVC )
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251")

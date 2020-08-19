@@ -1,6 +1,6 @@
 ################################################################
 cmake_minimum_required( VERSION 3.8.2 )
-project( OpenScenarioReaderV_1_0 )
+project( OpenScenarioReader.v1_0 )
 message("${PROJECT_NAME}")
 
 ################################################################
@@ -29,10 +29,10 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../externalLibs/TinyXML2 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../externalLibs/Filesystem)
 
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/src/parser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/catalog )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/loader )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/parameter )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/parser )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/api )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/checker )
@@ -46,14 +46,14 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/simple/struct )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/xmlIndexer )
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v_1_0/generated/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/api )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/common )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/checker )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/checker/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/checker/range )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/catalog)
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/xmlParser )
 
 
 ################################################################
@@ -85,7 +85,7 @@ endif()
 ################################################################
 # Visual Studio debug cmd line args
 if( MSVC )
-FILE( WRITE "${CMAKE_CURRENT_BINARY_DIR}/OpenScenarioReaderV_1_0.vcxproj.user"
+FILE( WRITE "${CMAKE_CURRENT_BINARY_DIR}/OpenScenarioReaderv1_0.vcxproj.user"
   "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
   "<Project ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\n"
   "  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='Debug|${PLATFORM_PARAM}'\">\n"
@@ -113,7 +113,7 @@ endif()
 # Generate executable
 add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} )
 
-target_link_libraries( ${PROJECT_NAME} OpenScenarioLibV_1_0 )
+target_link_libraries( ${PROJECT_NAME} OpenScenarioLib.v1_0 )
 
 
 ################################################################

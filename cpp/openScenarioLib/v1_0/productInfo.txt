@@ -1,0 +1,3 @@
+PRODUCT_NAME=libOpenScenarioLib.v1_0
+PRODUCT_TYPE=dll
+FILE_DESCRIPTION=Library for checking openSCENARIO protocol version 1.0 files.

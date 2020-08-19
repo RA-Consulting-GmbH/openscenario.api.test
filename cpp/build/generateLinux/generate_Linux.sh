@@ -18,7 +18,7 @@ done
 echo $ROOT_DIR
 
 # Parse parameters
-. ${SCRIPT_DIR}/parse_generate_params.sh $1 $2
+. ${SCRIPT_DIR}/parse_generate_params.sh $1 $2 $3
 
 # Create build folder
 BUILDFOLDER="gcc${PLATFORM_NAME}${BUILD_TARGET}"
@@ -26,7 +26,7 @@ mkdir -p "${BUILDFOLDER}"
 cd "${BUILDFOLDER}"
 
 # Call cmake
-cmake -DCMAKE_BUILD_TYPE="${BUILD_TARGET}" -DPLATFORM_PARAM="${PLATFORM_NAME}" $ROOT_DIR/cpp/
+cmake -DCMAKE_BUILD_TYPE="${BUILD_TARGET}" -DPLATFORM_PARAM="${PLATFORM_NAME}" -DBUILD_STATIC_LIBS="${BUILD_STATIC_LIBS}" $ROOT_DIR/cpp/
 
 # Build solution if requested
 if [ $MAKE != "yes" ]
