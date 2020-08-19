@@ -43,7 +43,7 @@ public interface IScenarioLoader {
   /**
    * Loads a scenario with injected parameters
    *
-   * @param messageLogger
+   * @param messageLogger to log the messages during loading.
    * @param injectedParameters name value pairs of injected parameters.
    * @return the IOpenScensrio root object of a scenario. it may be inconsistent when errors
    *     occurred.

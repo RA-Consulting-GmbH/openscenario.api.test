@@ -82,6 +82,7 @@ public class MainTest {
       for (int i = 0; i < positionIndex.getSize(); i++) {
         Assertions.assertEquals(expectedOutput[i], dump(positionIndex, i));
       }
+      in.close();
     } catch (IOException e) {
       Assertions.fail();
     }

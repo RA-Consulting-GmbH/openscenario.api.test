@@ -8,10 +8,10 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # Root-Dir
 ROOT_DIR=`pwd`
-while [ ! -d $ROOT_DIR/.root ]; do
+while [ ! -d $ROOT_DIR/.github ]; do
     ROOT_DIR=`realpath -s $ROOT_DIR/..`
     if [ "/" == "$ROOT_DIR" ]; then
-        echo ".root not found! Terminating..."
+        echo ".github not found! Terminating..."
         exit -1
     fi
 done
