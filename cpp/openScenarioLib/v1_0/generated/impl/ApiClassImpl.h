@@ -48,7 +48,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteSpeedImpl: public BaseImpl, public IAbsoluteSpeed
+        class AbsoluteSpeedImpl: public BaseImpl, public IAbsoluteSpeed, public std::enable_shared_from_this<AbsoluteSpeedImpl>
         {
         private:
             double _value {};
@@ -91,6 +91,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AbsoluteSpeedImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAbsoluteSpeed).name())
+                	return std::dynamic_pointer_cast<IAbsoluteSpeed>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -181,7 +185,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetLaneImpl: public BaseImpl, public IAbsoluteTargetLane
+        class AbsoluteTargetLaneImpl: public BaseImpl, public IAbsoluteTargetLane, public std::enable_shared_from_this<AbsoluteTargetLaneImpl>
         {
         private:
             std::string _value {};
@@ -224,6 +228,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AbsoluteTargetLaneImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAbsoluteTargetLane).name())
+                	return std::dynamic_pointer_cast<IAbsoluteTargetLane>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -305,7 +313,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetLaneOffsetImpl: public BaseImpl, public IAbsoluteTargetLaneOffset
+        class AbsoluteTargetLaneOffsetImpl: public BaseImpl, public IAbsoluteTargetLaneOffset, public std::enable_shared_from_this<AbsoluteTargetLaneOffsetImpl>
         {
         private:
             double _value {};
@@ -349,6 +357,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AbsoluteTargetLaneOffsetImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAbsoluteTargetLaneOffset).name())
+                	return std::dynamic_pointer_cast<IAbsoluteTargetLaneOffset>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -439,7 +451,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetSpeedImpl: public BaseImpl, public IAbsoluteTargetSpeed
+        class AbsoluteTargetSpeedImpl: public BaseImpl, public IAbsoluteTargetSpeed, public std::enable_shared_from_this<AbsoluteTargetSpeedImpl>
         {
         private:
             double _value {};
@@ -482,6 +494,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AbsoluteTargetSpeedImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAbsoluteTargetSpeed).name())
+                	return std::dynamic_pointer_cast<IAbsoluteTargetSpeed>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -572,7 +588,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AccelerationConditionImpl: public BaseImpl, public IAccelerationCondition
+        class AccelerationConditionImpl: public BaseImpl, public IAccelerationCondition, public std::enable_shared_from_this<AccelerationConditionImpl>
         {
         private:
             double _value {};
@@ -623,6 +639,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AccelerationConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAccelerationCondition).name())
+                	return std::dynamic_pointer_cast<IAccelerationCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -713,7 +733,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AcquirePositionActionImpl: public BaseImpl, public IAcquirePositionAction
+        class AcquirePositionActionImpl: public BaseImpl, public IAcquirePositionAction, public std::enable_shared_from_this<AcquirePositionActionImpl>
         {
         private:
             std::shared_ptr<IPosition> _position {};
@@ -756,6 +776,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AcquirePositionActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAcquirePositionAction).name())
+                	return std::dynamic_pointer_cast<IAcquirePositionAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -837,7 +861,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActImpl: public BaseImpl, public IAct
+        class ActImpl: public BaseImpl, public IAct, public std::enable_shared_from_this<ActImpl>
         {
         private:
             std::string _name {};
@@ -904,6 +928,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ActImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAct).name())
+                	return std::dynamic_pointer_cast<IAct>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -985,7 +1013,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActionImpl: public BaseImpl, public IAction
+        class ActionImpl: public BaseImpl, public IAction, public std::enable_shared_from_this<ActionImpl>
         {
         private:
             std::string _name {};
@@ -1055,6 +1083,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAction).name())
+                	return std::dynamic_pointer_cast<IAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -1136,7 +1168,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActivateControllerActionImpl: public BaseImpl, public IActivateControllerAction
+        class ActivateControllerActionImpl: public BaseImpl, public IActivateControllerAction, public std::enable_shared_from_this<ActivateControllerActionImpl>
         {
         private:
             bool _lateral {};
@@ -1189,6 +1221,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ActivateControllerActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IActivateControllerAction).name())
+                	return std::dynamic_pointer_cast<IActivateControllerAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -1283,7 +1319,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActorsImpl: public BaseImpl, public IActors
+        class ActorsImpl: public BaseImpl, public IActors, public std::enable_shared_from_this<ActorsImpl>
         {
         private:
             bool _selectTriggeringEntities {};
@@ -1335,6 +1371,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ActorsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IActors).name())
+                	return std::dynamic_pointer_cast<IActors>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -1425,7 +1465,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AddEntityActionImpl: public BaseImpl, public IAddEntityAction
+        class AddEntityActionImpl: public BaseImpl, public IAddEntityAction, public std::enable_shared_from_this<AddEntityActionImpl>
         {
         private:
             std::shared_ptr<IPosition> _position {};
@@ -1468,6 +1508,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AddEntityActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAddEntityAction).name())
+                	return std::dynamic_pointer_cast<IAddEntityAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -1549,7 +1593,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AssignControllerActionImpl: public BaseImpl, public IAssignControllerAction
+        class AssignControllerActionImpl: public BaseImpl, public IAssignControllerAction, public std::enable_shared_from_this<AssignControllerActionImpl>
         {
         private:
             std::shared_ptr<IController> _controller {};
@@ -1601,6 +1645,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AssignControllerActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAssignControllerAction).name())
+                	return std::dynamic_pointer_cast<IAssignControllerAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -1682,7 +1730,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AssignRouteActionImpl: public BaseImpl, public IAssignRouteAction
+        class AssignRouteActionImpl: public BaseImpl, public IAssignRouteAction, public std::enable_shared_from_this<AssignRouteActionImpl>
         {
         private:
             std::shared_ptr<IRoute> _route {};
@@ -1734,6 +1782,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AssignRouteActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAssignRouteAction).name())
+                	return std::dynamic_pointer_cast<IAssignRouteAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -1815,7 +1867,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AxleImpl: public BaseImpl, public IAxle
+        class AxleImpl: public BaseImpl, public IAxle, public std::enable_shared_from_this<AxleImpl>
         {
         private:
             double _maxSteering {};
@@ -1895,6 +1947,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AxleImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAxle).name())
+                	return std::dynamic_pointer_cast<IAxle>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -2001,7 +2057,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AxlesImpl: public BaseImpl, public IAxles
+        class AxlesImpl: public BaseImpl, public IAxles, public std::enable_shared_from_this<AxlesImpl>
         {
         private:
             std::shared_ptr<IAxle> _frontAxle {};
@@ -2060,6 +2116,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(AxlesImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IAxles).name())
+                	return std::dynamic_pointer_cast<IAxles>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -2141,7 +2201,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class BoundingBoxImpl: public BaseImpl, public IBoundingBox
+        class BoundingBoxImpl: public BaseImpl, public IBoundingBox, public std::enable_shared_from_this<BoundingBoxImpl>
         {
         private:
             std::shared_ptr<ICenter> _center {};
@@ -2193,6 +2253,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(BoundingBoxImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IBoundingBox).name())
+                	return std::dynamic_pointer_cast<IBoundingBox>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -2274,7 +2338,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByEntityConditionImpl: public BaseImpl, public IByEntityCondition
+        class ByEntityConditionImpl: public BaseImpl, public IByEntityCondition, public std::enable_shared_from_this<ByEntityConditionImpl>
         {
         private:
             std::shared_ptr<ITriggeringEntities> _triggeringEntities {};
@@ -2326,6 +2390,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ByEntityConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IByEntityCondition).name())
+                	return std::dynamic_pointer_cast<IByEntityCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -2407,7 +2475,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByObjectTypeImpl: public BaseImpl, public IByObjectType
+        class ByObjectTypeImpl: public BaseImpl, public IByObjectType, public std::enable_shared_from_this<ByObjectTypeImpl>
         {
         private:
             ObjectType _type {};
@@ -2450,6 +2518,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ByObjectTypeImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IByObjectType).name())
+                	return std::dynamic_pointer_cast<IByObjectType>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -2531,7 +2603,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByTypeImpl: public BaseImpl, public IByType
+        class ByTypeImpl: public BaseImpl, public IByType, public std::enable_shared_from_this<ByTypeImpl>
         {
         private:
             ObjectType _objectType {};
@@ -2575,6 +2647,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ByTypeImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IByType).name())
+                	return std::dynamic_pointer_cast<IByType>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -2656,7 +2732,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByValueConditionImpl: public BaseImpl, public IByValueCondition
+        class ByValueConditionImpl: public BaseImpl, public IByValueCondition, public std::enable_shared_from_this<ByValueConditionImpl>
         {
         private:
             std::shared_ptr<IParameterCondition> _parameterCondition {};
@@ -2754,6 +2830,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ByValueConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IByValueCondition).name())
+                	return std::dynamic_pointer_cast<IByValueCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -2835,7 +2915,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogImpl: public BaseImpl, public ICatalog
+        class CatalogImpl: public BaseImpl, public ICatalog, public std::enable_shared_from_this<CatalogImpl>
         {
         private:
             std::string _name {};
@@ -2948,6 +3028,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CatalogImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICatalog).name())
+                	return std::dynamic_pointer_cast<ICatalog>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -3029,7 +3113,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogDefinitionImpl: public BaseImpl, public ICatalogDefinition
+        class CatalogDefinitionImpl: public BaseImpl, public ICatalogDefinition, public std::enable_shared_from_this<CatalogDefinitionImpl>
         {
         private:
             std::shared_ptr<ICatalog> _catalog {};
@@ -3072,6 +3156,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CatalogDefinitionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICatalogDefinition).name())
+                	return std::dynamic_pointer_cast<ICatalogDefinition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -3153,7 +3241,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogLocationsImpl: public BaseImpl, public ICatalogLocations
+        class CatalogLocationsImpl: public BaseImpl, public ICatalogLocations, public std::enable_shared_from_this<CatalogLocationsImpl>
         {
         private:
             std::shared_ptr<IVehicleCatalogLocation> _vehicleCatalog {};
@@ -3260,6 +3348,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CatalogLocationsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICatalogLocations).name())
+                	return std::dynamic_pointer_cast<ICatalogLocations>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -3341,7 +3433,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogReferenceImpl: public BaseImpl, public ICatalogReference
+        class CatalogReferenceImpl: public BaseImpl, public ICatalogReference, public std::enable_shared_from_this<CatalogReferenceImpl>
         {
         private:
             std::string _catalogName {};
@@ -3410,6 +3502,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CatalogReferenceImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICatalogReference).name())
+                	return std::dynamic_pointer_cast<ICatalogReference>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -3491,7 +3587,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CenterImpl: public BaseImpl, public ICenter
+        class CenterImpl: public BaseImpl, public ICenter, public std::enable_shared_from_this<CenterImpl>
         {
         private:
             double _x {};
@@ -3550,6 +3646,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CenterImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICenter).name())
+                	return std::dynamic_pointer_cast<ICenter>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -3648,7 +3748,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CentralSwarmObjectImpl: public BaseImpl, public ICentralSwarmObject
+        class CentralSwarmObjectImpl: public BaseImpl, public ICentralSwarmObject, public std::enable_shared_from_this<CentralSwarmObjectImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -3692,6 +3792,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CentralSwarmObjectImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICentralSwarmObject).name())
+                	return std::dynamic_pointer_cast<ICentralSwarmObject>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -3773,7 +3877,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ClothoidImpl: public BaseImpl, public IClothoid
+        class ClothoidImpl: public BaseImpl, public IClothoid, public std::enable_shared_from_this<ClothoidImpl>
         {
         private:
             double _curvature {};
@@ -3859,6 +3963,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ClothoidImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IClothoid).name())
+                	return std::dynamic_pointer_cast<IClothoid>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -3965,7 +4073,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CollisionConditionImpl: public BaseImpl, public ICollisionCondition
+        class CollisionConditionImpl: public BaseImpl, public ICollisionCondition, public std::enable_shared_from_this<CollisionConditionImpl>
         {
         private:
             std::shared_ptr<IEntityRef> _entityRef {};
@@ -4017,6 +4125,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CollisionConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICollisionCondition).name())
+                	return std::dynamic_pointer_cast<ICollisionCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -4098,7 +4210,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ConditionImpl: public BaseImpl, public ICondition
+        class ConditionImpl: public BaseImpl, public ICondition, public std::enable_shared_from_this<ConditionImpl>
         {
         private:
             std::string _name {};
@@ -4175,6 +4287,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICondition).name())
+                	return std::dynamic_pointer_cast<ICondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -4265,7 +4381,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ConditionGroupImpl: public BaseImpl, public IConditionGroup
+        class ConditionGroupImpl: public BaseImpl, public IConditionGroup, public std::enable_shared_from_this<ConditionGroupImpl>
         {
         private:
             std::vector<std::shared_ptr<ICondition>> _conditions {};
@@ -4308,6 +4424,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ConditionGroupImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IConditionGroup).name())
+                	return std::dynamic_pointer_cast<IConditionGroup>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -4389,7 +4509,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControlPointImpl: public BaseImpl, public IControlPoint
+        class ControlPointImpl: public BaseImpl, public IControlPoint, public std::enable_shared_from_this<ControlPointImpl>
         {
         private:
             double _time {};
@@ -4450,6 +4570,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ControlPointImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IControlPoint).name())
+                	return std::dynamic_pointer_cast<IControlPoint>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -4544,7 +4668,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerImpl: public BaseImpl, public IController
+        class ControllerImpl: public BaseImpl, public IController, public std::enable_shared_from_this<ControllerImpl>
         {
         private:
             std::string _name {};
@@ -4605,6 +4729,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ControllerImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IController).name())
+                	return std::dynamic_pointer_cast<IController>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -4686,7 +4814,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerActionImpl: public BaseImpl, public IControllerAction
+        class ControllerActionImpl: public BaseImpl, public IControllerAction, public std::enable_shared_from_this<ControllerActionImpl>
         {
         private:
             std::shared_ptr<IAssignControllerAction> _assignControllerAction {};
@@ -4738,6 +4866,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ControllerActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IControllerAction).name())
+                	return std::dynamic_pointer_cast<IControllerAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -4819,7 +4951,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerCatalogLocationImpl: public BaseImpl, public IControllerCatalogLocation
+        class ControllerCatalogLocationImpl: public BaseImpl, public IControllerCatalogLocation, public std::enable_shared_from_this<ControllerCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -4862,6 +4994,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ControllerCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IControllerCatalogLocation).name())
+                	return std::dynamic_pointer_cast<IControllerCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -4943,7 +5079,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerDistributionImpl: public BaseImpl, public IControllerDistribution
+        class ControllerDistributionImpl: public BaseImpl, public IControllerDistribution, public std::enable_shared_from_this<ControllerDistributionImpl>
         {
         private:
             std::vector<std::shared_ptr<IControllerDistributionEntry>> _controllerDistributionEntries {};
@@ -4987,6 +5123,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ControllerDistributionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IControllerDistribution).name())
+                	return std::dynamic_pointer_cast<IControllerDistribution>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -5068,7 +5208,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerDistributionEntryImpl: public BaseImpl, public IControllerDistributionEntry
+        class ControllerDistributionEntryImpl: public BaseImpl, public IControllerDistributionEntry, public std::enable_shared_from_this<ControllerDistributionEntryImpl>
         {
         private:
             double _weight {};
@@ -5127,6 +5267,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ControllerDistributionEntryImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IControllerDistributionEntry).name())
+                	return std::dynamic_pointer_cast<IControllerDistributionEntry>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -5217,7 +5361,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CustomCommandActionImpl: public BaseImpl, public ICustomCommandAction
+        class CustomCommandActionImpl: public BaseImpl, public ICustomCommandAction, public std::enable_shared_from_this<CustomCommandActionImpl>
         {
         private:
             std::string _type {};
@@ -5270,6 +5414,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(CustomCommandActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ICustomCommandAction).name())
+                	return std::dynamic_pointer_cast<ICustomCommandAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -5351,7 +5499,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeleteEntityActionImpl: public BaseImpl, public IDeleteEntityAction
+        class DeleteEntityActionImpl: public BaseImpl, public IDeleteEntityAction, public std::enable_shared_from_this<DeleteEntityActionImpl>
         {
         private:
 
@@ -5386,6 +5534,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(DeleteEntityActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IDeleteEntityAction).name())
+                	return std::dynamic_pointer_cast<IDeleteEntityAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -5467,7 +5619,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DimensionsImpl: public BaseImpl, public IDimensions
+        class DimensionsImpl: public BaseImpl, public IDimensions, public std::enable_shared_from_this<DimensionsImpl>
         {
         private:
             double _width {};
@@ -5529,6 +5681,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(DimensionsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IDimensions).name())
+                	return std::dynamic_pointer_cast<IDimensions>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -5627,7 +5783,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DirectoryImpl: public BaseImpl, public IDirectory
+        class DirectoryImpl: public BaseImpl, public IDirectory, public std::enable_shared_from_this<DirectoryImpl>
         {
         private:
             std::string _path {};
@@ -5670,6 +5826,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(DirectoryImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IDirectory).name())
+                	return std::dynamic_pointer_cast<IDirectory>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -5751,7 +5911,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DistanceConditionImpl: public BaseImpl, public IDistanceCondition
+        class DistanceConditionImpl: public BaseImpl, public IDistanceCondition, public std::enable_shared_from_this<DistanceConditionImpl>
         {
         private:
             double _value {};
@@ -5828,6 +5988,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(DistanceConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IDistanceCondition).name())
+                	return std::dynamic_pointer_cast<IDistanceCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -5931,7 +6095,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DynamicConstraintsImpl: public BaseImpl, public IDynamicConstraints
+        class DynamicConstraintsImpl: public BaseImpl, public IDynamicConstraints, public std::enable_shared_from_this<DynamicConstraintsImpl>
         {
         private:
             double _maxAcceleration {};
@@ -5993,6 +6157,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(DynamicConstraintsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IDynamicConstraints).name())
+                	return std::dynamic_pointer_cast<IDynamicConstraints>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -6091,7 +6259,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EndOfRoadConditionImpl: public BaseImpl, public IEndOfRoadCondition
+        class EndOfRoadConditionImpl: public BaseImpl, public IEndOfRoadCondition, public std::enable_shared_from_this<EndOfRoadConditionImpl>
         {
         private:
             double _duration {};
@@ -6134,6 +6302,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EndOfRoadConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEndOfRoadCondition).name())
+                	return std::dynamic_pointer_cast<IEndOfRoadCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -6224,7 +6396,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntitiesImpl: public BaseImpl, public IEntities
+        class EntitiesImpl: public BaseImpl, public IEntities, public std::enable_shared_from_this<EntitiesImpl>
         {
         private:
             std::vector<std::shared_ptr<IScenarioObject>> _scenarioObjects {};
@@ -6276,6 +6448,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EntitiesImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEntities).name())
+                	return std::dynamic_pointer_cast<IEntities>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -6357,7 +6533,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityActionImpl: public BaseImpl, public IEntityAction
+        class EntityActionImpl: public BaseImpl, public IEntityAction, public std::enable_shared_from_this<EntityActionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -6418,6 +6594,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EntityActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEntityAction).name())
+                	return std::dynamic_pointer_cast<IEntityAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -6499,7 +6679,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityConditionImpl: public BaseImpl, public IEntityCondition
+        class EntityConditionImpl: public BaseImpl, public IEntityCondition, public std::enable_shared_from_this<EntityConditionImpl>
         {
         private:
             std::shared_ptr<IEndOfRoadCondition> _endOfRoadCondition {};
@@ -6651,6 +6831,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EntityConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEntityCondition).name())
+                	return std::dynamic_pointer_cast<IEntityCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -6732,7 +6916,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityObjectImpl: public BaseImpl, public IEntityObject
+        class EntityObjectImpl: public BaseImpl, public IEntityObject, public std::enable_shared_from_this<EntityObjectImpl>
         {
         private:
             std::shared_ptr<ICatalogReference> _catalogReference {};
@@ -6800,6 +6984,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EntityObjectImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEntityObject).name())
+                	return std::dynamic_pointer_cast<IEntityObject>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -6881,7 +7069,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityRefImpl: public BaseImpl, public IEntityRef
+        class EntityRefImpl: public BaseImpl, public IEntityRef, public std::enable_shared_from_this<EntityRefImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -6924,6 +7112,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EntityRefImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEntityRef).name())
+                	return std::dynamic_pointer_cast<IEntityRef>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -7005,7 +7197,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntitySelectionImpl: public BaseImpl, public IEntitySelection
+        class EntitySelectionImpl: public BaseImpl, public IEntitySelection, public std::enable_shared_from_this<EntitySelectionImpl>
         {
         private:
             std::string _name {};
@@ -7057,6 +7249,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EntitySelectionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEntitySelection).name())
+                	return std::dynamic_pointer_cast<IEntitySelection>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -7138,7 +7334,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentImpl: public BaseImpl, public IEnvironment
+        class EnvironmentImpl: public BaseImpl, public IEnvironment, public std::enable_shared_from_this<EnvironmentImpl>
         {
         private:
             std::string _name {};
@@ -7215,6 +7411,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EnvironmentImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEnvironment).name())
+                	return std::dynamic_pointer_cast<IEnvironment>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -7296,7 +7496,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentActionImpl: public BaseImpl, public IEnvironmentAction
+        class EnvironmentActionImpl: public BaseImpl, public IEnvironmentAction, public std::enable_shared_from_this<EnvironmentActionImpl>
         {
         private:
             std::shared_ptr<IEnvironment> _environment {};
@@ -7347,6 +7547,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EnvironmentActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEnvironmentAction).name())
+                	return std::dynamic_pointer_cast<IEnvironmentAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -7428,7 +7632,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentCatalogLocationImpl: public BaseImpl, public IEnvironmentCatalogLocation
+        class EnvironmentCatalogLocationImpl: public BaseImpl, public IEnvironmentCatalogLocation, public std::enable_shared_from_this<EnvironmentCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -7471,6 +7675,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EnvironmentCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEnvironmentCatalogLocation).name())
+                	return std::dynamic_pointer_cast<IEnvironmentCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -7552,7 +7760,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EventImpl: public BaseImpl, public IEvent
+        class EventImpl: public BaseImpl, public IEvent, public std::enable_shared_from_this<EventImpl>
         {
         private:
             Priority _priority {};
@@ -7629,6 +7837,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(EventImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IEvent).name())
+                	return std::dynamic_pointer_cast<IEvent>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -7719,7 +7931,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FileImpl: public BaseImpl, public IFile
+        class FileImpl: public BaseImpl, public IFile, public std::enable_shared_from_this<FileImpl>
         {
         private:
             std::string _filepath {};
@@ -7763,6 +7975,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(FileImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IFile).name())
+                	return std::dynamic_pointer_cast<IFile>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -7844,7 +8060,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FileHeaderImpl: public BaseImpl, public IFileHeader
+        class FileHeaderImpl: public BaseImpl, public IFileHeader, public std::enable_shared_from_this<FileHeaderImpl>
         {
         private:
             long _revMajor {};
@@ -7921,6 +8137,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(FileHeaderImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IFileHeader).name())
+                	return std::dynamic_pointer_cast<IFileHeader>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8024,7 +8244,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FinalSpeedImpl: public BaseImpl, public IFinalSpeed
+        class FinalSpeedImpl: public BaseImpl, public IFinalSpeed, public std::enable_shared_from_this<FinalSpeedImpl>
         {
         private:
             std::shared_ptr<IAbsoluteSpeed> _absoluteSpeed {};
@@ -8077,6 +8297,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(FinalSpeedImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IFinalSpeed).name())
+                	return std::dynamic_pointer_cast<IFinalSpeed>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8158,7 +8382,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FogImpl: public BaseImpl, public IFog
+        class FogImpl: public BaseImpl, public IFog, public std::enable_shared_from_this<FogImpl>
         {
         private:
             double _visualRange {};
@@ -8209,6 +8433,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(FogImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IFog).name())
+                	return std::dynamic_pointer_cast<IFog>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8299,7 +8527,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FollowTrajectoryActionImpl: public BaseImpl, public IFollowTrajectoryAction
+        class FollowTrajectoryActionImpl: public BaseImpl, public IFollowTrajectoryAction, public std::enable_shared_from_this<FollowTrajectoryActionImpl>
         {
         private:
             std::shared_ptr<ITrajectory> _trajectory {};
@@ -8369,6 +8597,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(FollowTrajectoryActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IFollowTrajectoryAction).name())
+                	return std::dynamic_pointer_cast<IFollowTrajectoryAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8450,7 +8682,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class GlobalActionImpl: public BaseImpl, public IGlobalAction
+        class GlobalActionImpl: public BaseImpl, public IGlobalAction, public std::enable_shared_from_this<GlobalActionImpl>
         {
         private:
             std::shared_ptr<IEnvironmentAction> _environmentAction {};
@@ -8526,6 +8758,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(GlobalActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IGlobalAction).name())
+                	return std::dynamic_pointer_cast<IGlobalAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8607,7 +8843,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InRoutePositionImpl: public BaseImpl, public IInRoutePosition
+        class InRoutePositionImpl: public BaseImpl, public IInRoutePosition, public std::enable_shared_from_this<InRoutePositionImpl>
         {
         private:
             std::shared_ptr<IPositionOfCurrentEntity> _fromCurrentEntity {};
@@ -8667,6 +8903,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(InRoutePositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IInRoutePosition).name())
+                	return std::dynamic_pointer_cast<IInRoutePosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8748,7 +8988,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InfrastructureActionImpl: public BaseImpl, public IInfrastructureAction
+        class InfrastructureActionImpl: public BaseImpl, public IInfrastructureAction, public std::enable_shared_from_this<InfrastructureActionImpl>
         {
         private:
             std::shared_ptr<ITrafficSignalAction> _trafficSignalAction {};
@@ -8792,6 +9032,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(InfrastructureActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IInfrastructureAction).name())
+                	return std::dynamic_pointer_cast<IInfrastructureAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8873,7 +9117,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InitImpl: public BaseImpl, public IInit
+        class InitImpl: public BaseImpl, public IInit, public std::enable_shared_from_this<InitImpl>
         {
         private:
             std::shared_ptr<IInitActions> _actions {};
@@ -8917,6 +9161,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(InitImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IInit).name())
+                	return std::dynamic_pointer_cast<IInit>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -8998,7 +9246,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InitActionsImpl: public BaseImpl, public IInitActions
+        class InitActionsImpl: public BaseImpl, public IInitActions, public std::enable_shared_from_this<InitActionsImpl>
         {
         private:
             std::vector<std::shared_ptr<IGlobalAction>> _globalActions {};
@@ -9057,6 +9305,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(InitActionsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IInitActions).name())
+                	return std::dynamic_pointer_cast<IInitActions>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -9138,7 +9390,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class KnotImpl: public BaseImpl, public IKnot
+        class KnotImpl: public BaseImpl, public IKnot, public std::enable_shared_from_this<KnotImpl>
         {
         private:
             double _value {};
@@ -9181,6 +9433,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(KnotImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IKnot).name())
+                	return std::dynamic_pointer_cast<IKnot>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -9271,7 +9527,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneChangeActionImpl: public BaseImpl, public ILaneChangeAction
+        class LaneChangeActionImpl: public BaseImpl, public ILaneChangeAction, public std::enable_shared_from_this<LaneChangeActionImpl>
         {
         private:
             double _targetLaneOffset {};
@@ -9331,6 +9587,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LaneChangeActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILaneChangeAction).name())
+                	return std::dynamic_pointer_cast<ILaneChangeAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -9421,7 +9681,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneChangeTargetImpl: public BaseImpl, public ILaneChangeTarget
+        class LaneChangeTargetImpl: public BaseImpl, public ILaneChangeTarget, public std::enable_shared_from_this<LaneChangeTargetImpl>
         {
         private:
             std::shared_ptr<IRelativeTargetLane> _relativeTargetLane {};
@@ -9473,6 +9733,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LaneChangeTargetImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILaneChangeTarget).name())
+                	return std::dynamic_pointer_cast<ILaneChangeTarget>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -9554,7 +9818,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetActionImpl: public BaseImpl, public ILaneOffsetAction
+        class LaneOffsetActionImpl: public BaseImpl, public ILaneOffsetAction, public std::enable_shared_from_this<LaneOffsetActionImpl>
         {
         private:
             bool _continuous {};
@@ -9616,6 +9880,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LaneOffsetActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILaneOffsetAction).name())
+                	return std::dynamic_pointer_cast<ILaneOffsetAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -9706,7 +9974,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetActionDynamicsImpl: public BaseImpl, public ILaneOffsetActionDynamics
+        class LaneOffsetActionDynamicsImpl: public BaseImpl, public ILaneOffsetActionDynamics, public std::enable_shared_from_this<LaneOffsetActionDynamicsImpl>
         {
         private:
             double _maxLateralAcc {};
@@ -9759,6 +10027,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LaneOffsetActionDynamicsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILaneOffsetActionDynamics).name())
+                	return std::dynamic_pointer_cast<ILaneOffsetActionDynamics>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -9849,7 +10121,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetTargetImpl: public BaseImpl, public ILaneOffsetTarget
+        class LaneOffsetTargetImpl: public BaseImpl, public ILaneOffsetTarget, public std::enable_shared_from_this<LaneOffsetTargetImpl>
         {
         private:
             std::shared_ptr<IRelativeTargetLaneOffset> _relativeTargetLaneOffset {};
@@ -9902,6 +10174,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LaneOffsetTargetImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILaneOffsetTarget).name())
+                	return std::dynamic_pointer_cast<ILaneOffsetTarget>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -9983,7 +10259,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LanePositionImpl: public BaseImpl, public ILanePosition
+        class LanePositionImpl: public BaseImpl, public ILanePosition, public std::enable_shared_from_this<LanePositionImpl>
         {
         private:
             std::string _roadId {};
@@ -10061,6 +10337,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LanePositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILanePosition).name())
+                	return std::dynamic_pointer_cast<ILanePosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -10155,7 +10435,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LateralActionImpl: public BaseImpl, public ILateralAction
+        class LateralActionImpl: public BaseImpl, public ILateralAction, public std::enable_shared_from_this<LateralActionImpl>
         {
         private:
             std::shared_ptr<ILaneChangeAction> _laneChangeAction {};
@@ -10215,6 +10495,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LateralActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILateralAction).name())
+                	return std::dynamic_pointer_cast<ILateralAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -10296,7 +10580,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LateralDistanceActionImpl: public BaseImpl, public ILateralDistanceAction
+        class LateralDistanceActionImpl: public BaseImpl, public ILateralDistanceAction, public std::enable_shared_from_this<LateralDistanceActionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -10375,6 +10659,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LateralDistanceActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILateralDistanceAction).name())
+                	return std::dynamic_pointer_cast<ILateralDistanceAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -10478,7 +10766,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LongitudinalActionImpl: public BaseImpl, public ILongitudinalAction
+        class LongitudinalActionImpl: public BaseImpl, public ILongitudinalAction, public std::enable_shared_from_this<LongitudinalActionImpl>
         {
         private:
             std::shared_ptr<ISpeedAction> _speedAction {};
@@ -10531,6 +10819,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LongitudinalActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILongitudinalAction).name())
+                	return std::dynamic_pointer_cast<ILongitudinalAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -10612,7 +10904,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LongitudinalDistanceActionImpl: public BaseImpl, public ILongitudinalDistanceAction
+        class LongitudinalDistanceActionImpl: public BaseImpl, public ILongitudinalDistanceAction, public std::enable_shared_from_this<LongitudinalDistanceActionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -10700,6 +10992,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(LongitudinalDistanceActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ILongitudinalDistanceAction).name())
+                	return std::dynamic_pointer_cast<ILongitudinalDistanceAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -10807,7 +11103,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverImpl: public BaseImpl, public IManeuver
+        class ManeuverImpl: public BaseImpl, public IManeuver, public std::enable_shared_from_this<ManeuverImpl>
         {
         private:
             std::string _name {};
@@ -10868,6 +11164,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ManeuverImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IManeuver).name())
+                	return std::dynamic_pointer_cast<IManeuver>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -10949,7 +11249,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverCatalogLocationImpl: public BaseImpl, public IManeuverCatalogLocation
+        class ManeuverCatalogLocationImpl: public BaseImpl, public IManeuverCatalogLocation, public std::enable_shared_from_this<ManeuverCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -10992,6 +11292,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ManeuverCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IManeuverCatalogLocation).name())
+                	return std::dynamic_pointer_cast<IManeuverCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -11073,7 +11377,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverGroupImpl: public BaseImpl, public IManeuverGroup
+        class ManeuverGroupImpl: public BaseImpl, public IManeuverGroup, public std::enable_shared_from_this<ManeuverGroupImpl>
         {
         private:
             long long _maximumExecutionCount {};
@@ -11150,6 +11454,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ManeuverGroupImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IManeuverGroup).name())
+                	return std::dynamic_pointer_cast<IManeuverGroup>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -11240,7 +11548,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class MiscObjectImpl: public BaseImpl, public IMiscObject
+        class MiscObjectImpl: public BaseImpl, public IMiscObject, public std::enable_shared_from_this<MiscObjectImpl>
         {
         private:
             MiscObjectCategory _miscObjectCategory {};
@@ -11325,6 +11633,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(MiscObjectImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IMiscObject).name())
+                	return std::dynamic_pointer_cast<IMiscObject>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -11415,7 +11727,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class MiscObjectCatalogLocationImpl: public BaseImpl, public IMiscObjectCatalogLocation
+        class MiscObjectCatalogLocationImpl: public BaseImpl, public IMiscObjectCatalogLocation, public std::enable_shared_from_this<MiscObjectCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -11458,6 +11770,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(MiscObjectCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IMiscObjectCatalogLocation).name())
+                	return std::dynamic_pointer_cast<IMiscObjectCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -11539,7 +11855,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ModifyRuleImpl: public BaseImpl, public IModifyRule
+        class ModifyRuleImpl: public BaseImpl, public IModifyRule, public std::enable_shared_from_this<ModifyRuleImpl>
         {
         private:
             std::shared_ptr<IParameterAddValueRule> _addValue {};
@@ -11590,6 +11906,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ModifyRuleImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IModifyRule).name())
+                	return std::dynamic_pointer_cast<IModifyRule>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -11671,7 +11991,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class NoneImpl: public BaseImpl, public INone
+        class NoneImpl: public BaseImpl, public INone, public std::enable_shared_from_this<NoneImpl>
         {
         private:
 
@@ -11706,6 +12026,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(NoneImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(INone).name())
+                	return std::dynamic_pointer_cast<INone>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -11787,7 +12111,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class NurbsImpl: public BaseImpl, public INurbs
+        class NurbsImpl: public BaseImpl, public INurbs, public std::enable_shared_from_this<NurbsImpl>
         {
         private:
             long long _order {};
@@ -11850,6 +12174,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(NurbsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(INurbs).name())
+                	return std::dynamic_pointer_cast<INurbs>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -11940,7 +12268,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ObjectControllerImpl: public BaseImpl, public IObjectController
+        class ObjectControllerImpl: public BaseImpl, public IObjectController, public std::enable_shared_from_this<ObjectControllerImpl>
         {
         private:
             std::shared_ptr<ICatalogReference> _catalogReference {};
@@ -11991,6 +12319,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ObjectControllerImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IObjectController).name())
+                	return std::dynamic_pointer_cast<IObjectController>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -12072,7 +12404,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OffroadConditionImpl: public BaseImpl, public IOffroadCondition
+        class OffroadConditionImpl: public BaseImpl, public IOffroadCondition, public std::enable_shared_from_this<OffroadConditionImpl>
         {
         private:
             double _duration {};
@@ -12116,6 +12448,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OffroadConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOffroadCondition).name())
+                	return std::dynamic_pointer_cast<IOffroadCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -12206,7 +12542,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioImpl: public BaseImpl, public IOpenScenario
+        class OpenScenarioImpl: public BaseImpl, public IOpenScenario, public std::enable_shared_from_this<OpenScenarioImpl>
         {
         private:
             std::shared_ptr<IFileHeader> _fileHeader {};
@@ -12258,6 +12594,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OpenScenarioImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOpenScenario).name())
+                	return std::dynamic_pointer_cast<IOpenScenario>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -12339,7 +12679,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioCategoryImpl: public BaseImpl, public IOpenScenarioCategory
+        class OpenScenarioCategoryImpl: public BaseImpl, public IOpenScenarioCategory, public std::enable_shared_from_this<OpenScenarioCategoryImpl>
         {
         private:
             std::shared_ptr<IScenarioDefinition> _scenarioDefinition {};
@@ -12390,6 +12730,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OpenScenarioCategoryImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOpenScenarioCategory).name())
+                	return std::dynamic_pointer_cast<IOpenScenarioCategory>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -12471,7 +12815,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OrientationImpl: public BaseImpl, public IOrientation
+        class OrientationImpl: public BaseImpl, public IOrientation, public std::enable_shared_from_this<OrientationImpl>
         {
         private:
             ReferenceContext _type {};
@@ -12538,6 +12882,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OrientationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOrientation).name())
+                	return std::dynamic_pointer_cast<IOrientation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -12636,7 +12984,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideBrakeActionImpl: public BaseImpl, public IOverrideBrakeAction
+        class OverrideBrakeActionImpl: public BaseImpl, public IOverrideBrakeAction, public std::enable_shared_from_this<OverrideBrakeActionImpl>
         {
         private:
             double _value {};
@@ -12688,6 +13036,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OverrideBrakeActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOverrideBrakeAction).name())
+                	return std::dynamic_pointer_cast<IOverrideBrakeAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -12787,7 +13139,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideClutchActionImpl: public BaseImpl, public IOverrideClutchAction
+        class OverrideClutchActionImpl: public BaseImpl, public IOverrideClutchAction, public std::enable_shared_from_this<OverrideClutchActionImpl>
         {
         private:
             double _value {};
@@ -12839,6 +13191,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OverrideClutchActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOverrideClutchAction).name())
+                	return std::dynamic_pointer_cast<IOverrideClutchAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -12938,7 +13294,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideControllerValueActionImpl: public BaseImpl, public IOverrideControllerValueAction
+        class OverrideControllerValueActionImpl: public BaseImpl, public IOverrideControllerValueAction, public std::enable_shared_from_this<OverrideControllerValueActionImpl>
         {
         private:
             std::shared_ptr<IOverrideThrottleAction> _throttle {};
@@ -13022,6 +13378,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OverrideControllerValueActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOverrideControllerValueAction).name())
+                	return std::dynamic_pointer_cast<IOverrideControllerValueAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -13103,7 +13463,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideGearActionImpl: public BaseImpl, public IOverrideGearAction
+        class OverrideGearActionImpl: public BaseImpl, public IOverrideGearAction, public std::enable_shared_from_this<OverrideGearActionImpl>
         {
         private:
             double _number {};
@@ -13154,6 +13514,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OverrideGearActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOverrideGearAction).name())
+                	return std::dynamic_pointer_cast<IOverrideGearAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -13253,7 +13617,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideParkingBrakeActionImpl: public BaseImpl, public IOverrideParkingBrakeAction
+        class OverrideParkingBrakeActionImpl: public BaseImpl, public IOverrideParkingBrakeAction, public std::enable_shared_from_this<OverrideParkingBrakeActionImpl>
         {
         private:
             double _value {};
@@ -13305,6 +13669,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OverrideParkingBrakeActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOverrideParkingBrakeAction).name())
+                	return std::dynamic_pointer_cast<IOverrideParkingBrakeAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -13404,7 +13772,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideSteeringWheelActionImpl: public BaseImpl, public IOverrideSteeringWheelAction
+        class OverrideSteeringWheelActionImpl: public BaseImpl, public IOverrideSteeringWheelAction, public std::enable_shared_from_this<OverrideSteeringWheelActionImpl>
         {
         private:
             double _value {};
@@ -13455,6 +13823,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OverrideSteeringWheelActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOverrideSteeringWheelAction).name())
+                	return std::dynamic_pointer_cast<IOverrideSteeringWheelAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -13554,7 +13926,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideThrottleActionImpl: public BaseImpl, public IOverrideThrottleAction
+        class OverrideThrottleActionImpl: public BaseImpl, public IOverrideThrottleAction, public std::enable_shared_from_this<OverrideThrottleActionImpl>
         {
         private:
             double _value {};
@@ -13606,6 +13978,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(OverrideThrottleActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IOverrideThrottleAction).name())
+                	return std::dynamic_pointer_cast<IOverrideThrottleAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -13705,7 +14081,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterActionImpl: public BaseImpl, public IParameterAction
+        class ParameterActionImpl: public BaseImpl, public IParameterAction, public std::enable_shared_from_this<ParameterActionImpl>
         {
         private:
             NamedReferenceProxy<IParameterDeclaration> _parameterRef {};
@@ -13765,6 +14141,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterAction).name())
+                	return std::dynamic_pointer_cast<IParameterAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -13846,7 +14226,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterAddValueRuleImpl: public BaseImpl, public IParameterAddValueRule
+        class ParameterAddValueRuleImpl: public BaseImpl, public IParameterAddValueRule, public std::enable_shared_from_this<ParameterAddValueRuleImpl>
         {
         private:
             double _value {};
@@ -13889,6 +14269,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterAddValueRuleImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterAddValueRule).name())
+                	return std::dynamic_pointer_cast<IParameterAddValueRule>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -13979,7 +14363,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterAssignmentImpl: public BaseImpl, public IParameterAssignment
+        class ParameterAssignmentImpl: public BaseImpl, public IParameterAssignment, public std::enable_shared_from_this<ParameterAssignmentImpl>
         {
         private:
             NamedReferenceProxy<IParameterDeclaration> _parameterRef {};
@@ -14032,6 +14416,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterAssignmentImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterAssignment).name())
+                	return std::dynamic_pointer_cast<IParameterAssignment>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -14113,7 +14501,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterConditionImpl: public BaseImpl, public IParameterCondition
+        class ParameterConditionImpl: public BaseImpl, public IParameterCondition, public std::enable_shared_from_this<ParameterConditionImpl>
         {
         private:
             NamedReferenceProxy<IParameterDeclaration> _parameterRef {};
@@ -14172,6 +14560,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterCondition).name())
+                	return std::dynamic_pointer_cast<IParameterCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -14253,7 +14645,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterDeclarationImpl: public BaseImpl, public IParameterDeclaration
+        class ParameterDeclarationImpl: public BaseImpl, public IParameterDeclaration, public std::enable_shared_from_this<ParameterDeclarationImpl>
         {
         private:
             std::string _name {};
@@ -14312,6 +14704,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterDeclarationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterDeclaration).name())
+                	return std::dynamic_pointer_cast<IParameterDeclaration>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -14393,7 +14789,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterModifyActionImpl: public BaseImpl, public IParameterModifyAction
+        class ParameterModifyActionImpl: public BaseImpl, public IParameterModifyAction, public std::enable_shared_from_this<ParameterModifyActionImpl>
         {
         private:
             std::shared_ptr<IModifyRule> _rule {};
@@ -14437,6 +14833,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterModifyActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterModifyAction).name())
+                	return std::dynamic_pointer_cast<IParameterModifyAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -14518,7 +14918,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterMultiplyByValueRuleImpl: public BaseImpl, public IParameterMultiplyByValueRule
+        class ParameterMultiplyByValueRuleImpl: public BaseImpl, public IParameterMultiplyByValueRule, public std::enable_shared_from_this<ParameterMultiplyByValueRuleImpl>
         {
         private:
             double _value {};
@@ -14562,6 +14962,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterMultiplyByValueRuleImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterMultiplyByValueRule).name())
+                	return std::dynamic_pointer_cast<IParameterMultiplyByValueRule>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -14652,7 +15056,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterSetActionImpl: public BaseImpl, public IParameterSetAction
+        class ParameterSetActionImpl: public BaseImpl, public IParameterSetAction, public std::enable_shared_from_this<ParameterSetActionImpl>
         {
         private:
             std::string _value {};
@@ -14695,6 +15099,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ParameterSetActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IParameterSetAction).name())
+                	return std::dynamic_pointer_cast<IParameterSetAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -14776,7 +15184,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PedestrianImpl: public BaseImpl, public IPedestrian
+        class PedestrianImpl: public BaseImpl, public IPedestrian, public std::enable_shared_from_this<PedestrianImpl>
         {
         private:
             std::string _model {};
@@ -14869,6 +15277,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PedestrianImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPedestrian).name())
+                	return std::dynamic_pointer_cast<IPedestrian>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -14959,7 +15371,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PedestrianCatalogLocationImpl: public BaseImpl, public IPedestrianCatalogLocation
+        class PedestrianCatalogLocationImpl: public BaseImpl, public IPedestrianCatalogLocation, public std::enable_shared_from_this<PedestrianCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -15002,6 +15414,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PedestrianCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPedestrianCatalogLocation).name())
+                	return std::dynamic_pointer_cast<IPedestrianCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -15083,7 +15499,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PerformanceImpl: public BaseImpl, public IPerformance
+        class PerformanceImpl: public BaseImpl, public IPerformance, public std::enable_shared_from_this<PerformanceImpl>
         {
         private:
             double _maxSpeed {};
@@ -15144,6 +15560,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PerformanceImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPerformance).name())
+                	return std::dynamic_pointer_cast<IPerformance>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -15242,7 +15662,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PhaseImpl: public BaseImpl, public IPhase
+        class PhaseImpl: public BaseImpl, public IPhase, public std::enable_shared_from_this<PhaseImpl>
         {
         private:
             std::string _name {};
@@ -15303,6 +15723,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PhaseImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPhase).name())
+                	return std::dynamic_pointer_cast<IPhase>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -15393,7 +15817,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PolylineImpl: public BaseImpl, public IPolyline
+        class PolylineImpl: public BaseImpl, public IPolyline, public std::enable_shared_from_this<PolylineImpl>
         {
         private:
             std::vector<std::shared_ptr<IVertex>> _vertices {};
@@ -15436,6 +15860,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PolylineImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPolyline).name())
+                	return std::dynamic_pointer_cast<IPolyline>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -15517,7 +15945,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionImpl: public BaseImpl, public IPosition
+        class PositionImpl: public BaseImpl, public IPosition, public std::enable_shared_from_this<PositionImpl>
         {
         private:
             std::shared_ptr<IWorldPosition> _worldPosition {};
@@ -15621,6 +16049,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPosition).name())
+                	return std::dynamic_pointer_cast<IPosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -15702,7 +16134,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionInLaneCoordinatesImpl: public BaseImpl, public IPositionInLaneCoordinates
+        class PositionInLaneCoordinatesImpl: public BaseImpl, public IPositionInLaneCoordinates, public std::enable_shared_from_this<PositionInLaneCoordinatesImpl>
         {
         private:
             double _pathS {};
@@ -15763,6 +16195,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PositionInLaneCoordinatesImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPositionInLaneCoordinates).name())
+                	return std::dynamic_pointer_cast<IPositionInLaneCoordinates>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -15857,7 +16293,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionInRoadCoordinatesImpl: public BaseImpl, public IPositionInRoadCoordinates
+        class PositionInRoadCoordinatesImpl: public BaseImpl, public IPositionInRoadCoordinates, public std::enable_shared_from_this<PositionInRoadCoordinatesImpl>
         {
         private:
             double _pathS {};
@@ -15910,6 +16346,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PositionInRoadCoordinatesImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPositionInRoadCoordinates).name())
+                	return std::dynamic_pointer_cast<IPositionInRoadCoordinates>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16004,7 +16444,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionOfCurrentEntityImpl: public BaseImpl, public IPositionOfCurrentEntity
+        class PositionOfCurrentEntityImpl: public BaseImpl, public IPositionOfCurrentEntity, public std::enable_shared_from_this<PositionOfCurrentEntityImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -16047,6 +16487,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PositionOfCurrentEntityImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPositionOfCurrentEntity).name())
+                	return std::dynamic_pointer_cast<IPositionOfCurrentEntity>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16128,7 +16572,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrecipitationImpl: public BaseImpl, public IPrecipitation
+        class PrecipitationImpl: public BaseImpl, public IPrecipitation, public std::enable_shared_from_this<PrecipitationImpl>
         {
         private:
             PrecipitationType _precipitationType {};
@@ -16179,6 +16623,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PrecipitationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPrecipitation).name())
+                	return std::dynamic_pointer_cast<IPrecipitation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16269,7 +16717,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrivateImpl: public BaseImpl, public IPrivate
+        class PrivateImpl: public BaseImpl, public IPrivate, public std::enable_shared_from_this<PrivateImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -16321,6 +16769,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PrivateImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPrivate).name())
+                	return std::dynamic_pointer_cast<IPrivate>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16402,7 +16854,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrivateActionImpl: public BaseImpl, public IPrivateAction
+        class PrivateActionImpl: public BaseImpl, public IPrivateAction, public std::enable_shared_from_this<PrivateActionImpl>
         {
         private:
             std::shared_ptr<ILongitudinalAction> _longitudinalAction {};
@@ -16509,6 +16961,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PrivateActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IPrivateAction).name())
+                	return std::dynamic_pointer_cast<IPrivateAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16590,7 +17046,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PropertiesImpl: public BaseImpl, public IProperties
+        class PropertiesImpl: public BaseImpl, public IProperties, public std::enable_shared_from_this<PropertiesImpl>
         {
         private:
             std::vector<std::shared_ptr<IProperty>> _properties {};
@@ -16644,6 +17100,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PropertiesImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IProperties).name())
+                	return std::dynamic_pointer_cast<IProperties>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16725,7 +17185,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PropertyImpl: public BaseImpl, public IProperty
+        class PropertyImpl: public BaseImpl, public IProperty, public std::enable_shared_from_this<PropertyImpl>
         {
         private:
             std::string _name {};
@@ -16776,6 +17236,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(PropertyImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IProperty).name())
+                	return std::dynamic_pointer_cast<IProperty>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16857,7 +17321,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ReachPositionConditionImpl: public BaseImpl, public IReachPositionCondition
+        class ReachPositionConditionImpl: public BaseImpl, public IReachPositionCondition, public std::enable_shared_from_this<ReachPositionConditionImpl>
         {
         private:
             double _tolerance {};
@@ -16909,6 +17373,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ReachPositionConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IReachPositionCondition).name())
+                	return std::dynamic_pointer_cast<IReachPositionCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -16999,7 +17467,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeDistanceConditionImpl: public BaseImpl, public IRelativeDistanceCondition
+        class RelativeDistanceConditionImpl: public BaseImpl, public IRelativeDistanceCondition, public std::enable_shared_from_this<RelativeDistanceConditionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -17075,6 +17543,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeDistanceConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeDistanceCondition).name())
+                	return std::dynamic_pointer_cast<IRelativeDistanceCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -17174,7 +17646,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeLanePositionImpl: public BaseImpl, public IRelativeLanePosition
+        class RelativeLanePositionImpl: public BaseImpl, public IRelativeLanePosition, public std::enable_shared_from_this<RelativeLanePositionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -17251,6 +17723,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeLanePositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeLanePosition).name())
+                	return std::dynamic_pointer_cast<IRelativeLanePosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -17354,7 +17830,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeObjectPositionImpl: public BaseImpl, public IRelativeObjectPosition
+        class RelativeObjectPositionImpl: public BaseImpl, public IRelativeObjectPosition, public std::enable_shared_from_this<RelativeObjectPositionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -17433,6 +17909,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeObjectPositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeObjectPosition).name())
+                	return std::dynamic_pointer_cast<IRelativeObjectPosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -17531,7 +18011,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeRoadPositionImpl: public BaseImpl, public IRelativeRoadPosition
+        class RelativeRoadPositionImpl: public BaseImpl, public IRelativeRoadPosition, public std::enable_shared_from_this<RelativeRoadPositionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -17601,6 +18081,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeRoadPositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeRoadPosition).name())
+                	return std::dynamic_pointer_cast<IRelativeRoadPosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -17695,7 +18179,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeSpeedConditionImpl: public BaseImpl, public IRelativeSpeedCondition
+        class RelativeSpeedConditionImpl: public BaseImpl, public IRelativeSpeedCondition, public std::enable_shared_from_this<RelativeSpeedConditionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -17754,6 +18238,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeSpeedConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeSpeedCondition).name())
+                	return std::dynamic_pointer_cast<IRelativeSpeedCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -17844,7 +18332,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeSpeedToMasterImpl: public BaseImpl, public IRelativeSpeedToMaster
+        class RelativeSpeedToMasterImpl: public BaseImpl, public IRelativeSpeedToMaster, public std::enable_shared_from_this<RelativeSpeedToMasterImpl>
         {
         private:
             double _value {};
@@ -17896,6 +18384,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeSpeedToMasterImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeSpeedToMaster).name())
+                	return std::dynamic_pointer_cast<IRelativeSpeedToMaster>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -17986,7 +18478,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetLaneImpl: public BaseImpl, public IRelativeTargetLane
+        class RelativeTargetLaneImpl: public BaseImpl, public IRelativeTargetLane, public std::enable_shared_from_this<RelativeTargetLaneImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -18038,6 +18530,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeTargetLaneImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeTargetLane).name())
+                	return std::dynamic_pointer_cast<IRelativeTargetLane>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -18128,7 +18624,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetLaneOffsetImpl: public BaseImpl, public IRelativeTargetLaneOffset
+        class RelativeTargetLaneOffsetImpl: public BaseImpl, public IRelativeTargetLaneOffset, public std::enable_shared_from_this<RelativeTargetLaneOffsetImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -18180,6 +18676,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeTargetLaneOffsetImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeTargetLaneOffset).name())
+                	return std::dynamic_pointer_cast<IRelativeTargetLaneOffset>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -18270,7 +18770,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetSpeedImpl: public BaseImpl, public IRelativeTargetSpeed
+        class RelativeTargetSpeedImpl: public BaseImpl, public IRelativeTargetSpeed, public std::enable_shared_from_this<RelativeTargetSpeedImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -18343,6 +18843,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeTargetSpeedImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeTargetSpeed).name())
+                	return std::dynamic_pointer_cast<IRelativeTargetSpeed>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -18442,7 +18946,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeWorldPositionImpl: public BaseImpl, public IRelativeWorldPosition
+        class RelativeWorldPositionImpl: public BaseImpl, public IRelativeWorldPosition, public std::enable_shared_from_this<RelativeWorldPositionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -18519,6 +19023,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RelativeWorldPositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRelativeWorldPosition).name())
+                	return std::dynamic_pointer_cast<IRelativeWorldPosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -18617,7 +19125,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadConditionImpl: public BaseImpl, public IRoadCondition
+        class RoadConditionImpl: public BaseImpl, public IRoadCondition, public std::enable_shared_from_this<RoadConditionImpl>
         {
         private:
             double _frictionScaleFactor {};
@@ -18668,6 +19176,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RoadConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRoadCondition).name())
+                	return std::dynamic_pointer_cast<IRoadCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -18758,7 +19270,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadNetworkImpl: public BaseImpl, public IRoadNetwork
+        class RoadNetworkImpl: public BaseImpl, public IRoadNetwork, public std::enable_shared_from_this<RoadNetworkImpl>
         {
         private:
             std::shared_ptr<IFile> _logicFile {};
@@ -18820,6 +19332,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RoadNetworkImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRoadNetwork).name())
+                	return std::dynamic_pointer_cast<IRoadNetwork>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -18901,7 +19417,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadPositionImpl: public BaseImpl, public IRoadPosition
+        class RoadPositionImpl: public BaseImpl, public IRoadPosition, public std::enable_shared_from_this<RoadPositionImpl>
         {
         private:
             std::string _roadId {};
@@ -18971,6 +19487,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RoadPositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRoadPosition).name())
+                	return std::dynamic_pointer_cast<IRoadPosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -19065,7 +19585,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteImpl: public BaseImpl, public IRoute
+        class RouteImpl: public BaseImpl, public IRoute, public std::enable_shared_from_this<RouteImpl>
         {
         private:
             std::string _name {};
@@ -19135,6 +19655,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RouteImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRoute).name())
+                	return std::dynamic_pointer_cast<IRoute>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -19225,7 +19749,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteCatalogLocationImpl: public BaseImpl, public IRouteCatalogLocation
+        class RouteCatalogLocationImpl: public BaseImpl, public IRouteCatalogLocation, public std::enable_shared_from_this<RouteCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -19268,6 +19792,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RouteCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRouteCatalogLocation).name())
+                	return std::dynamic_pointer_cast<IRouteCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -19349,7 +19877,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoutePositionImpl: public BaseImpl, public IRoutePosition
+        class RoutePositionImpl: public BaseImpl, public IRoutePosition, public std::enable_shared_from_this<RoutePositionImpl>
         {
         private:
             std::shared_ptr<IRouteRef> _routeRef {};
@@ -19410,6 +19938,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RoutePositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRoutePosition).name())
+                	return std::dynamic_pointer_cast<IRoutePosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -19491,7 +20023,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteRefImpl: public BaseImpl, public IRouteRef
+        class RouteRefImpl: public BaseImpl, public IRouteRef, public std::enable_shared_from_this<RouteRefImpl>
         {
         private:
             std::shared_ptr<IRoute> _route {};
@@ -19542,6 +20074,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RouteRefImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRouteRef).name())
+                	return std::dynamic_pointer_cast<IRouteRef>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -19623,7 +20159,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoutingActionImpl: public BaseImpl, public IRoutingAction
+        class RoutingActionImpl: public BaseImpl, public IRoutingAction, public std::enable_shared_from_this<RoutingActionImpl>
         {
         private:
             std::shared_ptr<IAssignRouteAction> _assignRouteAction {};
@@ -19684,6 +20220,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(RoutingActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IRoutingAction).name())
+                	return std::dynamic_pointer_cast<IRoutingAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -19765,7 +20305,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ScenarioDefinitionImpl: public BaseImpl, public IScenarioDefinition
+        class ScenarioDefinitionImpl: public BaseImpl, public IScenarioDefinition, public std::enable_shared_from_this<ScenarioDefinitionImpl>
         {
         private:
             std::vector<std::shared_ptr<IParameterDeclaration>> _parameterDeclarations {};
@@ -19846,6 +20386,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ScenarioDefinitionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IScenarioDefinition).name())
+                	return std::dynamic_pointer_cast<IScenarioDefinition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -19927,7 +20471,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ScenarioObjectImpl: public BaseImpl, public IScenarioObject
+        class ScenarioObjectImpl: public BaseImpl, public IScenarioObject, public std::enable_shared_from_this<ScenarioObjectImpl>
         {
         private:
             std::string _name {};
@@ -19987,6 +20531,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ScenarioObjectImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IScenarioObject).name())
+                	return std::dynamic_pointer_cast<IScenarioObject>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -20068,7 +20616,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SelectedEntitiesImpl: public BaseImpl, public ISelectedEntities
+        class SelectedEntitiesImpl: public BaseImpl, public ISelectedEntities, public std::enable_shared_from_this<SelectedEntitiesImpl>
         {
         private:
             std::vector<std::shared_ptr<IEntityRef>> _entityRef {};
@@ -20120,6 +20668,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(SelectedEntitiesImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ISelectedEntities).name())
+                	return std::dynamic_pointer_cast<ISelectedEntities>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -20201,7 +20753,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ShapeImpl: public BaseImpl, public IShape
+        class ShapeImpl: public BaseImpl, public IShape, public std::enable_shared_from_this<ShapeImpl>
         {
         private:
             std::shared_ptr<IPolyline> _polyline {};
@@ -20260,6 +20812,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(ShapeImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IShape).name())
+                	return std::dynamic_pointer_cast<IShape>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -20341,7 +20897,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SimulationTimeConditionImpl: public BaseImpl, public ISimulationTimeCondition
+        class SimulationTimeConditionImpl: public BaseImpl, public ISimulationTimeCondition, public std::enable_shared_from_this<SimulationTimeConditionImpl>
         {
         private:
             double _value {};
@@ -20392,6 +20948,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(SimulationTimeConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ISimulationTimeCondition).name())
+                	return std::dynamic_pointer_cast<ISimulationTimeCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -20482,7 +21042,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedActionImpl: public BaseImpl, public ISpeedAction
+        class SpeedActionImpl: public BaseImpl, public ISpeedAction, public std::enable_shared_from_this<SpeedActionImpl>
         {
         private:
             std::shared_ptr<ITransitionDynamics> _speedActionDynamics {};
@@ -20534,6 +21094,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(SpeedActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ISpeedAction).name())
+                	return std::dynamic_pointer_cast<ISpeedAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -20615,7 +21179,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedActionTargetImpl: public BaseImpl, public ISpeedActionTarget
+        class SpeedActionTargetImpl: public BaseImpl, public ISpeedActionTarget, public std::enable_shared_from_this<SpeedActionTargetImpl>
         {
         private:
             std::shared_ptr<IRelativeTargetSpeed> _relativeTargetSpeed {};
@@ -20668,6 +21232,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(SpeedActionTargetImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ISpeedActionTarget).name())
+                	return std::dynamic_pointer_cast<ISpeedActionTarget>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -20749,7 +21317,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedConditionImpl: public BaseImpl, public ISpeedCondition
+        class SpeedConditionImpl: public BaseImpl, public ISpeedCondition, public std::enable_shared_from_this<SpeedConditionImpl>
         {
         private:
             double _value {};
@@ -20800,6 +21368,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(SpeedConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ISpeedCondition).name())
+                	return std::dynamic_pointer_cast<ISpeedCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -20890,7 +21462,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StandStillConditionImpl: public BaseImpl, public IStandStillCondition
+        class StandStillConditionImpl: public BaseImpl, public IStandStillCondition, public std::enable_shared_from_this<StandStillConditionImpl>
         {
         private:
             double _duration {};
@@ -20934,6 +21506,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(StandStillConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IStandStillCondition).name())
+                	return std::dynamic_pointer_cast<IStandStillCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -21024,7 +21600,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryImpl: public BaseImpl, public IStory
+        class StoryImpl: public BaseImpl, public IStory, public std::enable_shared_from_this<StoryImpl>
         {
         private:
             std::string _name {};
@@ -21086,6 +21662,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(StoryImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IStory).name())
+                	return std::dynamic_pointer_cast<IStory>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -21167,7 +21747,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryboardImpl: public BaseImpl, public IStoryboard
+        class StoryboardImpl: public BaseImpl, public IStoryboard, public std::enable_shared_from_this<StoryboardImpl>
         {
         private:
             std::shared_ptr<IInit> _init {};
@@ -21227,6 +21807,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(StoryboardImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IStoryboard).name())
+                	return std::dynamic_pointer_cast<IStoryboard>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -21308,7 +21892,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryboardElementStateConditionImpl: public BaseImpl, public IStoryboardElementStateCondition
+        class StoryboardElementStateConditionImpl: public BaseImpl, public IStoryboardElementStateCondition, public std::enable_shared_from_this<StoryboardElementStateConditionImpl>
         {
         private:
             StoryboardElementType _storyboardElementType {};
@@ -21368,6 +21952,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(StoryboardElementStateConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IStoryboardElementStateCondition).name())
+                	return std::dynamic_pointer_cast<IStoryboardElementStateCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -21449,7 +22037,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SunImpl: public BaseImpl, public ISun
+        class SunImpl: public BaseImpl, public ISun, public std::enable_shared_from_this<SunImpl>
         {
         private:
             double _intensity {};
@@ -21511,6 +22099,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(SunImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ISun).name())
+                	return std::dynamic_pointer_cast<ISun>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -21609,7 +22201,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SynchronizeActionImpl: public BaseImpl, public ISynchronizeAction
+        class SynchronizeActionImpl: public BaseImpl, public ISynchronizeAction, public std::enable_shared_from_this<SynchronizeActionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _masterEntityRef {};
@@ -21678,6 +22270,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(SynchronizeActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ISynchronizeAction).name())
+                	return std::dynamic_pointer_cast<ISynchronizeAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -21759,7 +22355,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TeleportActionImpl: public BaseImpl, public ITeleportAction
+        class TeleportActionImpl: public BaseImpl, public ITeleportAction, public std::enable_shared_from_this<TeleportActionImpl>
         {
         private:
             std::shared_ptr<IPosition> _position {};
@@ -21802,6 +22398,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TeleportActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITeleportAction).name())
+                	return std::dynamic_pointer_cast<ITeleportAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -21883,7 +22483,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeHeadwayConditionImpl: public BaseImpl, public ITimeHeadwayCondition
+        class TimeHeadwayConditionImpl: public BaseImpl, public ITimeHeadwayCondition, public std::enable_shared_from_this<TimeHeadwayConditionImpl>
         {
         private:
             NamedReferenceProxy<IEntity> _entityRef {};
@@ -21960,6 +22560,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TimeHeadwayConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITimeHeadwayCondition).name())
+                	return std::dynamic_pointer_cast<ITimeHeadwayCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -22063,7 +22667,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeOfDayImpl: public BaseImpl, public ITimeOfDay
+        class TimeOfDayImpl: public BaseImpl, public ITimeOfDay, public std::enable_shared_from_this<TimeOfDayImpl>
         {
         private:
             bool _animation {};
@@ -22115,6 +22719,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TimeOfDayImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITimeOfDay).name())
+                	return std::dynamic_pointer_cast<ITimeOfDay>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -22214,7 +22822,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeOfDayConditionImpl: public BaseImpl, public ITimeOfDayCondition
+        class TimeOfDayConditionImpl: public BaseImpl, public ITimeOfDayCondition, public std::enable_shared_from_this<TimeOfDayConditionImpl>
         {
         private:
             Rule _rule {};
@@ -22265,6 +22873,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TimeOfDayConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITimeOfDayCondition).name())
+                	return std::dynamic_pointer_cast<ITimeOfDayCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -22355,7 +22967,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeReferenceImpl: public BaseImpl, public ITimeReference
+        class TimeReferenceImpl: public BaseImpl, public ITimeReference, public std::enable_shared_from_this<TimeReferenceImpl>
         {
         private:
             std::shared_ptr<INone> _none {};
@@ -22408,6 +23020,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TimeReferenceImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITimeReference).name())
+                	return std::dynamic_pointer_cast<ITimeReference>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -22489,7 +23105,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeToCollisionConditionImpl: public BaseImpl, public ITimeToCollisionCondition
+        class TimeToCollisionConditionImpl: public BaseImpl, public ITimeToCollisionCondition, public std::enable_shared_from_this<TimeToCollisionConditionImpl>
         {
         private:
             double _value {};
@@ -22567,6 +23183,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TimeToCollisionConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITimeToCollisionCondition).name())
+                	return std::dynamic_pointer_cast<ITimeToCollisionCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -22670,7 +23290,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeToCollisionConditionTargetImpl: public BaseImpl, public ITimeToCollisionConditionTarget
+        class TimeToCollisionConditionTargetImpl: public BaseImpl, public ITimeToCollisionConditionTarget, public std::enable_shared_from_this<TimeToCollisionConditionTargetImpl>
         {
         private:
             std::shared_ptr<IPosition> _position {};
@@ -22721,6 +23341,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TimeToCollisionConditionTargetImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITimeToCollisionConditionTarget).name())
+                	return std::dynamic_pointer_cast<ITimeToCollisionConditionTarget>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -22802,7 +23426,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimingImpl: public BaseImpl, public ITiming
+        class TimingImpl: public BaseImpl, public ITiming, public std::enable_shared_from_this<TimingImpl>
         {
         private:
             ReferenceContext _domainAbsoluteRelative {};
@@ -22865,6 +23489,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TimingImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITiming).name())
+                	return std::dynamic_pointer_cast<ITiming>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -22959,7 +23587,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficActionImpl: public BaseImpl, public ITrafficAction
+        class TrafficActionImpl: public BaseImpl, public ITrafficAction, public std::enable_shared_from_this<TrafficActionImpl>
         {
         private:
             std::shared_ptr<ITrafficSourceAction> _trafficSourceAction {};
@@ -23021,6 +23649,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficAction).name())
+                	return std::dynamic_pointer_cast<ITrafficAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -23102,7 +23734,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficDefinitionImpl: public BaseImpl, public ITrafficDefinition
+        class TrafficDefinitionImpl: public BaseImpl, public ITrafficDefinition, public std::enable_shared_from_this<TrafficDefinitionImpl>
         {
         private:
             std::string _name {};
@@ -23163,6 +23795,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficDefinitionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficDefinition).name())
+                	return std::dynamic_pointer_cast<ITrafficDefinition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -23244,7 +23880,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalActionImpl: public BaseImpl, public ITrafficSignalAction
+        class TrafficSignalActionImpl: public BaseImpl, public ITrafficSignalAction, public std::enable_shared_from_this<TrafficSignalActionImpl>
         {
         private:
             std::shared_ptr<ITrafficSignalControllerAction> _trafficSignalControllerAction {};
@@ -23297,6 +23933,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSignalActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSignalAction).name())
+                	return std::dynamic_pointer_cast<ITrafficSignalAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -23378,7 +24018,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalConditionImpl: public BaseImpl, public ITrafficSignalCondition
+        class TrafficSignalConditionImpl: public BaseImpl, public ITrafficSignalCondition, public std::enable_shared_from_this<TrafficSignalConditionImpl>
         {
         private:
             std::string _name {};
@@ -23431,6 +24071,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSignalConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSignalCondition).name())
+                	return std::dynamic_pointer_cast<ITrafficSignalCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -23512,7 +24156,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerImpl: public BaseImpl, public ITrafficSignalController
+        class TrafficSignalControllerImpl: public BaseImpl, public ITrafficSignalController, public std::enable_shared_from_this<TrafficSignalControllerImpl>
         {
         private:
             std::string _name {};
@@ -23584,6 +24228,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSignalControllerImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSignalController).name())
+                	return std::dynamic_pointer_cast<ITrafficSignalController>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -23674,7 +24322,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerActionImpl: public BaseImpl, public ITrafficSignalControllerAction
+        class TrafficSignalControllerActionImpl: public BaseImpl, public ITrafficSignalControllerAction, public std::enable_shared_from_this<TrafficSignalControllerActionImpl>
         {
         private:
             NamedReferenceProxy<ITrafficSignalController> _trafficSignalControllerRef {};
@@ -23736,6 +24384,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSignalControllerActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSignalControllerAction).name())
+                	return std::dynamic_pointer_cast<ITrafficSignalControllerAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -23817,7 +24469,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerConditionImpl: public BaseImpl, public ITrafficSignalControllerCondition
+        class TrafficSignalControllerConditionImpl: public BaseImpl, public ITrafficSignalControllerCondition, public std::enable_shared_from_this<TrafficSignalControllerConditionImpl>
         {
         private:
             NamedReferenceProxy<ITrafficSignalController> _trafficSignalControllerRef {};
@@ -23880,6 +24532,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSignalControllerConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSignalControllerCondition).name())
+                	return std::dynamic_pointer_cast<ITrafficSignalControllerCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -23961,7 +24617,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalStateImpl: public BaseImpl, public ITrafficSignalState
+        class TrafficSignalStateImpl: public BaseImpl, public ITrafficSignalState, public std::enable_shared_from_this<TrafficSignalStateImpl>
         {
         private:
             std::string _trafficSignalId {};
@@ -24014,6 +24670,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSignalStateImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSignalState).name())
+                	return std::dynamic_pointer_cast<ITrafficSignalState>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -24095,7 +24755,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalStateActionImpl: public BaseImpl, public ITrafficSignalStateAction
+        class TrafficSignalStateActionImpl: public BaseImpl, public ITrafficSignalStateAction, public std::enable_shared_from_this<TrafficSignalStateActionImpl>
         {
         private:
             std::string _name {};
@@ -24148,6 +24808,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSignalStateActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSignalStateAction).name())
+                	return std::dynamic_pointer_cast<ITrafficSignalStateAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -24229,7 +24893,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSinkActionImpl: public BaseImpl, public ITrafficSinkAction
+        class TrafficSinkActionImpl: public BaseImpl, public ITrafficSinkAction, public std::enable_shared_from_this<TrafficSinkActionImpl>
         {
         private:
             double _rate {};
@@ -24299,6 +24963,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSinkActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSinkAction).name())
+                	return std::dynamic_pointer_cast<ITrafficSinkAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -24393,7 +25061,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSourceActionImpl: public BaseImpl, public ITrafficSourceAction
+        class TrafficSourceActionImpl: public BaseImpl, public ITrafficSourceAction, public std::enable_shared_from_this<TrafficSourceActionImpl>
         {
         private:
             double _rate {};
@@ -24472,6 +25140,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSourceActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSourceAction).name())
+                	return std::dynamic_pointer_cast<ITrafficSourceAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -24570,7 +25242,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSwarmActionImpl: public BaseImpl, public ITrafficSwarmAction
+        class TrafficSwarmActionImpl: public BaseImpl, public ITrafficSwarmAction, public std::enable_shared_from_this<TrafficSwarmActionImpl>
         {
         private:
             double _semiMajorAxis {};
@@ -24678,6 +25350,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrafficSwarmActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrafficSwarmAction).name())
+                	return std::dynamic_pointer_cast<ITrafficSwarmAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -24793,7 +25469,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryImpl: public BaseImpl, public ITrajectory
+        class TrajectoryImpl: public BaseImpl, public ITrajectory, public std::enable_shared_from_this<TrajectoryImpl>
         {
         private:
             std::string _name {};
@@ -24862,6 +25538,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrajectoryImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrajectory).name())
+                	return std::dynamic_pointer_cast<ITrajectory>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -24952,7 +25632,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryCatalogLocationImpl: public BaseImpl, public ITrajectoryCatalogLocation
+        class TrajectoryCatalogLocationImpl: public BaseImpl, public ITrajectoryCatalogLocation, public std::enable_shared_from_this<TrajectoryCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -24995,6 +25675,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrajectoryCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrajectoryCatalogLocation).name())
+                	return std::dynamic_pointer_cast<ITrajectoryCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -25076,7 +25760,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryFollowingModeImpl: public BaseImpl, public ITrajectoryFollowingMode
+        class TrajectoryFollowingModeImpl: public BaseImpl, public ITrajectoryFollowingMode, public std::enable_shared_from_this<TrajectoryFollowingModeImpl>
         {
         private:
             FollowingMode _followingMode {};
@@ -25122,6 +25806,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TrajectoryFollowingModeImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrajectoryFollowingMode).name())
+                	return std::dynamic_pointer_cast<ITrajectoryFollowingMode>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -25203,7 +25891,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TransitionDynamicsImpl: public BaseImpl, public ITransitionDynamics
+        class TransitionDynamicsImpl: public BaseImpl, public ITransitionDynamics, public std::enable_shared_from_this<TransitionDynamicsImpl>
         {
         private:
             DynamicsShape _dynamicsShape {};
@@ -25265,6 +25953,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TransitionDynamicsImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITransitionDynamics).name())
+                	return std::dynamic_pointer_cast<ITransitionDynamics>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -25355,7 +26047,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TraveledDistanceConditionImpl: public BaseImpl, public ITraveledDistanceCondition
+        class TraveledDistanceConditionImpl: public BaseImpl, public ITraveledDistanceCondition, public std::enable_shared_from_this<TraveledDistanceConditionImpl>
         {
         private:
             double _value {};
@@ -25398,6 +26090,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TraveledDistanceConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITraveledDistanceCondition).name())
+                	return std::dynamic_pointer_cast<ITraveledDistanceCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -25488,7 +26184,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TriggerImpl: public BaseImpl, public ITrigger
+        class TriggerImpl: public BaseImpl, public ITrigger, public std::enable_shared_from_this<TriggerImpl>
         {
         private:
             std::vector<std::shared_ptr<IConditionGroup>> _conditionGroups {};
@@ -25532,6 +26228,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TriggerImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITrigger).name())
+                	return std::dynamic_pointer_cast<ITrigger>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -25613,7 +26313,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TriggeringEntitiesImpl: public BaseImpl, public ITriggeringEntities
+        class TriggeringEntitiesImpl: public BaseImpl, public ITriggeringEntities, public std::enable_shared_from_this<TriggeringEntitiesImpl>
         {
         private:
             TriggeringEntitiesRule _triggeringEntitiesRule {};
@@ -25664,6 +26364,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(TriggeringEntitiesImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(ITriggeringEntities).name())
+                	return std::dynamic_pointer_cast<ITriggeringEntities>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -25745,7 +26449,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UserDefinedActionImpl: public BaseImpl, public IUserDefinedAction
+        class UserDefinedActionImpl: public BaseImpl, public IUserDefinedAction, public std::enable_shared_from_this<UserDefinedActionImpl>
         {
         private:
             std::shared_ptr<ICustomCommandAction> _customCommandAction {};
@@ -25789,6 +26493,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(UserDefinedActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IUserDefinedAction).name())
+                	return std::dynamic_pointer_cast<IUserDefinedAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -25870,7 +26578,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UserDefinedValueConditionImpl: public BaseImpl, public IUserDefinedValueCondition
+        class UserDefinedValueConditionImpl: public BaseImpl, public IUserDefinedValueCondition, public std::enable_shared_from_this<UserDefinedValueConditionImpl>
         {
         private:
             std::string _name {};
@@ -25929,6 +26637,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(UserDefinedValueConditionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IUserDefinedValueCondition).name())
+                	return std::dynamic_pointer_cast<IUserDefinedValueCondition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -26010,7 +26722,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleImpl: public BaseImpl, public IVehicle
+        class VehicleImpl: public BaseImpl, public IVehicle, public std::enable_shared_from_this<VehicleImpl>
         {
         private:
             std::string _name {};
@@ -26105,6 +26817,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(VehicleImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IVehicle).name())
+                	return std::dynamic_pointer_cast<IVehicle>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -26186,7 +26902,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCatalogLocationImpl: public BaseImpl, public IVehicleCatalogLocation
+        class VehicleCatalogLocationImpl: public BaseImpl, public IVehicleCatalogLocation, public std::enable_shared_from_this<VehicleCatalogLocationImpl>
         {
         private:
             std::shared_ptr<IDirectory> _directory {};
@@ -26229,6 +26945,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(VehicleCatalogLocationImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IVehicleCatalogLocation).name())
+                	return std::dynamic_pointer_cast<IVehicleCatalogLocation>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -26310,7 +27030,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCategoryDistributionImpl: public BaseImpl, public IVehicleCategoryDistribution
+        class VehicleCategoryDistributionImpl: public BaseImpl, public IVehicleCategoryDistribution, public std::enable_shared_from_this<VehicleCategoryDistributionImpl>
         {
         private:
             std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> _vehicleCategoryDistributionEntries {};
@@ -26354,6 +27074,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(VehicleCategoryDistributionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IVehicleCategoryDistribution).name())
+                	return std::dynamic_pointer_cast<IVehicleCategoryDistribution>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -26435,7 +27159,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCategoryDistributionEntryImpl: public BaseImpl, public IVehicleCategoryDistributionEntry
+        class VehicleCategoryDistributionEntryImpl: public BaseImpl, public IVehicleCategoryDistributionEntry, public std::enable_shared_from_this<VehicleCategoryDistributionEntryImpl>
         {
         private:
             VehicleCategory _category {};
@@ -26487,6 +27211,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(VehicleCategoryDistributionEntryImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IVehicleCategoryDistributionEntry).name())
+                	return std::dynamic_pointer_cast<IVehicleCategoryDistributionEntry>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -26577,7 +27305,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VertexImpl: public BaseImpl, public IVertex
+        class VertexImpl: public BaseImpl, public IVertex, public std::enable_shared_from_this<VertexImpl>
         {
         private:
             double _time {};
@@ -26628,6 +27356,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(VertexImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IVertex).name())
+                	return std::dynamic_pointer_cast<IVertex>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -26718,7 +27450,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VisibilityActionImpl: public BaseImpl, public IVisibilityAction
+        class VisibilityActionImpl: public BaseImpl, public IVisibilityAction, public std::enable_shared_from_this<VisibilityActionImpl>
         {
         private:
             bool _graphics {};
@@ -26780,6 +27512,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(VisibilityActionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IVisibilityAction).name())
+                	return std::dynamic_pointer_cast<IVisibilityAction>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -26878,7 +27614,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WaypointImpl: public BaseImpl, public IWaypoint
+        class WaypointImpl: public BaseImpl, public IWaypoint, public std::enable_shared_from_this<WaypointImpl>
         {
         private:
             RouteStrategy _routeStrategy {};
@@ -26930,6 +27666,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(WaypointImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IWaypoint).name())
+                	return std::dynamic_pointer_cast<IWaypoint>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -27011,7 +27751,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WeatherImpl: public BaseImpl, public IWeather
+        class WeatherImpl: public BaseImpl, public IWeather, public std::enable_shared_from_this<WeatherImpl>
         {
         private:
             CloudState _cloudState {};
@@ -27080,6 +27820,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(WeatherImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IWeather).name())
+                	return std::dynamic_pointer_cast<IWeather>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
@@ -27161,7 +27905,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WorldPositionImpl: public BaseImpl, public IWorldPosition
+        class WorldPositionImpl: public BaseImpl, public IWorldPosition, public std::enable_shared_from_this<WorldPositionImpl>
         {
         private:
             double _x {};
@@ -27247,6 +27991,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<void> GetAdapter(const std::string classifier) override
             {
+                if (classifier == typeid(WorldPositionImpl).name())
+                    return shared_from_this();
+                else if (classifier == typeid(IWorldPosition).name())
+                	return std::dynamic_pointer_cast<IWorldPosition>(shared_from_this());
                 return BaseImpl::GetAdapter(classifier);
             }
 
