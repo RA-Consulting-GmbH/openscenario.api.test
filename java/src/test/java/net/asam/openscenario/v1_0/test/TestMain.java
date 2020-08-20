@@ -43,8 +43,6 @@ public class TestMain extends TestBase {
     OpenScenarioChecker.main(new String[] {"-i",filename});
     Assertions.assertEquals(
         "Validation failed with 2 errors and 0 warnings.", getLine(this.testOut.toString(), 10));
-    System.setOut(stdout);
-    System.out.println(testOut.toString());
   }
 
   @Test
