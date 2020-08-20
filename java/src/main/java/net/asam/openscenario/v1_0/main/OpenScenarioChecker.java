@@ -63,14 +63,11 @@ public class OpenScenarioChecker {
       properties.load(
           OpenScenarioChecker.class.getClassLoader().getResourceAsStream("version.properties"));
     } catch (IOException e) {
-      System.out.println("Internal error Ocuured");
+      System.out.println("Internal error Occured");
       return;
     }
 
     String version = properties.getProperty("version");
-    // 1. input file
-    // 2. Version -v
-    // 3. print import errors
     String header = "* ASAM OpenSCENARIO 1.0 Checker (2020) *";
     String headerFillString = getFilledString(header.length(), '*');
 
@@ -85,21 +82,21 @@ public class OpenScenarioChecker {
     }
     String inputFileName = null;
     String paramFileName = null;
-    if (args.length == 1) {
-      inputFileName = args[0];
+    if (args.length == 2 && args[0].equals("-i")) {
+      inputFileName = args[1];
       isCommandLineParsable = true;
-    } else if (args.length == 3 && args[1].equals("-paramsfile")) {
-      inputFileName = args[0];
-      paramFileName = args[2];
+    } else if (args.length == 4 && args[2].equals("-p") && args[0].equals("-i")) {
+      inputFileName = args[1];
+      paramFileName = args[3];
       isCommandLineParsable = true;
     }
 
     if (!isCommandLineParsable) {
-      System.out.println("Usage: [inputfile] [-paramsfile injectedParameterFile]|[-v]");
-      System.out.println("inputfile\tthe file to be validated");
-      System.out.println(
-          "injectedParameterFile\ta file with name/value pairs. One line per name/value pair. tab separated");
-      System.out.println("-v\tprogram version");
+      System.out.println("Usage: [[-i <filename> [-p <paramfilename>]] | -v]");
+      System.out.println("Options:");
+      System.out.println("\t-i  <filename> file to be validated");
+      System.out.println("\t-p  <paramfilename> a file with name/value pairs. One line per name/value pair. tab separated");
+      System.out.println("\t-v  print program version");
       return;
     }
     Hashtable<String, String> nameValuePairs = new Hashtable<>();
@@ -155,7 +152,7 @@ public class OpenScenarioChecker {
 
     try {
 
-      executeImportParsing(args[0], messageLogger, catalogMessageLogger, nameValuePairs);
+      executeImportParsing(inputFileName, messageLogger, catalogMessageLogger, nameValuePairs);
       for (FileContentMessage message :
           messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(logLevel)) {
         Textmarker textmarker = message.getTextmarker();
