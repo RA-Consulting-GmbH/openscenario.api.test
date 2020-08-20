@@ -77,6 +77,7 @@ public class TestBase {
     this.messageLogger.clear();
     this.stdout = System.out;
     System.setOut(new PrintStream(this.testOut));
+    
   }
 
   @AfterEach

@@ -24,14 +24,15 @@ import net.asam.openscenario.v1_0.main.OpenScenarioChecker;
 
 public class TestMain extends TestBase {
 
+  @Test
   public void testImportSuccess() {
     OpenScenarioChecker.main(
-        new String[] {getResourceFile("simpleImport/simpleImport.xosc").getAbsolutePath()});
+        new String[] {"-i",getResourceFile("simpleImport/simpleImport.xosc").getAbsolutePath()});
   }
 
   @Test
   public void testFileNoteFound() {
-    OpenScenarioChecker.main(new String[] {"testFileNoteFound"});
+    OpenScenarioChecker.main(new String[] {"-i","testFileNoteFound"});
     Assertions.assertEquals(
         "Scenario file not found 'testFileNoteFound'", getLine(this.testOut.toString(), 4));
   }
@@ -39,17 +40,19 @@ public class TestMain extends TestBase {
   @Test
   public void testWithErrors() {
     String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {filename});
+    OpenScenarioChecker.main(new String[] {"-i",filename});
     Assertions.assertEquals(
         "Validation failed with 2 errors and 0 warnings.", getLine(this.testOut.toString(), 10));
+    System.setOut(stdout);
+    System.out.println(testOut.toString());
   }
 
   @Test
   public void testWrongCommandLine() {
     String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {filename, "Test"});
+    OpenScenarioChecker.main(new String[] {"-i", filename, "Test"});
     Assertions.assertEquals(
-        "Usage: [inputfile] [-paramsfile injectedParameterFile]|[-v]",
+        "Usage: [[-i <filename> [-p <paramfilename>]] | -v]",
         getLine(this.testOut.toString(), 4));
   }
 
@@ -57,7 +60,7 @@ public class TestMain extends TestBase {
   public void testWithParamFile() {
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = getResourceFile("params.conf").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
+    OpenScenarioChecker.main(new String[] {"-i", filename, "-p", paramFileName});
     Assertions.assertEquals("\ttestBoolean\ttrue", getLine(this.testOut.toString(), 5));
     Assertions.assertEquals(
         "\ttestDateTime\t2018-02-24T10:00:00", getLine(this.testOut.toString(), 6));
@@ -74,7 +77,7 @@ public class TestMain extends TestBase {
 
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = getResourceFile("paramsSyntaxError.conf").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
+    OpenScenarioChecker.main(new String[] {"-i",filename, "-p", paramFileName});
     Assertions.assertEquals(
         "Syntax error in parameter file: line 8", getLine(this.testOut.toString(), 4));
   }
@@ -85,7 +88,7 @@ public class TestMain extends TestBase {
 
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = getResourceFile("paramsSyntaxError2.conf").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
+    OpenScenarioChecker.main(new String[] {"-i",filename, "-p", paramFileName});
     Assertions.assertEquals(
         "Syntax error in parameter file: line 5", getLine(this.testOut.toString(), 4));
   }
@@ -95,13 +98,13 @@ public class TestMain extends TestBase {
     // test stuff here...
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = "paramsNotFound.conf";
-    OpenScenarioChecker.main(new String[] {filename, "-paramsfile", paramFileName});
+    OpenScenarioChecker.main(new String[] {"-i",filename, "-p", paramFileName});
 
     Assertions.assertEquals("paramsfile not found", getLine(this.testOut.toString(), 4));
   }
 
   // Use these lines to make stout visible
-  // System.setOut(stdout);
-  // System.out.println(testOut.toString());
+  //System.setOut(stdout);
+ //System.out.println(testOut.toString());
 
 }
