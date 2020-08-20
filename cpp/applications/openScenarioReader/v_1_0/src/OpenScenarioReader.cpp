@@ -104,11 +104,12 @@ int main(int argc, char** argv)
 
     if (!isCommandLineParsable)
     {
-        std::cout << "OpenScenarioChecker [option] [-p]" << std::endl;
+        std::cout << "OpenScenarioChecker [[-i <filename> [-p <paramfilename>]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
-        std::cout << "-i\tinput file name for the file to be validated" << std::endl;
+        std::cout << "-i\t<filename> file to be validated" << std::endl;
+        std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
         std::cout << "-v\tprint program version" << std::endl;
-        std::cout << "-p\ta file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
+        
         return -1;
     }
 
