@@ -67,10 +67,10 @@ public abstract class XmlChoiceParser<T extends BaseImpl> extends XmlModelGroupP
       Position start = indexedElement.getStartElementLocation();
 
       if (parser == null) {
-        Integer occurCount = this.occuredElementList.get(this.parsers.get(0));
-        if (this.parsers.size() == 1
+        Integer occurCount = this.occuredElementList.get(getParsers().get(0));
+        if (getParsers().size() == 1
             && occurCount != null
-            && occurCount >= this.parsers.get(0).getMinOccur()) {
+            && occurCount.intValue() >= getParsers().get(0).getMinOccur()) {
           // We are done
           break;
         }
@@ -84,9 +84,9 @@ public abstract class XmlChoiceParser<T extends BaseImpl> extends XmlModelGroupP
       } else {
         Integer currentOccurs = this.occuredElementList.get(parser);
         if (currentOccurs == null) {
-          currentOccurs = 0;
+          currentOccurs = new Integer(0);
         }
-        if (currentOccurs < parser.getMaxOccur()) {
+        if (currentOccurs.intValue() < parser.getMaxOccur()) {
 
           parser.parse(indexedElement, parserContext, object);
           currentListIndex =
@@ -94,10 +94,10 @@ public abstract class XmlChoiceParser<T extends BaseImpl> extends XmlModelGroupP
                   indexedElements, currentListIndex, parserContext.getLastElementParsed());
           lastElementParsed = parserContext.getLastElementParsed();
           // delete all parsers with other tag names;
-          if (currentOccurs == 0) {
+          if (currentOccurs.intValue() == 0) {
             excludeOtherParsers(parser);
           }
-          this.occuredElementList.put(parser, currentOccurs + 1);
+          this.occuredElementList.put(parser, new Integer(currentOccurs.intValue() + 1));
 
         } else {
           this.messageLogger.logMessage(

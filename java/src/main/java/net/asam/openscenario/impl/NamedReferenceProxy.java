@@ -82,7 +82,7 @@ public class NamedReferenceProxy<T extends IOpenScenarioModelElement>
 
   @Override
   public NamedReferenceProxy<T> clone() {
-    NamedReferenceProxy<T> proxy = new NamedReferenceProxy<T>(this.nameRef);
+    NamedReferenceProxy<T> proxy = new NamedReferenceProxy<>(this.nameRef);
     proxy.setTargetObject(this.targetObject);
     return proxy;
   }

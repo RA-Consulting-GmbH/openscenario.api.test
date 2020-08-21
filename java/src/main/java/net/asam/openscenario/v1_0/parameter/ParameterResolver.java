@@ -17,7 +17,6 @@
 
 package net.asam.openscenario.v1_0.parameter;
 
-import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;

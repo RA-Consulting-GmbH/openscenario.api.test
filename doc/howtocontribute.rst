@@ -20,7 +20,6 @@ This document explains how to participate in project conversations, log bugs and
 
 Licensing
 ---------
-
 OpenSCEANRIO API uses the Apache License v. 2.0. (as found in the `LICENSE <https://github.com/ahege/openscenario.api.test/blob/master/LICENSE>`_ file in the project’s GitHub repo). The only exceptions are the example files and OpenSCENARIO XSD files, which are licensed under the ASAM license.
 
 The license tells you what rights you have as a developer, provided by the copyright holder. It is important that the contributor fully understands the licensing rights and agrees to them. Sometimes the copyright holder isn’t the contributor, such as when the contributor is doing work on behalf of a company.
@@ -92,7 +91,10 @@ Placing this script into a file called ``.git/hooks/commit-msg`` and making it e
 Formatting issues
 -----------------
 
-For java code, the usage of the `google formatter<https://github.com/google/google-java-format>`_ is mandatory.
+For java code, the usage of the `google formatter <https://github.com/google/google-java-format>`_ is mandatory.
+
+For C++ code, the usage of `this <https://github.com/RA-Consulting-GmbH/openscenario.api.test/blob/master/doc/CppCodeStyle.clang-format>`_ .clang-format file is mandatory.
+
 
 Build fails on warnings policy
 ------------------------------
@@ -103,17 +105,17 @@ Reporting issues
 ----------------
 
 The simplest way to contribute to the OpenSCENARIO API is to report issues that you may
-find with the project on `github <https://github.com/ahege/openscenario.api.test>`_. Everyone can create issues.
+find with the project on `github <https://github.com/ra-consulting-gmbh/openscenario.api.test>`_. Everyone can create issues.
 Always make sure to search the existing issues before reporting a new one.
 Issues may be created to discuss:
 
-- `Feature <https://github.com/ahege/openscenario.api.test/issues/new?assignees=&labels=feature&template=feature_request.md&title=>`_
-- `Bugs <https://github.com/ahege/openscenario.api.test/issues/new?assignees=&labels=bug&template=bug_report.md&title=>`_
-- `Questions <https://github.com/ahege/openscenario.api.test/issues/new?assignees=&labels=question&template=question.md&title=>`_
-- `Other <https://github.com/ahege/openscenario.api.test/issues/new>`_
+- `Feature <https://github.com/ra-consulting-gmbh/openscenario.api.test/issues/new?assignees=&labels=feature&template=feature_request.md&title=>`_
+- `Bugs <https://github.com/ra-consulting-gmbh/openscenario.api.test/issues/new?assignees=&labels=bug&template=bug_report.md&title=>`_
+- `Questions <https://github.com/ra-consulting-gmbh/openscenario.api.test/issues/new?assignees=&labels=question&template=question.md&title=>`_
+- `Other <https://github.com/ra-consulting-gmbh/openscenario.api.test/issues/new>`_
 
 
-If practicable issues should be closed by a referenced pull request or commit (`here <https://help.github.com/en/articles/closing-issues-using-keywords>`_ you can find keywords to close issues automatically). To help developers and maintainers we provide a `pull request template <https://github.com/ahege/openscenario.api.test/blob/master/.github/pull_request_template.md>`_ which will be generated each time you create a new pull request.
+If practicable issues should be closed by a referenced pull request or commit (`here <https://help.github.com/en/articles/closing-issues-using-keywords>`_ you can find keywords to close issues automatically). To help developers and maintainers we provide a `pull request template <https://github.com/ra-consulting-gmbh/openscenario.api.test/blob/master/.github/pull_request_template.md>`_ which will be generated each time you create a new pull request.
 
 First steps
 -----------
@@ -131,7 +133,7 @@ Become a github guru :).
 Where to start
 --------------
 
-While you familiarize yourself with the basics as suggested above, you can have a look at the javadoc of the API (see `README.md <https://github.com/ahege/openscenario.api.test/blob/master/README.md>`_ for instructions how to build javadocs for the project). It will give you an overview of the API classes, their main components and their meaning.
+While you familiarize yourself with the basics as suggested above, you can have a look at the javadoc of the API (see `README.md <https://github.com/ra-consulting-gmbh/openscenario.api.test/blob/master/README.md>`_ for instructions how to build javadocs for the project). It will give you an overview of the API classes, their main components and their meaning.
 
 Our git workflow
 ----------------
@@ -178,7 +180,7 @@ maintain a streamlined Git history. Pull requests without a Sign-Off message (se
 - Create a branch with a meaningful name: ``prefix/name``, ``feature/new-environmental-conditions``
 - prefixes: feature, experimental, bug, etc.
 - Add your suggestions to the code. Do not use: ``*git add -A *git commit -A``
-- The code should compile and pass all `unit tests <https://github.com/ahege/openscenario.api.test/tree/master/java/src/test>`_  for a pull-request!
+- The code should compile and pass all `unit tests <https://github.com/ra-consulting-gmbh/openscenario.api.test/tree/master/java/src/test>`_  for a pull-request!
 - Try to make small changes for easier discussions
 - The person willing to merge needs to adjust the version according to :ref:`versioning` before hitting merge
 
@@ -195,7 +197,7 @@ maintain a streamlined Git history. Pull requests without a Sign-Off message (se
 **Documentation changes**:
 
 - Can be performed by anyone.
-- Consider adding stuff to the `doc <https://github.com/ahege/openscenario.api.test/tree/master/doc>`_ folder in the repository.
+- Consider adding stuff to the `doc <https://github.com/ra-consulting-gmbh/openscenario.api.test/tree/master/doc>`_ folder in the repository.
 
 Code Review
 -----------

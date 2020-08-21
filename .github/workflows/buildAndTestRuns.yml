@@ -1,0 +1,148 @@
+name: OpenScenarioCpp
+on: [push, pull_request]
+
+jobs:
+  LinuxDebugBuild:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: install uuid-dev package
+      run:  sudo apt-get install uuid-dev
+    
+    - name: cmake generate solution Debug
+      run: cmake -DCMAKE_BUILD_TYPE="Debug" -DPLATFORM_PARAM="Linux" ./cpp
+      
+    - name: build solution Debug
+      run: make
+    
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: LinuxDebugBinaries
+#         path: ./cpp/build/output/Linux/Debug/*
+      
+    - name: test Debug
+      shell: bash
+      run: |
+        cd cpp/build/output/Linux/Debug
+        chmod +x *
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+        ./OpenScenarioTesterV_1_0 && (exit 0) || (exit -1) 
+    
+  LinuxReleaseBuild:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: install uuid-dev package
+      run:  sudo apt-get install uuid-dev
+    
+    - name: cmake generate solution Release
+      run: cmake -DCMAKE_BUILD_TYPE="Release" -DPLATFORM_PARAM="Linux" ./cpp
+      
+    - name: build solution Release
+      run: make
+    
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: LinuxReleaseBinaries
+#         path: ./cpp/build/*
+
+    - name: test Release
+      shell: bash
+      run: |
+        cd cpp/build/output/Linux/Release
+        chmod +x *
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+        ./OpenScenarioTesterV_1_0 && (exit 0) || (exit -1) 
+  Win32DebugBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Debug
+      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE
+      
+    - name: build solution Debug
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
+    
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: Winx64DebugBinaries
+#         path: ./cpp/build/output/x64/Debug/*
+    
+    - name: test Debug
+      shell: bash
+      run: ./cpp/build/output/Win32/Debug/OpenScenarioTesterV_1_0.exe && (exit 0) || (exit -1) 
+
+  Win32ReleaseBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Release
+      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE
+      
+    - name: build solution Release
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=Win32
+
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: Winx64ReleaseBinaries
+#         path: ./cpp/build/output/x64/*
+
+    - name: test Release
+      shell: bash
+      run: ./cpp/build/output/Win32/Release/OpenScenarioTesterV_1_0.exe && (exit 0) || (exit -1) 
+
+  Win64DebugBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Debug
+      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE
+      
+    - name: build solution Debug
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
+    
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: Winx64DebugBinaries
+#         path: ./cpp/build/output/x64/Debug/*
+    
+    - name: test Debug
+      shell: bash
+      run: ./cpp/build/output/x64/Debug/OpenScenarioTesterV_1_0.exe && (exit 0) || (exit -1) 
+
+  Win64ReleaseBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Release
+      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE
+      
+    - name: build solution Release
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=x64
+
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: Winx64ReleaseBinaries
+#         path: ./cpp/build/output/x64/*
+
+    - name: test Release
+      shell: bash
+      run: ./cpp/build/output/x64/Release/OpenScenarioTesterV_1_0.exe && (exit 0) || (exit -1) 
