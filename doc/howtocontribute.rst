@@ -2,6 +2,11 @@
 
 Contributors' Guidelines
 =========================
+Disclaimer
+------------
+This is non-normative software not associated with any official ASAM release of a standard. ASAM is not liable for any issues, bugs or problems that might occur as a result of the use of this code. ASAM does not guarantee for the quality of this code.
+
+The ASAM organisation on GitHub is a platform where open-source tools and code that compliment its portfolio of standards can be collected to assist users of its standards. Moderation and maintenance of code is managed by the community of users and the tool contributors, see each individual tool for details.
 
 Introduction
 ------------
@@ -9,14 +14,13 @@ Introduction
 The purpose of this document is to help contributors get started with
 the ASAM OpenSCENARIO API codebase.
 
-As an open-source standardisation project, we welcome and encourage the community to submit patches directly to the project. In our collaborative open source environment, standards and methods for submitting changes help reduce the chaos that can result from an active development community.
+As an open-source project, we welcome and encourage the community to submit patches directly to the project. In our collaborative open source environment, standards and methods for submitting changes help reduce the chaos that can result from an active development community.
 
 This document explains how to participate in project conversations, log bugs and enhancement requests, and submit patches to the project so your patch will be accepted quickly in the codebase.
 
 Licensing
 ---------
-
-OpenSCEANRIO API uses the Apache License v. 2.0. (as found in the `LICENSE <https://github.com/ra-consulting-gmbh/openscenario.api.test/blob/master/LICENSE>`_ file in the project’s GitHub repo).
+OpenSCEANRIO API uses the Apache License v. 2.0. (as found in the `LICENSE <https://github.com/ahege/openscenario.api.test/blob/master/LICENSE>`_ file in the project’s GitHub repo). The only exceptions are the example files and OpenSCENARIO XSD files, which are licensed under the ASAM license.
 
 The license tells you what rights you have as a developer, provided by the copyright holder. It is important that the contributor fully understands the licensing rights and agrees to them. Sometimes the copyright holder isn’t the contributor, such as when the contributor is doing work on behalf of a company.
 
@@ -116,9 +120,11 @@ If practicable issues should be closed by a referenced pull request or commit (`
 First steps
 -----------
 
-First, make up your mind to which programming platform (Java, C++) you wanna contribute.
+First, make up your mind to which programming platform (Java, C++) you want to contribute to.
 
-See the `README.md <https://github.com/ra-consulting-gmbh/openscenario.api.test/blob/master/README.md>`_ page for bulding instructions.
+See the `README.md <https://github.com/ahege/openscenario.api.test/blob/master/README.md>`_ page for building instructions.
+
+Also, make sure that you are proficient enough in OpenSCENARIO. The `User Guide <https://www.asam.net/index.php?eID=dumpFile&t=f&f=3496&token=df4fdaf41a8463e585495001cc3db3298b57d426>`_ is a great place to start learning. Download the  `full release <https://www.asam.net/standards/detail/openscenario/#>`_ and go through the examples.
 
 For contribution you also need be proficient in Git. You can download and read the book Pro Git by Scott Chacon and Ben Straub `here <https://link.springer.com/book/10.1007%2F978-1-4842-0076-6>`_ for free.
 Learn `how to fork a repository <https://help.github.com/en/articles/fork-a-repo>`_ and follow the suggested `fork workflow <https://www.atlassian.com/git/tutorials/comparing-workflows>`_ by Atlassian.
