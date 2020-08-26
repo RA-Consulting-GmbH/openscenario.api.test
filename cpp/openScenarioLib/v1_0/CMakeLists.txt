@@ -14,8 +14,11 @@ endif( WIN32 )
 ################################################################
 # Preprocessor settings
 # Shared or static lib?
-if( BUILD_STATIC_LIBS STREQUAL "ON" )
+if( ${BUILD_STATIC_LIBS} STREQUAL "ON" )
   set( LIB_TYPE "STATIC" )
+  if( LINUX )
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=default -fno-visibility-inlines-hidden")
+  endif( LINUX )
 else()
   add_definitions( -DEXPORT_OPENSCENARIOLIB )
   set( LIB_TYPE "SHARED" )

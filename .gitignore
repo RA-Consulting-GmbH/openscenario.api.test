@@ -25,3 +25,9 @@ cpp/build/generateLinux5.tgz
 cpp/build/generateLinux/openScenario.v1_0.API_shared_2020.08.19.tgz
 cpp/build/generateLinux/openScenario.v1_0.API_static_2020.08.19.tgz
 openscenario.api.test.code-workspace
+cpp/applications/openScenarioTester/v1_0/src/findHeaders.sh
+cpp/build/generateLinux/EgoCheckerRule.h
+cpp/build/generateLinux/openScenario.v1_0.API_2020.08.24.tgz
+cpp/build/generateLinux/openScenario.v1_0.API_2020.08.25.tgz
+cpp/build/generateLinux/openScenario.v1_0.API_2020.08.26.tgz
+cpp/build/generateLinux/tinyxml2.cpp

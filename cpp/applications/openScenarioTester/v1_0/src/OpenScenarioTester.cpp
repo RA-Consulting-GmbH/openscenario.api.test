@@ -40,7 +40,8 @@ int main(int argc, char** argv)
     char basePath[PATH_MAX] = "";
     realpath(argv[0], basePath);
     std::string executablePath(basePath);
-    executablePath = executablePath.substr(0, executablePath.size() - 24);
+    auto endPos = executablePath.find_last_of('/') != std::string::npos ? executablePath.find_last_of('/') : executablePath.size();
+    executablePath = executablePath.substr(0, endPos);
 #else
 #error "Operating system not supported."
 #endif

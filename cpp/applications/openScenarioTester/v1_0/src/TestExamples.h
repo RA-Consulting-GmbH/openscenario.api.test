@@ -26,6 +26,7 @@ public:
 
     bool TestExample() const
     {
+        // Creating a message logger to pick up the messages
         auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
         const auto kMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLoggerDecorator>(msgLogger);
 

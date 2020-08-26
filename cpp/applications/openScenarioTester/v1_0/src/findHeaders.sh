@@ -23,7 +23,16 @@ cpp -MM \
 -I ../../../../build/output/Linux/Release/res/examples_esmini/Catalogs \
 -I ../../../../build/output/Linux/Release/res/simpleImport \
 -I ../../../../build/output/Linux/Release/res/simpleImport/Catalogs \
+-I ../../../../build/output/Linux/Release/examples \
+-I ../../../../build/output/Linux/Release/examples/simpleExample \
+-I ../../../../build/output/Linux/Release/examples/simpleExample/Catalogs \
+-I ../../../../build/output/Linux/Release/examples/defectExample \
+-I ../../../../build/output/Linux/Release/examples/defectExample/Catalogs \
+-I ../../../../build/output/Linux/Release/examples/injectedParamsExample \
+-I ../../../../build/output/Linux/Release/examples/injectedParamsExample/Catalogs \
 -I ../../../../build/generateLinux \
+-I ../../../../build/generateLinux/openScenario.v1_0.API \
+-I ../../../../build/generateLinux/openScenario.v1_0.API/.vscode \
 -I ../../../../build/generateLinux/gccLinuxRelease \
 -I ../../../../build/generateLinux/gccLinuxRelease/openScenarioLib \
 -I ../../../../build/generateLinux/gccLinuxRelease/openScenarioLib/v1_0 \

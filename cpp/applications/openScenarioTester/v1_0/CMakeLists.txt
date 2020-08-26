@@ -3,6 +3,7 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenarioTester.v1_0 )
 message("${PROJECT_NAME}")
 
+
 ################################################################
 # Preprocessor settings
 if( WIN32 )
