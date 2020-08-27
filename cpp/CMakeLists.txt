@@ -59,9 +59,6 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 # Dependencies
 add_subdirectory( externalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/externalLibs/ANTLR4-Cpp-src)
 
-#set(CMAKE_CXX_VISIBILITY_PRESET default)
-#set(CMAKE_VISIBILITY_INLINES_HIDDEN 0)
-
 # CoreLibraries
 add_subdirectory( openScenarioLib/v1_0 ${PROJECT_BINARY_DIR}/openScenarioLib/v1_0 )
 
