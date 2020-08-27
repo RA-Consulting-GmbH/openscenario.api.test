@@ -22,7 +22,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace V_1_0
+    namespace v1_0
     {
         void AbsoluteSpeedRangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAbsoluteSpeed> object)
         {

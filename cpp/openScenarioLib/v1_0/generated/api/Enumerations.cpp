@@ -19,7 +19,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace V_1_0
+    namespace v1_0
     {
         std::map<std::string, CloudState::CloudStateEnum> CloudState::_stringToEnum = 
         {

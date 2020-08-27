@@ -37,13 +37,13 @@ public:
         auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
         // Instantiating the factory
-        NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory loaderFactory(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
+        NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioLoaderFactory loaderFactory(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
 
         // Creating the loader with a file resource locator (we are reading directly from a file system)
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
         // Loading the scenario
-        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(loader->Load(messageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario).name()));
+        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(loader->Load(messageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario).name()));
 
         // Check for errors
         if (!messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR).empty()) 
@@ -67,13 +67,13 @@ public:
         auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
         // Instantiating the factory
-        NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioImportLoaderFactory loaderFactory(catalogMessageLogger, _executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc");
+        NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioImportLoaderFactory loaderFactory(catalogMessageLogger, _executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc");
 
         // Creating the loader with a file resource locator (we are reading directly from a file system)
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
         // Loading the scenario
-        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl>(loader->Load(messageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl).name()));
+        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl>(loader->Load(messageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl).name()));
 
         // Get the list of scenario objects
         auto scenarioObjects = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetEntities()->GetScenarioObjects();
@@ -90,9 +90,9 @@ public:
                 {
                     auto catalogRef = catalogReference->GetRef();
                     // Now check the type.
-                    if ( NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::IsVehicle(catalogRef))
+                    if ( NET_ASAM_OPENSCENARIO::v1_0::CatalogHelper::IsVehicle(catalogRef))
                     {
-                        auto vehicle = NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::AsVehicle(catalogRef);
+                        auto vehicle = NET_ASAM_OPENSCENARIO::v1_0::CatalogHelper::AsVehicle(catalogRef);
                         // Now you can access the resolved vehicle
                         auto axles = vehicle->GetAxles();
                         // get the additonal axles
@@ -118,15 +118,15 @@ public:
     {
         try 
         {
-            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc"));
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc"));
 
             // the root of the tree is available in the IOpenScenario openScenario variable
             // Instantiate a checker now
-            NET_ASAM_OPENSCENARIO::V_1_0::ScenarioCheckerImpl scenarioChecker;
+            NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl scenarioChecker;
 
             // The sceanrio checker provided a method for every model type (here IFileHeader) to add
             // CheckerRule
-            scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<NET_ASAM_OPENSCENARIO::V_1_0::VersionCheckerRule>(1, 0));
+            scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<NET_ASAM_OPENSCENARIO::v1_0::VersionCheckerRule>(1, 0));
 
             // Create a message logger to pick up the messages
             auto simpleMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
@@ -154,12 +154,12 @@ public:
     {
         try 
         {
-            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc"));
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc"));
 
             // the root of the tree is available in the IOpenScenario openScenario variable
 
             // Instantiate a checker now
-            NET_ASAM_OPENSCENARIO::V_1_0::ScenarioCheckerImpl scenarioChecker;
+            NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl scenarioChecker;
 
             // The sceanrio checker provided a method for every model type (here IFileHeader) to add
             // CheckerRule

@@ -32,13 +32,13 @@ public:
 
         // Instantiating the factory
         std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
-        auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(fileName);
+        auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioLoaderFactory(fileName);
 
         // Creating the loader
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
         // Loading 
-        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario).name()));
+        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario).name()));
 
         //Check for errors
         if (!kMessageLogger->HasErrors())
@@ -79,12 +79,12 @@ public:
         auto checkerRuleLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
 
         // Using the adapter interface to get the checker
-        auto scenarioChecker = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IScenarioChecker>( openScenario->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::IScenarioChecker).name()));
+        auto scenarioChecker = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IScenarioChecker>( openScenario->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::IScenarioChecker).name()));
 
-        class CheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule<NET_ASAM_OPENSCENARIO::V_1_0::IVehicle>
+        class CheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule<NET_ASAM_OPENSCENARIO::v1_0::IVehicle>
         {
         public:
-            void ApplyRule(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger>& messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::IVehicle> object) override
+            void ApplyRule(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger>& messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IVehicle> object) override
             {
                 const auto kName = object->GetName();
 
@@ -93,7 +93,7 @@ public:
                 {
                     // Get the textmarker at the error
                     auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
-                    const auto kTextmarker = locator->GetStartMarkerOfProperty(NET_ASAM_OPENSCENARIO::V_1_0::OSC_CONSTANTS::ATTRIBUTE__NAME);
+                    const auto kTextmarker = locator->GetStartMarkerOfProperty(NET_ASAM_OPENSCENARIO::v1_0::OSC_CONSTANTS::ATTRIBUTE__NAME);
 
                     // Add a message to the logger
                     auto msg = NET_ASAM_OPENSCENARIO::FileContentMessage("Name must start with a capital letter", NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, kTextmarker);

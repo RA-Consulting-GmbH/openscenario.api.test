@@ -69,7 +69,7 @@ public:
 
         try
         {
-            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters));
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters));
 
             // testString
             auto res = Assert("injected" == openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath(), ASSERT_LOCATION);
@@ -189,7 +189,7 @@ private:
     * @param eventPtr
     * @return
     */
-    std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::ILaneChangeAction> GetLaneChangeAction(std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::IEvent> eventPtr)
+    std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::ILaneChangeAction> GetLaneChangeAction(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEvent> eventPtr)
     {
         return eventPtr->GetActions()[0]->GetPrivateAction()->GetLateralAction()->GetLaneChangeAction();
     }
@@ -198,7 +198,7 @@ private:
     * @param openScenario
      * @return
     */
-    std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::IEvent> GetEvent(std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario> openScenario)
+    std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEvent> GetEvent(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario> openScenario)
     {
         return openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetManeuvers()[0]->GetEvents()[0];
     }

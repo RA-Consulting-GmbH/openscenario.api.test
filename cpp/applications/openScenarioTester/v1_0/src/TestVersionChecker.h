@@ -24,10 +24,10 @@
 class TestVersionChecker : public TestBase
 {
 private:
-    void ApplyCheckerRules(std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario> openScenario, int majorRev, int minorRev) const
+    void ApplyCheckerRules(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario> openScenario, int majorRev, int minorRev) const
     {
-        NET_ASAM_OPENSCENARIO::V_1_0::ScenarioCheckerImpl scenarioChecker;
-        scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<NET_ASAM_OPENSCENARIO::V_1_0::VersionCheckerRule>(majorRev, minorRev));
+        NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl scenarioChecker;
+        scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<NET_ASAM_OPENSCENARIO::v1_0::VersionCheckerRule>(majorRev, minorRev));
         scenarioChecker.CheckScenario(_messageLogger, openScenario);
     }
 
@@ -40,7 +40,7 @@ public:
         try 
         {
             std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
-            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(filename));
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(filename));
             ApplyCheckerRules(openScenario, 0, 9);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger), ASSERT_LOCATION);

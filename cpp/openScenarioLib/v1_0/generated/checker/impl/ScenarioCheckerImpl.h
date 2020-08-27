@@ -28,7 +28,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace V_1_0
+    namespace v1_0
     {
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0

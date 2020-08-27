@@ -23,10 +23,10 @@
 class TestRangeChecker : public TestBase
 {
 private:
-    void ApplyCheckerRules(std::shared_ptr<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario> openScenario) const
+    void ApplyCheckerRules(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario> openScenario) const
     {
-        auto scenarioChecker = std::make_shared<NET_ASAM_OPENSCENARIO::V_1_0::ScenarioCheckerImpl>();
-        NET_ASAM_OPENSCENARIO::V_1_0::RangeCheckerHelper::AddAllRangeCheckerRules(scenarioChecker);
+        auto scenarioChecker = std::make_shared<NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl>();
+        NET_ASAM_OPENSCENARIO::v1_0::RangeCheckerHelper::AddAllRangeCheckerRules(scenarioChecker);
         scenarioChecker->CheckScenario(_messageLogger, openScenario);
     }
 public:
@@ -38,7 +38,7 @@ public:
         try 
         {
             std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCheckerErrors.xosc";
-            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>( ExecuteParsing(filename));
+            auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>( ExecuteParsing(filename));
             ApplyCheckerRules(openScenario);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 

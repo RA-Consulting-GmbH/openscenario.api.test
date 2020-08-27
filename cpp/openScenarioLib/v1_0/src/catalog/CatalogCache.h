@@ -30,7 +30,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace V_1_0
+    namespace v1_0
     {
         /**
          * A cache class for a catalog directory. It enables to search for a catalog element in a specific catalog.

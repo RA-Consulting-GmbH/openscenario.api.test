@@ -87,7 +87,7 @@ public:
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-                "XML-Dokumentstrukturen müssen innerhalb derselben Entity beginnen und enden.",
+                "XML-Dokumentstrukturen mï¿½ssen innerhalb derselben Entity beginnen und enden.",
                 NET_ASAM_OPENSCENARIO::FATAL, NET_ASAM_OPENSCENARIO::Textmarker(30, 3, kFilename)));
             return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::FATAL, _messageLogger), ASSERT_LOCATION);
         }
@@ -172,7 +172,7 @@ public:
         {
             _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCustomCommandAction.xosc";
-            auto openScenarioImpl = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>(ExecuteParsing(kFilename));
+            auto openScenarioImpl = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(kFilename));
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
             const auto kContent = openScenarioImpl->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetInit()->GetActions()->GetUserDefinedActions()[0]->GetCustomCommandAction()->GetContent();
