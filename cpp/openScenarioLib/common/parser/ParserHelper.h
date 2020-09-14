@@ -46,8 +46,8 @@ namespace NET_ASAM_OPENSCENARIO
     class ParserHelper 
     {
     public:
-        const static long UNSIGNED_SHORT_MAX_VALUE = USHRT_MAX;
-        const static long long UNSIGNED_INT_MAX_VALUE = UINT_MAX;
+        const static uint16_t UNSIGNED_SHORT_MAX_VALUE = USHRT_MAX;
+        const static uint32_t UNSIGNED_INT_MAX_VALUE = UINT_MAX;
 
         /**
          * Parsing a string value into a string value.
@@ -68,7 +68,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param textMarker text marker
          * @return the parsed value or null if value cannot be parsed
          */
-        static long long ParseUnsignedInt(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
+        static uint32_t ParseUnsignedInt(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
         {
             try 
             {
@@ -80,7 +80,7 @@ namespace NET_ASAM_OPENSCENARIO
                     messageLogger.LogMessage(msg);
                 }
                 else 
-                    return kResult;
+                    return kResult & 0xffffffff;
 
             }
             catch ( std::invalid_argument& e ) 
@@ -150,7 +150,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param textMarker text marker
          * @return the parsed value or null if value cannot be parsed
          */
-        static long ParseUnsignedShort(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
+        static uint16_t ParseUnsignedShort(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
         {
             try 
             {
@@ -162,7 +162,7 @@ namespace NET_ASAM_OPENSCENARIO
                     messageLogger.LogMessage(msg);
                 }
                 else 
-                    return kResult;
+                    return kResult & 0xffff;
 
             }
             catch (std::invalid_argument& e) 

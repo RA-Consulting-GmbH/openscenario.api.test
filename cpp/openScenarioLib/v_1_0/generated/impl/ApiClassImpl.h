@@ -7764,7 +7764,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
             Priority _priority {};
-            long long _maximumExecutionCount {};
+            uint32_t _maximumExecutionCount {};
             std::string _name {};
             std::vector<std::shared_ptr<IAction>> _actions {};
             std::shared_ptr<ITrigger> _startTrigger {};
@@ -7779,7 +7779,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             Priority GetPriority() override;
-            long long GetMaximumExecutionCount() override;
+            uint32_t GetMaximumExecutionCount() override;
             std::string GetName() override;
             std::vector<std::shared_ptr<IAction>> GetActions() override;
             std::shared_ptr<ITrigger> GetStartTrigger() override;
@@ -7796,7 +7796,7 @@ namespace NET_ASAM_OPENSCENARIO
              * is 1. Range: [1..inf[.]
              * 
             */
-            void SetMaximumExecutionCount (const long long maximumExecutionCount );
+            void SetMaximumExecutionCount (const uint32_t maximumExecutionCount );
             /**
              * Sets the value of model property name
              * @param name from OpenSCENARIO class model specification: [Name of the event.]
@@ -8063,8 +8063,8 @@ namespace NET_ASAM_OPENSCENARIO
         class FileHeaderImpl: public BaseImpl, public IFileHeader, public std::enable_shared_from_this<FileHeaderImpl>
         {
         private:
-            long _revMajor {};
-            long _revMinor {};
+            uint16_t _revMajor {};
+            uint16_t _revMinor {};
             DateTime _date {};
             std::string _description {};
             std::string _author {};
@@ -8078,8 +8078,8 @@ namespace NET_ASAM_OPENSCENARIO
                 return this;
             }
 
-            long GetRevMajor() override;
-            long GetRevMinor() override;
+            uint16_t GetRevMajor() override;
+            uint16_t GetRevMinor() override;
             DateTime GetDate() override;
             std::string GetDescription() override;
             std::string GetAuthor() override;
@@ -8090,14 +8090,14 @@ namespace NET_ASAM_OPENSCENARIO
              * [0..inf[.]
              * 
             */
-            void SetRevMajor (const long revMajor );
+            void SetRevMajor (const uint16_t revMajor );
             /**
              * Sets the value of model property revMinor
              * @param revMinor from OpenSCENARIO class model specification: [Minor OpenSCENARIO revision, this file conforms to Range: 
              * [0..inf[.]
              * 
             */
-            void SetRevMinor (const long revMinor );
+            void SetRevMinor (const uint16_t revMinor );
             /**
              * Sets the value of model property date
              * @param date from OpenSCENARIO class model specification: [User specific date and time recommended: YYYY-MM-DDThh:mm:ss.]
@@ -11380,7 +11380,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ManeuverGroupImpl: public BaseImpl, public IManeuverGroup, public std::enable_shared_from_this<ManeuverGroupImpl>
         {
         private:
-            long long _maximumExecutionCount {};
+            uint32_t _maximumExecutionCount {};
             std::string _name {};
             std::shared_ptr<IActors> _actors {};
             std::vector<std::shared_ptr<ICatalogReference>> _catalogReferences {};
@@ -11395,7 +11395,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return this;
             }
 
-            long long GetMaximumExecutionCount() override;
+            uint32_t GetMaximumExecutionCount() override;
             std::string GetName() override;
             std::shared_ptr<IActors> GetActors() override;
             std::vector<std::shared_ptr<ICatalogReference>> GetCatalogReferences() override;
@@ -11407,7 +11407,7 @@ namespace NET_ASAM_OPENSCENARIO
              * group. Default value is 1. Range: [1..inf[.]
              * 
             */
-            void SetMaximumExecutionCount (const long long maximumExecutionCount );
+            void SetMaximumExecutionCount (const uint32_t maximumExecutionCount );
             /**
              * Sets the value of model property name
              * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
@@ -12114,7 +12114,7 @@ namespace NET_ASAM_OPENSCENARIO
         class NurbsImpl: public BaseImpl, public INurbs, public std::enable_shared_from_this<NurbsImpl>
         {
         private:
-            long long _order {};
+            uint32_t _order {};
             std::vector<std::shared_ptr<IControlPoint>> _controlPoints {};
             std::vector<std::shared_ptr<IKnot>> _knots {};
 
@@ -12127,7 +12127,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return this;
             }
 
-            long long GetOrder() override;
+            uint32_t GetOrder() override;
             std::vector<std::shared_ptr<IControlPoint>> GetControlPoints() override;
             std::vector<std::shared_ptr<IKnot>> GetKnots() override;
 
@@ -12137,7 +12137,7 @@ namespace NET_ASAM_OPENSCENARIO
              * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
              * 
             */
-            void SetOrder (const long long order );
+            void SetOrder (const uint32_t order );
             /**
              * Sets the value of model property controlPoints
              * @param controlPoints from OpenSCENARIO class model specification: [Control point vector of the NURBS trajectory. The 
@@ -25249,7 +25249,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _semiMinorAxis {};
             double _innerRadius {};
             double _offset {};
-            long long _numberOfVehicles {};
+            uint32_t _numberOfVehicles {};
             double _velocity {};
             std::shared_ptr<ICentralSwarmObject> _centralObject {};
             std::shared_ptr<ITrafficDefinition> _trafficDefinition {};
@@ -25267,7 +25267,7 @@ namespace NET_ASAM_OPENSCENARIO
             double GetSemiMinorAxis() override;
             double GetInnerRadius() override;
             double GetOffset() override;
-            long long GetNumberOfVehicles() override;
+            uint32_t GetNumberOfVehicles() override;
             double GetVelocity() override;
             std::shared_ptr<ICentralSwarmObject> GetCentralObject() override;
             std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() override;
@@ -25308,7 +25308,7 @@ namespace NET_ASAM_OPENSCENARIO
              * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
              * 
             */
-            void SetNumberOfVehicles (const long long numberOfVehicles );
+            void SetNumberOfVehicles (const uint32_t numberOfVehicles );
             /**
              * Sets the value of model property velocity
              * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a created entity. Unit: 

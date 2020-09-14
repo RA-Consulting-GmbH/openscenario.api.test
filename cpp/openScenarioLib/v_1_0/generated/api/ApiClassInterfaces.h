@@ -2711,7 +2711,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maximumExecutionCount
             */
-            virtual long long GetMaximumExecutionCount()
+            virtual uint32_t GetMaximumExecutionCount()
             {
                 return 0;
             }
@@ -2798,7 +2798,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property revMajor
             */
-            virtual long GetRevMajor()
+            virtual uint16_t GetRevMajor()
             {
                 return 0;
             }
@@ -2809,7 +2809,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property revMinor
             */
-            virtual long GetRevMinor()
+            virtual uint16_t GetRevMinor()
             {
                 return 0;
             }
@@ -3882,7 +3882,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maximumExecutionCount
             */
-            virtual long long GetMaximumExecutionCount()
+            virtual uint32_t GetMaximumExecutionCount()
             {
                 return 0;
             }
@@ -4118,7 +4118,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property order
             */
-            virtual long long GetOrder()
+            virtual uint32_t GetOrder()
             {
                 return 0;
             }
@@ -8334,7 +8334,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property numberOfVehicles
             */
-            virtual long long GetNumberOfVehicles()
+            virtual uint32_t GetNumberOfVehicles()
             {
                 return 0;
             }

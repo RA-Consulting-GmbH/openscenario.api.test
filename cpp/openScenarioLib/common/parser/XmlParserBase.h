@@ -19,7 +19,6 @@
 #include "DateTime.h"
 #include "IParserMessageLogger.h"
 #include "Textmarker.h"
-#include "BaseImpl.h"
 #include "IndexedElement.h"
 #include "Position.h"
 #include <vector>
@@ -74,7 +73,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param textMarker text marker
          * @return parsed value
          */
-        long long ParseUnsignedInt(std::string& xmlValue, Textmarker& textMarker)
+        uint32_t ParseUnsignedInt(std::string& xmlValue, Textmarker& textMarker)
         {
             return ParserHelper::ParseUnsignedInt(_messageLogger, xmlValue, textMarker);
         }
@@ -107,7 +106,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param textMarker text marker
          * @return parsed value
          */
-        unsigned int ParseUnsignedShort(std::string& xmlValue, Textmarker& textMarker)
+        uint16_t ParseUnsignedShort(std::string& xmlValue, Textmarker& textMarker)
         {
             return ParserHelper::ParseUnsignedShort(_messageLogger, xmlValue, textMarker);
         }
