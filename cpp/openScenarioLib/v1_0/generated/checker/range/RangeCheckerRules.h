@@ -21,6 +21,7 @@
 #include "ApiClassInterfaces.h"
 #include "RangeCheckerRule.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -36,7 +37,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             AbsoluteSpeedRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override;
         };
 
         /**
@@ -49,7 +50,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             AxleRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAxle> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAxle> object) override;
         };
 
         /**
@@ -62,7 +63,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             ClothoidRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IClothoid> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IClothoid> object) override;
         };
 
         /**
@@ -75,7 +76,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             ConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ICondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ICondition> object) override;
         };
 
         /**
@@ -88,7 +89,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             ControlPointRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControlPoint> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControlPoint> object) override;
         };
 
         /**
@@ -101,7 +102,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             ControllerDistributionEntryRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override;
         };
 
         /**
@@ -114,7 +115,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             DimensionsRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDimensions> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDimensions> object) override;
         };
 
         /**
@@ -127,7 +128,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             DistanceConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDistanceCondition> object) override;
         };
 
         /**
@@ -140,7 +141,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             DynamicConstraintsRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDynamicConstraints> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDynamicConstraints> object) override;
         };
 
         /**
@@ -153,7 +154,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             EndOfRoadConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override;
         };
 
         /**
@@ -166,7 +167,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             EventRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEvent> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEvent> object) override;
         };
 
         /**
@@ -179,7 +180,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             FogRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IFog> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IFog> object) override;
         };
 
         /**
@@ -192,7 +193,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             LaneOffsetActionDynamicsRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override;
         };
 
         /**
@@ -205,7 +206,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             LanePositionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILanePosition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILanePosition> object) override;
         };
 
         /**
@@ -218,7 +219,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             LateralDistanceActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILateralDistanceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILateralDistanceAction> object) override;
         };
 
         /**
@@ -231,7 +232,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             LongitudinalDistanceActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override;
         };
 
         /**
@@ -244,7 +245,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             ManeuverGroupRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IManeuverGroup> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IManeuverGroup> object) override;
         };
 
         /**
@@ -257,7 +258,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             MiscObjectRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IMiscObject> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IMiscObject> object) override;
         };
 
         /**
@@ -270,7 +271,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             NurbsRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<INurbs> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<INurbs> object) override;
         };
 
         /**
@@ -283,7 +284,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             OffroadConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOffroadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOffroadCondition> object) override;
         };
 
         /**
@@ -296,7 +297,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             OverrideBrakeActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override;
         };
 
         /**
@@ -309,7 +310,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             OverrideClutchActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideClutchAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideClutchAction> object) override;
         };
 
         /**
@@ -322,7 +323,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             OverrideParkingBrakeActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override;
         };
 
         /**
@@ -335,7 +336,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             OverrideThrottleActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override;
         };
 
         /**
@@ -348,7 +349,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             PerformanceRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPerformance> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPerformance> object) override;
         };
 
         /**
@@ -361,7 +362,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             PhaseRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPhase> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPhase> object) override;
         };
 
         /**
@@ -374,7 +375,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             PositionInLaneCoordinatesRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override;
         };
 
         /**
@@ -387,7 +388,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             PrecipitationRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPrecipitation> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPrecipitation> object) override;
         };
 
         /**
@@ -400,7 +401,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             ReachPositionConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IReachPositionCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IReachPositionCondition> object) override;
         };
 
         /**
@@ -413,7 +414,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             RelativeDistanceConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override;
         };
 
         /**
@@ -426,7 +427,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             RoadConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRoadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRoadCondition> object) override;
         };
 
         /**
@@ -439,7 +440,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             StandStillConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IStandStillCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IStandStillCondition> object) override;
         };
 
         /**
@@ -452,7 +453,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             SunRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ISun> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ISun> object) override;
         };
 
         /**
@@ -465,7 +466,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TimeHeadwayConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override;
         };
 
         /**
@@ -478,7 +479,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TimeToCollisionConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override;
         };
 
         /**
@@ -491,7 +492,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TimingRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITiming> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITiming> object) override;
         };
 
         /**
@@ -504,7 +505,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TrafficSignalControllerRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSignalController> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSignalController> object) override;
         };
 
         /**
@@ -517,7 +518,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TrafficSinkActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSinkAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSinkAction> object) override;
         };
 
         /**
@@ -530,7 +531,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TrafficSourceActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSourceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSourceAction> object) override;
         };
 
         /**
@@ -543,7 +544,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TrafficSwarmActionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override;
         };
 
         /**
@@ -556,7 +557,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TransitionDynamicsRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITransitionDynamics> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITransitionDynamics> object) override;
         };
 
         /**
@@ -569,7 +570,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             TraveledDistanceConditionRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override;
         };
 
         /**
@@ -582,7 +583,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             VehicleCategoryDistributionEntryRangeCheckerRule() = default;
-            void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) override;
         };
 
     }

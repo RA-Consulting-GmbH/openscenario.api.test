@@ -8885,7 +8885,7 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(long long).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(uint32_t).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
         }
 
@@ -8893,7 +8893,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _priority;
         }
-        long long EventImpl::GetMaximumExecutionCount()
+        uint32_t EventImpl::GetMaximumExecutionCount()
         {
             return _maximumExecutionCount;
         }
@@ -8925,7 +8925,7 @@ namespace NET_ASAM_OPENSCENARIO
          * is 1. Range: [1..inf[.]
          * 
         */
-        void EventImpl::SetMaximumExecutionCount(long long maximumExecutionCount )
+        void EventImpl::SetMaximumExecutionCount(uint32_t maximumExecutionCount )
         {
             _maximumExecutionCount = maximumExecutionCount;
         }
@@ -9251,18 +9251,18 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, typeid(long).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, typeid(long).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, typeid(uint16_t).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, typeid(uint16_t).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE, typeid(DateTime).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, typeid(std::string).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, typeid(std::string).name());
         }
 
-        long FileHeaderImpl::GetRevMajor()
+        uint16_t FileHeaderImpl::GetRevMajor()
         {
             return _revMajor;
         }
-        long FileHeaderImpl::GetRevMinor()
+        uint16_t FileHeaderImpl::GetRevMinor()
         {
             return _revMinor;
         }
@@ -9285,7 +9285,7 @@ namespace NET_ASAM_OPENSCENARIO
          * [0..inf[.]
          * 
         */
-        void FileHeaderImpl::SetRevMajor(long revMajor )
+        void FileHeaderImpl::SetRevMajor(uint16_t revMajor )
         {
             _revMajor = revMajor;
         }
@@ -9295,7 +9295,7 @@ namespace NET_ASAM_OPENSCENARIO
          * [0..inf[.]
          * 
         */
-        void FileHeaderImpl::SetRevMinor(long revMinor )
+        void FileHeaderImpl::SetRevMinor(uint16_t revMinor )
         {
             _revMinor = revMinor;
         }
@@ -13034,11 +13034,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(long long).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(uint32_t).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
         }
 
-        long long ManeuverGroupImpl::GetMaximumExecutionCount()
+        uint32_t ManeuverGroupImpl::GetMaximumExecutionCount()
         {
             return _maximumExecutionCount;
         }
@@ -13065,7 +13065,7 @@ namespace NET_ASAM_OPENSCENARIO
          * group. Default value is 1. Range: [1..inf[.]
          * 
         */
-        void ManeuverGroupImpl::SetMaximumExecutionCount(long long maximumExecutionCount )
+        void ManeuverGroupImpl::SetMaximumExecutionCount(uint32_t maximumExecutionCount )
         {
             _maximumExecutionCount = maximumExecutionCount;
         }
@@ -13932,10 +13932,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ORDER, typeid(long long).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ORDER, typeid(uint32_t).name());
         }
 
-        long long NurbsImpl::GetOrder()
+        uint32_t NurbsImpl::GetOrder()
         {
             return _order;
         }
@@ -13954,7 +13954,7 @@ namespace NET_ASAM_OPENSCENARIO
          * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
          * 
         */
-        void NurbsImpl::SetOrder(long long order )
+        void NurbsImpl::SetOrder(uint32_t order )
         {
             _order = order;
         }
@@ -28722,7 +28722,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, typeid(double).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, typeid(double).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, typeid(long long).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, typeid(uint32_t).name());
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, typeid(double).name());
         }
 
@@ -28742,7 +28742,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _offset;
         }
-        long long TrafficSwarmActionImpl::GetNumberOfVehicles()
+        uint32_t TrafficSwarmActionImpl::GetNumberOfVehicles()
         {
             return _numberOfVehicles;
         }
@@ -28807,7 +28807,7 @@ namespace NET_ASAM_OPENSCENARIO
          * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
          * 
         */
-        void TrafficSwarmActionImpl::SetNumberOfVehicles(long long numberOfVehicles )
+        void TrafficSwarmActionImpl::SetNumberOfVehicles(uint32_t numberOfVehicles )
         {
             _numberOfVehicles = numberOfVehicles;
         }

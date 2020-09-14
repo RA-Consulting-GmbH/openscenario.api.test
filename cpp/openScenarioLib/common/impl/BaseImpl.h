@@ -191,11 +191,11 @@ namespace NET_ASAM_OPENSCENARIO
             if (typeName == "string")
                 return typeid(std::string).name();
             if (typeName == "unsignedInt")
-                return typeid(long long).name();
+                return typeid(uint32_t).name();
             if (typeName == "integer")
                 return typeid(int).name();
             if (typeName == "unsignedShort")
-                return typeid(long).name();
+                return typeid(uint16_t).name();
             if (typeName == "dateTime")
                 return typeid(DateTime).name();
             if (typeName == "boolean")

@@ -55,7 +55,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual long long GetUnsignedIntProperty(const std::string key)
+        virtual uint32_t GetUnsignedIntProperty(const std::string key)
         {
             return 0;
         }
@@ -91,7 +91,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual int GetUnsignedShortProperty(const std::string key)
+        virtual uint16_t GetUnsignedShortProperty(const std::string key)
         {
             return 0;
         }

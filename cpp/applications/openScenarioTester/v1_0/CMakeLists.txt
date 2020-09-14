@@ -14,6 +14,16 @@ endif( WIN32 )
 
 
 ################################################################
+# Preprocessor settings
+# Shared or static lib?
+if( BUILD_STATIC_LIBS )
+  set( LIB_TYPE "STATIC" )
+else()
+  add_definitions( -DEXPORT_OPENSCENARIOLIB )
+  set( LIB_TYPE "SHARED" )
+endif()
+
+################################################################
 # Set compile output folder
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")

@@ -35,6 +35,7 @@
 #include "IScenarioLoader.h"
 #include "IResourceLocator.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 
 namespace NET_ASAM_OPENSCENARIO
@@ -77,9 +78,8 @@ namespace NET_ASAM_OPENSCENARIO
                 return _filename;
             }
 
-            std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger) override;
-
-            std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters) override;
+            OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger) override;
+            OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters) override;
 
         };
     }

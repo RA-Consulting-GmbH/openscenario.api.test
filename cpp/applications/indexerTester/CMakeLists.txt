@@ -42,6 +42,8 @@ set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
    "../../externalLibs/TinyXML2/tinyxml2.cpp"
+   "../../openScenarioLib/v1_0/generated/xmlParser/XMLLexer.cpp"
+   "../../openScenarioLib/v1_0/generated/xmlParser/XMLParser.cpp"
 )
 
 ################################################################
@@ -65,7 +67,11 @@ endif()
 # Generate executable
 add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} )
 
-target_link_libraries( ${PROJECT_NAME} OpenScenarioLib.v1_0 )
+if( BUILD_STATIC_LIBS STREQUAL "ON" )
+  target_link_libraries( ${PROJECT_NAME} antlr4_static )
+else()
+  target_link_libraries( ${PROJECT_NAME} antlr4_shared )
+endif()
 
 
 ################################################################
