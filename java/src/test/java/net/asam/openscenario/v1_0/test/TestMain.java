@@ -26,21 +26,49 @@ public class TestMain extends TestBase {
 
   @Test
   public void testImportSuccess() {
-    OpenScenarioChecker.main(
+    int result =  OpenScenarioChecker.mainWrapper(
         new String[] {"-i",getResourceFile("simpleImport/simpleImport.xosc").getAbsolutePath()});
+    Assertions.assertEquals(OpenScenarioChecker.SUCCESS_RESULT, result);
+    
+  }
+  
+  @Test
+  public void testDirectorySuccess() {
+    
+    int result =  OpenScenarioChecker.mainWrapper(
+        new String[] {"-d",getResourceFile("goodDirectory").getAbsolutePath()});
+    Assertions.assertEquals( OpenScenarioChecker.SUCCESS_RESULT, result);
+  }
+  
+  @Test
+  public void testDirectoryPartlySuccess() {
+    int result =  OpenScenarioChecker.mainWrapper(
+        new String[] {"-d",getResourceFile("badDirectory").getAbsolutePath()});
+    Assertions.assertEquals(OpenScenarioChecker.ERROR_RESULT,result);
+    System.setOut(stdout);
+    System.out.println(testOut.toString());
   }
 
   @Test
-  public void testFileNoteFound() {
-    OpenScenarioChecker.main(new String[] {"-i","testFileNoteFound"});
+  public void testFileNotFound() {
+    int result = OpenScenarioChecker.mainWrapper(new String[] {"-i","testFileNoteFound"});
+    Assertions.assertEquals(OpenScenarioChecker.ERROR_RESULT,result);
     Assertions.assertEquals(
         "Scenario file not found 'testFileNoteFound'", getLine(this.testOut.toString(), 4));
   }
-
+  @Test
+  public void testDirectoryNotFound() {
+    int result = OpenScenarioChecker.mainWrapper(new String[] {"-d","testDirFound"});
+    Assertions.assertEquals( OpenScenarioChecker.ERROR_RESULT, result);
+    Assertions.assertEquals(
+        "'testDirFound' does not exists or is not a directory", getLine(this.testOut.toString(), 4));
+  }
   @Test
   public void testWithErrors() {
+    
     String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {"-i",filename});
+    int result= OpenScenarioChecker.mainWrapper(new String[] {"-i",filename});
+    Assertions.assertEquals( OpenScenarioChecker.ERROR_RESULT, result);
     Assertions.assertEquals(
         "Validation failed with 2 errors and 0 warnings.", getLine(this.testOut.toString(), 10));
   }
@@ -48,9 +76,10 @@ public class TestMain extends TestBase {
   @Test
   public void testWrongCommandLine() {
     String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {"-i", filename, "Test"});
+    int result = OpenScenarioChecker.mainWrapper(new String[] {"-i", filename, "Test"});
+    Assertions.assertEquals(OpenScenarioChecker.USAGE_RESULT, result);
     Assertions.assertEquals(
-        "Usage: [[-i <filename> [-p <paramfilename>]] | -v]",
+        "Usage: [[{-i <filename>|-d <dirname>}  [-p <paramfilename>]] | -v]",
         getLine(this.testOut.toString(), 4));
   }
 
@@ -58,7 +87,9 @@ public class TestMain extends TestBase {
   public void testWithParamFile() {
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = getResourceFile("params.conf").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {"-i", filename, "-p", paramFileName});
+    int result = OpenScenarioChecker.mainWrapper(new String[] {"-i", filename, "-p", paramFileName});
+    Assertions.assertEquals(OpenScenarioChecker.ERROR_RESULT, result);
+    
     Assertions.assertEquals("\ttestBoolean\ttrue", getLine(this.testOut.toString(), 5));
     Assertions.assertEquals(
         "\ttestDateTime\t2018-02-24T10:00:00", getLine(this.testOut.toString(), 6));
@@ -75,7 +106,8 @@ public class TestMain extends TestBase {
 
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = getResourceFile("paramsSyntaxError.conf").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {"-i",filename, "-p", paramFileName});
+    int result = OpenScenarioChecker.mainWrapper(new String[] {"-i",filename, "-p", paramFileName});
+    Assertions.assertEquals( OpenScenarioChecker.ERROR_RESULT, result);
     Assertions.assertEquals(
         "Syntax error in parameter file: line 8", getLine(this.testOut.toString(), 4));
   }
@@ -86,7 +118,8 @@ public class TestMain extends TestBase {
 
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = getResourceFile("paramsSyntaxError2.conf").getAbsolutePath();
-    OpenScenarioChecker.main(new String[] {"-i",filename, "-p", paramFileName});
+    int result = OpenScenarioChecker.mainWrapper(new String[] {"-i",filename, "-p", paramFileName});
+    Assertions.assertEquals(result, OpenScenarioChecker.ERROR_RESULT);
     Assertions.assertEquals(
         "Syntax error in parameter file: line 5", getLine(this.testOut.toString(), 4));
   }
@@ -96,13 +129,14 @@ public class TestMain extends TestBase {
     // test stuff here...
     String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
     String paramFileName = "paramsNotFound.conf";
-    OpenScenarioChecker.main(new String[] {"-i",filename, "-p", paramFileName});
-
+    int result = OpenScenarioChecker.mainWrapper(new String[] {"-i",filename, "-p", paramFileName});
+    Assertions.assertEquals(OpenScenarioChecker.ERROR_RESULT, result);
+    
     Assertions.assertEquals("paramsfile not found", getLine(this.testOut.toString(), 4));
   }
 
   // Use these lines to make stout visible
-  //System.setOut(stdout);
- //System.out.println(testOut.toString());
+  // System.setOut(stdout);
+  // System.out.println(testOut.toString());
 
 }
