@@ -66,6 +66,146 @@ std::string Trim(const std::string s)
     return regex_replace(s, std::regex("^\\s+|\\s+$"), "");
 }
 
+enum RETURN_CODES
+{
+    SUCCESS_RESULT = 0,
+    ERROR_RESULT,
+    USAGE_RESULT,
+    VERSION_RESULT
+};
+
+int CheckFile(std::string& inputFileName, std::string& paramFileName)
+{
+    std::map<std::string, std::string> injectedParamters;
+    int result = SUCCESS_RESULT;
+
+    if (!paramFileName.empty())
+    {
+        try
+        {
+            std::ifstream paramFile(paramFileName);
+            std::string line;
+
+            if (paramFile.bad() || paramFile.fail())
+            {
+                std::cout << "paramsfile not found" << std::endl;
+                result = ERROR_RESULT;
+            }
+
+            int counter = 0;
+
+            while (std::getline(paramFile, line))
+            {
+                counter++;
+                if (!std::regex_match(line, std::regex("\\s*$")) && !std::regex_match(line, std::regex("\\s*#.*$")))
+                {
+                    auto pattern = std::regex("([^\\t]*)\\t([^\\t]*)$");
+                    std::smatch match;
+                    std::regex_match(line, match, pattern);
+                    if (!match.empty())
+                    {
+                        auto name = Trim(match[1].str());
+                        auto value = Trim(match[2].str());
+                        if (!name.empty() && !value.empty())
+                        {
+                            injectedParamters.emplace(std::make_pair(name, value));
+                        }
+                        else
+                        {
+                            std::cout << "Syntax error in parameter file: line " << counter << std::endl;
+                            result = ERROR_RESULT;
+                        }
+                    }
+                    else
+                    {
+                        std::cout << "Syntax error in parameter file: line " << counter << std::endl;
+                        result = ERROR_RESULT;
+                    }
+                }
+            }
+            paramFile.close();
+        }
+        catch (NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
+        {
+            (void)e;
+            std::cout << "paramsfile not found";
+            result = ERROR_RESULT;
+        }
+
+        if (!injectedParamters.empty())
+        {
+            std::cout << "Used Parameters:" << std::endl;
+            for (auto& injectedParamter : injectedParamters)
+            {
+                std::cout << "\t" + injectedParamter.first + "\t" + injectedParamter.second << std::endl;
+            }
+        }
+    }
+
+    if (result == ERROR_RESULT)
+        return result;
+
+    std::ifstream inputFile(inputFileName);
+
+    if (inputFile.bad() || inputFile.fail())
+    {
+        std::cout << "Scenario file not found '" + inputFileName + "'";
+        return ERROR_RESULT;
+    }
+
+    inputFile.close();
+
+    std::cout << "Checking '" << inputFileName << "'" << std::endl;
+
+    auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(logLevel);
+    auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(logLevel);
+
+    try
+    {
+        ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+
+        for (auto&& message : messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(logLevel))
+        {
+            auto textmarker = message.GetTextmarker();
+            std::cout << NET_ASAM_OPENSCENARIO::ErrorLevelString::ToString(message.GetErrorLevel()) << ": " << message.GetMsg() << " ("
+                << textmarker.GetLine() << "," << textmarker.GetColumn() << ")" << std::endl;
+        }
+
+        auto warningMessages = messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING);
+
+        if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR).empty())
+        {
+            std::cout << "Validation succeeded with 0 errors and " << warningMessages.size() << " warnings." << std::endl;
+        }
+        else
+        {
+            auto errorMessages = messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR);
+            std::cout << "Validation failed with " << errorMessages.size() << " errors and " << warningMessages.size() << " warnings." << std::endl;
+            result = ERROR_RESULT;
+        }
+
+        auto catalogMessages = catalogMessageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR);
+        if (!catalogMessages.empty())
+        {
+            std::cout << "Info from catalog referencing" << std::endl;
+            std::cout << "=============================" << std::endl;
+            for (auto&& message : catalogMessages)
+            {
+                auto textmarker = message.GetTextmarker();
+                std::cout << NET_ASAM_OPENSCENARIO::ErrorLevelString::ToString(message.GetErrorLevel()) << ": (File:" << textmarker.GetFilename()
+                    << ") " << message.GetMsg() << " (" << textmarker.GetLine() << "," << textmarker.GetColumn() << ")" << std::endl;
+            }
+        }
+    }
+    catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
+    {
+        std::cout << e.what() << std::endl;
+        return ERROR_RESULT;
+    }
+
+    return result;
+}
+
 int main(int argc, char** argv)
 {
 #if defined(_DEBUG) && defined(WIN32)
@@ -81,20 +221,27 @@ int main(int argc, char** argv)
     std::cout << kHeaderFillString << std::endl;
     std::cout << kHeader << std::endl;
     std::cout << kHeaderFillString << std::endl;
-    
+
     bool isCommandLineParsable = false;
-    std::string inputFileName = "";
-    std::string paramFileName = "";
+    int result = SUCCESS_RESULT;
+
+    std::string inputFileName;
+    std::string paramFileName;
+    std::string inputDirectoryName;
 
     if (argc > 1 && std::string(argv[1]) == "-v")
     {
         std::cout << "Program version " << kVersion << std::endl;
-        return 0;
+        return VERSION_RESULT;
     }
 
-    if (argc > 2 && std::string(argv[1]) == "-i")
+    if (argc > 2 && (std::string(argv[1]) == "-i" || std::string(argv[1]) == "-d"))
     {
-        inputFileName = argv[2];
+        if (std::string(argv[1]) == "-i")
+            inputFileName = argv[2];
+        else
+            inputDirectoryName = argv[2];
+
         if (argc > 4 && std::string(argv[3]) == "-p")
         {
             paramFileName = argv[4];
@@ -104,135 +251,36 @@ int main(int argc, char** argv)
 
     if (!isCommandLineParsable)
     {
-        std::cout << "OpenScenarioChecker [[-i <filename> [-p <paramfilename>]] | -v]" << std::endl;
+        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
         std::cout << "-i\t<filename> file to be validated" << std::endl;
+        std::cout << "-d\t<directory> directory to be validated" << std::endl;
         std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
         std::cout << "-v\tprint program version" << std::endl;
-        
-        return -1;
+
+        return USAGE_RESULT;
     }
 
-    std::map<std::string, std::string> injectedParamters;
-    if ( !paramFileName.empty() )
+    if (!inputFileName.empty())
     {
-        try 
-        {
-            std::ifstream paramFile(paramFileName);
-            std::string line;
-
-            if (paramFile.bad() || paramFile.fail())
-            {
-                auto msg = "File " + paramFileName + " not found";
-                throw NET_ASAM_OPENSCENARIO::ResourceNotFoundException(msg);
-            }
-
-            int counter = 0;
-
-            while (std::getline(paramFile, line))
-            {
-                counter++;
-                if (!std::regex_match(line, std::regex("\\s*$")) && !std::regex_match(line, std::regex("\\s*#.*$")))
-                {
-                    auto pattern = std::regex("([^\\t]*)\\t([^\\t]*)$");
-                    std::smatch match;
-                    std::regex_match(line, match, pattern);
-                    if ( !match.empty() ) 
-                    {
-                        auto name = Trim(match[1].str());
-                        auto value = Trim(match[2].str());
-                        if (!name.empty() && !value.empty()) 
-                        {
-                            injectedParamters.emplace(std::make_pair(name, value));
-                        }
-                        else 
-                        {
-                            std::cout << "Syntax error in parameter file: line " << counter;
-                            return -1;
-                        }
-
-                    }
-                    else 
-                    {
-                        std::cout << "Syntax error in parameter file: line " << counter;
-                        return -1;
-                    }
-                }
-            }
-            paramFile.close();
-        }
-        catch ( NET_ASAM_OPENSCENARIO::ResourceNotFoundException e) 
-        {
-            std::cout << "paramsfile not found";
-            return -1;
-        }
-
-        if (!injectedParamters.empty())
-        {
-            std::cout << "Used Parameters:" <<std::endl;
-            for( auto& injectedParamter : injectedParamters )
-            {
-                std::cout << "\t" + injectedParamter.first + "\t" + injectedParamter.second <<std::endl;
-            }
-        }
+        result = CheckFile(inputFileName, paramFileName);
     }
-
-    std::ifstream inputFile(inputFileName);
-
-    if (inputFile.bad() || inputFile.fail())
+    else
     {
-        std::cout << "Scenario file not found '" + inputFileName + "'";
-        return -1;
-    }
-
-    inputFile.close();
-
-    std::cout << "Checking '" << inputFileName << "'" << std::endl;
-
-    auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(logLevel);
-    auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(logLevel);
-
-    try
-    {
-        ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
-
-        for (auto&& message : messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(logLevel)) 
+        try
         {
-            auto textmarker = message.GetTextmarker();
-            std::cout << NET_ASAM_OPENSCENARIO::ErrorLevelString::ToString(message.GetErrorLevel()) << ": " << message.GetMsg() << " ("
-                << textmarker.GetLine() << "," << textmarker.GetColumn() << ")" << std::endl;
+            NET_ASAM_OPENSCENARIO::FileResourceLocator fileLocator;
+            auto filePaths = fileLocator.GetSymbolicFilenamesInSymbolicDir(inputDirectoryName);
+            for (auto file : filePaths) 
+                result = CheckFile(file, paramFileName) == SUCCESS_RESULT ? result : ERROR_RESULT;
         }
-
-        auto warningMessages = messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING);
-
-        if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR).empty()) 
+        catch ( NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
         {
-           std::cout << "Validation succeeded with 0 errors and " << warningMessages.size() << " warnings." << std::endl;
-        }
-        else 
-        {
-            auto errorMessages = messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR);
-            std::cout << "Validation failed with " << errorMessages.size() << " errors and " << warningMessages.size() << " warnings." << std::endl;
-        }
-
-        auto catalogMessages = catalogMessageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(logLevel);
-        if (!catalogMessages.empty()) 
-        {
-            std::cout << "Info from catalog referencing"<< std::endl;
-            std::cout << "============================="<< std::endl;
-            for (auto&& message : catalogMessages) 
-            {
-                auto textmarker = message.GetTextmarker();
-                std::cout << NET_ASAM_OPENSCENARIO::ErrorLevelString::ToString(message.GetErrorLevel()) << ": (File:" << textmarker.GetFilename()
-                        << ") " << message.GetMsg() << " (" << textmarker.GetLine() << "," << textmarker.GetColumn() << ")" << std::endl;
-            }
+            (void)e;
+            std::cout << "'" << inputDirectoryName <<"' does not exists or is not a directory." << std::endl;
+            result = ERROR_RESULT;
         }
     }
-    catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
-    {
-        std::cout << e.what() << std::endl;
-        return -1;
-    }
 
-    return 0;
+    return result;
 }
