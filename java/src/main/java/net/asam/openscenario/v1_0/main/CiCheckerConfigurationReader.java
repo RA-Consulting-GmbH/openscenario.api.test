@@ -35,21 +35,17 @@ public class CiCheckerConfigurationReader {
   
   /**
    * Reading a configuration from a yaml file
-   * @param configurationFile the conficuation file to loads
+   * @param configurationFileName the name of the configuration file to load
    * @return the configuration read from file
    * @throws CiConfigurationException if an exception (JsonParseException, JsonMappingException,IOException) occurs
    */
-  public CiCheckerConfiguration readConfiguration(File configurationFile) throws CiConfigurationException
+  public CiCheckerConfiguration readConfiguration(String configurationFileName) throws CiConfigurationException
   {
     CiCheckerConfiguration result = null;
     ObjectMapper objectManager = new ObjectMapper(new YAMLFactory());
     // Check the constraints
     try {
-       result = objectManager.readValue(configurationFile, CiCheckerConfiguration.class);
-       if (result.getDirectoryList() == null || result.getDirectoryList().isEmpty())
-       {
-         throw new CiConfigurationException("Configuration Error. 'directoryList' must have at least one entry");     
-       }
+       result = objectManager.readValue(new File(configurationFileName), CiCheckerConfiguration.class);
        if (result.getParameterMap() == null)
        {
          result.initParameterMap();
@@ -61,7 +57,7 @@ public class CiCheckerConfigurationReader {
       JsonLocation location = e.getLocation();
       throw new CiConfigurationException(String.format("Mapping error in configuration file. Check value or name at (%d,%d)", location.getLineNr(), location.getColumnNr()));
     } catch (IOException e) {
-      throw new CiConfigurationException(String.format("Cannot read configuration file '%s'.", configurationFile.getPath()));
+      throw new CiConfigurationException(String.format("Cannot read configuration file '%s'.", configurationFileName));
     }
     
     return result;

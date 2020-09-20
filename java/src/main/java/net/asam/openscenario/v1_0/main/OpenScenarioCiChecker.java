@@ -73,24 +73,23 @@ public class OpenScenarioCiChecker {
     }
     // Check the base directory
     File baseDirectoryFile = new File(baseDirectoryName);
-    if (!baseDirectoryFile.exists())
-    {
-      System.out.println(String.format("Base directory '%s' does not exists",baseDirectoryName )); 
+    if (!baseDirectoryFile.exists()) {
+      System.out.println(String.format("Base directory '%s' does not exists", baseDirectoryName));
       return OpenScenarioCheckerCommon.ERROR_RESULT;
     }
-    
+
     // Read Configuration file
     CiCheckerConfigurationReader reader = new CiCheckerConfigurationReader();
     CiCheckerConfiguration configuration = null;
     try {
-      configuration = reader.readConfiguration(new File(confFileName));
+      configuration = reader.readConfiguration(confFileName);
     } catch (CiConfigurationException e) {
       System.out.println(e.getMessage());
       return OpenScenarioCheckerCommon.ERROR_RESULT;
     }
     // Configuration is loaded
     OpenScenarioCheckerCommon.printInjectedParameters(configuration.getParameterMap());
-    
+
     IScenarioChecker checker = null;
     // Check for IOpenSceanrioCheckerfactory
     // Load a scenario checker per Reflection
@@ -111,25 +110,43 @@ public class OpenScenarioCiChecker {
       }
     }
 
-    // Now iterate through the directories
-    for (String directory : configuration.getDirectoryList()) {
-      File inputDirectoryFile = new File(baseDirectoryFile, directory);
-      if (!inputDirectoryFile.exists() || !inputDirectoryFile.isDirectory()) {
-        System.out.println(
-            String.format(
-                "'%s' does not exists or is not a directory", inputDirectoryFile.getPath()));
-        result = OpenScenarioCheckerCommon.ERROR_RESULT;
-      } else {
-        List<File> files =
-            OpenScenarioCheckerCommon.getFilesFromDirectory(
-                inputDirectoryFile, configuration.getSuffixList());
-        for (File file : files) {
-          result =
-              OpenScenarioCheckerCommon.checkFile(file.getPath(), configuration.getParameterMap(), checker)
-                      == 0
-                  ? result
-                  : OpenScenarioCheckerCommon.ERROR_RESULT;
+    List<String> directories = configuration.getDirectoryList();
+    if (directories != null && !directories.isEmpty()) {
+      // Now iterate through the directories
+      for (String directory : configuration.getDirectoryList()) {
+        File inputDirectoryFile = new File(baseDirectoryFile, directory);
+        if (!inputDirectoryFile.exists() || !inputDirectoryFile.isDirectory()) {
+          System.out.println(
+              String.format(
+                  "'%s' does not exists or is not a directory", inputDirectoryFile.getPath()));
+          result = OpenScenarioCheckerCommon.ERROR_RESULT;
+        } else {
+          List<File> files =
+              OpenScenarioCheckerCommon.getFilesFromDirectory(
+                  inputDirectoryFile, configuration.getSuffixList());
+          for (File file : files) {
+            result =
+                OpenScenarioCheckerCommon.checkFile(
+                            file.getPath(), configuration.getParameterMap(), checker)
+                        == 0
+                    ? result
+                    : OpenScenarioCheckerCommon.ERROR_RESULT;
+          }
         }
+      }
+    }else
+    {
+      // Get all from base directory
+      List<File> files =
+          OpenScenarioCheckerCommon.getFilesFromDirectory(
+              baseDirectoryFile, configuration.getSuffixList());
+      for (File file : files) {
+        result =
+            OpenScenarioCheckerCommon.checkFile(
+                        file.getPath(), configuration.getParameterMap(), checker)
+                    == 0
+                ? result
+                : OpenScenarioCheckerCommon.ERROR_RESULT;
       }
     }
 
