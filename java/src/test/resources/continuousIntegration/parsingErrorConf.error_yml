@@ -1,0 +1,22 @@
+
+suffixList:
+  - xosc
+  - osc
+  
+ suffixList:
+  - xosc
+  - osc
+ 
+directoryList:
+  - successDirectory
+  
+parameterMap:
+  testBoolean: true
+  testInteger: 2
+  testUnsignedInt: 2
+  testString: injected
+  testDateTime: 2018-02-24T10:00:00
+  testUnsignedShort: 2
+  testDouble: 2.0
+  
+checkerRuleFactoryClassName: net.asam.openscenario.v1_0.test.SimpleTestScenarioCheckerFactory

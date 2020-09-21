@@ -82,6 +82,7 @@ public class FileResourceLocator implements IResourceLocator {
       return symbolicDir;
     }
     File baseDir = new File(new File(symbolicBaseDir).getParentFile(), symbolicDir);
+    
     if (baseDir.isDirectory()) {
       return baseDir.getAbsolutePath();
     }

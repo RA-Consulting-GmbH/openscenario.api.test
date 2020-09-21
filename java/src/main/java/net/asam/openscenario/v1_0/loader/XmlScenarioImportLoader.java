@@ -134,54 +134,58 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
     if (scenarioDefinition != null) {
       ICatalogLocations catalogLocations = scenarioDefinition.getCatalogLocations();
       if (catalogLocations != null) {
+
         IControllerCatalogLocation controllerCatalogLocation =
             catalogLocations.getControllerCatalog();
-        IDirectory directory = controllerCatalogLocation.getDirectory();
-        addPath(resourceLocator, filename, messageLogger, result, directory);
+        if (controllerCatalogLocation != null)
+        {
+          IDirectory directory = controllerCatalogLocation.getDirectory();
+          addPath(resourceLocator, filename, messageLogger, result, directory);
+        }
 
         IManeuverCatalogLocation maneuverCatalogLocation = catalogLocations.getManeuverCatalog();
         if (maneuverCatalogLocation != null) {
-          directory = maneuverCatalogLocation.getDirectory();
+          IDirectory directory = maneuverCatalogLocation.getDirectory();
           addPath(resourceLocator, filename, messageLogger, result, directory);
         }
 
         IVehicleCatalogLocation vehicleCatalogLocation = catalogLocations.getVehicleCatalog();
         if (vehicleCatalogLocation != null) {
-          directory = vehicleCatalogLocation.getDirectory();
+          IDirectory directory = vehicleCatalogLocation.getDirectory();
           addPath(resourceLocator, filename, messageLogger, result, directory);
         }
 
         IMiscObjectCatalogLocation miscObjectCatalogLocation =
             catalogLocations.getMiscObjectCatalog();
         if (miscObjectCatalogLocation != null) {
-          directory = miscObjectCatalogLocation.getDirectory();
+          IDirectory directory = miscObjectCatalogLocation.getDirectory();
           addPath(resourceLocator, filename, messageLogger, result, directory);
         }
 
         ITrajectoryCatalogLocation trajectoryCatalogLocation =
             catalogLocations.getTrajectoryCatalog();
         if (trajectoryCatalogLocation != null) {
-          directory = trajectoryCatalogLocation.getDirectory();
+          IDirectory directory = trajectoryCatalogLocation.getDirectory();
           addPath(resourceLocator, filename, messageLogger, result, directory);
         }
 
         IEnvironmentCatalogLocation environmentCatalogLocation =
             catalogLocations.getEnvironmentCatalog();
         if (environmentCatalogLocation != null) {
-          directory = environmentCatalogLocation.getDirectory();
+          IDirectory directory = environmentCatalogLocation.getDirectory();
           addPath(resourceLocator, filename, messageLogger, result, directory);
         }
 
         IRouteCatalogLocation routeCatalogLocation = catalogLocations.getRouteCatalog();
         if (routeCatalogLocation != null) {
-          directory = routeCatalogLocation.getDirectory();
+          IDirectory  directory = routeCatalogLocation.getDirectory();
           addPath(resourceLocator, filename, messageLogger, result, directory);
         }
 
         IPedestrianCatalogLocation pedestrianCatalogLocation =
             catalogLocations.getPedestrianCatalog();
         if (pedestrianCatalogLocation != null) {
-          directory = pedestrianCatalogLocation.getDirectory();
+          IDirectory directory = pedestrianCatalogLocation.getDirectory();
           addPath(resourceLocator, filename, messageLogger, result, directory);
         }
       }
