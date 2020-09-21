@@ -23,6 +23,8 @@ package net.asam.openscenario.v1_0.main;
  * @author Andreas Hege - RA Consulting
  */
 public class CiConfigurationException extends Exception {
+  /** Serial ID, default */
+  private static final long serialVersionUID = 1L;
 
   /** Constructor 
    * @param message The message of the exception*/
