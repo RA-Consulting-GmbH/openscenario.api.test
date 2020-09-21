@@ -47,8 +47,14 @@ public class OpenScenarioCiChecker {
     int result = 0;
     boolean isCommandLineParsable = false;
 
-    OpenScenarioCheckerCommon.printHeader();
-
+    String header = "* ASAM OpenSCENARIO 1.0 CI Checker (2020) *";
+    OpenScenarioCheckerCommon.printHeader(header);
+    if (args == null || args.length == 0)
+    {
+      printCommandLineUsage();
+      return OpenScenarioCheckerCommon.USAGE_RESULT;
+    }
+    
     result = OpenScenarioCheckerCommon.checkCommandLineVersion(args);
     if (result == OpenScenarioCheckerCommon.VERSION_RESULT
         || result == OpenScenarioCheckerCommon.ERROR_RESULT) {
@@ -64,12 +70,8 @@ public class OpenScenarioCiChecker {
     }
 
     if (!isCommandLineParsable) {
-      System.out.println("Usage: [[-conf <confFileName> -d <baseDirectory>]| -v]");
-      System.out.println("Options:");
-      System.out.println("\t-i  <confFileName> configuration file");
-      System.out.println("\t-d  <baseDirectory> base directory for checks");
-      System.out.println("\t-v  print program version");
-      return OpenScenarioCheckerCommon.USAGE_RESULT;
+      printCommandLineUsage();
+      return OpenScenarioCheckerCommon.ERROR_RESULT;
     }
     // Check the base directory
     File baseDirectoryFile = new File(baseDirectoryName);
@@ -151,5 +153,16 @@ public class OpenScenarioCiChecker {
     }
 
     return result;
+  }
+
+  /**
+   * 
+   */
+  private static void printCommandLineUsage() {
+    System.out.println("Usage: [[-conf <confFileName> -d <baseDirectory>]| -v]");
+    System.out.println("Options:");
+    System.out.println("\t-conf  <confFileName> configuration file");
+    System.out.println("\t-d     <baseDirectory> base directory for checks");
+    System.out.println("\t-v     print program version");
   }
 }

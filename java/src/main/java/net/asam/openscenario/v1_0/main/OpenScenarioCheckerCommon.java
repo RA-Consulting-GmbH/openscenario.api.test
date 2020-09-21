@@ -60,9 +60,9 @@ public class OpenScenarioCheckerCommon {
   /**
    * Prints the header of the checker
    */
-  public static void printHeader() {
+  public static void printHeader(String header) {
 
-    String header = "* ASAM OpenSCENARIO 1.0 Checker (2020) *";
+ 
     String headerFillString = getFilledString(header.length(), '*');
 
     System.out.println(headerFillString);

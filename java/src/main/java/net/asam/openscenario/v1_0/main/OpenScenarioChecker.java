@@ -47,7 +47,8 @@ public class OpenScenarioChecker {
     int result = 0;
     boolean isCommandLineParsable = false;
 
-    OpenScenarioCheckerCommon.printHeader();
+    String header = "* ASAM OpenSCENARIO 1.0 Checker (2020) *";
+    OpenScenarioCheckerCommon.printHeader(header);
     
     result = OpenScenarioCheckerCommon.checkCommandLineVersion(args);
     if (result ==  OpenScenarioCheckerCommon.VERSION_RESULT || result == OpenScenarioCheckerCommon.ERROR_RESULT) {

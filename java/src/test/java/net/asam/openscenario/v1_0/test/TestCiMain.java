@@ -183,15 +183,27 @@ public class TestCiMain extends TestBase {
   public void testUsage() {
     int result =
         OpenScenarioCiChecker.mainWrapper(
+            new String[] {});
+    Assertions.assertEquals(OpenScenarioCheckerCommon.USAGE_RESULT, result);
+    Assertions.assertEquals("Usage: [[-conf <confFileName> -d <baseDirectory>]| -v]",
+        getLine(this.testOut.toString(),4));
+
+  }
+  
+  @Test
+  public void testUsageError() {
+    int result =
+        OpenScenarioCiChecker.mainWrapper(
             new String[] {
               "-notValidFlag",
               getResourceFile("continuousIntegration/badDirectoryConf.yml").getAbsolutePath(),
               "-d",
               getResourceFile("continuousIntegration").getAbsolutePath()
             });
-    Assertions.assertEquals(OpenScenarioCheckerCommon.USAGE_RESULT, result);
+    Assertions.assertEquals(OpenScenarioCheckerCommon.ERROR_RESULT, result);
     Assertions.assertEquals("Usage: [[-conf <confFileName> -d <baseDirectory>]| -v]",
         getLine(this.testOut.toString(),4));
+    
   }
 
   @Test
@@ -214,4 +226,8 @@ public class TestCiMain extends TestBase {
     Assertions.assertEquals("Program version " +version,
         getLine(this.testOut.toString(),4));
   }
+  
+  //System.setOut(stdout);
+  //System.out.println(testOut.toString());
+
 }
