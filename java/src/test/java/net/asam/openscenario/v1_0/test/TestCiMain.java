@@ -43,6 +43,20 @@ public class TestCiMain extends TestBase {
             });
     Assertions.assertEquals(OpenScenarioCheckerCommon.SUCCESS_RESULT, result);
   }
+  
+  @Test
+  public void testWarningsAsErrors() {
+
+    int result =
+        OpenScenarioCiChecker.mainWrapper(
+            new String[] {
+              "-conf",
+              getResourceFile("continuousIntegration/warningsAsErrorsConf.yml").getAbsolutePath(),
+              "-d",
+              getResourceFile("continuousIntegration").getAbsolutePath()
+            });
+    Assertions.assertEquals(OpenScenarioCheckerCommon.ERROR_RESULT, result);
+  }
 
   @Test
   public void testDirectoryPartlySuccess() {
@@ -178,7 +192,8 @@ public class TestCiMain extends TestBase {
     Assertions.assertEquals("Class 'net.asam.openscenario.v1_0.test.NotExisitingClass' cannot be loaded",
         getLine(this.testOut.toString(), 12));
   }
-
+  
+  
   @Test
   public void testUsage() {
     int result =

@@ -59,6 +59,7 @@ public class OpenScenarioCheckerCommon {
 
   /**
    * Prints the header of the checker
+   * @param header the header to print.
    */
   public static void printHeader(String header) {
 
@@ -105,9 +106,10 @@ public class OpenScenarioCheckerCommon {
    * @param inputFileName the filename of the file to check
    * @param nameValuePairs the parameters
    * @param checker A checker for additional checks
+   * @param handleWarningsAsError Indicates if warnings should be handled as errors
    * @return 0 if success, 1 in the case the file has errors
    */
-  public static int checkFile(String inputFileName, Map<String, String> nameValuePairs, IScenarioChecker checker) {
+  public static int checkFile(String inputFileName, Map<String, String> nameValuePairs, IScenarioChecker checker, boolean handleWarningsAsError) {
     int result = 0;
     
     if (new File(inputFileName).exists()) {
@@ -145,6 +147,10 @@ public class OpenScenarioCheckerCommon {
             .isEmpty()) {
           System.out.println(
               "Validation succeeded with 0 errors and " + warningMessages.size() + " warnings.");
+          if (!warningMessages.isEmpty() && handleWarningsAsError)
+          {
+            result = OpenScenarioCheckerCommon.ERROR_RESULT;
+          }
 
         } else {
           List<FileContentMessage> errorMessages =
@@ -158,6 +164,7 @@ public class OpenScenarioCheckerCommon {
 
           result = OpenScenarioCheckerCommon.ERROR_RESULT;
         }
+       
         System.out.println("");
 
         List<FileContentMessage> catalogMessages =

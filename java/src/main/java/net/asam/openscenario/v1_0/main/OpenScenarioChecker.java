@@ -100,7 +100,7 @@ public class OpenScenarioChecker {
     OpenScenarioCheckerCommon.printInjectedParameters(parameters);
   
     if (inputFileName != null) {
-      result = OpenScenarioCheckerCommon.checkFile(inputFileName, parameters, null);
+      result = OpenScenarioCheckerCommon.checkFile(inputFileName, parameters, null, false);
     } else {
 
       File inputDirectoryFile = new File(inputDirectoryName);
@@ -113,7 +113,7 @@ public class OpenScenarioChecker {
         List<File> files = OpenScenarioCheckerCommon.getFilesFromDirectory(inputDirectoryFile, null);
         for (File file : files) {
           result =
-              OpenScenarioCheckerCommon.checkFile(file.getPath(), parameters, null) == 0
+              OpenScenarioCheckerCommon.checkFile(file.getPath(), parameters, null, false) == 0
                   ? result
                   : OpenScenarioCheckerCommon.ERROR_RESULT;
         }

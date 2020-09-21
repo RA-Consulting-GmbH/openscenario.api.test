@@ -15,3 +15,4 @@ parameterMap:
   exampleDouble: 2.0
 
 checkerRuleFactoryClassName: net.asam.openscenario.checker.ExampleScenarioCheckerFactory
+handleWarningsAsErrors: true

@@ -39,6 +39,7 @@ public class OpenScenarioCiChecker {
 
   public static void main(String[] args) {
     int result = mainWrapper(args);
+    System.out.println(String.format("Exit code: %d ", result)); 
     System.exit(result);
   }
 
@@ -129,7 +130,7 @@ public class OpenScenarioCiChecker {
           for (File file : files) {
             result =
                 OpenScenarioCheckerCommon.checkFile(
-                            file.getPath(), configuration.getParameterMap(), checker)
+                            file.getPath(), configuration.getParameterMap(), checker, configuration.isHandleWarningsAsErrors())
                         == 0
                     ? result
                     : OpenScenarioCheckerCommon.ERROR_RESULT;
@@ -145,7 +146,7 @@ public class OpenScenarioCiChecker {
       for (File file : files) {
         result =
             OpenScenarioCheckerCommon.checkFile(
-                        file.getPath(), configuration.getParameterMap(), checker)
+                        file.getPath(), configuration.getParameterMap(), checker, configuration.isHandleWarningsAsErrors())
                     == 0
                 ? result
                 : OpenScenarioCheckerCommon.ERROR_RESULT;

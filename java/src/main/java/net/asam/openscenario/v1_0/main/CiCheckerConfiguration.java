@@ -31,7 +31,7 @@ public class CiCheckerConfiguration {
   private List<String> directoryList;
   private Map<String, String> parameterMap;
   private String checkerRuleFactoryClassName;
-
+  private boolean handleWarningsAsErrors = false;
   /**
    * Constructor
    *
@@ -40,17 +40,20 @@ public class CiCheckerConfiguration {
    * @param parameterMap parameter map for injected parameters (name, value in string format)
    * @param checkerRuleFactoryClassName The name of the IScenarioCheckerFactory class that is
    *     additionally applied during the check.
+   * @param handleWarningsAsErrors Indicates whether warnings are handled as errors.
    */
   public CiCheckerConfiguration(
       List<String> suffixList,
       List<String> directoryList,
       Map<String, String> parameterMap,
-      String checkerRuleFactoryClassName) {
+      String checkerRuleFactoryClassName,
+      boolean handleWarningsAsErrors) {
     super();
     this.suffixList = suffixList;
     this.directoryList = directoryList;
     this.parameterMap = parameterMap;
     this.checkerRuleFactoryClassName = checkerRuleFactoryClassName;
+    this.handleWarningsAsErrors = handleWarningsAsErrors;
   }
   /** Default Constructor */
   public CiCheckerConfiguration() {}
@@ -88,10 +91,16 @@ public class CiCheckerConfiguration {
     return this.checkerRuleFactoryClassName;
   }
 
-  /**
-   * Sets the parameters to an empty list
-   */
+  /** Sets the parameters to an empty list */
   public void initParameterMap() {
     this.parameterMap = new Hashtable<>();
+  }
+  /**
+   * Specifies whether a Warning is handled as an error
+   *
+   * @return the handleWarningsAsErrors
+   */
+  public boolean isHandleWarningsAsErrors() {
+    return this.handleWarningsAsErrors;
   }
 }

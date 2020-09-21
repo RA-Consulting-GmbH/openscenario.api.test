@@ -2,7 +2,7 @@
 suffixList:
   - xosc
   - osc
-
+  
 directoryList:
   - successDirectory
   
@@ -16,3 +16,4 @@ parameterMap:
   testDouble: 2.0
   
 checkerRuleFactoryClassName: net.asam.openscenario.v1_0.test.SimpleTestScenarioCheckerFactory
+handleWarningsAsErrors: true
