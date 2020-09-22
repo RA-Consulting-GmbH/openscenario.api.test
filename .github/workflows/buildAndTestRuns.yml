@@ -12,7 +12,7 @@ jobs:
       run: sudo apt-get update
       
     - name: install uuid-dev package
-      run:  sudo apt-get update ; sudo apt-get install uuid-dev
+      run:  sudo apt-get install uuid-dev
     
     - name: cmake generate solution Debug
       run: cmake -DCMAKE_BUILD_TYPE="Debug" -DPLATFORM_PARAM="Linux" ./cpp
@@ -39,6 +39,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+      
+    - name: update system
+      run: sudo apt-get update
       
     - name: install uuid-dev package
       run:  sudo apt-get install uuid-dev
