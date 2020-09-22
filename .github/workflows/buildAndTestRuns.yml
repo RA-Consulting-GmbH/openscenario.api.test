@@ -7,7 +7,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-      
+
+    - name: update system
+      run:  sudo apt-get update
+
     - name: install uuid-dev package
       run:  sudo apt-get install uuid-dev
     
@@ -36,7 +39,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-      
+
+    - name: update system
+      run:  sudo apt-get update
+
     - name: install uuid-dev package
       run:  sudo apt-get install uuid-dev
     
