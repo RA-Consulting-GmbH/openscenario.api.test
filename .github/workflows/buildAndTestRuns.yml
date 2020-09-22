@@ -8,8 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
+    - name: update system
+      run: sudo apt-get update
+      
     - name: install uuid-dev package
-      run:  sudo apt-get install ./cpp/externalPackages/uuid-dev_2.31.1-0.4ubuntu3.7_amd64.deb
+      run:  sudo apt-get install uuid-dev
     
     - name: cmake generate solution Debug
       run: cmake -DCMAKE_BUILD_TYPE="Debug" -DPLATFORM_PARAM="Linux" ./cpp
