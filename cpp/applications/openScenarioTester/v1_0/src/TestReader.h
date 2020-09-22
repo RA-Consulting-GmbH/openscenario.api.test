@@ -61,7 +61,7 @@ public:
         command += " Test ";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         (void) system(command.c_str());
-        return Assert("OpenScenarioChecker [option] [-p]" == GetLine(kResultFileName, 4), ASSERT_LOCATION);
+        return Assert("OpenScenarioChecker [[-i <filename> [-p <paramfilename>]] | -v]" == GetLine(kResultFileName, 4), ASSERT_LOCATION);
     }
 
     bool TestWithParamFile() const
