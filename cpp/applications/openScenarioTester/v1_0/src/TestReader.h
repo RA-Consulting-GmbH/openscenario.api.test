@@ -61,7 +61,7 @@ public:
 
     bool TestDirectorySuccess() const
     {
-        std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
+        std::string command = _executablePath + "/OpenScenarioReader.v1_0";
         command += " -d " + _executablePath + "/" + kInputDir + "goodDirectory";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         auto temp = ExecuteSystemCommand(command);
@@ -70,7 +70,7 @@ public:
 
     bool TestDirectoryPartlySuccess() const
     {
-        std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
+        std::string command = _executablePath + "/OpenScenarioReader.v1_0";
         command += " -d " + _executablePath + "/" + kInputDir + "badDirectory";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         return Assert(ERROR_RESULT == ExecuteSystemCommand(command), ASSERT_LOCATION);
@@ -88,7 +88,7 @@ public:
 
     bool TestDirectoryNotFound() const
     {
-        std::string command = _executablePath + "/OpenScenarioReaderV_1_0";
+        std::string command = _executablePath + "/OpenScenarioReader.v1_0";
         command += " -d " "testDirectoryNotFound";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         auto res = Assert(ERROR_RESULT == ExecuteSystemCommand(command), ASSERT_LOCATION);
