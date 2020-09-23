@@ -25,7 +25,13 @@ file(GLOB libantlrcpp_SRC
 add_library(antlr4_shared SHARED ${libantlrcpp_SRC})
 add_library(antlr4_static STATIC ${libantlrcpp_SRC})
 
-set(LIB_OUTPUT_DIR "${CMAKE_HOME_DIRECTORY}/build/output/${PLATFORM_PARAM}/${CMAKE_BUILD_TYPE}") # put generated libraries here.
+# Reflect static / shared build in ouput folder
+set( LIB_BINDING_TYPE "shared"  )
+if( ${BUILD_STATIC_LIBS} STREQUAL "ON" )
+    set( LIB_BINDING_TYPE "static" )
+endif()
+
+set(LIB_OUTPUT_DIR "${CMAKE_HOME_DIRECTORY}/build/output/${PLATFORM_PARAM}_${LIB_BINDING_TYPE}/${CMAKE_BUILD_TYPE}") # put generated libraries here.
 message("Output libraries to ${LIB_OUTPUT_DIR}")
 
 # make sure 'make' works fine even if ${LIB_OUTPUT_DIR} is deleted.
