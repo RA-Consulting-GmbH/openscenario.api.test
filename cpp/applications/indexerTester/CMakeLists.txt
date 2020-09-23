@@ -22,7 +22,7 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 # Include folders
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/common/xmlIndexer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/v_1_0/generated/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/v1_0/generated/xmlParser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
@@ -42,6 +42,8 @@ set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
    "../../externalLibs/TinyXML2/tinyxml2.cpp"
+   "../../openScenarioLib/v1_0/generated/xmlParser/XMLLexer.cpp"
+   "../../openScenarioLib/v1_0/generated/xmlParser/XMLParser.cpp"
 )
 
 ################################################################
@@ -65,7 +67,11 @@ endif()
 # Generate executable
 add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} )
 
-target_link_libraries( ${PROJECT_NAME} OpenScenarioLibV_1_0 )
+if( BUILD_STATIC_LIBS STREQUAL "ON" )
+  target_link_libraries( ${PROJECT_NAME} antlr4_static )
+else()
+  target_link_libraries( ${PROJECT_NAME} antlr4_shared )
+endif()
 
 
 ################################################################

@@ -9,10 +9,25 @@ build/*
 
 /cpp/applications/openScenarioReader/res/result.txt
 RabbitVCSwithGitHub/*
-/cpp/applications/openScenarioTester/v_1_0/src/openScenarioAPI/*
-cpp/applications/openScenarioTester/v_1_0/src/findHeaders.sh
+/cpp/applications/openScenarioTester/v1_0/src/openScenarioAPI/*
+cpp/applications/openScenarioTester/v1_0/src/findHeaders.sh
 cpp/dirs_all.txt
 cpp/build/generateLinux/openSCENARIO_2020.08.11.tgz
 cpp/README_template.md
 cpp/RabbitVCSwithGitHub/*
 cpp/build/generateLinux/openSCENARIO_2020.08.12.tgz
+cpp/build/generateLinux/openScenario.v1_0.API/*
+cpp/build/generateLinux.tgz
+cpp/build/generateLinux2.tgz
+cpp/build/generateLinux3.tgz
+cpp/build/generateLinux4.tgz
+cpp/build/generateLinux5.tgz
+cpp/build/generateLinux/openScenario.v1_0.API_shared_2020.08.19.tgz
+cpp/build/generateLinux/openScenario.v1_0.API_static_2020.08.19.tgz
+openscenario.api.test.code-workspace
+cpp/applications/openScenarioTester/v1_0/src/findHeaders.sh
+cpp/build/generateLinux/EgoCheckerRule.h
+cpp/build/generateLinux/openScenario.v1_0.API_2020.08.24.tgz
+cpp/build/generateLinux/openScenario.v1_0.API_2020.08.25.tgz
+cpp/build/generateLinux/openScenario.v1_0.API_2020.08.26.tgz
+cpp/build/generateLinux/tinyxml2.cpp
