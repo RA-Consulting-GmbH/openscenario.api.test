@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.asam.openscenario.v1_0.reader</groupId>
+	<groupId>net.asam.openscenario</groupId>
 	<artifactId>net.asam.openscenario.v1_0.reader</artifactId>
 	<version>0.9.0</version>
 	<name>OpenSCENARIO API</name>
@@ -17,17 +17,17 @@
 					<generatedSourcesDirectory>src/generated/java</generatedSourcesDirectory>
 					<useIncrementalCompilation>false</useIncrementalCompilation>
 					<compilerArgument>-Xlint:all</compilerArgument>
-        			<showWarnings>true</showWarnings>
-        			<showDeprecation>true</showDeprecation>
-        			<failOnWarning>true</failOnWarning>
-				</configuration>	
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+					<failOnWarning>true</failOnWarning>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
 				<configuration>
-						<argLine>${jvm.options}</argLine>
+					<argLine>${jvm.options}</argLine>
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -154,6 +154,16 @@
 			<groupId>org.antlr</groupId>
 			<artifactId>antlr4-runtime</artifactId>
 			<version>4.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+			<version>2.10.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jdk8</artifactId>
+			<version>2.10.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

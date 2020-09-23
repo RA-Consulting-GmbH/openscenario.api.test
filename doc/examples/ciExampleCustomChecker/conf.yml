@@ -1,0 +1,18 @@
+directoryList:
+  - directoryToCheck
+
+suffixList:
+  - xosc
+  - osc
+ 
+parameterMap:
+  exampleBoolean: true
+  exampleInteger: 2
+  exampleUnsignedInt: 2
+  exampleString: injected
+  exampleDateTime: 2018-02-24T10:00:00
+  exampleUnsignedShort: 2
+  exampleDouble: 2.0
+
+checkerRuleFactoryClassName: net.asam.openscenario.checker.ExampleScenarioCheckerFactory
+handleWarningsAsErrors: true

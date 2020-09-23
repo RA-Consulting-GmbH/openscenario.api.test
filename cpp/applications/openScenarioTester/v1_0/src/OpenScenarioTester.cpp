@@ -74,7 +74,10 @@ int main(int argc, char** argv)
     res = res && testImports.TestImportWithParametersSuccess();
 
     res = res && testReader.TestImportSuccess();
+    res = res && testReader.TestDirectorySuccess();
+    res = res && testReader.TestDirectoryPartlySuccess();
     res = res && testReader.TestFileNotFound();
+    res = res && testReader.TestDirectoryNotFound();
     res = res && testReader.TestWithErrors();
     res = res && testReader.TestWrongCommandLine();
     res = res && testReader.TestWithParamFile();

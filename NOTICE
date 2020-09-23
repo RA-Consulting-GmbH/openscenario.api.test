@@ -10,6 +10,9 @@ These licenses apply to the Java part of this project:
 
 - ASAM Licence
 - ANTLR 4 Licence
+- Jackson Dataformat YAML License (Apache 2.0 license)
+- Jackson Modules Java8 License (Apache 2.0 license)
+
 
 These licenses apply to the C++ part of the project:
 
@@ -46,6 +49,16 @@ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR B
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 https://www.antlr.org/license.html
+
+Jackson Dataformat YAML License (Apache 2.0 license)
+====================================================
+
+https://github.com/FasterXML/jackson-dataformat-yaml/blob/master/src/main/resources/META-INF/LICENSE
+
+Jackson Modules Java8 License (Apache 2.0 license)
+====================================================
+
+https://github.com/FasterXML/jackson-modules-java8/blob/master/LICENSE
 
 TINY XML LICENCE
 ================

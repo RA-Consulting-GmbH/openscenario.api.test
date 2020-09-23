@@ -166,56 +166,59 @@ namespace NET_ASAM_OPENSCENARIO
                     if (catalogLocations)
                     {
                         auto controllerCatalogLocation = catalogLocations->GetControllerCatalog();
-                        auto directory = controllerCatalogLocation->GetDirectory();
-                        AddPath(resourceLocator, filename, messageLogger, result, directory);
+                        if (controllerCatalogLocation)
+                        {
+                            const auto kDirectory = controllerCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
+                        }
 
                         auto maneuverCatalogLocation = catalogLocations->GetManeuverCatalog();
                         if (maneuverCatalogLocation)
                         {
-                            directory = maneuverCatalogLocation->GetDirectory();
-                            AddPath(resourceLocator, filename, messageLogger, result, directory);
+                            const auto kDirectory = maneuverCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
                         }
 
                         auto vehicleCatalogLocation = catalogLocations->GetVehicleCatalog();
                         if (vehicleCatalogLocation)
                         {
-                            directory = vehicleCatalogLocation->GetDirectory();
-                            AddPath(resourceLocator, filename, messageLogger, result, directory);
+                            const auto kDirectory = vehicleCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
                         }
 
                         auto miscObjectCatalogLocation = catalogLocations->GetMiscObjectCatalog();
                         if (miscObjectCatalogLocation)
                         {
-                            directory = miscObjectCatalogLocation->GetDirectory();
-                            AddPath(resourceLocator, filename, messageLogger, result, directory);
+                            const auto kDirectory = miscObjectCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
                         }
 
                         auto trajectoryCatalogLocation = catalogLocations->GetTrajectoryCatalog();
                         if (trajectoryCatalogLocation)
                         {
-                            directory = trajectoryCatalogLocation->GetDirectory();
-                            AddPath(resourceLocator, filename, messageLogger, result, directory);
+                            const auto kDirectory = trajectoryCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
                         }
 
                         auto environmentCatalogLocation = catalogLocations->GetEnvironmentCatalog();
                         if (environmentCatalogLocation)
                         {
-                            directory = environmentCatalogLocation->GetDirectory();
-                            AddPath(resourceLocator, filename, messageLogger, result, directory);
+                            const auto kDirectory = environmentCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
                         }
 
                         auto routeCatalogLocation = catalogLocations->GetRouteCatalog();
                         if (routeCatalogLocation)
                         {
-                            directory = routeCatalogLocation->GetDirectory();
-                            AddPath(resourceLocator, filename, messageLogger, result, directory);
+                            const auto kDirectory = routeCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
                         }
 
                         auto pedestrianCatalogLocation = catalogLocations->GetPedestrianCatalog();
                         if (pedestrianCatalogLocation)
                         {
-                            directory = pedestrianCatalogLocation->GetDirectory();
-                            AddPath(resourceLocator, filename, messageLogger, result, directory);
+                            const auto kDirectory = pedestrianCatalogLocation->GetDirectory();
+                            AddPath(resourceLocator, filename, messageLogger, result, kDirectory);
                         }
                     }
                 }

@@ -19,7 +19,6 @@
 #include "DateTime.h"
 #include "IParserMessageLogger.h"
 #include "Textmarker.h"
-#include "BaseImpl.h"
 #include "IndexedElement.h"
 #include "Position.h"
 #include <vector>
