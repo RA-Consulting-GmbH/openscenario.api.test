@@ -39,4 +39,21 @@ public interface IParserMessageLogger {
    * @param messages the list of messages.
    */
   public void logAllMessages(List<FileContentMessage> messages);
+
+  /**
+   * The message that have been picked up filtered by a specific error level.
+   *
+   * @param errorLevel the error level to filter the messages.
+   * @return the filtered messages
+   */
+  public List<FileContentMessage> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel);
+
+  /**
+   * The message that have been picked up filtered by a specific error level.
+   *
+   * @param errorLevel the error level to filter for worse or equal.
+   * @return the filtered messages
+   */
+  public List<FileContentMessage> getMessagesFilteredByWorseOrEqualToErrorLevel(
+      ErrorLevel errorLevel);
 }

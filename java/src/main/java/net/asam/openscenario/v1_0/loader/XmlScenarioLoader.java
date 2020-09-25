@@ -134,9 +134,13 @@ public class XmlScenarioLoader implements IScenarioLoader {
       OpenScenarioImpl openScenarioImpl = new OpenScenarioImpl();
       ParserContext parserContext = new CatalogReferenceParserContext();
       openScenarioXmlParser.parseElement(indexedElement, parserContext, openScenarioImpl);
-      OpenScenarioProcessingHelper.resolve(messageLogger, openScenarioImpl, injectedParameters);
-      openScenarioImpl.addAdapter(ICatalogReferenceProvider.class, parserContext);
-      openScenarioImpl.addAdapter(IScenarioChecker.class, new ScenarioCheckerImpl());
+      // resolve parameter only when no errors occured
+      if (messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty())
+      {
+        OpenScenarioProcessingHelper.resolve(messageLogger, openScenarioImpl, injectedParameters);
+        openScenarioImpl.addAdapter(ICatalogReferenceProvider.class, parserContext);
+        openScenarioImpl.addAdapter(IScenarioChecker.class, new ScenarioCheckerImpl());
+      }
       inputStream.close();
       return openScenarioImpl;
     } catch (ParserConfigurationException | IOException e) {
@@ -152,4 +156,6 @@ public class XmlScenarioLoader implements IScenarioLoader {
     }
     return null;
   }
+  
+  
 }

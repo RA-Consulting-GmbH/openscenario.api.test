@@ -26,11 +26,11 @@ import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.SimpleMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
-import net.asam.openscenario.loader.MessageLoggerDecorator;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.ICatalogLocations;
 import net.asam.openscenario.v1_0.api.IEntities;
@@ -52,8 +52,7 @@ public class TestExamples extends TestBase {
   @Test
   public void testExample() throws ScenarioLoaderException {
 
-    MessageLoggerDecorator messageLogger = new MessageLoggerDecorator(this.messageLogger);
-
+ 
     // Instantiating the factory
     IScenarioLoaderFactory loaderFactory =
         new XmlScenarioLoaderFactory(getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath());
@@ -63,10 +62,10 @@ public class TestExamples extends TestBase {
 
     // Loading
     IOpenScenario openScenario =
-        (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
+        (IOpenScenario) loader.load(this.messageLogger).getAdapter(IOpenScenario.class);
 
     // Check for errors
-    if (!messageLogger.hasErrors()) {
+    if (this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty()) {
       // Browse through the results
       IFileHeader fileHeader = openScenario.getFileHeader();
       System.out.println("Major Revision :" + fileHeader.getRevMajor());
@@ -96,7 +95,7 @@ public class TestExamples extends TestBase {
       // Browse through catalog locations
       ICatalogLocations catalogLocations = scenarioDefinition.getCatalogLocations();
     }
-    MessageLogger checkerRuleLogger = new MessageLogger();
+    SimpleMessageLogger checkerRuleLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
     // Using the adapter interface to get the checker
     IScenarioChecker scenarioChecker =

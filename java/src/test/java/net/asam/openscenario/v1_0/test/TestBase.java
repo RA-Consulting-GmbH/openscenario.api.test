@@ -33,6 +33,7 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.SimpleMessageLogger;
 import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
@@ -43,7 +44,7 @@ import net.asam.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 
 public class TestBase {
 
-  protected MessageLogger messageLogger = new MessageLogger();
+  protected SimpleMessageLogger messageLogger;
 
   protected ByteArrayOutputStream testOut = new ByteArrayOutputStream();
   protected PrintStream stdout;
@@ -74,7 +75,7 @@ public class TestBase {
 
   @BeforeEach
   public void init() {
-    this.messageLogger.clear();
+    this.messageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
     this.stdout = System.out;
     System.setOut(new PrintStream(this.testOut));
     
@@ -85,15 +86,6 @@ public class TestBase {
     System.setOut(this.stdout);
   }
 
-  protected boolean hasErrors(MessageLogger messageLogger) {
-    for (FileContentMessage message : messageLogger.getMessages()) {
-      if (message.getErrorLevel() == ErrorLevel.ERROR
-          || message.getErrorLevel() == ErrorLevel.FATAL) {
-        return true;
-      }
-    }
-    return false;
-  }
 
   protected File getResourceFile(String resourceName) {
     ClassLoader classLoader = getClass().getClassLoader();
@@ -101,12 +93,13 @@ public class TestBase {
   }
 
   protected boolean assertMessages(
-      List<FileContentMessage> messages, ErrorLevel errorLevel, MessageLogger logger) {
+    List<FileContentMessage> messages, ErrorLevel errorLevel, IParserMessageLogger logger) {
     List<FileContentMessage> filterByErrorLevelMessages = filterByErrorLevel(messages, errorLevel);
-    List<FileContentMessage> filterByErrorLevelLogger =
-        filterByErrorLevel(logger.getMessages(), errorLevel);
-    return filterByErrorLevelMessages.equals(filterByErrorLevelLogger)
+    List<FileContentMessage> filterByErrorLevelLogger = logger.getMessagesFilteredByErrorLevel(errorLevel);
+    Collections.sort(filterByErrorLevelLogger);
+    boolean result = filterByErrorLevelMessages.equals(filterByErrorLevelLogger)
         && filterByErrorLevelMessages.size() == filterByErrorLevelLogger.size();
+    return result;
   }
 
   protected List<FileContentMessage> filterByErrorLevel(

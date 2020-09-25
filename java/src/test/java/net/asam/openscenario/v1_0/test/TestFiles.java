@@ -47,7 +47,7 @@ public class TestFiles extends TestBase {
   public void testParamsSuccess() {
     try {
       executeParsing(getResourceFile("DoubleLaneChangerParams.xosc").getAbsolutePath());
-      Assertions.assertFalse(hasErrors(this.messageLogger), "Unexpected error occured");
+      Assertions.assertFalse(!this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty(), "Unexpected error occured");
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }
@@ -73,6 +73,7 @@ public class TestFiles extends TestBase {
       Assertions.assertTrue(
           assertMessages(messages, ErrorLevel.ERROR, this.messageLogger),
           "Unexpected Errors or Errors missing");
+      
 
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
@@ -176,7 +177,7 @@ public class TestFiles extends TestBase {
       String filename =
           getResourceFile("DoubleLaneChangerCustomCommandAction.xosc").getAbsolutePath();
       OpenScenarioImpl openScenarioImpl = executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<FileContentMessage>();
+      List<FileContentMessage> messages = new ArrayList<>();
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
       String content =
           openScenarioImpl

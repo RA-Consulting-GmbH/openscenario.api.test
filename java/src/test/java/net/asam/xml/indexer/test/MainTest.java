@@ -69,6 +69,7 @@ public class MainTest {
     try {
       ClassLoader classLoader = getClass().getClassLoader();
       File file = new File(classLoader.getResource("indexer/RouteCatalog.xosc").getFile());
+      @SuppressWarnings("resource")
       InputStream in = new FileInputStream(file);
       stream = CharStreams.fromStream(in);
 
