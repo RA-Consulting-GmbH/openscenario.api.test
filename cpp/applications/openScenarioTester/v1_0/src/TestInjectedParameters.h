@@ -115,7 +115,7 @@ public:
 
         try
         {
-            _messageLogger->Clear();
+            ClearMessageLogger();
             std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc";
             (void) ExecuteParsing(filename, injectedParamters);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -147,7 +147,7 @@ public:
 
         try
         {
-            _messageLogger->Clear();
+            ClearMessageLogger();
             std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc";
             (void) ExecuteParsing(filename, injectedParamters);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -169,7 +169,7 @@ public:
 
         try
         {
-            _messageLogger->Clear();
+            ClearMessageLogger();
             std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChanger.xosc";
             (void) ExecuteParsing(filename, injectedParamters);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;

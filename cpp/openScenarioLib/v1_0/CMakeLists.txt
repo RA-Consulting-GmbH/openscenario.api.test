@@ -201,7 +201,6 @@ set( HEADERS_COMMON_LOADER
   "../common/loader/IResourceLocator.h"
   "../common/loader/IScenarioLoaderFactory.h"
   "../common/loader/IScenarioLoader.h"
-  "../common/loader/MessageLoggerDecorator.h"
   "../common/loader/ResourceNotFoundException.h"
   "../common/loader/FileResourceLocator.h"
   "../common/loader/ScenarioLoaderException.h"

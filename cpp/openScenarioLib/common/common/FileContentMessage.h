@@ -89,7 +89,7 @@ namespace NET_ASAM_OPENSCENARIO
         int CompareTo(const FileContentMessage& rhs) const
         {
             //not exactly the java equivalent 
-            return rhs.ToString() == this->ToString().c_str();
+            return rhs.ToString() == this->ToString();
         };
     };
 }

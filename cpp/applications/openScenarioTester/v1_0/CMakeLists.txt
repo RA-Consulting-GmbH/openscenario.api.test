@@ -84,7 +84,6 @@ set( HEADERS
   "src/TestFlexInterface.h"
   "src/TestVersionChecker.h"
   "src/TestInjectedParameters.h"
-  "src/MessageLogger.h"
 )
 
 set( HEADERS_HELPER

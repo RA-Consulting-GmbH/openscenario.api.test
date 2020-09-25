@@ -28,7 +28,6 @@ public:
     {
         // Creating a message logger to pick up the messages
         auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
-        const auto kMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLoggerDecorator>(msgLogger);
 
         // Instantiating the factory
         std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
@@ -38,10 +37,10 @@ public:
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
         // Loading 
-        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario).name()));
+        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(loader->Load(_messageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario).name()));
 
         //Check for errors
-        if (!kMessageLogger->HasErrors())
+        if (_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty())
         {
             // Browse through the results
             auto fileHeader = openScenario->GetFileHeader();
@@ -76,7 +75,7 @@ public:
 
         }
 
-        auto checkerRuleLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+        auto checkerRuleLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::INFO);
 
         // Using the adapter interface to get the checker
         auto scenarioChecker = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IScenarioChecker>( openScenario->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::IScenarioChecker).name()));
