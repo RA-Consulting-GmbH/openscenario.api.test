@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
@@ -44,12 +45,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandAction {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
-    propertyToType.put(OscConstants.ATTRIBUTE__TYPE, String.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__CONTENT, String.class);
+    propertyToType.put(OscConstants.ATTRIBUTE__TYPE, SimpleType.STRING);
+    propertyToType.put(OscConstants.ATTRIBUTE__CONTENT, SimpleType.STRING);
   }
 
   private String type;
@@ -112,7 +113,7 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 

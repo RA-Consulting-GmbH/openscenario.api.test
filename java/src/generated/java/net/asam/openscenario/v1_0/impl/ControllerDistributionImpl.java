@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IControllerDistribution;
@@ -45,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ControllerDistributionImpl extends BaseImpl implements IControllerDistribution {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IControllerDistributionEntry> controllerDistributionEntries;
   /** Default constructor */
@@ -82,7 +83,7 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 

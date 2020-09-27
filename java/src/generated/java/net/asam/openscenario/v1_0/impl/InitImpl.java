@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IInit;
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class InitImpl extends BaseImpl implements IInit {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IInitActions actions;
   /** Default constructor */
@@ -80,7 +81,7 @@ public class InitImpl extends BaseImpl implements IInit {
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 

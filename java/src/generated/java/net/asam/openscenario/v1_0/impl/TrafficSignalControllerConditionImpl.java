@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
@@ -50,12 +51,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  */
 public class TrafficSignalControllerConditionImpl extends BaseImpl
     implements ITrafficSignalControllerCondition {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
-    propertyToType.put(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, String.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__PHASE, String.class);
+    propertyToType.put(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType.STRING);
+    propertyToType.put(OscConstants.ATTRIBUTE__PHASE, SimpleType.STRING);
   }
 
   private NamedReferenceProxy<ITrafficSignalController> trafficSignalControllerRef;
@@ -136,7 +137,7 @@ public class TrafficSignalControllerConditionImpl extends BaseImpl
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 

@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
@@ -45,11 +46,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
-    propertyToType.put(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR, Double.class);
+    propertyToType.put(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR, SimpleType.DOUBLE);
   }
 
   private Double frictionScaleFactor;
@@ -106,7 +107,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 

@@ -24,7 +24,6 @@ import java.util.Properties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import net.asam.openscenario.v1_0.main.OpenScenarioChecker;
 import net.asam.openscenario.v1_0.main.OpenScenarioCheckerCommon;
 import net.asam.openscenario.v1_0.main.OpenScenarioCiChecker;
 

@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.ILocator;
@@ -64,7 +65,6 @@ public class ParameterResolver {
       String parameterName = parameterizedObject.getParameterNameFromAttribute(attributeKey);
       String value =
           findValue(parameterizedObject.getTypeFromAttributeName(attributeKey), parameterName);
-
       if (value != null) {
         parameterizedObject.resolveParameter(logger, attributeKey, value);
       } else {
@@ -86,14 +86,14 @@ public class ParameterResolver {
    * @param parameterName name of the parameter the value is looked up
    * @return the string representation of the value.
    */
-  public String findValue(Class<?> expectedParameterType, String parameterName) {
+  public String findValue(SimpleType expectedParameterType, String parameterName) {
     // Search from the top of the stack (which is the end of the underlying
     // list)
     for (int i = this.parameterValueSets.size() - 1; i >= 0; i--) {
       Hashtable<String, ParameterValue> parameterNameToParameterValue =
           this.parameterValueSets.get(i);
       ParameterValue paramValue = parameterNameToParameterValue.get(parameterName);
-      if (paramValue != null && paramValue.getType().equals(expectedParameterType)) {
+      if (paramValue != null && (paramValue.getType().equals(expectedParameterType) || (expectedParameterType == SimpleType.ENUM_TYPE && paramValue.getType() ==  SimpleType.STRING) )) {
         return paramValue.getValue();
       }
     }
