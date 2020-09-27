@@ -17,6 +17,7 @@
 
 package net.asam.openscenario.v1_0.loader;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
@@ -117,7 +118,21 @@ public class XmlScenarioLoader implements IScenarioLoader {
       // antlr indexing
       CharStream stream;
       inputStream = this.resourceLocator.getInputStream(this.filename);
-      stream = CharStreams.fromStream(inputStream);
+      BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+      // Check BOM and skip utf 8 bom
+      byte[] buffer = new byte[3];
+      bufferedInputStream.mark(4);
+      int read = bufferedInputStream.read(buffer);
+      if (read <3)
+      {
+        bufferedInputStream.reset();
+      }else if (buffer[0] != -17 || buffer[1] != -69 || buffer[2] != -65)
+      {
+        // EF(-17) BB (-69) BF (-65)
+        bufferedInputStream.reset();
+      }
+      
+      stream = CharStreams.fromStream(bufferedInputStream);
       XMLLexer lexer = new XMLLexer(stream);
       CommonTokenStream tokens = new CommonTokenStream(lexer);
       XMLParser parser = new XMLParser(tokens);
@@ -144,6 +159,7 @@ public class XmlScenarioLoader implements IScenarioLoader {
       inputStream.close();
       return openScenarioImpl;
     } catch (ParserConfigurationException | IOException e) {
+      e.printStackTrace();
       throw new ScenarioLoaderException("Internal Parser Exception", e);
     } catch (SAXParseException e) {
       messageLogger.logMessage(
