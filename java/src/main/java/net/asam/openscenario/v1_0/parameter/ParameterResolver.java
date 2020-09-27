@@ -63,10 +63,38 @@ public class ParameterResolver {
 
     for (String attributeKey : attributeKeys) {
       String parameterName = parameterizedObject.getParameterNameFromAttribute(attributeKey);
-      String value =
-          findValue(parameterizedObject.getTypeFromAttributeName(attributeKey), parameterName);
-      if (value != null) {
-        parameterizedObject.resolveParameter(logger, attributeKey, value);
+      ParameterValue paramValue = findValue(parameterName);
+      if (paramValue != null) {
+
+        SimpleType expectedSimpleType = parameterizedObject.getTypeFromAttributeName(attributeKey);
+        SimpleType actualSimpleType = paramValue.getType();
+        String value = paramValue.getValue();
+        if (expectedSimpleType == actualSimpleType
+            || (expectedSimpleType == SimpleType.ENUM_TYPE
+                && actualSimpleType == SimpleType.STRING)) {
+          parameterizedObject.resolveParameter(logger, attributeKey, value);
+        } else if (doesExpectedTypeMatchWithConversions(
+            expectedSimpleType, actualSimpleType, value)) {
+          parameterizedObject.resolveParameter(logger, attributeKey, value);
+          // add Matching Info
+          logger.logMessage(
+              new FileContentMessage(
+                  String.format(
+                          "Parameter type (%s) does not match expected type (%s). Value '%s' of parameter '%s' was converted.",
+                          expectedSimpleType.toString(), actualSimpleType.toString(), value,parameterName) ,
+                  ErrorLevel.INFO,
+                  parameterizedObject.getTextmarker(attributeKey)));
+        } else {
+          // add Error
+          logger.logMessage(
+              new FileContentMessage(
+                  String.format(
+                          "Parameter type (%s) does not match expected type (%s). Value '%s' of parameter '%s' cannot be converted.",
+                          expectedSimpleType.toString(), actualSimpleType.toString(), value,parameterName),
+                  ErrorLevel.ERROR,
+                  parameterizedObject.getTextmarker(attributeKey)));
+        }
+
       } else {
         if (logUnresolvableParameter) {
           logger.logMessage(
@@ -82,22 +110,81 @@ public class ParameterResolver {
   /**
    * Find a parameter value by its parameter name and type
    *
-   * @param expectedParameterType expected type
    * @param parameterName name of the parameter the value is looked up
    * @return the string representation of the value.
    */
-  public String findValue(SimpleType expectedParameterType, String parameterName) {
+  private ParameterValue findValue(String parameterName) {
     // Search from the top of the stack (which is the end of the underlying
     // list)
     for (int i = this.parameterValueSets.size() - 1; i >= 0; i--) {
       Hashtable<String, ParameterValue> parameterNameToParameterValue =
           this.parameterValueSets.get(i);
       ParameterValue paramValue = parameterNameToParameterValue.get(parameterName);
-      if (paramValue != null && (paramValue.getType().equals(expectedParameterType) || (expectedParameterType == SimpleType.ENUM_TYPE && paramValue.getType() ==  SimpleType.STRING) )) {
-        return paramValue.getValue();
+      if (paramValue != null) {
+        return paramValue;
       }
     }
     return null;
+  }
+
+  private boolean doesExpectedTypeMatchWithConversions(
+      SimpleType expectedSimpleType, SimpleType actualSimpleType, String value) {
+    boolean result = false;
+    try {
+
+      if (expectedSimpleType == SimpleType.STRING) {
+        // Everything can be converted into String
+        result = true;
+      } else if (expectedSimpleType == SimpleType.DOUBLE) {
+        if (actualSimpleType == SimpleType.INT
+            || actualSimpleType == SimpleType.UNSIGNED_INT
+            || actualSimpleType == SimpleType.UNSIGNED_SHORT
+            || actualSimpleType == SimpleType.STRING) {
+          ParserHelper.validateDouble(value);
+          result = true;
+        }
+      } else if (expectedSimpleType == SimpleType.INT) {
+        if (actualSimpleType == SimpleType.DOUBLE
+            || actualSimpleType == SimpleType.UNSIGNED_INT
+            || actualSimpleType == SimpleType.UNSIGNED_SHORT
+            || actualSimpleType == SimpleType.STRING) {
+          ParserHelper.validateInt(value);
+          result = true;
+        }
+      } else if (expectedSimpleType == SimpleType.UNSIGNED_INT) {
+        if (actualSimpleType == SimpleType.DOUBLE
+            || actualSimpleType == SimpleType.INT
+            || actualSimpleType == SimpleType.UNSIGNED_SHORT
+            || actualSimpleType == SimpleType.STRING) {
+          ParserHelper.validateUnsignedInt(value);
+          result = true;
+        }
+      } else if (expectedSimpleType == SimpleType.UNSIGNED_SHORT) {
+        if (actualSimpleType == SimpleType.DOUBLE
+            || actualSimpleType == SimpleType.INT
+            || actualSimpleType == SimpleType.UNSIGNED_INT
+            || actualSimpleType == SimpleType.STRING) {
+          ParserHelper.validateUnsignedShort(value);
+          result = true;
+        }
+      } else if (expectedSimpleType == SimpleType.BOOLEAN) {
+        if (actualSimpleType == SimpleType.DOUBLE
+            || actualSimpleType == SimpleType.INT
+            || actualSimpleType == SimpleType.UNSIGNED_INT
+            || actualSimpleType == SimpleType.STRING) {
+          ParserHelper.validateBoolean(value);
+          result = true;
+        }
+      } else if (expectedSimpleType == SimpleType.DATE_TIME) {
+        if (actualSimpleType == SimpleType.STRING) {
+          ParserHelper.validateDateTime(value);
+          result = true;
+        }
+      }
+    } catch (Exception e) {
+      // Do nothing. result is still false;
+    }
+    return result;
   }
 
   /**

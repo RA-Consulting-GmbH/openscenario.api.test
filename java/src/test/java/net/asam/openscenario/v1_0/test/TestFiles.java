@@ -47,17 +47,25 @@ public class TestFiles extends TestBase {
   public void testParamsSuccess() {
     try {
       executeParsing(getResourceFile("DoubleLaneChangerParams.xosc").getAbsolutePath());
-      Assertions.assertFalse(!this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty(), "Unexpected error occured");
+      Assertions.assertFalse(
+          !this.messageLogger
+              .getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR)
+              .isEmpty(),
+          "Unexpected error occured");
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }
   }
-  
+
   @Test
   public void testBomFile() {
     try {
       executeParsing(getResourceFile("DoubleLaneChanger-utf8-BOM.xosc").getAbsolutePath());
-      Assertions.assertFalse(!this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty(), "Unexpected error occured");
+      Assertions.assertFalse(
+          !this.messageLogger
+              .getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR)
+              .isEmpty(),
+          "Unexpected error occured");
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }
@@ -69,11 +77,17 @@ public class TestFiles extends TestBase {
       String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
       executeParsing(filename);
       List<FileContentMessage> messages = new ArrayList<>();
+
       messages.add(
-              new FileContentMessage(
-                  "Cannot resolve parameter 'UnknownParameter'",
-                  ErrorLevel.ERROR,
-                  new Textmarker(49, 17, filename)));
+          new FileContentMessage(
+              "Value 'wrongDouble' cannot be parsed into 'double'",
+              ErrorLevel.ERROR,
+              new Textmarker(21, 37, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Cannot resolve parameter 'UnknownParameter'",
+              ErrorLevel.ERROR,
+              new Textmarker(49, 17, filename)));
       messages.add(
           new FileContentMessage(
               "Cannot convert 'wrongDouble' to a double. Number format error.",
@@ -83,9 +97,108 @@ public class TestFiles extends TestBase {
       Assertions.assertTrue(
           assertMessages(messages, ErrorLevel.ERROR, this.messageLogger),
           "Unexpected Errors or Errors missing");
-      
 
     } catch (ScenarioLoaderException e) {
+      Assertions.fail();
+    }
+  }
+
+  @Test
+  public void testParamsConversionInfo() {
+    try {
+      String filename = getResourceFile("DoubleLaneChangerParamsInfo.xosc").getAbsolutePath();
+      executeParsing(filename);
+      List<FileContentMessage> messages = new ArrayList<>();
+
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (string) does not match expected type (int). Value '23' of parameter 'testString' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(56, 15, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (boolean) does not match expected type (string). Value 'false' of parameter 'testBoolean' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(147, 18, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (unsignedInt) does not match expected type (unsignedShort). Value '1' of parameter 'testUnsignedInt' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(151, 70, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (double) does not match expected type (string). Value '1.1' of parameter 'testDouble' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(156, 75, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (int) does not match expected type (unsignedInt). Value '1' of parameter 'testInteger' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(158, 63, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (dateTime) does not match expected type (string). Value '2017-02-24T10:00:00' of parameter 'testDateTime' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(179, 25, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (int) does not match expected type (unsignedInt). Value '1' of parameter 'testInteger' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(192, 63, filename)));
+
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.INFO, this.messageLogger));
+
+    } catch (Throwable e) {
+      Assertions.fail();
+    }
+  }
+
+  @Test
+  public void testParamsConvertion() {
+    try {
+      String filename =
+          getResourceFile("DoubleLaneChangerParamsConversionErrors.xosc").getAbsolutePath();
+      executeParsing(filename);
+      List<FileContentMessage> messages = new ArrayList<>();
+
+      messages.add(
+          new FileContentMessage(
+              "Value 'false' cannot be parsed into 'integer'",
+              ErrorLevel.ERROR,
+              new Textmarker(21, 44, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (boolean) does not match expected type (int). Value 'false' of parameter 'testBoolean' was converted.",
+              ErrorLevel.INFO,
+              new Textmarker(147, 18, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (unsignedInt) does not match expected type (int). Value '-1' of parameter 'testUnsignedInt' cannot be converted.",
+              ErrorLevel.ERROR,
+              new Textmarker(151, 70, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (double) does not match expected type (string). Value '1.1RRR' of parameter 'testDouble' cannot be converted.",
+              ErrorLevel.ERROR,
+              new Textmarker(156, 75, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (int) does not match expected type (unsignedInt). Value '4294967295' of parameter 'testInteger' cannot be converted.",
+              ErrorLevel.ERROR,
+              new Textmarker(158, 63, filename)));
+      messages.add(
+          new FileContentMessage(
+              "Parameter type (int) does not match expected type (unsignedInt). Value '4294967295' of parameter 'testInteger' cannot be converted.",
+              ErrorLevel.ERROR,
+              new Textmarker(192, 63, filename)));
+
+      for (FileContentMessage fileContentMessage :
+          this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.INFO)) {
+        System.out.println(fileContentMessage.toString());
+      }
+      Assertions.assertTrue(assertMessages(messages, ErrorLevel.INFO, this.messageLogger));
+
+    } catch (Throwable e) {
       Assertions.fail();
     }
   }
