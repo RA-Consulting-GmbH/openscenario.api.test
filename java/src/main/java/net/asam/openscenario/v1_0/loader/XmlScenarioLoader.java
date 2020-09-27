@@ -46,6 +46,7 @@ import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.simple.struct.XmlToSimpleNodeConverter;
 import net.asam.openscenario.v1_0.catalog.ICatalogReferenceProvider;
 import net.asam.openscenario.v1_0.checker.IScenarioChecker;
+import net.asam.openscenario.v1_0.checker.ParameterDeclarationChecker;
 import net.asam.openscenario.v1_0.checker.impl.ScenarioCheckerImpl;
 import net.asam.openscenario.v1_0.impl.OpenScenarioImpl;
 import net.asam.openscenario.v1_0.parser.CatalogReferenceParserContext;
@@ -152,6 +153,10 @@ public class XmlScenarioLoader implements IScenarioLoader {
       // resolve parameter only when no errors occured
       if (messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty())
       {
+        // Check 
+        IScenarioChecker  scenarioChecker = new ScenarioCheckerImpl();
+        scenarioChecker.addParameterDeclarationCheckerRule(new ParameterDeclarationChecker());
+        scenarioChecker.checkScenario(messageLogger, openScenarioImpl);
         OpenScenarioProcessingHelper.resolve(messageLogger, openScenarioImpl, injectedParameters);
         openScenarioImpl.addAdapter(ICatalogReferenceProvider.class, parserContext);
         openScenarioImpl.addAdapter(IScenarioChecker.class, new ScenarioCheckerImpl());

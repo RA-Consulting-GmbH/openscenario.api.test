@@ -17,7 +17,7 @@
 package net.asam.openscenario.api;
 
 /**
- * <p>Values for primitive types or a genereral enum type:
+ * Values for primitive types or a genereral enum type:
  *
  * <ul>
  *   <li>integer.
@@ -29,6 +29,7 @@ package net.asam.openscenario.api;
  *   <li>dateTime.
  *   <li>enumType
  * </ul>
+ *
  * @author Andreas Hege - RA Consulting
  */
 public enum SimpleType {
@@ -41,4 +42,24 @@ public enum SimpleType {
   DATE_TIME,
   ENUM_TYPE;
 
+  @Override
+  public String toString() { 
+    if (this == INT) {
+      return "int";
+    } else if (this == DOUBLE) {
+      return "double";
+    } else if (this == STRING) {
+      return "string";
+    } else if (this == UNSIGNED_INT) {
+      return "unsignedInt";
+    } else if (this == UNSIGNED_SHORT) {
+      return "unsignedShort";
+    } else if (this == BOOLEAN) {
+      return "boolean";
+    } else if (this == DATE_TIME) {
+      return "dateTime";
+    } else {
+      return "enumeration";
+    }
+  }
 }
