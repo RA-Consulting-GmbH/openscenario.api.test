@@ -27,7 +27,6 @@ public:
 
     bool TestExample()
     {
-        auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLoggerDecorator>(_messageLogger);
 
         // Instantiating the factory
         auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioLoaderFactory(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
@@ -36,9 +35,9 @@ public:
         auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
         // Loading
-        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl>(loader->Load(messageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl).name()));
+        auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl>(loader->Load(_messageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl).name()));
 
-        auto res = Assert(!messageLogger->HasErrors(), ASSERT_LOCATION);
+        auto res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
 
         // Browse through the results
         auto fileHeader = openScenario->GetFileHeader();

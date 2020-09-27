@@ -44,7 +44,7 @@ public:
         try 
         {
             (void) ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChangerParams.xosc");
-            return Assert(!HasErrors(_messageLogger), ASSERT_LOCATION);
+            return Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
@@ -57,7 +57,7 @@ public:
     {
         try 
         {
-            _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            ClearMessageLogger();
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerParamsError.xosc";
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -82,7 +82,7 @@ public:
     {
         try 
         {
-            _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            ClearMessageLogger();
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangeExtraHalf.xosc";
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -102,7 +102,7 @@ public:
     {
         try 
         {
-            _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            ClearMessageLogger();
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangeExtraUnknownElement.xosc";
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -123,7 +123,7 @@ public:
     {
         try 
         {
-            _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            ClearMessageLogger();
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerWrongAttributes.xosc";
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -151,7 +151,7 @@ public:
     {
         try 
         {
-            _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            ClearMessageLogger();
             std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChangerWrongEndElement.xosc";
             (void) ExecuteParsing(filename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -170,7 +170,7 @@ public:
     {
         try 
         {
-            _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            ClearMessageLogger();
             const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCustomCommandAction.xosc";
             auto openScenarioImpl = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(kFilename));
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
@@ -179,7 +179,7 @@ public:
             res = res && Assert("\n				This is text defined  Inhalt" == kContent, ASSERT_LOCATION);
             return res;
         }
-        catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException e)
+        catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
             std::cout << e.what() << std::endl;
             return Assert(false, ASSERT_LOCATION);

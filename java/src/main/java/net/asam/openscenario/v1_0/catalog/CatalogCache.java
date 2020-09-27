@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.loader.IResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
-import net.asam.openscenario.loader.MessageLoggerDecorator;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.ICatalog;
 import net.asam.openscenario.v1_0.api.ICatalogDefinition;
@@ -113,10 +113,10 @@ public class CatalogCache {
     IScenarioLoader loader = scenarioLoaderFactory.createLoader(this.resourceLocator);
     IOpenScenario openScenario = null;
 
-    MessageLoggerDecorator messageLogger = new MessageLoggerDecorator(this.messageLogger);
+
     try {
       openScenario = (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
-      if (!messageLogger.hasErrors()) {
+      if (this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty()) {
         ICatalogDefinition catalogDefinition =
             openScenario.getOpenScenarioCategory().getCatalogDefinition();
         if (catalogDefinition != null) {

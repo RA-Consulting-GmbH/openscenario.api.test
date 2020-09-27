@@ -16,7 +16,8 @@
  */
 
 #pragma once
-#include "MessageLogger.h"
+//#include "MessageLogger.h"
+#include "SimpleMessageLogger.h"
 #include "IScenarioLoaderFactory.h"
 #include "XmlScenarioLoaderFactory.h"
 #include "FileResourceLocator.h"
@@ -35,7 +36,7 @@ class TestBase
 {
 
 protected:
-    std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger> _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+    std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger> _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
     const std::string kInputDir = "../../../../applications/openScenarioReader/res/";
 
@@ -73,9 +74,9 @@ public:
             return nullptr;
     }
 
-    void ClearMessageLogger() const
+    void ClearMessageLogger()
     {
-        _messageLogger->Clear();
+        _messageLogger =  std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
     }
 
     static bool Assert(const bool condition, const std::string fileName, const std::string function, const int lineNumber)
@@ -86,23 +87,15 @@ public:
     }
 
 protected:
-    static bool HasErrors(std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger>& messageLogger)
-    {
-        for ( auto&& message : messageLogger->GetMessages()) 
-        {
-            if (message.GetErrorLevel() == NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR || message.GetErrorLevel() == NET_ASAM_OPENSCENARIO::ErrorLevel::FATAL)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
 
-    bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::MessageLogger>& logger) const
+    bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> logger) const
     {
         const auto kFilterByErrorLevelMessages = FilterByErrorLevel(messages, errorLevel);
-        const auto kFilterByErrorLevelLogger = FilterByErrorLevel(logger->GetMessages(), errorLevel);
-        return kFilterByErrorLevelMessages == kFilterByErrorLevelLogger && kFilterByErrorLevelMessages.size() == kFilterByErrorLevelLogger.size();
+        auto filterByErrorLevelLogger = logger->GetMessagesFilteredByErrorLevel(errorLevel);
+        std::sort(filterByErrorLevelLogger.begin(), filterByErrorLevelLogger.end(), [](const NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, const NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
+            return lhs.GetMsg() < rhs.GetMsg();
+        });
+        return kFilterByErrorLevelMessages == filterByErrorLevelLogger && kFilterByErrorLevelMessages.size() == filterByErrorLevelLogger.size();
     }
 
     std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> FilterByErrorLevel(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages, NET_ASAM_OPENSCENARIO::ErrorLevel& errorLevel) const

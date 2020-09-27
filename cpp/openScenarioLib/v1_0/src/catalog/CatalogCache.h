@@ -16,6 +16,7 @@
  */
 
 #pragma once
+#undef ERROR
 #include <vector>
 #include <map>
 #include "ApiClassInterfaces.h"
@@ -24,7 +25,7 @@
 #include "IResourceLocator.h"
 #include "IScenarioLoader.h"
 #include "IScenarioLoaderFactory.h"
-#include "MessageLoggerDecorator.h"
+#include "ErrorLevel.h"
 #include "ScenarioLoaderException.h"
 #include "MemLeakDetection.h"
 
@@ -108,10 +109,10 @@ namespace NET_ASAM_OPENSCENARIO
                     std::shared_ptr<IOpenScenario> openScenario = nullptr;
                     bool isSuccessfullyParsed = true;
 
-                    auto messageLogger = std::make_shared<MessageLoggerDecorator>(_messageLogger);
+                    //auto messageLogger = std::make_shared<MessageLoggerDecorator>(_messageLogger);
                     try
                     {
-                        openScenario = std::dynamic_pointer_cast<IOpenScenario>(loader->Load(messageLogger));
+                        openScenario = std::static_pointer_cast<IOpenScenario>(loader->Load(_messageLogger)->GetAdapter(typeid(IOpenScenario).name()));
                     }
                     catch (ScenarioLoaderException& e)
                     {
@@ -119,7 +120,7 @@ namespace NET_ASAM_OPENSCENARIO
                         // Ignore
                         isSuccessfullyParsed = false;
                     }
-                    if (isSuccessfullyParsed && !messageLogger->HasErrors())
+                    if (isSuccessfullyParsed && _messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ERROR).empty())
                     {
                         auto catalogDefinition = openScenario->GetOpenScenarioCategory()->GetCatalogDefinition();
                         if (catalogDefinition)

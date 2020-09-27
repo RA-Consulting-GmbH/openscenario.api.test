@@ -41,6 +41,22 @@ namespace NET_ASAM_OPENSCENARIO
          * Logging a list of messages to a log target.
          * @param messages the list of messages.
          */
-        virtual void LogAllMessages(std::vector<FileContentMessage>& messages) {};
+        virtual void LogAllMessages(std::vector<FileContentMessage>& messages) {}
+
+        /**
+         * The message that have been picked up filtered by a specific error level.
+         *
+         * @param errorLevel the error level to filter the messages.
+         * @return the filtered messages
+         */
+        virtual std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel) { return {}; }
+
+        /**
+         * The message that have been picked up filtered by a specific error level.
+         *
+         * @param errorLevel the error level to filter for worse or equal.
+         * @return the filtered messages
+         */
+        virtual  std::vector<FileContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) { return {}; }
     };
 }

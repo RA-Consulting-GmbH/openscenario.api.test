@@ -50,7 +50,7 @@ public:
         try 
         {
             // ReSharper disable once CppLocalVariableMayBeConst
-            auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::INFO);
             // ReSharper disable once CppLocalVariableMayBeConst
             auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc", catalogMessageLogger));
             // Ego parameterAssignement for maxSpeed
@@ -71,7 +71,7 @@ public:
             res = res && Assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 70.0, ASSERT_LOCATION);
             res = res && Assert(vehicleImportOvertaker != vehicleImportEgo, ASSERT_LOCATION);
 
-            res = res && Assert(!HasErrors(_messageLogger), ASSERT_LOCATION);
+            res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
             return res;
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
@@ -87,7 +87,7 @@ public:
         try 
         {
             // ReSharper disable once CppLocalVariableMayBeConst
-            auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogger>();
+            auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ERROR);
             // ReSharper disable once CppLocalVariableMayBeConst
             auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImportWithParameters/importWithParameters.xosc", catalogMessageLogger));
 
@@ -119,7 +119,7 @@ public:
             res = res && Assert(vehicleImportThirdVehicle != nullptr, ASSERT_LOCATION);
             res = res && Assert(vehicleImportThirdVehicle->GetPerformance()->GetMaxSpeed() == 60.0, ASSERT_LOCATION);
 
-            res = res && Assert(!HasErrors(_messageLogger), ASSERT_LOCATION);
+            res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
 
             return res;
         }

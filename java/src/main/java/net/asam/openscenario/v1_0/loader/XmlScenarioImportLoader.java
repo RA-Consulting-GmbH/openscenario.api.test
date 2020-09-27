@@ -31,7 +31,6 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.loader.IResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
-import net.asam.openscenario.loader.MessageLoggerDecorator;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.ICatalogElement;
 import net.asam.openscenario.v1_0.api.ICatalogLocations;
@@ -238,18 +237,17 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
   public IOpenScenarioModelElement load(
       IParserMessageLogger messageLogger, Map<String, String> injectedParameters)
       throws ScenarioLoaderException {
-    MessageLoggerDecorator messageLoggerEnvelope = new MessageLoggerDecorator(messageLogger);
     IOpenScenario openScenario =
         (IOpenScenario)
-            this.innerScenarioLoader.load(messageLoggerEnvelope).getAdapter(IOpenScenario.class);
+            this.innerScenarioLoader.load(messageLogger).getAdapter(IOpenScenario.class);
 
-    if (!messageLoggerEnvelope.hasErrors()) {
+    if (messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty()) {
       IResourceLocator resourceLocator = this.innerScenarioLoader.getResourceLocator();
 
       // do imports here
       String filename = this.innerScenarioLoader.getFilename();
       Set<String> catalogLocations =
-          getCatalogLocations(openScenario, resourceLocator, filename, messageLoggerEnvelope);
+          getCatalogLocations(openScenario, resourceLocator, filename, messageLogger);
       CatalogCache catalogCache = new CatalogCache(resourceLocator, this.catalogMessageLogger);
       for (String catalogLocationPath : catalogLocations) {
         List<String> filenames =
@@ -270,13 +268,13 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
         if (catalogElement != null) {
           ((CatalogReferenceImpl) catalogReference).setRef(catalogElement);
           OpenScenarioProcessingHelper.resolveWithParameterAssignements(
-              messageLoggerEnvelope,
+              messageLogger,
               catalogElement,
               getMapFromParameterAssignements(
-                  catalogReference.getParameterAssignments(), messageLoggerEnvelope));
+                  catalogReference.getParameterAssignments(), messageLogger));
           // resolve CatalogReference Parameters.
         } else {
-          messageLoggerEnvelope.logMessage(
+          messageLogger.logMessage(
               new FileContentMessage(
                   "Cannot resolve entry '"
                       + catalogReference.getEntryName()

@@ -27,10 +27,10 @@ import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
-import net.asam.openscenario.loader.MessageLoggerDecorator;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.IActors;
 import net.asam.openscenario.v1_0.api.IEvent;
@@ -55,8 +55,7 @@ public class TestFlexInterface extends TestBase {
   @Test
   public void testExample() throws ScenarioLoaderException {
 
-    MessageLoggerDecorator messageLogger = new MessageLoggerDecorator(this.messageLogger);
-
+    
     // Instantiating the factory
     IScenarioLoaderFactory loaderFactory =
         new XmlScenarioLoaderFactory(getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath());
@@ -66,9 +65,9 @@ public class TestFlexInterface extends TestBase {
 
     // Loading
     IOpenScenario openScenario =
-        (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
+        (IOpenScenario) loader.load(this.messageLogger).getAdapter(IOpenScenario.class);
 
-    Assertions.assertFalse(messageLogger.hasErrors());
+    Assertions.assertFalse(!this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty());
 
     // Browse through the results
     IFileHeader fileHeader = openScenario.getFileHeader();

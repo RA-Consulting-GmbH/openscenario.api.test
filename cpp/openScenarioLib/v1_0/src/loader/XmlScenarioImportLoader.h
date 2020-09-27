@@ -64,10 +64,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters) override
             {
-                auto messageLoggerEnvelope = std::make_shared<MessageLoggerDecorator>(messageLogger);
-                auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(_innerScenarioLoader->Load(messageLoggerEnvelope));
+                auto openScenario = std::static_pointer_cast<IOpenScenario>(_innerScenarioLoader->Load(messageLogger)->GetAdapter(typeid(IOpenScenario).name()));
 
-                if (!messageLoggerEnvelope->HasErrors())
+                if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
                 {
                     auto resourceLocator = _innerScenarioLoader->GetResourceLocator();
 
@@ -75,7 +74,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto filename = _innerScenarioLoader->GetFilename();
                     if (!openScenario)
                         return openScenario;
-                    auto catalogLocations = GetCatalogLocations(openScenario, *resourceLocator.get(), filename, messageLoggerEnvelope);
+                    auto catalogLocations = GetCatalogLocations(openScenario, *resourceLocator.get(), filename, messageLogger);
                     CatalogCache catalogCache(resourceLocator, _catalogMessageLogger);
                     for (auto&& catalogLocationPath : catalogLocations)
                     {
@@ -100,15 +99,15 @@ namespace NET_ASAM_OPENSCENARIO
                         {
                             auto refImpl = std::dynamic_pointer_cast<CatalogReferenceImpl>(catalogReference);
                             refImpl->SetRef(catalogElement);
-                            OpenScenarioProcessingHelper::ResolveWithParameterAssignements(messageLoggerEnvelope, catalogElement,
-                                GetMapFromParameterAssignements(catalogReference->GetParameterAssignments(), messageLoggerEnvelope));
+                            OpenScenarioProcessingHelper::ResolveWithParameterAssignements(messageLogger, catalogElement,
+                                GetMapFromParameterAssignements(catalogReference->GetParameterAssignments(), messageLogger));
                             // resolve CatalogReference Parameters.
                         }
                         else
                         {
                             auto msg = FileContentMessage("Cannot resolve entry '" + catalogReference->GetEntryName() + "' in catalog '"
                                 + catalogReference->GetCatalogName() + "'", ERROR, std::dynamic_pointer_cast<CatalogReferenceImpl>(catalogReference)->GetStartMarker());
-                            messageLoggerEnvelope->LogMessage(msg);
+                            messageLogger->LogMessage(msg);
                         }
                     }
 

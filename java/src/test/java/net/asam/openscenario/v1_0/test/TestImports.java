@@ -22,6 +22,8 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import net.asam.openscenario.common.ErrorLevel;
+import net.asam.openscenario.common.SimpleMessageLogger;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
@@ -35,7 +37,7 @@ public class TestImports extends TestBase {
   @Test
   public void testImportSuccess() {
     try {
-      MessageLogger catalogMessageLogger = new MessageLogger();
+      SimpleMessageLogger catalogMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
       IOpenScenario openScenario =
           executeImportParsing(
@@ -57,7 +59,7 @@ public class TestImports extends TestBase {
       Assertions.assertEquals((Double) 70.0, vehicleImportOvertaker.getPerformance().getMaxSpeed());
       Assertions.assertTrue(vehicleImportOvertaker != vehicleImportEgo);
 
-      Assertions.assertFalse(hasErrors(this.messageLogger));
+      Assertions.assertFalse(!this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty());
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }
@@ -67,7 +69,7 @@ public class TestImports extends TestBase {
   @Test
   public void testImportWithParametersSuccess() {
     try {
-      MessageLogger catalogMessageLogger = new MessageLogger();
+      SimpleMessageLogger catalogMessageLogger = new SimpleMessageLogger(ErrorLevel.ERROR);
 
       IOpenScenario openScenario =
           executeImportParsing(
@@ -101,7 +103,7 @@ public class TestImports extends TestBase {
       Assertions.assertEquals(
           (Double) 60.0, vehicleImportThirdVehicle.getPerformance().getMaxSpeed());
 
-      Assertions.assertFalse(hasErrors(this.messageLogger));
+      Assertions.assertFalse(!this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty());
     } catch (ScenarioLoaderException e) {
       Assertions.fail();
     }
