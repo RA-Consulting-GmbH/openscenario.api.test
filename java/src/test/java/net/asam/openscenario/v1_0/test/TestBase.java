@@ -48,6 +48,7 @@ public class TestBase {
 
   protected ByteArrayOutputStream testOut = new ByteArrayOutputStream();
   protected PrintStream stdout;
+  protected PrintStream stderr;
 
   public OpenScenarioImpl executeParsing(String filename) throws ScenarioLoaderException {
     return executeParsing(filename, null);
@@ -77,13 +78,16 @@ public class TestBase {
   public void init() {
     this.messageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
     this.stdout = System.out;
-    System.setOut(new PrintStream(this.testOut));
+    PrintStream printStream = new PrintStream(this.testOut);
+    System.setOut(printStream);
+    System.setErr(printStream);
     
   }
 
   @AfterEach
   public void cleanUp() {
     System.setOut(this.stdout);
+    System.setErr(this.stderr);
   }
 
 

@@ -24,6 +24,7 @@ import java.util.Properties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import net.asam.openscenario.v1_0.main.OpenScenarioChecker;
 import net.asam.openscenario.v1_0.main.OpenScenarioCheckerCommon;
 import net.asam.openscenario.v1_0.main.OpenScenarioCiChecker;
 
@@ -241,6 +242,22 @@ public class TestCiMain extends TestBase {
         getLine(this.testOut.toString(),4));
   }
   
+  @Test
+  public void testBomFile() {
+    int result =
+        OpenScenarioCiChecker.mainWrapper(
+            new String[] {
+              "-conf",
+              getResourceFile("continuousIntegration/bomIssueConf.yml").getAbsolutePath(),
+              "-d",
+              getResourceFile("continuousIntegration").getAbsolutePath()
+            });
+    Assertions.assertEquals(OpenScenarioCheckerCommon.SUCCESS_RESULT, result);
+    Assertions.assertNotEquals("line 1:0 extraneous input '?' expecting XMLDeclOpen",
+        getLine(this.testOut.toString(),5));
+    
+  }
+
   //System.setOut(stdout);
   //System.out.println(testOut.toString());
 

@@ -52,6 +52,16 @@ public class TestFiles extends TestBase {
       Assertions.fail();
     }
   }
+  
+  @Test
+  public void testBomFile() {
+    try {
+      executeParsing(getResourceFile("DoubleLaneChanger-utf8-BOM.xosc").getAbsolutePath());
+      Assertions.assertFalse(!this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty(), "Unexpected error occured");
+    } catch (ScenarioLoaderException e) {
+      Assertions.fail();
+    }
+  }
 
   @Test
   public void testParamsFailure() {
