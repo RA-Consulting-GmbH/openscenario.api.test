@@ -20,8 +20,6 @@ package net.asam.openscenario.v1_0.test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.main.OpenScenarioChecker;
 import net.asam.openscenario.v1_0.main.OpenScenarioCheckerCommon;
 

@@ -24,6 +24,7 @@ import java.util.Set;
 
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
@@ -210,25 +211,23 @@ public abstract class BaseImpl
    * @param typeName the model type name.
    * @return the corresponding java class or null if no type is found.
    */
-  protected Class<?> getParameterType(String typeName) {
+  protected SimpleType getParameterType(String typeName) {
     if (typeName == "string") {
-      return String.class;
+      return SimpleType.STRING;
 
     } else if (typeName == "unsignedInt") {
-      return Long.class;
-
+      return SimpleType.UNSIGNED_INT;
     } else if (typeName == "integer") {
-      return Integer.class;
-
+      return SimpleType.INT;
     } else if (typeName == "unsignedShort") {
-      return Integer.class;
+      return SimpleType.UNSIGNED_SHORT;
     } else if (typeName == "dateTime") {
-      return java.util.Date.class;
+      return SimpleType.DATE_TIME;
     } else if (typeName == "boolean") {
-      return Boolean.class;
+      return SimpleType.BOOLEAN;
 
     } else if (typeName == "double") {
-      return Double.class;
+      return SimpleType.DOUBLE;
     }
     return null;
   }
@@ -270,13 +269,13 @@ public abstract class BaseImpl
     }
   }
   /**
-   * The tpe of an attribute that is represented by the attribute key
+   * The type of an attribute that is represented by the attribute key
    *
    * @param attributeKey the key of the attribute
-   * @return the type of the attribute
+   * @return the SimpleType of the attribute
    */
   @Override
-  public abstract Class<?> getTypeFromAttributeName(String attributeKey);
+  public abstract SimpleType getTypeFromAttributeName(String attributeKey);
 
   /**
    * Resolve a parameter internally
@@ -298,7 +297,7 @@ public abstract class BaseImpl
   @Override
   public void resolveParameter(IParserMessageLogger logger, String attributeKey, String value) {
     // make sure it is a parameterized attribute
-    Class<?> targetClass = getTypeFromAttributeName(attributeKey);
+    SimpleType targetClass = getTypeFromAttributeName(attributeKey);
     assert (targetClass != null);
     resolveParameterInternal(logger, attributeKey, value);
   }
