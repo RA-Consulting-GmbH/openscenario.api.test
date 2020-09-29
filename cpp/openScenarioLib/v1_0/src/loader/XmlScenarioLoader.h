@@ -26,7 +26,7 @@
 #include "IParserMessageLogger.h"
 #include "Textmarker.h"
 #include "ParserContext.h"
-//#include "XmlParsers.h"
+ //#include "XmlParsers.h"
 #include "IndexedElement.h"
 #include "XmlToSimpleNodeConverter.h"
 #include "PositionIndex.h"
@@ -36,6 +36,7 @@
 #include "IResourceLocator.h"
 #include "MemLeakDetection.h"
 #include "ExportDefinitions.h"
+#include "ParameterDeclarationChecker.h"
 
 
 namespace NET_ASAM_OPENSCENARIO

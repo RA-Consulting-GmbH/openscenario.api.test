@@ -41,6 +41,83 @@ namespace NET_ASAM_OPENSCENARIO
         private:
             std::vector<std::map<std::string, std::shared_ptr<ParameterValue>>> _parameterValueSets;
 
+            bool DoesExpectedTypeMatchWithConversions(SimpleType& expectedSimpleType, SimpleType& actualSimpleType, std::string& value)
+            {
+                auto result = false;
+                try {
+
+                    switch( expectedSimpleType )
+                    {
+                        case STRING:
+                            // Everything can be converted into String
+                            result = true;
+                        break;
+
+                        case DOUBLE:
+                            if (actualSimpleType == SimpleType::INT || actualSimpleType == SimpleType::UNSIGNED_INT
+                                || actualSimpleType == SimpleType::UNSIGNED_SHORT || actualSimpleType == SimpleType::STRING)
+                            {
+                                ParserHelper::ValidateDouble(value);
+                                result = true;
+                            }
+                        break;
+
+                        case INT:
+                            if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::UNSIGNED_INT
+                                || actualSimpleType == SimpleType::UNSIGNED_SHORT || actualSimpleType == SimpleType::STRING)
+                            {
+                                ParserHelper::ValidateInt(value);
+                                result = true;
+                            }
+                        break;
+
+                        case UNSIGNED_INT:
+                            if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::INT
+                                || actualSimpleType == SimpleType::UNSIGNED_SHORT || actualSimpleType == SimpleType::STRING)
+                            {
+                                ParserHelper::ValidateUnsignedInt(value);
+                                result = true;
+                            }
+                        break;
+
+                        case UNSIGNED_SHORT:
+                            if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::INT
+                                || actualSimpleType == SimpleType::UNSIGNED_INT || actualSimpleType == SimpleType::STRING)
+                            {
+                                ParserHelper::ValidateUnsignedShort(value);
+                                result = true;
+                            }
+                        break;
+
+                        case BOOLEAN:
+                            if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::INT
+                                || actualSimpleType == SimpleType::UNSIGNED_INT || actualSimpleType == SimpleType::STRING)
+                            {
+                                ParserHelper::ValidateBoolean(value);
+                                result = true;
+                            }
+                        break;
+
+                        case DATE_TIME:
+                            if (actualSimpleType == SimpleType::STRING)
+                            {
+                                ParserHelper::ValidateDateTime(value);
+                                result = true;
+                            }
+                        break;
+
+                        default:
+                        break;
+                    }
+                }
+                catch (std::exception& e) 
+                {
+                    (void)e;
+                    // Do nothing. result is still false;
+                }
+                return result;
+            }
+
             /**
              * Resolves all parameters of a parameterized object.
              * @param logger to log messages
@@ -54,12 +131,36 @@ namespace NET_ASAM_OPENSCENARIO
                 for (auto&& attributeKey : attributeKeys)
                 {
                     auto parameterName = parameterizedObject->GetParameterNameFromAttribute(attributeKey);
-                    auto typeName = parameterizedObject->GetTypeFromAttributeName(attributeKey);
-                    auto value = FindValue(typeName, parameterName);
 
-                    if (!value.empty())
+
+                    auto paramValue = FindValue(parameterName);
+                    if (paramValue) 
                     {
-                        parameterizedObject->ResolveParameter(logger, attributeKey, value);
+
+                        auto expectedSimpleType = parameterizedObject->GetTypeFromAttributeName(attributeKey);
+                        auto actualSimpleType = paramValue->GetType();
+                        auto value = paramValue->GetValue();
+                        if (expectedSimpleType == actualSimpleType || (expectedSimpleType == SimpleType::ENUM_TYPE && actualSimpleType == SimpleType::STRING)) 
+                        {
+                            parameterizedObject->ResolveParameter(logger, attributeKey, value);
+                        }
+                        else if (DoesExpectedTypeMatchWithConversions(expectedSimpleType, actualSimpleType, value)) 
+                        {
+                            parameterizedObject->ResolveParameter(logger, attributeKey, value);
+                            // add Matching Info
+                            auto msg = FileContentMessage("Parameter type (" + SimpleTypeString::ToString(expectedSimpleType) +
+                                                          ") does not match expected type (" + SimpleTypeString::ToString(actualSimpleType) + "). Value '" + value +
+                                                          "' of parameter '" + parameterName + "' was converted.", INFO, *parameterizedObject->GetTextmarker(attributeKey).get());
+                            logger->LogMessage(msg);
+                        }
+                        else 
+                        {
+                            // add Error
+                            auto msg = FileContentMessage("Parameter type (" + SimpleTypeString::ToString(expectedSimpleType) +
+                                                          ") does not match expected type (" + SimpleTypeString::ToString(actualSimpleType) + "). Value '" + value +
+                                                          "' of parameter '" + parameterName + "' cannot be converted.", ERROR, *parameterizedObject->GetTextmarker(attributeKey).get());
+                            logger->LogMessage(msg);
+                        }
                     }
                     else
                     {
@@ -74,25 +175,23 @@ namespace NET_ASAM_OPENSCENARIO
 
         public:
             /**
-             * Find a parameter value by its parameter name and type
              * @param expectedParameterType expected type
              * @param parameterName  name of the parameter the value is looked up
              * @return the string representation of the value.
              */
-            std::string FindValue(SimpleType& expectedParameterType, std::string& parameterName)
+            std::shared_ptr<ParameterValue> FindValue(std::string& parameterName)
             {
                 // Search from the top of the stack (which is the end of the underlying
                 // list)
                 for (auto parameterNameToParameterValue : _parameterValueSets)
                 {
                     const auto kIt = parameterNameToParameterValue.find(parameterName);
-                    if (kIt != parameterNameToParameterValue.end() && kIt->second->GetType() == expectedParameterType ||
-                        (expectedParameterType == SimpleType::ENUM_TYPE && kIt->second->GetType() == SimpleType::STRING))
+                    if (kIt != parameterNameToParameterValue.end())
                     {
-                        return kIt->second->GetValue();
+                        return kIt->second;
                     }
                 }
-                return "";
+                return nullptr;
             }
 
             /**

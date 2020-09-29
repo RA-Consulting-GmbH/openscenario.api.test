@@ -29,6 +29,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../externalLibs/TinyXML2 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../externalLibs/Filesystem)
 
 
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/checker )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/catalog )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/loader )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/src/parameter )

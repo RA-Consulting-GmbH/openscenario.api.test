@@ -64,6 +64,8 @@ int main(int argc, char** argv)
     res = res && testFiles.TestParamsSuccess();
     res = res && testFiles.TestBomFile();
     res = res && testFiles.TestParamsFailure();
+    res = res && testFiles.TestParamsConversionInfo();
+    res = res && testFiles.TestParamsConvertion();
     res = res && testFiles.TestUnvalidXml();
     res = res && testFiles.TestUnknownElement();
     res = res && testFiles.TestWrongAttributes();

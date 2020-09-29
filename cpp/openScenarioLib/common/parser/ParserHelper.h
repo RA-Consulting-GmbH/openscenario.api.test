@@ -348,7 +348,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param xmlValue the value
          * @throws Exception when validation fails
          */
-         static void ValidateDateTime(std::string& xmlValue)
+        static void ValidateDateTime(std::string& xmlValue)
         {
             try 
             {

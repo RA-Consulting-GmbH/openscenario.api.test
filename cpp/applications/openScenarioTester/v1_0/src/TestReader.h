@@ -102,7 +102,7 @@ public:
         command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerParamsError.xosc";
         command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
         auto res = Assert(ERROR_RESULT == ExecuteSystemCommand(command), ASSERT_LOCATION);
-        res = res && Assert("Validation failed with 2 errors and 0 warnings." == GetLine(kResultFileName, 10), ASSERT_LOCATION);
+        res = res && Assert("Validation failed with 3 errors and 0 warnings." == GetLine(kResultFileName, 11), ASSERT_LOCATION);
         return res;
     }
 
