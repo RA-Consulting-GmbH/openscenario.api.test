@@ -30,6 +30,7 @@
 #include "DateTime.h"
 #include <cassert>
 #include "IOpenScenarioFlexElement.h"
+#include "SimpleType.h"
 #include "MemLeakDetection.h"
 
 /**
@@ -101,7 +102,7 @@ namespace NET_ASAM_OPENSCENARIO
         std::weak_ptr<IOpenScenarioModelElement> _parent;
 
     protected:
-        std::map<std::string, std::string> _propertyToType;
+        std::map<std::string, SimpleType> _propertyToType;
 
     public:
         virtual ~BaseImpl() = default;
@@ -184,25 +185,25 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * Gets the java class for a parameter type (for resolving the parameter).
          * @param typeName the model type name.
-         * @return the corresponding java class or null if no type is found.
+         * @return the corresponding cpp class or null if no type is found.
          */
-        static std::string GetParameterType(std::string& typeName)
+        static SimpleType GetParameterType(std::string& typeName)
         {
             if (typeName == "string")
-                return typeid(std::string).name();
+                return SimpleType::STRING;
             if (typeName == "unsignedInt")
-                return typeid(uint32_t).name();
+                return SimpleType::UNSIGNED_INT;
             if (typeName == "integer")
-                return typeid(int).name();
+                return SimpleType::INT;
             if (typeName == "unsignedShort")
-                return typeid(uint16_t).name();
+                return SimpleType::UNSIGNED_SHORT;
             if (typeName == "dateTime")
-                return typeid(DateTime).name();
+                return SimpleType::DATE_TIME;
             if (typeName == "boolean")
-                return typeid(bool).name();
+                return SimpleType::BOOLEAN;
             if (typeName == "double")
-                return typeid(double).name();
-            return "";
+                return SimpleType::DOUBLE;
+            return SimpleType::UNKNOWN;
         }
 
         /**
@@ -303,7 +304,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // make sure it is a parameterized attribute
             const auto kTargetClass = GetTypeFromAttributeName(attributeKey);
-            assert(!kTargetClass.empty());
+            assert(kTargetClass != SimpleType::UNKNOWN);
             ResolveParameterInternal(*logger.get(), attributeKey, value);
         }
 

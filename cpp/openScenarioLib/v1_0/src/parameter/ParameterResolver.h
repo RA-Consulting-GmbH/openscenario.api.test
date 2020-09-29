@@ -25,6 +25,7 @@
 #include "IParserMessageLogger.h"
 #include "BaseImpl.h"
 #include "ApiClassImpl.h"
+#include "SimpleType.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
@@ -78,14 +79,15 @@ namespace NET_ASAM_OPENSCENARIO
              * @param parameterName  name of the parameter the value is looked up
              * @return the string representation of the value.
              */
-            std::string FindValue(std::string& expectedParameterType, std::string& parameterName)
+            std::string FindValue(SimpleType& expectedParameterType, std::string& parameterName)
             {
                 // Search from the top of the stack (which is the end of the underlying
                 // list)
                 for (auto parameterNameToParameterValue : _parameterValueSets)
                 {
                     const auto kIt = parameterNameToParameterValue.find(parameterName);
-                    if (kIt != parameterNameToParameterValue.end() && kIt->second->GetType() == expectedParameterType)
+                    if (kIt != parameterNameToParameterValue.end() && kIt->second->GetType() == expectedParameterType ||
+                        (expectedParameterType == SimpleType::ENUM_TYPE && kIt->second->GetType() == SimpleType::STRING))
                     {
                         return kIt->second->GetValue();
                     }
