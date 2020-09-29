@@ -32,6 +32,7 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 ################################################################
 # Include folders
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/catalog )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/checker )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/loader )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parameter )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser )
@@ -235,6 +236,7 @@ set( HEADERS_PARSER
 set( HEADERS_CHECKER
   ${HEADERS_CHECKER}
   "src/checker/VersionCheckerRule.h"
+  "src/checker/ParameterDeclarationChecker.h"
 )
 
 set( HEADERS_GENERATED_API
