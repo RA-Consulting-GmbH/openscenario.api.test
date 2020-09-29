@@ -74,7 +74,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -211,7 +211,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -340,7 +340,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -477,7 +477,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -622,7 +622,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -759,7 +759,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -911,7 +911,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -1066,7 +1066,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -1204,7 +1204,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -1354,7 +1354,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -1491,7 +1491,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -1628,7 +1628,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -1765,7 +1765,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -1930,7 +1930,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -2099,7 +2099,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -2236,7 +2236,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -2373,7 +2373,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -2501,7 +2501,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -2630,7 +2630,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -2813,7 +2813,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -3011,7 +3011,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -3139,7 +3139,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -3331,7 +3331,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -3485,7 +3485,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -3629,7 +3629,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -3775,7 +3775,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -3946,7 +3946,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -4108,7 +4108,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -4270,7 +4270,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -4407,7 +4407,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -4553,7 +4553,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -4710,7 +4710,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -4849,7 +4849,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -4977,7 +4977,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -5106,7 +5106,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -5250,7 +5250,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -5397,7 +5397,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -5517,7 +5517,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -5664,7 +5664,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -5809,7 +5809,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -5971,7 +5971,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -6140,7 +6140,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -6285,7 +6285,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -6431,7 +6431,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -6577,7 +6577,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -6814,7 +6814,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -6967,7 +6967,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -7095,7 +7095,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -7232,7 +7232,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -7392,7 +7392,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -7530,7 +7530,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -7658,7 +7658,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -7820,7 +7820,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -7958,7 +7958,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -8120,7 +8120,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -8280,7 +8280,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -8416,7 +8416,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -8580,7 +8580,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -8741,7 +8741,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -8886,7 +8886,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -9015,7 +9015,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -9144,7 +9144,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -9288,7 +9288,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -9416,7 +9416,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -9570,7 +9570,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -9716,7 +9716,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -9863,7 +9863,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -10010,7 +10010,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -10157,7 +10157,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -10320,7 +10320,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -10478,7 +10478,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -10642,7 +10642,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -10802,7 +10802,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -10975,7 +10975,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -11145,7 +11145,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -11275,7 +11275,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -11437,7 +11437,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -11614,7 +11614,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -11753,7 +11753,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -11889,7 +11889,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -12009,7 +12009,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -12157,7 +12157,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -12302,7 +12302,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -12431,7 +12431,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -12577,7 +12577,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -12713,7 +12713,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -12865,7 +12865,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -13019,7 +13019,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -13174,7 +13174,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -13361,7 +13361,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -13497,7 +13497,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -13652,7 +13652,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -13806,7 +13806,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -13961,7 +13961,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -14124,7 +14124,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -14252,7 +14252,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -14399,7 +14399,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -14543,7 +14543,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -14687,7 +14687,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -14816,7 +14816,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -14945,7 +14945,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -15082,7 +15082,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -15258,7 +15258,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -15397,7 +15397,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -15543,7 +15543,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -15706,7 +15706,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -15843,7 +15843,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -16032,7 +16032,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -16178,7 +16178,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -16329,7 +16329,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -16470,7 +16470,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -16606,7 +16606,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -16752,7 +16752,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -16944,7 +16944,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -17083,7 +17083,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -17219,7 +17219,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -17356,7 +17356,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -17526,7 +17526,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -17706,7 +17706,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -17892,7 +17892,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -18064,7 +18064,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -18221,7 +18221,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -18367,7 +18367,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -18513,7 +18513,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -18659,7 +18659,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -18826,7 +18826,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -19006,7 +19006,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -19159,7 +19159,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -19315,7 +19315,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -19470,7 +19470,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -19636,7 +19636,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -19775,7 +19775,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -19921,7 +19921,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -20057,7 +20057,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -20203,7 +20203,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -20367,7 +20367,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -20514,7 +20514,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -20651,7 +20651,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -20795,7 +20795,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -20931,7 +20931,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -21077,7 +21077,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -21215,7 +21215,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -21351,7 +21351,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -21489,7 +21489,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -21643,7 +21643,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -21790,7 +21790,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -21935,7 +21935,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -22082,7 +22082,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -22253,7 +22253,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -22381,7 +22381,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -22543,7 +22543,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -22702,7 +22702,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -22856,7 +22856,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -23003,7 +23003,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -23166,7 +23166,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -23324,7 +23324,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -23472,7 +23472,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -23632,7 +23632,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -23778,7 +23778,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -23916,7 +23916,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -24054,7 +24054,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -24211,7 +24211,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -24367,7 +24367,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -24515,7 +24515,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -24653,7 +24653,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -24791,7 +24791,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -24946,7 +24946,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -25123,7 +25123,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -25333,7 +25333,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -25519,7 +25519,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -25658,7 +25658,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -25789,7 +25789,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -25936,7 +25936,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -26073,7 +26073,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -26211,7 +26211,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -26347,7 +26347,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -26476,7 +26476,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -26620,7 +26620,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -26798,7 +26798,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
             OPENSCENARIOLIB_EXP bool HasParameterDefinitions() override;
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override; 
@@ -26928,7 +26928,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -27057,7 +27057,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -27194,7 +27194,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -27339,7 +27339,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -27495,7 +27495,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -27649,7 +27649,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -27803,7 +27803,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**
@@ -27974,7 +27974,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
 
-            OPENSCENARIOLIB_EXP std::string GetTypeFromAttributeName(std::string& attributeKey) override;
+            OPENSCENARIOLIB_EXP SimpleType GetTypeFromAttributeName(std::string& attributeKey) override;
 
 
             /**

@@ -124,6 +124,7 @@ set( HEADERS_COMMON_API
   "../common/api/IOpenScenarioModelElement.h"
   "../common/api/IOpenScenarioFlexElement.h"
   "../common/api/KeyNotSupportedException.h"
+  "../common/api/SimpleType.h"
 )
 
 set( HEADERS_COMMON_COMMON

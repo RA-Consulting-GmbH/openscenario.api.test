@@ -17,6 +17,7 @@
 
 #pragma once
 #include <string>
+#include "SimpleType.h"
 #include "MemLeakDetection.h"
 
 /**
@@ -28,17 +29,17 @@ namespace NET_ASAM_OPENSCENARIO
     {
     private:
         std::string _name;
-        std::string _type;
+        SimpleType _type;
         std::string _value;
 
     public:
         /**
          * Constructor
          * @param name the name of the parameter
-         * @param type the type of a parameter as class
+         * @param type the type of a parameter as a SimpleType enumeration
          * @param value the value of a parameter
          */
-        ParameterValue(const std::string name, const std::string type, const std::string value) : _name(name), _type(type), _value(value) {}
+        ParameterValue(const std::string name, const SimpleType type, const std::string value) : _name(name), _type(type), _value(value) {}
 
         /**
          * The name of the parameter
@@ -50,10 +51,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
         /**
-         * The type of a parameter as class
-         * @return the type
+         * The type of a parameter as SimpleType enum
+         * @return the type 
          */
-        std::string GetType() const
+        SimpleType GetType() const
         {
             return _type;
         }

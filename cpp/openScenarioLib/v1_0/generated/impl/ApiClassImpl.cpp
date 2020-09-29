@@ -31,7 +31,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         double AbsoluteSpeedImpl::GetValue()
@@ -59,12 +59,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string AbsoluteSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -132,7 +132,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
         std::string AbsoluteTargetLaneImpl::GetValue()
@@ -160,12 +160,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string AbsoluteTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -242,7 +242,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         double AbsoluteTargetLaneOffsetImpl::GetValue()
@@ -271,12 +271,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string AbsoluteTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -344,7 +344,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         double AbsoluteTargetSpeedImpl::GetValue()
@@ -372,12 +372,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string AbsoluteTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -445,8 +445,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         double AccelerationConditionImpl::GetValue()
@@ -502,12 +502,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string AccelerationConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AccelerationConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -608,12 +608,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string AcquirePositionActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AcquirePositionActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -701,7 +701,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string ActImpl::GetName()
@@ -768,12 +768,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ActImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -923,7 +923,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string ActionImpl::GetName()
@@ -993,12 +993,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -1133,8 +1133,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LATERAL, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LATERAL, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, SimpleType::BOOLEAN);
         }
 
         bool ActivateControllerActionImpl::GetLateral()
@@ -1183,12 +1183,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ActivateControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActivateControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -1258,7 +1258,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, SimpleType::BOOLEAN);
         }
 
         bool ActorsImpl::GetSelectTriggeringEntities()
@@ -1300,12 +1300,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ActorsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActorsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -1427,12 +1427,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string AddEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AddEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -1555,12 +1555,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string AssignControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AssignControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -1701,12 +1701,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string AssignRouteActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AssignRouteActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -1812,11 +1812,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, SimpleType::DOUBLE);
         }
 
         double AxleImpl::GetMaxSteering()
@@ -1925,12 +1925,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string AxleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AxleImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -2053,12 +2053,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string AxlesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AxlesImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -2232,12 +2232,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string BoundingBoxImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType BoundingBoxImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -2378,12 +2378,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ByEntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByEntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -2489,7 +2489,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::ENUM_TYPE);
         }
 
         ObjectType ByObjectTypeImpl::GetType()
@@ -2526,12 +2526,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ByObjectTypeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByObjectTypeImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -2609,7 +2609,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, SimpleType::ENUM_TYPE);
         }
 
         ObjectType ByTypeImpl::GetObjectType()
@@ -2647,12 +2647,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ByTypeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByTypeImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -2836,12 +2836,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ByValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -3037,7 +3037,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string CatalogImpl::GetName()
@@ -3175,12 +3175,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string CatalogImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -3507,12 +3507,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string CatalogDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -3720,12 +3720,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string CatalogLocationsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogLocationsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -3939,8 +3939,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, SimpleType::STRING);
         }
 
         std::string CatalogReferenceImpl::GetCatalogName()
@@ -4015,12 +4015,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string CatalogReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -4136,9 +4136,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__X, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Y, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__X, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Y, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, SimpleType::DOUBLE);
         }
 
         double CenterImpl::GetX()
@@ -4204,12 +4204,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string CenterImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CenterImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -4281,7 +4281,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
         INamedReference<IEntity>* CentralSwarmObjectImpl::GetEntityRef()
@@ -4310,12 +4310,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string CentralSwarmObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CentralSwarmObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -4407,11 +4407,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LENGTH, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__START_TIME, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LENGTH, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__START_TIME, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, SimpleType::DOUBLE);
         }
 
         double ClothoidImpl::GetCurvature()
@@ -4531,12 +4531,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ClothoidImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ClothoidImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -4669,12 +4669,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string CollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -4780,9 +4780,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DELAY, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DELAY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, SimpleType::ENUM_TYPE);
         }
 
         std::string ConditionImpl::GetName()
@@ -4885,12 +4885,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -5042,12 +5042,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ConditionGroupImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ConditionGroupImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -5146,8 +5146,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, SimpleType::DOUBLE);
         }
 
         double ControlPointImpl::GetTime()
@@ -5209,12 +5209,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ControlPointImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControlPointImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -5306,7 +5306,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string ControllerImpl::GetName()
@@ -5360,12 +5360,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -5551,12 +5551,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -5683,12 +5683,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ControllerCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -5798,12 +5798,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ControllerDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -5902,7 +5902,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, SimpleType::DOUBLE);
         }
 
         double ControllerDistributionEntryImpl::GetWeight()
@@ -5956,12 +5956,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ControllerDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -6069,8 +6069,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTENT, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTENT, SimpleType::STRING);
         }
 
         std::string CustomCommandActionImpl::GetType()
@@ -6119,12 +6119,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string CustomCommandActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CustomCommandActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -6214,12 +6214,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string DeleteEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DeleteEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -6285,9 +6285,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WIDTH, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LENGTH, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WIDTH, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LENGTH, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, SimpleType::DOUBLE);
         }
 
         double DimensionsImpl::GetWidth()
@@ -6356,12 +6356,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string DimensionsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DimensionsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -6433,7 +6433,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH, SimpleType::STRING);
         }
 
         std::string DirectoryImpl::GetPath()
@@ -6461,12 +6461,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string DirectoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DirectoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -6543,10 +6543,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         double DistanceConditionImpl::GetValue()
@@ -6655,12 +6655,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string DistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -6766,9 +6766,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, SimpleType::DOUBLE);
         }
 
         double DynamicConstraintsImpl::GetMaxAcceleration()
@@ -6837,12 +6837,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string DynamicConstraintsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DynamicConstraintsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -6914,7 +6914,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
         }
 
         double EndOfRoadConditionImpl::GetDuration()
@@ -6942,12 +6942,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string EndOfRoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EndOfRoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -7050,12 +7050,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string EntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -7182,7 +7182,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
         INamedReference<IEntity>* EntityActionImpl::GetEntityRef()
@@ -7238,12 +7238,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string EntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -7565,12 +7565,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string EntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -7935,12 +7935,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string EntityObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -8082,7 +8082,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
         INamedReference<IEntity>* EntityRefImpl::GetEntityRef()
@@ -8110,12 +8110,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string EntityRefImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityRefImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -8207,7 +8207,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string EntitySelectionImpl::GetName()
@@ -8249,12 +8249,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string EntitySelectionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntitySelectionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -8353,7 +8353,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string EnvironmentImpl::GetName()
@@ -8433,12 +8433,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string EnvironmentImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EnvironmentImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -8659,12 +8659,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string EnvironmentActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EnvironmentActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -8791,12 +8791,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string EnvironmentCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EnvironmentCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -8884,9 +8884,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(uint32_t).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, SimpleType::UNSIGNED_INT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         Priority EventImpl::GetPriority()
@@ -8989,12 +8989,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string EventImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EventImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -9140,7 +9140,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, SimpleType::STRING);
         }
 
         std::string FileImpl::GetFilepath()
@@ -9169,12 +9169,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string FileImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FileImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -9251,11 +9251,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, typeid(uint16_t).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, typeid(uint16_t).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE, typeid(DateTime).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, SimpleType::UNSIGNED_SHORT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, SimpleType::UNSIGNED_SHORT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE, SimpleType::DATE_TIME);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, SimpleType::STRING);
         }
 
         uint16_t FileHeaderImpl::GetRevMajor()
@@ -9361,12 +9361,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string FileHeaderImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FileHeaderImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -9492,12 +9492,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string FinalSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FinalSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -9603,7 +9603,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, SimpleType::DOUBLE);
         }
 
         double FogImpl::GetVisualRange()
@@ -9644,12 +9644,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string FogImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FogImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -9802,12 +9802,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string FollowTrajectoryActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FollowTrajectoryActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -10023,12 +10023,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string GlobalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType GlobalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -10236,12 +10236,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string InRoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InRoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -10387,12 +10387,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string InfrastructureActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InfrastructureActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -10502,12 +10502,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string InitImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InitImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -10642,12 +10642,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string InitActionsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InitActionsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -10802,7 +10802,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         double KnotImpl::GetValue()
@@ -10830,12 +10830,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string KnotImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType KnotImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -10903,7 +10903,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, SimpleType::DOUBLE);
         }
 
         double LaneChangeActionImpl::GetTargetLaneOffset()
@@ -10958,12 +10958,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string LaneChangeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneChangeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -11106,12 +11106,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string LaneChangeTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneChangeTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -11217,7 +11217,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
         }
 
         bool LaneOffsetActionImpl::GetContinuous()
@@ -11274,12 +11274,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string LaneOffsetActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneOffsetActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -11387,8 +11387,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, SimpleType::ENUM_TYPE);
         }
 
         double LaneOffsetActionDynamicsImpl::GetMaxLateralAcc()
@@ -11446,12 +11446,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string LaneOffsetActionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneOffsetActionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -11567,12 +11567,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string LaneOffsetTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneOffsetTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -11678,10 +11678,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__S, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__S, SimpleType::DOUBLE);
         }
 
         std::string LanePositionImpl::GetRoadId()
@@ -11782,12 +11782,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string LanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -11945,12 +11945,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string LateralActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LateralActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -12074,10 +12074,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
         }
 
         INamedReference<IEntity>* LateralDistanceActionImpl::GetEntityRef()
@@ -12179,12 +12179,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string LateralDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LateralDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -12340,12 +12340,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string LongitudinalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LongitudinalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -12451,11 +12451,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
         }
 
         INamedReference<IEntity>* LongitudinalDistanceActionImpl::GetEntityRef()
@@ -12577,12 +12577,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string LongitudinalDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LongitudinalDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -12704,7 +12704,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string ManeuverImpl::GetName()
@@ -12758,12 +12758,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ManeuverImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ManeuverImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -12941,12 +12941,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ManeuverCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ManeuverCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -13034,8 +13034,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, typeid(uint32_t).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, SimpleType::UNSIGNED_INT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         uint32_t ManeuverGroupImpl::GetMaximumExecutionCount()
@@ -13123,12 +13123,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ManeuverGroupImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ManeuverGroupImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -13290,9 +13290,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         MiscObjectCategory MiscObjectImpl::GetMiscObjectCategory()
@@ -13406,12 +13406,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string MiscObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType MiscObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -13615,12 +13615,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string MiscObjectCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType MiscObjectCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -13742,12 +13742,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ModifyRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ModifyRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -13861,12 +13861,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string NoneImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType NoneImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -13932,7 +13932,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ORDER, typeid(uint32_t).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ORDER, SimpleType::UNSIGNED_INT);
         }
 
         uint32_t NurbsImpl::GetOrder()
@@ -13990,12 +13990,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string NurbsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType NurbsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -14158,12 +14158,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ObjectControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ObjectControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -14269,7 +14269,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
         }
 
         double OffroadConditionImpl::GetDuration()
@@ -14298,12 +14298,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OffroadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OffroadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -14406,12 +14406,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string OpenScenarioImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OpenScenarioImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -14551,12 +14551,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string OpenScenarioCategoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OpenScenarioCategoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -14662,10 +14662,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__H, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__P, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__R, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__H, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__P, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__R, SimpleType::DOUBLE);
         }
 
         ReferenceContext OrientationImpl::GetType()
@@ -14759,12 +14759,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OrientationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OrientationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -14848,8 +14848,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
         }
 
         double OverrideBrakeActionImpl::GetValue()
@@ -14897,12 +14897,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OverrideBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -14972,8 +14972,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
         }
 
         double OverrideClutchActionImpl::GetValue()
@@ -15021,12 +15021,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OverrideClutchActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideClutchActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -15183,12 +15183,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string OverrideControllerValueActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideControllerValueActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -15366,8 +15366,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
         }
 
         double OverrideGearActionImpl::GetNumber()
@@ -15414,12 +15414,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OverrideGearActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideGearActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -15489,8 +15489,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
         }
 
         double OverrideParkingBrakeActionImpl::GetValue()
@@ -15538,12 +15538,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OverrideParkingBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideParkingBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -15613,8 +15613,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
         }
 
         double OverrideSteeringWheelActionImpl::GetValue()
@@ -15661,12 +15661,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OverrideSteeringWheelActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideSteeringWheelActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -15736,8 +15736,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
         }
 
         double OverrideThrottleActionImpl::GetValue()
@@ -15785,12 +15785,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string OverrideThrottleActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideThrottleActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -15860,7 +15860,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, SimpleType::STRING);
         }
 
         INamedReference<IParameterDeclaration>* ParameterActionImpl::GetParameterRef()
@@ -15915,12 +15915,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ParameterActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16052,7 +16052,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         double ParameterAddValueRuleImpl::GetValue()
@@ -16080,12 +16080,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ParameterAddValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterAddValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16153,8 +16153,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
         INamedReference<IParameterDeclaration>* ParameterAssignmentImpl::GetParameterRef()
@@ -16197,12 +16197,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ParameterAssignmentImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterAssignmentImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16301,9 +16301,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         INamedReference<IParameterDeclaration>* ParameterConditionImpl::GetParameterRef()
@@ -16378,12 +16378,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ParameterConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16494,9 +16494,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
         std::string ParameterDeclarationImpl::GetName()
@@ -16565,12 +16565,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ParameterDeclarationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterDeclarationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16688,12 +16688,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ParameterModifyActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterModifyActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16781,7 +16781,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         double ParameterMultiplyByValueRuleImpl::GetValue()
@@ -16810,12 +16810,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ParameterMultiplyByValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterMultiplyByValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16883,7 +16883,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
         std::string ParameterSetActionImpl::GetValue()
@@ -16911,12 +16911,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ParameterSetActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterSetActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -16993,10 +16993,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MODEL, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MODEL, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, SimpleType::ENUM_TYPE);
         }
 
         std::string PedestrianImpl::GetModel()
@@ -17129,12 +17129,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PedestrianImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PedestrianImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -17345,12 +17345,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string PedestrianCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PedestrianCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -17438,9 +17438,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, SimpleType::DOUBLE);
         }
 
         double PerformanceImpl::GetMaxSpeed()
@@ -17508,12 +17508,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PerformanceImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PerformanceImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -17585,8 +17585,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
         }
 
         std::string PhaseImpl::GetName()
@@ -17648,12 +17648,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PhaseImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PhaseImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -17786,12 +17786,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string PolylineImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PolylineImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -18007,12 +18007,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string PositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -18226,9 +18226,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH_S, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH_S, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET, SimpleType::DOUBLE);
         }
 
         double PositionInLaneCoordinatesImpl::GetPathS()
@@ -18296,12 +18296,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PositionInLaneCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionInLaneCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -18382,8 +18382,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH_S, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__T, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH_S, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__T, SimpleType::DOUBLE);
         }
 
         double PositionInRoadCoordinatesImpl::GetPathS()
@@ -18432,12 +18432,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PositionInRoadCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionInRoadCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -18507,7 +18507,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
         INamedReference<IEntity>* PositionOfCurrentEntityImpl::GetEntityRef()
@@ -18535,12 +18535,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PositionOfCurrentEntityImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionOfCurrentEntityImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -18632,8 +18632,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, SimpleType::DOUBLE);
         }
 
         PrecipitationType PrecipitationImpl::GetPrecipitationType()
@@ -18689,12 +18689,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PrecipitationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PrecipitationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -18774,7 +18774,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
         INamedReference<IEntity>* PrivateImpl::GetEntityRef()
@@ -18816,12 +18816,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PrivateImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PrivateImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -19066,12 +19066,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string PrivateActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PrivateActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -19322,12 +19322,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string PropertiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PropertiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -19454,8 +19454,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
         std::string PropertyImpl::GetName()
@@ -19502,12 +19502,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string PropertyImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PropertyImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -19591,7 +19591,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, SimpleType::DOUBLE);
         }
 
         double ReachPositionConditionImpl::GetTolerance()
@@ -19633,12 +19633,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ReachPositionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ReachPositionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -19728,11 +19728,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         INamedReference<IEntity>* RelativeDistanceConditionImpl::GetEntityRef()
@@ -19855,12 +19855,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -19975,10 +19975,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__D_LANE, typeid(int).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__D_LANE, SimpleType::INT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
         }
 
         INamedReference<IEntity>* RelativeLanePositionImpl::GetEntityRef()
@@ -20078,12 +20078,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeLanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeLanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -20203,10 +20203,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DX, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DY, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DZ, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DX, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DZ, SimpleType::DOUBLE);
         }
 
         INamedReference<IEntity>* RelativeObjectPositionImpl::GetEntityRef()
@@ -20308,12 +20308,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeObjectPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeObjectPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -20433,9 +20433,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DT, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DT, SimpleType::DOUBLE);
         }
 
         INamedReference<IEntity>* RelativeRoadPositionImpl::GetEntityRef()
@@ -20517,12 +20517,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeRoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeRoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -20640,9 +20640,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         INamedReference<IEntity>* RelativeSpeedConditionImpl::GetEntityRef()
@@ -20717,12 +20717,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeSpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeSpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -20828,8 +20828,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, SimpleType::ENUM_TYPE);
         }
 
         double RelativeSpeedToMasterImpl::GetValue()
@@ -20886,12 +20886,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeSpeedToMasterImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeSpeedToMasterImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -20971,8 +20971,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(int).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::INT);
         }
 
         INamedReference<IEntity>* RelativeTargetLaneImpl::GetEntityRef()
@@ -21020,12 +21020,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -21119,8 +21119,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         INamedReference<IEntity>* RelativeTargetLaneOffsetImpl::GetEntityRef()
@@ -21168,12 +21168,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -21267,10 +21267,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
         }
 
         INamedReference<IEntity>* RelativeTargetSpeedImpl::GetEntityRef()
@@ -21370,12 +21370,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -21483,10 +21483,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DX, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DY, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DZ, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DX, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DZ, SimpleType::DOUBLE);
         }
 
         INamedReference<IEntity>* RelativeWorldPositionImpl::GetEntityRef()
@@ -21586,12 +21586,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RelativeWorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeWorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -21711,7 +21711,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, SimpleType::DOUBLE);
         }
 
         double RoadConditionImpl::GetFrictionScaleFactor()
@@ -21752,12 +21752,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -21897,12 +21897,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string RoadNetworkImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoadNetworkImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -22040,9 +22040,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__S, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__T, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__S, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__T, SimpleType::DOUBLE);
         }
 
         std::string RoadPositionImpl::GetRoadId()
@@ -22124,12 +22124,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -22232,8 +22232,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOSED, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOSED, SimpleType::BOOLEAN);
         }
 
         std::string RouteImpl::GetName()
@@ -22307,12 +22307,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string RouteImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RouteImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -22492,12 +22492,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string RouteCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RouteCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -22634,12 +22634,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string RoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -22797,12 +22797,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string RouteRefImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RouteRefImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -22957,12 +22957,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string RoutingActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoutingActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -23163,12 +23163,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ScenarioDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ScenarioDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -23362,7 +23362,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string ScenarioObjectImpl::GetName()
@@ -23417,12 +23417,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string ScenarioObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ScenarioObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -23574,12 +23574,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string SelectedEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SelectedEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -23753,12 +23753,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string ShapeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ShapeImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -23882,8 +23882,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         double SimulationTimeConditionImpl::GetValue()
@@ -23939,12 +23939,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string SimulationTimeConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SimulationTimeConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -24059,12 +24059,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string SpeedActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SpeedActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -24206,12 +24206,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string SpeedActionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SpeedActionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -24317,8 +24317,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         double SpeedConditionImpl::GetValue()
@@ -24374,12 +24374,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string SpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -24459,7 +24459,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
         }
 
         double StandStillConditionImpl::GetDuration()
@@ -24488,12 +24488,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string StandStillConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StandStillConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -24561,7 +24561,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string StoryImpl::GetName()
@@ -24616,12 +24616,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string StoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -24826,12 +24826,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string StoryboardImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StoryboardImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -24970,9 +24970,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::ENUM_TYPE);
         }
 
         StoryboardElementType StoryboardElementStateConditionImpl::GetStoryboardElementType()
@@ -25057,12 +25057,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string StoryboardElementStateConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StoryboardElementStateConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -25173,9 +25173,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, SimpleType::DOUBLE);
         }
 
         double SunImpl::GetIntensity()
@@ -25244,12 +25244,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string SunImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SunImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -25321,7 +25321,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, SimpleType::STRING);
         }
 
         INamedReference<IEntity>* SynchronizeActionImpl::GetMasterEntityRef()
@@ -25390,12 +25390,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string SynchronizeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SynchronizeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -25566,12 +25566,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string TeleportActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TeleportActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -25659,11 +25659,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         INamedReference<IEntity>* TimeHeadwayConditionImpl::GetEntityRef()
@@ -25778,12 +25778,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TimeHeadwayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeHeadwayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -25893,8 +25893,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ANIMATION, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, typeid(DateTime).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ANIMATION, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, SimpleType::DATE_TIME);
         }
 
         bool TimeOfDayImpl::GetAnimation()
@@ -25942,12 +25942,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TimeOfDayImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeOfDayImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -26017,8 +26017,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, typeid(DateTime).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, SimpleType::DATE_TIME);
         }
 
         Rule TimeOfDayConditionImpl::GetRule()
@@ -26074,12 +26074,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TimeOfDayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeOfDayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -26195,12 +26195,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string TimeReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -26306,10 +26306,10 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         double TimeToCollisionConditionImpl::GetValue()
@@ -26419,12 +26419,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TimeToCollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeToCollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -26564,12 +26564,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string TimeToCollisionConditionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeToCollisionConditionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -26675,9 +26675,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SCALE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SCALE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
         }
 
         ReferenceContext TimingImpl::GetDomainAbsoluteRelative()
@@ -26756,12 +26756,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TimingImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimingImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -26893,12 +26893,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string TrafficActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -27022,7 +27022,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
         std::string TrafficDefinitionImpl::GetName()
@@ -27078,12 +27078,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -27236,12 +27236,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string TrafficSignalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -27347,8 +27347,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::STRING);
         }
 
         std::string TrafficSignalConditionImpl::GetName()
@@ -27397,12 +27397,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSignalConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -27486,9 +27486,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DELAY, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REFERENCE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DELAY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REFERENCE, SimpleType::STRING);
         }
 
         std::string TrafficSignalControllerImpl::GetName()
@@ -27572,12 +27572,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSignalControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -27696,8 +27696,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PHASE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PHASE, SimpleType::STRING);
         }
 
         INamedReference<ITrafficSignalController>* TrafficSignalControllerActionImpl::GetTrafficSignalControllerRef()
@@ -27760,12 +27760,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSignalControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -27864,8 +27864,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PHASE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PHASE, SimpleType::STRING);
         }
 
         INamedReference<ITrafficSignalController>* TrafficSignalControllerConditionImpl::GetTrafficSignalControllerRef()
@@ -27929,12 +27929,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSignalControllerConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalControllerConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -28033,8 +28033,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::STRING);
         }
 
         std::string TrafficSignalStateImpl::GetTrafficSignalId()
@@ -28083,12 +28083,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSignalStateImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalStateImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -28172,8 +28172,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::STRING);
         }
 
         std::string TrafficSignalStateActionImpl::GetName()
@@ -28222,12 +28222,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSignalStateActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalStateActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -28311,8 +28311,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RADIUS, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RADIUS, SimpleType::DOUBLE);
         }
 
         double TrafficSinkActionImpl::GetRate()
@@ -28388,12 +28388,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSinkActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSinkActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -28503,9 +28503,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RADIUS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RADIUS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, SimpleType::DOUBLE);
         }
 
         double TrafficSourceActionImpl::GetRate()
@@ -28601,12 +28601,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSourceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSourceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -28718,12 +28718,12 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, typeid(uint32_t).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, SimpleType::UNSIGNED_INT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, SimpleType::DOUBLE);
         }
 
         double TrafficSwarmActionImpl::GetSemiMajorAxis()
@@ -28881,12 +28881,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrafficSwarmActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSwarmActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -29004,8 +29004,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOSED, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOSED, SimpleType::BOOLEAN);
         }
 
         std::string TrajectoryImpl::GetName()
@@ -29078,12 +29078,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrajectoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrajectoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -29257,12 +29257,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string TrajectoryCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrajectoryCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -29350,7 +29350,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE, SimpleType::ENUM_TYPE);
         }
 
         FollowingMode TrajectoryFollowingModeImpl::GetFollowingMode()
@@ -29390,12 +29390,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TrajectoryFollowingModeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrajectoryFollowingModeImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -29473,9 +29473,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, SimpleType::ENUM_TYPE);
         }
 
         DynamicsShape TransitionDynamicsImpl::GetDynamicsShape()
@@ -29562,12 +29562,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TransitionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TransitionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -29654,7 +29654,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
         double TraveledDistanceConditionImpl::GetValue()
@@ -29682,12 +29682,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TraveledDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TraveledDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -29777,12 +29777,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string TriggerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TriggerImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -29881,7 +29881,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE, SimpleType::ENUM_TYPE);
         }
 
         TriggeringEntitiesRule TriggeringEntitiesImpl::GetTriggeringEntitiesRule()
@@ -29931,12 +29931,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string TriggeringEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TriggeringEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -30069,12 +30069,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string UserDefinedActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType UserDefinedActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -30162,9 +30162,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
         std::string UserDefinedValueConditionImpl::GetName()
@@ -30239,12 +30239,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string UserDefinedValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType UserDefinedValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -30340,8 +30340,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY, SimpleType::ENUM_TYPE);
         }
 
         std::string VehicleImpl::GetName()
@@ -30464,12 +30464,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string VehicleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -30707,12 +30707,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string VehicleCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -30822,12 +30822,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        std::string VehicleCategoryDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleCategoryDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -30926,8 +30926,8 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CATEGORY, typeid(std::string).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CATEGORY, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, SimpleType::DOUBLE);
         }
 
         VehicleCategory VehicleCategoryDistributionEntryImpl::GetCategory()
@@ -30984,12 +30984,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string VehicleCategoryDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleCategoryDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -31069,7 +31069,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME, SimpleType::DOUBLE);
         }
 
         double VertexImpl::GetTime()
@@ -31110,12 +31110,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string VertexImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VertexImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -31205,9 +31205,9 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, typeid(bool).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SENSORS, typeid(bool).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SENSORS, SimpleType::BOOLEAN);
         }
 
         bool VisibilityActionImpl::GetGraphics()
@@ -31276,12 +31276,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string VisibilityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VisibilityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -31353,7 +31353,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY, SimpleType::ENUM_TYPE);
         }
 
         RouteStrategy WaypointImpl::GetRouteStrategy()
@@ -31404,12 +31404,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string WaypointImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType WaypointImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -31509,7 +31509,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE, typeid(std::string).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE, SimpleType::ENUM_TYPE);
         }
 
         CloudState WeatherImpl::GetCloudState()
@@ -31587,12 +31587,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string WeatherImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType WeatherImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 
@@ -31728,12 +31728,12 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__X, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Y, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__H, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__P, typeid(double).name());
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__R, typeid(double).name());
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__X, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Y, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__H, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__P, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__R, SimpleType::DOUBLE);
         }
 
         double WorldPositionImpl::GetX()
@@ -31859,12 +31859,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        std::string WorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType WorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
                 return kIt->second;
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
 

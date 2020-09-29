@@ -21,6 +21,7 @@
 #include "IParserMessageLogger.h"
 #include "Textmarker.h"
 #include "ParameterValue.h"
+#include "SimpleType.h"
 #include "MemLeakDetection.h"
 
 /**
@@ -94,11 +95,11 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * The type of the attribute as a class
          * @param attributeKey the key constant
-         * @return the class as a type
+         * @return the Simpletype Enum
          */
-        virtual std::string GetTypeFromAttributeName(std::string& attributeKey)
+        virtual SimpleType GetTypeFromAttributeName(std::string& attributeKey)
         {
-            return "";
+            return SimpleType::UNKNOWN;
         }
 
         /**
