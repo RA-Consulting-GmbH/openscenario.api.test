@@ -2993,7 +2993,7 @@ namespace NET_ASAM_OPENSCENARIO
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
          * <p>
          * From OpenSCENARIO class model specification:
-         * Actions that does not explicitly target an entityâ€™s state.
+         * Actions that does not explicitly target an entity’s state.
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
@@ -7556,8 +7556,8 @@ namespace NET_ASAM_OPENSCENARIO
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
          * <p>
          * From OpenSCENARIO class model specification:
-         * The currently predicted time to collision of a triggering entity/entities and either a reference entityâ€™s position or
-         * an explicit position is compared to a given time value. The logical operator for comparison is defined by the rule
+         * The currently predicted time to collision of a triggering entity/entities and either a reference entity’s position or an
+         * explicit position is compared to a given time value. The logical operator for comparison is defined by the rule
          * attribute.
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -8270,7 +8270,7 @@ namespace NET_ASAM_OPENSCENARIO
          * Defines swarm traffic within an elliptical planview around a given central entity. The innerRadius defines the minimum
          * distance between the central vehicle and swarm traffic. The latter is set up in the free space between the circular area
          * defined by innerRadius and the outline of the ellipsis defined by the two semi axis attributes. While vehicles are
-         * created in this area, they are removed if they leave it crossing the it ellipsisâ€™ outline. Within the innerRadius,
+         * created in this area, they are removed if they leave it crossing the it ellipsis’ outline. Within the innerRadius,
          * vehicles are neither set up nor removed. Optionally, the swarm area can be longitudinally offset to the central scenario
          * object.
          * 
