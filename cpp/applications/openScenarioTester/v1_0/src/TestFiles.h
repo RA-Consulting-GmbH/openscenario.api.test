@@ -25,12 +25,13 @@ public:
 
     TestFiles(std::string& executablePath) : TestBase(executablePath) {}
 
-    bool TestSimpleSuccess() const
+    bool TestSimpleSuccess()
     {
         try 
         {
+            ClearMessageLogger();
             (void) ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc");
-            return true;
+            return Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);;
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
         {
@@ -43,7 +44,23 @@ public:
     {
         try 
         {
+            ClearMessageLogger();
             (void) ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChangerParams.xosc");
+            return Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+        }
+        catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
+        {
+            std::cout << e.what() << std::endl;
+            return Assert(false, ASSERT_LOCATION);
+        }
+    }
+
+    bool TestBomFile()
+    {
+        try
+        {
+            ClearMessageLogger();
+            (void)ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChanger-utf8-BOM.xosc");
             return Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
