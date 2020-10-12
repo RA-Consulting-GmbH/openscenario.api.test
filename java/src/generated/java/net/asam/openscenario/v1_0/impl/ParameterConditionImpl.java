@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.INamedReference;
@@ -50,13 +51,13 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ParameterConditionImpl extends BaseImpl implements IParameterCondition {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
-    propertyToType.put(OscConstants.ATTRIBUTE__PARAMETER_REF, String.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__VALUE, String.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__RULE, String.class);
+    propertyToType.put(OscConstants.ATTRIBUTE__PARAMETER_REF, SimpleType.STRING);
+    propertyToType.put(OscConstants.ATTRIBUTE__VALUE, SimpleType.STRING);
+    propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
   private NamedReferenceProxy<IParameterDeclaration> parameterRef;
@@ -147,7 +148,7 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 

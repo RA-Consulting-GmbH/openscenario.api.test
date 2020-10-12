@@ -115,7 +115,7 @@ public class CatalogCache {
 
 
     try {
-      openScenario = (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
+      openScenario = (IOpenScenario) loader.load(this.messageLogger).getAdapter(IOpenScenario.class);
       if (this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).isEmpty()) {
         ICatalogDefinition catalogDefinition =
             openScenario.getOpenScenarioCategory().getCatalogDefinition();

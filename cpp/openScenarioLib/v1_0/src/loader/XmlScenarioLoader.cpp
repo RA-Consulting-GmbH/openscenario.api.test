@@ -120,6 +120,11 @@ namespace NET_ASAM_OPENSCENARIO
                 // resolve parameter only when no errors occured
                 if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
                 {
+                    // Check 
+                    ScenarioCheckerImpl scenarioChecker;
+                    auto parameterDeclarationCheckerRule = std::make_shared<ParameterDeclarationChecker>();
+                    scenarioChecker.AddParameterDeclarationCheckerRule(parameterDeclarationCheckerRule);
+                    scenarioChecker.CheckScenario(messageLogger, openScenarioImpl);
                     OpenScenarioProcessingHelper::Resolve(messageLogger, openScenarioImpl, injectedParameters);
                     openScenarioImpl->AddAdapter(typeid(ICatalogReferenceProvider).name(), std::dynamic_pointer_cast<ICatalogReferenceProvider>(parserContext));
                     auto scenarioCheckerImpl = std::make_shared<ScenarioCheckerImpl>();

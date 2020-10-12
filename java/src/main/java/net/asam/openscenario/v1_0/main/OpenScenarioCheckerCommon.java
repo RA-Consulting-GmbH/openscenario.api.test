@@ -281,7 +281,6 @@ public class OpenScenarioCheckerCommon {
   { Hashtable<String, String> nameValuePairs = new Hashtable<>();
     try {
       File paramFile = new File(paramFileName);
-      @SuppressWarnings("resource") // See closing the scanner
       Scanner paramReader = new Scanner(paramFile);
       int counter = 0;
       while (paramReader.hasNextLine()) {

@@ -172,6 +172,7 @@ public class TestInjectedParameters extends TestBase {
               "Injected parameter 'testBoolean': Cannot convert 'wrongBoolean' to a boolean. Illegal boolean value. Injected parameter is ignored.",
               ErrorLevel.ERROR,
               new Textmarker(20, 2, filename)));
+      
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
     } catch (ScenarioLoaderException e) {
       Assertions.fail();

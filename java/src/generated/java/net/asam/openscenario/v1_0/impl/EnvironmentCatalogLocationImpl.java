@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
@@ -46,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  */
 public class EnvironmentCatalogLocationImpl extends BaseImpl
     implements IEnvironmentCatalogLocation {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
   /** Default constructor */
@@ -82,7 +83,7 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 

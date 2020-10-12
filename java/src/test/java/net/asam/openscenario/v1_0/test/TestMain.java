@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.loader.ScenarioLoaderException;
+import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.v1_0.main.OpenScenarioChecker;
 import net.asam.openscenario.v1_0.main.OpenScenarioCheckerCommon;
 
@@ -78,7 +78,7 @@ public class TestMain extends TestBase {
     int result = OpenScenarioChecker.mainWrapper(new String[] {"-i", filename});
     Assertions.assertEquals(OpenScenarioCheckerCommon.ERROR_RESULT, result);
     Assertions.assertEquals(
-        "Validation failed with 2 errors and 0 warnings.", getLine(this.testOut.toString(), 10));
+        "Validation failed with 3 errors and 0 warnings.", getLine(this.testOut.toString(), 11));
   }
 
   @Test
@@ -147,7 +147,6 @@ public class TestMain extends TestBase {
     Assertions.assertEquals("Paramsfile not found", getLine(this.testOut.toString(), 4));
   }
 
- 
   // Use these lines to make stout visible
   // System.setOut(stdout);
   // System.out.println(testOut.toString());

@@ -17,6 +17,8 @@
 
 package net.asam.openscenario.parameter;
 
+import net.asam.openscenario.api.SimpleType;
+
 /**
  * Container for parameter values (name, type, value)
  *
@@ -25,17 +27,17 @@ package net.asam.openscenario.parameter;
 public class ParameterValue {
 
   private String name;
-  private Class<?> type;
+  private SimpleType type;
   private String value;
 
   /**
    * Constructor
    *
    * @param name the name of the parameter
-   * @param type the type of a parameter as class
+   * @param type the type of a parameter as a SimpleType enumeration
    * @param value the value of a parameter
    */
-  public ParameterValue(String name, Class<?> type, String value) {
+  public ParameterValue(String name, SimpleType type, String value) {
     super();
     this.name = name;
     this.type = type;
@@ -52,11 +54,11 @@ public class ParameterValue {
   }
 
   /**
-   * The type of a parameter as class
+   * The type of a parameter as SimpleType enum
    *
    * @return the type
    */
-  public Class<?> getType() {
+  public SimpleType getType() {
     return this.type;
   }
   /**

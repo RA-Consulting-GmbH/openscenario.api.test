@@ -20,6 +20,7 @@ package net.asam.openscenario.parameter;
 import java.util.List;
 import java.util.Set;
 
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 
@@ -74,12 +75,12 @@ public interface IParameterizedObject {
    */
   public String getParameterNameFromAttribute(String attributeKey);
   /**
-   * The type of the attribute as a class
+   * The type of the attribute as a SimpleType enum
    *
    * @param attributeKey the key constant
-   * @return the class as a type
+   * @return the Simpletype Enum
    */
-  public Class<?> getTypeFromAttributeName(String attributeKey);
+  public SimpleType getTypeFromAttributeName(String attributeKey);
   /**
    * The keys of the attributes that are resolved
    * @return set with the keys

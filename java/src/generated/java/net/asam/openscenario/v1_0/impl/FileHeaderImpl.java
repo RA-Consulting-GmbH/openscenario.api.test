@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
+import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
@@ -44,15 +45,15 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class FileHeaderImpl extends BaseImpl implements IFileHeader {
-  protected static Hashtable<String, Class<?>> propertyToType = new Hashtable<>();
+  protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
   static {
-    propertyToType.put(OscConstants.ATTRIBUTE__REV_MAJOR, Integer.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__REV_MINOR, Integer.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__DATE, java.util.Date.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__DESCRIPTION, String.class);
-    propertyToType.put(OscConstants.ATTRIBUTE__AUTHOR, String.class);
+    propertyToType.put(OscConstants.ATTRIBUTE__REV_MAJOR, SimpleType.UNSIGNED_SHORT);
+    propertyToType.put(OscConstants.ATTRIBUTE__REV_MINOR, SimpleType.UNSIGNED_SHORT);
+    propertyToType.put(OscConstants.ATTRIBUTE__DATE, SimpleType.DATE_TIME);
+    propertyToType.put(OscConstants.ATTRIBUTE__DESCRIPTION, SimpleType.STRING);
+    propertyToType.put(OscConstants.ATTRIBUTE__AUTHOR, SimpleType.STRING);
   }
 
   private Integer revMajor;
@@ -179,7 +180,7 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
   }
 
   @Override
-  public Class<?> getTypeFromAttributeName(String attributeKey) {
+  public SimpleType getTypeFromAttributeName(String attributeKey) {
     return propertyToType.get(attributeKey);
   }
 
