@@ -114,8 +114,8 @@ public class OpenScenarioCheckerCommon {
     
     if (new File(inputFileName).exists()) {
       System.out.println("Checking '" + inputFileName + "'");
-      SimpleMessageLogger catalogMessageLogger = new SimpleMessageLogger(logLevel);
-      SimpleMessageLogger messageLogger = new SimpleMessageLogger(logLevel);
+      SimpleMessageLogger<FileContentMessage> catalogMessageLogger = new SimpleMessageLogger<>(logLevel);
+      SimpleMessageLogger<FileContentMessage> messageLogger = new SimpleMessageLogger<>(logLevel);
 
       try {
         OpenScenarioImpl executeImportParsing =
