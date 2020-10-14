@@ -23,7 +23,7 @@ package net.asam.openscenario.common;
  *
  * @author Andreas Hege - RA Consulting
  */
-public class FileContentMessage implements Comparable<FileContentMessage> {
+public class FileContentMessage implements IErrorMessage, Comparable<FileContentMessage> {
   private Textmarker textmarker;
   private String message;
   private ErrorLevel errorLevel;
@@ -61,11 +61,7 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
     return this.message;
   }
 
-  /**
-   * The error level of the message.
-   *
-   * @return the error level
-   */
+  @Override
   public ErrorLevel getErrorLevel() {
     return this.errorLevel;
   }

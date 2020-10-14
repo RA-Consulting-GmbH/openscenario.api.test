@@ -44,7 +44,7 @@ import net.asam.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 
 public class TestBase {
 
-  protected SimpleMessageLogger messageLogger;
+  protected SimpleMessageLogger<FileContentMessage> messageLogger;
 
   protected ByteArrayOutputStream testOut = new ByteArrayOutputStream();
   protected PrintStream stdout;
@@ -65,7 +65,7 @@ public class TestBase {
   }
 
   public OpenScenarioImpl executeImportParsing(
-      String filename, IParserMessageLogger catalogMessageLogger) throws ScenarioLoaderException {
+      String filename, IParserMessageLogger<FileContentMessage> catalogMessageLogger) throws ScenarioLoaderException {
 
     IScenarioLoaderFactory loaderFactory =
         new XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
@@ -76,7 +76,7 @@ public class TestBase {
 
   @BeforeEach
   public void init() {
-    this.messageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+    this.messageLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
     this.stdout = System.out;
     PrintStream printStream = new PrintStream(this.testOut);
     System.setOut(printStream);

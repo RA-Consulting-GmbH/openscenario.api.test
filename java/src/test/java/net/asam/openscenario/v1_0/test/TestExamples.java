@@ -95,7 +95,7 @@ public class TestExamples extends TestBase {
       // Browse through catalog locations
       ICatalogLocations catalogLocations = scenarioDefinition.getCatalogLocations();
     }
-    SimpleMessageLogger checkerRuleLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+    SimpleMessageLogger<FileContentMessage> checkerRuleLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
 
     // Using the adapter interface to get the checker
     IScenarioChecker scenarioChecker =

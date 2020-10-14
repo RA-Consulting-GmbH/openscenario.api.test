@@ -75,10 +75,10 @@ public class TestSimpleDemos extends TestBase {
   public void testImportDemo() throws ScenarioLoaderException {
 
     // Creating a message Logger to pick up the messages
-    SimpleMessageLogger messageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+    SimpleMessageLogger<FileContentMessage> messageLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
 
     // create another messageLogger for logging the messages that occur from imported files
-    SimpleMessageLogger catalogMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+    SimpleMessageLogger<FileContentMessage> catalogMessageLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
 
     // Instantiating the factory
     IScenarioLoaderFactory loaderFactory =
@@ -148,7 +148,7 @@ public class TestSimpleDemos extends TestBase {
       scenarioChecker.addFileHeaderCheckerRule(new VersionCheckerRule(1, 0));
 
       // Create a message logger to pick up the messages
-      SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+      SimpleMessageLogger<FileContentMessage> simpleMessageLogger = new SimpleMessageLogger<FileContentMessage>(ErrorLevel.INFO);
 
       // Now call the checkScenario method to check the tree
       scenarioChecker.checkScenario(simpleMessageLogger, openScenario);
@@ -180,7 +180,7 @@ public class TestSimpleDemos extends TestBase {
       scenarioChecker.addEntitiesCheckerRule(new EgoCheckerRule());
 
       // Create a message logger to pick up the messages
-      SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
+      SimpleMessageLogger<FileContentMessage> simpleMessageLogger = new SimpleMessageLogger<FileContentMessage>(ErrorLevel.INFO);
 
       // Now call the checkScenario method to check the tree
       scenarioChecker.checkScenario(simpleMessageLogger, openScenario);

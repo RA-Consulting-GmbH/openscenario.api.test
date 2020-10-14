@@ -25,9 +25,9 @@ import java.util.stream.Collectors;
  *
  * @author Andreas Hege - RA Consulting
  */
-public class SimpleMessageLogger implements IParserMessageLogger {
+public class SimpleMessageLogger<T extends IErrorMessage> implements IParserMessageLogger<T> {
 
-  private List<FileContentMessage> messages = new ArrayList<>();
+  private List<T> messages = new ArrayList<>();
   private ErrorLevel logLevel = ErrorLevel.INFO;
 
   /**
@@ -41,15 +41,15 @@ public class SimpleMessageLogger implements IParserMessageLogger {
   }
 
   @Override
-  public void logMessage(FileContentMessage message) {
+  public void logMessage(T message) {
     if (message.getErrorLevel().isWorseOrEqualThan(this.logLevel)) {
       this.messages.add(message);
     }
   }
 
   @Override
-  public void logAllMessages(List<FileContentMessage> messages) {
-    for (FileContentMessage fileContentMessage : messages) {
+  public void logAllMessages(List<T> messages) {
+    for (T fileContentMessage : messages) {
       logMessage(fileContentMessage);
     }
   }
@@ -59,12 +59,12 @@ public class SimpleMessageLogger implements IParserMessageLogger {
    *
    * @return the messages picked up
    */
-  public List<FileContentMessage> getMessages() {
+  public List<T> getMessages() {
     return this.messages;
   }
 
   @Override
-  public List<FileContentMessage> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel) {
+  public List<T> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel) {
     return this.messages
         .stream()
         .filter(m -> m.getErrorLevel() == errorLevel)
@@ -73,7 +73,7 @@ public class SimpleMessageLogger implements IParserMessageLogger {
 
 
   @Override
-  public List<FileContentMessage> getMessagesFilteredByWorseOrEqualToErrorLevel(
+  public List<T> getMessagesFilteredByWorseOrEqualToErrorLevel(
       ErrorLevel errorLevel) {
     return this.messages
         .stream()
