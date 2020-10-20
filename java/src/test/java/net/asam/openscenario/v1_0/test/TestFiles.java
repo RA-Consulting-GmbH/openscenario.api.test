@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.impl.OpenScenarioImpl;
@@ -68,7 +69,7 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangerParamsError.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<>();
+      List<IErrorMessage> messages = new ArrayList<>();
       messages.add(
               new FileContentMessage(
                   "Cannot resolve parameter 'UnknownParameter'",
@@ -95,7 +96,7 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangeExtraHalf.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<>();
+      List<IErrorMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "XML document structures must start and end within the same entity.",
@@ -113,7 +114,7 @@ public class TestFiles extends TestBase {
       String filename =
           getResourceFile("DoubleLaneChangeExtraUnknownElement.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<>();
+      List<IErrorMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Unknown element 'ScenarioObject'",
@@ -133,7 +134,7 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangerWrongAttributes.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<>();
+      List<IErrorMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "Value 'TTTT' is not allowed.", ErrorLevel.ERROR, new Textmarker(78, 72, filename)));
@@ -168,7 +169,7 @@ public class TestFiles extends TestBase {
     try {
       String filename = getResourceFile("DoubleLaneChangerWrongEndElement.xosc").getAbsolutePath();
       executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<>();
+      List<IErrorMessage> messages = new ArrayList<>();
       messages.add(
           new FileContentMessage(
               "The element type \"PrivateActions\" must be terminated by the matching end-tag \"</PrivateActions>\".",
@@ -187,7 +188,7 @@ public class TestFiles extends TestBase {
       String filename =
           getResourceFile("DoubleLaneChangerCustomCommandAction.xosc").getAbsolutePath();
       OpenScenarioImpl openScenarioImpl = executeParsing(filename);
-      List<FileContentMessage> messages = new ArrayList<>();
+      List<IErrorMessage> messages = new ArrayList<>();
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
       String content =
           openScenarioImpl

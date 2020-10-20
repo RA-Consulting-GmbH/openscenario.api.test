@@ -28,37 +28,45 @@ import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.ILaneChangeAction;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
 
-public class TestInjectedParameters extends TestBase {
+public class TestInjectedParameters extends TestBase
+{
 
   @Test
-  public void testNullInjectedParameters() {
-    try {
-      executeParsing(
-          getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath(), null);
-    } catch (ScenarioLoaderException e) {
+  public void testNullInjectedParameters()
+  {
+    try
+    {
+      executeParsing(getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath(), null);
+    }
+    catch (ScenarioLoaderException e)
+    {
       Assertions.fail();
     }
   }
 
   @Test
-  public void testEmptyInjectedParameters() {
-    try {
-      executeParsing(
-          getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath(),
-          new Hashtable<String, String>());
-    } catch (ScenarioLoaderException e) {
+  public void testEmptyInjectedParameters()
+  {
+    try
+    {
+      executeParsing(getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath(), new Hashtable<String, String>());
+    }
+    catch (ScenarioLoaderException e)
+    {
       Assertions.fail();
     }
   }
 
   @Test
-  public void testInjectionsForSuccess() {
+  public void testInjectionsForSuccess()
+  {
     Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("testBoolean", "true");
     injectedParamters.put("testInteger", "2");
@@ -68,68 +76,42 @@ public class TestInjectedParameters extends TestBase {
     injectedParamters.put("testUnsignedShort", "2");
     injectedParamters.put("testDouble", "2.0");
 
-    try {
-      IOpenScenario openScenario =
-          (IOpenScenario)
-              executeParsing(
-                      getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath(),
-                      injectedParamters)
-                  .getAdapter(IOpenScenario.class);
+    try
+    {
+      IOpenScenario openScenario = (IOpenScenario) executeParsing(
+          getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath(), injectedParamters)
+              .getAdapter(IOpenScenario.class);
       // testString
-      Assertions.assertEquals(
-          "injected",
-          openScenario
-              .getOpenScenarioCategory()
-              .getScenarioDefinition()
-              .getRoadNetwork()
-              .getLogicFile()
-              .getFilepath());
+      Assertions.assertEquals("injected",
+          openScenario.getOpenScenarioCategory().getScenarioDefinition().getRoadNetwork().getLogicFile().getFilepath());
       // testUnsignedInt
       IEvent event = getEvent(openScenario);
       Assertions.assertEquals(2, event.getMaximumExecutionCount());
       // testInteger
-      Assertions.assertEquals(
-          2, getLaneChangeAction(event).getLaneChangeTarget().getRelativeTargetLane().getValue());
+      Assertions.assertEquals(2, getLaneChangeAction(event).getLaneChangeTarget().getRelativeTargetLane().getValue());
       // testDateTime
-      Date date =
-          event
-              .getStartTrigger()
-              .getConditionGroups()
-              .get(0)
-              .getConditions()
-              .get(0)
-              .getByValueCondition()
-              .getTimeOfDayCondition()
-              .getDateTime();
+      Date date = event.getStartTrigger().getConditionGroups().get(0).getConditions().get(0).getByValueCondition()
+          .getTimeOfDayCondition().getDateTime();
       String formattedDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(date);
       Assertions.assertEquals("2018-02-24T10:00:00", formattedDate);
       // testDouble
-      Assertions.assertEquals(
-          2.0d, getLaneChangeAction(event).getLaneChangeActionDynamics().getValue());
+      Assertions.assertEquals(2.0d, getLaneChangeAction(event).getLaneChangeActionDynamics().getValue());
       // testBoolean
-      Assertions.assertEquals(
-          true,
-          openScenario
-              .getOpenScenarioCategory()
-              .getScenarioDefinition()
-              .getStoryboard()
-              .getStories()
-              .get(0)
-              .getActs()
-              .get(0)
-              .getManeuverGroups()
-              .get(0)
-              .getActors()
-              .getSelectTriggeringEntities());
+      Assertions.assertEquals(true, openScenario.getOpenScenarioCategory().getScenarioDefinition().getStoryboard().getStories()
+          .get(0).getActs().get(0).getManeuverGroups().get(0).getActors().getSelectTriggeringEntities());
       // testUnsignedShort
-      // cannot be test because data structures are above the Parameter definitions
-    } catch (ScenarioLoaderException e) {
+      // cannot be test because data structures are above the Parameter
+      // definitions
+    }
+    catch (ScenarioLoaderException e)
+    {
       Assertions.fail();
     }
   }
 
   @Test
-  public void testWrongFormats() {
+  public void testWrongFormats()
+  {
     Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("testBoolean", "wrongBoolean");
     injectedParamters.put("testInteger", "wrongInteger");
@@ -138,90 +120,87 @@ public class TestInjectedParameters extends TestBase {
     injectedParamters.put("testUnsignedShort", "wrongUnsingedShortValue");
     injectedParamters.put("testDouble", "wrongDoubleValue");
 
-    try {
+    try
+    {
       String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
       executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
-      List<FileContentMessage> messages = new ArrayList<>();
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'testInteger': Cannot convert 'wrongInteger' to an int. Number format error. Injected parameter is ignored.",
-              ErrorLevel.ERROR,
-              new Textmarker(20, 2, filename)));
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'testUnsignedInt': Cannot convert 'wrongUnsignedIntValue' to an unsignedInteger. Number format error. Injected parameter is ignored.",
-              ErrorLevel.ERROR,
-              new Textmarker(20, 2, filename)));
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'testDateTime': Cannot convert 'wrongDateTimeValue' to a dateTime. Illegal dateTime value. Injected parameter is ignored.",
-              ErrorLevel.ERROR,
-              new Textmarker(20, 2, filename)));
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'testUnsignedShort': Cannot convert 'wrongUnsingedShortValue' to an unsignedShort. Number format error. Injected parameter is ignored.",
-              ErrorLevel.ERROR,
-              new Textmarker(20, 2, filename)));
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'testDouble': Cannot convert 'wrongDoubleValue' to a double. Number format error. Injected parameter is ignored.",
-              ErrorLevel.ERROR,
-              new Textmarker(20, 2, filename)));
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'testBoolean': Cannot convert 'wrongBoolean' to a boolean. Illegal boolean value. Injected parameter is ignored.",
-              ErrorLevel.ERROR,
-              new Textmarker(20, 2, filename)));
+      List<IErrorMessage> messages = new ArrayList<>();
+      messages.add(new FileContentMessage(
+          "Injected parameter 'testInteger': Cannot convert 'wrongInteger' to an int. Number format error. Injected parameter is ignored.",
+          ErrorLevel.ERROR, new Textmarker(20, 2, filename)));
+      messages.add(new FileContentMessage(
+          "Injected parameter 'testUnsignedInt': Cannot convert 'wrongUnsignedIntValue' to an unsignedInteger. Number format error. Injected parameter is ignored.",
+          ErrorLevel.ERROR, new Textmarker(20, 2, filename)));
+      messages.add(new FileContentMessage(
+          "Injected parameter 'testDateTime': Cannot convert 'wrongDateTimeValue' to a dateTime. Illegal dateTime value. Injected parameter is ignored.",
+          ErrorLevel.ERROR, new Textmarker(20, 2, filename)));
+      messages.add(new FileContentMessage(
+          "Injected parameter 'testUnsignedShort': Cannot convert 'wrongUnsingedShortValue' to an unsignedShort. Number format error. Injected parameter is ignored.",
+          ErrorLevel.ERROR, new Textmarker(20, 2, filename)));
+      messages.add(new FileContentMessage(
+          "Injected parameter 'testDouble': Cannot convert 'wrongDoubleValue' to a double. Number format error. Injected parameter is ignored.",
+          ErrorLevel.ERROR, new Textmarker(20, 2, filename)));
+      messages.add(new FileContentMessage(
+          "Injected parameter 'testBoolean': Cannot convert 'wrongBoolean' to a boolean. Illegal boolean value. Injected parameter is ignored.",
+          ErrorLevel.ERROR, new Textmarker(20, 2, filename)));
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
-    } catch (ScenarioLoaderException e) {
+    }
+    catch (ScenarioLoaderException e)
+    {
       Assertions.fail();
     }
   }
 
   @Test
-  public void testNotDefined() {
+  public void testNotDefined()
+  {
     Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("notDefined", "wrongBoolean");
 
-    try {
+    try
+    {
       String filename = getResourceFile("DoubleLaneChangerInjectedParams.xosc").getAbsolutePath();
       executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
-      List<FileContentMessage> messages = new ArrayList<>();
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
-              ErrorLevel.WARNING,
-              new Textmarker(20, 2, filename)));
+      List<IErrorMessage> messages = new ArrayList<>();
+      messages.add(new FileContentMessage(
+          "Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
+          ErrorLevel.WARNING, new Textmarker(20, 2, filename)));
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
-    } catch (ScenarioLoaderException e) {
+    }
+    catch (ScenarioLoaderException e)
+    {
       Assertions.fail();
     }
   }
 
   @Test
-  public void testNotDefinedWithNoGlobalParameters() {
+  public void testNotDefinedWithNoGlobalParameters()
+  {
     Hashtable<String, String> injectedParamters = new Hashtable<>();
     injectedParamters.put("notDefined", "wrongBoolean");
 
-    try {
+    try
+    {
       String filename = getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath();
       executeParsing(filename, injectedParamters).getAdapter(IOpenScenario.class);
-      List<FileContentMessage> messages = new ArrayList<>();
-      messages.add(
-          new FileContentMessage(
-              "Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
-              ErrorLevel.WARNING,
-              new Textmarker(21, 2, filename)));
+      List<IErrorMessage> messages = new ArrayList<>();
+      messages.add(new FileContentMessage(
+          "Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
+          ErrorLevel.WARNING, new Textmarker(21, 2, filename)));
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
-    } catch (ScenarioLoaderException e) {
+    }
+    catch (ScenarioLoaderException e)
+    {
       Assertions.fail();
     }
   }
+
   /**
    * @param event
    * @return
    */
-  private ILaneChangeAction getLaneChangeAction(IEvent event) {
+  private ILaneChangeAction getLaneChangeAction(IEvent event)
+  {
     return event.getActions().get(0).getPrivateAction().getLateralAction().getLaneChangeAction();
   }
 
@@ -229,20 +208,9 @@ public class TestInjectedParameters extends TestBase {
    * @param openScenario
    * @return
    */
-  private IEvent getEvent(IOpenScenario openScenario) {
-    return openScenario
-        .getOpenScenarioCategory()
-        .getScenarioDefinition()
-        .getStoryboard()
-        .getStories()
-        .get(0)
-        .getActs()
-        .get(0)
-        .getManeuverGroups()
-        .get(0)
-        .getManeuvers()
-        .get(0)
-        .getEvents()
-        .get(0);
+  private IEvent getEvent(IOpenScenario openScenario)
+  {
+    return openScenario.getOpenScenarioCategory().getScenarioDefinition().getStoryboard().getStories().get(0).getActs().get(0)
+        .getManeuverGroups().get(0).getManeuvers().get(0).getEvents().get(0);
   }
 }

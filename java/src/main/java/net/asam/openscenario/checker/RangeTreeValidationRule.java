@@ -18,23 +18,30 @@
 package net.asam.openscenario.checker;
 
 import net.asam.openscenario.api.IOpenScenarioModelElement;
-import net.asam.openscenario.common.FileContentMessage;
-import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ErrorLevel;
+import net.asam.openscenario.common.IErrorMessage;
+import net.asam.openscenario.common.TreeContentMessage;
 
 /**
- * This represents a rule that can be applied to any model object instance. It implements the
- * command pattern. The rule is added to the type and applyRule is executed during runtime for every
- * instance of a specific type.
+ * An abstract implementation of ICheckerRule to check ranges of object's
+ * properties.
  *
  * @author Andreas Hege - RA Consulting
- * @param <T> An object type that is validated
+ * @param <T> the OpenSCENARIO model element type.
  */
-public interface ICheckerRule<T extends IOpenScenarioModelElement> {
-  /**
-   * Applies validation to a specific type.
-   *
-   * @param messageLogger logger to pick up the violations
-   * @param object the object to validate
-   */
-  public void applyRule(IParserMessageLogger messageLogger, T object);
- }
+public abstract class RangeTreeValidationRule<T extends IOpenScenarioModelElement> extends RangeRule
+    implements ITreeValidationRule<T>
+{
+
+  /** Constructor */
+  public RangeTreeValidationRule()
+  {
+  }
+
+  @Override
+  protected IErrorMessage createMessage(IOpenScenarioModelElement object, String message, String attributeKey)
+  {
+    return new TreeContentMessage(ErrorLevel.ERROR, object, message);
+  }
+
+}

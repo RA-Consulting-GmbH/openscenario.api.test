@@ -14,16 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package net.asam.openscenario.common;
 
+import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
- * A message with a error level
+ * A context that includes a tree object
  *
  * @author Andreas Hege - RA Consulting
  */
-public interface IErrorMessage extends Comparable<IErrorMessage>
+public interface ITreeContext
 {
-  public ErrorLevel getErrorLevel();
-  public String getMessage();
+  public IOpenScenarioModelElement getTreeContext();
 }

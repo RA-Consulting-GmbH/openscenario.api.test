@@ -33,6 +33,7 @@ import java.util.regex.Pattern;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.SimpleMessageLogger;
 import net.asam.openscenario.common.Textmarker;
@@ -114,8 +115,8 @@ public class OpenScenarioCheckerCommon {
     
     if (new File(inputFileName).exists()) {
       System.out.println("Checking '" + inputFileName + "'");
-      SimpleMessageLogger<FileContentMessage> catalogMessageLogger = new SimpleMessageLogger<>(logLevel);
-      SimpleMessageLogger<FileContentMessage> messageLogger = new SimpleMessageLogger<>(logLevel);
+      SimpleMessageLogger catalogMessageLogger = new SimpleMessageLogger(logLevel);
+      SimpleMessageLogger messageLogger = new SimpleMessageLogger(logLevel);
 
       try {
         OpenScenarioImpl executeImportParsing =
@@ -126,9 +127,9 @@ public class OpenScenarioCheckerCommon {
           checker.checkScenario(messageLogger, executeImportParsing);
         }
 
-        for (FileContentMessage message :
-            messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(logLevel)) {
-          Textmarker textmarker = message.getTextmarker();
+        for (IErrorMessage message :
+             messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(logLevel)) {
+          Textmarker textmarker = ((FileContentMessage)message).getTextmarker();
           System.out.println(
               message.getErrorLevel().toString()
                   + ": "
@@ -139,7 +140,7 @@ public class OpenScenarioCheckerCommon {
                   + textmarker.getColumn()
                   + ")");
         }
-        List<FileContentMessage> warningMessages =
+        List<IErrorMessage> warningMessages =
             messageLogger.getMessagesFilteredByErrorLevel(ErrorLevel.WARNING);
 
         if (messageLogger
@@ -153,7 +154,7 @@ public class OpenScenarioCheckerCommon {
           }
 
         } else {
-          List<FileContentMessage> errorMessages =
+          List<IErrorMessage> errorMessages =
               messageLogger.getMessagesFilteredByErrorLevel(ErrorLevel.ERROR);
           System.out.println(
               "Validation failed with "
@@ -167,13 +168,13 @@ public class OpenScenarioCheckerCommon {
        
         System.out.println("");
 
-        List<FileContentMessage> catalogMessages =
+        List<IErrorMessage> catalogMessages =
             catalogMessageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR);
         if (!catalogMessages.isEmpty()) {
           System.out.println("Info from catalog referencing");
           System.out.println("=============================");
-          for (FileContentMessage message : catalogMessages) {
-            Textmarker textmarker = message.getTextmarker();
+          for (IErrorMessage message : catalogMessages) {
+            Textmarker textmarker = ((FileContentMessage)message).getTextmarker();
 
             {
               System.out.println(

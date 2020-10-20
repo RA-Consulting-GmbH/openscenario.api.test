@@ -31,7 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.SimpleMessageLogger;
 import net.asam.openscenario.loader.FileResourceLocator;
@@ -44,7 +44,7 @@ import net.asam.openscenario.v1_0.loader.XmlScenarioLoaderFactory;
 
 public class TestBase {
 
-  protected SimpleMessageLogger<FileContentMessage> messageLogger;
+  protected SimpleMessageLogger messageLogger;
 
   protected ByteArrayOutputStream testOut = new ByteArrayOutputStream();
   protected PrintStream stdout;
@@ -65,7 +65,7 @@ public class TestBase {
   }
 
   public OpenScenarioImpl executeImportParsing(
-      String filename, IParserMessageLogger<FileContentMessage> catalogMessageLogger) throws ScenarioLoaderException {
+      String filename, IParserMessageLogger catalogMessageLogger) throws ScenarioLoaderException {
 
     IScenarioLoaderFactory loaderFactory =
         new XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
@@ -76,7 +76,7 @@ public class TestBase {
 
   @BeforeEach
   public void init() {
-    this.messageLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
+    this.messageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
     this.stdout = System.out;
     PrintStream printStream = new PrintStream(this.testOut);
     System.setOut(printStream);
@@ -97,19 +97,19 @@ public class TestBase {
   }
 
   protected boolean assertMessages(
-    List<FileContentMessage> messages, ErrorLevel errorLevel, IParserMessageLogger logger) {
-    List<FileContentMessage> filterByErrorLevelMessages = filterByErrorLevel(messages, errorLevel);
-    List<FileContentMessage> filterByErrorLevelLogger = logger.getMessagesFilteredByErrorLevel(errorLevel);
+    List<IErrorMessage> messages, ErrorLevel errorLevel, IParserMessageLogger logger) {
+    List<IErrorMessage> filterByErrorLevelMessages = filterByErrorLevel(messages, errorLevel);
+    List<IErrorMessage> filterByErrorLevelLogger = logger.getMessagesFilteredByErrorLevel(errorLevel);
     Collections.sort(filterByErrorLevelLogger);
     boolean result = filterByErrorLevelMessages.equals(filterByErrorLevelLogger)
         && filterByErrorLevelMessages.size() == filterByErrorLevelLogger.size();
     return result;
   }
 
-  protected List<FileContentMessage> filterByErrorLevel(
-      List<FileContentMessage> messages, ErrorLevel errorLevel) {
-    List<FileContentMessage> result = new ArrayList<>();
-    for (FileContentMessage message : messages) {
+  protected List<IErrorMessage> filterByErrorLevel(
+      List<IErrorMessage> messages, ErrorLevel errorLevel) {
+    List<IErrorMessage> result = new ArrayList<>();
+    for (IErrorMessage message : messages) {
       if (errorLevel == message.getErrorLevel()) {
         result.add(message);
       }

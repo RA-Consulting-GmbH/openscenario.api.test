@@ -17,44 +17,46 @@
 
 package net.asam.openscenario.common;
 
+import net.asam.openscenario.api.IOpenScenarioModelElement;
+
 /**
- * A message that consists of the message itself and some meta information like the error level and
- * a textmarker that enables the user to trace the message back to a file location.
+ * A message that consists of an error context and an error level
  *
  * @author Andreas Hege - RA Consulting
  */
-public class FileContentMessage implements IErrorMessage {
-  private Textmarker textmarker;
-  private String message;
+public class TreeContentMessage implements IErrorMessage {
   private ErrorLevel errorLevel;
+  private IOpenScenarioModelElement treeContext;
+  private String message;
 
   /**
    * Constructor;
    *
-   * @param message the message text
    * @param errorLevel the error level of the message
-   * @param textmarker the text marker that enables the user to trace the message back to a file
    *     location.
+   * @param treeContext the tree object that is related to the message
+   * @param message the error message 
    */
-  public FileContentMessage(String message, ErrorLevel errorLevel, Textmarker textmarker) {
+  public TreeContentMessage(ErrorLevel errorLevel, IOpenScenarioModelElement treeContext, String message) {
     super();
-    this.message = message;
+    this.treeContext = treeContext;
     this.errorLevel = errorLevel;
-    this.textmarker = textmarker;
+    this.message = message;
+
   }
 
   /**
-   * The text marker that enables the user to trace the message back to a file location
-   *
-   * @return the text marker
+   * The tree object that is related to the message
+   * @return the treeContext
    */
-  public Textmarker getTextmarker() {
-    return this.textmarker;
+  public IOpenScenarioModelElement getTreeContext()
+  {
+    return this.treeContext;
   }
-
   
   @Override
-  public String getMessage() {
+  public String getMessage()
+  {
     return this.message;
   }
 
@@ -62,7 +64,7 @@ public class FileContentMessage implements IErrorMessage {
   public ErrorLevel getErrorLevel() {
     return this.errorLevel;
   }
-
+  
   @Override
   public boolean equals(Object obj) {
     if (obj instanceof FileContentMessage) {
@@ -80,17 +82,15 @@ public class FileContentMessage implements IErrorMessage {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
     return "Message: '"
         + this.message
         + "'"
         + " ErrorLevel: "
         + this.errorLevel.toString()
         + " Textmarker: '"
-        + this.textmarker.toString()
+        + this.treeContext.toString()
         + "'";
   }
-
   @Override
   public int compareTo(IErrorMessage o) {
     return this.toString().compareTo(o.toString());

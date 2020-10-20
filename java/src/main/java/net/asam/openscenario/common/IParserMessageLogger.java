@@ -23,23 +23,22 @@ import java.util.List;
  * An interface that logs a single message or a list of messages to a log target.
  *
  * @author Andreas Hege - RA Consulting
- * @param <T> 
  */
-public interface IParserMessageLogger<T extends IErrorMessage> {
+public interface IParserMessageLogger {
 
   /**
    * Logging a single message to a log target.
    *
    * @param message the message to log.
    */
-  public void logMessage(T message);
+  public void logMessage(IErrorMessage message);
 
   /**
    * Logging a list of messages to a log target.
    *
    * @param messages the list of messages.
    */
-  public void logAllMessages(List<T> messages);
+  public void logAllMessages(List<IErrorMessage> messages);
 
   /**
    * The message that have been picked up filtered by a specific error level.
@@ -47,7 +46,7 @@ public interface IParserMessageLogger<T extends IErrorMessage> {
    * @param errorLevel the error level to filter the messages.
    * @return the filtered messages
    */
-  public List<T> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel);
+  public List<IErrorMessage> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel);
 
   /**
    * The message that have been picked up filtered by a specific error level.
@@ -55,6 +54,6 @@ public interface IParserMessageLogger<T extends IErrorMessage> {
    * @param errorLevel the error level to filter for worse or equal.
    * @return the filtered messages
    */
-  public List<T> getMessagesFilteredByWorseOrEqualToErrorLevel(
+  public List<IErrorMessage> getMessagesFilteredByWorseOrEqualToErrorLevel(
       ErrorLevel errorLevel);
 }

@@ -18,8 +18,8 @@
 package net.asam.openscenario.checker;
 
 import net.asam.openscenario.api.IOpenScenarioModelElement;
-import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.TreeContentMessage;
 
 /**
  * This represents a rule that can be applied to any model object instance. It implements the
@@ -29,12 +29,12 @@ import net.asam.openscenario.common.IParserMessageLogger;
  * @author Andreas Hege - RA Consulting
  * @param <T> An object type that is validated
  */
-public interface ICheckerRule<T extends IOpenScenarioModelElement> {
+public interface ITreeValidationRule<T extends IOpenScenarioModelElement> {
   /**
    * Applies validation to a specific type.
    *
    * @param messageLogger logger to pick up the violations
    * @param object the object to validate
    */
-  public void applyRule(IParserMessageLogger messageLogger, T object);
- }
+  public void applyTreeValidationRule(IParserMessageLogger messageLogger, T object);
+}

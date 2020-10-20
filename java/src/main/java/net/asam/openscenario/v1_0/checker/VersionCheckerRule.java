@@ -19,11 +19,13 @@
 package net.asam.openscenario.v1_0.checker;
 
 import net.asam.openscenario.checker.ICheckerRule;
+import net.asam.openscenario.checker.ITreeValidationRule;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.v1_0.api.IFileHeader;
 
 /**
@@ -31,7 +33,7 @@ import net.asam.openscenario.v1_0.api.IFileHeader;
  *
  * @author Andreas Hege - RA Consulting
  */
-public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
+public class VersionCheckerRule implements ICheckerRule<IFileHeader>,ITreeValidationRule<IFileHeader> {
   private int majorRev;
   private int minorRev;
 
@@ -47,12 +49,7 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
 
   @Override
   public void applyRule(IParserMessageLogger messageLogger, IFileHeader object) {
-    Integer revMajor = object.getRevMajor();
-    Integer revMinor = object.getRevMinor();
-    if (revMajor == null
-        || revMinor == null
-        || revMajor.intValue() != this.majorRev
-        || revMinor.intValue() != this.minorRev) {
+    if (!validateVersions(object)) {
       ILocator locator = (ILocator) object.getAdapter(ILocator.class);
       Textmarker textmarker = null;
 
@@ -61,12 +58,40 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
       }
       messageLogger.logMessage(
           new FileContentMessage(
-              "Major revision and minor revision are expected to be "
-                  + this.majorRev
-                  + " and "
-                  + this.minorRev,
+              getMessage(),
               ErrorLevel.WARNING,
               textmarker));
     }
   }
+
+  /**
+   * @return
+   */
+  private String getMessage()
+  {
+    return "Major revision and minor revision are expected to be "
+        + this.majorRev
+        + " and "
+        + this.minorRev;
+  }
+  private boolean validateVersions(IFileHeader object)
+  {
+    Integer revMajor = object.getRevMajor();
+    Integer revMinor = object.getRevMinor();
+    return revMajor != null
+        && revMinor != null
+        && revMajor.intValue() == this.majorRev
+        && revMinor.intValue() == this.minorRev;
+  }
+
+  @Override
+  public void applyTreeValidationRule(IParserMessageLogger messageLogger, IFileHeader object)
+  {
+    if (!validateVersions(object)) {
+      messageLogger.logMessage(new TreeContentMessage(ErrorLevel.WARNING,object, getMessage()));
+    }
+    
+  }
+
+  
 }

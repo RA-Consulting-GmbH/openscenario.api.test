@@ -25,6 +25,7 @@ import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
@@ -45,7 +46,7 @@ public class TestVersionChecker extends TestBase {
       String filename = getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath();
       IOpenScenario openScenario = executeParsing(filename);
       applyCheckerRules(openScenario, 0, 9);
-      List<FileContentMessage> messages = new ArrayList<>();
+      List<IErrorMessage> messages = new ArrayList<>();
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
       applyCheckerRules(openScenario, 1, 0);
       messages.add(

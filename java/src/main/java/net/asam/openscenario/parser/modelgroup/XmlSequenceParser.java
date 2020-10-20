@@ -26,6 +26,7 @@ import org.w3c.dom.Element;
 
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.Textmarker;
 import net.asam.openscenario.impl.BaseImpl;
@@ -128,7 +129,7 @@ public abstract class XmlSequenceParser<T extends BaseImpl> extends XmlModelGrou
    * @return the next index if found or -1 if a parser for such a element cannot be found.
    */
   private int getNextIndex(int currentIndex, String tagName, Position startPosition) {
-    List<FileContentMessage> localMessages = new ArrayList<>();
+    List<IErrorMessage> localMessages = new ArrayList<>();
 
     int result = NOT_FOUND;
     // Increment the list index until the element fits

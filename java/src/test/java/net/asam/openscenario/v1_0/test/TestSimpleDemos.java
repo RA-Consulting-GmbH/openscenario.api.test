@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.common.ErrorLevel;
-import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.SimpleMessageLogger;
 import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
@@ -75,10 +75,10 @@ public class TestSimpleDemos extends TestBase {
   public void testImportDemo() throws ScenarioLoaderException {
 
     // Creating a message Logger to pick up the messages
-    SimpleMessageLogger<FileContentMessage> messageLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
+    SimpleMessageLogger messageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
     // create another messageLogger for logging the messages that occur from imported files
-    SimpleMessageLogger<FileContentMessage> catalogMessageLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
+    SimpleMessageLogger catalogMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
     // Instantiating the factory
     IScenarioLoaderFactory loaderFactory =
@@ -148,13 +148,13 @@ public class TestSimpleDemos extends TestBase {
       scenarioChecker.addFileHeaderCheckerRule(new VersionCheckerRule(1, 0));
 
       // Create a message logger to pick up the messages
-      SimpleMessageLogger<FileContentMessage> simpleMessageLogger = new SimpleMessageLogger<FileContentMessage>(ErrorLevel.INFO);
+      SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
       // Now call the checkScenario method to check the tree
       scenarioChecker.checkScenario(simpleMessageLogger, openScenario);
 
       // Now check the picked up messages
-      for (FileContentMessage message : simpleMessageLogger.getMessages()) {
+      for (IErrorMessage message : simpleMessageLogger.getMessages()) {
         // do somethong with the messaged that are picked up during the check
       }
 
@@ -180,13 +180,13 @@ public class TestSimpleDemos extends TestBase {
       scenarioChecker.addEntitiesCheckerRule(new EgoCheckerRule());
 
       // Create a message logger to pick up the messages
-      SimpleMessageLogger<FileContentMessage> simpleMessageLogger = new SimpleMessageLogger<FileContentMessage>(ErrorLevel.INFO);
+      SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
       // Now call the checkScenario method to check the tree
       scenarioChecker.checkScenario(simpleMessageLogger, openScenario);
 
       // Now check the picked up messages
-      for (FileContentMessage message : simpleMessageLogger.getMessages()) {
+      for (IErrorMessage message : simpleMessageLogger.getMessages()) {
         // do somethong with the messaged that are picked up during the check
       }
 

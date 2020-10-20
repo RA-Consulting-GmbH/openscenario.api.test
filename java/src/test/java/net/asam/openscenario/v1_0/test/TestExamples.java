@@ -24,6 +24,7 @@ import org.junit.jupiter.api.Test;
 import net.asam.openscenario.checker.ICheckerRule;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
+import net.asam.openscenario.common.IErrorMessage;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.SimpleMessageLogger;
@@ -95,7 +96,7 @@ public class TestExamples extends TestBase {
       // Browse through catalog locations
       ICatalogLocations catalogLocations = scenarioDefinition.getCatalogLocations();
     }
-    SimpleMessageLogger<FileContentMessage> checkerRuleLogger = new SimpleMessageLogger<>(ErrorLevel.INFO);
+    SimpleMessageLogger checkerRuleLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
     // Using the adapter interface to get the checker
     IScenarioChecker scenarioChecker =
@@ -131,7 +132,7 @@ public class TestExamples extends TestBase {
     scenarioChecker.checkScenario(checkerRuleLogger, openScenario);
 
     // Iterate through violations
-    for (FileContentMessage message : checkerRuleLogger.getMessages()) {
+    for (IErrorMessage message : checkerRuleLogger.getMessages()) {
       // e.g. display the error
       System.out.println(message.getMessage());
     }
