@@ -26,37 +26,59 @@ import org.junit.jupiter.api.Test;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.common.TreeMessageLogger;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
 import net.asam.openscenario.v1_0.checker.VersionCheckerRule;
 import net.asam.openscenario.v1_0.checker.impl.ScenarioCheckerImpl;
 
-public class TestVersionChecker extends TestBase {
+public class TestVersionChecker extends TestBase
+{
 
-  private void applyCheckerRules(IOpenScenario openScenario, int majorRev, int minorRev) {
+  private void applyCheckerRulesFileContext(IOpenScenario openScenario, int majorRev, int minorRev)
+  {
     ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
     scenarioChecker.addFileHeaderCheckerRule(new VersionCheckerRule(majorRev, minorRev));
     scenarioChecker.checkScenarioInFileContext(this.messageLogger, openScenario);
   }
-
+  private void applyCheckerRulesTreeContext(IOpenScenario openScenario, int majorRev, int minorRev, TreeMessageLogger messageLogger)
+  {
+    ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
+    scenarioChecker.addFileHeaderCheckerRule(new VersionCheckerRule(majorRev, minorRev));
+    scenarioChecker.checkScenarioInTreeContext(messageLogger, openScenario);
+  }
   @Test
-  public void testSuccess() {
-    try {
+  public void testSuccess()
+  {
+    try
+    {
       String filename = getResourceFile("DoubleLaneChanger.xosc").getAbsolutePath();
       IOpenScenario openScenario = executeParsing(filename);
-      applyCheckerRules(openScenario, 0, 9);
+      TreeMessageLogger treeMessageLogger = new TreeMessageLogger(ErrorLevel.WARNING);
+      // File Context
+      applyCheckerRulesFileContext(openScenario, 0, 9);
       List<FileContentMessage> messages = new ArrayList<>();
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
-      applyCheckerRules(openScenario, 1, 0);
-      messages.add(
-          new FileContentMessage(
-              "Major revision and minor revision are expected to be 1 and 0",
-              ErrorLevel.WARNING,
-              new Textmarker(20, 2, filename)));
+      
+      // Tree Context
+      applyCheckerRulesTreeContext(openScenario, 0, 9, treeMessageLogger);
+      Assertions.assertEquals(0, treeMessageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).size());
+      
+      
+      // File Context
+      applyCheckerRulesFileContext(openScenario, 1, 0);
+      messages.add(new FileContentMessage("Major revision and minor revision are expected to be 1 and 0", ErrorLevel.WARNING,
+          new Textmarker(20, 2, filename)));
 
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.WARNING, this.messageLogger));
-
-    } catch (ScenarioLoaderException e) {
+      // Tree Context
+      treeMessageLogger = new TreeMessageLogger(ErrorLevel.WARNING);
+      applyCheckerRulesTreeContext(openScenario, 1, 0, treeMessageLogger);
+      Assertions.assertEquals(this.messageLogger.getMessagesFilteredByErrorLevel(ErrorLevel.WARNING).get(0).getMessage(),
+          treeMessageLogger.getMessagesFilteredByErrorLevel(ErrorLevel.WARNING).get(0).getMessage());
+    }
+    catch (ScenarioLoaderException e)
+    {
       Assertions.fail();
     }
   }
