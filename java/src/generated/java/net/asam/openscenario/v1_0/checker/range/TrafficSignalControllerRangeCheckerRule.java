@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ITrafficSignalController;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -38,17 +39,41 @@ public class TrafficSignalControllerRangeCheckerRule
   @Override
   public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, ITrafficSignalController object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, ITrafficSignalController object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ITrafficSignalController object) {
     Double delay = object.getDelay();
     if (delay != null) {
       if (!(delay >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__DELAY,
-            object.getDelay().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__DELAY);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__DELAY,
+              object.getDelay().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DELAY);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__DELAY,
+              object.getDelay().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DELAY);
+        }
       }
     }
   }

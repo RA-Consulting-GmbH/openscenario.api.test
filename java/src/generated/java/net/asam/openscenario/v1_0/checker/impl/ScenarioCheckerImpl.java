@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import net.asam.openscenario.checker.ICheckerRule;
+import net.asam.openscenario.common.IContentMessageLogger;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IAbsoluteSpeed;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLane;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
@@ -217,11 +219,19 @@ import net.asam.openscenario.v1_0.checker.IScenarioChecker;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ScenarioCheckerImpl implements IScenarioChecker {
+
   private Hashtable<Class<?>, List<ICheckerRule<?>>> typeToCheckerRuleList = new Hashtable<>();
 
   @Override
-  public void checkScenario(IParserMessageLogger messageLogger, IOpenScenario openScenario) {
-    applyOpenScenarioCheckerRules(messageLogger, openScenario);
+  public void checkScenarioInFileContext(
+      IParserMessageLogger messageLogger, IOpenScenario openScenario) {
+    applyOpenScenarioCheckerRules(messageLogger, openScenario, ContextMode.MODE_FILE);
+  }
+
+  @Override
+  public void checkScenarioInTreeContext(
+      ITreeMessageLogger messageLogger, IOpenScenario openScenario) {
+    applyOpenScenarioCheckerRules(messageLogger, openScenario, ContextMode.MODE_TREE);
   }
 
   @Override
@@ -2268,21 +2278,25 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
   }
 
   private void applyAbsoluteSpeedCheckerRules(
-      IParserMessageLogger messageLogger, IAbsoluteSpeed object) {
+      IContentMessageLogger<?> messageLogger, IAbsoluteSpeed object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAbsoluteSpeed.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteSpeed> typedCheckerRule = (ICheckerRule<IAbsoluteSpeed>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyAbsoluteTargetLaneCheckerRules(
-      IParserMessageLogger messageLogger, IAbsoluteTargetLane object) {
+      IContentMessageLogger<?> messageLogger, IAbsoluteTargetLane object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAbsoluteTargetLane.class);
     if (checkerRulesForType != null) {
@@ -2290,14 +2304,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetLane> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetLane>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyAbsoluteTargetLaneOffsetCheckerRules(
-      IParserMessageLogger messageLogger, IAbsoluteTargetLaneOffset object) {
+      IContentMessageLogger<?> messageLogger,
+      IAbsoluteTargetLaneOffset object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAbsoluteTargetLaneOffset.class);
     if (checkerRulesForType != null) {
@@ -2305,14 +2325,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetLaneOffset> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetLaneOffset>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyAbsoluteTargetSpeedCheckerRules(
-      IParserMessageLogger messageLogger, IAbsoluteTargetSpeed object) {
+      IContentMessageLogger<?> messageLogger,
+      IAbsoluteTargetSpeed object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAbsoluteTargetSpeed.class);
     if (checkerRulesForType != null) {
@@ -2320,14 +2346,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetSpeed> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetSpeed>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyAccelerationConditionCheckerRules(
-      IParserMessageLogger messageLogger, IAccelerationCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      IAccelerationCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAccelerationCondition.class);
     if (checkerRulesForType != null) {
@@ -2335,14 +2367,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAccelerationCondition> typedCheckerRule =
             (ICheckerRule<IAccelerationCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyAcquirePositionActionCheckerRules(
-      IParserMessageLogger messageLogger, IAcquirePositionAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IAcquirePositionAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAcquirePositionAction.class);
     if (checkerRulesForType != null) {
@@ -2350,68 +2388,84 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAcquirePositionAction> typedCheckerRule =
             (ICheckerRule<IAcquirePositionAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
-  private void applyActCheckerRules(IParserMessageLogger messageLogger, IAct object) {
+  private void applyActCheckerRules(
+      IContentMessageLogger<?> messageLogger, IAct object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAct.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAct> typedCheckerRule = (ICheckerRule<IAct>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IManeuverGroup> maneuverGroups = object.getManeuverGroups();
     if (maneuverGroups != null) {
       for (IManeuverGroup listItem : maneuverGroups) {
-        applyManeuverGroupCheckerRules(messageLogger, listItem);
+        applyManeuverGroupCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     ITrigger startTrigger = object.getStartTrigger();
     if (startTrigger != null) {
-      applyTriggerCheckerRules(messageLogger, startTrigger);
+      applyTriggerCheckerRules(messageLogger, startTrigger, contextMode);
     }
     ITrigger stopTrigger = object.getStopTrigger();
     if (stopTrigger != null) {
-      applyTriggerCheckerRules(messageLogger, stopTrigger);
+      applyTriggerCheckerRules(messageLogger, stopTrigger, contextMode);
     }
   }
 
-  private void applyActionCheckerRules(IParserMessageLogger messageLogger, IAction object) {
+  private void applyActionCheckerRules(
+      IContentMessageLogger<?> messageLogger, IAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAction> typedCheckerRule = (ICheckerRule<IAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IGlobalAction globalAction = object.getGlobalAction();
     if (globalAction != null) {
-      applyGlobalActionCheckerRules(messageLogger, globalAction);
+      applyGlobalActionCheckerRules(messageLogger, globalAction, contextMode);
     }
     IUserDefinedAction userDefinedAction = object.getUserDefinedAction();
     if (userDefinedAction != null) {
-      applyUserDefinedActionCheckerRules(messageLogger, userDefinedAction);
+      applyUserDefinedActionCheckerRules(messageLogger, userDefinedAction, contextMode);
     }
     IPrivateAction privateAction = object.getPrivateAction();
     if (privateAction != null) {
-      applyPrivateActionCheckerRules(messageLogger, privateAction);
+      applyPrivateActionCheckerRules(messageLogger, privateAction, contextMode);
     }
   }
 
   private void applyActivateControllerActionCheckerRules(
-      IParserMessageLogger messageLogger, IActivateControllerAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IActivateControllerAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IActivateControllerAction.class);
     if (checkerRulesForType != null) {
@@ -2419,32 +2473,41 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IActivateControllerAction> typedCheckerRule =
             (ICheckerRule<IActivateControllerAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyActorsCheckerRules(IParserMessageLogger messageLogger, IActors object) {
+  private void applyActorsCheckerRules(
+      IContentMessageLogger<?> messageLogger, IActors object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IActors.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IActors> typedCheckerRule = (ICheckerRule<IActors>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IEntityRef> entityRefs = object.getEntityRefs();
     if (entityRefs != null) {
       for (IEntityRef listItem : entityRefs) {
-        applyEntityRefCheckerRules(messageLogger, listItem);
+        applyEntityRefCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyAddEntityActionCheckerRules(
-      IParserMessageLogger messageLogger, IAddEntityAction object) {
+      IContentMessageLogger<?> messageLogger, IAddEntityAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAddEntityAction.class);
     if (checkerRulesForType != null) {
@@ -2452,18 +2515,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAddEntityAction> typedCheckerRule =
             (ICheckerRule<IAddEntityAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
   private void applyAssignControllerActionCheckerRules(
-      IParserMessageLogger messageLogger, IAssignControllerAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IAssignControllerAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAssignControllerAction.class);
     if (checkerRulesForType != null) {
@@ -2471,22 +2540,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAssignControllerAction> typedCheckerRule =
             (ICheckerRule<IAssignControllerAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IController controller = object.getController();
     if (controller != null) {
-      applyControllerCheckerRules(messageLogger, controller);
+      applyControllerCheckerRules(messageLogger, controller, contextMode);
     }
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
   }
 
   private void applyAssignRouteActionCheckerRules(
-      IParserMessageLogger messageLogger, IAssignRouteAction object) {
+      IContentMessageLogger<?> messageLogger, IAssignRouteAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IAssignRouteAction.class);
     if (checkerRulesForType != null) {
@@ -2494,81 +2567,99 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAssignRouteAction> typedCheckerRule =
             (ICheckerRule<IAssignRouteAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IRoute route = object.getRoute();
     if (route != null) {
-      applyRouteCheckerRules(messageLogger, route);
+      applyRouteCheckerRules(messageLogger, route, contextMode);
     }
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
   }
 
-  private void applyAxleCheckerRules(IParserMessageLogger messageLogger, IAxle object) {
+  private void applyAxleCheckerRules(
+      IContentMessageLogger<?> messageLogger, IAxle object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAxle.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAxle> typedCheckerRule = (ICheckerRule<IAxle>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyAxlesCheckerRules(IParserMessageLogger messageLogger, IAxles object) {
+  private void applyAxlesCheckerRules(
+      IContentMessageLogger<?> messageLogger, IAxles object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IAxles.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAxles> typedCheckerRule = (ICheckerRule<IAxles>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IAxle frontAxle = object.getFrontAxle();
     if (frontAxle != null) {
-      applyAxleCheckerRules(messageLogger, frontAxle);
+      applyAxleCheckerRules(messageLogger, frontAxle, contextMode);
     }
     IAxle rearAxle = object.getRearAxle();
     if (rearAxle != null) {
-      applyAxleCheckerRules(messageLogger, rearAxle);
+      applyAxleCheckerRules(messageLogger, rearAxle, contextMode);
     }
     List<IAxle> additionalAxles = object.getAdditionalAxles();
     if (additionalAxles != null) {
       for (IAxle listItem : additionalAxles) {
-        applyAxleCheckerRules(messageLogger, listItem);
+        applyAxleCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyBoundingBoxCheckerRules(
-      IParserMessageLogger messageLogger, IBoundingBox object) {
+      IContentMessageLogger<?> messageLogger, IBoundingBox object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IBoundingBox.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IBoundingBox> typedCheckerRule = (ICheckerRule<IBoundingBox>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ICenter center = object.getCenter();
     if (center != null) {
-      applyCenterCheckerRules(messageLogger, center);
+      applyCenterCheckerRules(messageLogger, center, contextMode);
     }
     IDimensions dimensions = object.getDimensions();
     if (dimensions != null) {
-      applyDimensionsCheckerRules(messageLogger, dimensions);
+      applyDimensionsCheckerRules(messageLogger, dimensions, contextMode);
     }
   }
 
   private void applyByEntityConditionCheckerRules(
-      IParserMessageLogger messageLogger, IByEntityCondition object) {
+      IContentMessageLogger<?> messageLogger, IByEntityCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IByEntityCondition.class);
     if (checkerRulesForType != null) {
@@ -2576,47 +2667,60 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByEntityCondition> typedCheckerRule =
             (ICheckerRule<IByEntityCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ITriggeringEntities triggeringEntities = object.getTriggeringEntities();
     if (triggeringEntities != null) {
-      applyTriggeringEntitiesCheckerRules(messageLogger, triggeringEntities);
+      applyTriggeringEntitiesCheckerRules(messageLogger, triggeringEntities, contextMode);
     }
     IEntityCondition entityCondition = object.getEntityCondition();
     if (entityCondition != null) {
-      applyEntityConditionCheckerRules(messageLogger, entityCondition);
+      applyEntityConditionCheckerRules(messageLogger, entityCondition, contextMode);
     }
   }
 
   private void applyByObjectTypeCheckerRules(
-      IParserMessageLogger messageLogger, IByObjectType object) {
+      IContentMessageLogger<?> messageLogger, IByObjectType object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IByObjectType.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByObjectType> typedCheckerRule = (ICheckerRule<IByObjectType>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyByTypeCheckerRules(IParserMessageLogger messageLogger, IByType object) {
+  private void applyByTypeCheckerRules(
+      IContentMessageLogger<?> messageLogger, IByType object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IByType.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByType> typedCheckerRule = (ICheckerRule<IByType>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyByValueConditionCheckerRules(
-      IParserMessageLogger messageLogger, IByValueCondition object) {
+      IContentMessageLogger<?> messageLogger, IByValueCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IByValueCondition.class);
     if (checkerRulesForType != null) {
@@ -2624,106 +2728,116 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByValueCondition> typedCheckerRule =
             (ICheckerRule<IByValueCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IParameterCondition parameterCondition = object.getParameterCondition();
     if (parameterCondition != null) {
-      applyParameterConditionCheckerRules(messageLogger, parameterCondition);
+      applyParameterConditionCheckerRules(messageLogger, parameterCondition, contextMode);
     }
     ITimeOfDayCondition timeOfDayCondition = object.getTimeOfDayCondition();
     if (timeOfDayCondition != null) {
-      applyTimeOfDayConditionCheckerRules(messageLogger, timeOfDayCondition);
+      applyTimeOfDayConditionCheckerRules(messageLogger, timeOfDayCondition, contextMode);
     }
     ISimulationTimeCondition simulationTimeCondition = object.getSimulationTimeCondition();
     if (simulationTimeCondition != null) {
-      applySimulationTimeConditionCheckerRules(messageLogger, simulationTimeCondition);
+      applySimulationTimeConditionCheckerRules(messageLogger, simulationTimeCondition, contextMode);
     }
     IStoryboardElementStateCondition storyboardElementStateCondition =
         object.getStoryboardElementStateCondition();
     if (storyboardElementStateCondition != null) {
       applyStoryboardElementStateConditionCheckerRules(
-          messageLogger, storyboardElementStateCondition);
+          messageLogger, storyboardElementStateCondition, contextMode);
     }
     IUserDefinedValueCondition userDefinedValueCondition = object.getUserDefinedValueCondition();
     if (userDefinedValueCondition != null) {
-      applyUserDefinedValueConditionCheckerRules(messageLogger, userDefinedValueCondition);
+      applyUserDefinedValueConditionCheckerRules(
+          messageLogger, userDefinedValueCondition, contextMode);
     }
     ITrafficSignalCondition trafficSignalCondition = object.getTrafficSignalCondition();
     if (trafficSignalCondition != null) {
-      applyTrafficSignalConditionCheckerRules(messageLogger, trafficSignalCondition);
+      applyTrafficSignalConditionCheckerRules(messageLogger, trafficSignalCondition, contextMode);
     }
     ITrafficSignalControllerCondition trafficSignalControllerCondition =
         object.getTrafficSignalControllerCondition();
     if (trafficSignalControllerCondition != null) {
       applyTrafficSignalControllerConditionCheckerRules(
-          messageLogger, trafficSignalControllerCondition);
+          messageLogger, trafficSignalControllerCondition, contextMode);
     }
   }
 
-  private void applyCatalogCheckerRules(IParserMessageLogger messageLogger, ICatalog object) {
+  private void applyCatalogCheckerRules(
+      IContentMessageLogger<?> messageLogger, ICatalog object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICatalog.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalog> typedCheckerRule = (ICheckerRule<ICatalog>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IVehicle> vehicles = object.getVehicles();
     if (vehicles != null) {
       for (IVehicle listItem : vehicles) {
-        applyVehicleCheckerRules(messageLogger, listItem);
+        applyVehicleCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IController> controllers = object.getControllers();
     if (controllers != null) {
       for (IController listItem : controllers) {
-        applyControllerCheckerRules(messageLogger, listItem);
+        applyControllerCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IPedestrian> pedestrians = object.getPedestrians();
     if (pedestrians != null) {
       for (IPedestrian listItem : pedestrians) {
-        applyPedestrianCheckerRules(messageLogger, listItem);
+        applyPedestrianCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IMiscObject> miscObjects = object.getMiscObjects();
     if (miscObjects != null) {
       for (IMiscObject listItem : miscObjects) {
-        applyMiscObjectCheckerRules(messageLogger, listItem);
+        applyMiscObjectCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IEnvironment> environments = object.getEnvironments();
     if (environments != null) {
       for (IEnvironment listItem : environments) {
-        applyEnvironmentCheckerRules(messageLogger, listItem);
+        applyEnvironmentCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IManeuver> maneuvers = object.getManeuvers();
     if (maneuvers != null) {
       for (IManeuver listItem : maneuvers) {
-        applyManeuverCheckerRules(messageLogger, listItem);
+        applyManeuverCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<ITrajectory> trajectories = object.getTrajectories();
     if (trajectories != null) {
       for (ITrajectory listItem : trajectories) {
-        applyTrajectoryCheckerRules(messageLogger, listItem);
+        applyTrajectoryCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IRoute> routes = object.getRoutes();
     if (routes != null) {
       for (IRoute listItem : routes) {
-        applyRouteCheckerRules(messageLogger, listItem);
+        applyRouteCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyCatalogDefinitionCheckerRules(
-      IParserMessageLogger messageLogger, ICatalogDefinition object) {
+      IContentMessageLogger<?> messageLogger, ICatalogDefinition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ICatalogDefinition.class);
     if (checkerRulesForType != null) {
@@ -2731,18 +2845,22 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogDefinition> typedCheckerRule =
             (ICheckerRule<ICatalogDefinition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ICatalog catalog = object.getCatalog();
     if (catalog != null) {
-      applyCatalogCheckerRules(messageLogger, catalog);
+      applyCatalogCheckerRules(messageLogger, catalog, contextMode);
     }
   }
 
   private void applyCatalogLocationsCheckerRules(
-      IParserMessageLogger messageLogger, ICatalogLocations object) {
+      IContentMessageLogger<?> messageLogger, ICatalogLocations object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ICatalogLocations.class);
     if (checkerRulesForType != null) {
@@ -2750,46 +2868,50 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogLocations> typedCheckerRule =
             (ICheckerRule<ICatalogLocations>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IVehicleCatalogLocation vehicleCatalog = object.getVehicleCatalog();
     if (vehicleCatalog != null) {
-      applyVehicleCatalogLocationCheckerRules(messageLogger, vehicleCatalog);
+      applyVehicleCatalogLocationCheckerRules(messageLogger, vehicleCatalog, contextMode);
     }
     IControllerCatalogLocation controllerCatalog = object.getControllerCatalog();
     if (controllerCatalog != null) {
-      applyControllerCatalogLocationCheckerRules(messageLogger, controllerCatalog);
+      applyControllerCatalogLocationCheckerRules(messageLogger, controllerCatalog, contextMode);
     }
     IPedestrianCatalogLocation pedestrianCatalog = object.getPedestrianCatalog();
     if (pedestrianCatalog != null) {
-      applyPedestrianCatalogLocationCheckerRules(messageLogger, pedestrianCatalog);
+      applyPedestrianCatalogLocationCheckerRules(messageLogger, pedestrianCatalog, contextMode);
     }
     IMiscObjectCatalogLocation miscObjectCatalog = object.getMiscObjectCatalog();
     if (miscObjectCatalog != null) {
-      applyMiscObjectCatalogLocationCheckerRules(messageLogger, miscObjectCatalog);
+      applyMiscObjectCatalogLocationCheckerRules(messageLogger, miscObjectCatalog, contextMode);
     }
     IEnvironmentCatalogLocation environmentCatalog = object.getEnvironmentCatalog();
     if (environmentCatalog != null) {
-      applyEnvironmentCatalogLocationCheckerRules(messageLogger, environmentCatalog);
+      applyEnvironmentCatalogLocationCheckerRules(messageLogger, environmentCatalog, contextMode);
     }
     IManeuverCatalogLocation maneuverCatalog = object.getManeuverCatalog();
     if (maneuverCatalog != null) {
-      applyManeuverCatalogLocationCheckerRules(messageLogger, maneuverCatalog);
+      applyManeuverCatalogLocationCheckerRules(messageLogger, maneuverCatalog, contextMode);
     }
     ITrajectoryCatalogLocation trajectoryCatalog = object.getTrajectoryCatalog();
     if (trajectoryCatalog != null) {
-      applyTrajectoryCatalogLocationCheckerRules(messageLogger, trajectoryCatalog);
+      applyTrajectoryCatalogLocationCheckerRules(messageLogger, trajectoryCatalog, contextMode);
     }
     IRouteCatalogLocation routeCatalog = object.getRouteCatalog();
     if (routeCatalog != null) {
-      applyRouteCatalogLocationCheckerRules(messageLogger, routeCatalog);
+      applyRouteCatalogLocationCheckerRules(messageLogger, routeCatalog, contextMode);
     }
   }
 
   private void applyCatalogReferenceCheckerRules(
-      IParserMessageLogger messageLogger, ICatalogReference object) {
+      IContentMessageLogger<?> messageLogger, ICatalogReference object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ICatalogReference.class);
     if (checkerRulesForType != null) {
@@ -2797,32 +2919,41 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogReference> typedCheckerRule =
             (ICheckerRule<ICatalogReference>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterAssignment> parameterAssignments = object.getParameterAssignments();
     if (parameterAssignments != null) {
       for (IParameterAssignment listItem : parameterAssignments) {
-        applyParameterAssignmentCheckerRules(messageLogger, listItem);
+        applyParameterAssignmentCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyCenterCheckerRules(IParserMessageLogger messageLogger, ICenter object) {
+  private void applyCenterCheckerRules(
+      IContentMessageLogger<?> messageLogger, ICenter object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICenter.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICenter> typedCheckerRule = (ICheckerRule<ICenter>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyCentralSwarmObjectCheckerRules(
-      IParserMessageLogger messageLogger, ICentralSwarmObject object) {
+      IContentMessageLogger<?> messageLogger, ICentralSwarmObject object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ICentralSwarmObject.class);
     if (checkerRulesForType != null) {
@@ -2830,30 +2961,39 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICentralSwarmObject> typedCheckerRule =
             (ICheckerRule<ICentralSwarmObject>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyClothoidCheckerRules(IParserMessageLogger messageLogger, IClothoid object) {
+  private void applyClothoidCheckerRules(
+      IContentMessageLogger<?> messageLogger, IClothoid object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IClothoid.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IClothoid> typedCheckerRule = (ICheckerRule<IClothoid>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
   private void applyCollisionConditionCheckerRules(
-      IParserMessageLogger messageLogger, ICollisionCondition object) {
+      IContentMessageLogger<?> messageLogger, ICollisionCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ICollisionCondition.class);
     if (checkerRulesForType != null) {
@@ -2861,42 +3001,51 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICollisionCondition> typedCheckerRule =
             (ICheckerRule<ICollisionCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IEntityRef entityRef = object.getEntityRef();
     if (entityRef != null) {
-      applyEntityRefCheckerRules(messageLogger, entityRef);
+      applyEntityRefCheckerRules(messageLogger, entityRef, contextMode);
     }
     IByObjectType byType = object.getByType();
     if (byType != null) {
-      applyByObjectTypeCheckerRules(messageLogger, byType);
+      applyByObjectTypeCheckerRules(messageLogger, byType, contextMode);
     }
   }
 
-  private void applyConditionCheckerRules(IParserMessageLogger messageLogger, ICondition object) {
+  private void applyConditionCheckerRules(
+      IContentMessageLogger<?> messageLogger, ICondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ICondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICondition> typedCheckerRule = (ICheckerRule<ICondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IByEntityCondition byEntityCondition = object.getByEntityCondition();
     if (byEntityCondition != null) {
-      applyByEntityConditionCheckerRules(messageLogger, byEntityCondition);
+      applyByEntityConditionCheckerRules(messageLogger, byEntityCondition, contextMode);
     }
     IByValueCondition byValueCondition = object.getByValueCondition();
     if (byValueCondition != null) {
-      applyByValueConditionCheckerRules(messageLogger, byValueCondition);
+      applyByValueConditionCheckerRules(messageLogger, byValueCondition, contextMode);
     }
   }
 
   private void applyConditionGroupCheckerRules(
-      IParserMessageLogger messageLogger, IConditionGroup object) {
+      IContentMessageLogger<?> messageLogger, IConditionGroup object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IConditionGroup.class);
     if (checkerRulesForType != null) {
@@ -2904,59 +3053,72 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IConditionGroup> typedCheckerRule =
             (ICheckerRule<IConditionGroup>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<ICondition> conditions = object.getConditions();
     if (conditions != null) {
       for (ICondition listItem : conditions) {
-        applyConditionCheckerRules(messageLogger, listItem);
+        applyConditionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyControlPointCheckerRules(
-      IParserMessageLogger messageLogger, IControlPoint object) {
+      IContentMessageLogger<?> messageLogger, IControlPoint object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IControlPoint.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControlPoint> typedCheckerRule = (ICheckerRule<IControlPoint>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
-  private void applyControllerCheckerRules(IParserMessageLogger messageLogger, IController object) {
+  private void applyControllerCheckerRules(
+      IContentMessageLogger<?> messageLogger, IController object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IController.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IController> typedCheckerRule = (ICheckerRule<IController>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     IProperties properties = object.getProperties();
     if (properties != null) {
-      applyPropertiesCheckerRules(messageLogger, properties);
+      applyPropertiesCheckerRules(messageLogger, properties, contextMode);
     }
   }
 
   private void applyControllerActionCheckerRules(
-      IParserMessageLogger messageLogger, IControllerAction object) {
+      IContentMessageLogger<?> messageLogger, IControllerAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IControllerAction.class);
     if (checkerRulesForType != null) {
@@ -2964,23 +3126,30 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerAction> typedCheckerRule =
             (ICheckerRule<IControllerAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IAssignControllerAction assignControllerAction = object.getAssignControllerAction();
     if (assignControllerAction != null) {
-      applyAssignControllerActionCheckerRules(messageLogger, assignControllerAction);
+      applyAssignControllerActionCheckerRules(messageLogger, assignControllerAction, contextMode);
     }
     IOverrideControllerValueAction overrideControllerValueAction =
         object.getOverrideControllerValueAction();
     if (overrideControllerValueAction != null) {
-      applyOverrideControllerValueActionCheckerRules(messageLogger, overrideControllerValueAction);
+      applyOverrideControllerValueActionCheckerRules(
+          messageLogger, overrideControllerValueAction, contextMode);
     }
   }
 
   private void applyControllerCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, IControllerCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      IControllerCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IControllerCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -2988,18 +3157,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerCatalogLocation> typedCheckerRule =
             (ICheckerRule<IControllerCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
   private void applyControllerDistributionCheckerRules(
-      IParserMessageLogger messageLogger, IControllerDistribution object) {
+      IContentMessageLogger<?> messageLogger,
+      IControllerDistribution object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IControllerDistribution.class);
     if (checkerRulesForType != null) {
@@ -3007,7 +3182,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerDistribution> typedCheckerRule =
             (ICheckerRule<IControllerDistribution>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
@@ -3015,13 +3194,15 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         object.getControllerDistributionEntries();
     if (controllerDistributionEntries != null) {
       for (IControllerDistributionEntry listItem : controllerDistributionEntries) {
-        applyControllerDistributionEntryCheckerRules(messageLogger, listItem);
+        applyControllerDistributionEntryCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyControllerDistributionEntryCheckerRules(
-      IParserMessageLogger messageLogger, IControllerDistributionEntry object) {
+      IContentMessageLogger<?> messageLogger,
+      IControllerDistributionEntry object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IControllerDistributionEntry.class);
     if (checkerRulesForType != null) {
@@ -3029,22 +3210,28 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerDistributionEntry> typedCheckerRule =
             (ICheckerRule<IControllerDistributionEntry>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IController controller = object.getController();
     if (controller != null) {
-      applyControllerCheckerRules(messageLogger, controller);
+      applyControllerCheckerRules(messageLogger, controller, contextMode);
     }
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
   }
 
   private void applyCustomCommandActionCheckerRules(
-      IParserMessageLogger messageLogger, ICustomCommandAction object) {
+      IContentMessageLogger<?> messageLogger,
+      ICustomCommandAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ICustomCommandAction.class);
     if (checkerRulesForType != null) {
@@ -3052,14 +3239,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICustomCommandAction> typedCheckerRule =
             (ICheckerRule<ICustomCommandAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyDeleteEntityActionCheckerRules(
-      IParserMessageLogger messageLogger, IDeleteEntityAction object) {
+      IContentMessageLogger<?> messageLogger, IDeleteEntityAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IDeleteEntityAction.class);
     if (checkerRulesForType != null) {
@@ -3067,38 +3258,52 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDeleteEntityAction> typedCheckerRule =
             (ICheckerRule<IDeleteEntityAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyDimensionsCheckerRules(IParserMessageLogger messageLogger, IDimensions object) {
+  private void applyDimensionsCheckerRules(
+      IContentMessageLogger<?> messageLogger, IDimensions object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IDimensions.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDimensions> typedCheckerRule = (ICheckerRule<IDimensions>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyDirectoryCheckerRules(IParserMessageLogger messageLogger, IDirectory object) {
+  private void applyDirectoryCheckerRules(
+      IContentMessageLogger<?> messageLogger, IDirectory object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IDirectory.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDirectory> typedCheckerRule = (ICheckerRule<IDirectory>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyDistanceConditionCheckerRules(
-      IParserMessageLogger messageLogger, IDistanceCondition object) {
+      IContentMessageLogger<?> messageLogger, IDistanceCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IDistanceCondition.class);
     if (checkerRulesForType != null) {
@@ -3106,18 +3311,22 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDistanceCondition> typedCheckerRule =
             (ICheckerRule<IDistanceCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
   private void applyDynamicConstraintsCheckerRules(
-      IParserMessageLogger messageLogger, IDynamicConstraints object) {
+      IContentMessageLogger<?> messageLogger, IDynamicConstraints object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IDynamicConstraints.class);
     if (checkerRulesForType != null) {
@@ -3125,14 +3334,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDynamicConstraints> typedCheckerRule =
             (ICheckerRule<IDynamicConstraints>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyEndOfRoadConditionCheckerRules(
-      IParserMessageLogger messageLogger, IEndOfRoadCondition object) {
+      IContentMessageLogger<?> messageLogger, IEndOfRoadCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IEndOfRoadCondition.class);
     if (checkerRulesForType != null) {
@@ -3140,59 +3353,72 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEndOfRoadCondition> typedCheckerRule =
             (ICheckerRule<IEndOfRoadCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyEntitiesCheckerRules(IParserMessageLogger messageLogger, IEntities object) {
+  private void applyEntitiesCheckerRules(
+      IContentMessageLogger<?> messageLogger, IEntities object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntities.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntities> typedCheckerRule = (ICheckerRule<IEntities>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IScenarioObject> scenarioObjects = object.getScenarioObjects();
     if (scenarioObjects != null) {
       for (IScenarioObject listItem : scenarioObjects) {
-        applyScenarioObjectCheckerRules(messageLogger, listItem);
+        applyScenarioObjectCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IEntitySelection> entitySelections = object.getEntitySelections();
     if (entitySelections != null) {
       for (IEntitySelection listItem : entitySelections) {
-        applyEntitySelectionCheckerRules(messageLogger, listItem);
+        applyEntitySelectionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyEntityActionCheckerRules(
-      IParserMessageLogger messageLogger, IEntityAction object) {
+      IContentMessageLogger<?> messageLogger, IEntityAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityAction> typedCheckerRule = (ICheckerRule<IEntityAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IAddEntityAction addEntityAction = object.getAddEntityAction();
     if (addEntityAction != null) {
-      applyAddEntityActionCheckerRules(messageLogger, addEntityAction);
+      applyAddEntityActionCheckerRules(messageLogger, addEntityAction, contextMode);
     }
     IDeleteEntityAction deleteEntityAction = object.getDeleteEntityAction();
     if (deleteEntityAction != null) {
-      applyDeleteEntityActionCheckerRules(messageLogger, deleteEntityAction);
+      applyDeleteEntityActionCheckerRules(messageLogger, deleteEntityAction, contextMode);
     }
   }
 
   private void applyEntityConditionCheckerRules(
-      IParserMessageLogger messageLogger, IEntityCondition object) {
+      IContentMessageLogger<?> messageLogger, IEntityCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IEntityCondition.class);
     if (checkerRulesForType != null) {
@@ -3200,107 +3426,123 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityCondition> typedCheckerRule =
             (ICheckerRule<IEntityCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IEndOfRoadCondition endOfRoadCondition = object.getEndOfRoadCondition();
     if (endOfRoadCondition != null) {
-      applyEndOfRoadConditionCheckerRules(messageLogger, endOfRoadCondition);
+      applyEndOfRoadConditionCheckerRules(messageLogger, endOfRoadCondition, contextMode);
     }
     ICollisionCondition collisionCondition = object.getCollisionCondition();
     if (collisionCondition != null) {
-      applyCollisionConditionCheckerRules(messageLogger, collisionCondition);
+      applyCollisionConditionCheckerRules(messageLogger, collisionCondition, contextMode);
     }
     IOffroadCondition offroadCondition = object.getOffroadCondition();
     if (offroadCondition != null) {
-      applyOffroadConditionCheckerRules(messageLogger, offroadCondition);
+      applyOffroadConditionCheckerRules(messageLogger, offroadCondition, contextMode);
     }
     ITimeHeadwayCondition timeHeadwayCondition = object.getTimeHeadwayCondition();
     if (timeHeadwayCondition != null) {
-      applyTimeHeadwayConditionCheckerRules(messageLogger, timeHeadwayCondition);
+      applyTimeHeadwayConditionCheckerRules(messageLogger, timeHeadwayCondition, contextMode);
     }
     ITimeToCollisionCondition timeToCollisionCondition = object.getTimeToCollisionCondition();
     if (timeToCollisionCondition != null) {
-      applyTimeToCollisionConditionCheckerRules(messageLogger, timeToCollisionCondition);
+      applyTimeToCollisionConditionCheckerRules(
+          messageLogger, timeToCollisionCondition, contextMode);
     }
     IAccelerationCondition accelerationCondition = object.getAccelerationCondition();
     if (accelerationCondition != null) {
-      applyAccelerationConditionCheckerRules(messageLogger, accelerationCondition);
+      applyAccelerationConditionCheckerRules(messageLogger, accelerationCondition, contextMode);
     }
     IStandStillCondition standStillCondition = object.getStandStillCondition();
     if (standStillCondition != null) {
-      applyStandStillConditionCheckerRules(messageLogger, standStillCondition);
+      applyStandStillConditionCheckerRules(messageLogger, standStillCondition, contextMode);
     }
     ISpeedCondition speedCondition = object.getSpeedCondition();
     if (speedCondition != null) {
-      applySpeedConditionCheckerRules(messageLogger, speedCondition);
+      applySpeedConditionCheckerRules(messageLogger, speedCondition, contextMode);
     }
     IRelativeSpeedCondition relativeSpeedCondition = object.getRelativeSpeedCondition();
     if (relativeSpeedCondition != null) {
-      applyRelativeSpeedConditionCheckerRules(messageLogger, relativeSpeedCondition);
+      applyRelativeSpeedConditionCheckerRules(messageLogger, relativeSpeedCondition, contextMode);
     }
     ITraveledDistanceCondition traveledDistanceCondition = object.getTraveledDistanceCondition();
     if (traveledDistanceCondition != null) {
-      applyTraveledDistanceConditionCheckerRules(messageLogger, traveledDistanceCondition);
+      applyTraveledDistanceConditionCheckerRules(
+          messageLogger, traveledDistanceCondition, contextMode);
     }
     IReachPositionCondition reachPositionCondition = object.getReachPositionCondition();
     if (reachPositionCondition != null) {
-      applyReachPositionConditionCheckerRules(messageLogger, reachPositionCondition);
+      applyReachPositionConditionCheckerRules(messageLogger, reachPositionCondition, contextMode);
     }
     IDistanceCondition distanceCondition = object.getDistanceCondition();
     if (distanceCondition != null) {
-      applyDistanceConditionCheckerRules(messageLogger, distanceCondition);
+      applyDistanceConditionCheckerRules(messageLogger, distanceCondition, contextMode);
     }
     IRelativeDistanceCondition relativeDistanceCondition = object.getRelativeDistanceCondition();
     if (relativeDistanceCondition != null) {
-      applyRelativeDistanceConditionCheckerRules(messageLogger, relativeDistanceCondition);
+      applyRelativeDistanceConditionCheckerRules(
+          messageLogger, relativeDistanceCondition, contextMode);
     }
   }
 
   private void applyEntityObjectCheckerRules(
-      IParserMessageLogger messageLogger, IEntityObject object) {
+      IContentMessageLogger<?> messageLogger, IEntityObject object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityObject.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityObject> typedCheckerRule = (ICheckerRule<IEntityObject>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
     IVehicle vehicle = object.getVehicle();
     if (vehicle != null) {
-      applyVehicleCheckerRules(messageLogger, vehicle);
+      applyVehicleCheckerRules(messageLogger, vehicle, contextMode);
     }
     IPedestrian pedestrian = object.getPedestrian();
     if (pedestrian != null) {
-      applyPedestrianCheckerRules(messageLogger, pedestrian);
+      applyPedestrianCheckerRules(messageLogger, pedestrian, contextMode);
     }
     IMiscObject miscObject = object.getMiscObject();
     if (miscObject != null) {
-      applyMiscObjectCheckerRules(messageLogger, miscObject);
+      applyMiscObjectCheckerRules(messageLogger, miscObject, contextMode);
     }
   }
 
-  private void applyEntityRefCheckerRules(IParserMessageLogger messageLogger, IEntityRef object) {
+  private void applyEntityRefCheckerRules(
+      IContentMessageLogger<?> messageLogger, IEntityRef object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEntityRef.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityRef> typedCheckerRule = (ICheckerRule<IEntityRef>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyEntitySelectionCheckerRules(
-      IParserMessageLogger messageLogger, IEntitySelection object) {
+      IContentMessageLogger<?> messageLogger, IEntitySelection object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IEntitySelection.class);
     if (checkerRulesForType != null) {
@@ -3308,49 +3550,57 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntitySelection> typedCheckerRule =
             (ICheckerRule<IEntitySelection>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ISelectedEntities members = object.getMembers();
     if (members != null) {
-      applySelectedEntitiesCheckerRules(messageLogger, members);
+      applySelectedEntitiesCheckerRules(messageLogger, members, contextMode);
     }
   }
 
   private void applyEnvironmentCheckerRules(
-      IParserMessageLogger messageLogger, IEnvironment object) {
+      IContentMessageLogger<?> messageLogger, IEnvironment object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEnvironment.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironment> typedCheckerRule = (ICheckerRule<IEnvironment>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     ITimeOfDay timeOfDay = object.getTimeOfDay();
     if (timeOfDay != null) {
-      applyTimeOfDayCheckerRules(messageLogger, timeOfDay);
+      applyTimeOfDayCheckerRules(messageLogger, timeOfDay, contextMode);
     }
     IWeather weather = object.getWeather();
     if (weather != null) {
-      applyWeatherCheckerRules(messageLogger, weather);
+      applyWeatherCheckerRules(messageLogger, weather, contextMode);
     }
     IRoadCondition roadCondition = object.getRoadCondition();
     if (roadCondition != null) {
-      applyRoadConditionCheckerRules(messageLogger, roadCondition);
+      applyRoadConditionCheckerRules(messageLogger, roadCondition, contextMode);
     }
   }
 
   private void applyEnvironmentActionCheckerRules(
-      IParserMessageLogger messageLogger, IEnvironmentAction object) {
+      IContentMessageLogger<?> messageLogger, IEnvironmentAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IEnvironmentAction.class);
     if (checkerRulesForType != null) {
@@ -3358,22 +3608,28 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironmentAction> typedCheckerRule =
             (ICheckerRule<IEnvironmentAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IEnvironment environment = object.getEnvironment();
     if (environment != null) {
-      applyEnvironmentCheckerRules(messageLogger, environment);
+      applyEnvironmentCheckerRules(messageLogger, environment, contextMode);
     }
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
   }
 
   private void applyEnvironmentCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, IEnvironmentCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      IEnvironmentCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IEnvironmentCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -3381,100 +3637,131 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironmentCatalogLocation> typedCheckerRule =
             (ICheckerRule<IEnvironmentCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
-  private void applyEventCheckerRules(IParserMessageLogger messageLogger, IEvent object) {
+  private void applyEventCheckerRules(
+      IContentMessageLogger<?> messageLogger, IEvent object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IEvent.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEvent> typedCheckerRule = (ICheckerRule<IEvent>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IAction> actions = object.getActions();
     if (actions != null) {
       for (IAction listItem : actions) {
-        applyActionCheckerRules(messageLogger, listItem);
+        applyActionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     ITrigger startTrigger = object.getStartTrigger();
     if (startTrigger != null) {
-      applyTriggerCheckerRules(messageLogger, startTrigger);
+      applyTriggerCheckerRules(messageLogger, startTrigger, contextMode);
     }
   }
 
-  private void applyFileCheckerRules(IParserMessageLogger messageLogger, IFile object) {
+  private void applyFileCheckerRules(
+      IContentMessageLogger<?> messageLogger, IFile object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFile.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFile> typedCheckerRule = (ICheckerRule<IFile>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyFileHeaderCheckerRules(IParserMessageLogger messageLogger, IFileHeader object) {
+  private void applyFileHeaderCheckerRules(
+      IContentMessageLogger<?> messageLogger, IFileHeader object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFileHeader.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFileHeader> typedCheckerRule = (ICheckerRule<IFileHeader>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyFinalSpeedCheckerRules(IParserMessageLogger messageLogger, IFinalSpeed object) {
+  private void applyFinalSpeedCheckerRules(
+      IContentMessageLogger<?> messageLogger, IFinalSpeed object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFinalSpeed.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFinalSpeed> typedCheckerRule = (ICheckerRule<IFinalSpeed>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IAbsoluteSpeed absoluteSpeed = object.getAbsoluteSpeed();
     if (absoluteSpeed != null) {
-      applyAbsoluteSpeedCheckerRules(messageLogger, absoluteSpeed);
+      applyAbsoluteSpeedCheckerRules(messageLogger, absoluteSpeed, contextMode);
     }
     IRelativeSpeedToMaster relativeSpeedToMaster = object.getRelativeSpeedToMaster();
     if (relativeSpeedToMaster != null) {
-      applyRelativeSpeedToMasterCheckerRules(messageLogger, relativeSpeedToMaster);
+      applyRelativeSpeedToMasterCheckerRules(messageLogger, relativeSpeedToMaster, contextMode);
     }
   }
 
-  private void applyFogCheckerRules(IParserMessageLogger messageLogger, IFog object) {
+  private void applyFogCheckerRules(
+      IContentMessageLogger<?> messageLogger, IFog object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IFog.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFog> typedCheckerRule = (ICheckerRule<IFog>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IBoundingBox boundingBox = object.getBoundingBox();
     if (boundingBox != null) {
-      applyBoundingBoxCheckerRules(messageLogger, boundingBox);
+      applyBoundingBoxCheckerRules(messageLogger, boundingBox, contextMode);
     }
   }
 
   private void applyFollowTrajectoryActionCheckerRules(
-      IParserMessageLogger messageLogger, IFollowTrajectoryAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IFollowTrajectoryAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IFollowTrajectoryAction.class);
     if (checkerRulesForType != null) {
@@ -3482,63 +3769,71 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFollowTrajectoryAction> typedCheckerRule =
             (ICheckerRule<IFollowTrajectoryAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ITrajectory trajectory = object.getTrajectory();
     if (trajectory != null) {
-      applyTrajectoryCheckerRules(messageLogger, trajectory);
+      applyTrajectoryCheckerRules(messageLogger, trajectory, contextMode);
     }
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
     ITimeReference timeReference = object.getTimeReference();
     if (timeReference != null) {
-      applyTimeReferenceCheckerRules(messageLogger, timeReference);
+      applyTimeReferenceCheckerRules(messageLogger, timeReference, contextMode);
     }
     ITrajectoryFollowingMode trajectoryFollowingMode = object.getTrajectoryFollowingMode();
     if (trajectoryFollowingMode != null) {
-      applyTrajectoryFollowingModeCheckerRules(messageLogger, trajectoryFollowingMode);
+      applyTrajectoryFollowingModeCheckerRules(messageLogger, trajectoryFollowingMode, contextMode);
     }
   }
 
   private void applyGlobalActionCheckerRules(
-      IParserMessageLogger messageLogger, IGlobalAction object) {
+      IContentMessageLogger<?> messageLogger, IGlobalAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IGlobalAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IGlobalAction> typedCheckerRule = (ICheckerRule<IGlobalAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IEnvironmentAction environmentAction = object.getEnvironmentAction();
     if (environmentAction != null) {
-      applyEnvironmentActionCheckerRules(messageLogger, environmentAction);
+      applyEnvironmentActionCheckerRules(messageLogger, environmentAction, contextMode);
     }
     IEntityAction entityAction = object.getEntityAction();
     if (entityAction != null) {
-      applyEntityActionCheckerRules(messageLogger, entityAction);
+      applyEntityActionCheckerRules(messageLogger, entityAction, contextMode);
     }
     IParameterAction parameterAction = object.getParameterAction();
     if (parameterAction != null) {
-      applyParameterActionCheckerRules(messageLogger, parameterAction);
+      applyParameterActionCheckerRules(messageLogger, parameterAction, contextMode);
     }
     IInfrastructureAction infrastructureAction = object.getInfrastructureAction();
     if (infrastructureAction != null) {
-      applyInfrastructureActionCheckerRules(messageLogger, infrastructureAction);
+      applyInfrastructureActionCheckerRules(messageLogger, infrastructureAction, contextMode);
     }
     ITrafficAction trafficAction = object.getTrafficAction();
     if (trafficAction != null) {
-      applyTrafficActionCheckerRules(messageLogger, trafficAction);
+      applyTrafficActionCheckerRules(messageLogger, trafficAction, contextMode);
     }
   }
 
   private void applyInRoutePositionCheckerRules(
-      IParserMessageLogger messageLogger, IInRoutePosition object) {
+      IContentMessageLogger<?> messageLogger, IInRoutePosition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IInRoutePosition.class);
     if (checkerRulesForType != null) {
@@ -3546,26 +3841,32 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInRoutePosition> typedCheckerRule =
             (ICheckerRule<IInRoutePosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPositionOfCurrentEntity fromCurrentEntity = object.getFromCurrentEntity();
     if (fromCurrentEntity != null) {
-      applyPositionOfCurrentEntityCheckerRules(messageLogger, fromCurrentEntity);
+      applyPositionOfCurrentEntityCheckerRules(messageLogger, fromCurrentEntity, contextMode);
     }
     IPositionInRoadCoordinates fromRoadCoordinates = object.getFromRoadCoordinates();
     if (fromRoadCoordinates != null) {
-      applyPositionInRoadCoordinatesCheckerRules(messageLogger, fromRoadCoordinates);
+      applyPositionInRoadCoordinatesCheckerRules(messageLogger, fromRoadCoordinates, contextMode);
     }
     IPositionInLaneCoordinates fromLaneCoordinates = object.getFromLaneCoordinates();
     if (fromLaneCoordinates != null) {
-      applyPositionInLaneCoordinatesCheckerRules(messageLogger, fromLaneCoordinates);
+      applyPositionInLaneCoordinatesCheckerRules(messageLogger, fromLaneCoordinates, contextMode);
     }
   }
 
   private void applyInfrastructureActionCheckerRules(
-      IParserMessageLogger messageLogger, IInfrastructureAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IInfrastructureAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IInfrastructureAction.class);
     if (checkerRulesForType != null) {
@@ -3573,77 +3874,95 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInfrastructureAction> typedCheckerRule =
             (ICheckerRule<IInfrastructureAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ITrafficSignalAction trafficSignalAction = object.getTrafficSignalAction();
     if (trafficSignalAction != null) {
-      applyTrafficSignalActionCheckerRules(messageLogger, trafficSignalAction);
+      applyTrafficSignalActionCheckerRules(messageLogger, trafficSignalAction, contextMode);
     }
   }
 
-  private void applyInitCheckerRules(IParserMessageLogger messageLogger, IInit object) {
+  private void applyInitCheckerRules(
+      IContentMessageLogger<?> messageLogger, IInit object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IInit.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInit> typedCheckerRule = (ICheckerRule<IInit>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IInitActions actions = object.getActions();
     if (actions != null) {
-      applyInitActionsCheckerRules(messageLogger, actions);
+      applyInitActionsCheckerRules(messageLogger, actions, contextMode);
     }
   }
 
   private void applyInitActionsCheckerRules(
-      IParserMessageLogger messageLogger, IInitActions object) {
+      IContentMessageLogger<?> messageLogger, IInitActions object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IInitActions.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInitActions> typedCheckerRule = (ICheckerRule<IInitActions>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IGlobalAction> globalActions = object.getGlobalActions();
     if (globalActions != null) {
       for (IGlobalAction listItem : globalActions) {
-        applyGlobalActionCheckerRules(messageLogger, listItem);
+        applyGlobalActionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IUserDefinedAction> userDefinedActions = object.getUserDefinedActions();
     if (userDefinedActions != null) {
       for (IUserDefinedAction listItem : userDefinedActions) {
-        applyUserDefinedActionCheckerRules(messageLogger, listItem);
+        applyUserDefinedActionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IPrivate> privates = object.getPrivates();
     if (privates != null) {
       for (IPrivate listItem : privates) {
-        applyPrivateCheckerRules(messageLogger, listItem);
+        applyPrivateCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyKnotCheckerRules(IParserMessageLogger messageLogger, IKnot object) {
+  private void applyKnotCheckerRules(
+      IContentMessageLogger<?> messageLogger, IKnot object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IKnot.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IKnot> typedCheckerRule = (ICheckerRule<IKnot>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyLaneChangeActionCheckerRules(
-      IParserMessageLogger messageLogger, ILaneChangeAction object) {
+      IContentMessageLogger<?> messageLogger, ILaneChangeAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILaneChangeAction.class);
     if (checkerRulesForType != null) {
@@ -3651,22 +3970,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneChangeAction> typedCheckerRule =
             (ICheckerRule<ILaneChangeAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ITransitionDynamics laneChangeActionDynamics = object.getLaneChangeActionDynamics();
     if (laneChangeActionDynamics != null) {
-      applyTransitionDynamicsCheckerRules(messageLogger, laneChangeActionDynamics);
+      applyTransitionDynamicsCheckerRules(messageLogger, laneChangeActionDynamics, contextMode);
     }
     ILaneChangeTarget laneChangeTarget = object.getLaneChangeTarget();
     if (laneChangeTarget != null) {
-      applyLaneChangeTargetCheckerRules(messageLogger, laneChangeTarget);
+      applyLaneChangeTargetCheckerRules(messageLogger, laneChangeTarget, contextMode);
     }
   }
 
   private void applyLaneChangeTargetCheckerRules(
-      IParserMessageLogger messageLogger, ILaneChangeTarget object) {
+      IContentMessageLogger<?> messageLogger, ILaneChangeTarget object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILaneChangeTarget.class);
     if (checkerRulesForType != null) {
@@ -3674,22 +3997,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneChangeTarget> typedCheckerRule =
             (ICheckerRule<ILaneChangeTarget>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IRelativeTargetLane relativeTargetLane = object.getRelativeTargetLane();
     if (relativeTargetLane != null) {
-      applyRelativeTargetLaneCheckerRules(messageLogger, relativeTargetLane);
+      applyRelativeTargetLaneCheckerRules(messageLogger, relativeTargetLane, contextMode);
     }
     IAbsoluteTargetLane absoluteTargetLane = object.getAbsoluteTargetLane();
     if (absoluteTargetLane != null) {
-      applyAbsoluteTargetLaneCheckerRules(messageLogger, absoluteTargetLane);
+      applyAbsoluteTargetLaneCheckerRules(messageLogger, absoluteTargetLane, contextMode);
     }
   }
 
   private void applyLaneOffsetActionCheckerRules(
-      IParserMessageLogger messageLogger, ILaneOffsetAction object) {
+      IContentMessageLogger<?> messageLogger, ILaneOffsetAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILaneOffsetAction.class);
     if (checkerRulesForType != null) {
@@ -3697,22 +4024,29 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetAction> typedCheckerRule =
             (ICheckerRule<ILaneOffsetAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ILaneOffsetActionDynamics laneOffsetActionDynamics = object.getLaneOffsetActionDynamics();
     if (laneOffsetActionDynamics != null) {
-      applyLaneOffsetActionDynamicsCheckerRules(messageLogger, laneOffsetActionDynamics);
+      applyLaneOffsetActionDynamicsCheckerRules(
+          messageLogger, laneOffsetActionDynamics, contextMode);
     }
     ILaneOffsetTarget laneOffsetTarget = object.getLaneOffsetTarget();
     if (laneOffsetTarget != null) {
-      applyLaneOffsetTargetCheckerRules(messageLogger, laneOffsetTarget);
+      applyLaneOffsetTargetCheckerRules(messageLogger, laneOffsetTarget, contextMode);
     }
   }
 
   private void applyLaneOffsetActionDynamicsCheckerRules(
-      IParserMessageLogger messageLogger, ILaneOffsetActionDynamics object) {
+      IContentMessageLogger<?> messageLogger,
+      ILaneOffsetActionDynamics object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILaneOffsetActionDynamics.class);
     if (checkerRulesForType != null) {
@@ -3720,14 +4054,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetActionDynamics> typedCheckerRule =
             (ICheckerRule<ILaneOffsetActionDynamics>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyLaneOffsetTargetCheckerRules(
-      IParserMessageLogger messageLogger, ILaneOffsetTarget object) {
+      IContentMessageLogger<?> messageLogger, ILaneOffsetTarget object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILaneOffsetTarget.class);
     if (checkerRulesForType != null) {
@@ -3735,65 +4073,81 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetTarget> typedCheckerRule =
             (ICheckerRule<ILaneOffsetTarget>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IRelativeTargetLaneOffset relativeTargetLaneOffset = object.getRelativeTargetLaneOffset();
     if (relativeTargetLaneOffset != null) {
-      applyRelativeTargetLaneOffsetCheckerRules(messageLogger, relativeTargetLaneOffset);
+      applyRelativeTargetLaneOffsetCheckerRules(
+          messageLogger, relativeTargetLaneOffset, contextMode);
     }
     IAbsoluteTargetLaneOffset absoluteTargetLaneOffset = object.getAbsoluteTargetLaneOffset();
     if (absoluteTargetLaneOffset != null) {
-      applyAbsoluteTargetLaneOffsetCheckerRules(messageLogger, absoluteTargetLaneOffset);
+      applyAbsoluteTargetLaneOffsetCheckerRules(
+          messageLogger, absoluteTargetLaneOffset, contextMode);
     }
   }
 
   private void applyLanePositionCheckerRules(
-      IParserMessageLogger messageLogger, ILanePosition object) {
+      IContentMessageLogger<?> messageLogger, ILanePosition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ILanePosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILanePosition> typedCheckerRule = (ICheckerRule<ILanePosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IOrientation orientation = object.getOrientation();
     if (orientation != null) {
-      applyOrientationCheckerRules(messageLogger, orientation);
+      applyOrientationCheckerRules(messageLogger, orientation, contextMode);
     }
   }
 
   private void applyLateralActionCheckerRules(
-      IParserMessageLogger messageLogger, ILateralAction object) {
+      IContentMessageLogger<?> messageLogger, ILateralAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILateralAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILateralAction> typedCheckerRule = (ICheckerRule<ILateralAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ILaneChangeAction laneChangeAction = object.getLaneChangeAction();
     if (laneChangeAction != null) {
-      applyLaneChangeActionCheckerRules(messageLogger, laneChangeAction);
+      applyLaneChangeActionCheckerRules(messageLogger, laneChangeAction, contextMode);
     }
     ILaneOffsetAction laneOffsetAction = object.getLaneOffsetAction();
     if (laneOffsetAction != null) {
-      applyLaneOffsetActionCheckerRules(messageLogger, laneOffsetAction);
+      applyLaneOffsetActionCheckerRules(messageLogger, laneOffsetAction, contextMode);
     }
     ILateralDistanceAction lateralDistanceAction = object.getLateralDistanceAction();
     if (lateralDistanceAction != null) {
-      applyLateralDistanceActionCheckerRules(messageLogger, lateralDistanceAction);
+      applyLateralDistanceActionCheckerRules(messageLogger, lateralDistanceAction, contextMode);
     }
   }
 
   private void applyLateralDistanceActionCheckerRules(
-      IParserMessageLogger messageLogger, ILateralDistanceAction object) {
+      IContentMessageLogger<?> messageLogger,
+      ILateralDistanceAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILateralDistanceAction.class);
     if (checkerRulesForType != null) {
@@ -3801,18 +4155,22 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILateralDistanceAction> typedCheckerRule =
             (ICheckerRule<ILateralDistanceAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDynamicConstraints dynamicConstraints = object.getDynamicConstraints();
     if (dynamicConstraints != null) {
-      applyDynamicConstraintsCheckerRules(messageLogger, dynamicConstraints);
+      applyDynamicConstraintsCheckerRules(messageLogger, dynamicConstraints, contextMode);
     }
   }
 
   private void applyLongitudinalActionCheckerRules(
-      IParserMessageLogger messageLogger, ILongitudinalAction object) {
+      IContentMessageLogger<?> messageLogger, ILongitudinalAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILongitudinalAction.class);
     if (checkerRulesForType != null) {
@@ -3820,22 +4178,29 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILongitudinalAction> typedCheckerRule =
             (ICheckerRule<ILongitudinalAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ISpeedAction speedAction = object.getSpeedAction();
     if (speedAction != null) {
-      applySpeedActionCheckerRules(messageLogger, speedAction);
+      applySpeedActionCheckerRules(messageLogger, speedAction, contextMode);
     }
     ILongitudinalDistanceAction longitudinalDistanceAction = object.getLongitudinalDistanceAction();
     if (longitudinalDistanceAction != null) {
-      applyLongitudinalDistanceActionCheckerRules(messageLogger, longitudinalDistanceAction);
+      applyLongitudinalDistanceActionCheckerRules(
+          messageLogger, longitudinalDistanceAction, contextMode);
     }
   }
 
   private void applyLongitudinalDistanceActionCheckerRules(
-      IParserMessageLogger messageLogger, ILongitudinalDistanceAction object) {
+      IContentMessageLogger<?> messageLogger,
+      ILongitudinalDistanceAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ILongitudinalDistanceAction.class);
     if (checkerRulesForType != null) {
@@ -3843,42 +4208,53 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILongitudinalDistanceAction> typedCheckerRule =
             (ICheckerRule<ILongitudinalDistanceAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDynamicConstraints dynamicConstraints = object.getDynamicConstraints();
     if (dynamicConstraints != null) {
-      applyDynamicConstraintsCheckerRules(messageLogger, dynamicConstraints);
+      applyDynamicConstraintsCheckerRules(messageLogger, dynamicConstraints, contextMode);
     }
   }
 
-  private void applyManeuverCheckerRules(IParserMessageLogger messageLogger, IManeuver object) {
+  private void applyManeuverCheckerRules(
+      IContentMessageLogger<?> messageLogger, IManeuver object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IManeuver.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IManeuver> typedCheckerRule = (ICheckerRule<IManeuver>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IEvent> events = object.getEvents();
     if (events != null) {
       for (IEvent listItem : events) {
-        applyEventCheckerRules(messageLogger, listItem);
+        applyEventCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyManeuverCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, IManeuverCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      IManeuverCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IManeuverCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -3886,74 +4262,89 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IManeuverCatalogLocation> typedCheckerRule =
             (ICheckerRule<IManeuverCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
   private void applyManeuverGroupCheckerRules(
-      IParserMessageLogger messageLogger, IManeuverGroup object) {
+      IContentMessageLogger<?> messageLogger, IManeuverGroup object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IManeuverGroup.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IManeuverGroup> typedCheckerRule = (ICheckerRule<IManeuverGroup>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IActors actors = object.getActors();
     if (actors != null) {
-      applyActorsCheckerRules(messageLogger, actors);
+      applyActorsCheckerRules(messageLogger, actors, contextMode);
     }
     List<ICatalogReference> catalogReferences = object.getCatalogReferences();
     if (catalogReferences != null) {
       for (ICatalogReference listItem : catalogReferences) {
-        applyCatalogReferenceCheckerRules(messageLogger, listItem);
+        applyCatalogReferenceCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IManeuver> maneuvers = object.getManeuvers();
     if (maneuvers != null) {
       for (IManeuver listItem : maneuvers) {
-        applyManeuverCheckerRules(messageLogger, listItem);
+        applyManeuverCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyMiscObjectCheckerRules(IParserMessageLogger messageLogger, IMiscObject object) {
+  private void applyMiscObjectCheckerRules(
+      IContentMessageLogger<?> messageLogger, IMiscObject object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IMiscObject.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IMiscObject> typedCheckerRule = (ICheckerRule<IMiscObject>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     IBoundingBox boundingBox = object.getBoundingBox();
     if (boundingBox != null) {
-      applyBoundingBoxCheckerRules(messageLogger, boundingBox);
+      applyBoundingBoxCheckerRules(messageLogger, boundingBox, contextMode);
     }
     IProperties properties = object.getProperties();
     if (properties != null) {
-      applyPropertiesCheckerRules(messageLogger, properties);
+      applyPropertiesCheckerRules(messageLogger, properties, contextMode);
     }
   }
 
   private void applyMiscObjectCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, IMiscObjectCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      IMiscObjectCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IMiscObjectCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -3961,74 +4352,93 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IMiscObjectCatalogLocation> typedCheckerRule =
             (ICheckerRule<IMiscObjectCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
-  private void applyModifyRuleCheckerRules(IParserMessageLogger messageLogger, IModifyRule object) {
+  private void applyModifyRuleCheckerRules(
+      IContentMessageLogger<?> messageLogger, IModifyRule object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IModifyRule.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IModifyRule> typedCheckerRule = (ICheckerRule<IModifyRule>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IParameterAddValueRule addValue = object.getAddValue();
     if (addValue != null) {
-      applyParameterAddValueRuleCheckerRules(messageLogger, addValue);
+      applyParameterAddValueRuleCheckerRules(messageLogger, addValue, contextMode);
     }
     IParameterMultiplyByValueRule multiplyByValue = object.getMultiplyByValue();
     if (multiplyByValue != null) {
-      applyParameterMultiplyByValueRuleCheckerRules(messageLogger, multiplyByValue);
+      applyParameterMultiplyByValueRuleCheckerRules(messageLogger, multiplyByValue, contextMode);
     }
   }
 
-  private void applyNoneCheckerRules(IParserMessageLogger messageLogger, INone object) {
+  private void applyNoneCheckerRules(
+      IContentMessageLogger<?> messageLogger, INone object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(INone.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<INone> typedCheckerRule = (ICheckerRule<INone>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyNurbsCheckerRules(IParserMessageLogger messageLogger, INurbs object) {
+  private void applyNurbsCheckerRules(
+      IContentMessageLogger<?> messageLogger, INurbs object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(INurbs.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<INurbs> typedCheckerRule = (ICheckerRule<INurbs>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IControlPoint> controlPoints = object.getControlPoints();
     if (controlPoints != null) {
       for (IControlPoint listItem : controlPoints) {
-        applyControlPointCheckerRules(messageLogger, listItem);
+        applyControlPointCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IKnot> knots = object.getKnots();
     if (knots != null) {
       for (IKnot listItem : knots) {
-        applyKnotCheckerRules(messageLogger, listItem);
+        applyKnotCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyObjectControllerCheckerRules(
-      IParserMessageLogger messageLogger, IObjectController object) {
+      IContentMessageLogger<?> messageLogger, IObjectController object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IObjectController.class);
     if (checkerRulesForType != null) {
@@ -4036,22 +4446,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IObjectController> typedCheckerRule =
             (ICheckerRule<IObjectController>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
     IController controller = object.getController();
     if (controller != null) {
-      applyControllerCheckerRules(messageLogger, controller);
+      applyControllerCheckerRules(messageLogger, controller, contextMode);
     }
   }
 
   private void applyOffroadConditionCheckerRules(
-      IParserMessageLogger messageLogger, IOffroadCondition object) {
+      IContentMessageLogger<?> messageLogger, IOffroadCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOffroadCondition.class);
     if (checkerRulesForType != null) {
@@ -4059,35 +4473,45 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOffroadCondition> typedCheckerRule =
             (ICheckerRule<IOffroadCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyOpenScenarioCheckerRules(
-      IParserMessageLogger messageLogger, IOpenScenario object) {
+      IContentMessageLogger<?> messageLogger, IOpenScenario object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IOpenScenario.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOpenScenario> typedCheckerRule = (ICheckerRule<IOpenScenario>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IFileHeader fileHeader = object.getFileHeader();
     if (fileHeader != null) {
-      applyFileHeaderCheckerRules(messageLogger, fileHeader);
+      applyFileHeaderCheckerRules(messageLogger, fileHeader, contextMode);
     }
     IOpenScenarioCategory openScenarioCategory = object.getOpenScenarioCategory();
     if (openScenarioCategory != null) {
-      applyOpenScenarioCategoryCheckerRules(messageLogger, openScenarioCategory);
+      applyOpenScenarioCategoryCheckerRules(messageLogger, openScenarioCategory, contextMode);
     }
   }
 
   private void applyOpenScenarioCategoryCheckerRules(
-      IParserMessageLogger messageLogger, IOpenScenarioCategory object) {
+      IContentMessageLogger<?> messageLogger,
+      IOpenScenarioCategory object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOpenScenarioCategory.class);
     if (checkerRulesForType != null) {
@@ -4095,35 +4519,45 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOpenScenarioCategory> typedCheckerRule =
             (ICheckerRule<IOpenScenarioCategory>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IScenarioDefinition scenarioDefinition = object.getScenarioDefinition();
     if (scenarioDefinition != null) {
-      applyScenarioDefinitionCheckerRules(messageLogger, scenarioDefinition);
+      applyScenarioDefinitionCheckerRules(messageLogger, scenarioDefinition, contextMode);
     }
     ICatalogDefinition catalogDefinition = object.getCatalogDefinition();
     if (catalogDefinition != null) {
-      applyCatalogDefinitionCheckerRules(messageLogger, catalogDefinition);
+      applyCatalogDefinitionCheckerRules(messageLogger, catalogDefinition, contextMode);
     }
   }
 
   private void applyOrientationCheckerRules(
-      IParserMessageLogger messageLogger, IOrientation object) {
+      IContentMessageLogger<?> messageLogger, IOrientation object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IOrientation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOrientation> typedCheckerRule = (ICheckerRule<IOrientation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyOverrideBrakeActionCheckerRules(
-      IParserMessageLogger messageLogger, IOverrideBrakeAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IOverrideBrakeAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOverrideBrakeAction.class);
     if (checkerRulesForType != null) {
@@ -4131,14 +4565,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideBrakeAction> typedCheckerRule =
             (ICheckerRule<IOverrideBrakeAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyOverrideClutchActionCheckerRules(
-      IParserMessageLogger messageLogger, IOverrideClutchAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IOverrideClutchAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOverrideClutchAction.class);
     if (checkerRulesForType != null) {
@@ -4146,14 +4586,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideClutchAction> typedCheckerRule =
             (ICheckerRule<IOverrideClutchAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyOverrideControllerValueActionCheckerRules(
-      IParserMessageLogger messageLogger, IOverrideControllerValueAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IOverrideControllerValueAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOverrideControllerValueAction.class);
     if (checkerRulesForType != null) {
@@ -4161,38 +4607,42 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideControllerValueAction> typedCheckerRule =
             (ICheckerRule<IOverrideControllerValueAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IOverrideThrottleAction throttle = object.getThrottle();
     if (throttle != null) {
-      applyOverrideThrottleActionCheckerRules(messageLogger, throttle);
+      applyOverrideThrottleActionCheckerRules(messageLogger, throttle, contextMode);
     }
     IOverrideBrakeAction brake = object.getBrake();
     if (brake != null) {
-      applyOverrideBrakeActionCheckerRules(messageLogger, brake);
+      applyOverrideBrakeActionCheckerRules(messageLogger, brake, contextMode);
     }
     IOverrideClutchAction clutch = object.getClutch();
     if (clutch != null) {
-      applyOverrideClutchActionCheckerRules(messageLogger, clutch);
+      applyOverrideClutchActionCheckerRules(messageLogger, clutch, contextMode);
     }
     IOverrideParkingBrakeAction parkingBrake = object.getParkingBrake();
     if (parkingBrake != null) {
-      applyOverrideParkingBrakeActionCheckerRules(messageLogger, parkingBrake);
+      applyOverrideParkingBrakeActionCheckerRules(messageLogger, parkingBrake, contextMode);
     }
     IOverrideSteeringWheelAction steeringWheel = object.getSteeringWheel();
     if (steeringWheel != null) {
-      applyOverrideSteeringWheelActionCheckerRules(messageLogger, steeringWheel);
+      applyOverrideSteeringWheelActionCheckerRules(messageLogger, steeringWheel, contextMode);
     }
     IOverrideGearAction gear = object.getGear();
     if (gear != null) {
-      applyOverrideGearActionCheckerRules(messageLogger, gear);
+      applyOverrideGearActionCheckerRules(messageLogger, gear, contextMode);
     }
   }
 
   private void applyOverrideGearActionCheckerRules(
-      IParserMessageLogger messageLogger, IOverrideGearAction object) {
+      IContentMessageLogger<?> messageLogger, IOverrideGearAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOverrideGearAction.class);
     if (checkerRulesForType != null) {
@@ -4200,14 +4650,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideGearAction> typedCheckerRule =
             (ICheckerRule<IOverrideGearAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyOverrideParkingBrakeActionCheckerRules(
-      IParserMessageLogger messageLogger, IOverrideParkingBrakeAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IOverrideParkingBrakeAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOverrideParkingBrakeAction.class);
     if (checkerRulesForType != null) {
@@ -4215,14 +4671,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideParkingBrakeAction> typedCheckerRule =
             (ICheckerRule<IOverrideParkingBrakeAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyOverrideSteeringWheelActionCheckerRules(
-      IParserMessageLogger messageLogger, IOverrideSteeringWheelAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IOverrideSteeringWheelAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOverrideSteeringWheelAction.class);
     if (checkerRulesForType != null) {
@@ -4230,14 +4692,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideSteeringWheelAction> typedCheckerRule =
             (ICheckerRule<IOverrideSteeringWheelAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyOverrideThrottleActionCheckerRules(
-      IParserMessageLogger messageLogger, IOverrideThrottleAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IOverrideThrottleAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IOverrideThrottleAction.class);
     if (checkerRulesForType != null) {
@@ -4245,14 +4713,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideThrottleAction> typedCheckerRule =
             (ICheckerRule<IOverrideThrottleAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyParameterActionCheckerRules(
-      IParserMessageLogger messageLogger, IParameterAction object) {
+      IContentMessageLogger<?> messageLogger, IParameterAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterAction.class);
     if (checkerRulesForType != null) {
@@ -4260,22 +4732,28 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAction> typedCheckerRule =
             (ICheckerRule<IParameterAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IParameterSetAction setAction = object.getSetAction();
     if (setAction != null) {
-      applyParameterSetActionCheckerRules(messageLogger, setAction);
+      applyParameterSetActionCheckerRules(messageLogger, setAction, contextMode);
     }
     IParameterModifyAction modifyAction = object.getModifyAction();
     if (modifyAction != null) {
-      applyParameterModifyActionCheckerRules(messageLogger, modifyAction);
+      applyParameterModifyActionCheckerRules(messageLogger, modifyAction, contextMode);
     }
   }
 
   private void applyParameterAddValueRuleCheckerRules(
-      IParserMessageLogger messageLogger, IParameterAddValueRule object) {
+      IContentMessageLogger<?> messageLogger,
+      IParameterAddValueRule object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterAddValueRule.class);
     if (checkerRulesForType != null) {
@@ -4283,14 +4761,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAddValueRule> typedCheckerRule =
             (ICheckerRule<IParameterAddValueRule>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyParameterAssignmentCheckerRules(
-      IParserMessageLogger messageLogger, IParameterAssignment object) {
+      IContentMessageLogger<?> messageLogger,
+      IParameterAssignment object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterAssignment.class);
     if (checkerRulesForType != null) {
@@ -4298,14 +4782,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAssignment> typedCheckerRule =
             (ICheckerRule<IParameterAssignment>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyParameterConditionCheckerRules(
-      IParserMessageLogger messageLogger, IParameterCondition object) {
+      IContentMessageLogger<?> messageLogger, IParameterCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterCondition.class);
     if (checkerRulesForType != null) {
@@ -4313,14 +4801,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterCondition> typedCheckerRule =
             (ICheckerRule<IParameterCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyParameterDeclarationCheckerRules(
-      IParserMessageLogger messageLogger, IParameterDeclaration object) {
+      IContentMessageLogger<?> messageLogger,
+      IParameterDeclaration object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterDeclaration.class);
     if (checkerRulesForType != null) {
@@ -4328,14 +4822,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterDeclaration> typedCheckerRule =
             (ICheckerRule<IParameterDeclaration>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyParameterModifyActionCheckerRules(
-      IParserMessageLogger messageLogger, IParameterModifyAction object) {
+      IContentMessageLogger<?> messageLogger,
+      IParameterModifyAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterModifyAction.class);
     if (checkerRulesForType != null) {
@@ -4343,18 +4843,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterModifyAction> typedCheckerRule =
             (ICheckerRule<IParameterModifyAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IModifyRule rule = object.getRule();
     if (rule != null) {
-      applyModifyRuleCheckerRules(messageLogger, rule);
+      applyModifyRuleCheckerRules(messageLogger, rule, contextMode);
     }
   }
 
   private void applyParameterMultiplyByValueRuleCheckerRules(
-      IParserMessageLogger messageLogger, IParameterMultiplyByValueRule object) {
+      IContentMessageLogger<?> messageLogger,
+      IParameterMultiplyByValueRule object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterMultiplyByValueRule.class);
     if (checkerRulesForType != null) {
@@ -4362,14 +4868,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterMultiplyByValueRule> typedCheckerRule =
             (ICheckerRule<IParameterMultiplyByValueRule>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyParameterSetActionCheckerRules(
-      IParserMessageLogger messageLogger, IParameterSetAction object) {
+      IContentMessageLogger<?> messageLogger, IParameterSetAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IParameterSetAction.class);
     if (checkerRulesForType != null) {
@@ -4377,40 +4887,51 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterSetAction> typedCheckerRule =
             (ICheckerRule<IParameterSetAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyPedestrianCheckerRules(IParserMessageLogger messageLogger, IPedestrian object) {
+  private void applyPedestrianCheckerRules(
+      IContentMessageLogger<?> messageLogger, IPedestrian object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPedestrian.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPedestrian> typedCheckerRule = (ICheckerRule<IPedestrian>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     IBoundingBox boundingBox = object.getBoundingBox();
     if (boundingBox != null) {
-      applyBoundingBoxCheckerRules(messageLogger, boundingBox);
+      applyBoundingBoxCheckerRules(messageLogger, boundingBox, contextMode);
     }
     IProperties properties = object.getProperties();
     if (properties != null) {
-      applyPropertiesCheckerRules(messageLogger, properties);
+      applyPropertiesCheckerRules(messageLogger, properties, contextMode);
     }
   }
 
   private void applyPedestrianCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, IPedestrianCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      IPedestrianCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IPedestrianCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -4418,111 +4939,136 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPedestrianCatalogLocation> typedCheckerRule =
             (ICheckerRule<IPedestrianCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
   private void applyPerformanceCheckerRules(
-      IParserMessageLogger messageLogger, IPerformance object) {
+      IContentMessageLogger<?> messageLogger, IPerformance object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPerformance.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPerformance> typedCheckerRule = (ICheckerRule<IPerformance>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyPhaseCheckerRules(IParserMessageLogger messageLogger, IPhase object) {
+  private void applyPhaseCheckerRules(
+      IContentMessageLogger<?> messageLogger, IPhase object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPhase.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPhase> typedCheckerRule = (ICheckerRule<IPhase>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<ITrafficSignalState> trafficSignalStates = object.getTrafficSignalStates();
     if (trafficSignalStates != null) {
       for (ITrafficSignalState listItem : trafficSignalStates) {
-        applyTrafficSignalStateCheckerRules(messageLogger, listItem);
+        applyTrafficSignalStateCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyPolylineCheckerRules(IParserMessageLogger messageLogger, IPolyline object) {
+  private void applyPolylineCheckerRules(
+      IContentMessageLogger<?> messageLogger, IPolyline object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPolyline.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPolyline> typedCheckerRule = (ICheckerRule<IPolyline>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IVertex> vertices = object.getVertices();
     if (vertices != null) {
       for (IVertex listItem : vertices) {
-        applyVertexCheckerRules(messageLogger, listItem);
+        applyVertexCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyPositionCheckerRules(IParserMessageLogger messageLogger, IPosition object) {
+  private void applyPositionCheckerRules(
+      IContentMessageLogger<?> messageLogger, IPosition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPosition> typedCheckerRule = (ICheckerRule<IPosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IWorldPosition worldPosition = object.getWorldPosition();
     if (worldPosition != null) {
-      applyWorldPositionCheckerRules(messageLogger, worldPosition);
+      applyWorldPositionCheckerRules(messageLogger, worldPosition, contextMode);
     }
     IRelativeWorldPosition relativeWorldPosition = object.getRelativeWorldPosition();
     if (relativeWorldPosition != null) {
-      applyRelativeWorldPositionCheckerRules(messageLogger, relativeWorldPosition);
+      applyRelativeWorldPositionCheckerRules(messageLogger, relativeWorldPosition, contextMode);
     }
     IRelativeObjectPosition relativeObjectPosition = object.getRelativeObjectPosition();
     if (relativeObjectPosition != null) {
-      applyRelativeObjectPositionCheckerRules(messageLogger, relativeObjectPosition);
+      applyRelativeObjectPositionCheckerRules(messageLogger, relativeObjectPosition, contextMode);
     }
     IRoadPosition roadPosition = object.getRoadPosition();
     if (roadPosition != null) {
-      applyRoadPositionCheckerRules(messageLogger, roadPosition);
+      applyRoadPositionCheckerRules(messageLogger, roadPosition, contextMode);
     }
     IRelativeRoadPosition relativeRoadPosition = object.getRelativeRoadPosition();
     if (relativeRoadPosition != null) {
-      applyRelativeRoadPositionCheckerRules(messageLogger, relativeRoadPosition);
+      applyRelativeRoadPositionCheckerRules(messageLogger, relativeRoadPosition, contextMode);
     }
     ILanePosition lanePosition = object.getLanePosition();
     if (lanePosition != null) {
-      applyLanePositionCheckerRules(messageLogger, lanePosition);
+      applyLanePositionCheckerRules(messageLogger, lanePosition, contextMode);
     }
     IRelativeLanePosition relativeLanePosition = object.getRelativeLanePosition();
     if (relativeLanePosition != null) {
-      applyRelativeLanePositionCheckerRules(messageLogger, relativeLanePosition);
+      applyRelativeLanePositionCheckerRules(messageLogger, relativeLanePosition, contextMode);
     }
     IRoutePosition routePosition = object.getRoutePosition();
     if (routePosition != null) {
-      applyRoutePositionCheckerRules(messageLogger, routePosition);
+      applyRoutePositionCheckerRules(messageLogger, routePosition, contextMode);
     }
   }
 
   private void applyPositionInLaneCoordinatesCheckerRules(
-      IParserMessageLogger messageLogger, IPositionInLaneCoordinates object) {
+      IContentMessageLogger<?> messageLogger,
+      IPositionInLaneCoordinates object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IPositionInLaneCoordinates.class);
     if (checkerRulesForType != null) {
@@ -4530,14 +5076,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPositionInLaneCoordinates> typedCheckerRule =
             (ICheckerRule<IPositionInLaneCoordinates>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyPositionInRoadCoordinatesCheckerRules(
-      IParserMessageLogger messageLogger, IPositionInRoadCoordinates object) {
+      IContentMessageLogger<?> messageLogger,
+      IPositionInRoadCoordinates object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IPositionInRoadCoordinates.class);
     if (checkerRulesForType != null) {
@@ -4545,14 +5097,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPositionInRoadCoordinates> typedCheckerRule =
             (ICheckerRule<IPositionInRoadCoordinates>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyPositionOfCurrentEntityCheckerRules(
-      IParserMessageLogger messageLogger, IPositionOfCurrentEntity object) {
+      IContentMessageLogger<?> messageLogger,
+      IPositionOfCurrentEntity object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IPositionOfCurrentEntity.class);
     if (checkerRulesForType != null) {
@@ -4560,128 +5118,158 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPositionOfCurrentEntity> typedCheckerRule =
             (ICheckerRule<IPositionOfCurrentEntity>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyPrecipitationCheckerRules(
-      IParserMessageLogger messageLogger, IPrecipitation object) {
+      IContentMessageLogger<?> messageLogger, IPrecipitation object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IPrecipitation.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPrecipitation> typedCheckerRule = (ICheckerRule<IPrecipitation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyPrivateCheckerRules(IParserMessageLogger messageLogger, IPrivate object) {
+  private void applyPrivateCheckerRules(
+      IContentMessageLogger<?> messageLogger, IPrivate object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IPrivate.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPrivate> typedCheckerRule = (ICheckerRule<IPrivate>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IPrivateAction> privateActions = object.getPrivateActions();
     if (privateActions != null) {
       for (IPrivateAction listItem : privateActions) {
-        applyPrivateActionCheckerRules(messageLogger, listItem);
+        applyPrivateActionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyPrivateActionCheckerRules(
-      IParserMessageLogger messageLogger, IPrivateAction object) {
+      IContentMessageLogger<?> messageLogger, IPrivateAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IPrivateAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPrivateAction> typedCheckerRule = (ICheckerRule<IPrivateAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ILongitudinalAction longitudinalAction = object.getLongitudinalAction();
     if (longitudinalAction != null) {
-      applyLongitudinalActionCheckerRules(messageLogger, longitudinalAction);
+      applyLongitudinalActionCheckerRules(messageLogger, longitudinalAction, contextMode);
     }
     ILateralAction lateralAction = object.getLateralAction();
     if (lateralAction != null) {
-      applyLateralActionCheckerRules(messageLogger, lateralAction);
+      applyLateralActionCheckerRules(messageLogger, lateralAction, contextMode);
     }
     IVisibilityAction visibilityAction = object.getVisibilityAction();
     if (visibilityAction != null) {
-      applyVisibilityActionCheckerRules(messageLogger, visibilityAction);
+      applyVisibilityActionCheckerRules(messageLogger, visibilityAction, contextMode);
     }
     ISynchronizeAction synchronizeAction = object.getSynchronizeAction();
     if (synchronizeAction != null) {
-      applySynchronizeActionCheckerRules(messageLogger, synchronizeAction);
+      applySynchronizeActionCheckerRules(messageLogger, synchronizeAction, contextMode);
     }
     IActivateControllerAction activateControllerAction = object.getActivateControllerAction();
     if (activateControllerAction != null) {
-      applyActivateControllerActionCheckerRules(messageLogger, activateControllerAction);
+      applyActivateControllerActionCheckerRules(
+          messageLogger, activateControllerAction, contextMode);
     }
     IControllerAction controllerAction = object.getControllerAction();
     if (controllerAction != null) {
-      applyControllerActionCheckerRules(messageLogger, controllerAction);
+      applyControllerActionCheckerRules(messageLogger, controllerAction, contextMode);
     }
     ITeleportAction teleportAction = object.getTeleportAction();
     if (teleportAction != null) {
-      applyTeleportActionCheckerRules(messageLogger, teleportAction);
+      applyTeleportActionCheckerRules(messageLogger, teleportAction, contextMode);
     }
     IRoutingAction routingAction = object.getRoutingAction();
     if (routingAction != null) {
-      applyRoutingActionCheckerRules(messageLogger, routingAction);
+      applyRoutingActionCheckerRules(messageLogger, routingAction, contextMode);
     }
   }
 
-  private void applyPropertiesCheckerRules(IParserMessageLogger messageLogger, IProperties object) {
+  private void applyPropertiesCheckerRules(
+      IContentMessageLogger<?> messageLogger, IProperties object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IProperties.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IProperties> typedCheckerRule = (ICheckerRule<IProperties>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IProperty> properties = object.getProperties();
     if (properties != null) {
       for (IProperty listItem : properties) {
-        applyPropertyCheckerRules(messageLogger, listItem);
+        applyPropertyCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IFile> files = object.getFiles();
     if (files != null) {
       for (IFile listItem : files) {
-        applyFileCheckerRules(messageLogger, listItem);
+        applyFileCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyPropertyCheckerRules(IParserMessageLogger messageLogger, IProperty object) {
+  private void applyPropertyCheckerRules(
+      IContentMessageLogger<?> messageLogger, IProperty object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IProperty.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IProperty> typedCheckerRule = (ICheckerRule<IProperty>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyReachPositionConditionCheckerRules(
-      IParserMessageLogger messageLogger, IReachPositionCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      IReachPositionCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IReachPositionCondition.class);
     if (checkerRulesForType != null) {
@@ -4689,18 +5277,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IReachPositionCondition> typedCheckerRule =
             (ICheckerRule<IReachPositionCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
   private void applyRelativeDistanceConditionCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeDistanceCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeDistanceCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeDistanceCondition.class);
     if (checkerRulesForType != null) {
@@ -4708,14 +5302,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeDistanceCondition> typedCheckerRule =
             (ICheckerRule<IRelativeDistanceCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyRelativeLanePositionCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeLanePosition object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeLanePosition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeLanePosition.class);
     if (checkerRulesForType != null) {
@@ -4723,18 +5323,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeLanePosition> typedCheckerRule =
             (ICheckerRule<IRelativeLanePosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IOrientation orientation = object.getOrientation();
     if (orientation != null) {
-      applyOrientationCheckerRules(messageLogger, orientation);
+      applyOrientationCheckerRules(messageLogger, orientation, contextMode);
     }
   }
 
   private void applyRelativeObjectPositionCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeObjectPosition object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeObjectPosition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeObjectPosition.class);
     if (checkerRulesForType != null) {
@@ -4742,18 +5348,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeObjectPosition> typedCheckerRule =
             (ICheckerRule<IRelativeObjectPosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IOrientation orientation = object.getOrientation();
     if (orientation != null) {
-      applyOrientationCheckerRules(messageLogger, orientation);
+      applyOrientationCheckerRules(messageLogger, orientation, contextMode);
     }
   }
 
   private void applyRelativeRoadPositionCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeRoadPosition object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeRoadPosition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeRoadPosition.class);
     if (checkerRulesForType != null) {
@@ -4761,18 +5373,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeRoadPosition> typedCheckerRule =
             (ICheckerRule<IRelativeRoadPosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IOrientation orientation = object.getOrientation();
     if (orientation != null) {
-      applyOrientationCheckerRules(messageLogger, orientation);
+      applyOrientationCheckerRules(messageLogger, orientation, contextMode);
     }
   }
 
   private void applyRelativeSpeedConditionCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeSpeedCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeSpeedCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeSpeedCondition.class);
     if (checkerRulesForType != null) {
@@ -4780,14 +5398,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeSpeedCondition> typedCheckerRule =
             (ICheckerRule<IRelativeSpeedCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyRelativeSpeedToMasterCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeSpeedToMaster object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeSpeedToMaster object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeSpeedToMaster.class);
     if (checkerRulesForType != null) {
@@ -4795,14 +5419,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeSpeedToMaster> typedCheckerRule =
             (ICheckerRule<IRelativeSpeedToMaster>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyRelativeTargetLaneCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeTargetLane object) {
+      IContentMessageLogger<?> messageLogger, IRelativeTargetLane object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeTargetLane.class);
     if (checkerRulesForType != null) {
@@ -4810,14 +5438,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetLane> typedCheckerRule =
             (ICheckerRule<IRelativeTargetLane>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyRelativeTargetLaneOffsetCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeTargetLaneOffset object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeTargetLaneOffset object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeTargetLaneOffset.class);
     if (checkerRulesForType != null) {
@@ -4825,14 +5459,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetLaneOffset> typedCheckerRule =
             (ICheckerRule<IRelativeTargetLaneOffset>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyRelativeTargetSpeedCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeTargetSpeed object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeTargetSpeed object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeTargetSpeed.class);
     if (checkerRulesForType != null) {
@@ -4840,14 +5480,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetSpeed> typedCheckerRule =
             (ICheckerRule<IRelativeTargetSpeed>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyRelativeWorldPositionCheckerRules(
-      IParserMessageLogger messageLogger, IRelativeWorldPosition object) {
+      IContentMessageLogger<?> messageLogger,
+      IRelativeWorldPosition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRelativeWorldPosition.class);
     if (checkerRulesForType != null) {
@@ -4855,104 +5501,127 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeWorldPosition> typedCheckerRule =
             (ICheckerRule<IRelativeWorldPosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IOrientation orientation = object.getOrientation();
     if (orientation != null) {
-      applyOrientationCheckerRules(messageLogger, orientation);
+      applyOrientationCheckerRules(messageLogger, orientation, contextMode);
     }
   }
 
   private void applyRoadConditionCheckerRules(
-      IParserMessageLogger messageLogger, IRoadCondition object) {
+      IContentMessageLogger<?> messageLogger, IRoadCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRoadCondition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoadCondition> typedCheckerRule = (ICheckerRule<IRoadCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IProperties properties = object.getProperties();
     if (properties != null) {
-      applyPropertiesCheckerRules(messageLogger, properties);
+      applyPropertiesCheckerRules(messageLogger, properties, contextMode);
     }
   }
 
   private void applyRoadNetworkCheckerRules(
-      IParserMessageLogger messageLogger, IRoadNetwork object) {
+      IContentMessageLogger<?> messageLogger, IRoadNetwork object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoadNetwork.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoadNetwork> typedCheckerRule = (ICheckerRule<IRoadNetwork>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IFile logicFile = object.getLogicFile();
     if (logicFile != null) {
-      applyFileCheckerRules(messageLogger, logicFile);
+      applyFileCheckerRules(messageLogger, logicFile, contextMode);
     }
     IFile sceneGraphFile = object.getSceneGraphFile();
     if (sceneGraphFile != null) {
-      applyFileCheckerRules(messageLogger, sceneGraphFile);
+      applyFileCheckerRules(messageLogger, sceneGraphFile, contextMode);
     }
     List<ITrafficSignalController> trafficSignals = object.getTrafficSignals();
     if (trafficSignals != null) {
       for (ITrafficSignalController listItem : trafficSignals) {
-        applyTrafficSignalControllerCheckerRules(messageLogger, listItem);
+        applyTrafficSignalControllerCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyRoadPositionCheckerRules(
-      IParserMessageLogger messageLogger, IRoadPosition object) {
+      IContentMessageLogger<?> messageLogger, IRoadPosition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoadPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoadPosition> typedCheckerRule = (ICheckerRule<IRoadPosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IOrientation orientation = object.getOrientation();
     if (orientation != null) {
-      applyOrientationCheckerRules(messageLogger, orientation);
+      applyOrientationCheckerRules(messageLogger, orientation, contextMode);
     }
   }
 
-  private void applyRouteCheckerRules(IParserMessageLogger messageLogger, IRoute object) {
+  private void applyRouteCheckerRules(
+      IContentMessageLogger<?> messageLogger, IRoute object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRoute.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoute> typedCheckerRule = (ICheckerRule<IRoute>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IWaypoint> waypoints = object.getWaypoints();
     if (waypoints != null) {
       for (IWaypoint listItem : waypoints) {
-        applyWaypointCheckerRules(messageLogger, listItem);
+        applyWaypointCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyRouteCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, IRouteCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      IRouteCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRouteCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -4960,90 +5629,107 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRouteCatalogLocation> typedCheckerRule =
             (ICheckerRule<IRouteCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
   private void applyRoutePositionCheckerRules(
-      IParserMessageLogger messageLogger, IRoutePosition object) {
+      IContentMessageLogger<?> messageLogger, IRoutePosition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRoutePosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoutePosition> typedCheckerRule = (ICheckerRule<IRoutePosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IRouteRef routeRef = object.getRouteRef();
     if (routeRef != null) {
-      applyRouteRefCheckerRules(messageLogger, routeRef);
+      applyRouteRefCheckerRules(messageLogger, routeRef, contextMode);
     }
     IOrientation orientation = object.getOrientation();
     if (orientation != null) {
-      applyOrientationCheckerRules(messageLogger, orientation);
+      applyOrientationCheckerRules(messageLogger, orientation, contextMode);
     }
     IInRoutePosition inRoutePosition = object.getInRoutePosition();
     if (inRoutePosition != null) {
-      applyInRoutePositionCheckerRules(messageLogger, inRoutePosition);
+      applyInRoutePositionCheckerRules(messageLogger, inRoutePosition, contextMode);
     }
   }
 
-  private void applyRouteRefCheckerRules(IParserMessageLogger messageLogger, IRouteRef object) {
+  private void applyRouteRefCheckerRules(
+      IContentMessageLogger<?> messageLogger, IRouteRef object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IRouteRef.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRouteRef> typedCheckerRule = (ICheckerRule<IRouteRef>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IRoute route = object.getRoute();
     if (route != null) {
-      applyRouteCheckerRules(messageLogger, route);
+      applyRouteCheckerRules(messageLogger, route, contextMode);
     }
     ICatalogReference catalogReference = object.getCatalogReference();
     if (catalogReference != null) {
-      applyCatalogReferenceCheckerRules(messageLogger, catalogReference);
+      applyCatalogReferenceCheckerRules(messageLogger, catalogReference, contextMode);
     }
   }
 
   private void applyRoutingActionCheckerRules(
-      IParserMessageLogger messageLogger, IRoutingAction object) {
+      IContentMessageLogger<?> messageLogger, IRoutingAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IRoutingAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoutingAction> typedCheckerRule = (ICheckerRule<IRoutingAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IAssignRouteAction assignRouteAction = object.getAssignRouteAction();
     if (assignRouteAction != null) {
-      applyAssignRouteActionCheckerRules(messageLogger, assignRouteAction);
+      applyAssignRouteActionCheckerRules(messageLogger, assignRouteAction, contextMode);
     }
     IFollowTrajectoryAction followTrajectoryAction = object.getFollowTrajectoryAction();
     if (followTrajectoryAction != null) {
-      applyFollowTrajectoryActionCheckerRules(messageLogger, followTrajectoryAction);
+      applyFollowTrajectoryActionCheckerRules(messageLogger, followTrajectoryAction, contextMode);
     }
     IAcquirePositionAction acquirePositionAction = object.getAcquirePositionAction();
     if (acquirePositionAction != null) {
-      applyAcquirePositionActionCheckerRules(messageLogger, acquirePositionAction);
+      applyAcquirePositionActionCheckerRules(messageLogger, acquirePositionAction, contextMode);
     }
   }
 
   private void applyScenarioDefinitionCheckerRules(
-      IParserMessageLogger messageLogger, IScenarioDefinition object) {
+      IContentMessageLogger<?> messageLogger, IScenarioDefinition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IScenarioDefinition.class);
     if (checkerRulesForType != null) {
@@ -5051,36 +5737,40 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IScenarioDefinition> typedCheckerRule =
             (ICheckerRule<IScenarioDefinition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     ICatalogLocations catalogLocations = object.getCatalogLocations();
     if (catalogLocations != null) {
-      applyCatalogLocationsCheckerRules(messageLogger, catalogLocations);
+      applyCatalogLocationsCheckerRules(messageLogger, catalogLocations, contextMode);
     }
     IRoadNetwork roadNetwork = object.getRoadNetwork();
     if (roadNetwork != null) {
-      applyRoadNetworkCheckerRules(messageLogger, roadNetwork);
+      applyRoadNetworkCheckerRules(messageLogger, roadNetwork, contextMode);
     }
     IEntities entities = object.getEntities();
     if (entities != null) {
-      applyEntitiesCheckerRules(messageLogger, entities);
+      applyEntitiesCheckerRules(messageLogger, entities, contextMode);
     }
     IStoryboard storyboard = object.getStoryboard();
     if (storyboard != null) {
-      applyStoryboardCheckerRules(messageLogger, storyboard);
+      applyStoryboardCheckerRules(messageLogger, storyboard, contextMode);
     }
   }
 
   private void applyScenarioObjectCheckerRules(
-      IParserMessageLogger messageLogger, IScenarioObject object) {
+      IContentMessageLogger<?> messageLogger, IScenarioObject object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IScenarioObject.class);
     if (checkerRulesForType != null) {
@@ -5088,22 +5778,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IScenarioObject> typedCheckerRule =
             (ICheckerRule<IScenarioObject>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IEntityObject entityObject = object.getEntityObject();
     if (entityObject != null) {
-      applyEntityObjectCheckerRules(messageLogger, entityObject);
+      applyEntityObjectCheckerRules(messageLogger, entityObject, contextMode);
     }
     IObjectController objectController = object.getObjectController();
     if (objectController != null) {
-      applyObjectControllerCheckerRules(messageLogger, objectController);
+      applyObjectControllerCheckerRules(messageLogger, objectController, contextMode);
     }
   }
 
   private void applySelectedEntitiesCheckerRules(
-      IParserMessageLogger messageLogger, ISelectedEntities object) {
+      IContentMessageLogger<?> messageLogger, ISelectedEntities object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ISelectedEntities.class);
     if (checkerRulesForType != null) {
@@ -5111,50 +5805,61 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISelectedEntities> typedCheckerRule =
             (ICheckerRule<ISelectedEntities>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IEntityRef> entityRef = object.getEntityRef();
     if (entityRef != null) {
       for (IEntityRef listItem : entityRef) {
-        applyEntityRefCheckerRules(messageLogger, listItem);
+        applyEntityRefCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IByType> byType = object.getByType();
     if (byType != null) {
       for (IByType listItem : byType) {
-        applyByTypeCheckerRules(messageLogger, listItem);
+        applyByTypeCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyShapeCheckerRules(IParserMessageLogger messageLogger, IShape object) {
+  private void applyShapeCheckerRules(
+      IContentMessageLogger<?> messageLogger, IShape object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IShape.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IShape> typedCheckerRule = (ICheckerRule<IShape>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPolyline polyline = object.getPolyline();
     if (polyline != null) {
-      applyPolylineCheckerRules(messageLogger, polyline);
+      applyPolylineCheckerRules(messageLogger, polyline, contextMode);
     }
     IClothoid clothoid = object.getClothoid();
     if (clothoid != null) {
-      applyClothoidCheckerRules(messageLogger, clothoid);
+      applyClothoidCheckerRules(messageLogger, clothoid, contextMode);
     }
     INurbs nurbs = object.getNurbs();
     if (nurbs != null) {
-      applyNurbsCheckerRules(messageLogger, nurbs);
+      applyNurbsCheckerRules(messageLogger, nurbs, contextMode);
     }
   }
 
   private void applySimulationTimeConditionCheckerRules(
-      IParserMessageLogger messageLogger, ISimulationTimeCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      ISimulationTimeCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ISimulationTimeCondition.class);
     if (checkerRulesForType != null) {
@@ -5162,35 +5867,43 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISimulationTimeCondition> typedCheckerRule =
             (ICheckerRule<ISimulationTimeCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applySpeedActionCheckerRules(
-      IParserMessageLogger messageLogger, ISpeedAction object) {
+      IContentMessageLogger<?> messageLogger, ISpeedAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ISpeedAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedAction> typedCheckerRule = (ICheckerRule<ISpeedAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ITransitionDynamics speedActionDynamics = object.getSpeedActionDynamics();
     if (speedActionDynamics != null) {
-      applyTransitionDynamicsCheckerRules(messageLogger, speedActionDynamics);
+      applyTransitionDynamicsCheckerRules(messageLogger, speedActionDynamics, contextMode);
     }
     ISpeedActionTarget speedActionTarget = object.getSpeedActionTarget();
     if (speedActionTarget != null) {
-      applySpeedActionTargetCheckerRules(messageLogger, speedActionTarget);
+      applySpeedActionTargetCheckerRules(messageLogger, speedActionTarget, contextMode);
     }
   }
 
   private void applySpeedActionTargetCheckerRules(
-      IParserMessageLogger messageLogger, ISpeedActionTarget object) {
+      IContentMessageLogger<?> messageLogger, ISpeedActionTarget object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ISpeedActionTarget.class);
     if (checkerRulesForType != null) {
@@ -5198,22 +5911,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedActionTarget> typedCheckerRule =
             (ICheckerRule<ISpeedActionTarget>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IRelativeTargetSpeed relativeTargetSpeed = object.getRelativeTargetSpeed();
     if (relativeTargetSpeed != null) {
-      applyRelativeTargetSpeedCheckerRules(messageLogger, relativeTargetSpeed);
+      applyRelativeTargetSpeedCheckerRules(messageLogger, relativeTargetSpeed, contextMode);
     }
     IAbsoluteTargetSpeed absoluteTargetSpeed = object.getAbsoluteTargetSpeed();
     if (absoluteTargetSpeed != null) {
-      applyAbsoluteTargetSpeedCheckerRules(messageLogger, absoluteTargetSpeed);
+      applyAbsoluteTargetSpeedCheckerRules(messageLogger, absoluteTargetSpeed, contextMode);
     }
   }
 
   private void applySpeedConditionCheckerRules(
-      IParserMessageLogger messageLogger, ISpeedCondition object) {
+      IContentMessageLogger<?> messageLogger, ISpeedCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ISpeedCondition.class);
     if (checkerRulesForType != null) {
@@ -5221,14 +5938,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedCondition> typedCheckerRule =
             (ICheckerRule<ISpeedCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyStandStillConditionCheckerRules(
-      IParserMessageLogger messageLogger, IStandStillCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      IStandStillCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IStandStillCondition.class);
     if (checkerRulesForType != null) {
@@ -5236,64 +5959,80 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStandStillCondition> typedCheckerRule =
             (ICheckerRule<IStandStillCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyStoryCheckerRules(IParserMessageLogger messageLogger, IStory object) {
+  private void applyStoryCheckerRules(
+      IContentMessageLogger<?> messageLogger, IStory object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IStory.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStory> typedCheckerRule = (ICheckerRule<IStory>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     List<IAct> acts = object.getActs();
     if (acts != null) {
       for (IAct listItem : acts) {
-        applyActCheckerRules(messageLogger, listItem);
+        applyActCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
-  private void applyStoryboardCheckerRules(IParserMessageLogger messageLogger, IStoryboard object) {
+  private void applyStoryboardCheckerRules(
+      IContentMessageLogger<?> messageLogger, IStoryboard object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IStoryboard.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStoryboard> typedCheckerRule = (ICheckerRule<IStoryboard>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IInit init = object.getInit();
     if (init != null) {
-      applyInitCheckerRules(messageLogger, init);
+      applyInitCheckerRules(messageLogger, init, contextMode);
     }
     List<IStory> stories = object.getStories();
     if (stories != null) {
       for (IStory listItem : stories) {
-        applyStoryCheckerRules(messageLogger, listItem);
+        applyStoryCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     ITrigger stopTrigger = object.getStopTrigger();
     if (stopTrigger != null) {
-      applyTriggerCheckerRules(messageLogger, stopTrigger);
+      applyTriggerCheckerRules(messageLogger, stopTrigger, contextMode);
     }
   }
 
   private void applyStoryboardElementStateConditionCheckerRules(
-      IParserMessageLogger messageLogger, IStoryboardElementStateCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      IStoryboardElementStateCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IStoryboardElementStateCondition.class);
     if (checkerRulesForType != null) {
@@ -5301,26 +6040,35 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStoryboardElementStateCondition> typedCheckerRule =
             (ICheckerRule<IStoryboardElementStateCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applySunCheckerRules(IParserMessageLogger messageLogger, ISun object) {
+  private void applySunCheckerRules(
+      IContentMessageLogger<?> messageLogger, ISun object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ISun.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISun> typedCheckerRule = (ICheckerRule<ISun>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applySynchronizeActionCheckerRules(
-      IParserMessageLogger messageLogger, ISynchronizeAction object) {
+      IContentMessageLogger<?> messageLogger, ISynchronizeAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ISynchronizeAction.class);
     if (checkerRulesForType != null) {
@@ -5328,26 +6076,30 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISynchronizeAction> typedCheckerRule =
             (ICheckerRule<ISynchronizeAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition targetPositionMaster = object.getTargetPositionMaster();
     if (targetPositionMaster != null) {
-      applyPositionCheckerRules(messageLogger, targetPositionMaster);
+      applyPositionCheckerRules(messageLogger, targetPositionMaster, contextMode);
     }
     IPosition targetPosition = object.getTargetPosition();
     if (targetPosition != null) {
-      applyPositionCheckerRules(messageLogger, targetPosition);
+      applyPositionCheckerRules(messageLogger, targetPosition, contextMode);
     }
     IFinalSpeed finalSpeed = object.getFinalSpeed();
     if (finalSpeed != null) {
-      applyFinalSpeedCheckerRules(messageLogger, finalSpeed);
+      applyFinalSpeedCheckerRules(messageLogger, finalSpeed, contextMode);
     }
   }
 
   private void applyTeleportActionCheckerRules(
-      IParserMessageLogger messageLogger, ITeleportAction object) {
+      IContentMessageLogger<?> messageLogger, ITeleportAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITeleportAction.class);
     if (checkerRulesForType != null) {
@@ -5355,18 +6107,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITeleportAction> typedCheckerRule =
             (ICheckerRule<ITeleportAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
   private void applyTimeHeadwayConditionCheckerRules(
-      IParserMessageLogger messageLogger, ITimeHeadwayCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      ITimeHeadwayCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITimeHeadwayCondition.class);
     if (checkerRulesForType != null) {
@@ -5374,26 +6132,35 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeHeadwayCondition> typedCheckerRule =
             (ICheckerRule<ITimeHeadwayCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyTimeOfDayCheckerRules(IParserMessageLogger messageLogger, ITimeOfDay object) {
+  private void applyTimeOfDayCheckerRules(
+      IContentMessageLogger<?> messageLogger, ITimeOfDay object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITimeOfDay.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeOfDay> typedCheckerRule = (ICheckerRule<ITimeOfDay>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTimeOfDayConditionCheckerRules(
-      IParserMessageLogger messageLogger, ITimeOfDayCondition object) {
+      IContentMessageLogger<?> messageLogger, ITimeOfDayCondition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITimeOfDayCondition.class);
     if (checkerRulesForType != null) {
@@ -5401,36 +6168,46 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeOfDayCondition> typedCheckerRule =
             (ICheckerRule<ITimeOfDayCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTimeReferenceCheckerRules(
-      IParserMessageLogger messageLogger, ITimeReference object) {
+      IContentMessageLogger<?> messageLogger, ITimeReference object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITimeReference.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeReference> typedCheckerRule = (ICheckerRule<ITimeReference>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     INone none = object.getNone();
     if (none != null) {
-      applyNoneCheckerRules(messageLogger, none);
+      applyNoneCheckerRules(messageLogger, none, contextMode);
     }
     ITiming timing = object.getTiming();
     if (timing != null) {
-      applyTimingCheckerRules(messageLogger, timing);
+      applyTimingCheckerRules(messageLogger, timing, contextMode);
     }
   }
 
   private void applyTimeToCollisionConditionCheckerRules(
-      IParserMessageLogger messageLogger, ITimeToCollisionCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      ITimeToCollisionCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITimeToCollisionCondition.class);
     if (checkerRulesForType != null) {
@@ -5438,7 +6215,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeToCollisionCondition> typedCheckerRule =
             (ICheckerRule<ITimeToCollisionCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
@@ -5446,12 +6227,14 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         object.getTimeToCollisionConditionTarget();
     if (timeToCollisionConditionTarget != null) {
       applyTimeToCollisionConditionTargetCheckerRules(
-          messageLogger, timeToCollisionConditionTarget);
+          messageLogger, timeToCollisionConditionTarget, contextMode);
     }
   }
 
   private void applyTimeToCollisionConditionTargetCheckerRules(
-      IParserMessageLogger messageLogger, ITimeToCollisionConditionTarget object) {
+      IContentMessageLogger<?> messageLogger,
+      ITimeToCollisionConditionTarget object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITimeToCollisionConditionTarget.class);
     if (checkerRulesForType != null) {
@@ -5459,60 +6242,73 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeToCollisionConditionTarget> typedCheckerRule =
             (ICheckerRule<ITimeToCollisionConditionTarget>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
     IEntityRef entityRef = object.getEntityRef();
     if (entityRef != null) {
-      applyEntityRefCheckerRules(messageLogger, entityRef);
+      applyEntityRefCheckerRules(messageLogger, entityRef, contextMode);
     }
   }
 
-  private void applyTimingCheckerRules(IParserMessageLogger messageLogger, ITiming object) {
+  private void applyTimingCheckerRules(
+      IContentMessageLogger<?> messageLogger, ITiming object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITiming.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITiming> typedCheckerRule = (ICheckerRule<ITiming>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTrafficActionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficAction object) {
+      IContentMessageLogger<?> messageLogger, ITrafficAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficAction.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficAction> typedCheckerRule = (ICheckerRule<ITrafficAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ITrafficSourceAction trafficSourceAction = object.getTrafficSourceAction();
     if (trafficSourceAction != null) {
-      applyTrafficSourceActionCheckerRules(messageLogger, trafficSourceAction);
+      applyTrafficSourceActionCheckerRules(messageLogger, trafficSourceAction, contextMode);
     }
     ITrafficSinkAction trafficSinkAction = object.getTrafficSinkAction();
     if (trafficSinkAction != null) {
-      applyTrafficSinkActionCheckerRules(messageLogger, trafficSinkAction);
+      applyTrafficSinkActionCheckerRules(messageLogger, trafficSinkAction, contextMode);
     }
     ITrafficSwarmAction trafficSwarmAction = object.getTrafficSwarmAction();
     if (trafficSwarmAction != null) {
-      applyTrafficSwarmActionCheckerRules(messageLogger, trafficSwarmAction);
+      applyTrafficSwarmActionCheckerRules(messageLogger, trafficSwarmAction, contextMode);
     }
   }
 
   private void applyTrafficDefinitionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficDefinition object) {
+      IContentMessageLogger<?> messageLogger, ITrafficDefinition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficDefinition.class);
     if (checkerRulesForType != null) {
@@ -5520,23 +6316,30 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficDefinition> typedCheckerRule =
             (ICheckerRule<ITrafficDefinition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IVehicleCategoryDistribution vehicleCategoryDistribution =
         object.getVehicleCategoryDistribution();
     if (vehicleCategoryDistribution != null) {
-      applyVehicleCategoryDistributionCheckerRules(messageLogger, vehicleCategoryDistribution);
+      applyVehicleCategoryDistributionCheckerRules(
+          messageLogger, vehicleCategoryDistribution, contextMode);
     }
     IControllerDistribution controllerDistribution = object.getControllerDistribution();
     if (controllerDistribution != null) {
-      applyControllerDistributionCheckerRules(messageLogger, controllerDistribution);
+      applyControllerDistributionCheckerRules(messageLogger, controllerDistribution, contextMode);
     }
   }
 
   private void applyTrafficSignalActionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSignalAction object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrafficSignalAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSignalAction.class);
     if (checkerRulesForType != null) {
@@ -5544,23 +6347,31 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ITrafficSignalControllerAction trafficSignalControllerAction =
         object.getTrafficSignalControllerAction();
     if (trafficSignalControllerAction != null) {
-      applyTrafficSignalControllerActionCheckerRules(messageLogger, trafficSignalControllerAction);
+      applyTrafficSignalControllerActionCheckerRules(
+          messageLogger, trafficSignalControllerAction, contextMode);
     }
     ITrafficSignalStateAction trafficSignalStateAction = object.getTrafficSignalStateAction();
     if (trafficSignalStateAction != null) {
-      applyTrafficSignalStateActionCheckerRules(messageLogger, trafficSignalStateAction);
+      applyTrafficSignalStateActionCheckerRules(
+          messageLogger, trafficSignalStateAction, contextMode);
     }
   }
 
   private void applyTrafficSignalConditionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSignalCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrafficSignalCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSignalCondition.class);
     if (checkerRulesForType != null) {
@@ -5568,14 +6379,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalCondition> typedCheckerRule =
             (ICheckerRule<ITrafficSignalCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTrafficSignalControllerCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSignalController object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrafficSignalController object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSignalController.class);
     if (checkerRulesForType != null) {
@@ -5583,20 +6400,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalController> typedCheckerRule =
             (ICheckerRule<ITrafficSignalController>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IPhase> phases = object.getPhases();
     if (phases != null) {
       for (IPhase listItem : phases) {
-        applyPhaseCheckerRules(messageLogger, listItem);
+        applyPhaseCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyTrafficSignalControllerActionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSignalControllerAction object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrafficSignalControllerAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSignalControllerAction.class);
     if (checkerRulesForType != null) {
@@ -5604,14 +6427,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalControllerAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalControllerAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTrafficSignalControllerConditionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSignalControllerCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrafficSignalControllerCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSignalControllerCondition.class);
     if (checkerRulesForType != null) {
@@ -5619,14 +6448,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalControllerCondition> typedCheckerRule =
             (ICheckerRule<ITrafficSignalControllerCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTrafficSignalStateCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSignalState object) {
+      IContentMessageLogger<?> messageLogger, ITrafficSignalState object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSignalState.class);
     if (checkerRulesForType != null) {
@@ -5634,14 +6467,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalState> typedCheckerRule =
             (ICheckerRule<ITrafficSignalState>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTrafficSignalStateActionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSignalStateAction object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrafficSignalStateAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSignalStateAction.class);
     if (checkerRulesForType != null) {
@@ -5649,14 +6488,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalStateAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalStateAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTrafficSinkActionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSinkAction object) {
+      IContentMessageLogger<?> messageLogger, ITrafficSinkAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSinkAction.class);
     if (checkerRulesForType != null) {
@@ -5664,22 +6507,28 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSinkAction> typedCheckerRule =
             (ICheckerRule<ITrafficSinkAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
     ITrafficDefinition trafficDefinition = object.getTrafficDefinition();
     if (trafficDefinition != null) {
-      applyTrafficDefinitionCheckerRules(messageLogger, trafficDefinition);
+      applyTrafficDefinitionCheckerRules(messageLogger, trafficDefinition, contextMode);
     }
   }
 
   private void applyTrafficSourceActionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSourceAction object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrafficSourceAction object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSourceAction.class);
     if (checkerRulesForType != null) {
@@ -5687,22 +6536,26 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSourceAction> typedCheckerRule =
             (ICheckerRule<ITrafficSourceAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
     ITrafficDefinition trafficDefinition = object.getTrafficDefinition();
     if (trafficDefinition != null) {
-      applyTrafficDefinitionCheckerRules(messageLogger, trafficDefinition);
+      applyTrafficDefinitionCheckerRules(messageLogger, trafficDefinition, contextMode);
     }
   }
 
   private void applyTrafficSwarmActionCheckerRules(
-      IParserMessageLogger messageLogger, ITrafficSwarmAction object) {
+      IContentMessageLogger<?> messageLogger, ITrafficSwarmAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrafficSwarmAction.class);
     if (checkerRulesForType != null) {
@@ -5710,44 +6563,55 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSwarmAction> typedCheckerRule =
             (ICheckerRule<ITrafficSwarmAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ICentralSwarmObject centralObject = object.getCentralObject();
     if (centralObject != null) {
-      applyCentralSwarmObjectCheckerRules(messageLogger, centralObject);
+      applyCentralSwarmObjectCheckerRules(messageLogger, centralObject, contextMode);
     }
     ITrafficDefinition trafficDefinition = object.getTrafficDefinition();
     if (trafficDefinition != null) {
-      applyTrafficDefinitionCheckerRules(messageLogger, trafficDefinition);
+      applyTrafficDefinitionCheckerRules(messageLogger, trafficDefinition, contextMode);
     }
   }
 
-  private void applyTrajectoryCheckerRules(IParserMessageLogger messageLogger, ITrajectory object) {
+  private void applyTrajectoryCheckerRules(
+      IContentMessageLogger<?> messageLogger, ITrajectory object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITrajectory.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectory> typedCheckerRule = (ICheckerRule<ITrajectory>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     IShape shape = object.getShape();
     if (shape != null) {
-      applyShapeCheckerRules(messageLogger, shape);
+      applyShapeCheckerRules(messageLogger, shape, contextMode);
     }
   }
 
   private void applyTrajectoryCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, ITrajectoryCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrajectoryCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrajectoryCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -5755,18 +6619,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectoryCatalogLocation> typedCheckerRule =
             (ICheckerRule<ITrajectoryCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
   private void applyTrajectoryFollowingModeCheckerRules(
-      IParserMessageLogger messageLogger, ITrajectoryFollowingMode object) {
+      IContentMessageLogger<?> messageLogger,
+      ITrajectoryFollowingMode object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITrajectoryFollowingMode.class);
     if (checkerRulesForType != null) {
@@ -5774,14 +6644,18 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectoryFollowingMode> typedCheckerRule =
             (ICheckerRule<ITrajectoryFollowingMode>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTransitionDynamicsCheckerRules(
-      IParserMessageLogger messageLogger, ITransitionDynamics object) {
+      IContentMessageLogger<?> messageLogger, ITransitionDynamics object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITransitionDynamics.class);
     if (checkerRulesForType != null) {
@@ -5789,14 +6663,20 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITransitionDynamics> typedCheckerRule =
             (ICheckerRule<ITransitionDynamics>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
   private void applyTraveledDistanceConditionCheckerRules(
-      IParserMessageLogger messageLogger, ITraveledDistanceCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      ITraveledDistanceCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITraveledDistanceCondition.class);
     if (checkerRulesForType != null) {
@@ -5804,32 +6684,41 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITraveledDistanceCondition> typedCheckerRule =
             (ICheckerRule<ITraveledDistanceCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyTriggerCheckerRules(IParserMessageLogger messageLogger, ITrigger object) {
+  private void applyTriggerCheckerRules(
+      IContentMessageLogger<?> messageLogger, ITrigger object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(ITrigger.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrigger> typedCheckerRule = (ICheckerRule<ITrigger>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IConditionGroup> conditionGroups = object.getConditionGroups();
     if (conditionGroups != null) {
       for (IConditionGroup listItem : conditionGroups) {
-        applyConditionGroupCheckerRules(messageLogger, listItem);
+        applyConditionGroupCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyTriggeringEntitiesCheckerRules(
-      IParserMessageLogger messageLogger, ITriggeringEntities object) {
+      IContentMessageLogger<?> messageLogger, ITriggeringEntities object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(ITriggeringEntities.class);
     if (checkerRulesForType != null) {
@@ -5837,20 +6726,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITriggeringEntities> typedCheckerRule =
             (ICheckerRule<ITriggeringEntities>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IEntityRef> entityRefs = object.getEntityRefs();
     if (entityRefs != null) {
       for (IEntityRef listItem : entityRefs) {
-        applyEntityRefCheckerRules(messageLogger, listItem);
+        applyEntityRefCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyUserDefinedActionCheckerRules(
-      IParserMessageLogger messageLogger, IUserDefinedAction object) {
+      IContentMessageLogger<?> messageLogger, IUserDefinedAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IUserDefinedAction.class);
     if (checkerRulesForType != null) {
@@ -5858,18 +6751,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IUserDefinedAction> typedCheckerRule =
             (ICheckerRule<IUserDefinedAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ICustomCommandAction customCommandAction = object.getCustomCommandAction();
     if (customCommandAction != null) {
-      applyCustomCommandActionCheckerRules(messageLogger, customCommandAction);
+      applyCustomCommandActionCheckerRules(messageLogger, customCommandAction, contextMode);
     }
   }
 
   private void applyUserDefinedValueConditionCheckerRules(
-      IParserMessageLogger messageLogger, IUserDefinedValueCondition object) {
+      IContentMessageLogger<?> messageLogger,
+      IUserDefinedValueCondition object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IUserDefinedValueCondition.class);
     if (checkerRulesForType != null) {
@@ -5877,48 +6776,59 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IUserDefinedValueCondition> typedCheckerRule =
             (ICheckerRule<IUserDefinedValueCondition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyVehicleCheckerRules(IParserMessageLogger messageLogger, IVehicle object) {
+  private void applyVehicleCheckerRules(
+      IContentMessageLogger<?> messageLogger, IVehicle object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IVehicle.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicle> typedCheckerRule = (ICheckerRule<IVehicle>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
-        applyParameterDeclarationCheckerRules(messageLogger, listItem);
+        applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
     IBoundingBox boundingBox = object.getBoundingBox();
     if (boundingBox != null) {
-      applyBoundingBoxCheckerRules(messageLogger, boundingBox);
+      applyBoundingBoxCheckerRules(messageLogger, boundingBox, contextMode);
     }
     IPerformance performance = object.getPerformance();
     if (performance != null) {
-      applyPerformanceCheckerRules(messageLogger, performance);
+      applyPerformanceCheckerRules(messageLogger, performance, contextMode);
     }
     IAxles axles = object.getAxles();
     if (axles != null) {
-      applyAxlesCheckerRules(messageLogger, axles);
+      applyAxlesCheckerRules(messageLogger, axles, contextMode);
     }
     IProperties properties = object.getProperties();
     if (properties != null) {
-      applyPropertiesCheckerRules(messageLogger, properties);
+      applyPropertiesCheckerRules(messageLogger, properties, contextMode);
     }
   }
 
   private void applyVehicleCatalogLocationCheckerRules(
-      IParserMessageLogger messageLogger, IVehicleCatalogLocation object) {
+      IContentMessageLogger<?> messageLogger,
+      IVehicleCatalogLocation object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IVehicleCatalogLocation.class);
     if (checkerRulesForType != null) {
@@ -5926,18 +6836,24 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCatalogLocation> typedCheckerRule =
             (ICheckerRule<IVehicleCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IDirectory directory = object.getDirectory();
     if (directory != null) {
-      applyDirectoryCheckerRules(messageLogger, directory);
+      applyDirectoryCheckerRules(messageLogger, directory, contextMode);
     }
   }
 
   private void applyVehicleCategoryDistributionCheckerRules(
-      IParserMessageLogger messageLogger, IVehicleCategoryDistribution object) {
+      IContentMessageLogger<?> messageLogger,
+      IVehicleCategoryDistribution object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IVehicleCategoryDistribution.class);
     if (checkerRulesForType != null) {
@@ -5945,7 +6861,11 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCategoryDistribution> typedCheckerRule =
             (ICheckerRule<IVehicleCategoryDistribution>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
@@ -5953,13 +6873,15 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         object.getVehicleCategoryDistributionEntries();
     if (vehicleCategoryDistributionEntries != null) {
       for (IVehicleCategoryDistributionEntry listItem : vehicleCategoryDistributionEntries) {
-        applyVehicleCategoryDistributionEntryCheckerRules(messageLogger, listItem);
+        applyVehicleCategoryDistributionEntryCheckerRules(messageLogger, listItem, contextMode);
       }
     }
   }
 
   private void applyVehicleCategoryDistributionEntryCheckerRules(
-      IParserMessageLogger messageLogger, IVehicleCategoryDistributionEntry object) {
+      IContentMessageLogger<?> messageLogger,
+      IVehicleCategoryDistributionEntry object,
+      ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IVehicleCategoryDistributionEntry.class);
     if (checkerRulesForType != null) {
@@ -5967,30 +6889,39 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCategoryDistributionEntry> typedCheckerRule =
             (ICheckerRule<IVehicleCategoryDistributionEntry>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyVertexCheckerRules(IParserMessageLogger messageLogger, IVertex object) {
+  private void applyVertexCheckerRules(
+      IContentMessageLogger<?> messageLogger, IVertex object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IVertex.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVertex> typedCheckerRule = (ICheckerRule<IVertex>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
   private void applyVisibilityActionCheckerRules(
-      IParserMessageLogger messageLogger, IVisibilityAction object) {
+      IContentMessageLogger<?> messageLogger, IVisibilityAction object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IVisibilityAction.class);
     if (checkerRulesForType != null) {
@@ -5998,63 +6929,86 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVisibilityAction> typedCheckerRule =
             (ICheckerRule<IVisibilityAction>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
   }
 
-  private void applyWaypointCheckerRules(IParserMessageLogger messageLogger, IWaypoint object) {
+  private void applyWaypointCheckerRules(
+      IContentMessageLogger<?> messageLogger, IWaypoint object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IWaypoint.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IWaypoint> typedCheckerRule = (ICheckerRule<IWaypoint>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     IPosition position = object.getPosition();
     if (position != null) {
-      applyPositionCheckerRules(messageLogger, position);
+      applyPositionCheckerRules(messageLogger, position, contextMode);
     }
   }
 
-  private void applyWeatherCheckerRules(IParserMessageLogger messageLogger, IWeather object) {
+  private void applyWeatherCheckerRules(
+      IContentMessageLogger<?> messageLogger, IWeather object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType = this.typeToCheckerRuleList.get(IWeather.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IWeather> typedCheckerRule = (ICheckerRule<IWeather>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
     ISun sun = object.getSun();
     if (sun != null) {
-      applySunCheckerRules(messageLogger, sun);
+      applySunCheckerRules(messageLogger, sun, contextMode);
     }
     IFog fog = object.getFog();
     if (fog != null) {
-      applyFogCheckerRules(messageLogger, fog);
+      applyFogCheckerRules(messageLogger, fog, contextMode);
     }
     IPrecipitation precipitation = object.getPrecipitation();
     if (precipitation != null) {
-      applyPrecipitationCheckerRules(messageLogger, precipitation);
+      applyPrecipitationCheckerRules(messageLogger, precipitation, contextMode);
     }
   }
 
   private void applyWorldPositionCheckerRules(
-      IParserMessageLogger messageLogger, IWorldPosition object) {
+      IContentMessageLogger<?> messageLogger, IWorldPosition object, ContextMode contextMode) {
     List<ICheckerRule<?>> checkerRulesForType =
         this.typeToCheckerRuleList.get(IWorldPosition.class);
     if (checkerRulesForType != null) {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IWorldPosition> typedCheckerRule = (ICheckerRule<IWorldPosition>) checkerRule;
-        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
+        if (contextMode == ContextMode.MODE_FILE) {
+          typedCheckerRule.applyRuleInFileContext((IParserMessageLogger) messageLogger, object);
+        } else {
+          typedCheckerRule.applyRuleInTreeContext((ITreeMessageLogger) messageLogger, object);
+        }
       }
     }
     // getChildren
+  }
+
+  private enum ContextMode {
+    MODE_TREE,
+    MODE_FILE;
   }
 }

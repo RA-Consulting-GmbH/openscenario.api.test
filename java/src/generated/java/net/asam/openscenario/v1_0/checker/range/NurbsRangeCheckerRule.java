@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.INurbs;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,17 +37,38 @@ public class NurbsRangeCheckerRule extends RangeCheckerRule<INurbs> {
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, INurbs object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, INurbs object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger, ITreeMessageLogger treeMessageLogger, INurbs object) {
     Long order = object.getOrder();
     if (order != null) {
       if (!(order >= 2)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__ORDER,
-            object.getOrder().toString(),
-            ">=",
-            "2",
-            OscConstants.ATTRIBUTE__ORDER);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__ORDER,
+              object.getOrder().toString(),
+              ">=",
+              "2",
+              OscConstants.ATTRIBUTE__ORDER);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__ORDER,
+              object.getOrder().toString(),
+              ">=",
+              "2",
+              OscConstants.ATTRIBUTE__ORDER);
+        }
       }
     }
   }

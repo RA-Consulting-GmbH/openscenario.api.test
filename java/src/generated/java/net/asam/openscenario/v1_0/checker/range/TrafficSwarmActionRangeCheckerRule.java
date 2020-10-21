@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ITrafficSwarmAction;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -37,56 +38,112 @@ public class TrafficSwarmActionRangeCheckerRule extends RangeCheckerRule<ITraffi
   @Override
   public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, ITrafficSwarmAction object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, ITrafficSwarmAction object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ITrafficSwarmAction object) {
     Double semiMajorAxis = object.getSemiMajorAxis();
     if (semiMajorAxis != null) {
       if (!(semiMajorAxis >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS,
-            object.getSemiMajorAxis().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS,
+              object.getSemiMajorAxis().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS,
+              object.getSemiMajorAxis().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS);
+        }
       }
     }
     Double semiMinorAxis = object.getSemiMinorAxis();
     if (semiMinorAxis != null) {
       if (!(semiMinorAxis >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS,
-            object.getSemiMinorAxis().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS,
+              object.getSemiMinorAxis().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS,
+              object.getSemiMinorAxis().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS);
+        }
       }
     }
     Double innerRadius = object.getInnerRadius();
     if (innerRadius != null) {
       if (!(innerRadius >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__INNER_RADIUS,
-            object.getInnerRadius().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__INNER_RADIUS);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__INNER_RADIUS,
+              object.getInnerRadius().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__INNER_RADIUS);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__INNER_RADIUS,
+              object.getInnerRadius().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__INNER_RADIUS);
+        }
       }
     }
     Double velocity = object.getVelocity();
     if (velocity != null) {
       if (!(velocity >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__VELOCITY,
-            object.getVelocity().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__VELOCITY);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__VELOCITY,
+              object.getVelocity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VELOCITY);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__VELOCITY,
+              object.getVelocity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VELOCITY);
+        }
       }
     }
   }

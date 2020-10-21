@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ITrafficSinkAction;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -37,30 +38,64 @@ public class TrafficSinkActionRangeCheckerRule extends RangeCheckerRule<ITraffic
   @Override
   public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, ITrafficSinkAction object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, ITrafficSinkAction object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ITrafficSinkAction object) {
     Double rate = object.getRate();
     if (rate != null) {
       if (!(rate >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__RATE,
-            object.getRate().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__RATE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__RATE,
+              object.getRate().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RATE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__RATE,
+              object.getRate().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RATE);
+        }
       }
     }
     Double radius = object.getRadius();
     if (radius != null) {
       if (!(radius >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__RADIUS,
-            object.getRadius().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__RADIUS);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__RADIUS,
+              object.getRadius().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RADIUS);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__RADIUS,
+              object.getRadius().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RADIUS);
+        }
       }
     }
   }

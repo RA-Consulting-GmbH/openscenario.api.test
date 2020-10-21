@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IPerformance;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,30 +37,64 @@ public class PerformanceRangeCheckerRule extends RangeCheckerRule<IPerformance> 
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, IPerformance object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IPerformance object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IPerformance object) {
     Double maxAcceleration = object.getMaxAcceleration();
     if (maxAcceleration != null) {
       if (!(maxAcceleration >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_ACCELERATION,
-            object.getMaxAcceleration().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION,
+              object.getMaxAcceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION,
+              object.getMaxAcceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+        }
       }
     }
     Double maxDeceleration = object.getMaxDeceleration();
     if (maxDeceleration != null) {
       if (!(maxDeceleration >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_DECELERATION,
-            object.getMaxDeceleration().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__MAX_DECELERATION);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_DECELERATION,
+              object.getMaxDeceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_DECELERATION);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_DECELERATION,
+              object.getMaxDeceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_DECELERATION);
+        }
       }
     }
   }

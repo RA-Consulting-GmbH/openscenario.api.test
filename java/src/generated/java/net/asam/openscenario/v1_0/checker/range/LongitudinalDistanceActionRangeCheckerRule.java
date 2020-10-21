@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ILongitudinalDistanceAction;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -39,30 +40,65 @@ public class LongitudinalDistanceActionRangeCheckerRule
   @Override
   public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, ILongitudinalDistanceAction object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, ILongitudinalDistanceAction object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ILongitudinalDistanceAction object) {
     Double distance = object.getDistance();
     if (distance != null) {
       if (!(distance >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__DISTANCE,
-            object.getDistance().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__DISTANCE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__DISTANCE,
+              object.getDistance().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DISTANCE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__DISTANCE,
+              object.getDistance().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DISTANCE);
+        }
       }
     }
     Double timeGap = object.getTimeGap();
     if (timeGap != null) {
       if (!(timeGap >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__TIME_GAP,
-            object.getTimeGap().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__TIME_GAP);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__TIME_GAP,
+              object.getTimeGap().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TIME_GAP);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__TIME_GAP,
+              object.getTimeGap().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TIME_GAP);
+        }
       }
     }
   }

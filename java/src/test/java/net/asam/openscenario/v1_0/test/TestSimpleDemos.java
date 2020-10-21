@@ -151,7 +151,7 @@ public class TestSimpleDemos extends TestBase {
       SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
       // Now call the checkScenario method to check the tree
-      scenarioChecker.checkScenario(simpleMessageLogger, openScenario);
+      scenarioChecker.checkScenarioInFileContext(simpleMessageLogger, openScenario);
 
       // Now check the picked up messages
       for (FileContentMessage message : simpleMessageLogger.getMessages()) {
@@ -183,7 +183,7 @@ public class TestSimpleDemos extends TestBase {
       SimpleMessageLogger simpleMessageLogger = new SimpleMessageLogger(ErrorLevel.INFO);
 
       // Now call the checkScenario method to check the tree
-      scenarioChecker.checkScenario(simpleMessageLogger, openScenario);
+      scenarioChecker.checkScenarioInFileContext(simpleMessageLogger, openScenario);
 
       // Now check the picked up messages
       for (FileContentMessage message : simpleMessageLogger.getMessages()) {

@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ILaneOffsetActionDynamics;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -39,17 +40,41 @@ public class LaneOffsetActionDynamicsRangeCheckerRule
   @Override
   public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, ILaneOffsetActionDynamics object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, ILaneOffsetActionDynamics object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ILaneOffsetActionDynamics object) {
     Double maxLateralAcc = object.getMaxLateralAcc();
     if (maxLateralAcc != null) {
       if (!(maxLateralAcc >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_LATERAL_ACC,
-            object.getMaxLateralAcc().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_LATERAL_ACC,
+              object.getMaxLateralAcc().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_LATERAL_ACC,
+              object.getMaxLateralAcc().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
+        }
       }
     }
   }

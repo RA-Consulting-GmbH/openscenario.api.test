@@ -36,7 +36,7 @@ public class TestRangeChecker extends TestBase {
   private void applyCheckerRules(IOpenScenario openScenario) {
     ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
     RangeCheckerHelper.addAllRangeCheckerRules(scenarioChecker);
-    scenarioChecker.checkScenario(this.messageLogger, openScenario);
+    scenarioChecker.checkScenarioInFileContext(this.messageLogger, openScenario);
   }
 
   @Test

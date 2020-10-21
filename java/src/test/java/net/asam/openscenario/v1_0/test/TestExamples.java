@@ -22,12 +22,15 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.checker.ICheckerRule;
+import net.asam.openscenario.checker.tree.PropertyTreeContext;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.SimpleMessageLogger;
 import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
@@ -109,9 +112,7 @@ public class TestExamples extends TestBase {
           @Override
           public void applyRuleInFileContext(IParserMessageLogger messageLogger, IVehicle object) {
 
-            String name = object.getName();
-            // name must start with a capital letter
-            if (!name.matches("^[A-Z].*")) {
+            if (!doesNameMatches(object)) {
 
               // Get the textmarker at the error
               ILocator locator = (ILocator) object.getAdapter(ILocator.class);
@@ -121,14 +122,46 @@ public class TestExamples extends TestBase {
               // Add a message to the logger
               messageLogger.logMessage(
                   new FileContentMessage(
-                      "Name must start with a capital letter", ErrorLevel.ERROR, textmarker));
+                      getMessage(), ErrorLevel.ERROR, textmarker));
             }
+          }
+
+          /**
+           * @return
+           */
+          private String getMessage()
+          {
+            return "Name must start with a capital letter";
+          }
+
+          @Override
+          public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IVehicle object)
+          {
+            if (!doesNameMatches(object)) {
+
+              // Get the textmarker at the error
+              ILocator locator = (ILocator) object.getAdapter(ILocator.class);
+              Textmarker textmarker =
+                  locator.getStartMarkerOfProperty(OscConstants.ATTRIBUTE__NAME);
+
+              // Add a message to the logger
+              messageLogger.logMessage(
+                  new TreeContentMessage(
+                      getMessage(), ErrorLevel.ERROR, PropertyTreeContext.create(object, OscConstants.ATTRIBUTE__NAME)));
+            }
+            
+          }
+          private boolean doesNameMatches(IVehicle object)
+          {
+            String name = object.getName();
+            // name must start with a capital letter
+            return name.matches("^[A-Z].*");
           }
         });
 
     // Now start the check. It is applied to all vehicles. For any checker rule violation an entry
     // is created.
-    scenarioChecker.checkScenario(checkerRuleLogger, openScenario);
+    scenarioChecker.checkScenarioInFileContext(checkerRuleLogger, openScenario);
 
     // Iterate through violations
     for (FileContentMessage message : checkerRuleLogger.getMessages()) {

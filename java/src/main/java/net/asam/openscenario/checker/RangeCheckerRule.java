@@ -17,12 +17,18 @@
 
 package net.asam.openscenario.checker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.checker.tree.PropertyTreeContext;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.common.TreeContentMessage;
 
 /**
  * An abstract implementation of ICheckerRule to check ranges of object's properties.
@@ -37,7 +43,7 @@ public abstract class RangeCheckerRule<T extends IOpenScenarioModelElement>
   public RangeCheckerRule() {}
 
   /**
-   * Logging a range error violation
+   * Logging a range error violation in file context
    *
    * @param object The object that is tested.
    * @param messageLogger to log the message if violation is detected
@@ -47,7 +53,7 @@ public abstract class RangeCheckerRule<T extends IOpenScenarioModelElement>
    * @param comparedValue the value the actual value is compared to.
    * @param attributeKey the attribute key that is used to locate the violation.
    */
-  public void logMessage(
+  public void logFileContentMessage(
       IOpenScenarioModelElement object,
       IParserMessageLogger messageLogger,
       String propertyName,
@@ -68,9 +74,39 @@ public abstract class RangeCheckerRule<T extends IOpenScenarioModelElement>
             ErrorLevel.ERROR,
             textmarker));
   }
+  
+  /**
+   * Logging a range error violation in treeContext
+   *
+   * @param object The object that is tested.
+   * @param messageLogger to log the message if violation is detected
+   * @param propertyName name of the property that is checked
+   * @param propertyValue the actual value of the property that was evaluated
+   * @param operator operator that was evaluated
+   * @param comparedValue the value the actual value is compared to.
+   * @param attributeKey the attribute key that is used to locate the violation.
+   */
+  public void logTreeContentMessage(
+      IOpenScenarioModelElement object,
+      ITreeMessageLogger messageLogger,
+      String propertyName,
+      String propertyValue,
+      String operator,
+      String comparedValue,
+      String attributeKey) {
+    
+    List<String> attributeKeyList = new ArrayList<>();
+    attributeKeyList.add(attributeKey);
+
+    messageLogger.logMessage(
+        new TreeContentMessage(
+            getMessage(propertyName, propertyValue, operator, comparedValue),
+            ErrorLevel.ERROR,
+            new PropertyTreeContext(object, attributeKeyList)));
+  }
 
   /**
-   * Logging a Range error message.
+   * Creating amessage.
    *
    * @param propertyName name of the property
    * @param propertyValue the actual value of the property that was evaluated

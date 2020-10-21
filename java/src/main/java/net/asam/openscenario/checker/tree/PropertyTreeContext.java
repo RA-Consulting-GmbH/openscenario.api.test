@@ -51,5 +51,18 @@ public class PropertyTreeContext extends BaseTreeContext
   {
     return this.propertyNames;
   }
+  
 
+  /**
+   * Creates a PropertyTreeContext from a object and a single property name (convenience factory method)
+   * @param treeObjectContext the tree object context
+   * @param propertyName
+   * @return a property tree context
+   */
+  public static PropertyTreeContext create(IOpenScenarioModelElement treeObjectContext, String propertyName)
+  {
+    List<String> propertyNames = new ArrayList<>();
+    propertyNames.add(propertyName);
+    return new PropertyTreeContext(treeObjectContext, propertyNames);
+  }
 }

@@ -17,11 +17,14 @@
 package net.asam.openscenario.v1_0.checker;
 
 import net.asam.openscenario.checker.ICheckerRule;
+import net.asam.openscenario.checker.tree.PropertyTreeContext;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.ParameterType;
@@ -41,25 +44,7 @@ public class ParameterDeclarationChecker implements ICheckerRule<IParameterDecla
     String value = object.getValue();
     ParameterType parameterType = object.getParameterType();
     try {
-      if (value != null && !value.isEmpty()) {
-        if (parameterType.equals(ParameterType.INTEGER)) {
-          ParserHelper.validateInt(value);
-        }else if (parameterType.equals(ParameterType.UNSIGNED_INT))
-        {
-          ParserHelper.validateUnsignedInt(value);          
-        }if (parameterType.equals(ParameterType.UNSIGNED_SHORT)) {
-          ParserHelper.validateUnsignedShort(value);
-        }else if (parameterType.equals(ParameterType.DOUBLE)) {
-
-          ParserHelper.validateDouble(value);
-        }else if (parameterType.equals(ParameterType.DATE_TIME)) {
-
-          ParserHelper.validateDateTime(value);
-        }else if (parameterType.equals(ParameterType.BOOLEAN)) {
-
-          ParserHelper.validateBoolean(value);
-        }
-      }
+      validateParsing(value, parameterType);
 
     } catch (Exception e) {
       ILocator locator = (ILocator) object.getAdapter(ILocator.class);
@@ -74,5 +59,52 @@ public class ParameterDeclarationChecker implements ICheckerRule<IParameterDecla
               ErrorLevel.ERROR,
               textmarker));
     }
+  }
+
+  /**
+   * @param value
+   * @param parameterType
+   * @throws Exception
+   */
+  private void validateParsing(String value, ParameterType parameterType) throws Exception
+  {
+    if (value != null && !value.isEmpty()) {
+      if (parameterType.equals(ParameterType.INTEGER)) {
+        ParserHelper.validateInt(value);
+      }else if (parameterType.equals(ParameterType.UNSIGNED_INT))
+      {
+        ParserHelper.validateUnsignedInt(value);          
+      }if (parameterType.equals(ParameterType.UNSIGNED_SHORT)) {
+        ParserHelper.validateUnsignedShort(value);
+      }else if (parameterType.equals(ParameterType.DOUBLE)) {
+
+        ParserHelper.validateDouble(value);
+      }else if (parameterType.equals(ParameterType.DATE_TIME)) {
+
+        ParserHelper.validateDateTime(value);
+      }else if (parameterType.equals(ParameterType.BOOLEAN)) {
+
+        ParserHelper.validateBoolean(value);
+      }
+    }
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IParameterDeclaration object)
+  {
+    String value = object.getValue();
+    ParameterType parameterType = object.getParameterType();
+    try {
+      validateParsing(value, parameterType);
+
+    } catch (Exception e) {
+      
+      messageLogger.logMessage(
+          new TreeContentMessage(
+              String.format("Value '%s' cannot be parsed into '%s'", value, parameterType.getLiteral()),
+              ErrorLevel.ERROR,
+              PropertyTreeContext.create(object, OscConstants.ATTRIBUTE__VALUE)));
+    }
+    
   }
 }

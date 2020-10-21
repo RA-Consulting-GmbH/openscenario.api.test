@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -39,17 +40,41 @@ public class ControllerDistributionEntryRangeCheckerRule
   @Override
   public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, IControllerDistributionEntry object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, IControllerDistributionEntry object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IControllerDistributionEntry object) {
     Double weight = object.getWeight();
     if (weight != null) {
       if (!(weight > 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__WEIGHT,
-            object.getWeight().toString(),
-            ">",
-            "0",
-            OscConstants.ATTRIBUTE__WEIGHT);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__WEIGHT,
+              object.getWeight().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__WEIGHT);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__WEIGHT,
+              object.getWeight().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__WEIGHT);
+        }
       }
     }
   }

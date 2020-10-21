@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IControlPoint;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,17 +37,40 @@ public class ControlPointRangeCheckerRule extends RangeCheckerRule<IControlPoint
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, IControlPoint object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IControlPoint object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IControlPoint object) {
     Double time = object.getTime();
     if (time != null) {
       if (!(time >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__TIME,
-            object.getTime().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__TIME);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__TIME,
+              object.getTime().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TIME);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__TIME,
+              object.getTime().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TIME);
+        }
       }
     }
   }

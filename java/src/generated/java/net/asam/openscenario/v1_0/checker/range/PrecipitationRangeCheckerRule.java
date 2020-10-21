@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IPrecipitation;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,27 +37,61 @@ public class PrecipitationRangeCheckerRule extends RangeCheckerRule<IPrecipitati
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, IPrecipitation object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IPrecipitation object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IPrecipitation object) {
     Double intensity = object.getIntensity();
     if (intensity != null) {
       if (!(intensity <= 1)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__INTENSITY,
-            object.getIntensity().toString(),
-            "<=",
-            "1",
-            OscConstants.ATTRIBUTE__INTENSITY);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__INTENSITY,
+              object.getIntensity().toString(),
+              "<=",
+              "1",
+              OscConstants.ATTRIBUTE__INTENSITY);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__INTENSITY,
+              object.getIntensity().toString(),
+              "<=",
+              "1",
+              OscConstants.ATTRIBUTE__INTENSITY);
+        }
       }
       if (!(intensity >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__INTENSITY,
-            object.getIntensity().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__INTENSITY);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__INTENSITY,
+              object.getIntensity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__INTENSITY);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__INTENSITY,
+              object.getIntensity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__INTENSITY);
+        }
       }
     }
   }

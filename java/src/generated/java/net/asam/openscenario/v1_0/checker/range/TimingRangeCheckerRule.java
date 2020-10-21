@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ITiming;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,17 +37,40 @@ public class TimingRangeCheckerRule extends RangeCheckerRule<ITiming> {
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, ITiming object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, ITiming object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ITiming object) {
     Double scale = object.getScale();
     if (scale != null) {
       if (!(scale > 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__SCALE,
-            object.getScale().toString(),
-            ">",
-            "0",
-            OscConstants.ATTRIBUTE__SCALE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__SCALE,
+              object.getScale().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__SCALE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__SCALE,
+              object.getScale().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__SCALE);
+        }
       }
     }
   }

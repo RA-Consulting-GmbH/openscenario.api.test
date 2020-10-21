@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IManeuverGroup;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,17 +37,40 @@ public class ManeuverGroupRangeCheckerRule extends RangeCheckerRule<IManeuverGro
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, IManeuverGroup object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IManeuverGroup object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IManeuverGroup object) {
     Long maximumExecutionCount = object.getMaximumExecutionCount();
     if (maximumExecutionCount != null) {
       if (!(maximumExecutionCount >= 1)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
-            object.getMaximumExecutionCount().toString(),
-            ">=",
-            "1",
-            OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
+              object.getMaximumExecutionCount().toString(),
+              ">=",
+              "1",
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
+              object.getMaximumExecutionCount().toString(),
+              ">=",
+              "1",
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+        }
       }
     }
   }

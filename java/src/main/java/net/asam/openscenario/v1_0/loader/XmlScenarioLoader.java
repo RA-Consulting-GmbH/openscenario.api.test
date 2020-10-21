@@ -156,7 +156,7 @@ public class XmlScenarioLoader implements IScenarioLoader {
         // Check 
         IScenarioChecker  scenarioChecker = new ScenarioCheckerImpl();
         scenarioChecker.addParameterDeclarationCheckerRule(new ParameterDeclarationChecker());
-        scenarioChecker.checkScenario(messageLogger, openScenarioImpl);
+        scenarioChecker.checkScenarioInFileContext(messageLogger, openScenarioImpl);
         OpenScenarioProcessingHelper.resolve(messageLogger, openScenarioImpl, injectedParameters);
         openScenarioImpl.addAdapter(ICatalogReferenceProvider.class, parserContext);
         openScenarioImpl.addAdapter(IScenarioChecker.class, new ScenarioCheckerImpl());
