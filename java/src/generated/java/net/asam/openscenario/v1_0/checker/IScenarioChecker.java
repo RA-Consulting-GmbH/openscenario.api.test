@@ -217,16 +217,16 @@ public interface IScenarioChecker {
   /**
    * Checks the scenario in a file context
    *
-   * @param messageLogger
-   * @param openScenario
+   * @param messageLogger the logger for file context
+   * @param openScenario the root of the tree
    */
   public void checkScenarioInFileContext(
       IParserMessageLogger messageLogger, IOpenScenario openScenario);
   /**
    * Checks the scenario in a tree context
    *
-   * @param messageLogger
-   * @param openScenario
+   * @param messageLogger the logger for tree context
+   * @param openScenario the root of the tree
    */
   public void checkScenarioInTreeContext(
       ITreeMessageLogger messageLogger, IOpenScenario openScenario);

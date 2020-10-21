@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.common.TreeMessageLogger;
 import net.asam.openscenario.loader.ScenarioLoaderException;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
 import net.asam.openscenario.v1_0.checker.impl.ScenarioCheckerImpl;
@@ -33,18 +34,16 @@ import net.asam.openscenario.v1_0.checker.range.RangeCheckerHelper;
 
 public class TestRangeChecker extends TestBase {
 
-  private void applyCheckerRules(IOpenScenario openScenario) {
-    ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
-    RangeCheckerHelper.addAllRangeCheckerRules(scenarioChecker);
-    scenarioChecker.checkScenarioInFileContext(this.messageLogger, openScenario);
-  }
+ 
 
   @Test
   public void testParamsFailure() {
     try {
       String filename = getResourceFile("DoubleLaneChangerCheckerErrors.xosc").getAbsolutePath();
       IOpenScenario openScenario = executeParsing(filename);
-      applyCheckerRules(openScenario);
+      ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
+      RangeCheckerHelper.addAllRangeCheckerRules(scenarioChecker);
+      scenarioChecker.checkScenarioInFileContext(this.messageLogger, openScenario);
       List<FileContentMessage> messages = new ArrayList<>();
 
       messages.add(
@@ -84,6 +83,12 @@ public class TestRangeChecker extends TestBase {
               new Textmarker(60, 22, filename)));
 
       Assertions.assertTrue(assertMessages(messages, ErrorLevel.ERROR, this.messageLogger));
+      
+      // Now apply the tree validation.
+      TreeMessageLogger treeMessageLogger = new TreeMessageLogger(ErrorLevel.ERROR);
+      scenarioChecker.checkScenarioInTreeContext(treeMessageLogger, openScenario);
+      
+      Assertions.assertEquals(this.messageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).size(), treeMessageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel.ERROR).size());
 
     } catch (ScenarioLoaderException e) {
       Assertions.fail();

@@ -127,7 +127,7 @@ public class TestExamples extends TestBase {
           }
 
           /**
-           * @return
+           * @return the message
            */
           private String getMessage()
           {
