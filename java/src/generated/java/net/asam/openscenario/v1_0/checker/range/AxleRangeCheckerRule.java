@@ -35,7 +35,7 @@ public class AxleRangeCheckerRule extends RangeCheckerRule<IAxle> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IAxle object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IAxle object) {
     Double maxSteering = object.getMaxSteering();
     if (maxSteering != null) {
       if (!(maxSteering <= java.lang.Math.PI)) {

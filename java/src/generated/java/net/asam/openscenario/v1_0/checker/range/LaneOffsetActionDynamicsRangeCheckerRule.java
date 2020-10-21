@@ -37,7 +37,8 @@ public class LaneOffsetActionDynamicsRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ILaneOffsetActionDynamics object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ILaneOffsetActionDynamics object) {
     Double maxLateralAcc = object.getMaxLateralAcc();
     if (maxLateralAcc != null) {
       if (!(maxLateralAcc >= 0)) {

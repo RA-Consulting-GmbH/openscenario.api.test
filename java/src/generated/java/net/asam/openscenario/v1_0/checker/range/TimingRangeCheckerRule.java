@@ -35,7 +35,7 @@ public class TimingRangeCheckerRule extends RangeCheckerRule<ITiming> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITiming object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, ITiming object) {
     Double scale = object.getScale();
     if (scale != null) {
       if (!(scale > 0)) {

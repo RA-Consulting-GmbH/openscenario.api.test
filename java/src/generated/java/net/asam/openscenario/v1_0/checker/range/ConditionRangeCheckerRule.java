@@ -35,7 +35,7 @@ public class ConditionRangeCheckerRule extends RangeCheckerRule<ICondition> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ICondition object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, ICondition object) {
     Double delay = object.getDelay();
     if (delay != null) {
       if (!(delay >= 0)) {

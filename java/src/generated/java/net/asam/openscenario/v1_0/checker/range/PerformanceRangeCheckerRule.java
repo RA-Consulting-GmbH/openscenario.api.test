@@ -35,7 +35,7 @@ public class PerformanceRangeCheckerRule extends RangeCheckerRule<IPerformance> 
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IPerformance object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IPerformance object) {
     Double maxAcceleration = object.getMaxAcceleration();
     if (maxAcceleration != null) {
       if (!(maxAcceleration >= 0)) {

@@ -35,7 +35,8 @@ public class DistanceConditionRangeCheckerRule extends RangeCheckerRule<IDistanc
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IDistanceCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IDistanceCondition object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {

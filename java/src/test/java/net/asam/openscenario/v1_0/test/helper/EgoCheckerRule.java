@@ -16,7 +16,7 @@ import net.asam.openscenario.v1_0.api.IScenarioObject;
 public class EgoCheckerRule implements ICheckerRule<IEntities> {
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IEntities object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IEntities object) {
     boolean isEgoDefined = false;
 
     // We are adding the validation code here

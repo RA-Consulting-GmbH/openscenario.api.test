@@ -36,7 +36,8 @@ public class TrafficSignalControllerRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITrafficSignalController object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITrafficSignalController object) {
     Double delay = object.getDelay();
     if (delay != null) {
       if (!(delay >= 0)) {

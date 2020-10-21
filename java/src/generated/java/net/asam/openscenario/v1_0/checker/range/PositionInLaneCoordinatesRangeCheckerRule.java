@@ -37,7 +37,8 @@ public class PositionInLaneCoordinatesRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IPositionInLaneCoordinates object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IPositionInLaneCoordinates object) {
     Double pathS = object.getPathS();
     if (pathS != null) {
       if (!(pathS >= 0)) {

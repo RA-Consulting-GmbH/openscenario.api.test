@@ -2275,7 +2275,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteSpeed> typedCheckerRule = (ICheckerRule<IAbsoluteSpeed>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2290,7 +2290,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetLane> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetLane>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2305,7 +2305,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetLaneOffset> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetLaneOffset>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2320,7 +2320,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAbsoluteTargetSpeed> typedCheckerRule =
             (ICheckerRule<IAbsoluteTargetSpeed>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2335,7 +2335,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAccelerationCondition> typedCheckerRule =
             (ICheckerRule<IAccelerationCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2350,7 +2350,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAcquirePositionAction> typedCheckerRule =
             (ICheckerRule<IAcquirePositionAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2366,7 +2366,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAct> typedCheckerRule = (ICheckerRule<IAct>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2392,7 +2392,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAction> typedCheckerRule = (ICheckerRule<IAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2419,7 +2419,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IActivateControllerAction> typedCheckerRule =
             (ICheckerRule<IActivateControllerAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2431,7 +2431,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IActors> typedCheckerRule = (ICheckerRule<IActors>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2452,7 +2452,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAddEntityAction> typedCheckerRule =
             (ICheckerRule<IAddEntityAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2471,7 +2471,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAssignControllerAction> typedCheckerRule =
             (ICheckerRule<IAssignControllerAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2494,7 +2494,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAssignRouteAction> typedCheckerRule =
             (ICheckerRule<IAssignRouteAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2514,7 +2514,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAxle> typedCheckerRule = (ICheckerRule<IAxle>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2526,7 +2526,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IAxles> typedCheckerRule = (ICheckerRule<IAxles>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2553,7 +2553,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IBoundingBox> typedCheckerRule = (ICheckerRule<IBoundingBox>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2576,7 +2576,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByEntityCondition> typedCheckerRule =
             (ICheckerRule<IByEntityCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2597,7 +2597,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByObjectType> typedCheckerRule = (ICheckerRule<IByObjectType>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2609,7 +2609,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByType> typedCheckerRule = (ICheckerRule<IByType>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2624,7 +2624,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IByValueCondition> typedCheckerRule =
             (ICheckerRule<IByValueCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2668,7 +2668,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalog> typedCheckerRule = (ICheckerRule<ICatalog>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2731,7 +2731,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogDefinition> typedCheckerRule =
             (ICheckerRule<ICatalogDefinition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2750,7 +2750,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogLocations> typedCheckerRule =
             (ICheckerRule<ICatalogLocations>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2797,7 +2797,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICatalogReference> typedCheckerRule =
             (ICheckerRule<ICatalogReference>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2815,7 +2815,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICenter> typedCheckerRule = (ICheckerRule<ICenter>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2830,7 +2830,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICentralSwarmObject> typedCheckerRule =
             (ICheckerRule<ICentralSwarmObject>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2842,7 +2842,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IClothoid> typedCheckerRule = (ICheckerRule<IClothoid>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2861,7 +2861,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICollisionCondition> typedCheckerRule =
             (ICheckerRule<ICollisionCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2881,7 +2881,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICondition> typedCheckerRule = (ICheckerRule<ICondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2904,7 +2904,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IConditionGroup> typedCheckerRule =
             (ICheckerRule<IConditionGroup>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2923,7 +2923,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControlPoint> typedCheckerRule = (ICheckerRule<IControlPoint>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2939,7 +2939,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IController> typedCheckerRule = (ICheckerRule<IController>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2964,7 +2964,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerAction> typedCheckerRule =
             (ICheckerRule<IControllerAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -2988,7 +2988,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerCatalogLocation> typedCheckerRule =
             (ICheckerRule<IControllerCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3007,7 +3007,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerDistribution> typedCheckerRule =
             (ICheckerRule<IControllerDistribution>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3029,7 +3029,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IControllerDistributionEntry> typedCheckerRule =
             (ICheckerRule<IControllerDistributionEntry>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3052,7 +3052,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ICustomCommandAction> typedCheckerRule =
             (ICheckerRule<ICustomCommandAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3067,7 +3067,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDeleteEntityAction> typedCheckerRule =
             (ICheckerRule<IDeleteEntityAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3079,7 +3079,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDimensions> typedCheckerRule = (ICheckerRule<IDimensions>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3091,7 +3091,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDirectory> typedCheckerRule = (ICheckerRule<IDirectory>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3106,7 +3106,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDistanceCondition> typedCheckerRule =
             (ICheckerRule<IDistanceCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3125,7 +3125,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IDynamicConstraints> typedCheckerRule =
             (ICheckerRule<IDynamicConstraints>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3140,7 +3140,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEndOfRoadCondition> typedCheckerRule =
             (ICheckerRule<IEndOfRoadCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3152,7 +3152,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntities> typedCheckerRule = (ICheckerRule<IEntities>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3177,7 +3177,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityAction> typedCheckerRule = (ICheckerRule<IEntityAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3200,7 +3200,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityCondition> typedCheckerRule =
             (ICheckerRule<IEntityCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3265,7 +3265,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityObject> typedCheckerRule = (ICheckerRule<IEntityObject>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3293,7 +3293,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntityRef> typedCheckerRule = (ICheckerRule<IEntityRef>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3308,7 +3308,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEntitySelection> typedCheckerRule =
             (ICheckerRule<IEntitySelection>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3325,7 +3325,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironment> typedCheckerRule = (ICheckerRule<IEnvironment>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3358,7 +3358,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironmentAction> typedCheckerRule =
             (ICheckerRule<IEnvironmentAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3381,7 +3381,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEnvironmentCatalogLocation> typedCheckerRule =
             (ICheckerRule<IEnvironmentCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3397,7 +3397,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IEvent> typedCheckerRule = (ICheckerRule<IEvent>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3419,7 +3419,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFile> typedCheckerRule = (ICheckerRule<IFile>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3431,7 +3431,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFileHeader> typedCheckerRule = (ICheckerRule<IFileHeader>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3443,7 +3443,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFinalSpeed> typedCheckerRule = (ICheckerRule<IFinalSpeed>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3463,7 +3463,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFog> typedCheckerRule = (ICheckerRule<IFog>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3482,7 +3482,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IFollowTrajectoryAction> typedCheckerRule =
             (ICheckerRule<IFollowTrajectoryAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3511,7 +3511,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IGlobalAction> typedCheckerRule = (ICheckerRule<IGlobalAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3546,7 +3546,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInRoutePosition> typedCheckerRule =
             (ICheckerRule<IInRoutePosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3573,7 +3573,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInfrastructureAction> typedCheckerRule =
             (ICheckerRule<IInfrastructureAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3589,7 +3589,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInit> typedCheckerRule = (ICheckerRule<IInit>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3606,7 +3606,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IInitActions> typedCheckerRule = (ICheckerRule<IInitActions>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3636,7 +3636,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IKnot> typedCheckerRule = (ICheckerRule<IKnot>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3651,7 +3651,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneChangeAction> typedCheckerRule =
             (ICheckerRule<ILaneChangeAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3674,7 +3674,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneChangeTarget> typedCheckerRule =
             (ICheckerRule<ILaneChangeTarget>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3697,7 +3697,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetAction> typedCheckerRule =
             (ICheckerRule<ILaneOffsetAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3720,7 +3720,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetActionDynamics> typedCheckerRule =
             (ICheckerRule<ILaneOffsetActionDynamics>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3735,7 +3735,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILaneOffsetTarget> typedCheckerRule =
             (ICheckerRule<ILaneOffsetTarget>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3756,7 +3756,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILanePosition> typedCheckerRule = (ICheckerRule<ILanePosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3774,7 +3774,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILateralAction> typedCheckerRule = (ICheckerRule<ILateralAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3801,7 +3801,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILateralDistanceAction> typedCheckerRule =
             (ICheckerRule<ILateralDistanceAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3820,7 +3820,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILongitudinalAction> typedCheckerRule =
             (ICheckerRule<ILongitudinalAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3843,7 +3843,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ILongitudinalDistanceAction> typedCheckerRule =
             (ICheckerRule<ILongitudinalDistanceAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3859,7 +3859,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IManeuver> typedCheckerRule = (ICheckerRule<IManeuver>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3886,7 +3886,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IManeuverCatalogLocation> typedCheckerRule =
             (ICheckerRule<IManeuverCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3904,7 +3904,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IManeuverGroup> typedCheckerRule = (ICheckerRule<IManeuverGroup>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3932,7 +3932,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IMiscObject> typedCheckerRule = (ICheckerRule<IMiscObject>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3961,7 +3961,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IMiscObjectCatalogLocation> typedCheckerRule =
             (ICheckerRule<IMiscObjectCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3977,7 +3977,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IModifyRule> typedCheckerRule = (ICheckerRule<IModifyRule>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -3997,7 +3997,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<INone> typedCheckerRule = (ICheckerRule<INone>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4009,7 +4009,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<INurbs> typedCheckerRule = (ICheckerRule<INurbs>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4036,7 +4036,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IObjectController> typedCheckerRule =
             (ICheckerRule<IObjectController>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4059,7 +4059,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOffroadCondition> typedCheckerRule =
             (ICheckerRule<IOffroadCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4072,7 +4072,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOpenScenario> typedCheckerRule = (ICheckerRule<IOpenScenario>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4095,7 +4095,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOpenScenarioCategory> typedCheckerRule =
             (ICheckerRule<IOpenScenarioCategory>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4116,7 +4116,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOrientation> typedCheckerRule = (ICheckerRule<IOrientation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4131,7 +4131,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideBrakeAction> typedCheckerRule =
             (ICheckerRule<IOverrideBrakeAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4146,7 +4146,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideClutchAction> typedCheckerRule =
             (ICheckerRule<IOverrideClutchAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4161,7 +4161,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideControllerValueAction> typedCheckerRule =
             (ICheckerRule<IOverrideControllerValueAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4200,7 +4200,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideGearAction> typedCheckerRule =
             (ICheckerRule<IOverrideGearAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4215,7 +4215,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideParkingBrakeAction> typedCheckerRule =
             (ICheckerRule<IOverrideParkingBrakeAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4230,7 +4230,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideSteeringWheelAction> typedCheckerRule =
             (ICheckerRule<IOverrideSteeringWheelAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4245,7 +4245,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IOverrideThrottleAction> typedCheckerRule =
             (ICheckerRule<IOverrideThrottleAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4260,7 +4260,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAction> typedCheckerRule =
             (ICheckerRule<IParameterAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4283,7 +4283,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAddValueRule> typedCheckerRule =
             (ICheckerRule<IParameterAddValueRule>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4298,7 +4298,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterAssignment> typedCheckerRule =
             (ICheckerRule<IParameterAssignment>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4313,7 +4313,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterCondition> typedCheckerRule =
             (ICheckerRule<IParameterCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4328,7 +4328,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterDeclaration> typedCheckerRule =
             (ICheckerRule<IParameterDeclaration>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4343,7 +4343,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterModifyAction> typedCheckerRule =
             (ICheckerRule<IParameterModifyAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4362,7 +4362,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterMultiplyByValueRule> typedCheckerRule =
             (ICheckerRule<IParameterMultiplyByValueRule>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4377,7 +4377,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IParameterSetAction> typedCheckerRule =
             (ICheckerRule<IParameterSetAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4389,7 +4389,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPedestrian> typedCheckerRule = (ICheckerRule<IPedestrian>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4418,7 +4418,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPedestrianCatalogLocation> typedCheckerRule =
             (ICheckerRule<IPedestrianCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4435,7 +4435,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPerformance> typedCheckerRule = (ICheckerRule<IPerformance>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4447,7 +4447,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPhase> typedCheckerRule = (ICheckerRule<IPhase>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4465,7 +4465,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPolyline> typedCheckerRule = (ICheckerRule<IPolyline>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4483,7 +4483,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPosition> typedCheckerRule = (ICheckerRule<IPosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4530,7 +4530,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPositionInLaneCoordinates> typedCheckerRule =
             (ICheckerRule<IPositionInLaneCoordinates>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4545,7 +4545,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPositionInRoadCoordinates> typedCheckerRule =
             (ICheckerRule<IPositionInRoadCoordinates>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4560,7 +4560,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPositionOfCurrentEntity> typedCheckerRule =
             (ICheckerRule<IPositionOfCurrentEntity>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4574,7 +4574,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPrecipitation> typedCheckerRule = (ICheckerRule<IPrecipitation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4586,7 +4586,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPrivate> typedCheckerRule = (ICheckerRule<IPrivate>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4606,7 +4606,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IPrivateAction> typedCheckerRule = (ICheckerRule<IPrivateAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4650,7 +4650,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IProperties> typedCheckerRule = (ICheckerRule<IProperties>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4674,7 +4674,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IProperty> typedCheckerRule = (ICheckerRule<IProperty>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4689,7 +4689,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IReachPositionCondition> typedCheckerRule =
             (ICheckerRule<IReachPositionCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4708,7 +4708,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeDistanceCondition> typedCheckerRule =
             (ICheckerRule<IRelativeDistanceCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4723,7 +4723,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeLanePosition> typedCheckerRule =
             (ICheckerRule<IRelativeLanePosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4742,7 +4742,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeObjectPosition> typedCheckerRule =
             (ICheckerRule<IRelativeObjectPosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4761,7 +4761,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeRoadPosition> typedCheckerRule =
             (ICheckerRule<IRelativeRoadPosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4780,7 +4780,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeSpeedCondition> typedCheckerRule =
             (ICheckerRule<IRelativeSpeedCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4795,7 +4795,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeSpeedToMaster> typedCheckerRule =
             (ICheckerRule<IRelativeSpeedToMaster>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4810,7 +4810,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetLane> typedCheckerRule =
             (ICheckerRule<IRelativeTargetLane>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4825,7 +4825,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetLaneOffset> typedCheckerRule =
             (ICheckerRule<IRelativeTargetLaneOffset>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4840,7 +4840,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeTargetSpeed> typedCheckerRule =
             (ICheckerRule<IRelativeTargetSpeed>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4855,7 +4855,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRelativeWorldPosition> typedCheckerRule =
             (ICheckerRule<IRelativeWorldPosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4873,7 +4873,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoadCondition> typedCheckerRule = (ICheckerRule<IRoadCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4890,7 +4890,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoadNetwork> typedCheckerRule = (ICheckerRule<IRoadNetwork>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4917,7 +4917,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoadPosition> typedCheckerRule = (ICheckerRule<IRoadPosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4933,7 +4933,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoute> typedCheckerRule = (ICheckerRule<IRoute>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4960,7 +4960,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRouteCatalogLocation> typedCheckerRule =
             (ICheckerRule<IRouteCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -4978,7 +4978,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoutePosition> typedCheckerRule = (ICheckerRule<IRoutePosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5002,7 +5002,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRouteRef> typedCheckerRule = (ICheckerRule<IRouteRef>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5024,7 +5024,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IRoutingAction> typedCheckerRule = (ICheckerRule<IRoutingAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5051,7 +5051,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IScenarioDefinition> typedCheckerRule =
             (ICheckerRule<IScenarioDefinition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5088,7 +5088,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IScenarioObject> typedCheckerRule =
             (ICheckerRule<IScenarioObject>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5111,7 +5111,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISelectedEntities> typedCheckerRule =
             (ICheckerRule<ISelectedEntities>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5135,7 +5135,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IShape> typedCheckerRule = (ICheckerRule<IShape>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5162,7 +5162,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISimulationTimeCondition> typedCheckerRule =
             (ICheckerRule<ISimulationTimeCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5175,7 +5175,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedAction> typedCheckerRule = (ICheckerRule<ISpeedAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5198,7 +5198,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedActionTarget> typedCheckerRule =
             (ICheckerRule<ISpeedActionTarget>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5221,7 +5221,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISpeedCondition> typedCheckerRule =
             (ICheckerRule<ISpeedCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5236,7 +5236,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStandStillCondition> typedCheckerRule =
             (ICheckerRule<IStandStillCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5248,7 +5248,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStory> typedCheckerRule = (ICheckerRule<IStory>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5272,7 +5272,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStoryboard> typedCheckerRule = (ICheckerRule<IStoryboard>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5301,7 +5301,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IStoryboardElementStateCondition> typedCheckerRule =
             (ICheckerRule<IStoryboardElementStateCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5313,7 +5313,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISun> typedCheckerRule = (ICheckerRule<ISun>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5328,7 +5328,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ISynchronizeAction> typedCheckerRule =
             (ICheckerRule<ISynchronizeAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5355,7 +5355,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITeleportAction> typedCheckerRule =
             (ICheckerRule<ITeleportAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5374,7 +5374,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeHeadwayCondition> typedCheckerRule =
             (ICheckerRule<ITimeHeadwayCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5386,7 +5386,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeOfDay> typedCheckerRule = (ICheckerRule<ITimeOfDay>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5401,7 +5401,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeOfDayCondition> typedCheckerRule =
             (ICheckerRule<ITimeOfDayCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5415,7 +5415,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeReference> typedCheckerRule = (ICheckerRule<ITimeReference>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5438,7 +5438,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeToCollisionCondition> typedCheckerRule =
             (ICheckerRule<ITimeToCollisionCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5459,7 +5459,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITimeToCollisionConditionTarget> typedCheckerRule =
             (ICheckerRule<ITimeToCollisionConditionTarget>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5479,7 +5479,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITiming> typedCheckerRule = (ICheckerRule<ITiming>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5493,7 +5493,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficAction> typedCheckerRule = (ICheckerRule<ITrafficAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5520,7 +5520,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficDefinition> typedCheckerRule =
             (ICheckerRule<ITrafficDefinition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5544,7 +5544,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5568,7 +5568,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalCondition> typedCheckerRule =
             (ICheckerRule<ITrafficSignalCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5583,7 +5583,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalController> typedCheckerRule =
             (ICheckerRule<ITrafficSignalController>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5604,7 +5604,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalControllerAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalControllerAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5619,7 +5619,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalControllerCondition> typedCheckerRule =
             (ICheckerRule<ITrafficSignalControllerCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5634,7 +5634,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalState> typedCheckerRule =
             (ICheckerRule<ITrafficSignalState>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5649,7 +5649,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSignalStateAction> typedCheckerRule =
             (ICheckerRule<ITrafficSignalStateAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5664,7 +5664,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSinkAction> typedCheckerRule =
             (ICheckerRule<ITrafficSinkAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5687,7 +5687,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSourceAction> typedCheckerRule =
             (ICheckerRule<ITrafficSourceAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5710,7 +5710,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrafficSwarmAction> typedCheckerRule =
             (ICheckerRule<ITrafficSwarmAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5730,7 +5730,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectory> typedCheckerRule = (ICheckerRule<ITrajectory>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5755,7 +5755,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectoryCatalogLocation> typedCheckerRule =
             (ICheckerRule<ITrajectoryCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5774,7 +5774,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrajectoryFollowingMode> typedCheckerRule =
             (ICheckerRule<ITrajectoryFollowingMode>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5789,7 +5789,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITransitionDynamics> typedCheckerRule =
             (ICheckerRule<ITransitionDynamics>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5804,7 +5804,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITraveledDistanceCondition> typedCheckerRule =
             (ICheckerRule<ITraveledDistanceCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5816,7 +5816,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITrigger> typedCheckerRule = (ICheckerRule<ITrigger>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5837,7 +5837,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<ITriggeringEntities> typedCheckerRule =
             (ICheckerRule<ITriggeringEntities>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5858,7 +5858,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IUserDefinedAction> typedCheckerRule =
             (ICheckerRule<IUserDefinedAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5877,7 +5877,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IUserDefinedValueCondition> typedCheckerRule =
             (ICheckerRule<IUserDefinedValueCondition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5889,7 +5889,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicle> typedCheckerRule = (ICheckerRule<IVehicle>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5926,7 +5926,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCatalogLocation> typedCheckerRule =
             (ICheckerRule<IVehicleCatalogLocation>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5945,7 +5945,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCategoryDistribution> typedCheckerRule =
             (ICheckerRule<IVehicleCategoryDistribution>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5967,7 +5967,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVehicleCategoryDistributionEntry> typedCheckerRule =
             (ICheckerRule<IVehicleCategoryDistributionEntry>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5979,7 +5979,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVertex> typedCheckerRule = (ICheckerRule<IVertex>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -5998,7 +5998,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
         @SuppressWarnings("unchecked")
         ICheckerRule<IVisibilityAction> typedCheckerRule =
             (ICheckerRule<IVisibilityAction>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -6010,7 +6010,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IWaypoint> typedCheckerRule = (ICheckerRule<IWaypoint>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -6026,7 +6026,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IWeather> typedCheckerRule = (ICheckerRule<IWeather>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren
@@ -6052,7 +6052,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       for (ICheckerRule<?> checkerRule : checkerRulesForType) {
         @SuppressWarnings("unchecked")
         ICheckerRule<IWorldPosition> typedCheckerRule = (ICheckerRule<IWorldPosition>) checkerRule;
-        typedCheckerRule.applyRule(messageLogger, object);
+        typedCheckerRule.applyRuleInFileContext(messageLogger, object);
       }
     }
     // getChildren

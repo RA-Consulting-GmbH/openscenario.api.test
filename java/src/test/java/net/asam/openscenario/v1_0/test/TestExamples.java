@@ -107,7 +107,7 @@ public class TestExamples extends TestBase {
         new ICheckerRule<IVehicle>() {
 
           @Override
-          public void applyRule(IParserMessageLogger messageLogger, IVehicle object) {
+          public void applyRuleInFileContext(IParserMessageLogger messageLogger, IVehicle object) {
 
             String name = object.getName();
             // name must start with a capital letter

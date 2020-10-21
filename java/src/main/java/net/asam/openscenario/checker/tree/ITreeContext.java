@@ -14,18 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package net.asam.openscenario.checker.tree;
 
-package net.asam.openscenario.common;
+import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
- * An interface that logs parser messages in a file context.
- *
+ * An error context in an object tree
  * @author Andreas Hege - RA Consulting
+ *
  */
-public interface IParserMessageLogger extends IContentMessageLogger<FileContentMessage> {
-
-  /*
-   * This is empty for compatibility reasons to checker framework and with parsing
-   */
- 
+public interface ITreeContext
+{
+ /**
+  * 
+  * @return the object in the tree where the error occurred
+  */
+ public IOpenScenarioModelElement getTreeObjectContext();
 }

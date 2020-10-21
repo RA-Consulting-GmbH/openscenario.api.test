@@ -46,7 +46,7 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IFileHeader object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IFileHeader object) {
     Integer revMajor = object.getRevMajor();
     Integer revMinor = object.getRevMinor();
     if (revMajor == null

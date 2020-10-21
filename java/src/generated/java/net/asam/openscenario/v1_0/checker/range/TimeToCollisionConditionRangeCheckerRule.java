@@ -37,7 +37,8 @@ public class TimeToCollisionConditionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITimeToCollisionCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITimeToCollisionCondition object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {

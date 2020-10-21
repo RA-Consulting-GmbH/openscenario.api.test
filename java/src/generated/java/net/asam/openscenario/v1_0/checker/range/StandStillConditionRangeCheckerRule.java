@@ -35,7 +35,8 @@ public class StandStillConditionRangeCheckerRule extends RangeCheckerRule<IStand
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IStandStillCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IStandStillCondition object) {
     Double duration = object.getDuration();
     if (duration != null) {
       if (!(duration >= 0)) {

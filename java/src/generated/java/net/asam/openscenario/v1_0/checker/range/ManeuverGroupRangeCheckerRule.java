@@ -35,7 +35,7 @@ public class ManeuverGroupRangeCheckerRule extends RangeCheckerRule<IManeuverGro
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IManeuverGroup object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IManeuverGroup object) {
     Long maximumExecutionCount = object.getMaximumExecutionCount();
     if (maximumExecutionCount != null) {
       if (!(maximumExecutionCount >= 1)) {

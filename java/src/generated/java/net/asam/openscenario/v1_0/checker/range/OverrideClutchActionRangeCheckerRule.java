@@ -35,7 +35,8 @@ public class OverrideClutchActionRangeCheckerRule extends RangeCheckerRule<IOver
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IOverrideClutchAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IOverrideClutchAction object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value <= 1)) {

@@ -35,7 +35,8 @@ public class TrafficSwarmActionRangeCheckerRule extends RangeCheckerRule<ITraffi
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITrafficSwarmAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITrafficSwarmAction object) {
     Double semiMajorAxis = object.getSemiMajorAxis();
     if (semiMajorAxis != null) {
       if (!(semiMajorAxis >= 0)) {

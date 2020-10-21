@@ -35,7 +35,7 @@ public class RoadConditionRangeCheckerRule extends RangeCheckerRule<IRoadConditi
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IRoadCondition object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IRoadCondition object) {
     Double frictionScaleFactor = object.getFrictionScaleFactor();
     if (frictionScaleFactor != null) {
       if (!(frictionScaleFactor >= 0)) {

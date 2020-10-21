@@ -18,14 +18,14 @@
 package net.asam.openscenario.common;
 
 /**
- * An interface that logs parser messages in a file context.
+ * An interface that logs messages in a tree context.
  *
  * @author Andreas Hege - RA Consulting
  */
-public interface IParserMessageLogger extends IContentMessageLogger<FileContentMessage> {
+public interface ITreeMessageLogger extends IContentMessageLogger<TreeContentMessage> {
 
   /*
    * This is empty for compatibility reasons to checker framework and with parsing
    */
- 
+
 }

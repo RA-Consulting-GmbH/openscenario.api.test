@@ -35,7 +35,7 @@ public class FogRangeCheckerRule extends RangeCheckerRule<IFog> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IFog object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IFog object) {
     Double visualRange = object.getVisualRange();
     if (visualRange != null) {
       if (!(visualRange >= 0)) {

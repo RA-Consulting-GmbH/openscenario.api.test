@@ -35,7 +35,7 @@ public class NurbsRangeCheckerRule extends RangeCheckerRule<INurbs> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, INurbs object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, INurbs object) {
     Long order = object.getOrder();
     if (order != null) {
       if (!(order >= 2)) {

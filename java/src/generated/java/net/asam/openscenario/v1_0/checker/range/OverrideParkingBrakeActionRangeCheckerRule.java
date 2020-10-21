@@ -37,7 +37,8 @@ public class OverrideParkingBrakeActionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IOverrideParkingBrakeAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IOverrideParkingBrakeAction object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value <= 1)) {

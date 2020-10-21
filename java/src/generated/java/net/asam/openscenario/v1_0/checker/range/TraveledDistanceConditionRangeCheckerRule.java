@@ -37,7 +37,8 @@ public class TraveledDistanceConditionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITraveledDistanceCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITraveledDistanceCondition object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {

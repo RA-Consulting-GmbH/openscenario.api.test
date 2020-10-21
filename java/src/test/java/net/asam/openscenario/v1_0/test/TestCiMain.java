@@ -220,6 +220,7 @@ public class TestCiMain extends TestBase {
     
   }
 
+  @SuppressWarnings("resource")
   @Test
   public void testVersion() {
     Properties properties = new Properties();

@@ -37,7 +37,8 @@ public class LongitudinalDistanceActionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ILongitudinalDistanceAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ILongitudinalDistanceAction object) {
     Double distance = object.getDistance();
     if (distance != null) {
       if (!(distance >= 0)) {

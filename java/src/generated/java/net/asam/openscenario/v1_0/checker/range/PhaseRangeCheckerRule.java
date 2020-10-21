@@ -35,7 +35,7 @@ public class PhaseRangeCheckerRule extends RangeCheckerRule<IPhase> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IPhase object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IPhase object) {
     Double duration = object.getDuration();
     if (duration != null) {
       if (!(duration >= 0)) {

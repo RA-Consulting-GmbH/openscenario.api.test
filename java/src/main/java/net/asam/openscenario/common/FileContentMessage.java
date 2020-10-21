@@ -23,10 +23,9 @@ package net.asam.openscenario.common;
  *
  * @author Andreas Hege - RA Consulting
  */
-public class FileContentMessage implements Comparable<FileContentMessage> {
+public class FileContentMessage extends ContentMessage implements Comparable<FileContentMessage> {
   private Textmarker textmarker;
-  private String message;
-  private ErrorLevel errorLevel;
+
 
   /**
    * Constructor;
@@ -37,9 +36,7 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
    *     location.
    */
   public FileContentMessage(String message, ErrorLevel errorLevel, Textmarker textmarker) {
-    super();
-    this.message = message;
-    this.errorLevel = errorLevel;
+    super(message, errorLevel);
     this.textmarker = textmarker;
   }
 
@@ -50,24 +47,6 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
    */
   public Textmarker getTextmarker() {
     return this.textmarker;
-  }
-
-  /**
-   * The text of a message
-   *
-   * @return the message text
-   */
-  public String getMessage() {
-    return this.message;
-  }
-
-  /**
-   * The error level of the message.
-   *
-   * @return the error level
-   */
-  public ErrorLevel getErrorLevel() {
-    return this.errorLevel;
   }
 
   @Override
@@ -87,14 +66,13 @@ public class FileContentMessage implements Comparable<FileContentMessage> {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
     return "Message: '"
-        + this.message
+        + this.getMessage()
         + "'"
         + " ErrorLevel: "
-        + this.errorLevel.toString()
+        + this.getErrorLevel().toString()
         + " Textmarker: '"
-        + this.textmarker.toString()
+        + this.getTextmarker().toString()
         + "'";
   }
 

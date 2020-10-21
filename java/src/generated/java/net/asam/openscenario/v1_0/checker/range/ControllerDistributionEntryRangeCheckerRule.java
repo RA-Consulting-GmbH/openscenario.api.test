@@ -37,7 +37,8 @@ public class ControllerDistributionEntryRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IControllerDistributionEntry object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IControllerDistributionEntry object) {
     Double weight = object.getWeight();
     if (weight != null) {
       if (!(weight > 0)) {

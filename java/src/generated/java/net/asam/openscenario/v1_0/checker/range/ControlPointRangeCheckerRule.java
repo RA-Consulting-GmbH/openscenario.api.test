@@ -35,7 +35,7 @@ public class ControlPointRangeCheckerRule extends RangeCheckerRule<IControlPoint
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IControlPoint object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IControlPoint object) {
     Double time = object.getTime();
     if (time != null) {
       if (!(time >= 0)) {
