@@ -35,7 +35,7 @@ public class PrecipitationRangeCheckerRule extends RangeCheckerRule<IPrecipitati
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IPrecipitation object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IPrecipitation object) {
     Double intensity = object.getIntensity();
     if (intensity != null) {
       if (!(intensity <= 1)) {

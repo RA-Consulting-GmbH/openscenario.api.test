@@ -35,7 +35,7 @@ public class ClothoidRangeCheckerRule extends RangeCheckerRule<IClothoid> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IClothoid object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IClothoid object) {
     Double curvatureDot = object.getCurvatureDot();
     if (curvatureDot != null) {
       if (!(curvatureDot >= 0)) {

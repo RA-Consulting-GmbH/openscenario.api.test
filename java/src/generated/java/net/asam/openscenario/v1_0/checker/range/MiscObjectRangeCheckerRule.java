@@ -35,7 +35,7 @@ public class MiscObjectRangeCheckerRule extends RangeCheckerRule<IMiscObject> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IMiscObject object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IMiscObject object) {
     Double mass = object.getMass();
     if (mass != null) {
       if (!(mass >= 0)) {

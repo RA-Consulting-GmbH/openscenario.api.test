@@ -37,7 +37,8 @@ public class RelativeDistanceConditionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IRelativeDistanceCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IRelativeDistanceCondition object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {

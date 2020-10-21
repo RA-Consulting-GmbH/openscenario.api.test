@@ -35,7 +35,7 @@ public class AbsoluteSpeedRangeCheckerRule extends RangeCheckerRule<IAbsoluteSpe
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IAbsoluteSpeed object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IAbsoluteSpeed object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {

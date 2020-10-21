@@ -35,7 +35,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
 public class ParameterDeclarationChecker implements ICheckerRule<IParameterDeclaration> {
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IParameterDeclaration object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IParameterDeclaration object) {
     // Check whether the value is validatable:
 
     String value = object.getValue();

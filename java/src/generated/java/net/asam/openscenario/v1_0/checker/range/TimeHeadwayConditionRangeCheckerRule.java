@@ -35,7 +35,8 @@ public class TimeHeadwayConditionRangeCheckerRule extends RangeCheckerRule<ITime
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITimeHeadwayCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITimeHeadwayCondition object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {

@@ -35,7 +35,7 @@ public class DimensionsRangeCheckerRule extends RangeCheckerRule<IDimensions> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IDimensions object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IDimensions object) {
     Double width = object.getWidth();
     if (width != null) {
       if (!(width >= 0)) {

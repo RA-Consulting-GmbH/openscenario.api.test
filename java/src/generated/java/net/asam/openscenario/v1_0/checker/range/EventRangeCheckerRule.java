@@ -35,7 +35,7 @@ public class EventRangeCheckerRule extends RangeCheckerRule<IEvent> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IEvent object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IEvent object) {
     Long maximumExecutionCount = object.getMaximumExecutionCount();
     if (maximumExecutionCount != null) {
       if (!(maximumExecutionCount >= 1)) {

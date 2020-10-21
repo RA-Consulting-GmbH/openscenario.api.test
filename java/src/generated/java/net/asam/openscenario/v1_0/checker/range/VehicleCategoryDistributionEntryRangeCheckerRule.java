@@ -37,7 +37,7 @@ public class VehicleCategoryDistributionEntryRangeCheckerRule
   }
 
   @Override
-  public void applyRule(
+  public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, IVehicleCategoryDistributionEntry object) {
     Double weight = object.getWeight();
     if (weight != null) {

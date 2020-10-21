@@ -35,7 +35,8 @@ public class TrafficSinkActionRangeCheckerRule extends RangeCheckerRule<ITraffic
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITrafficSinkAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITrafficSinkAction object) {
     Double rate = object.getRate();
     if (rate != null) {
       if (!(rate >= 0)) {

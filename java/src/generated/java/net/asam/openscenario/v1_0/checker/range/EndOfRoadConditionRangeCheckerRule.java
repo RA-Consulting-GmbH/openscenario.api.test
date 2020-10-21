@@ -35,7 +35,8 @@ public class EndOfRoadConditionRangeCheckerRule extends RangeCheckerRule<IEndOfR
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IEndOfRoadCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IEndOfRoadCondition object) {
     Double duration = object.getDuration();
     if (duration != null) {
       if (!(duration >= 0)) {

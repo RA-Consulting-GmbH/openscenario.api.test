@@ -23,27 +23,27 @@ import java.util.List;
  *
  * @author Andreas Hege - RA Consulting
  */
-public class SimpleMessageLogger implements IParserMessageLogger {
+public class TreeMessageLogger implements ITreeMessageLogger {
 
-  private BaseMessageLogger<FileContentMessage> baseMessageLogger;
+  private BaseMessageLogger<TreeContentMessage> baseMessageLogger;
 
   /**
    * Constructor
    * @param logLevel the log level treshhold. Messages with this log level 
    * and worse log levels are logged
    */
-  public SimpleMessageLogger(ErrorLevel logLevel) {
+  public TreeMessageLogger(ErrorLevel logLevel) {
     super();
     this.baseMessageLogger = new BaseMessageLogger<>(logLevel);
   }
 
   @Override
-  public void logMessage(FileContentMessage message) {
+  public void logMessage(TreeContentMessage message) {
     this.baseMessageLogger.logMessage(message);
   }
 
   @Override
-  public void logAllMessages(List<FileContentMessage> messages) {
+  public void logAllMessages(List<TreeContentMessage> messages) {
     this.baseMessageLogger.logAllMessages(messages);
   }
 
@@ -52,18 +52,18 @@ public class SimpleMessageLogger implements IParserMessageLogger {
    *
    * @return the messages picked up
    */
-  public List<FileContentMessage> getMessages() {
+  public List<TreeContentMessage> getMessages() {
     return this.baseMessageLogger.getMessages();
   }
 
   @Override
-  public List<FileContentMessage> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel) {
+  public List<TreeContentMessage> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel) {
     return this.baseMessageLogger.getMessagesFilteredByErrorLevel(errorLevel);
   }
 
 
   @Override
-  public List<FileContentMessage> getMessagesFilteredByWorseOrEqualToErrorLevel(
+  public List<TreeContentMessage> getMessagesFilteredByWorseOrEqualToErrorLevel(
       ErrorLevel errorLevel) {
     return this.baseMessageLogger.getMessagesFilteredByWorseOrEqualToErrorLevel(errorLevel);
   }

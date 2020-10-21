@@ -36,7 +36,8 @@ public class OverrideThrottleActionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IOverrideThrottleAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IOverrideThrottleAction object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value <= 1)) {

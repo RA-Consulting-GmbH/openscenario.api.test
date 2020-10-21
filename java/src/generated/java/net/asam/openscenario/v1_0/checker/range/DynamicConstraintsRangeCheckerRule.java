@@ -35,7 +35,8 @@ public class DynamicConstraintsRangeCheckerRule extends RangeCheckerRule<IDynami
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IDynamicConstraints object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IDynamicConstraints object) {
     Double maxAcceleration = object.getMaxAcceleration();
     if (maxAcceleration != null) {
       if (!(maxAcceleration >= 0)) {

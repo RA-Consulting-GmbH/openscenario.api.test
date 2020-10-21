@@ -35,7 +35,7 @@ public class LanePositionRangeCheckerRule extends RangeCheckerRule<ILanePosition
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ILanePosition object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, ILanePosition object) {
     Double s = object.getS();
     if (s != null) {
       if (!(s >= 0)) {

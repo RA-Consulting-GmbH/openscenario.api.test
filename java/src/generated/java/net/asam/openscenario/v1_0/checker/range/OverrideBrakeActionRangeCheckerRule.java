@@ -35,7 +35,8 @@ public class OverrideBrakeActionRangeCheckerRule extends RangeCheckerRule<IOverr
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IOverrideBrakeAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IOverrideBrakeAction object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value <= 1)) {

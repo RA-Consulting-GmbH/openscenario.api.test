@@ -36,7 +36,8 @@ public class ReachPositionConditionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IReachPositionCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IReachPositionCondition object) {
     Double tolerance = object.getTolerance();
     if (tolerance != null) {
       if (!(tolerance >= 0)) {

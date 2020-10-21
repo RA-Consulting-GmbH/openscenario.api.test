@@ -35,7 +35,7 @@ public class OffroadConditionRangeCheckerRule extends RangeCheckerRule<IOffroadC
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IOffroadCondition object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IOffroadCondition object) {
     Double duration = object.getDuration();
     if (duration != null) {
       if (!(duration >= 0)) {

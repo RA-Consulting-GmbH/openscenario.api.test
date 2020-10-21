@@ -35,7 +35,7 @@ public class SunRangeCheckerRule extends RangeCheckerRule<ISun> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ISun object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, ISun object) {
     Double intensity = object.getIntensity();
     if (intensity != null) {
       if (!(intensity >= 0)) {

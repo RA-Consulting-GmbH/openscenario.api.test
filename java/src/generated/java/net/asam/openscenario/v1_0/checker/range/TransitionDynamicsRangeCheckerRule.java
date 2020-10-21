@@ -35,7 +35,8 @@ public class TransitionDynamicsRangeCheckerRule extends RangeCheckerRule<ITransi
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITransitionDynamics object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITransitionDynamics object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {
