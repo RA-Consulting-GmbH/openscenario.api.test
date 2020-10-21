@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ISun;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,63 +37,128 @@ public class SunRangeCheckerRule extends RangeCheckerRule<ISun> {
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, ISun object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, ISun object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger, ITreeMessageLogger treeMessageLogger, ISun object) {
     Double intensity = object.getIntensity();
     if (intensity != null) {
       if (!(intensity >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__INTENSITY,
-            object.getIntensity().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__INTENSITY);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__INTENSITY,
+              object.getIntensity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__INTENSITY);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__INTENSITY,
+              object.getIntensity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__INTENSITY);
+        }
       }
     }
     Double azimuth = object.getAzimuth();
     if (azimuth != null) {
       if (!(azimuth <= (2 * java.lang.Math.PI))) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__AZIMUTH,
-            object.getAzimuth().toString(),
-            "<=",
-            "2PI",
-            OscConstants.ATTRIBUTE__AZIMUTH);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__AZIMUTH,
+              object.getAzimuth().toString(),
+              "<=",
+              "2PI",
+              OscConstants.ATTRIBUTE__AZIMUTH);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__AZIMUTH,
+              object.getAzimuth().toString(),
+              "<=",
+              "2PI",
+              OscConstants.ATTRIBUTE__AZIMUTH);
+        }
       }
       if (!(azimuth >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__AZIMUTH,
-            object.getAzimuth().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__AZIMUTH);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__AZIMUTH,
+              object.getAzimuth().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__AZIMUTH);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__AZIMUTH,
+              object.getAzimuth().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__AZIMUTH);
+        }
       }
     }
     Double elevation = object.getElevation();
     if (elevation != null) {
       if (!(elevation <= java.lang.Math.PI)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__ELEVATION,
-            object.getElevation().toString(),
-            "<=",
-            "PI",
-            OscConstants.ATTRIBUTE__ELEVATION);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__ELEVATION,
+              object.getElevation().toString(),
+              "<=",
+              "PI",
+              OscConstants.ATTRIBUTE__ELEVATION);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__ELEVATION,
+              object.getElevation().toString(),
+              "<=",
+              "PI",
+              OscConstants.ATTRIBUTE__ELEVATION);
+        }
       }
       if (!(elevation >= (-java.lang.Math.PI))) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__ELEVATION,
-            object.getElevation().toString(),
-            ">=",
-            "-PI",
-            OscConstants.ATTRIBUTE__ELEVATION);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__ELEVATION,
+              object.getElevation().toString(),
+              ">=",
+              "-PI",
+              OscConstants.ATTRIBUTE__ELEVATION);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__ELEVATION,
+              object.getElevation().toString(),
+              ">=",
+              "-PI",
+              OscConstants.ATTRIBUTE__ELEVATION);
+        }
       }
     }
   }

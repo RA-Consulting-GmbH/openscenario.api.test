@@ -23,7 +23,7 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  * @author Andreas Hege - RA Consulting
  *
  */
-public abstract class BaseTreeContext implements ITreeContext
+public class BaseTreeContext implements ITreeContext
 {
 
   private IOpenScenarioModelElement treeObjectContext;

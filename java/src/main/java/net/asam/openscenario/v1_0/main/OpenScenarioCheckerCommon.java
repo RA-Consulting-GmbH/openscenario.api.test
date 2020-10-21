@@ -124,7 +124,7 @@ public class OpenScenarioCheckerCommon {
                 inputFileName, messageLogger, catalogMessageLogger, nameValuePairs);
         if (checker != null)
         {
-          checker.checkScenario(messageLogger, executeImportParsing);
+          checker.checkScenarioInFileContext(messageLogger, executeImportParsing);
         }
 
         for (FileContentMessage message :

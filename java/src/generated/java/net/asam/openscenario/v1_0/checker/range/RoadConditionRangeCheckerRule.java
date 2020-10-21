@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IRoadCondition;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,17 +37,40 @@ public class RoadConditionRangeCheckerRule extends RangeCheckerRule<IRoadConditi
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, IRoadCondition object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IRoadCondition object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IRoadCondition object) {
     Double frictionScaleFactor = object.getFrictionScaleFactor();
     if (frictionScaleFactor != null) {
       if (!(frictionScaleFactor >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR,
-            object.getFrictionScaleFactor().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR,
+              object.getFrictionScaleFactor().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR,
+              object.getFrictionScaleFactor().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
+        }
       }
     }
   }

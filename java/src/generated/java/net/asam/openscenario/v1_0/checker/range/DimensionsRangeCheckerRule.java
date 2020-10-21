@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IDimensions;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,43 +37,88 @@ public class DimensionsRangeCheckerRule extends RangeCheckerRule<IDimensions> {
 
   @Override
   public void applyRuleInFileContext(IParserMessageLogger messageLogger, IDimensions object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IDimensions object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IDimensions object) {
     Double width = object.getWidth();
     if (width != null) {
       if (!(width >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__WIDTH,
-            object.getWidth().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__WIDTH);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__WIDTH,
+              object.getWidth().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__WIDTH);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__WIDTH,
+              object.getWidth().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__WIDTH);
+        }
       }
     }
     Double length = object.getLength();
     if (length != null) {
       if (!(length >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__LENGTH,
-            object.getLength().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__LENGTH);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__LENGTH,
+              object.getLength().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__LENGTH);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__LENGTH,
+              object.getLength().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__LENGTH);
+        }
       }
     }
     Double height = object.getHeight();
     if (height != null) {
       if (!(height >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__HEIGHT,
-            object.getHeight().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__HEIGHT);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__HEIGHT,
+              object.getHeight().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__HEIGHT);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__HEIGHT,
+              object.getHeight().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__HEIGHT);
+        }
       }
     }
   }

@@ -36,7 +36,7 @@ public class TestVersionChecker extends TestBase {
   private void applyCheckerRules(IOpenScenario openScenario, int majorRev, int minorRev) {
     ScenarioCheckerImpl scenarioChecker = new ScenarioCheckerImpl();
     scenarioChecker.addFileHeaderCheckerRule(new VersionCheckerRule(majorRev, minorRev));
-    scenarioChecker.checkScenario(this.messageLogger, openScenario);
+    scenarioChecker.checkScenarioInFileContext(this.messageLogger, openScenario);
   }
 
   @Test
