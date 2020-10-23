@@ -32,6 +32,9 @@ import net.asam.openscenario.v1_0.api.IAction;
 import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.ITrigger;
 import net.asam.openscenario.v1_0.api.Priority;
+import net.asam.openscenario.v1_0.api.writer.IActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEventWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EventImpl extends BaseImpl implements IEvent {
+public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -69,6 +72,7 @@ public class EventImpl extends BaseImpl implements IEvent {
     super();
     addAdapter(EventImpl.class, this);
     addAdapter(IEvent.class, this);
+    addAdapter(IEventWriter.class, this);
   }
 
   @Override
@@ -351,5 +355,86 @@ public class EventImpl extends BaseImpl implements IEvent {
   @Override
   public String getModelType() {
     return "Event";
+  }
+
+  @Override
+  public void writeToPriority(Priority priority) {
+    // empty
+  }
+
+  @Override
+  public void writeToMaximumExecutionCount(Long maximumExecutionCount) {
+    // empty
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPriority(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaximumExecutionCount(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromPriority() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromMaximumExecutionCount() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isPriorityParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isMaximumExecutionCountParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ITriggerWriter getStartTriggerWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToStartTriggerWriter(ITriggerWriter startTriggerWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IActionWriter> getActionsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setActionsWriter(List<IActionWriter> actionsWriters) {
+    // empty
   }
 }

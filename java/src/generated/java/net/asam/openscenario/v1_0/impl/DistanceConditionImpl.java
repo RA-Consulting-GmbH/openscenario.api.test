@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDistanceCondition;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IDistanceConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DistanceConditionImpl extends BaseImpl implements IDistanceCondition {
+public class DistanceConditionImpl extends BaseImpl
+    implements IDistanceCondition, IDistanceConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -69,6 +72,7 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
     super();
     addAdapter(DistanceConditionImpl.class, this);
     addAdapter(IDistanceCondition.class, this);
+    addAdapter(IDistanceConditionWriter.class, this);
   }
 
   @Override
@@ -338,5 +342,96 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
   @Override
   public String getModelType() {
     return "DistanceCondition";
+  }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToFreespace(Boolean freespace) {
+    // empty
+  }
+
+  @Override
+  public void writeToAlongRoute(Boolean alongRoute) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToAlongRoute(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromAlongRoute() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isAlongRouteParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

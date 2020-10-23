@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IKnot;
+import net.asam.openscenario.v1_0.api.writer.IKnotWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class KnotImpl extends BaseImpl implements IKnot {
+public class KnotImpl extends BaseImpl implements IKnot, IKnotWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,6 +59,7 @@ public class KnotImpl extends BaseImpl implements IKnot {
     super();
     addAdapter(KnotImpl.class, this);
     addAdapter(IKnot.class, this);
+    addAdapter(IKnotWriter.class, this);
   }
 
   @Override
@@ -205,4 +207,27 @@ public class KnotImpl extends BaseImpl implements IKnot {
   public String getModelType() {
     return "Knot";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

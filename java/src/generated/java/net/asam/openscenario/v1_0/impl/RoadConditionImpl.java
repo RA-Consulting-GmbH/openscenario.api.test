@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.IRoadCondition;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
+public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoadConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
     super();
     addAdapter(RoadConditionImpl.class, this);
     addAdapter(IRoadCondition.class, this);
+    addAdapter(IRoadConditionWriter.class, this);
   }
 
   @Override
@@ -238,5 +241,36 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
   @Override
   public String getModelType() {
     return "RoadCondition";
+  }
+
+  @Override
+  public void writeToFrictionScaleFactor(Double frictionScaleFactor) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFrictionScaleFactor(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromFrictionScaleFactor() {
+    return null;
+  }
+
+  @Override
+  public boolean isFrictionScaleFactorParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPropertiesWriter getPropertiesWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
+    // empty
   }
 }

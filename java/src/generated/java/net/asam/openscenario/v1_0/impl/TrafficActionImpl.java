@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.ITrafficAction;
 import net.asam.openscenario.v1_0.api.ITrafficSinkAction;
 import net.asam.openscenario.v1_0.api.ITrafficSourceAction;
 import net.asam.openscenario.v1_0.api.ITrafficSwarmAction;
+import net.asam.openscenario.v1_0.api.writer.ITrafficActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSinkActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSourceActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSwarmActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
+public class TrafficActionImpl extends BaseImpl implements ITrafficAction, ITrafficActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ITrafficSourceAction trafficSourceAction;
@@ -57,6 +61,7 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
     super();
     addAdapter(TrafficActionImpl.class, this);
     addAdapter(ITrafficAction.class, this);
+    addAdapter(ITrafficActionWriter.class, this);
   }
 
   @Override
@@ -266,5 +271,37 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
   @Override
   public String getModelType() {
     return "TrafficAction";
+  }
+
+  // children
+  @Override
+  public ITrafficSourceActionWriter getTrafficSourceActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficSinkActionWriter getTrafficSinkActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficSwarmActionWriter getTrafficSwarmActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTrafficSourceActionWriter(
+      ITrafficSourceActionWriter trafficSourceActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficSinkActionWriter(ITrafficSinkActionWriter trafficSinkActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficSwarmActionWriter(ITrafficSwarmActionWriter trafficSwarmActionWriter) {
+    // empty
   }
 }

@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterAssignment;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.writer.IParameterAssignmentWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssignment {
+public class ParameterAssignmentImpl extends BaseImpl
+    implements IParameterAssignment, IParameterAssignmentWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +64,7 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
     super();
     addAdapter(ParameterAssignmentImpl.class, this);
     addAdapter(IParameterAssignment.class, this);
+    addAdapter(IParameterAssignmentWriter.class, this);
   }
 
   @Override
@@ -242,4 +245,27 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
   public String getModelType() {
     return "ParameterAssignment";
   }
+
+  @Override
+  public void writeToValue(String value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

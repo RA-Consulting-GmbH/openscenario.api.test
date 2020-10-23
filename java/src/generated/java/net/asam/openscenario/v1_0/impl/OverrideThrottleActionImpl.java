@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOverrideThrottleAction;
+import net.asam.openscenario.v1_0.api.writer.IOverrideThrottleActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideThrottleActionImpl extends BaseImpl implements IOverrideThrottleAction {
+public class OverrideThrottleActionImpl extends BaseImpl
+    implements IOverrideThrottleAction, IOverrideThrottleActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,6 +63,7 @@ public class OverrideThrottleActionImpl extends BaseImpl implements IOverrideThr
     super();
     addAdapter(OverrideThrottleActionImpl.class, this);
     addAdapter(IOverrideThrottleAction.class, this);
+    addAdapter(IOverrideThrottleActionWriter.class, this);
   }
 
   @Override
@@ -236,4 +239,47 @@ public class OverrideThrottleActionImpl extends BaseImpl implements IOverrideThr
   public String getModelType() {
     return "OverrideThrottleAction";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToActive(Boolean active) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToActive(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromActive() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isActiveParameterized() {
+    return false;
+  }
+
+  // children
+
 }

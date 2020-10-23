@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOverrideBrakeAction;
+import net.asam.openscenario.v1_0.api.writer.IOverrideBrakeActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeAction {
+public class OverrideBrakeActionImpl extends BaseImpl
+    implements IOverrideBrakeAction, IOverrideBrakeActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeA
     super();
     addAdapter(OverrideBrakeActionImpl.class, this);
     addAdapter(IOverrideBrakeAction.class, this);
+    addAdapter(IOverrideBrakeActionWriter.class, this);
   }
 
   @Override
@@ -235,4 +238,47 @@ public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeA
   public String getModelType() {
     return "OverrideBrakeAction";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToActive(Boolean active) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToActive(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromActive() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isActiveParameterized() {
+    return false;
+  }
+
+  // children
+
 }

@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.IInRoutePosition;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRoutePosition;
 import net.asam.openscenario.v1_0.api.IRouteRef;
+import net.asam.openscenario.v1_0.api.writer.IInRoutePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoutePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteRefWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoutePositionImpl extends BaseImpl implements IRoutePosition {
+public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRoutePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IRouteRef routeRef;
@@ -57,6 +61,7 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition {
     super();
     addAdapter(RoutePositionImpl.class, this);
     addAdapter(IRoutePosition.class, this);
+    addAdapter(IRoutePositionWriter.class, this);
   }
 
   @Override
@@ -266,5 +271,36 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition {
   @Override
   public String getModelType() {
     return "RoutePosition";
+  }
+
+  // children
+  @Override
+  public IRouteRefWriter getRouteRefWriter() {
+    return null;
+  }
+
+  @Override
+  public IOrientationWriter getOrientationWriter() {
+    return null;
+  }
+
+  @Override
+  public IInRoutePositionWriter getInRoutePositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToRouteRefWriter(IRouteRefWriter routeRefWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToInRoutePositionWriter(IInRoutePositionWriter inRoutePositionWriter) {
+    // empty
   }
 }

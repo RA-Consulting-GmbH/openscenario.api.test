@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IFile;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.IProperty;
+import net.asam.openscenario.v1_0.api.writer.IFileWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertyWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PropertiesImpl extends BaseImpl implements IProperties {
+public class PropertiesImpl extends BaseImpl implements IProperties, IPropertiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IProperty> properties;
@@ -55,6 +58,7 @@ public class PropertiesImpl extends BaseImpl implements IProperties {
     super();
     addAdapter(PropertiesImpl.class, this);
     addAdapter(IProperties.class, this);
+    addAdapter(IPropertiesWriter.class, this);
   }
 
   @Override
@@ -250,5 +254,27 @@ public class PropertiesImpl extends BaseImpl implements IProperties {
   @Override
   public String getModelType() {
     return "Properties";
+  }
+
+  // children
+
+  @Override
+  public List<IPropertyWriter> getPropertiesWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IFileWriter> getFilesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setPropertiesWriter(List<IPropertyWriter> propertiesWriters) {
+    // empty
+  }
+
+  @Override
+  public void setFilesWriter(List<IFileWriter> filesWriters) {
+    // empty
   }
 }

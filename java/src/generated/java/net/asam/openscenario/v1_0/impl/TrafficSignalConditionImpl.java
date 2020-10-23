@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITrafficSignalCondition;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSignalCondition {
+public class TrafficSignalConditionImpl extends BaseImpl
+    implements ITrafficSignalCondition, ITrafficSignalConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,6 +63,7 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
     super();
     addAdapter(TrafficSignalConditionImpl.class, this);
     addAdapter(ITrafficSignalCondition.class, this);
+    addAdapter(ITrafficSignalConditionWriter.class, this);
   }
 
   @Override
@@ -233,4 +236,47 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
   public String getModelType() {
     return "TrafficSignalCondition";
   }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToState(String state) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToState(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromState() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isStateParameterized() {
+    return false;
+  }
+
+  // children
+
 }

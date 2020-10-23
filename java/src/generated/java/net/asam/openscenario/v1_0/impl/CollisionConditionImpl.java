@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IByObjectType;
 import net.asam.openscenario.v1_0.api.ICollisionCondition;
 import net.asam.openscenario.v1_0.api.IEntityRef;
+import net.asam.openscenario.v1_0.api.writer.IByObjectTypeWriter;
+import net.asam.openscenario.v1_0.api.writer.ICollisionConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CollisionConditionImpl extends BaseImpl implements ICollisionCondition {
+public class CollisionConditionImpl extends BaseImpl
+    implements ICollisionCondition, ICollisionConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IEntityRef entityRef;
@@ -55,6 +59,7 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
     super();
     addAdapter(CollisionConditionImpl.class, this);
     addAdapter(ICollisionCondition.class, this);
+    addAdapter(ICollisionConditionWriter.class, this);
   }
 
   @Override
@@ -234,5 +239,26 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
   @Override
   public String getModelType() {
     return "CollisionCondition";
+  }
+
+  // children
+  @Override
+  public IEntityRefWriter getEntityRefWriter() {
+    return null;
+  }
+
+  @Override
+  public IByObjectTypeWriter getByTypeWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToByTypeWriter(IByObjectTypeWriter byTypeWriter) {
+    // empty
   }
 }

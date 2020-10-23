@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IRouteCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogLocation {
+public class RouteCatalogLocationImpl extends BaseImpl
+    implements IRouteCatalogLocation, IRouteCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
@@ -53,6 +56,7 @@ public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogL
     super();
     addAdapter(RouteCatalogLocationImpl.class, this);
     addAdapter(IRouteCatalogLocation.class, this);
+    addAdapter(IRouteCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -204,5 +208,16 @@ public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogL
   @Override
   public String getModelType() {
     return "RouteCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getDirectoryWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
+    // empty
   }
 }

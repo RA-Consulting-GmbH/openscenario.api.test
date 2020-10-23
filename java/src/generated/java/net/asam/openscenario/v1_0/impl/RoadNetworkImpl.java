@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IFile;
 import net.asam.openscenario.v1_0.api.IRoadNetwork;
 import net.asam.openscenario.v1_0.api.ITrafficSignalController;
+import net.asam.openscenario.v1_0.api.writer.IFileWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadNetworkWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
+public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, IRoadNetworkWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IFile logicFile;
@@ -56,6 +59,7 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
     super();
     addAdapter(RoadNetworkImpl.class, this);
     addAdapter(IRoadNetwork.class, this);
+    addAdapter(IRoadNetworkWriter.class, this);
   }
 
   @Override
@@ -276,5 +280,36 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
   @Override
   public String getModelType() {
     return "RoadNetwork";
+  }
+
+  // children
+  @Override
+  public IFileWriter getLogicFileWriter() {
+    return null;
+  }
+
+  @Override
+  public IFileWriter getSceneGraphFileWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToLogicFileWriter(IFileWriter logicFileWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToSceneGraphFileWriter(IFileWriter sceneGraphFileWriter) {
+    // empty
+  }
+
+  @Override
+  public List<ITrafficSignalControllerWriter> getTrafficSignalsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setTrafficSignalsWriter(List<ITrafficSignalControllerWriter> trafficSignalsWriters) {
+    // empty
   }
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPerformance;
+import net.asam.openscenario.v1_0.api.writer.IPerformanceWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PerformanceImpl extends BaseImpl implements IPerformance {
+public class PerformanceImpl extends BaseImpl implements IPerformance, IPerformanceWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +63,7 @@ public class PerformanceImpl extends BaseImpl implements IPerformance {
     super();
     addAdapter(PerformanceImpl.class, this);
     addAdapter(IPerformance.class, this);
+    addAdapter(IPerformanceWriter.class, this);
   }
 
   @Override
@@ -257,4 +259,67 @@ public class PerformanceImpl extends BaseImpl implements IPerformance {
   public String getModelType() {
     return "Performance";
   }
+
+  @Override
+  public void writeToMaxSpeed(Double maxSpeed) {
+    // empty
+  }
+
+  @Override
+  public void writeToMaxAcceleration(Double maxAcceleration) {
+    // empty
+  }
+
+  @Override
+  public void writeToMaxDeceleration(Double maxDeceleration) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxSpeed(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxAcceleration(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxDeceleration(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromMaxSpeed() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromMaxAcceleration() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromMaxDeceleration() {
+    return null;
+  }
+
+  @Override
+  public boolean isMaxSpeedParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isMaxAccelerationParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isMaxDecelerationParameterized() {
+    return false;
+  }
+
+  // children
+
 }

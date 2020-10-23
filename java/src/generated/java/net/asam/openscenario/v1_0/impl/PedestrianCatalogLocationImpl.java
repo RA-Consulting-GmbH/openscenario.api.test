@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IPedestrianCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PedestrianCatalogLocationImpl extends BaseImpl implements IPedestrianCatalogLocation {
+public class PedestrianCatalogLocationImpl extends BaseImpl
+    implements IPedestrianCatalogLocation, IPedestrianCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
@@ -54,6 +57,7 @@ public class PedestrianCatalogLocationImpl extends BaseImpl implements IPedestri
     super();
     addAdapter(PedestrianCatalogLocationImpl.class, this);
     addAdapter(IPedestrianCatalogLocation.class, this);
+    addAdapter(IPedestrianCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -205,5 +209,16 @@ public class PedestrianCatalogLocationImpl extends BaseImpl implements IPedestri
   @Override
   public String getModelType() {
     return "PedestrianCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getDirectoryWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
+    // empty
   }
 }

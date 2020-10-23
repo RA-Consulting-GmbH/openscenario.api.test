@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITrafficSignalState;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalStateWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalStateImpl extends BaseImpl implements ITrafficSignalState {
+public class TrafficSignalStateImpl extends BaseImpl
+    implements ITrafficSignalState, ITrafficSignalStateWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class TrafficSignalStateImpl extends BaseImpl implements ITrafficSignalSt
     super();
     addAdapter(TrafficSignalStateImpl.class, this);
     addAdapter(ITrafficSignalState.class, this);
+    addAdapter(ITrafficSignalStateWriter.class, this);
   }
 
   @Override
@@ -232,4 +235,47 @@ public class TrafficSignalStateImpl extends BaseImpl implements ITrafficSignalSt
   public String getModelType() {
     return "TrafficSignalState";
   }
+
+  @Override
+  public void writeToTrafficSignalId(String trafficSignalId) {
+    // empty
+  }
+
+  @Override
+  public void writeToState(String state) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTrafficSignalId(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToState(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromTrafficSignalId() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromState() {
+    return null;
+  }
+
+  @Override
+  public boolean isTrafficSignalIdParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isStateParameterized() {
+    return false;
+  }
+
+  // children
+
 }

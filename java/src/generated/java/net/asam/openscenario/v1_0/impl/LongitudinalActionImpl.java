@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ILongitudinalAction;
 import net.asam.openscenario.v1_0.api.ILongitudinalDistanceAction;
 import net.asam.openscenario.v1_0.api.ISpeedAction;
+import net.asam.openscenario.v1_0.api.writer.ILongitudinalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILongitudinalDistanceActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISpeedActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LongitudinalActionImpl extends BaseImpl implements ILongitudinalAction {
+public class LongitudinalActionImpl extends BaseImpl
+    implements ILongitudinalAction, ILongitudinalActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ISpeedAction speedAction;
@@ -55,6 +59,7 @@ public class LongitudinalActionImpl extends BaseImpl implements ILongitudinalAct
     super();
     addAdapter(LongitudinalActionImpl.class, this);
     addAdapter(ILongitudinalAction.class, this);
+    addAdapter(ILongitudinalActionWriter.class, this);
   }
 
   @Override
@@ -237,5 +242,27 @@ public class LongitudinalActionImpl extends BaseImpl implements ILongitudinalAct
   @Override
   public String getModelType() {
     return "LongitudinalAction";
+  }
+
+  // children
+  @Override
+  public ISpeedActionWriter getSpeedActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ILongitudinalDistanceActionWriter getLongitudinalDistanceActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToSpeedActionWriter(ISpeedActionWriter speedActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToLongitudinalDistanceActionWriter(
+      ILongitudinalDistanceActionWriter longitudinalDistanceActionWriter) {
+    // empty
   }
 }

@@ -34,6 +34,15 @@ import net.asam.openscenario.v1_0.api.IRelativeWorldPosition;
 import net.asam.openscenario.v1_0.api.IRoadPosition;
 import net.asam.openscenario.v1_0.api.IRoutePosition;
 import net.asam.openscenario.v1_0.api.IWorldPosition;
+import net.asam.openscenario.v1_0.api.writer.ILanePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeLanePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeObjectPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeRoadPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeWorldPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoutePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IWorldPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +60,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionImpl extends BaseImpl implements IPosition {
+public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IWorldPosition worldPosition;
@@ -67,6 +76,7 @@ public class PositionImpl extends BaseImpl implements IPosition {
     super();
     addAdapter(PositionImpl.class, this);
     addAdapter(IPosition.class, this);
+    addAdapter(IPositionWriter.class, this);
   }
 
   @Override
@@ -426,5 +436,90 @@ public class PositionImpl extends BaseImpl implements IPosition {
   @Override
   public String getModelType() {
     return "Position";
+  }
+
+  // children
+  @Override
+  public IWorldPositionWriter getWorldPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRelativeWorldPositionWriter getRelativeWorldPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRelativeObjectPositionWriter getRelativeObjectPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRoadPositionWriter getRoadPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRelativeRoadPositionWriter getRelativeRoadPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public ILanePositionWriter getLanePositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRelativeLanePositionWriter getRelativeLanePositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRoutePositionWriter getRoutePositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToWorldPositionWriter(IWorldPositionWriter worldPositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeWorldPositionWriter(
+      IRelativeWorldPositionWriter relativeWorldPositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeObjectPositionWriter(
+      IRelativeObjectPositionWriter relativeObjectPositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRoadPositionWriter(IRoadPositionWriter roadPositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeRoadPositionWriter(
+      IRelativeRoadPositionWriter relativeRoadPositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToLanePositionWriter(ILanePositionWriter lanePositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeLanePositionWriter(
+      IRelativeLanePositionWriter relativeLanePositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRoutePositionWriter(IRoutePositionWriter routePositionWriter) {
+    // empty
   }
 }

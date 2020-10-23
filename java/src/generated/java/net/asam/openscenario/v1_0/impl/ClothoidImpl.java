@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IClothoid;
 import net.asam.openscenario.v1_0.api.IPosition;
+import net.asam.openscenario.v1_0.api.writer.IClothoidWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ClothoidImpl extends BaseImpl implements IClothoid {
+public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -68,6 +70,7 @@ public class ClothoidImpl extends BaseImpl implements IClothoid {
     super();
     addAdapter(ClothoidImpl.class, this);
     addAdapter(IClothoid.class, this);
+    addAdapter(IClothoidWriter.class, this);
   }
 
   @Override
@@ -339,5 +342,116 @@ public class ClothoidImpl extends BaseImpl implements IClothoid {
   @Override
   public String getModelType() {
     return "Clothoid";
+  }
+
+  @Override
+  public void writeToCurvature(Double curvature) {
+    // empty
+  }
+
+  @Override
+  public void writeToCurvatureDot(Double curvatureDot) {
+    // empty
+  }
+
+  @Override
+  public void writeToLength(Double length) {
+    // empty
+  }
+
+  @Override
+  public void writeToStartTime(Double startTime) {
+    // empty
+  }
+
+  @Override
+  public void writeToStopTime(Double stopTime) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToCurvature(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToCurvatureDot(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToLength(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToStartTime(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToStopTime(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromCurvature() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromCurvatureDot() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromLength() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromStartTime() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromStopTime() {
+    return null;
+  }
+
+  @Override
+  public boolean isCurvatureParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isCurvatureDotParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isLengthParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isStartTimeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isStopTimeParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

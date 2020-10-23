@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterSetAction;
+import net.asam.openscenario.v1_0.api.writer.IParameterSetActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAction {
+public class ParameterSetActionImpl extends BaseImpl
+    implements IParameterSetAction, IParameterSetActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,6 +60,7 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
     super();
     addAdapter(ParameterSetActionImpl.class, this);
     addAdapter(IParameterSetAction.class, this);
+    addAdapter(IParameterSetActionWriter.class, this);
   }
 
   @Override
@@ -204,4 +207,27 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
   public String getModelType() {
     return "ParameterSetAction";
   }
+
+  @Override
+  public void writeToValue(String value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

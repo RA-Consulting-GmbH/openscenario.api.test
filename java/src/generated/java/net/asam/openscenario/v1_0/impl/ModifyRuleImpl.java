@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IModifyRule;
 import net.asam.openscenario.v1_0.api.IParameterAddValueRule;
 import net.asam.openscenario.v1_0.api.IParameterMultiplyByValueRule;
+import net.asam.openscenario.v1_0.api.writer.IModifyRuleWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterAddValueRuleWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterMultiplyByValueRuleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
+public class ModifyRuleImpl extends BaseImpl implements IModifyRule, IModifyRuleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IParameterAddValueRule addValue;
@@ -55,6 +58,7 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
     super();
     addAdapter(ModifyRuleImpl.class, this);
     addAdapter(IModifyRule.class, this);
+    addAdapter(IModifyRuleWriter.class, this);
   }
 
   @Override
@@ -235,5 +239,27 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
   @Override
   public String getModelType() {
     return "ModifyRule";
+  }
+
+  // children
+  @Override
+  public IParameterAddValueRuleWriter getAddValueWriter() {
+    return null;
+  }
+
+  @Override
+  public IParameterMultiplyByValueRuleWriter getMultiplyByValueWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToAddValueWriter(IParameterAddValueRuleWriter addValueWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToMultiplyByValueWriter(
+      IParameterMultiplyByValueRuleWriter multiplyByValueWriter) {
+    // empty
   }
 }

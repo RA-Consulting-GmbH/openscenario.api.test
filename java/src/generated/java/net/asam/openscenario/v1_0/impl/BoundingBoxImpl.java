@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IBoundingBox;
 import net.asam.openscenario.v1_0.api.ICenter;
 import net.asam.openscenario.v1_0.api.IDimensions;
+import net.asam.openscenario.v1_0.api.writer.IBoundingBoxWriter;
+import net.asam.openscenario.v1_0.api.writer.ICenterWriter;
+import net.asam.openscenario.v1_0.api.writer.IDimensionsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class BoundingBoxImpl extends BaseImpl implements IBoundingBox {
+public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBoundingBoxWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ICenter center;
@@ -55,6 +58,7 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox {
     super();
     addAdapter(BoundingBoxImpl.class, this);
     addAdapter(IBoundingBox.class, this);
+    addAdapter(IBoundingBoxWriter.class, this);
   }
 
   @Override
@@ -236,5 +240,26 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox {
   @Override
   public String getModelType() {
     return "BoundingBox";
+  }
+
+  // children
+  @Override
+  public ICenterWriter getCenterWriter() {
+    return null;
+  }
+
+  @Override
+  public IDimensionsWriter getDimensionsWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToCenterWriter(ICenterWriter centerWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToDimensionsWriter(IDimensionsWriter dimensionsWriter) {
+    // empty
   }
 }

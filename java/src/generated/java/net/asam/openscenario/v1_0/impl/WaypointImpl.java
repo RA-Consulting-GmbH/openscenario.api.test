@@ -30,6 +30,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.IWaypoint;
 import net.asam.openscenario.v1_0.api.RouteStrategy;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IWaypointWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WaypointImpl extends BaseImpl implements IWaypoint {
+public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +64,7 @@ public class WaypointImpl extends BaseImpl implements IWaypoint {
     super();
     addAdapter(WaypointImpl.class, this);
     addAdapter(IWaypoint.class, this);
+    addAdapter(IWaypointWriter.class, this);
   }
 
   @Override
@@ -252,5 +255,36 @@ public class WaypointImpl extends BaseImpl implements IWaypoint {
   @Override
   public String getModelType() {
     return "Waypoint";
+  }
+
+  @Override
+  public void writeToRouteStrategy(RouteStrategy routeStrategy) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRouteStrategy(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromRouteStrategy() {
+    return null;
+  }
+
+  @Override
+  public boolean isRouteStrategyParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

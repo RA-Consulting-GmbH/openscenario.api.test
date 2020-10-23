@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAct;
 import net.asam.openscenario.v1_0.api.IManeuverGroup;
 import net.asam.openscenario.v1_0.api.ITrigger;
+import net.asam.openscenario.v1_0.api.writer.IActWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverGroupWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActImpl extends BaseImpl implements IAct {
+public class ActImpl extends BaseImpl implements IAct, IActWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +66,7 @@ public class ActImpl extends BaseImpl implements IAct {
     super();
     addAdapter(ActImpl.class, this);
     addAdapter(IAct.class, this);
+    addAdapter(IActWriter.class, this);
   }
 
   @Override
@@ -308,5 +312,56 @@ public class ActImpl extends BaseImpl implements IAct {
   @Override
   public String getModelType() {
     return "Act";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ITriggerWriter getStartTriggerWriter() {
+    return null;
+  }
+
+  @Override
+  public ITriggerWriter getStopTriggerWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToStartTriggerWriter(ITriggerWriter startTriggerWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToStopTriggerWriter(ITriggerWriter stopTriggerWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IManeuverGroupWriter> getManeuverGroupsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setManeuverGroupsWriter(List<IManeuverGroupWriter> maneuverGroupsWriters) {
+    // empty
   }
 }

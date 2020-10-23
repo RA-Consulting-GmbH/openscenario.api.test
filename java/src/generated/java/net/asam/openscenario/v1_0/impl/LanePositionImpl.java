@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ILanePosition;
 import net.asam.openscenario.v1_0.api.IOrientation;
+import net.asam.openscenario.v1_0.api.writer.ILanePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LanePositionImpl extends BaseImpl implements ILanePosition {
+public class LanePositionImpl extends BaseImpl implements ILanePosition, ILanePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +68,7 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
     super();
     addAdapter(LanePositionImpl.class, this);
     addAdapter(ILanePosition.class, this);
+    addAdapter(ILanePositionWriter.class, this);
   }
 
   @Override
@@ -319,5 +322,96 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
   @Override
   public String getModelType() {
     return "LanePosition";
+  }
+
+  @Override
+  public void writeToRoadId(String roadId) {
+    // empty
+  }
+
+  @Override
+  public void writeToLaneId(String laneId) {
+    // empty
+  }
+
+  @Override
+  public void writeToOffset(Double offset) {
+    // empty
+  }
+
+  @Override
+  public void writeToS(Double s) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRoadId(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToLaneId(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToOffset(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToS(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromRoadId() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromLaneId() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromOffset() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromS() {
+    return null;
+  }
+
+  @Override
+  public boolean isRoadIdParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isLaneIdParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isOffsetParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isSParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getOrientationWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
+    // empty
   }
 }

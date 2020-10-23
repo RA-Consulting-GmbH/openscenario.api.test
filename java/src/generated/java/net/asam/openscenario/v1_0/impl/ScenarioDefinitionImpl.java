@@ -32,6 +32,12 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IRoadNetwork;
 import net.asam.openscenario.v1_0.api.IScenarioDefinition;
 import net.asam.openscenario.v1_0.api.IStoryboard;
+import net.asam.openscenario.v1_0.api.writer.ICatalogLocationsWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntitiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadNetworkWriter;
+import net.asam.openscenario.v1_0.api.writer.IScenarioDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.IStoryboardWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +55,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinition {
+public class ScenarioDefinitionImpl extends BaseImpl
+    implements IScenarioDefinition, IScenarioDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IParameterDeclaration> parameterDeclarations;
@@ -62,6 +69,7 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
     super();
     addAdapter(ScenarioDefinitionImpl.class, this);
     addAdapter(IScenarioDefinition.class, this);
+    addAdapter(IScenarioDefinitionWriter.class, this);
   }
 
   @Override
@@ -363,5 +371,57 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
   @Override
   public String getModelType() {
     return "ScenarioDefinition";
+  }
+
+  // children
+  @Override
+  public ICatalogLocationsWriter getCatalogLocationsWriter() {
+    return null;
+  }
+
+  @Override
+  public IRoadNetworkWriter getRoadNetworkWriter() {
+    return null;
+  }
+
+  @Override
+  public IEntitiesWriter getEntitiesWriter() {
+    return null;
+  }
+
+  @Override
+  public IStoryboardWriter getStoryboardWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToCatalogLocationsWriter(ICatalogLocationsWriter catalogLocationsWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRoadNetworkWriter(IRoadNetworkWriter roadNetworkWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToEntitiesWriter(IEntitiesWriter entitiesWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToStoryboardWriter(IStoryboardWriter storyboardWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
   }
 }

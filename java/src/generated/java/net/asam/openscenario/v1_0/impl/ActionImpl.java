@@ -30,6 +30,10 @@ import net.asam.openscenario.v1_0.api.IAction;
 import net.asam.openscenario.v1_0.api.IGlobalAction;
 import net.asam.openscenario.v1_0.api.IPrivateAction;
 import net.asam.openscenario.v1_0.api.IUserDefinedAction;
+import net.asam.openscenario.v1_0.api.writer.IActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IGlobalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrivateActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IUserDefinedActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActionImpl extends BaseImpl implements IAction {
+public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +68,7 @@ public class ActionImpl extends BaseImpl implements IAction {
     super();
     addAdapter(ActionImpl.class, this);
     addAdapter(IAction.class, this);
+    addAdapter(IActionWriter.class, this);
   }
 
   @Override
@@ -299,5 +304,56 @@ public class ActionImpl extends BaseImpl implements IAction {
   @Override
   public String getModelType() {
     return "Action";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IGlobalActionWriter getGlobalActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IUserDefinedActionWriter getUserDefinedActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IPrivateActionWriter getPrivateActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToGlobalActionWriter(IGlobalActionWriter globalActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToUserDefinedActionWriter(IUserDefinedActionWriter userDefinedActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPrivateActionWriter(IPrivateActionWriter privateActionWriter) {
+    // empty
   }
 }

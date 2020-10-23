@@ -26,6 +26,7 @@ import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.INone;
+import net.asam.openscenario.v1_0.api.writer.INoneWriter;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -42,7 +43,7 @@ import net.asam.openscenario.v1_0.api.INone;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class NoneImpl extends BaseImpl implements INone {
+public class NoneImpl extends BaseImpl implements INone, INoneWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Default constructor */
@@ -50,6 +51,7 @@ public class NoneImpl extends BaseImpl implements INone {
     super();
     addAdapter(NoneImpl.class, this);
     addAdapter(INone.class, this);
+    addAdapter(INoneWriter.class, this);
   }
 
   @Override
@@ -170,4 +172,7 @@ public class NoneImpl extends BaseImpl implements INone {
   public String getModelType() {
     return "None";
   }
+
+  // children
+
 }

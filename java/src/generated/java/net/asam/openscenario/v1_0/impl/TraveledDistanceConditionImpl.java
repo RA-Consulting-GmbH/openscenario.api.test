@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITraveledDistanceCondition;
+import net.asam.openscenario.v1_0.api.writer.ITraveledDistanceConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TraveledDistanceConditionImpl extends BaseImpl implements ITraveledDistanceCondition {
+public class TraveledDistanceConditionImpl extends BaseImpl
+    implements ITraveledDistanceCondition, ITraveledDistanceConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,6 +61,7 @@ public class TraveledDistanceConditionImpl extends BaseImpl implements ITraveled
     super();
     addAdapter(TraveledDistanceConditionImpl.class, this);
     addAdapter(ITraveledDistanceCondition.class, this);
+    addAdapter(ITraveledDistanceConditionWriter.class, this);
   }
 
   @Override
@@ -206,4 +209,27 @@ public class TraveledDistanceConditionImpl extends BaseImpl implements ITraveled
   public String getModelType() {
     return "TraveledDistanceCondition";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

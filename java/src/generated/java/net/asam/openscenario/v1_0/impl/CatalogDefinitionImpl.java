@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalog;
 import net.asam.openscenario.v1_0.api.ICatalogDefinition;
+import net.asam.openscenario.v1_0.api.writer.ICatalogDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.ICatalogWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinition {
+public class CatalogDefinitionImpl extends BaseImpl
+    implements ICatalogDefinition, ICatalogDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ICatalog catalog;
@@ -53,6 +56,7 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
     super();
     addAdapter(CatalogDefinitionImpl.class, this);
     addAdapter(ICatalogDefinition.class, this);
+    addAdapter(ICatalogDefinitionWriter.class, this);
   }
 
   @Override
@@ -203,5 +207,16 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
   @Override
   public String getModelType() {
     return "CatalogDefinition";
+  }
+
+  // children
+  @Override
+  public ICatalogWriter getCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToCatalogWriter(ICatalogWriter catalogWriter) {
+    // empty
   }
 }

@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IInfrastructureAction;
 import net.asam.openscenario.v1_0.api.ITrafficSignalAction;
+import net.asam.openscenario.v1_0.api.writer.IInfrastructureActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InfrastructureActionImpl extends BaseImpl implements IInfrastructureAction {
+public class InfrastructureActionImpl extends BaseImpl
+    implements IInfrastructureAction, IInfrastructureActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ITrafficSignalAction trafficSignalAction;
@@ -53,6 +56,7 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
     super();
     addAdapter(InfrastructureActionImpl.class, this);
     addAdapter(IInfrastructureAction.class, this);
+    addAdapter(IInfrastructureActionWriter.class, this);
   }
 
   @Override
@@ -204,5 +208,17 @@ public class InfrastructureActionImpl extends BaseImpl implements IInfrastructur
   @Override
   public String getModelType() {
     return "InfrastructureAction";
+  }
+
+  // children
+  @Override
+  public ITrafficSignalActionWriter getTrafficSignalActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTrafficSignalActionWriter(
+      ITrafficSignalActionWriter trafficSignalActionWriter) {
+    // empty
   }
 }

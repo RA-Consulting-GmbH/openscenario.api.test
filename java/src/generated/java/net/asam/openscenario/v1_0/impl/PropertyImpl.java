@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IProperty;
+import net.asam.openscenario.v1_0.api.writer.IPropertyWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PropertyImpl extends BaseImpl implements IProperty {
+public class PropertyImpl extends BaseImpl implements IProperty, IPropertyWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +61,7 @@ public class PropertyImpl extends BaseImpl implements IProperty {
     super();
     addAdapter(PropertyImpl.class, this);
     addAdapter(IProperty.class, this);
+    addAdapter(IPropertyWriter.class, this);
   }
 
   @Override
@@ -229,4 +231,47 @@ public class PropertyImpl extends BaseImpl implements IProperty {
   public String getModelType() {
     return "Property";
   }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(String value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

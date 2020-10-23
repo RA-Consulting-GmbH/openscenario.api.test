@@ -29,6 +29,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.FollowingMode;
 import net.asam.openscenario.v1_0.api.ITrajectoryFollowingMode;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryFollowingModeWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectoryFollowingMode {
+public class TrajectoryFollowingModeImpl extends BaseImpl
+    implements ITrajectoryFollowingMode, ITrajectoryFollowingModeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,6 +63,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
     super();
     addAdapter(TrajectoryFollowingModeImpl.class, this);
     addAdapter(ITrajectoryFollowingMode.class, this);
+    addAdapter(ITrajectoryFollowingModeWriter.class, this);
   }
 
   @Override
@@ -223,4 +226,27 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
   public String getModelType() {
     return "TrajectoryFollowingMode";
   }
+
+  @Override
+  public void writeToFollowingMode(FollowingMode followingMode) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFollowingMode(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromFollowingMode() {
+    return null;
+  }
+
+  @Override
+  public boolean isFollowingModeParameterized() {
+    return false;
+  }
+
+  // children
+
 }

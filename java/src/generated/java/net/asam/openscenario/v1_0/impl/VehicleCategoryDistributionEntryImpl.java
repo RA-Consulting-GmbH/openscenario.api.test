@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistributionEntry;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCategoryDistributionEntryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class VehicleCategoryDistributionEntryImpl extends BaseImpl
-    implements IVehicleCategoryDistributionEntry {
+    implements IVehicleCategoryDistributionEntry, IVehicleCategoryDistributionEntryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -65,6 +66,7 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
     super();
     addAdapter(VehicleCategoryDistributionEntryImpl.class, this);
     addAdapter(IVehicleCategoryDistributionEntry.class, this);
+    addAdapter(IVehicleCategoryDistributionEntryWriter.class, this);
   }
 
   @Override
@@ -252,4 +254,47 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   public String getModelType() {
     return "VehicleCategoryDistributionEntry";
   }
+
+  @Override
+  public void writeToCategory(VehicleCategory category) {
+    // empty
+  }
+
+  @Override
+  public void writeToWeight(Double weight) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToCategory(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToWeight(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromCategory() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromWeight() {
+    return null;
+  }
+
+  @Override
+  public boolean isCategoryParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isWeightParameterized() {
+    return false;
+  }
+
+  // children
+
 }

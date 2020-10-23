@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRelativeLanePosition;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeLanePositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLanePosition {
+public class RelativeLanePositionImpl extends BaseImpl
+    implements IRelativeLanePosition, IRelativeLanePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -69,6 +72,7 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
     super();
     addAdapter(RelativeLanePositionImpl.class, this);
     addAdapter(IRelativeLanePosition.class, this);
+    addAdapter(IRelativeLanePositionWriter.class, this);
   }
 
   @Override
@@ -338,5 +342,96 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
   @Override
   public String getModelType() {
     return "RelativeLanePosition";
+  }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToDLane(Integer dLane) {
+    // empty
+  }
+
+  @Override
+  public void writeToDs(Double ds) {
+    // empty
+  }
+
+  @Override
+  public void writeToOffset(Double offset) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDLane(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDs(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToOffset(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDLane() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDs() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromOffset() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDLaneParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDsParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isOffsetParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getOrientationWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
+    // empty
   }
 }

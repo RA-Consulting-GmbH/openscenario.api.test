@@ -30,6 +30,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAct;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IStory;
+import net.asam.openscenario.v1_0.api.writer.IActWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IStoryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StoryImpl extends BaseImpl implements IStory {
+public class StoryImpl extends BaseImpl implements IStory, IStoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +66,7 @@ public class StoryImpl extends BaseImpl implements IStory {
     super();
     addAdapter(StoryImpl.class, this);
     addAdapter(IStory.class, this);
+    addAdapter(IStoryWriter.class, this);
   }
 
   @Override
@@ -303,5 +307,48 @@ public class StoryImpl extends BaseImpl implements IStory {
   @Override
   public String getModelType() {
     return "Story";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IActWriter> getActsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setActsWriter(List<IActWriter> actsWriters) {
+    // empty
   }
 }

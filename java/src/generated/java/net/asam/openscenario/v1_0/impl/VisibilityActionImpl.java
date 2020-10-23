@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IVisibilityAction;
+import net.asam.openscenario.v1_0.api.writer.IVisibilityActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction {
+public class VisibilityActionImpl extends BaseImpl
+    implements IVisibilityAction, IVisibilityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +64,7 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction 
     super();
     addAdapter(VisibilityActionImpl.class, this);
     addAdapter(IVisibilityAction.class, this);
+    addAdapter(IVisibilityActionWriter.class, this);
   }
 
   @Override
@@ -258,4 +261,67 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction 
   public String getModelType() {
     return "VisibilityAction";
   }
+
+  @Override
+  public void writeToGraphics(Boolean graphics) {
+    // empty
+  }
+
+  @Override
+  public void writeToTraffic(Boolean traffic) {
+    // empty
+  }
+
+  @Override
+  public void writeToSensors(Boolean sensors) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToGraphics(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTraffic(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToSensors(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromGraphics() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromTraffic() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromSensors() {
+    return null;
+  }
+
+  @Override
+  public boolean isGraphicsParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isTrafficParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isSensorsParameterized() {
+    return false;
+  }
+
+  // children
+
 }

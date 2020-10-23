@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.ReferenceContext;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OrientationImpl extends BaseImpl implements IOrientation {
+public class OrientationImpl extends BaseImpl implements IOrientation, IOrientationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -67,6 +68,7 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
     super();
     addAdapter(OrientationImpl.class, this);
     addAdapter(IOrientation.class, this);
+    addAdapter(IOrientationWriter.class, this);
   }
 
   @Override
@@ -295,4 +297,87 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
   public String getModelType() {
     return "Orientation";
   }
+
+  @Override
+  public void writeToType(ReferenceContext type) {
+    // empty
+  }
+
+  @Override
+  public void writeToH(Double h) {
+    // empty
+  }
+
+  @Override
+  public void writeToP(Double p) {
+    // empty
+  }
+
+  @Override
+  public void writeToR(Double r) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToH(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToP(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToR(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromType() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromH() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromP() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromR() {
+    return null;
+  }
+
+  @Override
+  public boolean isTypeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isHParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isPParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRParameterized() {
+    return false;
+  }
+
+  // children
+
 }

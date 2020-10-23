@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ITimeToCollisionConditionTarget;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeToCollisionConditionTargetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TimeToCollisionConditionTargetImpl extends BaseImpl
-    implements ITimeToCollisionConditionTarget {
+    implements ITimeToCollisionConditionTarget, ITimeToCollisionConditionTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPosition position;
@@ -57,6 +60,7 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
     super();
     addAdapter(TimeToCollisionConditionTargetImpl.class, this);
     addAdapter(ITimeToCollisionConditionTarget.class, this);
+    addAdapter(ITimeToCollisionConditionTargetWriter.class, this);
   }
 
   @Override
@@ -235,5 +239,26 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TimeToCollisionConditionTarget";
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IEntityRefWriter getEntityRefWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter) {
+    // empty
   }
 }

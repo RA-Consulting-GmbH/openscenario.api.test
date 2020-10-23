@@ -34,6 +34,10 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IPedestrian;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.PedestrianCategory;
+import net.asam.openscenario.v1_0.api.writer.IBoundingBoxWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +55,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PedestrianImpl extends BaseImpl implements IPedestrian {
+public class PedestrianImpl extends BaseImpl implements IPedestrian, IPedestrianWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -74,6 +78,7 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
     super();
     addAdapter(PedestrianImpl.class, this);
     addAdapter(IPedestrian.class, this);
+    addAdapter(IPedestrianWriter.class, this);
   }
 
   @Override
@@ -433,5 +438,117 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
   @Override
   public String getModelType() {
     return "Pedestrian";
+  }
+
+  @Override
+  public void writeToModel(String model) {
+    // empty
+  }
+
+  @Override
+  public void writeToMass(Double mass) {
+    // empty
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToPedestrianCategory(PedestrianCategory pedestrianCategory) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToModel(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMass(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPedestrianCategory(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromModel() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromMass() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromPedestrianCategory() {
+    return null;
+  }
+
+  @Override
+  public boolean isModelParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isMassParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isPedestrianCategoryParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IBoundingBoxWriter getBoundingBoxWriter() {
+    return null;
+  }
+
+  @Override
+  public IPropertiesWriter getPropertiesWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
   }
 }

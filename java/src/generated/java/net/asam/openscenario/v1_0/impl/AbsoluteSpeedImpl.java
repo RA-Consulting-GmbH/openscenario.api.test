@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAbsoluteSpeed;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteSpeedWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteSpeedImpl extends BaseImpl implements IAbsoluteSpeed {
+public class AbsoluteSpeedImpl extends BaseImpl implements IAbsoluteSpeed, IAbsoluteSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,6 +59,7 @@ public class AbsoluteSpeedImpl extends BaseImpl implements IAbsoluteSpeed {
     super();
     addAdapter(AbsoluteSpeedImpl.class, this);
     addAdapter(IAbsoluteSpeed.class, this);
+    addAdapter(IAbsoluteSpeedWriter.class, this);
   }
 
   @Override
@@ -205,4 +207,27 @@ public class AbsoluteSpeedImpl extends BaseImpl implements IAbsoluteSpeed {
   public String getModelType() {
     return "AbsoluteSpeed";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

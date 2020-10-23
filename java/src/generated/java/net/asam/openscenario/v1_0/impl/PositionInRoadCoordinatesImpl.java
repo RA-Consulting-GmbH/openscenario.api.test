@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPositionInRoadCoordinates;
+import net.asam.openscenario.v1_0.api.writer.IPositionInRoadCoordinatesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPositionInRoadCoordinates {
+public class PositionInRoadCoordinatesImpl extends BaseImpl
+    implements IPositionInRoadCoordinates, IPositionInRoadCoordinatesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,6 +63,7 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPosition
     super();
     addAdapter(PositionInRoadCoordinatesImpl.class, this);
     addAdapter(IPositionInRoadCoordinates.class, this);
+    addAdapter(IPositionInRoadCoordinatesWriter.class, this);
   }
 
   @Override
@@ -231,4 +234,47 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPosition
   public String getModelType() {
     return "PositionInRoadCoordinates";
   }
+
+  @Override
+  public void writeToPathS(Double pathS) {
+    // empty
+  }
+
+  @Override
+  public void writeToT(Double t) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPathS(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToT(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromPathS() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromT() {
+    return null;
+  }
+
+  @Override
+  public boolean isPathSParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isTParameterized() {
+    return false;
+  }
+
+  // children
+
 }

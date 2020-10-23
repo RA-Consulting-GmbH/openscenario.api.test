@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.IInit;
 import net.asam.openscenario.v1_0.api.IStory;
 import net.asam.openscenario.v1_0.api.IStoryboard;
 import net.asam.openscenario.v1_0.api.ITrigger;
+import net.asam.openscenario.v1_0.api.writer.IInitWriter;
+import net.asam.openscenario.v1_0.api.writer.IStoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IStoryboardWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StoryboardImpl extends BaseImpl implements IStoryboard {
+public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboardWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IInit init;
@@ -57,6 +61,7 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard {
     super();
     addAdapter(StoryboardImpl.class, this);
     addAdapter(IStoryboard.class, this);
+    addAdapter(IStoryboardWriter.class, this);
   }
 
   @Override
@@ -276,5 +281,36 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard {
   @Override
   public String getModelType() {
     return "Storyboard";
+  }
+
+  // children
+  @Override
+  public IInitWriter getInitWriter() {
+    return null;
+  }
+
+  @Override
+  public ITriggerWriter getStopTriggerWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToInitWriter(IInitWriter initWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToStopTriggerWriter(ITriggerWriter stopTriggerWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IStoryWriter> getStoriesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setStoriesWriter(List<IStoryWriter> storiesWriters) {
+    // empty
   }
 }

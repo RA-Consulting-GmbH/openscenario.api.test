@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.IReachPositionCondition;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IReachPositionConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ReachPositionConditionImpl extends BaseImpl implements IReachPositionCondition {
+public class ReachPositionConditionImpl extends BaseImpl
+    implements IReachPositionCondition, IReachPositionConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,6 +64,7 @@ public class ReachPositionConditionImpl extends BaseImpl implements IReachPositi
     super();
     addAdapter(ReachPositionConditionImpl.class, this);
     addAdapter(IReachPositionCondition.class, this);
+    addAdapter(IReachPositionConditionWriter.class, this);
   }
 
   @Override
@@ -239,5 +243,36 @@ public class ReachPositionConditionImpl extends BaseImpl implements IReachPositi
   @Override
   public String getModelType() {
     return "ReachPositionCondition";
+  }
+
+  @Override
+  public void writeToTolerance(Double tolerance) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTolerance(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromTolerance() {
+    return null;
+  }
+
+  @Override
+  public boolean isToleranceParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

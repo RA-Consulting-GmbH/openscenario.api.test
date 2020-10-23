@@ -30,6 +30,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.IManeuver;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.writer.IEventWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ManeuverImpl extends BaseImpl implements IManeuver {
+public class ManeuverImpl extends BaseImpl implements IManeuver, IManeuverWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +66,7 @@ public class ManeuverImpl extends BaseImpl implements IManeuver {
     super();
     addAdapter(ManeuverImpl.class, this);
     addAdapter(IManeuver.class, this);
+    addAdapter(IManeuverWriter.class, this);
   }
 
   @Override
@@ -303,5 +307,48 @@ public class ManeuverImpl extends BaseImpl implements IManeuver {
   @Override
   public String getModelType() {
     return "Maneuver";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IEventWriter> getEventsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setEventsWriter(List<IEventWriter> eventsWriters) {
+    // empty
   }
 }

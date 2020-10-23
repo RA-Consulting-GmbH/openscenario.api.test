@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
 import net.asam.openscenario.v1_0.api.ILaneOffsetTarget;
 import net.asam.openscenario.v1_0.api.IRelativeTargetLaneOffset;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetLaneOffsetWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetTargetWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetLaneOffsetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget {
+public class LaneOffsetTargetImpl extends BaseImpl
+    implements ILaneOffsetTarget, ILaneOffsetTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IRelativeTargetLaneOffset relativeTargetLaneOffset;
@@ -55,6 +59,7 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget 
     super();
     addAdapter(LaneOffsetTargetImpl.class, this);
     addAdapter(ILaneOffsetTarget.class, this);
+    addAdapter(ILaneOffsetTargetWriter.class, this);
   }
 
   @Override
@@ -237,5 +242,28 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget 
   @Override
   public String getModelType() {
     return "LaneOffsetTarget";
+  }
+
+  // children
+  @Override
+  public IRelativeTargetLaneOffsetWriter getRelativeTargetLaneOffsetWriter() {
+    return null;
+  }
+
+  @Override
+  public IAbsoluteTargetLaneOffsetWriter getAbsoluteTargetLaneOffsetWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToRelativeTargetLaneOffsetWriter(
+      IRelativeTargetLaneOffsetWriter relativeTargetLaneOffsetWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToAbsoluteTargetLaneOffsetWriter(
+      IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffsetWriter) {
+    // empty
   }
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IFileHeader;
+import net.asam.openscenario.v1_0.api.writer.IFileHeaderWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileHeaderImpl extends BaseImpl implements IFileHeader {
+public class FileHeaderImpl extends BaseImpl implements IFileHeader, IFileHeaderWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +67,7 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
     super();
     addAdapter(FileHeaderImpl.class, this);
     addAdapter(IFileHeader.class, this);
+    addAdapter(IFileHeaderWriter.class, this);
   }
 
   @Override
@@ -318,4 +320,107 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
   public String getModelType() {
     return "FileHeader";
   }
+
+  @Override
+  public void writeToRevMajor(Integer revMajor) {
+    // empty
+  }
+
+  @Override
+  public void writeToRevMinor(Integer revMinor) {
+    // empty
+  }
+
+  @Override
+  public void writeToDate(java.util.Date date) {
+    // empty
+  }
+
+  @Override
+  public void writeToDescription(String description) {
+    // empty
+  }
+
+  @Override
+  public void writeToAuthor(String author) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRevMajor(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRevMinor(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDate(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDescription(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToAuthor(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromRevMajor() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRevMinor() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDate() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDescription() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromAuthor() {
+    return null;
+  }
+
+  @Override
+  public boolean isRevMajorParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRevMinorParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDateParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDescriptionParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isAuthorParameterized() {
+    return false;
+  }
+
+  // children
+
 }

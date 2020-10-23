@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IActors;
 import net.asam.openscenario.v1_0.api.IEntityRef;
+import net.asam.openscenario.v1_0.api.writer.IActorsWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActorsImpl extends BaseImpl implements IActors {
+public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class ActorsImpl extends BaseImpl implements IActors {
     super();
     addAdapter(ActorsImpl.class, this);
     addAdapter(IActors.class, this);
+    addAdapter(IActorsWriter.class, this);
   }
 
   @Override
@@ -245,5 +248,37 @@ public class ActorsImpl extends BaseImpl implements IActors {
   @Override
   public String getModelType() {
     return "Actors";
+  }
+
+  @Override
+  public void writeToSelectTriggeringEntities(Boolean selectTriggeringEntities) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToSelectTriggeringEntities(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromSelectTriggeringEntities() {
+    return null;
+  }
+
+  @Override
+  public boolean isSelectTriggeringEntitiesParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IEntityRefWriter> getEntityRefsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setEntityRefsWriter(List<IEntityRefWriter> entityRefsWriters) {
+    // empty
   }
 }

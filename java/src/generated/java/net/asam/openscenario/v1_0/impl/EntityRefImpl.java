@@ -29,6 +29,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IEntityRef;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityRefImpl extends BaseImpl implements IEntityRef {
+public class EntityRefImpl extends BaseImpl implements IEntityRef, IEntityRefWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +61,7 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef {
     super();
     addAdapter(EntityRefImpl.class, this);
     addAdapter(IEntityRef.class, this);
+    addAdapter(IEntityRefWriter.class, this);
   }
 
   @Override
@@ -218,4 +220,27 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef {
   public String getModelType() {
     return "EntityRef";
   }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  // children
+
 }

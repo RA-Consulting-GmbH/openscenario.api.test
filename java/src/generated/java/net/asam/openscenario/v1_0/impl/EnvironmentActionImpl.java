@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IEnvironment;
 import net.asam.openscenario.v1_0.api.IEnvironmentAction;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentAction {
+public class EnvironmentActionImpl extends BaseImpl
+    implements IEnvironmentAction, IEnvironmentActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IEnvironment environment;
@@ -55,6 +59,7 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
     super();
     addAdapter(EnvironmentActionImpl.class, this);
     addAdapter(IEnvironmentAction.class, this);
+    addAdapter(IEnvironmentActionWriter.class, this);
   }
 
   @Override
@@ -234,5 +239,26 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
   @Override
   public String getModelType() {
     return "EnvironmentAction";
+  }
+
+  // children
+  @Override
+  public IEnvironmentWriter getEnvironmentWriter() {
+    return null;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getCatalogReferenceWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToEnvironmentWriter(IEnvironmentWriter environmentWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
+    // empty
   }
 }

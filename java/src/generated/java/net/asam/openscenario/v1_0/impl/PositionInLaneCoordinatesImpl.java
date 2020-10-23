@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPositionInLaneCoordinates;
+import net.asam.openscenario.v1_0.api.writer.IPositionInLaneCoordinatesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPositionInLaneCoordinates {
+public class PositionInLaneCoordinatesImpl extends BaseImpl
+    implements IPositionInLaneCoordinates, IPositionInLaneCoordinatesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +65,7 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPosition
     super();
     addAdapter(PositionInLaneCoordinatesImpl.class, this);
     addAdapter(IPositionInLaneCoordinates.class, this);
+    addAdapter(IPositionInLaneCoordinatesWriter.class, this);
   }
 
   @Override
@@ -261,4 +264,67 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPosition
   public String getModelType() {
     return "PositionInLaneCoordinates";
   }
+
+  @Override
+  public void writeToPathS(Double pathS) {
+    // empty
+  }
+
+  @Override
+  public void writeToLaneId(String laneId) {
+    // empty
+  }
+
+  @Override
+  public void writeToLaneOffset(Double laneOffset) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPathS(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToLaneId(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToLaneOffset(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromPathS() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromLaneId() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromLaneOffset() {
+    return null;
+  }
+
+  @Override
+  public boolean isPathSParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isLaneIdParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isLaneOffsetParameterized() {
+    return false;
+  }
+
+  // children
+
 }

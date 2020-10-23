@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ITeleportAction;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITeleportActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
+public class TeleportActionImpl extends BaseImpl implements ITeleportAction, ITeleportActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPosition position;
@@ -53,6 +55,7 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
     super();
     addAdapter(TeleportActionImpl.class, this);
     addAdapter(ITeleportAction.class, this);
+    addAdapter(ITeleportActionWriter.class, this);
   }
 
   @Override
@@ -204,5 +207,16 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
   @Override
   public String getModelType() {
     return "TeleportAction";
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

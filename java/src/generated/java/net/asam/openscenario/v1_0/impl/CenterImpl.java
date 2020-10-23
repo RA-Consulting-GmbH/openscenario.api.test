@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICenter;
+import net.asam.openscenario.v1_0.api.writer.ICenterWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CenterImpl extends BaseImpl implements ICenter {
+public class CenterImpl extends BaseImpl implements ICenter, ICenterWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +63,7 @@ public class CenterImpl extends BaseImpl implements ICenter {
     super();
     addAdapter(CenterImpl.class, this);
     addAdapter(ICenter.class, this);
+    addAdapter(ICenterWriter.class, this);
   }
 
   @Override
@@ -251,4 +253,67 @@ public class CenterImpl extends BaseImpl implements ICenter {
   public String getModelType() {
     return "Center";
   }
+
+  @Override
+  public void writeToX(Double x) {
+    // empty
+  }
+
+  @Override
+  public void writeToY(Double y) {
+    // empty
+  }
+
+  @Override
+  public void writeToZ(Double z) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToX(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToY(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToZ(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromX() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromY() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromZ() {
+    return null;
+  }
+
+  @Override
+  public boolean isXParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isYParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isZParameterized() {
+    return false;
+  }
+
+  // children
+
 }

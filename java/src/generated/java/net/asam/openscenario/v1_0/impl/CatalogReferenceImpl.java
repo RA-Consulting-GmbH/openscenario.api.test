@@ -29,6 +29,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICatalogElement;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IParameterAssignment;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterAssignmentWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference {
+public class CatalogReferenceImpl extends BaseImpl
+    implements ICatalogReference, ICatalogReferenceWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +67,7 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
     super();
     addAdapter(CatalogReferenceImpl.class, this);
     addAdapter(ICatalogReference.class, this);
+    addAdapter(ICatalogReferenceWriter.class, this);
   }
 
   @Override
@@ -286,5 +290,58 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
   @Override
   public String getModelType() {
     return "CatalogReference";
+  }
+
+  @Override
+  public void writeToCatalogName(String catalogName) {
+    // empty
+  }
+
+  @Override
+  public void writeToEntryName(String entryName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToCatalogName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntryName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromCatalogName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromEntryName() {
+    return null;
+  }
+
+  @Override
+  public boolean isCatalogNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isEntryNameParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IParameterAssignmentWriter> getParameterAssignmentsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterAssignmentsWriter(
+      List<IParameterAssignmentWriter> parameterAssignmentsWriters) {
+    // empty
   }
 }

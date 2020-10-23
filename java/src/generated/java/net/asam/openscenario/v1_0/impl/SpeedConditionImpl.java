@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ISpeedCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ISpeedConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
+public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, ISpeedConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +64,7 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
     super();
     addAdapter(SpeedConditionImpl.class, this);
     addAdapter(ISpeedCondition.class, this);
+    addAdapter(ISpeedConditionWriter.class, this);
   }
 
   @Override
@@ -249,4 +251,47 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
   public String getModelType() {
     return "SpeedCondition";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+
 }

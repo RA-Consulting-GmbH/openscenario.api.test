@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPrecipitation;
 import net.asam.openscenario.v1_0.api.PrecipitationType;
+import net.asam.openscenario.v1_0.api.writer.IPrecipitationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
+public class PrecipitationImpl extends BaseImpl implements IPrecipitation, IPrecipitationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +64,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
     super();
     addAdapter(PrecipitationImpl.class, this);
     addAdapter(IPrecipitation.class, this);
+    addAdapter(IPrecipitationWriter.class, this);
   }
 
   @Override
@@ -251,4 +253,47 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
   public String getModelType() {
     return "Precipitation";
   }
+
+  @Override
+  public void writeToPrecipitationType(PrecipitationType precipitationType) {
+    // empty
+  }
+
+  @Override
+  public void writeToIntensity(Double intensity) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPrecipitationType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToIntensity(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromPrecipitationType() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromIntensity() {
+    return null;
+  }
+
+  @Override
+  public boolean isPrecipitationTypeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isIntensityParameterized() {
+    return false;
+  }
+
+  // children
+
 }

@@ -32,6 +32,11 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IRoadCondition;
 import net.asam.openscenario.v1_0.api.ITimeOfDay;
 import net.asam.openscenario.v1_0.api.IWeather;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeOfDayWriter;
+import net.asam.openscenario.v1_0.api.writer.IWeatherWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +54,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EnvironmentImpl extends BaseImpl implements IEnvironment {
+public class EnvironmentImpl extends BaseImpl implements IEnvironment, IEnvironmentWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -67,6 +72,7 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
     super();
     addAdapter(EnvironmentImpl.class, this);
     addAdapter(IEnvironment.class, this);
+    addAdapter(IEnvironmentWriter.class, this);
   }
 
   @Override
@@ -363,5 +369,67 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
   @Override
   public String getModelType() {
     return "Environment";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ITimeOfDayWriter getTimeOfDayWriter() {
+    return null;
+  }
+
+  @Override
+  public IWeatherWriter getWeatherWriter() {
+    return null;
+  }
+
+  @Override
+  public IRoadConditionWriter getRoadConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTimeOfDayWriter(ITimeOfDayWriter timeOfDayWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToWeatherWriter(IWeatherWriter weatherWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRoadConditionWriter(IRoadConditionWriter roadConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
   }
 }

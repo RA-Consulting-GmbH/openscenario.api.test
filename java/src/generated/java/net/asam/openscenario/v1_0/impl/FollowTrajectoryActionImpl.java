@@ -30,6 +30,11 @@ import net.asam.openscenario.v1_0.api.IFollowTrajectoryAction;
 import net.asam.openscenario.v1_0.api.ITimeReference;
 import net.asam.openscenario.v1_0.api.ITrajectory;
 import net.asam.openscenario.v1_0.api.ITrajectoryFollowingMode;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IFollowTrajectoryActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryFollowingModeWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +53,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FollowTrajectoryActionImpl extends BaseImpl implements IFollowTrajectoryAction {
+public class FollowTrajectoryActionImpl extends BaseImpl
+    implements IFollowTrajectoryAction, IFollowTrajectoryActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ITrajectory trajectory;
@@ -60,6 +66,7 @@ public class FollowTrajectoryActionImpl extends BaseImpl implements IFollowTraje
     super();
     addAdapter(FollowTrajectoryActionImpl.class, this);
     addAdapter(IFollowTrajectoryAction.class, this);
+    addAdapter(IFollowTrajectoryActionWriter.class, this);
   }
 
   @Override
@@ -300,5 +307,47 @@ public class FollowTrajectoryActionImpl extends BaseImpl implements IFollowTraje
   @Override
   public String getModelType() {
     return "FollowTrajectoryAction";
+  }
+
+  // children
+  @Override
+  public ITrajectoryWriter getTrajectoryWriter() {
+    return null;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getCatalogReferenceWriter() {
+    return null;
+  }
+
+  @Override
+  public ITimeReferenceWriter getTimeReferenceWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrajectoryFollowingModeWriter getTrajectoryFollowingModeWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTrajectoryWriter(ITrajectoryWriter trajectoryWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTimeReferenceWriter(ITimeReferenceWriter timeReferenceWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrajectoryFollowingModeWriter(
+      ITrajectoryFollowingModeWriter trajectoryFollowingModeWriter) {
+    // empty
   }
 }

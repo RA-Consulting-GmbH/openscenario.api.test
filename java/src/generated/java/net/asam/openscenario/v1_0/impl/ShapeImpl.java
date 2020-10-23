@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.IClothoid;
 import net.asam.openscenario.v1_0.api.INurbs;
 import net.asam.openscenario.v1_0.api.IPolyline;
 import net.asam.openscenario.v1_0.api.IShape;
+import net.asam.openscenario.v1_0.api.writer.IClothoidWriter;
+import net.asam.openscenario.v1_0.api.writer.INurbsWriter;
+import net.asam.openscenario.v1_0.api.writer.IPolylineWriter;
+import net.asam.openscenario.v1_0.api.writer.IShapeWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ShapeImpl extends BaseImpl implements IShape {
+public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPolyline polyline;
@@ -57,6 +61,7 @@ public class ShapeImpl extends BaseImpl implements IShape {
     super();
     addAdapter(ShapeImpl.class, this);
     addAdapter(IShape.class, this);
+    addAdapter(IShapeWriter.class, this);
   }
 
   @Override
@@ -263,5 +268,36 @@ public class ShapeImpl extends BaseImpl implements IShape {
   @Override
   public String getModelType() {
     return "Shape";
+  }
+
+  // children
+  @Override
+  public IPolylineWriter getPolylineWriter() {
+    return null;
+  }
+
+  @Override
+  public IClothoidWriter getClothoidWriter() {
+    return null;
+  }
+
+  @Override
+  public INurbsWriter getNurbsWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPolylineWriter(IPolylineWriter polylineWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToClothoidWriter(IClothoidWriter clothoidWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToNurbsWriter(INurbsWriter nurbsWriter) {
+    // empty
   }
 }

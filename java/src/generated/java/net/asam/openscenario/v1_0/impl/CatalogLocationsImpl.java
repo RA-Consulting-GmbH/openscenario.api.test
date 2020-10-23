@@ -34,6 +34,15 @@ import net.asam.openscenario.v1_0.api.IPedestrianCatalogLocation;
 import net.asam.openscenario.v1_0.api.IRouteCatalogLocation;
 import net.asam.openscenario.v1_0.api.ITrajectoryCatalogLocation;
 import net.asam.openscenario.v1_0.api.IVehicleCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.ICatalogLocationsWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +60,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations {
+public class CatalogLocationsImpl extends BaseImpl
+    implements ICatalogLocations, ICatalogLocationsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IVehicleCatalogLocation vehicleCatalog;
@@ -67,6 +77,7 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations 
     super();
     addAdapter(CatalogLocationsImpl.class, this);
     addAdapter(ICatalogLocations.class, this);
+    addAdapter(ICatalogLocationsWriter.class, this);
   }
 
   @Override
@@ -428,5 +439,91 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations 
   @Override
   public String getModelType() {
     return "CatalogLocations";
+  }
+
+  // children
+  @Override
+  public IVehicleCatalogLocationWriter getVehicleCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public IControllerCatalogLocationWriter getControllerCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public IPedestrianCatalogLocationWriter getPedestrianCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public IMiscObjectCatalogLocationWriter getMiscObjectCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public IEnvironmentCatalogLocationWriter getEnvironmentCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public IManeuverCatalogLocationWriter getManeuverCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrajectoryCatalogLocationWriter getTrajectoryCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public IRouteCatalogLocationWriter getRouteCatalogWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToVehicleCatalogWriter(IVehicleCatalogLocationWriter vehicleCatalogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToControllerCatalogWriter(
+      IControllerCatalogLocationWriter controllerCatalogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPedestrianCatalogWriter(
+      IPedestrianCatalogLocationWriter pedestrianCatalogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToMiscObjectCatalogWriter(
+      IMiscObjectCatalogLocationWriter miscObjectCatalogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToEnvironmentCatalogWriter(
+      IEnvironmentCatalogLocationWriter environmentCatalogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToManeuverCatalogWriter(IManeuverCatalogLocationWriter maneuverCatalogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrajectoryCatalogWriter(
+      ITrajectoryCatalogLocationWriter trajectoryCatalogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRouteCatalogWriter(IRouteCatalogLocationWriter routeCatalogWriter) {
+    // empty
   }
 }

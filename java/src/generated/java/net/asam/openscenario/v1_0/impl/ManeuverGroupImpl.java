@@ -30,6 +30,10 @@ import net.asam.openscenario.v1_0.api.IActors;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IManeuver;
 import net.asam.openscenario.v1_0.api.IManeuverGroup;
+import net.asam.openscenario.v1_0.api.writer.IActorsWriter;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverGroupWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
+public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, IManeuverGroupWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +70,7 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
     super();
     addAdapter(ManeuverGroupImpl.class, this);
     addAdapter(IManeuverGroup.class, this);
+    addAdapter(IManeuverGroupWriter.class, this);
   }
 
   @Override
@@ -343,5 +348,76 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
   @Override
   public String getModelType() {
     return "ManeuverGroup";
+  }
+
+  @Override
+  public void writeToMaximumExecutionCount(Long maximumExecutionCount) {
+    // empty
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaximumExecutionCount(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromMaximumExecutionCount() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isMaximumExecutionCountParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IActorsWriter getActorsWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToActorsWriter(IActorsWriter actorsWriter) {
+    // empty
+  }
+
+  @Override
+  public List<ICatalogReferenceWriter> getCatalogReferencesWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IManeuverWriter> getManeuversWriter() {
+    return null;
+  }
+
+  @Override
+  public void setCatalogReferencesWriter(List<ICatalogReferenceWriter> catalogReferencesWriters) {
+    // empty
+  }
+
+  @Override
+  public void setManeuversWriter(List<IManeuverWriter> maneuversWriters) {
+    // empty
   }
 }

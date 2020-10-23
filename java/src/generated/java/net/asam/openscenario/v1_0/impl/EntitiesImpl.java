@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IEntities;
 import net.asam.openscenario.v1_0.api.IEntitySelection;
 import net.asam.openscenario.v1_0.api.IScenarioObject;
+import net.asam.openscenario.v1_0.api.writer.IEntitiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntitySelectionWriter;
+import net.asam.openscenario.v1_0.api.writer.IScenarioObjectWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntitiesImpl extends BaseImpl implements IEntities {
+public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IScenarioObject> scenarioObjects;
@@ -55,6 +58,7 @@ public class EntitiesImpl extends BaseImpl implements IEntities {
     super();
     addAdapter(EntitiesImpl.class, this);
     addAdapter(IEntities.class, this);
+    addAdapter(IEntitiesWriter.class, this);
   }
 
   @Override
@@ -248,5 +252,27 @@ public class EntitiesImpl extends BaseImpl implements IEntities {
   @Override
   public String getModelType() {
     return "Entities";
+  }
+
+  // children
+
+  @Override
+  public List<IScenarioObjectWriter> getScenarioObjectsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IEntitySelectionWriter> getEntitySelectionsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setScenarioObjectsWriter(List<IScenarioObjectWriter> scenarioObjectsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setEntitySelectionsWriter(List<IEntitySelectionWriter> entitySelectionsWriters) {
+    // empty
   }
 }

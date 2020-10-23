@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAccelerationCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IAccelerationConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AccelerationConditionImpl extends BaseImpl implements IAccelerationCondition {
+public class AccelerationConditionImpl extends BaseImpl
+    implements IAccelerationCondition, IAccelerationConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +66,7 @@ public class AccelerationConditionImpl extends BaseImpl implements IAcceleration
     super();
     addAdapter(AccelerationConditionImpl.class, this);
     addAdapter(IAccelerationCondition.class, this);
+    addAdapter(IAccelerationConditionWriter.class, this);
   }
 
   @Override
@@ -249,4 +252,47 @@ public class AccelerationConditionImpl extends BaseImpl implements IAcceleration
   public String getModelType() {
     return "AccelerationCondition";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+
 }

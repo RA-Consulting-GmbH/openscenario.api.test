@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.IVertex;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IVertexWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VertexImpl extends BaseImpl implements IVertex {
+public class VertexImpl extends BaseImpl implements IVertex, IVertexWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class VertexImpl extends BaseImpl implements IVertex {
     super();
     addAdapter(VertexImpl.class, this);
     addAdapter(IVertex.class, this);
+    addAdapter(IVertexWriter.class, this);
   }
 
   @Override
@@ -237,5 +240,36 @@ public class VertexImpl extends BaseImpl implements IVertex {
   @Override
   public String getModelType() {
     return "Vertex";
+  }
+
+  @Override
+  public void writeToTime(Double time) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTime(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromTime() {
+    return null;
+  }
+
+  @Override
+  public boolean isTimeParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

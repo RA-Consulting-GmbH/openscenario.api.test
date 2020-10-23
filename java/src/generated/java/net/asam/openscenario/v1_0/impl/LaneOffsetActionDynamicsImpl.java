@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.DynamicsShape;
 import net.asam.openscenario.v1_0.api.ILaneOffsetActionDynamics;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetActionDynamicsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffsetActionDynamics {
+public class LaneOffsetActionDynamicsImpl extends BaseImpl
+    implements ILaneOffsetActionDynamics, ILaneOffsetActionDynamicsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +66,7 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
     super();
     addAdapter(LaneOffsetActionDynamicsImpl.class, this);
     addAdapter(ILaneOffsetActionDynamics.class, this);
+    addAdapter(ILaneOffsetActionDynamicsWriter.class, this);
   }
 
   @Override
@@ -251,4 +254,47 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
   public String getModelType() {
     return "LaneOffsetActionDynamics";
   }
+
+  @Override
+  public void writeToMaxLateralAcc(Double maxLateralAcc) {
+    // empty
+  }
+
+  @Override
+  public void writeToDynamicsShape(DynamicsShape dynamicsShape) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxLateralAcc(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDynamicsShape(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromMaxLateralAcc() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDynamicsShape() {
+    return null;
+  }
+
+  @Override
+  public boolean isMaxLateralAccParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDynamicsShapeParameterized() {
+    return false;
+  }
+
+  // children
+
 }

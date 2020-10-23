@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEndOfRoadCondition;
+import net.asam.openscenario.v1_0.api.writer.IEndOfRoadConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EndOfRoadConditionImpl extends BaseImpl implements IEndOfRoadCondition {
+public class EndOfRoadConditionImpl extends BaseImpl
+    implements IEndOfRoadCondition, IEndOfRoadConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,6 +60,7 @@ public class EndOfRoadConditionImpl extends BaseImpl implements IEndOfRoadCondit
     super();
     addAdapter(EndOfRoadConditionImpl.class, this);
     addAdapter(IEndOfRoadCondition.class, this);
+    addAdapter(IEndOfRoadConditionWriter.class, this);
   }
 
   @Override
@@ -205,4 +208,27 @@ public class EndOfRoadConditionImpl extends BaseImpl implements IEndOfRoadCondit
   public String getModelType() {
     return "EndOfRoadCondition";
   }
+
+  @Override
+  public void writeToDuration(Double duration) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDuration(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromDuration() {
+    return null;
+  }
+
+  @Override
+  public boolean isDurationParameterized() {
+    return false;
+  }
+
+  // children
+
 }

@@ -39,6 +39,20 @@ import net.asam.openscenario.v1_0.api.IStandStillCondition;
 import net.asam.openscenario.v1_0.api.ITimeHeadwayCondition;
 import net.asam.openscenario.v1_0.api.ITimeToCollisionCondition;
 import net.asam.openscenario.v1_0.api.ITraveledDistanceCondition;
+import net.asam.openscenario.v1_0.api.writer.IAccelerationConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ICollisionConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IDistanceConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEndOfRoadConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOffroadConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IReachPositionConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeDistanceConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeSpeedConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISpeedConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IStandStillConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeHeadwayConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeToCollisionConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITraveledDistanceConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -56,7 +70,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityConditionImpl extends BaseImpl implements IEntityCondition {
+public class EntityConditionImpl extends BaseImpl
+    implements IEntityCondition, IEntityConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IEndOfRoadCondition endOfRoadCondition;
@@ -77,6 +92,7 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition {
     super();
     addAdapter(EntityConditionImpl.class, this);
     addAdapter(IEntityCondition.class, this);
+    addAdapter(IEntityConditionWriter.class, this);
   }
 
   @Override
@@ -584,5 +600,144 @@ public class EntityConditionImpl extends BaseImpl implements IEntityCondition {
   @Override
   public String getModelType() {
     return "EntityCondition";
+  }
+
+  // children
+  @Override
+  public IEndOfRoadConditionWriter getEndOfRoadConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ICollisionConditionWriter getCollisionConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IOffroadConditionWriter getOffroadConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITimeHeadwayConditionWriter getTimeHeadwayConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITimeToCollisionConditionWriter getTimeToCollisionConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IAccelerationConditionWriter getAccelerationConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IStandStillConditionWriter getStandStillConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ISpeedConditionWriter getSpeedConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRelativeSpeedConditionWriter getRelativeSpeedConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITraveledDistanceConditionWriter getTraveledDistanceConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IReachPositionConditionWriter getReachPositionConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IDistanceConditionWriter getDistanceConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRelativeDistanceConditionWriter getRelativeDistanceConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToEndOfRoadConditionWriter(IEndOfRoadConditionWriter endOfRoadConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToCollisionConditionWriter(ICollisionConditionWriter collisionConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToOffroadConditionWriter(IOffroadConditionWriter offroadConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTimeHeadwayConditionWriter(
+      ITimeHeadwayConditionWriter timeHeadwayConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTimeToCollisionConditionWriter(
+      ITimeToCollisionConditionWriter timeToCollisionConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToAccelerationConditionWriter(
+      IAccelerationConditionWriter accelerationConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToStandStillConditionWriter(
+      IStandStillConditionWriter standStillConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToSpeedConditionWriter(ISpeedConditionWriter speedConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeSpeedConditionWriter(
+      IRelativeSpeedConditionWriter relativeSpeedConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTraveledDistanceConditionWriter(
+      ITraveledDistanceConditionWriter traveledDistanceConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToReachPositionConditionWriter(
+      IReachPositionConditionWriter reachPositionConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToDistanceConditionWriter(IDistanceConditionWriter distanceConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeDistanceConditionWriter(
+      IRelativeDistanceConditionWriter relativeDistanceConditionWriter) {
+    // empty
   }
 }

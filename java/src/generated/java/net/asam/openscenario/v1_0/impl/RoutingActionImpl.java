@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.IAcquirePositionAction;
 import net.asam.openscenario.v1_0.api.IAssignRouteAction;
 import net.asam.openscenario.v1_0.api.IFollowTrajectoryAction;
 import net.asam.openscenario.v1_0.api.IRoutingAction;
+import net.asam.openscenario.v1_0.api.writer.IAcquirePositionActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IAssignRouteActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IFollowTrajectoryActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoutingActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
+public class RoutingActionImpl extends BaseImpl implements IRoutingAction, IRoutingActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IAssignRouteAction assignRouteAction;
@@ -57,6 +61,7 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
     super();
     addAdapter(RoutingActionImpl.class, this);
     addAdapter(IRoutingAction.class, this);
+    addAdapter(IRoutingActionWriter.class, this);
   }
 
   @Override
@@ -269,5 +274,38 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
   @Override
   public String getModelType() {
     return "RoutingAction";
+  }
+
+  // children
+  @Override
+  public IAssignRouteActionWriter getAssignRouteActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IFollowTrajectoryActionWriter getFollowTrajectoryActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IAcquirePositionActionWriter getAcquirePositionActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToAssignRouteActionWriter(IAssignRouteActionWriter assignRouteActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToFollowTrajectoryActionWriter(
+      IFollowTrajectoryActionWriter followTrajectoryActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToAcquirePositionActionWriter(
+      IAcquirePositionActionWriter acquirePositionActionWriter) {
+    // empty
   }
 }

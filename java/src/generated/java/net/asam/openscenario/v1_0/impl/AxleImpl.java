@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAxle;
+import net.asam.openscenario.v1_0.api.writer.IAxleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AxleImpl extends BaseImpl implements IAxle {
+public class AxleImpl extends BaseImpl implements IAxle, IAxleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +67,7 @@ public class AxleImpl extends BaseImpl implements IAxle {
     super();
     addAdapter(AxleImpl.class, this);
     addAdapter(IAxle.class, this);
+    addAdapter(IAxleWriter.class, this);
   }
 
   @Override
@@ -310,4 +312,107 @@ public class AxleImpl extends BaseImpl implements IAxle {
   public String getModelType() {
     return "Axle";
   }
+
+  @Override
+  public void writeToMaxSteering(Double maxSteering) {
+    // empty
+  }
+
+  @Override
+  public void writeToWheelDiameter(Double wheelDiameter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrackWidth(Double trackWidth) {
+    // empty
+  }
+
+  @Override
+  public void writeToPositionX(Double positionX) {
+    // empty
+  }
+
+  @Override
+  public void writeToPositionZ(Double positionZ) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxSteering(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToWheelDiameter(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTrackWidth(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPositionX(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPositionZ(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromMaxSteering() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromWheelDiameter() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromTrackWidth() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromPositionX() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromPositionZ() {
+    return null;
+  }
+
+  @Override
+  public boolean isMaxSteeringParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isWheelDiameterParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isTrackWidthParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isPositionXParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isPositionZParameterized() {
+    return false;
+  }
+
+  // children
+
 }

@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPhase;
 import net.asam.openscenario.v1_0.api.ITrafficSignalState;
+import net.asam.openscenario.v1_0.api.writer.IPhaseWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalStateWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PhaseImpl extends BaseImpl implements IPhase {
+public class PhaseImpl extends BaseImpl implements IPhase, IPhaseWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +64,7 @@ public class PhaseImpl extends BaseImpl implements IPhase {
     super();
     addAdapter(PhaseImpl.class, this);
     addAdapter(IPhase.class, this);
+    addAdapter(IPhaseWriter.class, this);
   }
 
   @Override
@@ -275,5 +278,58 @@ public class PhaseImpl extends BaseImpl implements IPhase {
   @Override
   public String getModelType() {
     return "Phase";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToDuration(Double duration) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDuration(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDuration() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDurationParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<ITrafficSignalStateWriter> getTrafficSignalStatesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setTrafficSignalStatesWriter(
+      List<ITrafficSignalStateWriter> trafficSignalStatesWriters) {
+    // empty
   }
 }

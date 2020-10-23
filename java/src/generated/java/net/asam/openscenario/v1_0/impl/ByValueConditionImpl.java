@@ -33,6 +33,14 @@ import net.asam.openscenario.v1_0.api.ITimeOfDayCondition;
 import net.asam.openscenario.v1_0.api.ITrafficSignalCondition;
 import net.asam.openscenario.v1_0.api.ITrafficSignalControllerCondition;
 import net.asam.openscenario.v1_0.api.IUserDefinedValueCondition;
+import net.asam.openscenario.v1_0.api.writer.IByValueConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISimulationTimeConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IStoryboardElementStateConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeOfDayConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalControllerConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IUserDefinedValueConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +58,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByValueConditionImpl extends BaseImpl implements IByValueCondition {
+public class ByValueConditionImpl extends BaseImpl
+    implements IByValueCondition, IByValueConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IParameterCondition parameterCondition;
@@ -65,6 +74,7 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition 
     super();
     addAdapter(ByValueConditionImpl.class, this);
     addAdapter(IByValueCondition.class, this);
+    addAdapter(IByValueConditionWriter.class, this);
   }
 
   @Override
@@ -398,5 +408,81 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueCondition 
   @Override
   public String getModelType() {
     return "ByValueCondition";
+  }
+
+  // children
+  @Override
+  public IParameterConditionWriter getParameterConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITimeOfDayConditionWriter getTimeOfDayConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ISimulationTimeConditionWriter getSimulationTimeConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IStoryboardElementStateConditionWriter getStoryboardElementStateConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IUserDefinedValueConditionWriter getUserDefinedValueConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficSignalConditionWriter getTrafficSignalConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficSignalControllerConditionWriter getTrafficSignalControllerConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToParameterConditionWriter(IParameterConditionWriter parameterConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTimeOfDayConditionWriter(ITimeOfDayConditionWriter timeOfDayConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToSimulationTimeConditionWriter(
+      ISimulationTimeConditionWriter simulationTimeConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToStoryboardElementStateConditionWriter(
+      IStoryboardElementStateConditionWriter storyboardElementStateConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToUserDefinedValueConditionWriter(
+      IUserDefinedValueConditionWriter userDefinedValueConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficSignalConditionWriter(
+      ITrafficSignalConditionWriter trafficSignalConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficSignalControllerConditionWriter(
+      ITrafficSignalControllerConditionWriter trafficSignalControllerConditionWriter) {
+    // empty
   }
 }

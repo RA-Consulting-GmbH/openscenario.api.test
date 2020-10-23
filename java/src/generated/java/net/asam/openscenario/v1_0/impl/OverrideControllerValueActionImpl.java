@@ -32,6 +32,13 @@ import net.asam.openscenario.v1_0.api.IOverrideGearAction;
 import net.asam.openscenario.v1_0.api.IOverrideParkingBrakeAction;
 import net.asam.openscenario.v1_0.api.IOverrideSteeringWheelAction;
 import net.asam.openscenario.v1_0.api.IOverrideThrottleAction;
+import net.asam.openscenario.v1_0.api.writer.IOverrideBrakeActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideClutchActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideControllerValueActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideGearActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideParkingBrakeActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideSteeringWheelActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideThrottleActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +58,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class OverrideControllerValueActionImpl extends BaseImpl
-    implements IOverrideControllerValueAction {
+    implements IOverrideControllerValueAction, IOverrideControllerValueActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IOverrideThrottleAction throttle;
@@ -65,6 +72,7 @@ public class OverrideControllerValueActionImpl extends BaseImpl
     super();
     addAdapter(OverrideControllerValueActionImpl.class, this);
     addAdapter(IOverrideControllerValueAction.class, this);
+    addAdapter(IOverrideControllerValueActionWriter.class, this);
   }
 
   @Override
@@ -363,5 +371,66 @@ public class OverrideControllerValueActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "OverrideControllerValueAction";
+  }
+
+  // children
+  @Override
+  public IOverrideThrottleActionWriter getThrottleWriter() {
+    return null;
+  }
+
+  @Override
+  public IOverrideBrakeActionWriter getBrakeWriter() {
+    return null;
+  }
+
+  @Override
+  public IOverrideClutchActionWriter getClutchWriter() {
+    return null;
+  }
+
+  @Override
+  public IOverrideParkingBrakeActionWriter getParkingBrakeWriter() {
+    return null;
+  }
+
+  @Override
+  public IOverrideSteeringWheelActionWriter getSteeringWheelWriter() {
+    return null;
+  }
+
+  @Override
+  public IOverrideGearActionWriter getGearWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToThrottleWriter(IOverrideThrottleActionWriter throttleWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToBrakeWriter(IOverrideBrakeActionWriter brakeWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToClutchWriter(IOverrideClutchActionWriter clutchWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToParkingBrakeWriter(IOverrideParkingBrakeActionWriter parkingBrakeWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToSteeringWheelWriter(IOverrideSteeringWheelActionWriter steeringWheelWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToGearWriter(IOverrideGearActionWriter gearWriter) {
+    // empty
   }
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOverrideGearAction;
+import net.asam.openscenario.v1_0.api.writer.IOverrideGearActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAction {
+public class OverrideGearActionImpl extends BaseImpl
+    implements IOverrideGearAction, IOverrideGearActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
     super();
     addAdapter(OverrideGearActionImpl.class, this);
     addAdapter(IOverrideGearAction.class, this);
+    addAdapter(IOverrideGearActionWriter.class, this);
   }
 
   @Override
@@ -234,4 +237,47 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
   public String getModelType() {
     return "OverrideGearAction";
   }
+
+  @Override
+  public void writeToNumber(Double number) {
+    // empty
+  }
+
+  @Override
+  public void writeToActive(Boolean active) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToNumber(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToActive(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromNumber() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromActive() {
+    return null;
+  }
+
+  @Override
+  public boolean isNumberParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isActiveParameterized() {
+    return false;
+  }
+
+  // children
+
 }

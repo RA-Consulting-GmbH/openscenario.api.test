@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICentralSwarmObject;
 import net.asam.openscenario.v1_0.api.ITrafficDefinition;
 import net.asam.openscenario.v1_0.api.ITrafficSwarmAction;
+import net.asam.openscenario.v1_0.api.writer.ICentralSwarmObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSwarmActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAction {
+public class TrafficSwarmActionImpl extends BaseImpl
+    implements ITrafficSwarmAction, ITrafficSwarmActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -72,6 +76,7 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
     super();
     addAdapter(TrafficSwarmActionImpl.class, this);
     addAdapter(ITrafficSwarmAction.class, this);
+    addAdapter(ITrafficSwarmActionWriter.class, this);
   }
 
   @Override
@@ -406,5 +411,146 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
   @Override
   public String getModelType() {
     return "TrafficSwarmAction";
+  }
+
+  @Override
+  public void writeToSemiMajorAxis(Double semiMajorAxis) {
+    // empty
+  }
+
+  @Override
+  public void writeToSemiMinorAxis(Double semiMinorAxis) {
+    // empty
+  }
+
+  @Override
+  public void writeToInnerRadius(Double innerRadius) {
+    // empty
+  }
+
+  @Override
+  public void writeToOffset(Double offset) {
+    // empty
+  }
+
+  @Override
+  public void writeToNumberOfVehicles(Long numberOfVehicles) {
+    // empty
+  }
+
+  @Override
+  public void writeToVelocity(Double velocity) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToSemiMajorAxis(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToSemiMinorAxis(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToInnerRadius(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToOffset(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToNumberOfVehicles(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToVelocity(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromSemiMajorAxis() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromSemiMinorAxis() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromInnerRadius() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromOffset() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromNumberOfVehicles() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromVelocity() {
+    return null;
+  }
+
+  @Override
+  public boolean isSemiMajorAxisParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isSemiMinorAxisParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isInnerRadiusParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isOffsetParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isNumberOfVehiclesParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isVelocityParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ICentralSwarmObjectWriter getCentralObjectWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficDefinitionWriter getTrafficDefinitionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToCentralObjectWriter(ICentralSwarmObjectWriter centralObjectWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter) {
+    // empty
   }
 }

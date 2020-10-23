@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITimeOfDay;
+import net.asam.openscenario.v1_0.api.writer.ITimeOfDayWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
+public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, ITimeOfDayWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +61,7 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
     super();
     addAdapter(TimeOfDayImpl.class, this);
     addAdapter(ITimeOfDay.class, this);
+    addAdapter(ITimeOfDayWriter.class, this);
   }
 
   @Override
@@ -235,4 +237,47 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
   public String getModelType() {
     return "TimeOfDay";
   }
+
+  @Override
+  public void writeToAnimation(Boolean animation) {
+    // empty
+  }
+
+  @Override
+  public void writeToDateTime(java.util.Date dateTime) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToAnimation(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDateTime(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromAnimation() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDateTime() {
+    return null;
+  }
+
+  @Override
+  public boolean isAnimationParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDateTimeParameterized() {
+    return false;
+  }
+
+  // children
+
 }

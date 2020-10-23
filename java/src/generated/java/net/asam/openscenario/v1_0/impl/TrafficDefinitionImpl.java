@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IControllerDistribution;
 import net.asam.openscenario.v1_0.api.ITrafficDefinition;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistribution;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCategoryDistributionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinition {
+public class TrafficDefinitionImpl extends BaseImpl
+    implements ITrafficDefinition, ITrafficDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +66,7 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
     super();
     addAdapter(TrafficDefinitionImpl.class, this);
     addAdapter(ITrafficDefinition.class, this);
+    addAdapter(ITrafficDefinitionWriter.class, this);
   }
 
   @Override
@@ -271,5 +276,48 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
   @Override
   public String getModelType() {
     return "TrafficDefinition";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IVehicleCategoryDistributionWriter getVehicleCategoryDistributionWriter() {
+    return null;
+  }
+
+  @Override
+  public IControllerDistributionWriter getControllerDistributionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToVehicleCategoryDistributionWriter(
+      IVehicleCategoryDistributionWriter vehicleCategoryDistributionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToControllerDistributionWriter(
+      IControllerDistributionWriter controllerDistributionWriter) {
+    // empty
   }
 }

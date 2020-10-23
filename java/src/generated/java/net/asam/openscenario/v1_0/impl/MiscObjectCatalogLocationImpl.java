@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IMiscObjectCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObjectCatalogLocation {
+public class MiscObjectCatalogLocationImpl extends BaseImpl
+    implements IMiscObjectCatalogLocation, IMiscObjectCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
@@ -54,6 +57,7 @@ public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObje
     super();
     addAdapter(MiscObjectCatalogLocationImpl.class, this);
     addAdapter(IMiscObjectCatalogLocation.class, this);
+    addAdapter(IMiscObjectCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -205,5 +209,16 @@ public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObje
   @Override
   public String getModelType() {
     return "MiscObjectCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getDirectoryWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
+    // empty
   }
 }

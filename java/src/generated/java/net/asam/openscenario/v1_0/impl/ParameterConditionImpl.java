@@ -33,6 +33,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterCondition;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IParameterConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterConditionImpl extends BaseImpl implements IParameterCondition {
+public class ParameterConditionImpl extends BaseImpl
+    implements IParameterCondition, IParameterConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -68,6 +70,7 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
     super();
     addAdapter(ParameterConditionImpl.class, this);
     addAdapter(IParameterCondition.class, this);
+    addAdapter(IParameterConditionWriter.class, this);
   }
 
   @Override
@@ -293,4 +296,67 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
   public String getModelType() {
     return "ParameterCondition";
   }
+
+  @Override
+  public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(String value) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToParameterRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromParameterRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isParameterRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+
 }

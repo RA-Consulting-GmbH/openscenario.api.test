@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntityObject;
 import net.asam.openscenario.v1_0.api.IObjectController;
 import net.asam.openscenario.v1_0.api.IScenarioObject;
+import net.asam.openscenario.v1_0.api.writer.IEntityObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IObjectControllerWriter;
+import net.asam.openscenario.v1_0.api.writer.IScenarioObjectWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject {
+public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, IScenarioObjectWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +65,7 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject {
     super();
     addAdapter(ScenarioObjectImpl.class, this);
     addAdapter(IScenarioObject.class, this);
+    addAdapter(IScenarioObjectWriter.class, this);
   }
 
   @Override
@@ -268,5 +272,46 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject {
   @Override
   public String getModelType() {
     return "ScenarioObject";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IEntityObjectWriter getEntityObjectWriter() {
+    return null;
+  }
+
+  @Override
+  public IObjectControllerWriter getObjectControllerWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToEntityObjectWriter(IEntityObjectWriter entityObjectWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToObjectControllerWriter(IObjectControllerWriter objectControllerWriter) {
+    // empty
   }
 }

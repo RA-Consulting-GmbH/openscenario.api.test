@@ -30,6 +30,8 @@ import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IPrivate;
 import net.asam.openscenario.v1_0.api.IPrivateAction;
+import net.asam.openscenario.v1_0.api.writer.IPrivateActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrivateWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrivateImpl extends BaseImpl implements IPrivate {
+public class PrivateImpl extends BaseImpl implements IPrivate, IPrivateWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +64,7 @@ public class PrivateImpl extends BaseImpl implements IPrivate {
     super();
     addAdapter(PrivateImpl.class, this);
     addAdapter(IPrivate.class, this);
+    addAdapter(IPrivateWriter.class, this);
   }
 
   @Override
@@ -258,5 +261,37 @@ public class PrivateImpl extends BaseImpl implements IPrivate {
   @Override
   public String getModelType() {
     return "Private";
+  }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IPrivateActionWriter> getPrivateActionsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setPrivateActionsWriter(List<IPrivateActionWriter> privateActionsWriters) {
+    // empty
   }
 }
