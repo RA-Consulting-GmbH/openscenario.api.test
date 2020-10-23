@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalogDefinition;
 import net.asam.openscenario.v1_0.api.IOpenScenarioCategory;
 import net.asam.openscenario.v1_0.api.IScenarioDefinition;
+import net.asam.openscenario.v1_0.api.writer.ICatalogDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOpenScenarioCategoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IScenarioDefinitionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioCategory {
+public class OpenScenarioCategoryImpl extends BaseImpl
+    implements IOpenScenarioCategory, IOpenScenarioCategoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IScenarioDefinition scenarioDefinition;
@@ -55,6 +59,7 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
     super();
     addAdapter(OpenScenarioCategoryImpl.class, this);
     addAdapter(IOpenScenarioCategory.class, this);
+    addAdapter(IOpenScenarioCategoryWriter.class, this);
   }
 
   @Override
@@ -235,5 +240,26 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
   @Override
   public String getModelType() {
     return "OpenScenarioCategory";
+  }
+
+  // children
+  @Override
+  public IScenarioDefinitionWriter getScenarioDefinitionWriter() {
+    return null;
+  }
+
+  @Override
+  public ICatalogDefinitionWriter getCatalogDefinitionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToScenarioDefinitionWriter(IScenarioDefinitionWriter scenarioDefinitionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToCatalogDefinitionWriter(ICatalogDefinitionWriter catalogDefinitionWriter) {
+    // empty
   }
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ISun;
+import net.asam.openscenario.v1_0.api.writer.ISunWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SunImpl extends BaseImpl implements ISun {
+public class SunImpl extends BaseImpl implements ISun, ISunWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +63,7 @@ public class SunImpl extends BaseImpl implements ISun {
     super();
     addAdapter(SunImpl.class, this);
     addAdapter(ISun.class, this);
+    addAdapter(ISunWriter.class, this);
   }
 
   @Override
@@ -258,4 +260,67 @@ public class SunImpl extends BaseImpl implements ISun {
   public String getModelType() {
     return "Sun";
   }
+
+  @Override
+  public void writeToIntensity(Double intensity) {
+    // empty
+  }
+
+  @Override
+  public void writeToAzimuth(Double azimuth) {
+    // empty
+  }
+
+  @Override
+  public void writeToElevation(Double elevation) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToIntensity(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToAzimuth(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToElevation(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromIntensity() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromAzimuth() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromElevation() {
+    return null;
+  }
+
+  @Override
+  public boolean isIntensityParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isAzimuthParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isElevationParameterized() {
+    return false;
+  }
+
+  // children
+
 }

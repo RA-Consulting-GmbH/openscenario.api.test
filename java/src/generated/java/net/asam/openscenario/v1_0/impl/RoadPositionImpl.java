@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRoadPosition;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadPositionImpl extends BaseImpl implements IRoadPosition {
+public class RoadPositionImpl extends BaseImpl implements IRoadPosition, IRoadPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +66,7 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition {
     super();
     addAdapter(RoadPositionImpl.class, this);
     addAdapter(IRoadPosition.class, this);
+    addAdapter(IRoadPositionWriter.class, this);
   }
 
   @Override
@@ -292,5 +295,76 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition {
   @Override
   public String getModelType() {
     return "RoadPosition";
+  }
+
+  @Override
+  public void writeToRoadId(String roadId) {
+    // empty
+  }
+
+  @Override
+  public void writeToS(Double s) {
+    // empty
+  }
+
+  @Override
+  public void writeToT(Double t) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRoadId(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToS(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToT(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromRoadId() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromS() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromT() {
+    return null;
+  }
+
+  @Override
+  public boolean isRoadIdParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isSParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isTParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getOrientationWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
+    // empty
   }
 }

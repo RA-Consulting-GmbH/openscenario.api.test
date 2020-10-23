@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRelativeWorldPosition;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeWorldPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorldPosition {
+public class RelativeWorldPositionImpl extends BaseImpl
+    implements IRelativeWorldPosition, IRelativeWorldPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -70,6 +73,7 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
     super();
     addAdapter(RelativeWorldPositionImpl.class, this);
     addAdapter(IRelativeWorldPosition.class, this);
+    addAdapter(IRelativeWorldPositionWriter.class, this);
   }
 
   @Override
@@ -336,5 +340,96 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
   @Override
   public String getModelType() {
     return "RelativeWorldPosition";
+  }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToDx(Double dx) {
+    // empty
+  }
+
+  @Override
+  public void writeToDy(Double dy) {
+    // empty
+  }
+
+  @Override
+  public void writeToDz(Double dz) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDx(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDy(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDz(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDx() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDy() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDz() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDxParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDyParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDzParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getOrientationWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
+    // empty
   }
 }

@@ -29,6 +29,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.v1_0.api.ICentralSwarmObject;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.writer.ICentralSwarmObjectWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CentralSwarmObjectImpl extends BaseImpl implements ICentralSwarmObject {
+public class CentralSwarmObjectImpl extends BaseImpl
+    implements ICentralSwarmObject, ICentralSwarmObjectWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class CentralSwarmObjectImpl extends BaseImpl implements ICentralSwarmObj
     super();
     addAdapter(CentralSwarmObjectImpl.class, this);
     addAdapter(ICentralSwarmObject.class, this);
+    addAdapter(ICentralSwarmObjectWriter.class, this);
   }
 
   @Override
@@ -219,4 +222,27 @@ public class CentralSwarmObjectImpl extends BaseImpl implements ICentralSwarmObj
   public String getModelType() {
     return "CentralSwarmObject";
   }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  // children
+
 }

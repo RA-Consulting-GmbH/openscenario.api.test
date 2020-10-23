@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLane;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetLaneWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetLane {
+public class AbsoluteTargetLaneImpl extends BaseImpl
+    implements IAbsoluteTargetLane, IAbsoluteTargetLaneWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,6 +60,7 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
     super();
     addAdapter(AbsoluteTargetLaneImpl.class, this);
     addAdapter(IAbsoluteTargetLane.class, this);
+    addAdapter(IAbsoluteTargetLaneWriter.class, this);
   }
 
   @Override
@@ -205,4 +208,27 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
   public String getModelType() {
     return "AbsoluteTargetLane";
   }
+
+  @Override
+  public void writeToValue(String value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

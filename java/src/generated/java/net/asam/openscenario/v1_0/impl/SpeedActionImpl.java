@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ISpeedAction;
 import net.asam.openscenario.v1_0.api.ISpeedActionTarget;
 import net.asam.openscenario.v1_0.api.ITransitionDynamics;
+import net.asam.openscenario.v1_0.api.writer.ISpeedActionTargetWriter;
+import net.asam.openscenario.v1_0.api.writer.ISpeedActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITransitionDynamicsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedActionImpl extends BaseImpl implements ISpeedAction {
+public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ITransitionDynamics speedActionDynamics;
@@ -55,6 +58,7 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction {
     super();
     addAdapter(SpeedActionImpl.class, this);
     addAdapter(ISpeedAction.class, this);
+    addAdapter(ISpeedActionWriter.class, this);
   }
 
   @Override
@@ -235,5 +239,27 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction {
   @Override
   public String getModelType() {
     return "SpeedAction";
+  }
+
+  // children
+  @Override
+  public ITransitionDynamicsWriter getSpeedActionDynamicsWriter() {
+    return null;
+  }
+
+  @Override
+  public ISpeedActionTargetWriter getSpeedActionTargetWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToSpeedActionDynamicsWriter(
+      ITransitionDynamicsWriter speedActionDynamicsWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToSpeedActionTargetWriter(ISpeedActionTargetWriter speedActionTargetWriter) {
+    // empty
   }
 }

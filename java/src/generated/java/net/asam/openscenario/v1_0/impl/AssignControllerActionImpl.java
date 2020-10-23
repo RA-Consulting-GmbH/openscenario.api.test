@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAssignControllerAction;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IController;
+import net.asam.openscenario.v1_0.api.writer.IAssignControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AssignControllerActionImpl extends BaseImpl implements IAssignControllerAction {
+public class AssignControllerActionImpl extends BaseImpl
+    implements IAssignControllerAction, IAssignControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IController controller;
@@ -56,6 +60,7 @@ public class AssignControllerActionImpl extends BaseImpl implements IAssignContr
     super();
     addAdapter(AssignControllerActionImpl.class, this);
     addAdapter(IAssignControllerAction.class, this);
+    addAdapter(IAssignControllerActionWriter.class, this);
   }
 
   @Override
@@ -237,5 +242,26 @@ public class AssignControllerActionImpl extends BaseImpl implements IAssignContr
   @Override
   public String getModelType() {
     return "AssignControllerAction";
+  }
+
+  // children
+  @Override
+  public IControllerWriter getControllerWriter() {
+    return null;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getCatalogReferenceWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToControllerWriter(IControllerWriter controllerWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
+    // empty
   }
 }

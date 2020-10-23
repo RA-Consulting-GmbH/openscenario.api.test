@@ -31,6 +31,12 @@ import net.asam.openscenario.v1_0.api.IGlobalAction;
 import net.asam.openscenario.v1_0.api.IInfrastructureAction;
 import net.asam.openscenario.v1_0.api.IParameterAction;
 import net.asam.openscenario.v1_0.api.ITrafficAction;
+import net.asam.openscenario.v1_0.api.writer.IEntityActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IGlobalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IInfrastructureActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +54,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class GlobalActionImpl extends BaseImpl implements IGlobalAction {
+public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobalActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IEnvironmentAction environmentAction;
@@ -61,6 +67,7 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction {
     super();
     addAdapter(GlobalActionImpl.class, this);
     addAdapter(IGlobalAction.class, this);
+    addAdapter(IGlobalActionWriter.class, this);
   }
 
   @Override
@@ -327,5 +334,57 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction {
   @Override
   public String getModelType() {
     return "GlobalAction";
+  }
+
+  // children
+  @Override
+  public IEnvironmentActionWriter getEnvironmentActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IEntityActionWriter getEntityActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IParameterActionWriter getParameterActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IInfrastructureActionWriter getInfrastructureActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficActionWriter getTrafficActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToEnvironmentActionWriter(IEnvironmentActionWriter environmentActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToEntityActionWriter(IEntityActionWriter entityActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToParameterActionWriter(IParameterActionWriter parameterActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToInfrastructureActionWriter(
+      IInfrastructureActionWriter infrastructureActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficActionWriter(ITrafficActionWriter trafficActionWriter) {
+    // empty
   }
 }

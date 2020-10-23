@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.ILaneChangeAction;
 import net.asam.openscenario.v1_0.api.ILaneOffsetAction;
 import net.asam.openscenario.v1_0.api.ILateralAction;
 import net.asam.openscenario.v1_0.api.ILateralDistanceAction;
+import net.asam.openscenario.v1_0.api.writer.ILaneChangeActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILateralActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILateralDistanceActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LateralActionImpl extends BaseImpl implements ILateralAction {
+public class LateralActionImpl extends BaseImpl implements ILateralAction, ILateralActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ILaneChangeAction laneChangeAction;
@@ -57,6 +61,7 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction {
     super();
     addAdapter(LateralActionImpl.class, this);
     addAdapter(ILateralAction.class, this);
+    addAdapter(ILateralActionWriter.class, this);
   }
 
   @Override
@@ -267,5 +272,37 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction {
   @Override
   public String getModelType() {
     return "LateralAction";
+  }
+
+  // children
+  @Override
+  public ILaneChangeActionWriter getLaneChangeActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ILaneOffsetActionWriter getLaneOffsetActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ILateralDistanceActionWriter getLateralDistanceActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToLaneChangeActionWriter(ILaneChangeActionWriter laneChangeActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToLaneOffsetActionWriter(ILaneOffsetActionWriter laneOffsetActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToLateralDistanceActionWriter(
+      ILateralDistanceActionWriter lateralDistanceActionWriter) {
+    // empty
   }
 }

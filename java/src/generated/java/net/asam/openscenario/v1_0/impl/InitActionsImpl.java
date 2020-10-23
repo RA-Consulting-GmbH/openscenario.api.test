@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.IGlobalAction;
 import net.asam.openscenario.v1_0.api.IInitActions;
 import net.asam.openscenario.v1_0.api.IPrivate;
 import net.asam.openscenario.v1_0.api.IUserDefinedAction;
+import net.asam.openscenario.v1_0.api.writer.IGlobalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IInitActionsWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrivateWriter;
+import net.asam.openscenario.v1_0.api.writer.IUserDefinedActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InitActionsImpl extends BaseImpl implements IInitActions {
+public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActionsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IGlobalAction> globalActions;
@@ -57,6 +61,7 @@ public class InitActionsImpl extends BaseImpl implements IInitActions {
     super();
     addAdapter(InitActionsImpl.class, this);
     addAdapter(IInitActions.class, this);
+    addAdapter(IInitActionsWriter.class, this);
   }
 
   @Override
@@ -285,5 +290,38 @@ public class InitActionsImpl extends BaseImpl implements IInitActions {
   @Override
   public String getModelType() {
     return "InitActions";
+  }
+
+  // children
+
+  @Override
+  public List<IGlobalActionWriter> getGlobalActionsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IUserDefinedActionWriter> getUserDefinedActionsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IPrivateWriter> getPrivatesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setGlobalActionsWriter(List<IGlobalActionWriter> globalActionsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setUserDefinedActionsWriter(
+      List<IUserDefinedActionWriter> userDefinedActionsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setPrivatesWriter(List<IPrivateWriter> privatesWriters) {
+    // empty
   }
 }

@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.IInRoutePosition;
 import net.asam.openscenario.v1_0.api.IPositionInLaneCoordinates;
 import net.asam.openscenario.v1_0.api.IPositionInRoadCoordinates;
 import net.asam.openscenario.v1_0.api.IPositionOfCurrentEntity;
+import net.asam.openscenario.v1_0.api.writer.IInRoutePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionInLaneCoordinatesWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionInRoadCoordinatesWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionOfCurrentEntityWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition {
+public class InRoutePositionImpl extends BaseImpl
+    implements IInRoutePosition, IInRoutePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPositionOfCurrentEntity fromCurrentEntity;
@@ -57,6 +62,7 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition {
     super();
     addAdapter(InRoutePositionImpl.class, this);
     addAdapter(IInRoutePosition.class, this);
+    addAdapter(IInRoutePositionWriter.class, this);
   }
 
   @Override
@@ -269,5 +275,39 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePosition {
   @Override
   public String getModelType() {
     return "InRoutePosition";
+  }
+
+  // children
+  @Override
+  public IPositionOfCurrentEntityWriter getFromCurrentEntityWriter() {
+    return null;
+  }
+
+  @Override
+  public IPositionInRoadCoordinatesWriter getFromRoadCoordinatesWriter() {
+    return null;
+  }
+
+  @Override
+  public IPositionInLaneCoordinatesWriter getFromLaneCoordinatesWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToFromCurrentEntityWriter(
+      IPositionOfCurrentEntityWriter fromCurrentEntityWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToFromRoadCoordinatesWriter(
+      IPositionInRoadCoordinatesWriter fromRoadCoordinatesWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToFromLaneCoordinatesWriter(
+      IPositionInLaneCoordinatesWriter fromLaneCoordinatesWriter) {
+    // empty
   }
 }

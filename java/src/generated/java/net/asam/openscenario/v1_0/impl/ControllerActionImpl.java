@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAssignControllerAction;
 import net.asam.openscenario.v1_0.api.IControllerAction;
 import net.asam.openscenario.v1_0.api.IOverrideControllerValueAction;
+import net.asam.openscenario.v1_0.api.writer.IAssignControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideControllerValueActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerActionImpl extends BaseImpl implements IControllerAction {
+public class ControllerActionImpl extends BaseImpl
+    implements IControllerAction, IControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IAssignControllerAction assignControllerAction;
@@ -55,6 +59,7 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction 
     super();
     addAdapter(ControllerActionImpl.class, this);
     addAdapter(IControllerAction.class, this);
+    addAdapter(IControllerActionWriter.class, this);
   }
 
   @Override
@@ -238,5 +243,28 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction 
   @Override
   public String getModelType() {
     return "ControllerAction";
+  }
+
+  // children
+  @Override
+  public IAssignControllerActionWriter getAssignControllerActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IOverrideControllerValueActionWriter getOverrideControllerValueActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToAssignControllerActionWriter(
+      IAssignControllerActionWriter assignControllerActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToOverrideControllerValueActionWriter(
+      IOverrideControllerValueActionWriter overrideControllerValueActionWriter) {
+    // empty
   }
 }

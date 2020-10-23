@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterMultiplyByValueRule;
+import net.asam.openscenario.v1_0.api.writer.IParameterMultiplyByValueRuleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ParameterMultiplyByValueRuleImpl extends BaseImpl
-    implements IParameterMultiplyByValueRule {
+    implements IParameterMultiplyByValueRule, IParameterMultiplyByValueRuleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +61,7 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
     super();
     addAdapter(ParameterMultiplyByValueRuleImpl.class, this);
     addAdapter(IParameterMultiplyByValueRule.class, this);
+    addAdapter(IParameterMultiplyByValueRuleWriter.class, this);
   }
 
   @Override
@@ -207,4 +209,27 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
   public String getModelType() {
     return "ParameterMultiplyByValueRule";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

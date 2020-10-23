@@ -33,6 +33,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeSpeedCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IRelativeSpeedConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +52,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpeedCondition {
+public class RelativeSpeedConditionImpl extends BaseImpl
+    implements IRelativeSpeedCondition, IRelativeSpeedConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -69,6 +71,7 @@ public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpe
     super();
     addAdapter(RelativeSpeedConditionImpl.class, this);
     addAdapter(IRelativeSpeedCondition.class, this);
+    addAdapter(IRelativeSpeedConditionWriter.class, this);
   }
 
   @Override
@@ -293,4 +296,67 @@ public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpe
   public String getModelType() {
     return "RelativeSpeedCondition";
   }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+
 }

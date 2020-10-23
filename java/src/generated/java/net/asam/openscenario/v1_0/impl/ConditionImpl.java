@@ -32,6 +32,9 @@ import net.asam.openscenario.v1_0.api.ConditionEdge;
 import net.asam.openscenario.v1_0.api.IByEntityCondition;
 import net.asam.openscenario.v1_0.api.IByValueCondition;
 import net.asam.openscenario.v1_0.api.ICondition;
+import net.asam.openscenario.v1_0.api.writer.IByEntityConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IByValueConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ConditionImpl extends BaseImpl implements ICondition {
+public class ConditionImpl extends BaseImpl implements ICondition, IConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -69,6 +72,7 @@ public class ConditionImpl extends BaseImpl implements ICondition {
     super();
     addAdapter(ConditionImpl.class, this);
     addAdapter(ICondition.class, this);
+    addAdapter(IConditionWriter.class, this);
   }
 
   @Override
@@ -344,5 +348,86 @@ public class ConditionImpl extends BaseImpl implements ICondition {
   @Override
   public String getModelType() {
     return "Condition";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToDelay(Double delay) {
+    // empty
+  }
+
+  @Override
+  public void writeToConditionEdge(ConditionEdge conditionEdge) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDelay(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToConditionEdge(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDelay() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromConditionEdge() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDelayParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isConditionEdgeParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IByEntityConditionWriter getByEntityConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public IByValueConditionWriter getByValueConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToByEntityConditionWriter(IByEntityConditionWriter byEntityConditionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToByValueConditionWriter(IByValueConditionWriter byValueConditionWriter) {
+    // empty
   }
 }

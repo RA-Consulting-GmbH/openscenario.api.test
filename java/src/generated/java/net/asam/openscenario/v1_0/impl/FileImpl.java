@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IFile;
+import net.asam.openscenario.v1_0.api.writer.IFileWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileImpl extends BaseImpl implements IFile {
+public class FileImpl extends BaseImpl implements IFile, IFileWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,6 +59,7 @@ public class FileImpl extends BaseImpl implements IFile {
     super();
     addAdapter(FileImpl.class, this);
     addAdapter(IFile.class, this);
+    addAdapter(IFileWriter.class, this);
   }
 
   @Override
@@ -205,4 +207,27 @@ public class FileImpl extends BaseImpl implements IFile {
   public String getModelType() {
     return "File";
   }
+
+  @Override
+  public void writeToFilepath(String filepath) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFilepath(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromFilepath() {
+    return null;
+  }
+
+  @Override
+  public boolean isFilepathParameterized() {
+    return false;
+  }
+
+  // children
+
 }

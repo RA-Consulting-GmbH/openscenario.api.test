@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IRoute;
 import net.asam.openscenario.v1_0.api.IRouteRef;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteRefWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteRefImpl extends BaseImpl implements IRouteRef {
+public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IRoute route;
@@ -55,6 +58,7 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef {
     super();
     addAdapter(RouteRefImpl.class, this);
     addAdapter(IRouteRef.class, this);
+    addAdapter(IRouteRefWriter.class, this);
   }
 
   @Override
@@ -234,5 +238,26 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef {
   @Override
   public String getModelType() {
     return "RouteRef";
+  }
+
+  // children
+  @Override
+  public IRouteWriter getRouteWriter() {
+    return null;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getCatalogReferenceWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToRouteWriter(IRouteWriter routeWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
+    // empty
   }
 }

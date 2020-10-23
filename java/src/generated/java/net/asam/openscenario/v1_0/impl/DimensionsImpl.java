@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDimensions;
+import net.asam.openscenario.v1_0.api.writer.IDimensionsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DimensionsImpl extends BaseImpl implements IDimensions {
+public class DimensionsImpl extends BaseImpl implements IDimensions, IDimensionsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +63,7 @@ public class DimensionsImpl extends BaseImpl implements IDimensions {
     super();
     addAdapter(DimensionsImpl.class, this);
     addAdapter(IDimensions.class, this);
+    addAdapter(IDimensionsWriter.class, this);
   }
 
   @Override
@@ -257,4 +259,67 @@ public class DimensionsImpl extends BaseImpl implements IDimensions {
   public String getModelType() {
     return "Dimensions";
   }
+
+  @Override
+  public void writeToWidth(Double width) {
+    // empty
+  }
+
+  @Override
+  public void writeToLength(Double length) {
+    // empty
+  }
+
+  @Override
+  public void writeToHeight(Double height) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToWidth(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToLength(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToHeight(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromWidth() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromLength() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromHeight() {
+    return null;
+  }
+
+  @Override
+  public boolean isWidthParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isLengthParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isHeightParameterized() {
+    return false;
+  }
+
+  // children
+
 }

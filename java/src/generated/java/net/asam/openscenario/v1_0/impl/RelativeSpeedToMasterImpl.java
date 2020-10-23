@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IRelativeSpeedToMaster;
 import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
+import net.asam.openscenario.v1_0.api.writer.IRelativeSpeedToMasterWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpeedToMaster {
+public class RelativeSpeedToMasterImpl extends BaseImpl
+    implements IRelativeSpeedToMaster, IRelativeSpeedToMasterWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +66,7 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
     super();
     addAdapter(RelativeSpeedToMasterImpl.class, this);
     addAdapter(IRelativeSpeedToMaster.class, this);
+    addAdapter(IRelativeSpeedToMasterWriter.class, this);
   }
 
   @Override
@@ -252,4 +255,47 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
   public String getModelType() {
     return "RelativeSpeedToMaster";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToSpeedTargetValueType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromSpeedTargetValueType() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isSpeedTargetValueTypeParameterized() {
+    return false;
+  }
+
+  // children
+
 }

@@ -32,6 +32,10 @@ import net.asam.openscenario.v1_0.api.IFog;
 import net.asam.openscenario.v1_0.api.IPrecipitation;
 import net.asam.openscenario.v1_0.api.ISun;
 import net.asam.openscenario.v1_0.api.IWeather;
+import net.asam.openscenario.v1_0.api.writer.IFogWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrecipitationWriter;
+import net.asam.openscenario.v1_0.api.writer.ISunWriter;
+import net.asam.openscenario.v1_0.api.writer.IWeatherWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WeatherImpl extends BaseImpl implements IWeather {
+public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +70,7 @@ public class WeatherImpl extends BaseImpl implements IWeather {
     super();
     addAdapter(WeatherImpl.class, this);
     addAdapter(IWeather.class, this);
+    addAdapter(IWeatherWriter.class, this);
   }
 
   @Override
@@ -314,5 +319,56 @@ public class WeatherImpl extends BaseImpl implements IWeather {
   @Override
   public String getModelType() {
     return "Weather";
+  }
+
+  @Override
+  public void writeToCloudState(CloudState cloudState) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToCloudState(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromCloudState() {
+    return null;
+  }
+
+  @Override
+  public boolean isCloudStateParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ISunWriter getSunWriter() {
+    return null;
+  }
+
+  @Override
+  public IFogWriter getFogWriter() {
+    return null;
+  }
+
+  @Override
+  public IPrecipitationWriter getPrecipitationWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToSunWriter(ISunWriter sunWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToFogWriter(IFogWriter fogWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPrecipitationWriter(IPrecipitationWriter precipitationWriter) {
+    // empty
   }
 }

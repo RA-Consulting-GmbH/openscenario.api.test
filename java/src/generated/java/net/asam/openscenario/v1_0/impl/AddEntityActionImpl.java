@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAddEntityAction;
 import net.asam.openscenario.v1_0.api.IPosition;
+import net.asam.openscenario.v1_0.api.writer.IAddEntityActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction {
+public class AddEntityActionImpl extends BaseImpl
+    implements IAddEntityAction, IAddEntityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPosition position;
@@ -53,6 +56,7 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction {
     super();
     addAdapter(AddEntityActionImpl.class, this);
     addAdapter(IAddEntityAction.class, this);
+    addAdapter(IAddEntityActionWriter.class, this);
   }
 
   @Override
@@ -204,5 +208,16 @@ public class AddEntityActionImpl extends BaseImpl implements IAddEntityAction {
   @Override
   public String getModelType() {
     return "AddEntityAction";
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

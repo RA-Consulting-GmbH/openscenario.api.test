@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAcquirePositionAction;
 import net.asam.openscenario.v1_0.api.IPosition;
+import net.asam.openscenario.v1_0.api.writer.IAcquirePositionActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AcquirePositionActionImpl extends BaseImpl implements IAcquirePositionAction {
+public class AcquirePositionActionImpl extends BaseImpl
+    implements IAcquirePositionAction, IAcquirePositionActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPosition position;
@@ -54,6 +57,7 @@ public class AcquirePositionActionImpl extends BaseImpl implements IAcquirePosit
     super();
     addAdapter(AcquirePositionActionImpl.class, this);
     addAdapter(IAcquirePositionAction.class, this);
+    addAdapter(IAcquirePositionActionWriter.class, this);
   }
 
   @Override
@@ -204,5 +208,16 @@ public class AcquirePositionActionImpl extends BaseImpl implements IAcquirePosit
   @Override
   public String getModelType() {
     return "AcquirePositionAction";
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IActivateControllerAction;
+import net.asam.openscenario.v1_0.api.writer.IActivateControllerActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActivateControllerActionImpl extends BaseImpl implements IActivateControllerAction {
+public class ActivateControllerActionImpl extends BaseImpl
+    implements IActivateControllerAction, IActivateControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,6 +63,7 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
     super();
     addAdapter(ActivateControllerActionImpl.class, this);
     addAdapter(IActivateControllerAction.class, this);
+    addAdapter(IActivateControllerActionWriter.class, this);
   }
 
   @Override
@@ -232,4 +235,47 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
   public String getModelType() {
     return "ActivateControllerAction";
   }
+
+  @Override
+  public void writeToLateral(Boolean lateral) {
+    // empty
+  }
+
+  @Override
+  public void writeToLongitudinal(Boolean longitudinal) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToLateral(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToLongitudinal(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromLateral() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromLongitudinal() {
+    return null;
+  }
+
+  @Override
+  public boolean isLateralParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isLongitudinalParameterized() {
+    return false;
+  }
+
+  // children
+
 }

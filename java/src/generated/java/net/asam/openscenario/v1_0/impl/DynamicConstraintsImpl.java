@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDynamicConstraints;
+import net.asam.openscenario.v1_0.api.writer.IDynamicConstraintsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstraints {
+public class DynamicConstraintsImpl extends BaseImpl
+    implements IDynamicConstraints, IDynamicConstraintsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +64,7 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
     super();
     addAdapter(DynamicConstraintsImpl.class, this);
     addAdapter(IDynamicConstraints.class, this);
+    addAdapter(IDynamicConstraintsWriter.class, this);
   }
 
   @Override
@@ -259,4 +262,67 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
   public String getModelType() {
     return "DynamicConstraints";
   }
+
+  @Override
+  public void writeToMaxAcceleration(Double maxAcceleration) {
+    // empty
+  }
+
+  @Override
+  public void writeToMaxDeceleration(Double maxDeceleration) {
+    // empty
+  }
+
+  @Override
+  public void writeToMaxSpeed(Double maxSpeed) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxAcceleration(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxDeceleration(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMaxSpeed(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromMaxAcceleration() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromMaxDeceleration() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromMaxSpeed() {
+    return null;
+  }
+
+  @Override
+  public boolean isMaxAccelerationParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isMaxDecelerationParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isMaxSpeedParameterized() {
+    return false;
+  }
+
+  // children
+
 }

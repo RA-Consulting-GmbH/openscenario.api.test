@@ -31,6 +31,9 @@ import net.asam.openscenario.v1_0.api.IParameterAction;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IParameterModifyAction;
 import net.asam.openscenario.v1_0.api.IParameterSetAction;
+import net.asam.openscenario.v1_0.api.writer.IParameterActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterModifyActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterSetActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterActionImpl extends BaseImpl implements IParameterAction {
+public class ParameterActionImpl extends BaseImpl
+    implements IParameterAction, IParameterActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +68,7 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction {
     super();
     addAdapter(ParameterActionImpl.class, this);
     addAdapter(IParameterAction.class, this);
+    addAdapter(IParameterActionWriter.class, this);
   }
 
   @Override
@@ -285,5 +290,46 @@ public class ParameterActionImpl extends BaseImpl implements IParameterAction {
   @Override
   public String getModelType() {
     return "ParameterAction";
+  }
+
+  @Override
+  public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToParameterRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromParameterRef() {
+    return null;
+  }
+
+  @Override
+  public boolean isParameterRefParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IParameterSetActionWriter getSetActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IParameterModifyActionWriter getModifyActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToSetActionWriter(IParameterSetActionWriter setActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToModifyActionWriter(IParameterModifyActionWriter modifyActionWriter) {
+    // empty
   }
 }

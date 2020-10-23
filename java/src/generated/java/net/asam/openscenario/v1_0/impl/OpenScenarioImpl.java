@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IFileHeader;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
 import net.asam.openscenario.v1_0.api.IOpenScenarioCategory;
+import net.asam.openscenario.v1_0.api.writer.IFileHeaderWriter;
+import net.asam.openscenario.v1_0.api.writer.IOpenScenarioCategoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IOpenScenarioWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OpenScenarioImpl extends BaseImpl implements IOpenScenario {
+public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenScenarioWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IFileHeader fileHeader;
@@ -55,6 +58,7 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario {
     super();
     addAdapter(OpenScenarioImpl.class, this);
     addAdapter(IOpenScenario.class, this);
+    addAdapter(IOpenScenarioWriter.class, this);
   }
 
   @Override
@@ -236,5 +240,27 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario {
   @Override
   public String getModelType() {
     return "OpenScenario";
+  }
+
+  // children
+  @Override
+  public IFileHeaderWriter getFileHeaderWriter() {
+    return null;
+  }
+
+  @Override
+  public IOpenScenarioCategoryWriter getOpenScenarioCategoryWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToFileHeaderWriter(IFileHeaderWriter fileHeaderWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToOpenScenarioCategoryWriter(
+      IOpenScenarioCategoryWriter openScenarioCategoryWriter) {
+    // empty
   }
 }

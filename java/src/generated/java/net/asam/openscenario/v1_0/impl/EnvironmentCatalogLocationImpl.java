@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IEnvironmentCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class EnvironmentCatalogLocationImpl extends BaseImpl
-    implements IEnvironmentCatalogLocation {
+    implements IEnvironmentCatalogLocation, IEnvironmentCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
@@ -55,6 +57,7 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl
     super();
     addAdapter(EnvironmentCatalogLocationImpl.class, this);
     addAdapter(IEnvironmentCatalogLocation.class, this);
+    addAdapter(IEnvironmentCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -206,5 +209,16 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "EnvironmentCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getDirectoryWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
+    // empty
   }
 }

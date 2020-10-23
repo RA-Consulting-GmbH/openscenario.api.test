@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITimeOfDayCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ITimeOfDayConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondition {
+public class TimeOfDayConditionImpl extends BaseImpl
+    implements ITimeOfDayCondition, ITimeOfDayConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +65,7 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
     super();
     addAdapter(TimeOfDayConditionImpl.class, this);
     addAdapter(ITimeOfDayCondition.class, this);
+    addAdapter(ITimeOfDayConditionWriter.class, this);
   }
 
   @Override
@@ -248,4 +251,47 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
   public String getModelType() {
     return "TimeOfDayCondition";
   }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeToDateTime(java.util.Date dateTime) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDateTime(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDateTime() {
+    return null;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDateTimeParameterized() {
+    return false;
+  }
+
+  // children
+
 }

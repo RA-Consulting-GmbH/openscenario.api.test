@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ISimulationTimeCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ISimulationTimeConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SimulationTimeConditionImpl extends BaseImpl implements ISimulationTimeCondition {
+public class SimulationTimeConditionImpl extends BaseImpl
+    implements ISimulationTimeCondition, ISimulationTimeConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +66,7 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
     super();
     addAdapter(SimulationTimeConditionImpl.class, this);
     addAdapter(ISimulationTimeCondition.class, this);
+    addAdapter(ISimulationTimeConditionWriter.class, this);
   }
 
   @Override
@@ -250,4 +253,47 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
   public String getModelType() {
     return "SimulationTimeCondition";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+
 }

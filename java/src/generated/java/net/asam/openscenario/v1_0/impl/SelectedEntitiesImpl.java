@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IByType;
 import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.ISelectedEntities;
+import net.asam.openscenario.v1_0.api.writer.IByTypeWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
+import net.asam.openscenario.v1_0.api.writer.ISelectedEntitiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities {
+public class SelectedEntitiesImpl extends BaseImpl
+    implements ISelectedEntities, ISelectedEntitiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IEntityRef> entityRef;
@@ -55,6 +59,7 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities 
     super();
     addAdapter(SelectedEntitiesImpl.class, this);
     addAdapter(ISelectedEntities.class, this);
+    addAdapter(ISelectedEntitiesWriter.class, this);
   }
 
   @Override
@@ -248,5 +253,27 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities 
   @Override
   public String getModelType() {
     return "SelectedEntities";
+  }
+
+  // children
+
+  @Override
+  public List<IEntityRefWriter> getEntityRefWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IByTypeWriter> getByTypeWriter() {
+    return null;
+  }
+
+  @Override
+  public void setEntityRefWriter(List<IEntityRefWriter> entityRefWriters) {
+    // empty
+  }
+
+  @Override
+  public void setByTypeWriter(List<IByTypeWriter> byTypeWriters) {
+    // empty
   }
 }

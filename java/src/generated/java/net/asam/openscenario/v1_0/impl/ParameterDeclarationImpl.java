@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.ParameterType;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterDeclarationImpl extends BaseImpl implements IParameterDeclaration {
+public class ParameterDeclarationImpl extends BaseImpl
+    implements IParameterDeclaration, IParameterDeclarationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +66,7 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
     super();
     addAdapter(ParameterDeclarationImpl.class, this);
     addAdapter(IParameterDeclaration.class, this);
+    addAdapter(IParameterDeclarationWriter.class, this);
   }
 
   @Override
@@ -267,4 +270,47 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
   public String getModelType() {
     return "ParameterDeclaration";
   }
+
+  @Override
+  public void writeToParameterType(ParameterType parameterType) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(String value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToParameterType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromParameterType() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isParameterTypeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IWorldPosition;
+import net.asam.openscenario.v1_0.api.writer.IWorldPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
+public class WorldPositionImpl extends BaseImpl implements IWorldPosition, IWorldPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -68,6 +69,7 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
     super();
     addAdapter(WorldPositionImpl.class, this);
     addAdapter(IWorldPosition.class, this);
+    addAdapter(IWorldPositionWriter.class, this);
   }
 
   @Override
@@ -326,4 +328,127 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
   public String getModelType() {
     return "WorldPosition";
   }
+
+  @Override
+  public void writeToX(Double x) {
+    // empty
+  }
+
+  @Override
+  public void writeToY(Double y) {
+    // empty
+  }
+
+  @Override
+  public void writeToZ(Double z) {
+    // empty
+  }
+
+  @Override
+  public void writeToH(Double h) {
+    // empty
+  }
+
+  @Override
+  public void writeToP(Double p) {
+    // empty
+  }
+
+  @Override
+  public void writeToR(Double r) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToX(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToY(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToZ(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToH(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToP(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToR(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromX() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromY() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromZ() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromH() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromP() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromR() {
+    return null;
+  }
+
+  @Override
+  public boolean isXParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isYParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isZParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isHParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isPParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRParameterized() {
+    return false;
+  }
+
+  // children
+
 }

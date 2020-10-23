@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDynamicConstraints;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.ILongitudinalDistanceAction;
+import net.asam.openscenario.v1_0.api.writer.IDynamicConstraintsWriter;
+import net.asam.openscenario.v1_0.api.writer.ILongitudinalDistanceActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class LongitudinalDistanceActionImpl extends BaseImpl
-    implements ILongitudinalDistanceAction {
+    implements ILongitudinalDistanceAction, ILongitudinalDistanceActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -73,6 +75,7 @@ public class LongitudinalDistanceActionImpl extends BaseImpl
     super();
     addAdapter(LongitudinalDistanceActionImpl.class, this);
     addAdapter(ILongitudinalDistanceAction.class, this);
+    addAdapter(ILongitudinalDistanceActionWriter.class, this);
   }
 
   @Override
@@ -369,5 +372,116 @@ public class LongitudinalDistanceActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "LongitudinalDistanceAction";
+  }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToDistance(Double distance) {
+    // empty
+  }
+
+  @Override
+  public void writeToTimeGap(Double timeGap) {
+    // empty
+  }
+
+  @Override
+  public void writeToFreespace(Boolean freespace) {
+    // empty
+  }
+
+  @Override
+  public void writeToContinuous(Boolean continuous) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDistance(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTimeGap(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToContinuous(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDistance() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromTimeGap() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromContinuous() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDistanceParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isTimeGapParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isContinuousParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IDynamicConstraintsWriter getDynamicConstraintsWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToDynamicConstraintsWriter(IDynamicConstraintsWriter dynamicConstraintsWriter) {
+    // empty
   }
 }

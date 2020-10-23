@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IConditionGroup;
 import net.asam.openscenario.v1_0.api.ITrigger;
+import net.asam.openscenario.v1_0.api.writer.IConditionGroupWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TriggerImpl extends BaseImpl implements ITrigger {
+public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IConditionGroup> conditionGroups;
@@ -53,6 +55,7 @@ public class TriggerImpl extends BaseImpl implements ITrigger {
     super();
     addAdapter(TriggerImpl.class, this);
     addAdapter(ITrigger.class, this);
+    addAdapter(ITriggerWriter.class, this);
   }
 
   @Override
@@ -211,5 +214,17 @@ public class TriggerImpl extends BaseImpl implements ITrigger {
   @Override
   public String getModelType() {
     return "Trigger";
+  }
+
+  // children
+
+  @Override
+  public List<IConditionGroupWriter> getConditionGroupsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setConditionGroupsWriter(List<IConditionGroupWriter> conditionGroupsWriters) {
+    // empty
   }
 }

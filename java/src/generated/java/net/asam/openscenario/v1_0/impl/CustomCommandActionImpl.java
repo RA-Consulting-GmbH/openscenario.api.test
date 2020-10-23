@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICustomCommandAction;
+import net.asam.openscenario.v1_0.api.writer.ICustomCommandActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandAction {
+public class CustomCommandActionImpl extends BaseImpl
+    implements ICustomCommandAction, ICustomCommandActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +62,7 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
     super();
     addAdapter(CustomCommandActionImpl.class, this);
     addAdapter(ICustomCommandAction.class, this);
+    addAdapter(ICustomCommandActionWriter.class, this);
   }
 
   @Override
@@ -229,4 +232,47 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
   public String getModelType() {
     return "CustomCommandAction";
   }
+
+  @Override
+  public void writeToType(String type) {
+    // empty
+  }
+
+  @Override
+  public void writeToContent(String content) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToContent(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromType() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromContent() {
+    return null;
+  }
+
+  @Override
+  public boolean isTypeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isContentParameterized() {
+    return false;
+  }
+
+  // children
+
 }

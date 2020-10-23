@@ -33,6 +33,7 @@ import net.asam.openscenario.v1_0.api.IStoryboardElement;
 import net.asam.openscenario.v1_0.api.IStoryboardElementStateCondition;
 import net.asam.openscenario.v1_0.api.StoryboardElementState;
 import net.asam.openscenario.v1_0.api.StoryboardElementType;
+import net.asam.openscenario.v1_0.api.writer.IStoryboardElementStateConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -52,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class StoryboardElementStateConditionImpl extends BaseImpl
-    implements IStoryboardElementStateCondition {
+    implements IStoryboardElementStateCondition, IStoryboardElementStateConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -70,6 +71,7 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
     super();
     addAdapter(StoryboardElementStateConditionImpl.class, this);
     addAdapter(IStoryboardElementStateCondition.class, this);
+    addAdapter(IStoryboardElementStateConditionWriter.class, this);
   }
 
   @Override
@@ -311,4 +313,68 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   public String getModelType() {
     return "StoryboardElementStateCondition";
   }
+
+  @Override
+  public void writeToStoryboardElementType(StoryboardElementType storyboardElementType) {
+    // empty
+  }
+
+  @Override
+  public void writeToStoryboardElementRef(
+      INamedReference<IStoryboardElement> storyboardElementRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToState(StoryboardElementState state) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToStoryboardElementType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToStoryboardElementRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToState(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromStoryboardElementType() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromStoryboardElementRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromState() {
+    return null;
+  }
+
+  @Override
+  public boolean isStoryboardElementTypeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isStoryboardElementRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isStateParameterized() {
+    return false;
+  }
+
+  // children
+
 }

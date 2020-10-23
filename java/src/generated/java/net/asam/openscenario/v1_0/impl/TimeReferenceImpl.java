@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.INone;
 import net.asam.openscenario.v1_0.api.ITimeReference;
 import net.asam.openscenario.v1_0.api.ITiming;
+import net.asam.openscenario.v1_0.api.writer.INoneWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimingWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeReferenceImpl extends BaseImpl implements ITimeReference {
+public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITimeReferenceWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private INone none;
@@ -55,6 +58,7 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference {
     super();
     addAdapter(TimeReferenceImpl.class, this);
     addAdapter(ITimeReference.class, this);
+    addAdapter(ITimeReferenceWriter.class, this);
   }
 
   @Override
@@ -236,5 +240,26 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference {
   @Override
   public String getModelType() {
     return "TimeReference";
+  }
+
+  // children
+  @Override
+  public INoneWriter getNoneWriter() {
+    return null;
+  }
+
+  @Override
+  public ITimingWriter getTimingWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToNoneWriter(INoneWriter noneWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTimingWriter(ITimingWriter timingWriter) {
+    // empty
   }
 }

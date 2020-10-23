@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IUserDefinedValueCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IUserDefinedValueConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class UserDefinedValueConditionImpl extends BaseImpl implements IUserDefinedValueCondition {
+public class UserDefinedValueConditionImpl extends BaseImpl
+    implements IUserDefinedValueCondition, IUserDefinedValueConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +68,7 @@ public class UserDefinedValueConditionImpl extends BaseImpl implements IUserDefi
     super();
     addAdapter(UserDefinedValueConditionImpl.class, this);
     addAdapter(IUserDefinedValueCondition.class, this);
+    addAdapter(IUserDefinedValueConditionWriter.class, this);
   }
 
   @Override
@@ -275,4 +278,67 @@ public class UserDefinedValueConditionImpl extends BaseImpl implements IUserDefi
   public String getModelType() {
     return "UserDefinedValueCondition";
   }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(String value) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+
 }

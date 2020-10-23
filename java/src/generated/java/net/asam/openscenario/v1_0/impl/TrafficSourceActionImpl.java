@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ITrafficDefinition;
 import net.asam.openscenario.v1_0.api.ITrafficSourceAction;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSourceActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceAction {
+public class TrafficSourceActionImpl extends BaseImpl
+    implements ITrafficSourceAction, ITrafficSourceActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +70,7 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
     super();
     addAdapter(TrafficSourceActionImpl.class, this);
     addAdapter(ITrafficSourceAction.class, this);
+    addAdapter(ITrafficSourceActionWriter.class, this);
   }
 
   @Override
@@ -321,5 +326,86 @@ public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceA
   @Override
   public String getModelType() {
     return "TrafficSourceAction";
+  }
+
+  @Override
+  public void writeToRate(Double rate) {
+    // empty
+  }
+
+  @Override
+  public void writeToRadius(Double radius) {
+    // empty
+  }
+
+  @Override
+  public void writeToVelocity(Double velocity) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRate(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRadius(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToVelocity(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromRate() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRadius() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromVelocity() {
+    return null;
+  }
+
+  @Override
+  public boolean isRateParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRadiusParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isVelocityParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficDefinitionWriter getTrafficDefinitionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter) {
+    // empty
   }
 }

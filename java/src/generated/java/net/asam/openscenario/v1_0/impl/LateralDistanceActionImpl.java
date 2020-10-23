@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDynamicConstraints;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.ILateralDistanceAction;
+import net.asam.openscenario.v1_0.api.writer.IDynamicConstraintsWriter;
+import net.asam.openscenario.v1_0.api.writer.ILateralDistanceActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LateralDistanceActionImpl extends BaseImpl implements ILateralDistanceAction {
+public class LateralDistanceActionImpl extends BaseImpl
+    implements ILateralDistanceAction, ILateralDistanceActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -70,6 +73,7 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
     super();
     addAdapter(LateralDistanceActionImpl.class, this);
     addAdapter(ILateralDistanceAction.class, this);
+    addAdapter(ILateralDistanceActionWriter.class, this);
   }
 
   @Override
@@ -342,5 +346,96 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
   @Override
   public String getModelType() {
     return "LateralDistanceAction";
+  }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToDistance(Double distance) {
+    // empty
+  }
+
+  @Override
+  public void writeToFreespace(Boolean freespace) {
+    // empty
+  }
+
+  @Override
+  public void writeToContinuous(Boolean continuous) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDistance(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToContinuous(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDistance() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromContinuous() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDistanceParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isContinuousParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IDynamicConstraintsWriter getDynamicConstraintsWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToDynamicConstraintsWriter(IDynamicConstraintsWriter dynamicConstraintsWriter) {
+    // empty
   }
 }

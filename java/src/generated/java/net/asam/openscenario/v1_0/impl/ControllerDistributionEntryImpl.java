@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IController;
 import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionEntryWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ControllerDistributionEntryImpl extends BaseImpl
-    implements IControllerDistributionEntry {
+    implements IControllerDistributionEntry, IControllerDistributionEntryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +67,7 @@ public class ControllerDistributionEntryImpl extends BaseImpl
     super();
     addAdapter(ControllerDistributionEntryImpl.class, this);
     addAdapter(IControllerDistributionEntry.class, this);
+    addAdapter(IControllerDistributionEntryWriter.class, this);
   }
 
   @Override
@@ -270,5 +274,46 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ControllerDistributionEntry";
+  }
+
+  @Override
+  public void writeToWeight(Double weight) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToWeight(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromWeight() {
+    return null;
+  }
+
+  @Override
+  public boolean isWeightParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IControllerWriter getControllerWriter() {
+    return null;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getCatalogReferenceWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToControllerWriter(IControllerWriter controllerWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
+    // empty
   }
 }

@@ -36,6 +36,12 @@ import net.asam.openscenario.v1_0.api.IPerformance;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.IVehicle;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
+import net.asam.openscenario.v1_0.api.writer.IAxlesWriter;
+import net.asam.openscenario.v1_0.api.writer.IBoundingBoxWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IPerformanceWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -53,7 +59,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VehicleImpl extends BaseImpl implements IVehicle {
+public class VehicleImpl extends BaseImpl implements IVehicle, IVehicleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -74,6 +80,7 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
     super();
     addAdapter(VehicleImpl.class, this);
     addAdapter(IVehicle.class, this);
+    addAdapter(IVehicleWriter.class, this);
   }
 
   @Override
@@ -438,5 +445,97 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
   @Override
   public String getModelType() {
     return "Vehicle";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToVehicleCategory(VehicleCategory vehicleCategory) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToVehicleCategory(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromVehicleCategory() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isVehicleCategoryParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IBoundingBoxWriter getBoundingBoxWriter() {
+    return null;
+  }
+
+  @Override
+  public IPerformanceWriter getPerformanceWriter() {
+    return null;
+  }
+
+  @Override
+  public IAxlesWriter getAxlesWriter() {
+    return null;
+  }
+
+  @Override
+  public IPropertiesWriter getPropertiesWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPerformanceWriter(IPerformanceWriter performanceWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToAxlesWriter(IAxlesWriter axlesWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
   }
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetLaneOffsetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteTargetLaneOffset {
+public class AbsoluteTargetLaneOffsetImpl extends BaseImpl
+    implements IAbsoluteTargetLaneOffset, IAbsoluteTargetLaneOffsetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,6 +61,7 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteT
     super();
     addAdapter(AbsoluteTargetLaneOffsetImpl.class, this);
     addAdapter(IAbsoluteTargetLaneOffset.class, this);
+    addAdapter(IAbsoluteTargetLaneOffsetWriter.class, this);
   }
 
   @Override
@@ -206,4 +209,27 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteT
   public String getModelType() {
     return "AbsoluteTargetLaneOffset";
   }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

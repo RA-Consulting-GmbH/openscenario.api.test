@@ -33,6 +33,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeTargetSpeed;
 import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetSpeedWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTargetSpeed {
+public class RelativeTargetSpeedImpl extends BaseImpl
+    implements IRelativeTargetSpeed, IRelativeTargetSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -70,6 +72,7 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
     super();
     addAdapter(RelativeTargetSpeedImpl.class, this);
     addAdapter(IRelativeTargetSpeed.class, this);
+    addAdapter(IRelativeTargetSpeedWriter.class, this);
   }
 
   @Override
@@ -330,4 +333,87 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
   public String getModelType() {
     return "RelativeTargetSpeed";
   }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
+    // empty
+  }
+
+  @Override
+  public void writeToContinuous(Boolean continuous) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToSpeedTargetValueType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToContinuous(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromSpeedTargetValueType() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromContinuous() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isSpeedTargetValueTypeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isContinuousParameterized() {
+    return false;
+  }
+
+  // children
+
 }

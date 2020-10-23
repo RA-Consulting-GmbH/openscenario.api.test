@@ -29,6 +29,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IByObjectType;
 import net.asam.openscenario.v1_0.api.ObjectType;
+import net.asam.openscenario.v1_0.api.writer.IByObjectTypeWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
+public class ByObjectTypeImpl extends BaseImpl implements IByObjectType, IByObjectTypeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +61,7 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
     super();
     addAdapter(ByObjectTypeImpl.class, this);
     addAdapter(IByObjectType.class, this);
+    addAdapter(IByObjectTypeWriter.class, this);
   }
 
   @Override
@@ -218,4 +220,27 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
   public String getModelType() {
     return "ByObjectType";
   }
+
+  @Override
+  public void writeToType(ObjectType type) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromType() {
+    return null;
+  }
+
+  @Override
+  public boolean isTypeParameterized() {
+    return false;
+  }
+
+  // children
+
 }

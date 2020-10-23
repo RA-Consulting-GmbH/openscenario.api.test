@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeTargetLane;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetLaneWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetLane {
+public class RelativeTargetLaneImpl extends BaseImpl
+    implements IRelativeTargetLane, IRelativeTargetLaneWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,6 +65,7 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
     super();
     addAdapter(RelativeTargetLaneImpl.class, this);
     addAdapter(IRelativeTargetLane.class, this);
+    addAdapter(IRelativeTargetLaneWriter.class, this);
   }
 
   @Override
@@ -249,4 +252,47 @@ public class RelativeTargetLaneImpl extends BaseImpl implements IRelativeTargetL
   public String getModelType() {
     return "RelativeTargetLane";
   }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(Integer value) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  // children
+
 }

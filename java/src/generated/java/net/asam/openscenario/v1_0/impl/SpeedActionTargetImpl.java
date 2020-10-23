@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetSpeed;
 import net.asam.openscenario.v1_0.api.IRelativeTargetSpeed;
 import net.asam.openscenario.v1_0.api.ISpeedActionTarget;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.ISpeedActionTargetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarget {
+public class SpeedActionTargetImpl extends BaseImpl
+    implements ISpeedActionTarget, ISpeedActionTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IRelativeTargetSpeed relativeTargetSpeed;
@@ -55,6 +59,7 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
     super();
     addAdapter(SpeedActionTargetImpl.class, this);
     addAdapter(ISpeedActionTarget.class, this);
+    addAdapter(ISpeedActionTargetWriter.class, this);
   }
 
   @Override
@@ -235,5 +240,28 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
   @Override
   public String getModelType() {
     return "SpeedActionTarget";
+  }
+
+  // children
+  @Override
+  public IRelativeTargetSpeedWriter getRelativeTargetSpeedWriter() {
+    return null;
+  }
+
+  @Override
+  public IAbsoluteTargetSpeedWriter getAbsoluteTargetSpeedWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToRelativeTargetSpeedWriter(
+      IRelativeTargetSpeedWriter relativeTargetSpeedWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToAbsoluteTargetSpeedWriter(
+      IAbsoluteTargetSpeedWriter absoluteTargetSpeedWriter) {
+    // empty
   }
 }

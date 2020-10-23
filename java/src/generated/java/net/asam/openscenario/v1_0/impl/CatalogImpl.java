@@ -35,6 +35,15 @@ import net.asam.openscenario.v1_0.api.IPedestrian;
 import net.asam.openscenario.v1_0.api.IRoute;
 import net.asam.openscenario.v1_0.api.ITrajectory;
 import net.asam.openscenario.v1_0.api.IVehicle;
+import net.asam.openscenario.v1_0.api.writer.ICatalogWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -52,7 +61,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogImpl extends BaseImpl implements ICatalog {
+public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -74,6 +83,7 @@ public class CatalogImpl extends BaseImpl implements ICatalog {
     super();
     addAdapter(CatalogImpl.class, this);
     addAdapter(ICatalog.class, this);
+    addAdapter(ICatalogWriter.class, this);
   }
 
   @Override
@@ -503,5 +513,107 @@ public class CatalogImpl extends BaseImpl implements ICatalog {
   @Override
   public String getModelType() {
     return "Catalog";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IVehicleWriter> getVehiclesWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IControllerWriter> getControllersWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IPedestrianWriter> getPedestriansWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IMiscObjectWriter> getMiscObjectsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IEnvironmentWriter> getEnvironmentsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IManeuverWriter> getManeuversWriter() {
+    return null;
+  }
+
+  @Override
+  public List<ITrajectoryWriter> getTrajectoriesWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IRouteWriter> getRoutesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setVehiclesWriter(List<IVehicleWriter> vehiclesWriters) {
+    // empty
+  }
+
+  @Override
+  public void setControllersWriter(List<IControllerWriter> controllersWriters) {
+    // empty
+  }
+
+  @Override
+  public void setPedestriansWriter(List<IPedestrianWriter> pedestriansWriters) {
+    // empty
+  }
+
+  @Override
+  public void setMiscObjectsWriter(List<IMiscObjectWriter> miscObjectsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setEnvironmentsWriter(List<IEnvironmentWriter> environmentsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setManeuversWriter(List<IManeuverWriter> maneuversWriters) {
+    // empty
+  }
+
+  @Override
+  public void setTrajectoriesWriter(List<ITrajectoryWriter> trajectoriesWriters) {
+    // empty
+  }
+
+  @Override
+  public void setRoutesWriter(List<IRouteWriter> routesWriters) {
+    // empty
   }
 }

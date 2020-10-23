@@ -31,6 +31,9 @@ import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IFinalSpeed;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ISynchronizeAction;
+import net.asam.openscenario.v1_0.api.writer.IFinalSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISynchronizeActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeAction {
+public class SynchronizeActionImpl extends BaseImpl
+    implements ISynchronizeAction, ISynchronizeActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -65,6 +69,7 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
     super();
     addAdapter(SynchronizeActionImpl.class, this);
     addAdapter(ISynchronizeAction.class, this);
+    addAdapter(ISynchronizeActionWriter.class, this);
   }
 
   @Override
@@ -316,5 +321,56 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
   @Override
   public String getModelType() {
     return "SynchronizeAction";
+  }
+
+  @Override
+  public void writeToMasterEntityRef(INamedReference<IEntity> masterEntityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMasterEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromMasterEntityRef() {
+    return null;
+  }
+
+  @Override
+  public boolean isMasterEntityRefParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getTargetPositionMasterWriter() {
+    return null;
+  }
+
+  @Override
+  public IPositionWriter getTargetPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public IFinalSpeedWriter getFinalSpeedWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTargetPositionMasterWriter(IPositionWriter targetPositionMasterWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTargetPositionWriter(IPositionWriter targetPositionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToFinalSpeedWriter(IFinalSpeedWriter finalSpeedWriter) {
+    // empty
   }
 }

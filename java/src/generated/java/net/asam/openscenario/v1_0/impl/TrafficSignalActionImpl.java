@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ITrafficSignalAction;
 import net.asam.openscenario.v1_0.api.ITrafficSignalControllerAction;
 import net.asam.openscenario.v1_0.api.ITrafficSignalStateAction;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalStateActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalActionImpl extends BaseImpl implements ITrafficSignalAction {
+public class TrafficSignalActionImpl extends BaseImpl
+    implements ITrafficSignalAction, ITrafficSignalActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ITrafficSignalControllerAction trafficSignalControllerAction;
@@ -55,6 +59,7 @@ public class TrafficSignalActionImpl extends BaseImpl implements ITrafficSignalA
     super();
     addAdapter(TrafficSignalActionImpl.class, this);
     addAdapter(ITrafficSignalAction.class, this);
+    addAdapter(ITrafficSignalActionWriter.class, this);
   }
 
   @Override
@@ -238,5 +243,28 @@ public class TrafficSignalActionImpl extends BaseImpl implements ITrafficSignalA
   @Override
   public String getModelType() {
     return "TrafficSignalAction";
+  }
+
+  // children
+  @Override
+  public ITrafficSignalControllerActionWriter getTrafficSignalControllerActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficSignalStateActionWriter getTrafficSignalStateActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTrafficSignalControllerActionWriter(
+      ITrafficSignalControllerActionWriter trafficSignalControllerActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficSignalStateActionWriter(
+      ITrafficSignalStateActionWriter trafficSignalStateActionWriter) {
+    // empty
   }
 }

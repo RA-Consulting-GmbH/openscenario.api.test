@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITiming;
 import net.asam.openscenario.v1_0.api.ReferenceContext;
+import net.asam.openscenario.v1_0.api.writer.ITimingWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimingImpl extends BaseImpl implements ITiming {
+public class TimingImpl extends BaseImpl implements ITiming, ITimingWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -65,6 +66,7 @@ public class TimingImpl extends BaseImpl implements ITiming {
     super();
     addAdapter(TimingImpl.class, this);
     addAdapter(ITiming.class, this);
+    addAdapter(ITimingWriter.class, this);
   }
 
   @Override
@@ -278,4 +280,67 @@ public class TimingImpl extends BaseImpl implements ITiming {
   public String getModelType() {
     return "Timing";
   }
+
+  @Override
+  public void writeToDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative) {
+    // empty
+  }
+
+  @Override
+  public void writeToScale(Double scale) {
+    // empty
+  }
+
+  @Override
+  public void writeToOffset(Double offset) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDomainAbsoluteRelative(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToScale(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToOffset(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromDomainAbsoluteRelative() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromScale() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromOffset() {
+    return null;
+  }
+
+  @Override
+  public boolean isDomainAbsoluteRelativeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isScaleParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isOffsetParameterized() {
+    return false;
+  }
+
+  // children
+
 }

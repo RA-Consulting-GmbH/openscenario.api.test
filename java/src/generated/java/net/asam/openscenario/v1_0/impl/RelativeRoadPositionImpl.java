@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRelativeRoadPosition;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeRoadPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +50,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadPosition {
+public class RelativeRoadPositionImpl extends BaseImpl
+    implements IRelativeRoadPosition, IRelativeRoadPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -67,6 +70,7 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
     super();
     addAdapter(RelativeRoadPositionImpl.class, this);
     addAdapter(IRelativeRoadPosition.class, this);
+    addAdapter(IRelativeRoadPositionWriter.class, this);
   }
 
   @Override
@@ -308,5 +312,76 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
   @Override
   public String getModelType() {
     return "RelativeRoadPosition";
+  }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToDs(Double ds) {
+    // empty
+  }
+
+  @Override
+  public void writeToDt(Double dt) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDs(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDt(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDs() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDt() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDsParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDtParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getOrientationWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
+    // empty
   }
 }

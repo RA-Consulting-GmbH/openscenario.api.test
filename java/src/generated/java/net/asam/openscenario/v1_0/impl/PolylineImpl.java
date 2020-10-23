@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IPolyline;
 import net.asam.openscenario.v1_0.api.IVertex;
+import net.asam.openscenario.v1_0.api.writer.IPolylineWriter;
+import net.asam.openscenario.v1_0.api.writer.IVertexWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PolylineImpl extends BaseImpl implements IPolyline {
+public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IVertex> vertices;
@@ -53,6 +55,7 @@ public class PolylineImpl extends BaseImpl implements IPolyline {
     super();
     addAdapter(PolylineImpl.class, this);
     addAdapter(IPolyline.class, this);
+    addAdapter(IPolylineWriter.class, this);
   }
 
   @Override
@@ -211,5 +214,17 @@ public class PolylineImpl extends BaseImpl implements IPolyline {
   @Override
   public String getModelType() {
     return "Polyline";
+  }
+
+  // children
+
+  @Override
+  public List<IVertexWriter> getVerticesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setVerticesWriter(List<IVertexWriter> verticesWriters) {
+    // empty
   }
 }

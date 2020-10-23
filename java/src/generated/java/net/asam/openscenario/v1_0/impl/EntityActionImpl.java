@@ -31,6 +31,9 @@ import net.asam.openscenario.v1_0.api.IAddEntityAction;
 import net.asam.openscenario.v1_0.api.IDeleteEntityAction;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IEntityAction;
+import net.asam.openscenario.v1_0.api.writer.IAddEntityActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IDeleteEntityActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityActionImpl extends BaseImpl implements IEntityAction {
+public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +67,7 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction {
     super();
     addAdapter(EntityActionImpl.class, this);
     addAdapter(IEntityAction.class, this);
+    addAdapter(IEntityActionWriter.class, this);
   }
 
   @Override
@@ -282,5 +286,46 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction {
   @Override
   public String getModelType() {
     return "EntityAction";
+  }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IAddEntityActionWriter getAddEntityActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IDeleteEntityActionWriter getDeleteEntityActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToAddEntityActionWriter(IAddEntityActionWriter addEntityActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToDeleteEntityActionWriter(IDeleteEntityActionWriter deleteEntityActionWriter) {
+    // empty
   }
 }

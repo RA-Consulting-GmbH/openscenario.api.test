@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IModifyRule;
 import net.asam.openscenario.v1_0.api.IParameterModifyAction;
+import net.asam.openscenario.v1_0.api.writer.IModifyRuleWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterModifyActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterModifyActionImpl extends BaseImpl implements IParameterModifyAction {
+public class ParameterModifyActionImpl extends BaseImpl
+    implements IParameterModifyAction, IParameterModifyActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IModifyRule rule;
@@ -54,6 +57,7 @@ public class ParameterModifyActionImpl extends BaseImpl implements IParameterMod
     super();
     addAdapter(ParameterModifyActionImpl.class, this);
     addAdapter(IParameterModifyAction.class, this);
+    addAdapter(IParameterModifyActionWriter.class, this);
   }
 
   @Override
@@ -205,5 +209,16 @@ public class ParameterModifyActionImpl extends BaseImpl implements IParameterMod
   @Override
   public String getModelType() {
     return "ParameterModifyAction";
+  }
+
+  // children
+  @Override
+  public IModifyRuleWriter getRuleWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToRuleWriter(IModifyRuleWriter ruleWriter) {
+    // empty
   }
 }

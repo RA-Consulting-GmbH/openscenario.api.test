@@ -30,6 +30,11 @@ import net.asam.openscenario.v1_0.api.IEntityObject;
 import net.asam.openscenario.v1_0.api.IMiscObject;
 import net.asam.openscenario.v1_0.api.IPedestrian;
 import net.asam.openscenario.v1_0.api.IVehicle;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityObjectImpl extends BaseImpl implements IEntityObject {
+public class EntityObjectImpl extends BaseImpl implements IEntityObject, IEntityObjectWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ICatalogReference catalogReference;
@@ -59,6 +64,7 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject {
     super();
     addAdapter(EntityObjectImpl.class, this);
     addAdapter(IEntityObject.class, this);
+    addAdapter(IEntityObjectWriter.class, this);
   }
 
   @Override
@@ -294,5 +300,46 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject {
   @Override
   public String getModelType() {
     return "EntityObject";
+  }
+
+  // children
+  @Override
+  public ICatalogReferenceWriter getCatalogReferenceWriter() {
+    return null;
+  }
+
+  @Override
+  public IVehicleWriter getVehicleWriter() {
+    return null;
+  }
+
+  @Override
+  public IPedestrianWriter getPedestrianWriter() {
+    return null;
+  }
+
+  @Override
+  public IMiscObjectWriter getMiscObjectWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToVehicleWriter(IVehicleWriter vehicleWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPedestrianWriter(IPedestrianWriter pedestrianWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToMiscObjectWriter(IMiscObjectWriter miscObjectWriter) {
+    // empty
   }
 }

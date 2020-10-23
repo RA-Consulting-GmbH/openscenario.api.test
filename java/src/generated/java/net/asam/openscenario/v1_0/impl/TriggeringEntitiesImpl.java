@@ -30,6 +30,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.ITriggeringEntities;
 import net.asam.openscenario.v1_0.api.TriggeringEntitiesRule;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggeringEntitiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntities {
+public class TriggeringEntitiesImpl extends BaseImpl
+    implements ITriggeringEntities, ITriggeringEntitiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +65,7 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
     super();
     addAdapter(TriggeringEntitiesImpl.class, this);
     addAdapter(ITriggeringEntities.class, this);
+    addAdapter(ITriggeringEntitiesWriter.class, this);
   }
 
   @Override
@@ -259,5 +263,37 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
   @Override
   public String getModelType() {
     return "TriggeringEntities";
+  }
+
+  @Override
+  public void writeToTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTriggeringEntitiesRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromTriggeringEntitiesRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isTriggeringEntitiesRuleParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IEntityRefWriter> getEntityRefsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setEntityRefsWriter(List<IEntityRefWriter> entityRefsWriters) {
+    // empty
   }
 }

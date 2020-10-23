@@ -31,6 +31,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPhase;
 import net.asam.openscenario.v1_0.api.ITrafficSignalController;
 import net.asam.openscenario.v1_0.api.ITrafficSignalControllerAction;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalControllerActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TrafficSignalControllerActionImpl extends BaseImpl
-    implements ITrafficSignalControllerAction {
+    implements ITrafficSignalControllerAction, ITrafficSignalControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -67,6 +68,7 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
     super();
     addAdapter(TrafficSignalControllerActionImpl.class, this);
     addAdapter(ITrafficSignalControllerAction.class, this);
+    addAdapter(ITrafficSignalControllerActionWriter.class, this);
   }
 
   @Override
@@ -272,4 +274,48 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
   public String getModelType() {
     return "TrafficSignalControllerAction";
   }
+
+  @Override
+  public void writeToTrafficSignalControllerRef(
+      INamedReference<ITrafficSignalController> trafficSignalControllerRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToPhase(String phase) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTrafficSignalControllerRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPhase(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromTrafficSignalControllerRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromPhase() {
+    return null;
+  }
+
+  @Override
+  public boolean isTrafficSignalControllerRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isPhaseParameterized() {
+    return false;
+  }
+
+  // children
+
 }

@@ -29,6 +29,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IPositionOfCurrentEntity;
+import net.asam.openscenario.v1_0.api.writer.IPositionOfCurrentEntityWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOfCurrentEntity {
+public class PositionOfCurrentEntityImpl extends BaseImpl
+    implements IPositionOfCurrentEntity, IPositionOfCurrentEntityWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,6 +63,7 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
     super();
     addAdapter(PositionOfCurrentEntityImpl.class, this);
     addAdapter(IPositionOfCurrentEntity.class, this);
+    addAdapter(IPositionOfCurrentEntityWriter.class, this);
   }
 
   @Override
@@ -219,4 +222,27 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
   public String getModelType() {
     return "PositionOfCurrentEntity";
   }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  // children
+
 }

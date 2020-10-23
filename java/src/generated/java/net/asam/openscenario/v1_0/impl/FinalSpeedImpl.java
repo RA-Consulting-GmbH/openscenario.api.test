@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAbsoluteSpeed;
 import net.asam.openscenario.v1_0.api.IFinalSpeed;
 import net.asam.openscenario.v1_0.api.IRelativeSpeedToMaster;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.IFinalSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeSpeedToMasterWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed {
+public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IAbsoluteSpeed absoluteSpeed;
@@ -55,6 +58,7 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed {
     super();
     addAdapter(FinalSpeedImpl.class, this);
     addAdapter(IFinalSpeed.class, this);
+    addAdapter(IFinalSpeedWriter.class, this);
   }
 
   @Override
@@ -236,5 +240,27 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed {
   @Override
   public String getModelType() {
     return "FinalSpeed";
+  }
+
+  // children
+  @Override
+  public IAbsoluteSpeedWriter getAbsoluteSpeedWriter() {
+    return null;
+  }
+
+  @Override
+  public IRelativeSpeedToMasterWriter getRelativeSpeedToMasterWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToAbsoluteSpeedWriter(IAbsoluteSpeedWriter absoluteSpeedWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeSpeedToMasterWriter(
+      IRelativeSpeedToMasterWriter relativeSpeedToMasterWriter) {
+    // empty
   }
 }

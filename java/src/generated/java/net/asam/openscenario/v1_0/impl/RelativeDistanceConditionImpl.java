@@ -34,6 +34,7 @@ import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeDistanceCondition;
 import net.asam.openscenario.v1_0.api.RelativeDistanceType;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IRelativeDistanceConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -52,7 +53,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeDistanceConditionImpl extends BaseImpl implements IRelativeDistanceCondition {
+public class RelativeDistanceConditionImpl extends BaseImpl
+    implements IRelativeDistanceCondition, IRelativeDistanceConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -74,6 +76,7 @@ public class RelativeDistanceConditionImpl extends BaseImpl implements IRelative
     super();
     addAdapter(RelativeDistanceConditionImpl.class, this);
     addAdapter(IRelativeDistanceCondition.class, this);
+    addAdapter(IRelativeDistanceConditionWriter.class, this);
   }
 
   @Override
@@ -364,4 +367,107 @@ public class RelativeDistanceConditionImpl extends BaseImpl implements IRelative
   public String getModelType() {
     return "RelativeDistanceCondition";
   }
+
+  @Override
+  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
+    // empty
+  }
+
+  @Override
+  public void writeToRelativeDistanceType(RelativeDistanceType relativeDistanceType) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToFreespace(Boolean freespace) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRelativeDistanceType(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRelativeDistanceType() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRelativeDistanceTypeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+
 }

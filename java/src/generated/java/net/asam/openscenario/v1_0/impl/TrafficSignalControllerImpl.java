@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPhase;
 import net.asam.openscenario.v1_0.api.ITrafficSignalController;
+import net.asam.openscenario.v1_0.api.writer.IPhaseWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalControllerImpl extends BaseImpl implements ITrafficSignalController {
+public class TrafficSignalControllerImpl extends BaseImpl
+    implements ITrafficSignalController, ITrafficSignalControllerWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -65,6 +68,7 @@ public class TrafficSignalControllerImpl extends BaseImpl implements ITrafficSig
     super();
     addAdapter(TrafficSignalControllerImpl.class, this);
     addAdapter(ITrafficSignalController.class, this);
+    addAdapter(ITrafficSignalControllerWriter.class, this);
   }
 
   @Override
@@ -306,5 +310,77 @@ public class TrafficSignalControllerImpl extends BaseImpl implements ITrafficSig
   @Override
   public String getModelType() {
     return "TrafficSignalController";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToDelay(Double delay) {
+    // empty
+  }
+
+  @Override
+  public void writeToReference(String reference) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDelay(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToReference(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDelay() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromReference() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDelayParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isReferenceParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IPhaseWriter> getPhasesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setPhasesWriter(List<IPhaseWriter> phasesWriters) {
+    // empty
   }
 }

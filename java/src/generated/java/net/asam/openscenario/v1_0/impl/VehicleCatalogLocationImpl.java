@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IVehicleCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCatalogLocation {
+public class VehicleCatalogLocationImpl extends BaseImpl
+    implements IVehicleCatalogLocation, IVehicleCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
@@ -54,6 +57,7 @@ public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCata
     super();
     addAdapter(VehicleCatalogLocationImpl.class, this);
     addAdapter(IVehicleCatalogLocation.class, this);
+    addAdapter(IVehicleCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -205,5 +209,16 @@ public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCata
   @Override
   public String getModelType() {
     return "VehicleCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getDirectoryWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
+    // empty
   }
 }

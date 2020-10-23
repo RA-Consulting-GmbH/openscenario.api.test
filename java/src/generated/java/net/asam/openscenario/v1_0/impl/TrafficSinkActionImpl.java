@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ITrafficDefinition;
 import net.asam.openscenario.v1_0.api.ITrafficSinkAction;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSinkActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSinkActionImpl extends BaseImpl implements ITrafficSinkAction {
+public class TrafficSinkActionImpl extends BaseImpl
+    implements ITrafficSinkAction, ITrafficSinkActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,6 +68,7 @@ public class TrafficSinkActionImpl extends BaseImpl implements ITrafficSinkActio
     super();
     addAdapter(TrafficSinkActionImpl.class, this);
     addAdapter(ITrafficSinkAction.class, this);
+    addAdapter(ITrafficSinkActionWriter.class, this);
   }
 
   @Override
@@ -295,5 +300,66 @@ public class TrafficSinkActionImpl extends BaseImpl implements ITrafficSinkActio
   @Override
   public String getModelType() {
     return "TrafficSinkAction";
+  }
+
+  @Override
+  public void writeToRate(Double rate) {
+    // empty
+  }
+
+  @Override
+  public void writeToRadius(Double radius) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRate(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRadius(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromRate() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRadius() {
+    return null;
+  }
+
+  @Override
+  public boolean isRateParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRadiusParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITrafficDefinitionWriter getTrafficDefinitionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter) {
+    // empty
   }
 }

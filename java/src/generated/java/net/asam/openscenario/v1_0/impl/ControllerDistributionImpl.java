@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IControllerDistribution;
 import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionEntryWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerDistributionImpl extends BaseImpl implements IControllerDistribution {
+public class ControllerDistributionImpl extends BaseImpl
+    implements IControllerDistribution, IControllerDistributionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IControllerDistributionEntry> controllerDistributionEntries;
@@ -54,6 +57,7 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
     super();
     addAdapter(ControllerDistributionImpl.class, this);
     addAdapter(IControllerDistribution.class, this);
+    addAdapter(IControllerDistributionWriter.class, this);
   }
 
   @Override
@@ -214,5 +218,18 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
   @Override
   public String getModelType() {
     return "ControllerDistribution";
+  }
+
+  // children
+
+  @Override
+  public List<IControllerDistributionEntryWriter> getControllerDistributionEntriesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setControllerDistributionEntriesWriter(
+      List<IControllerDistributionEntryWriter> controllerDistributionEntriesWriters) {
+    // empty
   }
 }

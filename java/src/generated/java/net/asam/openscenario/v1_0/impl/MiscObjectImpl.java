@@ -34,6 +34,10 @@ import net.asam.openscenario.v1_0.api.IMiscObject;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.MiscObjectCategory;
+import net.asam.openscenario.v1_0.api.writer.IBoundingBoxWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +55,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class MiscObjectImpl extends BaseImpl implements IMiscObject {
+public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObjectWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -72,6 +76,7 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject {
     super();
     addAdapter(MiscObjectImpl.class, this);
     addAdapter(IMiscObject.class, this);
+    addAdapter(IMiscObjectWriter.class, this);
   }
 
   @Override
@@ -408,5 +413,97 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject {
   @Override
   public String getModelType() {
     return "MiscObject";
+  }
+
+  @Override
+  public void writeToMiscObjectCategory(MiscObjectCategory miscObjectCategory) {
+    // empty
+  }
+
+  @Override
+  public void writeToMass(Double mass) {
+    // empty
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMiscObjectCategory(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToMass(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromMiscObjectCategory() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromMass() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isMiscObjectCategoryParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isMassParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IBoundingBoxWriter getBoundingBoxWriter() {
+    return null;
+  }
+
+  @Override
+  public IPropertiesWriter getPropertiesWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
   }
 }

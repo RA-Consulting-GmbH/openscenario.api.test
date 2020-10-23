@@ -30,6 +30,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IRoute;
 import net.asam.openscenario.v1_0.api.IWaypoint;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteWriter;
+import net.asam.openscenario.v1_0.api.writer.IWaypointWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteImpl extends BaseImpl implements IRoute {
+public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -65,6 +68,7 @@ public class RouteImpl extends BaseImpl implements IRoute {
     super();
     addAdapter(RouteImpl.class, this);
     addAdapter(IRoute.class, this);
+    addAdapter(IRouteWriter.class, this);
   }
 
   @Override
@@ -334,5 +338,68 @@ public class RouteImpl extends BaseImpl implements IRoute {
   @Override
   public String getModelType() {
     return "Route";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeToClosed(Boolean closed) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToClosed(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromClosed() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isClosedParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IWaypointWriter> getWaypointsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setParameterDeclarationsWriter(
+      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setWaypointsWriter(List<IWaypointWriter> waypointsWriters) {
+    // empty
   }
 }

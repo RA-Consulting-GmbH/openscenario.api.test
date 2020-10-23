@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITimeToCollisionCondition;
 import net.asam.openscenario.v1_0.api.ITimeToCollisionConditionTarget;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ITimeToCollisionConditionTargetWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeToCollisionConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +51,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeToCollisionConditionImpl extends BaseImpl implements ITimeToCollisionCondition {
+public class TimeToCollisionConditionImpl extends BaseImpl
+    implements ITimeToCollisionCondition, ITimeToCollisionConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -70,6 +73,7 @@ public class TimeToCollisionConditionImpl extends BaseImpl implements ITimeToCol
     super();
     addAdapter(TimeToCollisionConditionImpl.class, this);
     addAdapter(ITimeToCollisionCondition.class, this);
+    addAdapter(ITimeToCollisionConditionWriter.class, this);
   }
 
   @Override
@@ -343,5 +347,97 @@ public class TimeToCollisionConditionImpl extends BaseImpl implements ITimeToCol
   @Override
   public String getModelType() {
     return "TimeToCollisionCondition";
+  }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToFreespace(Boolean freespace) {
+    // empty
+  }
+
+  @Override
+  public void writeToAlongRoute(Boolean alongRoute) {
+    // empty
+  }
+
+  @Override
+  public void writeToRule(Rule rule) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToAlongRoute(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromAlongRoute() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return null;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isAlongRouteParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ITimeToCollisionConditionTargetWriter getTimeToCollisionConditionTargetWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTimeToCollisionConditionTargetWriter(
+      ITimeToCollisionConditionTargetWriter timeToCollisionConditionTargetWriter) {
+    // empty
   }
 }

@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICustomCommandAction;
 import net.asam.openscenario.v1_0.api.IUserDefinedAction;
+import net.asam.openscenario.v1_0.api.writer.ICustomCommandActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IUserDefinedActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedAction {
+public class UserDefinedActionImpl extends BaseImpl
+    implements IUserDefinedAction, IUserDefinedActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ICustomCommandAction customCommandAction;
@@ -53,6 +56,7 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
     super();
     addAdapter(UserDefinedActionImpl.class, this);
     addAdapter(IUserDefinedAction.class, this);
+    addAdapter(IUserDefinedActionWriter.class, this);
   }
 
   @Override
@@ -204,5 +208,17 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
   @Override
   public String getModelType() {
     return "UserDefinedAction";
+  }
+
+  // children
+  @Override
+  public ICustomCommandActionWriter getCustomCommandActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToCustomCommandActionWriter(
+      ICustomCommandActionWriter customCommandActionWriter) {
+    // empty
   }
 }

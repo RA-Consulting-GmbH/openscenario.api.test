@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAxle;
 import net.asam.openscenario.v1_0.api.IAxles;
+import net.asam.openscenario.v1_0.api.writer.IAxleWriter;
+import net.asam.openscenario.v1_0.api.writer.IAxlesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AxlesImpl extends BaseImpl implements IAxles {
+public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IAxle frontAxle;
@@ -55,6 +57,7 @@ public class AxlesImpl extends BaseImpl implements IAxles {
     super();
     addAdapter(AxlesImpl.class, this);
     addAdapter(IAxles.class, this);
+    addAdapter(IAxlesWriter.class, this);
   }
 
   @Override
@@ -272,5 +275,36 @@ public class AxlesImpl extends BaseImpl implements IAxles {
   @Override
   public String getModelType() {
     return "Axles";
+  }
+
+  // children
+  @Override
+  public IAxleWriter getFrontAxleWriter() {
+    return null;
+  }
+
+  @Override
+  public IAxleWriter getRearAxleWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToFrontAxleWriter(IAxleWriter frontAxleWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRearAxleWriter(IAxleWriter rearAxleWriter) {
+    // empty
+  }
+
+  @Override
+  public List<IAxleWriter> getAdditionalAxlesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setAdditionalAxlesWriter(List<IAxleWriter> additionalAxlesWriters) {
+    // empty
   }
 }

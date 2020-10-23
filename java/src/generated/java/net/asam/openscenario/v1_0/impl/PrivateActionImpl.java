@@ -34,6 +34,15 @@ import net.asam.openscenario.v1_0.api.IRoutingAction;
 import net.asam.openscenario.v1_0.api.ISynchronizeAction;
 import net.asam.openscenario.v1_0.api.ITeleportAction;
 import net.asam.openscenario.v1_0.api.IVisibilityAction;
+import net.asam.openscenario.v1_0.api.writer.IActivateControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILateralActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILongitudinalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrivateActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoutingActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISynchronizeActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITeleportActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IVisibilityActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +60,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
+public class PrivateActionImpl extends BaseImpl implements IPrivateAction, IPrivateActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ILongitudinalAction longitudinalAction;
@@ -67,6 +76,7 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
     super();
     addAdapter(PrivateActionImpl.class, this);
     addAdapter(IPrivateAction.class, this);
+    addAdapter(IPrivateActionWriter.class, this);
   }
 
   @Override
@@ -426,5 +436,87 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
   @Override
   public String getModelType() {
     return "PrivateAction";
+  }
+
+  // children
+  @Override
+  public ILongitudinalActionWriter getLongitudinalActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ILateralActionWriter getLateralActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IVisibilityActionWriter getVisibilityActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ISynchronizeActionWriter getSynchronizeActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IActivateControllerActionWriter getActivateControllerActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IControllerActionWriter getControllerActionWriter() {
+    return null;
+  }
+
+  @Override
+  public ITeleportActionWriter getTeleportActionWriter() {
+    return null;
+  }
+
+  @Override
+  public IRoutingActionWriter getRoutingActionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToLongitudinalActionWriter(ILongitudinalActionWriter longitudinalActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToLateralActionWriter(ILateralActionWriter lateralActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToVisibilityActionWriter(IVisibilityActionWriter visibilityActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToSynchronizeActionWriter(ISynchronizeActionWriter synchronizeActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToActivateControllerActionWriter(
+      IActivateControllerActionWriter activateControllerActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToControllerActionWriter(IControllerActionWriter controllerActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToTeleportActionWriter(ITeleportActionWriter teleportActionWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToRoutingActionWriter(IRoutingActionWriter routingActionWriter) {
+    // empty
   }
 }

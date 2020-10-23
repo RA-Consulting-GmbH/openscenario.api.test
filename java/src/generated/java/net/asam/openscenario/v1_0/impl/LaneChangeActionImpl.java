@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ILaneChangeAction;
 import net.asam.openscenario.v1_0.api.ILaneChangeTarget;
 import net.asam.openscenario.v1_0.api.ITransitionDynamics;
+import net.asam.openscenario.v1_0.api.writer.ILaneChangeActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneChangeTargetWriter;
+import net.asam.openscenario.v1_0.api.writer.ITransitionDynamicsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction {
+public class LaneChangeActionImpl extends BaseImpl
+    implements ILaneChangeAction, ILaneChangeActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +66,7 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
     super();
     addAdapter(LaneChangeActionImpl.class, this);
     addAdapter(ILaneChangeAction.class, this);
+    addAdapter(ILaneChangeActionWriter.class, this);
   }
 
   @Override
@@ -270,5 +275,47 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
   @Override
   public String getModelType() {
     return "LaneChangeAction";
+  }
+
+  @Override
+  public void writeToTargetLaneOffset(Double targetLaneOffset) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTargetLaneOffset(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromTargetLaneOffset() {
+    return null;
+  }
+
+  @Override
+  public boolean isTargetLaneOffsetParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ITransitionDynamicsWriter getLaneChangeActionDynamicsWriter() {
+    return null;
+  }
+
+  @Override
+  public ILaneChangeTargetWriter getLaneChangeTargetWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToLaneChangeActionDynamicsWriter(
+      ITransitionDynamicsWriter laneChangeActionDynamicsWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToLaneChangeTargetWriter(ILaneChangeTargetWriter laneChangeTargetWriter) {
+    // empty
   }
 }

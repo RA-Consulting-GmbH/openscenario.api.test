@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IInit;
 import net.asam.openscenario.v1_0.api.IInitActions;
+import net.asam.openscenario.v1_0.api.writer.IInitActionsWriter;
+import net.asam.openscenario.v1_0.api.writer.IInitWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InitImpl extends BaseImpl implements IInit {
+public class InitImpl extends BaseImpl implements IInit, IInitWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IInitActions actions;
@@ -53,6 +55,7 @@ public class InitImpl extends BaseImpl implements IInit {
     super();
     addAdapter(InitImpl.class, this);
     addAdapter(IInit.class, this);
+    addAdapter(IInitWriter.class, this);
   }
 
   @Override
@@ -204,5 +207,16 @@ public class InitImpl extends BaseImpl implements IInit {
   @Override
   public String getModelType() {
     return "Init";
+  }
+
+  // children
+  @Override
+  public IInitActionsWriter getActionsWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToActionsWriter(IInitActionsWriter actionsWriter) {
+    // empty
   }
 }

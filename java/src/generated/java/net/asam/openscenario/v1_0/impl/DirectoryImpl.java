@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDirectory;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DirectoryImpl extends BaseImpl implements IDirectory {
+public class DirectoryImpl extends BaseImpl implements IDirectory, IDirectoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,6 +59,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectory {
     super();
     addAdapter(DirectoryImpl.class, this);
     addAdapter(IDirectory.class, this);
+    addAdapter(IDirectoryWriter.class, this);
   }
 
   @Override
@@ -205,4 +207,27 @@ public class DirectoryImpl extends BaseImpl implements IDirectory {
   public String getModelType() {
     return "Directory";
   }
+
+  @Override
+  public void writeToPath(String path) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToPath(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromPath() {
+    return null;
+  }
+
+  @Override
+  public boolean isPathParameterized() {
+    return false;
+  }
+
+  // children
+
 }

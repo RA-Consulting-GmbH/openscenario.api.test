@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IControlPoint;
 import net.asam.openscenario.v1_0.api.IKnot;
 import net.asam.openscenario.v1_0.api.INurbs;
+import net.asam.openscenario.v1_0.api.writer.IControlPointWriter;
+import net.asam.openscenario.v1_0.api.writer.IKnotWriter;
+import net.asam.openscenario.v1_0.api.writer.INurbsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class NurbsImpl extends BaseImpl implements INurbs {
+public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +65,7 @@ public class NurbsImpl extends BaseImpl implements INurbs {
     super();
     addAdapter(NurbsImpl.class, this);
     addAdapter(INurbs.class, this);
+    addAdapter(INurbsWriter.class, this);
   }
 
   @Override
@@ -285,5 +289,47 @@ public class NurbsImpl extends BaseImpl implements INurbs {
   @Override
   public String getModelType() {
     return "Nurbs";
+  }
+
+  @Override
+  public void writeToOrder(Long order) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToOrder(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromOrder() {
+    return null;
+  }
+
+  @Override
+  public boolean isOrderParameterized() {
+    return false;
+  }
+
+  // children
+
+  @Override
+  public List<IControlPointWriter> getControlPointsWriter() {
+    return null;
+  }
+
+  @Override
+  public List<IKnotWriter> getKnotsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setControlPointsWriter(List<IControlPointWriter> controlPointsWriters) {
+    // empty
+  }
+
+  @Override
+  public void setKnotsWriter(List<IKnotWriter> knotsWriters) {
+    // empty
   }
 }

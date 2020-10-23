@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntitySelection;
 import net.asam.openscenario.v1_0.api.ISelectedEntities;
+import net.asam.openscenario.v1_0.api.writer.IEntitySelectionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISelectedEntitiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
+public class EntitySelectionImpl extends BaseImpl
+    implements IEntitySelection, IEntitySelectionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,6 +63,7 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
     super();
     addAdapter(EntitySelectionImpl.class, this);
     addAdapter(IEntitySelection.class, this);
+    addAdapter(IEntitySelectionWriter.class, this);
   }
 
   @Override
@@ -238,5 +242,36 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
   @Override
   public String getModelType() {
     return "EntitySelection";
+  }
+
+  @Override
+  public void writeToName(String name) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return null;
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ISelectedEntitiesWriter getMembersWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToMembersWriter(ISelectedEntitiesWriter membersWriter) {
+    // empty
   }
 }

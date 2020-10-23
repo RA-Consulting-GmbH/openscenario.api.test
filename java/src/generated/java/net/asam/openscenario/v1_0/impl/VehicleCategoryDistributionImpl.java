@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistribution;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistributionEntry;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCategoryDistributionEntryWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCategoryDistributionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class VehicleCategoryDistributionImpl extends BaseImpl
-    implements IVehicleCategoryDistribution {
+    implements IVehicleCategoryDistribution, IVehicleCategoryDistributionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries;
@@ -55,6 +57,7 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
     super();
     addAdapter(VehicleCategoryDistributionImpl.class, this);
     addAdapter(IVehicleCategoryDistribution.class, this);
+    addAdapter(IVehicleCategoryDistributionWriter.class, this);
   }
 
   @Override
@@ -215,5 +218,19 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "VehicleCategoryDistribution";
+  }
+
+  // children
+
+  @Override
+  public List<IVehicleCategoryDistributionEntryWriter>
+      getVehicleCategoryDistributionEntriesWriter() {
+    return null;
+  }
+
+  @Override
+  public void setVehicleCategoryDistributionEntriesWriter(
+      List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntriesWriters) {
+    // empty
   }
 }

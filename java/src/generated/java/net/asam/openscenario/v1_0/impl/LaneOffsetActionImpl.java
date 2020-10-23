@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ILaneOffsetAction;
 import net.asam.openscenario.v1_0.api.ILaneOffsetActionDynamics;
 import net.asam.openscenario.v1_0.api.ILaneOffsetTarget;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetActionDynamicsWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetTargetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction {
+public class LaneOffsetActionImpl extends BaseImpl
+    implements ILaneOffsetAction, ILaneOffsetActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +66,7 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
     super();
     addAdapter(LaneOffsetActionImpl.class, this);
     addAdapter(ILaneOffsetAction.class, this);
+    addAdapter(ILaneOffsetActionWriter.class, this);
   }
 
   @Override
@@ -271,5 +276,47 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
   @Override
   public String getModelType() {
     return "LaneOffsetAction";
+  }
+
+  @Override
+  public void writeToContinuous(Boolean continuous) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToContinuous(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromContinuous() {
+    return null;
+  }
+
+  @Override
+  public boolean isContinuousParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public ILaneOffsetActionDynamicsWriter getLaneOffsetActionDynamicsWriter() {
+    return null;
+  }
+
+  @Override
+  public ILaneOffsetTargetWriter getLaneOffsetTargetWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToLaneOffsetActionDynamicsWriter(
+      ILaneOffsetActionDynamicsWriter laneOffsetActionDynamicsWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToLaneOffsetTargetWriter(ILaneOffsetTargetWriter laneOffsetTargetWriter) {
+    // empty
   }
 }

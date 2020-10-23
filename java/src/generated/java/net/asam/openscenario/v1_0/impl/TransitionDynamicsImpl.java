@@ -31,6 +31,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.DynamicsDimension;
 import net.asam.openscenario.v1_0.api.DynamicsShape;
 import net.asam.openscenario.v1_0.api.ITransitionDynamics;
+import net.asam.openscenario.v1_0.api.writer.ITransitionDynamicsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynamics {
+public class TransitionDynamicsImpl extends BaseImpl
+    implements ITransitionDynamics, ITransitionDynamicsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,6 +68,7 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
     super();
     addAdapter(TransitionDynamicsImpl.class, this);
     addAdapter(ITransitionDynamics.class, this);
+    addAdapter(ITransitionDynamicsWriter.class, this);
   }
 
   @Override
@@ -291,4 +294,67 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
   public String getModelType() {
     return "TransitionDynamics";
   }
+
+  @Override
+  public void writeToDynamicsShape(DynamicsShape dynamicsShape) {
+    // empty
+  }
+
+  @Override
+  public void writeToValue(Double value) {
+    // empty
+  }
+
+  @Override
+  public void writeToDynamicsDimension(DynamicsDimension dynamicsDimension) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDynamicsShape(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToDynamicsDimension(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromDynamicsShape() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromDynamicsDimension() {
+    return null;
+  }
+
+  @Override
+  public boolean isDynamicsShapeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isDynamicsDimensionParameterized() {
+    return false;
+  }
+
+  // children
+
 }

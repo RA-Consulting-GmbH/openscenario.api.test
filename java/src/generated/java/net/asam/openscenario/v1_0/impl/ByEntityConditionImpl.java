@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IByEntityCondition;
 import net.asam.openscenario.v1_0.api.IEntityCondition;
 import net.asam.openscenario.v1_0.api.ITriggeringEntities;
+import net.asam.openscenario.v1_0.api.writer.IByEntityConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggeringEntitiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByEntityConditionImpl extends BaseImpl implements IByEntityCondition {
+public class ByEntityConditionImpl extends BaseImpl
+    implements IByEntityCondition, IByEntityConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ITriggeringEntities triggeringEntities;
@@ -55,6 +59,7 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
     super();
     addAdapter(ByEntityConditionImpl.class, this);
     addAdapter(IByEntityCondition.class, this);
+    addAdapter(IByEntityConditionWriter.class, this);
   }
 
   @Override
@@ -235,5 +240,26 @@ public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditio
   @Override
   public String getModelType() {
     return "ByEntityCondition";
+  }
+
+  // children
+  @Override
+  public ITriggeringEntitiesWriter getTriggeringEntitiesWriter() {
+    return null;
+  }
+
+  @Override
+  public IEntityConditionWriter getEntityConditionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToTriggeringEntitiesWriter(ITriggeringEntitiesWriter triggeringEntitiesWriter) {
+    // empty
+  }
+
+  @Override
+  public void writeToEntityConditionWriter(IEntityConditionWriter entityConditionWriter) {
+    // empty
   }
 }

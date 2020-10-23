@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICondition;
 import net.asam.openscenario.v1_0.api.IConditionGroup;
+import net.asam.openscenario.v1_0.api.writer.IConditionGroupWriter;
+import net.asam.openscenario.v1_0.api.writer.IConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ConditionGroupImpl extends BaseImpl implements IConditionGroup {
+public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, IConditionGroupWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<ICondition> conditions;
@@ -53,6 +55,7 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup {
     super();
     addAdapter(ConditionGroupImpl.class, this);
     addAdapter(IConditionGroup.class, this);
+    addAdapter(IConditionGroupWriter.class, this);
   }
 
   @Override
@@ -211,5 +214,17 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup {
   @Override
   public String getModelType() {
     return "ConditionGroup";
+  }
+
+  // children
+
+  @Override
+  public List<IConditionWriter> getConditionsWriter() {
+    return null;
+  }
+
+  @Override
+  public void setConditionsWriter(List<IConditionWriter> conditionsWriters) {
+    // empty
   }
 }

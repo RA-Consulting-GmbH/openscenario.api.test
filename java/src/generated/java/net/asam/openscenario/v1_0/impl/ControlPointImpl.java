@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IControlPoint;
 import net.asam.openscenario.v1_0.api.IPosition;
+import net.asam.openscenario.v1_0.api.writer.IControlPointWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControlPointImpl extends BaseImpl implements IControlPoint {
+public class ControlPointImpl extends BaseImpl implements IControlPoint, IControlPointWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,6 +64,7 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint {
     super();
     addAdapter(ControlPointImpl.class, this);
     addAdapter(IControlPoint.class, this);
+    addAdapter(IControlPointWriter.class, this);
   }
 
   @Override
@@ -264,5 +267,56 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint {
   @Override
   public String getModelType() {
     return "ControlPoint";
+  }
+
+  @Override
+  public void writeToTime(Double time) {
+    // empty
+  }
+
+  @Override
+  public void writeToWeight(Double weight) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToTime(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public void writeParameterToWeight(String parameterName) {
+    // empty
+  }
+
+  @Override
+  public String getParameterFromTime() {
+    return null;
+  }
+
+  @Override
+  public String getParameterFromWeight() {
+    return null;
+  }
+
+  @Override
+  public boolean isTimeParameterized() {
+    return false;
+  }
+
+  @Override
+  public boolean isWeightParameterized() {
+    return false;
+  }
+
+  // children
+  @Override
+  public IPositionWriter getPositionWriter() {
+    return null;
+  }
+
+  @Override
+  public void writeToPositionWriter(IPositionWriter positionWriter) {
+    // empty
   }
 }
