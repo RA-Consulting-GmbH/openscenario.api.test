@@ -52,6 +52,9 @@ public class ControllerDistributionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IControllerDistributionEntry> controllerDistributionEntries;
+
+  private List<IControllerDistributionEntryWriter> controllerDistributionEntriesWriters;
+
   /** Default constructor */
   public ControllerDistributionImpl() {
     super();
@@ -224,12 +227,12 @@ public class ControllerDistributionImpl extends BaseImpl
 
   @Override
   public List<IControllerDistributionEntryWriter> getControllerDistributionEntriesWriter() {
-    return null;
+    return this.controllerDistributionEntriesWriters;
   }
 
   @Override
   public void setControllerDistributionEntriesWriter(
       List<IControllerDistributionEntryWriter> controllerDistributionEntriesWriters) {
-    // empty
+    this.controllerDistributionEntriesWriters = controllerDistributionEntriesWriters;
   }
 }

@@ -60,6 +60,10 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
   private Long order;
   private List<IControlPoint> controlPoints;
   private List<IKnot> knots;
+
+  private List<IControlPointWriter> controlPointsWriters;
+  private List<IKnotWriter> knotsWriters;
+
   /** Default constructor */
   public NurbsImpl() {
     super();
@@ -293,43 +297,43 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
 
   @Override
   public void writeToOrder(Long order) {
-    // empty
+    setOrder(order);
   }
 
   @Override
   public void writeParameterToOrder(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__ORDER, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromOrder() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ORDER);
   }
 
   @Override
   public boolean isOrderParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ORDER);
   }
 
   // children
 
   @Override
   public List<IControlPointWriter> getControlPointsWriter() {
-    return null;
+    return this.controlPointsWriters;
   }
 
   @Override
   public List<IKnotWriter> getKnotsWriter() {
-    return null;
+    return this.knotsWriters;
   }
 
   @Override
   public void setControlPointsWriter(List<IControlPointWriter> controlPointsWriters) {
-    // empty
+    this.controlPointsWriters = controlPointsWriters;
   }
 
   @Override
   public void setKnotsWriter(List<IKnotWriter> knotsWriters) {
-    // empty
+    this.knotsWriters = knotsWriters;
   }
 }

@@ -58,6 +58,7 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
 
   private Double pathS;
   private Double t;
+
   /** Default constructor */
   public PositionInRoadCoordinatesImpl() {
     super();
@@ -237,42 +238,42 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
 
   @Override
   public void writeToPathS(Double pathS) {
-    // empty
+    setPathS(pathS);
   }
 
   @Override
   public void writeToT(Double t) {
-    // empty
+    setT(t);
   }
 
   @Override
   public void writeParameterToPathS(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__PATH_S, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToT(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__T, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromPathS() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PATH_S);
   }
 
   @Override
   public String getParameterFromT() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__T);
   }
 
   @Override
   public boolean isPathSParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PATH_S);
   }
 
   @Override
   public boolean isTParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__T);
   }
 
   // children

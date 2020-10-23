@@ -57,6 +57,7 @@ public class TrafficSignalStateImpl extends BaseImpl
 
   private String trafficSignalId;
   private String state;
+
   /** Default constructor */
   public TrafficSignalStateImpl() {
     super();
@@ -238,42 +239,43 @@ public class TrafficSignalStateImpl extends BaseImpl
 
   @Override
   public void writeToTrafficSignalId(String trafficSignalId) {
-    // empty
+    setTrafficSignalId(trafficSignalId);
   }
 
   @Override
   public void writeToState(String state) {
-    // empty
+    setState(state);
   }
 
   @Override
   public void writeParameterToTrafficSignalId(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_ID, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToState(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__STATE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromTrafficSignalId() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_ID);
   }
 
   @Override
   public String getParameterFromState() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STATE);
   }
 
   @Override
   public boolean isTrafficSignalIdParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_ID);
   }
 
   @Override
   public boolean isStateParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STATE);
   }
 
   // children

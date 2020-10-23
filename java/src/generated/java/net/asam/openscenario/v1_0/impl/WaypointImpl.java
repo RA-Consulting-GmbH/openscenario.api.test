@@ -59,6 +59,9 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
 
   private RouteStrategy routeStrategy;
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public WaypointImpl() {
     super();
@@ -259,32 +262,33 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
 
   @Override
   public void writeToRouteStrategy(RouteStrategy routeStrategy) {
-    // empty
+    setRouteStrategy(routeStrategy);
   }
 
   @Override
   public void writeParameterToRouteStrategy(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ROUTE_STRATEGY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromRouteStrategy() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ROUTE_STRATEGY);
   }
 
   @Override
   public boolean isRouteStrategyParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ROUTE_STRATEGY);
   }
 
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

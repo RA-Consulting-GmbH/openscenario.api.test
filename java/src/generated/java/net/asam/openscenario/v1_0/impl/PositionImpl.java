@@ -71,6 +71,16 @@ public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter
   private ILanePosition lanePosition;
   private IRelativeLanePosition relativeLanePosition;
   private IRoutePosition routePosition;
+
+  private IWorldPositionWriter worldPositionWriter;
+  private IRelativeWorldPositionWriter relativeWorldPositionWriter;
+  private IRelativeObjectPositionWriter relativeObjectPositionWriter;
+  private IRoadPositionWriter roadPositionWriter;
+  private IRelativeRoadPositionWriter relativeRoadPositionWriter;
+  private ILanePositionWriter lanePositionWriter;
+  private IRelativeLanePositionWriter relativeLanePositionWriter;
+  private IRoutePositionWriter routePositionWriter;
+
   /** Default constructor */
   public PositionImpl() {
     super();
@@ -441,85 +451,85 @@ public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter
   // children
   @Override
   public IWorldPositionWriter getWorldPositionWriter() {
-    return null;
+    return this.worldPositionWriter;
   }
 
   @Override
   public IRelativeWorldPositionWriter getRelativeWorldPositionWriter() {
-    return null;
+    return this.relativeWorldPositionWriter;
   }
 
   @Override
   public IRelativeObjectPositionWriter getRelativeObjectPositionWriter() {
-    return null;
+    return this.relativeObjectPositionWriter;
   }
 
   @Override
   public IRoadPositionWriter getRoadPositionWriter() {
-    return null;
+    return this.roadPositionWriter;
   }
 
   @Override
   public IRelativeRoadPositionWriter getRelativeRoadPositionWriter() {
-    return null;
+    return this.relativeRoadPositionWriter;
   }
 
   @Override
   public ILanePositionWriter getLanePositionWriter() {
-    return null;
+    return this.lanePositionWriter;
   }
 
   @Override
   public IRelativeLanePositionWriter getRelativeLanePositionWriter() {
-    return null;
+    return this.relativeLanePositionWriter;
   }
 
   @Override
   public IRoutePositionWriter getRoutePositionWriter() {
-    return null;
+    return this.routePositionWriter;
   }
 
   @Override
   public void writeToWorldPositionWriter(IWorldPositionWriter worldPositionWriter) {
-    // empty
+    this.worldPositionWriter = worldPositionWriter;
   }
 
   @Override
   public void writeToRelativeWorldPositionWriter(
       IRelativeWorldPositionWriter relativeWorldPositionWriter) {
-    // empty
+    this.relativeWorldPositionWriter = relativeWorldPositionWriter;
   }
 
   @Override
   public void writeToRelativeObjectPositionWriter(
       IRelativeObjectPositionWriter relativeObjectPositionWriter) {
-    // empty
+    this.relativeObjectPositionWriter = relativeObjectPositionWriter;
   }
 
   @Override
   public void writeToRoadPositionWriter(IRoadPositionWriter roadPositionWriter) {
-    // empty
+    this.roadPositionWriter = roadPositionWriter;
   }
 
   @Override
   public void writeToRelativeRoadPositionWriter(
       IRelativeRoadPositionWriter relativeRoadPositionWriter) {
-    // empty
+    this.relativeRoadPositionWriter = relativeRoadPositionWriter;
   }
 
   @Override
   public void writeToLanePositionWriter(ILanePositionWriter lanePositionWriter) {
-    // empty
+    this.lanePositionWriter = lanePositionWriter;
   }
 
   @Override
   public void writeToRelativeLanePositionWriter(
       IRelativeLanePositionWriter relativeLanePositionWriter) {
-    // empty
+    this.relativeLanePositionWriter = relativeLanePositionWriter;
   }
 
   @Override
   public void writeToRoutePositionWriter(IRoutePositionWriter routePositionWriter) {
-    // empty
+    this.routePositionWriter = routePositionWriter;
   }
 }

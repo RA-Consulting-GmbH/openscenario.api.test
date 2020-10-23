@@ -57,6 +57,9 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
 
   private Double frictionScaleFactor;
   private IProperties properties;
+
+  private IPropertiesWriter propertiesWriter;
+
   /** Default constructor */
   public RoadConditionImpl() {
     super();
@@ -245,32 +248,33 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
 
   @Override
   public void writeToFrictionScaleFactor(Double frictionScaleFactor) {
-    // empty
+    setFrictionScaleFactor(frictionScaleFactor);
   }
 
   @Override
   public void writeParameterToFrictionScaleFactor(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromFrictionScaleFactor() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
   }
 
   @Override
   public boolean isFrictionScaleFactorParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
   }
 
   // children
   @Override
   public IPropertiesWriter getPropertiesWriter() {
-    return null;
+    return this.propertiesWriter;
   }
 
   @Override
   public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    // empty
+    this.propertiesWriter = propertiesWriter;
   }
 }

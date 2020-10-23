@@ -61,6 +61,10 @@ public class ManeuverImpl extends BaseImpl implements IManeuver, IManeuverWriter
   private String name;
   private List<IParameterDeclaration> parameterDeclarations;
   private List<IEvent> events;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private List<IEventWriter> eventsWriters;
+
   /** Default constructor */
   public ManeuverImpl() {
     super();
@@ -311,44 +315,44 @@ public class ManeuverImpl extends BaseImpl implements IManeuver, IManeuverWriter
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public List<IEventWriter> getEventsWriter() {
-    return null;
+    return this.eventsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 
   @Override
   public void setEventsWriter(List<IEventWriter> eventsWriters) {
-    // empty
+    this.eventsWriters = eventsWriters;
   }
 }

@@ -53,6 +53,10 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenSc
 
   private IFileHeader fileHeader;
   private IOpenScenarioCategory openScenarioCategory;
+
+  private IFileHeaderWriter fileHeaderWriter;
+  private IOpenScenarioCategoryWriter openScenarioCategoryWriter;
+
   /** Default constructor */
   public OpenScenarioImpl() {
     super();
@@ -245,22 +249,22 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenSc
   // children
   @Override
   public IFileHeaderWriter getFileHeaderWriter() {
-    return null;
+    return this.fileHeaderWriter;
   }
 
   @Override
   public IOpenScenarioCategoryWriter getOpenScenarioCategoryWriter() {
-    return null;
+    return this.openScenarioCategoryWriter;
   }
 
   @Override
   public void writeToFileHeaderWriter(IFileHeaderWriter fileHeaderWriter) {
-    // empty
+    this.fileHeaderWriter = fileHeaderWriter;
   }
 
   @Override
   public void writeToOpenScenarioCategoryWriter(
       IOpenScenarioCategoryWriter openScenarioCategoryWriter) {
-    // empty
+    this.openScenarioCategoryWriter = openScenarioCategoryWriter;
   }
 }

@@ -65,6 +65,10 @@ public class TrafficSourceActionImpl extends BaseImpl
   private Double velocity;
   private IPosition position;
   private ITrafficDefinition trafficDefinition;
+
+  private IPositionWriter positionWriter;
+  private ITrafficDefinitionWriter trafficDefinitionWriter;
+
   /** Default constructor */
   public TrafficSourceActionImpl() {
     super();
@@ -330,82 +334,82 @@ public class TrafficSourceActionImpl extends BaseImpl
 
   @Override
   public void writeToRate(Double rate) {
-    // empty
+    setRate(rate);
   }
 
   @Override
   public void writeToRadius(Double radius) {
-    // empty
+    setRadius(radius);
   }
 
   @Override
   public void writeToVelocity(Double velocity) {
-    // empty
+    setVelocity(velocity);
   }
 
   @Override
   public void writeParameterToRate(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__RATE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToRadius(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__RADIUS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToVelocity(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VELOCITY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromRate() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RATE);
   }
 
   @Override
   public String getParameterFromRadius() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RADIUS);
   }
 
   @Override
   public String getParameterFromVelocity() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VELOCITY);
   }
 
   @Override
   public boolean isRateParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RATE);
   }
 
   @Override
   public boolean isRadiusParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RADIUS);
   }
 
   @Override
   public boolean isVelocityParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VELOCITY);
   }
 
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public ITrafficDefinitionWriter getTrafficDefinitionWriter() {
-    return null;
+    return this.trafficDefinitionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 
   @Override
   public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter) {
-    // empty
+    this.trafficDefinitionWriter = trafficDefinitionWriter;
   }
 }

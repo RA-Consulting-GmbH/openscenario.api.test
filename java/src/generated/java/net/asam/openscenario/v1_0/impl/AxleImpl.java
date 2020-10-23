@@ -62,6 +62,7 @@ public class AxleImpl extends BaseImpl implements IAxle, IAxleWriter {
   private Double trackWidth;
   private Double positionX;
   private Double positionZ;
+
   /** Default constructor */
   public AxleImpl() {
     super();
@@ -315,102 +316,107 @@ public class AxleImpl extends BaseImpl implements IAxle, IAxleWriter {
 
   @Override
   public void writeToMaxSteering(Double maxSteering) {
-    // empty
+    setMaxSteering(maxSteering);
   }
 
   @Override
   public void writeToWheelDiameter(Double wheelDiameter) {
-    // empty
+    setWheelDiameter(wheelDiameter);
   }
 
   @Override
   public void writeToTrackWidth(Double trackWidth) {
-    // empty
+    setTrackWidth(trackWidth);
   }
 
   @Override
   public void writeToPositionX(Double positionX) {
-    // empty
+    setPositionX(positionX);
   }
 
   @Override
   public void writeToPositionZ(Double positionZ) {
-    // empty
+    setPositionZ(positionZ);
   }
 
   @Override
   public void writeParameterToMaxSteering(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_STEERING, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToWheelDiameter(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__WHEEL_DIAMETER, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToTrackWidth(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TRACK_WIDTH, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToPositionX(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__POSITION_X, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToPositionZ(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__POSITION_Z, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromMaxSteering() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_STEERING);
   }
 
   @Override
   public String getParameterFromWheelDiameter() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
   }
 
   @Override
   public String getParameterFromTrackWidth() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRACK_WIDTH);
   }
 
   @Override
   public String getParameterFromPositionX() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__POSITION_X);
   }
 
   @Override
   public String getParameterFromPositionZ() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__POSITION_Z);
   }
 
   @Override
   public boolean isMaxSteeringParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_STEERING);
   }
 
   @Override
   public boolean isWheelDiameterParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
   }
 
   @Override
   public boolean isTrackWidthParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TRACK_WIDTH);
   }
 
   @Override
   public boolean isPositionXParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__POSITION_X);
   }
 
   @Override
   public boolean isPositionZParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__POSITION_Z);
   }
 
   // children

@@ -53,6 +53,10 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeed
 
   private IAbsoluteSpeed absoluteSpeed;
   private IRelativeSpeedToMaster relativeSpeedToMaster;
+
+  private IAbsoluteSpeedWriter absoluteSpeedWriter;
+  private IRelativeSpeedToMasterWriter relativeSpeedToMasterWriter;
+
   /** Default constructor */
   public FinalSpeedImpl() {
     super();
@@ -245,22 +249,22 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeed
   // children
   @Override
   public IAbsoluteSpeedWriter getAbsoluteSpeedWriter() {
-    return null;
+    return this.absoluteSpeedWriter;
   }
 
   @Override
   public IRelativeSpeedToMasterWriter getRelativeSpeedToMasterWriter() {
-    return null;
+    return this.relativeSpeedToMasterWriter;
   }
 
   @Override
   public void writeToAbsoluteSpeedWriter(IAbsoluteSpeedWriter absoluteSpeedWriter) {
-    // empty
+    this.absoluteSpeedWriter = absoluteSpeedWriter;
   }
 
   @Override
   public void writeToRelativeSpeedToMasterWriter(
       IRelativeSpeedToMasterWriter relativeSpeedToMasterWriter) {
-    // empty
+    this.relativeSpeedToMasterWriter = relativeSpeedToMasterWriter;
   }
 }

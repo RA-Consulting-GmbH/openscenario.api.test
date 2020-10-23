@@ -53,6 +53,10 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBounding
 
   private ICenter center;
   private IDimensions dimensions;
+
+  private ICenterWriter centerWriter;
+  private IDimensionsWriter dimensionsWriter;
+
   /** Default constructor */
   public BoundingBoxImpl() {
     super();
@@ -245,21 +249,21 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBounding
   // children
   @Override
   public ICenterWriter getCenterWriter() {
-    return null;
+    return this.centerWriter;
   }
 
   @Override
   public IDimensionsWriter getDimensionsWriter() {
-    return null;
+    return this.dimensionsWriter;
   }
 
   @Override
   public void writeToCenterWriter(ICenterWriter centerWriter) {
-    // empty
+    this.centerWriter = centerWriter;
   }
 
   @Override
   public void writeToDimensionsWriter(IDimensionsWriter dimensionsWriter) {
-    // empty
+    this.dimensionsWriter = dimensionsWriter;
   }
 }

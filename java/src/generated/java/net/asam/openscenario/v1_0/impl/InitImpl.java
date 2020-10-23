@@ -50,6 +50,9 @@ public class InitImpl extends BaseImpl implements IInit, IInitWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IInitActions actions;
+
+  private IInitActionsWriter actionsWriter;
+
   /** Default constructor */
   public InitImpl() {
     super();
@@ -212,11 +215,11 @@ public class InitImpl extends BaseImpl implements IInit, IInitWriter {
   // children
   @Override
   public IInitActionsWriter getActionsWriter() {
-    return null;
+    return this.actionsWriter;
   }
 
   @Override
   public void writeToActionsWriter(IInitActionsWriter actionsWriter) {
-    // empty
+    this.actionsWriter = actionsWriter;
   }
 }

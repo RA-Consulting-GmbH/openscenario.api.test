@@ -54,6 +54,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, IDirectoryWri
   }
 
   private String path;
+
   /** Default constructor */
   public DirectoryImpl() {
     super();
@@ -210,22 +211,22 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, IDirectoryWri
 
   @Override
   public void writeToPath(String path) {
-    // empty
+    setPath(path);
   }
 
   @Override
   public void writeParameterToPath(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__PATH, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromPath() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PATH);
   }
 
   @Override
   public boolean isPathParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PATH);
   }
 
   // children

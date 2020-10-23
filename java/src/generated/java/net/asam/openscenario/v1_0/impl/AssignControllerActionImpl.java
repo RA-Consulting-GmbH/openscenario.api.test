@@ -55,6 +55,10 @@ public class AssignControllerActionImpl extends BaseImpl
 
   private IController controller;
   private ICatalogReference catalogReference;
+
+  private IControllerWriter controllerWriter;
+  private ICatalogReferenceWriter catalogReferenceWriter;
+
   /** Default constructor */
   public AssignControllerActionImpl() {
     super();
@@ -247,21 +251,21 @@ public class AssignControllerActionImpl extends BaseImpl
   // children
   @Override
   public IControllerWriter getControllerWriter() {
-    return null;
+    return this.controllerWriter;
   }
 
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public void writeToControllerWriter(IControllerWriter controllerWriter) {
-    // empty
+    this.controllerWriter = controllerWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 }

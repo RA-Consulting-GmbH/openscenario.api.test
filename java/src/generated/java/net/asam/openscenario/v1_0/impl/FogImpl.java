@@ -57,6 +57,9 @@ public class FogImpl extends BaseImpl implements IFog, IFogWriter {
 
   private Double visualRange;
   private IBoundingBox boundingBox;
+
+  private IBoundingBoxWriter boundingBoxWriter;
+
   /** Default constructor */
   public FogImpl() {
     super();
@@ -244,32 +247,33 @@ public class FogImpl extends BaseImpl implements IFog, IFogWriter {
 
   @Override
   public void writeToVisualRange(Double visualRange) {
-    // empty
+    setVisualRange(visualRange);
   }
 
   @Override
   public void writeParameterToVisualRange(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__VISUAL_RANGE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromVisualRange() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VISUAL_RANGE);
   }
 
   @Override
   public boolean isVisualRangeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VISUAL_RANGE);
   }
 
   // children
   @Override
   public IBoundingBoxWriter getBoundingBoxWriter() {
-    return null;
+    return this.boundingBoxWriter;
   }
 
   @Override
   public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
-    // empty
+    this.boundingBoxWriter = boundingBoxWriter;
   }
 }

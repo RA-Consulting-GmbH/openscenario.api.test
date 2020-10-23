@@ -63,6 +63,10 @@ public class ParameterActionImpl extends BaseImpl
   private NamedReferenceProxy<IParameterDeclaration> parameterRef;
   private IParameterSetAction setAction;
   private IParameterModifyAction modifyAction;
+
+  private IParameterSetActionWriter setActionWriter;
+  private IParameterModifyActionWriter modifyActionWriter;
+
   /** Default constructor */
   public ParameterActionImpl() {
     super();
@@ -294,42 +298,44 @@ public class ParameterActionImpl extends BaseImpl
 
   @Override
   public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
-    // empty
+    setParameterRef(
+        new NamedReferenceProxy<>(parameterRef.getTargetObject(), parameterRef.getNameRef()));
   }
 
   @Override
   public void writeParameterToParameterRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PARAMETER_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromParameterRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PARAMETER_REF);
   }
 
   @Override
   public boolean isParameterRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PARAMETER_REF);
   }
 
   // children
   @Override
   public IParameterSetActionWriter getSetActionWriter() {
-    return null;
+    return this.setActionWriter;
   }
 
   @Override
   public IParameterModifyActionWriter getModifyActionWriter() {
-    return null;
+    return this.modifyActionWriter;
   }
 
   @Override
   public void writeToSetActionWriter(IParameterSetActionWriter setActionWriter) {
-    // empty
+    this.setActionWriter = setActionWriter;
   }
 
   @Override
   public void writeToModifyActionWriter(IParameterModifyActionWriter modifyActionWriter) {
-    // empty
+    this.modifyActionWriter = modifyActionWriter;
   }
 }

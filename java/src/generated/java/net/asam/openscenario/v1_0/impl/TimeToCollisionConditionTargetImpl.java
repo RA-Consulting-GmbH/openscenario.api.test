@@ -55,6 +55,10 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
 
   private IPosition position;
   private IEntityRef entityRef;
+
+  private IPositionWriter positionWriter;
+  private IEntityRefWriter entityRefWriter;
+
   /** Default constructor */
   public TimeToCollisionConditionTargetImpl() {
     super();
@@ -244,21 +248,21 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public IEntityRefWriter getEntityRefWriter() {
-    return null;
+    return this.entityRefWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 
   @Override
   public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter) {
-    // empty
+    this.entityRefWriter = entityRefWriter;
   }
 }

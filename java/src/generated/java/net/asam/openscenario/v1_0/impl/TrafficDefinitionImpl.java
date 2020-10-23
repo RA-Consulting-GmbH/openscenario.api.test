@@ -61,6 +61,10 @@ public class TrafficDefinitionImpl extends BaseImpl
   private String name;
   private IVehicleCategoryDistribution vehicleCategoryDistribution;
   private IControllerDistribution controllerDistribution;
+
+  private IVehicleCategoryDistributionWriter vehicleCategoryDistributionWriter;
+  private IControllerDistributionWriter controllerDistributionWriter;
+
   /** Default constructor */
   public TrafficDefinitionImpl() {
     super();
@@ -280,44 +284,44 @@ public class TrafficDefinitionImpl extends BaseImpl
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public IVehicleCategoryDistributionWriter getVehicleCategoryDistributionWriter() {
-    return null;
+    return this.vehicleCategoryDistributionWriter;
   }
 
   @Override
   public IControllerDistributionWriter getControllerDistributionWriter() {
-    return null;
+    return this.controllerDistributionWriter;
   }
 
   @Override
   public void writeToVehicleCategoryDistributionWriter(
       IVehicleCategoryDistributionWriter vehicleCategoryDistributionWriter) {
-    // empty
+    this.vehicleCategoryDistributionWriter = vehicleCategoryDistributionWriter;
   }
 
   @Override
   public void writeToControllerDistributionWriter(
       IControllerDistributionWriter controllerDistributionWriter) {
-    // empty
+    this.controllerDistributionWriter = controllerDistributionWriter;
   }
 }

@@ -71,6 +71,16 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, IPriv
   private IControllerAction controllerAction;
   private ITeleportAction teleportAction;
   private IRoutingAction routingAction;
+
+  private ILongitudinalActionWriter longitudinalActionWriter;
+  private ILateralActionWriter lateralActionWriter;
+  private IVisibilityActionWriter visibilityActionWriter;
+  private ISynchronizeActionWriter synchronizeActionWriter;
+  private IActivateControllerActionWriter activateControllerActionWriter;
+  private IControllerActionWriter controllerActionWriter;
+  private ITeleportActionWriter teleportActionWriter;
+  private IRoutingActionWriter routingActionWriter;
+
   /** Default constructor */
   public PrivateActionImpl() {
     super();
@@ -441,82 +451,82 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction, IPriv
   // children
   @Override
   public ILongitudinalActionWriter getLongitudinalActionWriter() {
-    return null;
+    return this.longitudinalActionWriter;
   }
 
   @Override
   public ILateralActionWriter getLateralActionWriter() {
-    return null;
+    return this.lateralActionWriter;
   }
 
   @Override
   public IVisibilityActionWriter getVisibilityActionWriter() {
-    return null;
+    return this.visibilityActionWriter;
   }
 
   @Override
   public ISynchronizeActionWriter getSynchronizeActionWriter() {
-    return null;
+    return this.synchronizeActionWriter;
   }
 
   @Override
   public IActivateControllerActionWriter getActivateControllerActionWriter() {
-    return null;
+    return this.activateControllerActionWriter;
   }
 
   @Override
   public IControllerActionWriter getControllerActionWriter() {
-    return null;
+    return this.controllerActionWriter;
   }
 
   @Override
   public ITeleportActionWriter getTeleportActionWriter() {
-    return null;
+    return this.teleportActionWriter;
   }
 
   @Override
   public IRoutingActionWriter getRoutingActionWriter() {
-    return null;
+    return this.routingActionWriter;
   }
 
   @Override
   public void writeToLongitudinalActionWriter(ILongitudinalActionWriter longitudinalActionWriter) {
-    // empty
+    this.longitudinalActionWriter = longitudinalActionWriter;
   }
 
   @Override
   public void writeToLateralActionWriter(ILateralActionWriter lateralActionWriter) {
-    // empty
+    this.lateralActionWriter = lateralActionWriter;
   }
 
   @Override
   public void writeToVisibilityActionWriter(IVisibilityActionWriter visibilityActionWriter) {
-    // empty
+    this.visibilityActionWriter = visibilityActionWriter;
   }
 
   @Override
   public void writeToSynchronizeActionWriter(ISynchronizeActionWriter synchronizeActionWriter) {
-    // empty
+    this.synchronizeActionWriter = synchronizeActionWriter;
   }
 
   @Override
   public void writeToActivateControllerActionWriter(
       IActivateControllerActionWriter activateControllerActionWriter) {
-    // empty
+    this.activateControllerActionWriter = activateControllerActionWriter;
   }
 
   @Override
   public void writeToControllerActionWriter(IControllerActionWriter controllerActionWriter) {
-    // empty
+    this.controllerActionWriter = controllerActionWriter;
   }
 
   @Override
   public void writeToTeleportActionWriter(ITeleportActionWriter teleportActionWriter) {
-    // empty
+    this.teleportActionWriter = teleportActionWriter;
   }
 
   @Override
   public void writeToRoutingActionWriter(IRoutingActionWriter routingActionWriter) {
-    // empty
+    this.routingActionWriter = routingActionWriter;
   }
 }

@@ -50,6 +50,9 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, ICo
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<ICondition> conditions;
+
+  private List<IConditionWriter> conditionsWriters;
+
   /** Default constructor */
   public ConditionGroupImpl() {
     super();
@@ -220,11 +223,11 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, ICo
 
   @Override
   public List<IConditionWriter> getConditionsWriter() {
-    return null;
+    return this.conditionsWriters;
   }
 
   @Override
   public void setConditionsWriter(List<IConditionWriter> conditionsWriters) {
-    // empty
+    this.conditionsWriters = conditionsWriters;
   }
 }

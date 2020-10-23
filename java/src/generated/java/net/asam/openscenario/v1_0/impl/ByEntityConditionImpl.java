@@ -54,6 +54,10 @@ public class ByEntityConditionImpl extends BaseImpl
 
   private ITriggeringEntities triggeringEntities;
   private IEntityCondition entityCondition;
+
+  private ITriggeringEntitiesWriter triggeringEntitiesWriter;
+  private IEntityConditionWriter entityConditionWriter;
+
   /** Default constructor */
   public ByEntityConditionImpl() {
     super();
@@ -245,21 +249,21 @@ public class ByEntityConditionImpl extends BaseImpl
   // children
   @Override
   public ITriggeringEntitiesWriter getTriggeringEntitiesWriter() {
-    return null;
+    return this.triggeringEntitiesWriter;
   }
 
   @Override
   public IEntityConditionWriter getEntityConditionWriter() {
-    return null;
+    return this.entityConditionWriter;
   }
 
   @Override
   public void writeToTriggeringEntitiesWriter(ITriggeringEntitiesWriter triggeringEntitiesWriter) {
-    // empty
+    this.triggeringEntitiesWriter = triggeringEntitiesWriter;
   }
 
   @Override
   public void writeToEntityConditionWriter(IEntityConditionWriter entityConditionWriter) {
-    // empty
+    this.entityConditionWriter = entityConditionWriter;
   }
 }

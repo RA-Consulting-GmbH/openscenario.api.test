@@ -52,6 +52,9 @@ public class VehicleCatalogLocationImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
+
+  private IDirectoryWriter directoryWriter;
+
   /** Default constructor */
   public VehicleCatalogLocationImpl() {
     super();
@@ -214,11 +217,11 @@ public class VehicleCatalogLocationImpl extends BaseImpl
   // children
   @Override
   public IDirectoryWriter getDirectoryWriter() {
-    return null;
+    return this.directoryWriter;
   }
 
   @Override
   public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
-    // empty
+    this.directoryWriter = directoryWriter;
   }
 }

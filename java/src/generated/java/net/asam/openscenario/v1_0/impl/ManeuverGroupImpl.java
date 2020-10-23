@@ -65,6 +65,11 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, IMane
   private IActors actors;
   private List<ICatalogReference> catalogReferences;
   private List<IManeuver> maneuvers;
+
+  private IActorsWriter actorsWriter;
+  private List<ICatalogReferenceWriter> catalogReferencesWriters;
+  private List<IManeuverWriter> maneuversWriters;
+
   /** Default constructor */
   public ManeuverGroupImpl() {
     super();
@@ -352,72 +357,74 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup, IMane
 
   @Override
   public void writeToMaximumExecutionCount(Long maximumExecutionCount) {
-    // empty
+    setMaximumExecutionCount(maximumExecutionCount);
   }
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToMaximumExecutionCount(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromMaximumExecutionCount() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isMaximumExecutionCountParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public IActorsWriter getActorsWriter() {
-    return null;
+    return this.actorsWriter;
   }
 
   @Override
   public void writeToActorsWriter(IActorsWriter actorsWriter) {
-    // empty
+    this.actorsWriter = actorsWriter;
   }
 
   @Override
   public List<ICatalogReferenceWriter> getCatalogReferencesWriter() {
-    return null;
+    return this.catalogReferencesWriters;
   }
 
   @Override
   public List<IManeuverWriter> getManeuversWriter() {
-    return null;
+    return this.maneuversWriters;
   }
 
   @Override
   public void setCatalogReferencesWriter(List<ICatalogReferenceWriter> catalogReferencesWriters) {
-    // empty
+    this.catalogReferencesWriters = catalogReferencesWriters;
   }
 
   @Override
   public void setManeuversWriter(List<IManeuverWriter> maneuversWriters) {
-    // empty
+    this.maneuversWriters = maneuversWriters;
   }
 }

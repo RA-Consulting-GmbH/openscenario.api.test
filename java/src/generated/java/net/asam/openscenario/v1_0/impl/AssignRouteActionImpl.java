@@ -54,6 +54,10 @@ public class AssignRouteActionImpl extends BaseImpl
 
   private IRoute route;
   private ICatalogReference catalogReference;
+
+  private IRouteWriter routeWriter;
+  private ICatalogReferenceWriter catalogReferenceWriter;
+
   /** Default constructor */
   public AssignRouteActionImpl() {
     super();
@@ -244,21 +248,21 @@ public class AssignRouteActionImpl extends BaseImpl
   // children
   @Override
   public IRouteWriter getRouteWriter() {
-    return null;
+    return this.routeWriter;
   }
 
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public void writeToRouteWriter(IRouteWriter routeWriter) {
-    // empty
+    this.routeWriter = routeWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 }

@@ -68,6 +68,9 @@ public class LateralDistanceActionImpl extends BaseImpl
   private Boolean freespace;
   private Boolean continuous;
   private IDynamicConstraints dynamicConstraints;
+
+  private IDynamicConstraintsWriter dynamicConstraintsWriter;
+
   /** Default constructor */
   public LateralDistanceActionImpl() {
     super();
@@ -350,92 +353,94 @@ public class LateralDistanceActionImpl extends BaseImpl
 
   @Override
   public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    // empty
+    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override
   public void writeToDistance(Double distance) {
-    // empty
+    setDistance(distance);
   }
 
   @Override
   public void writeToFreespace(Boolean freespace) {
-    // empty
+    setFreespace(freespace);
   }
 
   @Override
   public void writeToContinuous(Boolean continuous) {
-    // empty
+    setContinuous(continuous);
   }
 
   @Override
   public void writeParameterToEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDistance(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DISTANCE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToFreespace(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToContinuous(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public String getParameterFromDistance() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DISTANCE);
   }
 
   @Override
   public String getParameterFromFreespace() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FREESPACE);
   }
 
   @Override
   public String getParameterFromContinuous() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   @Override
   public boolean isEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public boolean isDistanceParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DISTANCE);
   }
 
   @Override
   public boolean isFreespaceParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FREESPACE);
   }
 
   @Override
   public boolean isContinuousParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   // children
   @Override
   public IDynamicConstraintsWriter getDynamicConstraintsWriter() {
-    return null;
+    return this.dynamicConstraintsWriter;
   }
 
   @Override
   public void writeToDynamicConstraintsWriter(IDynamicConstraintsWriter dynamicConstraintsWriter) {
-    // empty
+    this.dynamicConstraintsWriter = dynamicConstraintsWriter;
   }
 }

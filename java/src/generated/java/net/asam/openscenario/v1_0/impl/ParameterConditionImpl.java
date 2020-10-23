@@ -65,6 +65,7 @@ public class ParameterConditionImpl extends BaseImpl
   private NamedReferenceProxy<IParameterDeclaration> parameterRef;
   private String value;
   private Rule rule;
+
   /** Default constructor */
   public ParameterConditionImpl() {
     super();
@@ -299,62 +300,64 @@ public class ParameterConditionImpl extends BaseImpl
 
   @Override
   public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
-    // empty
+    setParameterRef(
+        new NamedReferenceProxy<>(parameterRef.getTargetObject(), parameterRef.getNameRef()));
   }
 
   @Override
   public void writeToValue(String value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeToRule(Rule rule) {
-    // empty
+    setRule(rule);
   }
 
   @Override
   public void writeParameterToParameterRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PARAMETER_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToRule(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromParameterRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PARAMETER_REF);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public String getParameterFromRule() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
   public boolean isParameterRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PARAMETER_REF);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isRuleParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
   }
 
   // children

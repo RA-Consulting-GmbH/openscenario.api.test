@@ -87,6 +87,21 @@ public class EntityConditionImpl extends BaseImpl
   private IReachPositionCondition reachPositionCondition;
   private IDistanceCondition distanceCondition;
   private IRelativeDistanceCondition relativeDistanceCondition;
+
+  private IEndOfRoadConditionWriter endOfRoadConditionWriter;
+  private ICollisionConditionWriter collisionConditionWriter;
+  private IOffroadConditionWriter offroadConditionWriter;
+  private ITimeHeadwayConditionWriter timeHeadwayConditionWriter;
+  private ITimeToCollisionConditionWriter timeToCollisionConditionWriter;
+  private IAccelerationConditionWriter accelerationConditionWriter;
+  private IStandStillConditionWriter standStillConditionWriter;
+  private ISpeedConditionWriter speedConditionWriter;
+  private IRelativeSpeedConditionWriter relativeSpeedConditionWriter;
+  private ITraveledDistanceConditionWriter traveledDistanceConditionWriter;
+  private IReachPositionConditionWriter reachPositionConditionWriter;
+  private IDistanceConditionWriter distanceConditionWriter;
+  private IRelativeDistanceConditionWriter relativeDistanceConditionWriter;
+
   /** Default constructor */
   public EntityConditionImpl() {
     super();
@@ -605,139 +620,139 @@ public class EntityConditionImpl extends BaseImpl
   // children
   @Override
   public IEndOfRoadConditionWriter getEndOfRoadConditionWriter() {
-    return null;
+    return this.endOfRoadConditionWriter;
   }
 
   @Override
   public ICollisionConditionWriter getCollisionConditionWriter() {
-    return null;
+    return this.collisionConditionWriter;
   }
 
   @Override
   public IOffroadConditionWriter getOffroadConditionWriter() {
-    return null;
+    return this.offroadConditionWriter;
   }
 
   @Override
   public ITimeHeadwayConditionWriter getTimeHeadwayConditionWriter() {
-    return null;
+    return this.timeHeadwayConditionWriter;
   }
 
   @Override
   public ITimeToCollisionConditionWriter getTimeToCollisionConditionWriter() {
-    return null;
+    return this.timeToCollisionConditionWriter;
   }
 
   @Override
   public IAccelerationConditionWriter getAccelerationConditionWriter() {
-    return null;
+    return this.accelerationConditionWriter;
   }
 
   @Override
   public IStandStillConditionWriter getStandStillConditionWriter() {
-    return null;
+    return this.standStillConditionWriter;
   }
 
   @Override
   public ISpeedConditionWriter getSpeedConditionWriter() {
-    return null;
+    return this.speedConditionWriter;
   }
 
   @Override
   public IRelativeSpeedConditionWriter getRelativeSpeedConditionWriter() {
-    return null;
+    return this.relativeSpeedConditionWriter;
   }
 
   @Override
   public ITraveledDistanceConditionWriter getTraveledDistanceConditionWriter() {
-    return null;
+    return this.traveledDistanceConditionWriter;
   }
 
   @Override
   public IReachPositionConditionWriter getReachPositionConditionWriter() {
-    return null;
+    return this.reachPositionConditionWriter;
   }
 
   @Override
   public IDistanceConditionWriter getDistanceConditionWriter() {
-    return null;
+    return this.distanceConditionWriter;
   }
 
   @Override
   public IRelativeDistanceConditionWriter getRelativeDistanceConditionWriter() {
-    return null;
+    return this.relativeDistanceConditionWriter;
   }
 
   @Override
   public void writeToEndOfRoadConditionWriter(IEndOfRoadConditionWriter endOfRoadConditionWriter) {
-    // empty
+    this.endOfRoadConditionWriter = endOfRoadConditionWriter;
   }
 
   @Override
   public void writeToCollisionConditionWriter(ICollisionConditionWriter collisionConditionWriter) {
-    // empty
+    this.collisionConditionWriter = collisionConditionWriter;
   }
 
   @Override
   public void writeToOffroadConditionWriter(IOffroadConditionWriter offroadConditionWriter) {
-    // empty
+    this.offroadConditionWriter = offroadConditionWriter;
   }
 
   @Override
   public void writeToTimeHeadwayConditionWriter(
       ITimeHeadwayConditionWriter timeHeadwayConditionWriter) {
-    // empty
+    this.timeHeadwayConditionWriter = timeHeadwayConditionWriter;
   }
 
   @Override
   public void writeToTimeToCollisionConditionWriter(
       ITimeToCollisionConditionWriter timeToCollisionConditionWriter) {
-    // empty
+    this.timeToCollisionConditionWriter = timeToCollisionConditionWriter;
   }
 
   @Override
   public void writeToAccelerationConditionWriter(
       IAccelerationConditionWriter accelerationConditionWriter) {
-    // empty
+    this.accelerationConditionWriter = accelerationConditionWriter;
   }
 
   @Override
   public void writeToStandStillConditionWriter(
       IStandStillConditionWriter standStillConditionWriter) {
-    // empty
+    this.standStillConditionWriter = standStillConditionWriter;
   }
 
   @Override
   public void writeToSpeedConditionWriter(ISpeedConditionWriter speedConditionWriter) {
-    // empty
+    this.speedConditionWriter = speedConditionWriter;
   }
 
   @Override
   public void writeToRelativeSpeedConditionWriter(
       IRelativeSpeedConditionWriter relativeSpeedConditionWriter) {
-    // empty
+    this.relativeSpeedConditionWriter = relativeSpeedConditionWriter;
   }
 
   @Override
   public void writeToTraveledDistanceConditionWriter(
       ITraveledDistanceConditionWriter traveledDistanceConditionWriter) {
-    // empty
+    this.traveledDistanceConditionWriter = traveledDistanceConditionWriter;
   }
 
   @Override
   public void writeToReachPositionConditionWriter(
       IReachPositionConditionWriter reachPositionConditionWriter) {
-    // empty
+    this.reachPositionConditionWriter = reachPositionConditionWriter;
   }
 
   @Override
   public void writeToDistanceConditionWriter(IDistanceConditionWriter distanceConditionWriter) {
-    // empty
+    this.distanceConditionWriter = distanceConditionWriter;
   }
 
   @Override
   public void writeToRelativeDistanceConditionWriter(
       IRelativeDistanceConditionWriter relativeDistanceConditionWriter) {
-    // empty
+    this.relativeDistanceConditionWriter = relativeDistanceConditionWriter;
   }
 }

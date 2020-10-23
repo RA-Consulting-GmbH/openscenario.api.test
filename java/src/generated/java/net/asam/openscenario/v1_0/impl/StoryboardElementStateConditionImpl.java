@@ -66,6 +66,7 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   private StoryboardElementType storyboardElementType;
   private NamedReferenceProxy<IStoryboardElement> storyboardElementRef;
   private StoryboardElementState state;
+
   /** Default constructor */
   public StoryboardElementStateConditionImpl() {
     super();
@@ -316,63 +317,68 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
 
   @Override
   public void writeToStoryboardElementType(StoryboardElementType storyboardElementType) {
-    // empty
+    setStoryboardElementType(storyboardElementType);
   }
 
   @Override
   public void writeToStoryboardElementRef(
       INamedReference<IStoryboardElement> storyboardElementRef) {
-    // empty
+    setStoryboardElementRef(
+        new NamedReferenceProxy<>(
+            storyboardElementRef.getTargetObject(), storyboardElementRef.getNameRef()));
   }
 
   @Override
   public void writeToState(StoryboardElementState state) {
-    // empty
+    setState(state);
   }
 
   @Override
   public void writeParameterToStoryboardElementType(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToStoryboardElementRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToState(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__STATE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromStoryboardElementType() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE);
   }
 
   @Override
   public String getParameterFromStoryboardElementRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF);
   }
 
   @Override
   public String getParameterFromState() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STATE);
   }
 
   @Override
   public boolean isStoryboardElementTypeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE);
   }
 
   @Override
   public boolean isStoryboardElementRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF);
   }
 
   @Override
   public boolean isStateParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STATE);
   }
 
   // children

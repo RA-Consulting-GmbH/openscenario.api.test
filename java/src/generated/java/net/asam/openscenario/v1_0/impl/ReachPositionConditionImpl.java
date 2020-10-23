@@ -59,6 +59,9 @@ public class ReachPositionConditionImpl extends BaseImpl
 
   private Double tolerance;
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public ReachPositionConditionImpl() {
     super();
@@ -247,32 +250,32 @@ public class ReachPositionConditionImpl extends BaseImpl
 
   @Override
   public void writeToTolerance(Double tolerance) {
-    // empty
+    setTolerance(tolerance);
   }
 
   @Override
   public void writeParameterToTolerance(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__TOLERANCE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromTolerance() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TOLERANCE);
   }
 
   @Override
   public boolean isToleranceParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TOLERANCE);
   }
 
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

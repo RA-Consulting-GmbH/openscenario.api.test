@@ -61,6 +61,7 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
 
   private VehicleCategory category;
   private Double weight;
+
   /** Default constructor */
   public VehicleCategoryDistributionEntryImpl() {
     super();
@@ -257,42 +258,42 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
 
   @Override
   public void writeToCategory(VehicleCategory category) {
-    // empty
+    setCategory(category);
   }
 
   @Override
   public void writeToWeight(Double weight) {
-    // empty
+    setWeight(weight);
   }
 
   @Override
   public void writeParameterToCategory(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__CATEGORY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToWeight(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromCategory() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CATEGORY);
   }
 
   @Override
   public String getParameterFromWeight() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   @Override
   public boolean isCategoryParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CATEGORY);
   }
 
   @Override
   public boolean isWeightParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   // children

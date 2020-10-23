@@ -60,6 +60,10 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
   private String name;
   private IEntityObject entityObject;
   private IObjectController objectController;
+
+  private IEntityObjectWriter entityObjectWriter;
+  private IObjectControllerWriter objectControllerWriter;
+
   /** Default constructor */
   public ScenarioObjectImpl() {
     super();
@@ -276,42 +280,42 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public IEntityObjectWriter getEntityObjectWriter() {
-    return null;
+    return this.entityObjectWriter;
   }
 
   @Override
   public IObjectControllerWriter getObjectControllerWriter() {
-    return null;
+    return this.objectControllerWriter;
   }
 
   @Override
   public void writeToEntityObjectWriter(IEntityObjectWriter entityObjectWriter) {
-    // empty
+    this.entityObjectWriter = entityObjectWriter;
   }
 
   @Override
   public void writeToObjectControllerWriter(IObjectControllerWriter objectControllerWriter) {
-    // empty
+    this.objectControllerWriter = objectControllerWriter;
   }
 }

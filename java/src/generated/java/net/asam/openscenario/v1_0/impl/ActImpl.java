@@ -61,6 +61,11 @@ public class ActImpl extends BaseImpl implements IAct, IActWriter {
   private List<IManeuverGroup> maneuverGroups;
   private ITrigger startTrigger;
   private ITrigger stopTrigger;
+
+  private List<IManeuverGroupWriter> maneuverGroupsWriters;
+  private ITriggerWriter startTriggerWriter;
+  private ITriggerWriter stopTriggerWriter;
+
   /** Default constructor */
   public ActImpl() {
     super();
@@ -316,52 +321,52 @@ public class ActImpl extends BaseImpl implements IAct, IActWriter {
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public ITriggerWriter getStartTriggerWriter() {
-    return null;
+    return this.startTriggerWriter;
   }
 
   @Override
   public ITriggerWriter getStopTriggerWriter() {
-    return null;
+    return this.stopTriggerWriter;
   }
 
   @Override
   public void writeToStartTriggerWriter(ITriggerWriter startTriggerWriter) {
-    // empty
+    this.startTriggerWriter = startTriggerWriter;
   }
 
   @Override
   public void writeToStopTriggerWriter(ITriggerWriter stopTriggerWriter) {
-    // empty
+    this.stopTriggerWriter = stopTriggerWriter;
   }
 
   @Override
   public List<IManeuverGroupWriter> getManeuverGroupsWriter() {
-    return null;
+    return this.maneuverGroupsWriters;
   }
 
   @Override
   public void setManeuverGroupsWriter(List<IManeuverGroupWriter> maneuverGroupsWriters) {
-    // empty
+    this.maneuverGroupsWriters = maneuverGroupsWriters;
   }
 }

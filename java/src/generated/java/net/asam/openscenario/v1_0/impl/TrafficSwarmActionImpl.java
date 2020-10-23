@@ -71,6 +71,10 @@ public class TrafficSwarmActionImpl extends BaseImpl
   private Double velocity;
   private ICentralSwarmObject centralObject;
   private ITrafficDefinition trafficDefinition;
+
+  private ICentralSwarmObjectWriter centralObjectWriter;
+  private ITrafficDefinitionWriter trafficDefinitionWriter;
+
   /** Default constructor */
   public TrafficSwarmActionImpl() {
     super();
@@ -415,142 +419,146 @@ public class TrafficSwarmActionImpl extends BaseImpl
 
   @Override
   public void writeToSemiMajorAxis(Double semiMajorAxis) {
-    // empty
+    setSemiMajorAxis(semiMajorAxis);
   }
 
   @Override
   public void writeToSemiMinorAxis(Double semiMinorAxis) {
-    // empty
+    setSemiMinorAxis(semiMinorAxis);
   }
 
   @Override
   public void writeToInnerRadius(Double innerRadius) {
-    // empty
+    setInnerRadius(innerRadius);
   }
 
   @Override
   public void writeToOffset(Double offset) {
-    // empty
+    setOffset(offset);
   }
 
   @Override
   public void writeToNumberOfVehicles(Long numberOfVehicles) {
-    // empty
+    setNumberOfVehicles(numberOfVehicles);
   }
 
   @Override
   public void writeToVelocity(Double velocity) {
-    // empty
+    setVelocity(velocity);
   }
 
   @Override
   public void writeParameterToSemiMajorAxis(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToSemiMinorAxis(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToInnerRadius(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__INNER_RADIUS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToNumberOfVehicles(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToVelocity(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VELOCITY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromSemiMajorAxis() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS);
   }
 
   @Override
   public String getParameterFromSemiMinorAxis() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS);
   }
 
   @Override
   public String getParameterFromInnerRadius() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__INNER_RADIUS);
   }
 
   @Override
   public String getParameterFromOffset() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public String getParameterFromNumberOfVehicles() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES);
   }
 
   @Override
   public String getParameterFromVelocity() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VELOCITY);
   }
 
   @Override
   public boolean isSemiMajorAxisParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS);
   }
 
   @Override
   public boolean isSemiMinorAxisParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS);
   }
 
   @Override
   public boolean isInnerRadiusParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__INNER_RADIUS);
   }
 
   @Override
   public boolean isOffsetParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public boolean isNumberOfVehiclesParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES);
   }
 
   @Override
   public boolean isVelocityParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VELOCITY);
   }
 
   // children
   @Override
   public ICentralSwarmObjectWriter getCentralObjectWriter() {
-    return null;
+    return this.centralObjectWriter;
   }
 
   @Override
   public ITrafficDefinitionWriter getTrafficDefinitionWriter() {
-    return null;
+    return this.trafficDefinitionWriter;
   }
 
   @Override
   public void writeToCentralObjectWriter(ICentralSwarmObjectWriter centralObjectWriter) {
-    // empty
+    this.centralObjectWriter = centralObjectWriter;
   }
 
   @Override
   public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter) {
-    // empty
+    this.trafficDefinitionWriter = trafficDefinitionWriter;
   }
 }

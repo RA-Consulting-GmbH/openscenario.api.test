@@ -56,6 +56,11 @@ public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
   private IPolyline polyline;
   private IClothoid clothoid;
   private INurbs nurbs;
+
+  private IPolylineWriter polylineWriter;
+  private IClothoidWriter clothoidWriter;
+  private INurbsWriter nurbsWriter;
+
   /** Default constructor */
   public ShapeImpl() {
     super();
@@ -273,31 +278,31 @@ public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
   // children
   @Override
   public IPolylineWriter getPolylineWriter() {
-    return null;
+    return this.polylineWriter;
   }
 
   @Override
   public IClothoidWriter getClothoidWriter() {
-    return null;
+    return this.clothoidWriter;
   }
 
   @Override
   public INurbsWriter getNurbsWriter() {
-    return null;
+    return this.nurbsWriter;
   }
 
   @Override
   public void writeToPolylineWriter(IPolylineWriter polylineWriter) {
-    // empty
+    this.polylineWriter = polylineWriter;
   }
 
   @Override
   public void writeToClothoidWriter(IClothoidWriter clothoidWriter) {
-    // empty
+    this.clothoidWriter = clothoidWriter;
   }
 
   @Override
   public void writeToNurbsWriter(INurbsWriter nurbsWriter) {
-    // empty
+    this.nurbsWriter = nurbsWriter;
   }
 }

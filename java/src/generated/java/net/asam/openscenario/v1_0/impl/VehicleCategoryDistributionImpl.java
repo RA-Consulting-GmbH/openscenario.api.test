@@ -52,6 +52,9 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries;
+
+  private List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntriesWriters;
+
   /** Default constructor */
   public VehicleCategoryDistributionImpl() {
     super();
@@ -225,12 +228,12 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
   @Override
   public List<IVehicleCategoryDistributionEntryWriter>
       getVehicleCategoryDistributionEntriesWriter() {
-    return null;
+    return this.vehicleCategoryDistributionEntriesWriters;
   }
 
   @Override
   public void setVehicleCategoryDistributionEntriesWriter(
       List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntriesWriters) {
-    // empty
+    this.vehicleCategoryDistributionEntriesWriters = vehicleCategoryDistributionEntriesWriters;
   }
 }

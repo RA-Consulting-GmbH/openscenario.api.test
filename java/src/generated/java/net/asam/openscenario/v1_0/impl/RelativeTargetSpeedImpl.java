@@ -67,6 +67,7 @@ public class RelativeTargetSpeedImpl extends BaseImpl
   private Double value;
   private SpeedTargetValueType speedTargetValueType;
   private Boolean continuous;
+
   /** Default constructor */
   public RelativeTargetSpeedImpl() {
     super();
@@ -336,82 +337,86 @@ public class RelativeTargetSpeedImpl extends BaseImpl
 
   @Override
   public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    // empty
+    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override
   public void writeToValue(Double value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
-    // empty
+    setSpeedTargetValueType(speedTargetValueType);
   }
 
   @Override
   public void writeToContinuous(Boolean continuous) {
-    // empty
+    setContinuous(continuous);
   }
 
   @Override
   public void writeParameterToEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToSpeedTargetValueType(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToContinuous(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public String getParameterFromSpeedTargetValueType() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
 
   @Override
   public String getParameterFromContinuous() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   @Override
   public boolean isEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isSpeedTargetValueTypeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
 
   @Override
   public boolean isContinuousParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   // children

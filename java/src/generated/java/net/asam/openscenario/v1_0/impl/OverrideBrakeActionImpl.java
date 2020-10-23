@@ -57,6 +57,7 @@ public class OverrideBrakeActionImpl extends BaseImpl
 
   private Double value;
   private Boolean active;
+
   /** Default constructor */
   public OverrideBrakeActionImpl() {
     super();
@@ -241,42 +242,42 @@ public class OverrideBrakeActionImpl extends BaseImpl
 
   @Override
   public void writeToValue(Double value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeToActive(Boolean active) {
-    // empty
+    setActive(active);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToActive(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public String getParameterFromActive() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isActiveParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   // children

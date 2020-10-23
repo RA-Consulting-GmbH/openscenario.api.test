@@ -57,6 +57,9 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
 
   private Boolean selectTriggeringEntities;
   private List<IEntityRef> entityRefs;
+
+  private List<IEntityRefWriter> entityRefsWriters;
+
   /** Default constructor */
   public ActorsImpl() {
     super();
@@ -252,33 +255,35 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
 
   @Override
   public void writeToSelectTriggeringEntities(Boolean selectTriggeringEntities) {
-    // empty
+    setSelectTriggeringEntities(selectTriggeringEntities);
   }
 
   @Override
   public void writeParameterToSelectTriggeringEntities(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromSelectTriggeringEntities() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES);
   }
 
   @Override
   public boolean isSelectTriggeringEntitiesParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES);
   }
 
   // children
 
   @Override
   public List<IEntityRefWriter> getEntityRefsWriter() {
-    return null;
+    return this.entityRefsWriters;
   }
 
   @Override
   public void setEntityRefsWriter(List<IEntityRefWriter> entityRefsWriters) {
-    // empty
+    this.entityRefsWriters = entityRefsWriters;
   }
 }

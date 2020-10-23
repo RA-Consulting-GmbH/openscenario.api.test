@@ -60,6 +60,7 @@ public class TimeOfDayConditionImpl extends BaseImpl
 
   private Rule rule;
   private java.util.Date dateTime;
+
   /** Default constructor */
   public TimeOfDayConditionImpl() {
     super();
@@ -254,42 +255,42 @@ public class TimeOfDayConditionImpl extends BaseImpl
 
   @Override
   public void writeToRule(Rule rule) {
-    // empty
+    setRule(rule);
   }
 
   @Override
   public void writeToDateTime(java.util.Date dateTime) {
-    // empty
+    setDateTime(dateTime);
   }
 
   @Override
   public void writeParameterToRule(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDateTime(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromRule() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
   public String getParameterFromDateTime() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   @Override
   public boolean isRuleParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
   public boolean isDateTimeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   // children

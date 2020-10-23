@@ -57,6 +57,11 @@ public class InRoutePositionImpl extends BaseImpl
   private IPositionOfCurrentEntity fromCurrentEntity;
   private IPositionInRoadCoordinates fromRoadCoordinates;
   private IPositionInLaneCoordinates fromLaneCoordinates;
+
+  private IPositionOfCurrentEntityWriter fromCurrentEntityWriter;
+  private IPositionInRoadCoordinatesWriter fromRoadCoordinatesWriter;
+  private IPositionInLaneCoordinatesWriter fromLaneCoordinatesWriter;
+
   /** Default constructor */
   public InRoutePositionImpl() {
     super();
@@ -280,34 +285,34 @@ public class InRoutePositionImpl extends BaseImpl
   // children
   @Override
   public IPositionOfCurrentEntityWriter getFromCurrentEntityWriter() {
-    return null;
+    return this.fromCurrentEntityWriter;
   }
 
   @Override
   public IPositionInRoadCoordinatesWriter getFromRoadCoordinatesWriter() {
-    return null;
+    return this.fromRoadCoordinatesWriter;
   }
 
   @Override
   public IPositionInLaneCoordinatesWriter getFromLaneCoordinatesWriter() {
-    return null;
+    return this.fromLaneCoordinatesWriter;
   }
 
   @Override
   public void writeToFromCurrentEntityWriter(
       IPositionOfCurrentEntityWriter fromCurrentEntityWriter) {
-    // empty
+    this.fromCurrentEntityWriter = fromCurrentEntityWriter;
   }
 
   @Override
   public void writeToFromRoadCoordinatesWriter(
       IPositionInRoadCoordinatesWriter fromRoadCoordinatesWriter) {
-    // empty
+    this.fromRoadCoordinatesWriter = fromRoadCoordinatesWriter;
   }
 
   @Override
   public void writeToFromLaneCoordinatesWriter(
       IPositionInLaneCoordinatesWriter fromLaneCoordinatesWriter) {
-    // empty
+    this.fromLaneCoordinatesWriter = fromLaneCoordinatesWriter;
   }
 }

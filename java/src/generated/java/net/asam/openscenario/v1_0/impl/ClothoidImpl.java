@@ -65,6 +65,9 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
   private Double startTime;
   private Double stopTime;
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public ClothoidImpl() {
     super();
@@ -346,112 +349,114 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
 
   @Override
   public void writeToCurvature(Double curvature) {
-    // empty
+    setCurvature(curvature);
   }
 
   @Override
   public void writeToCurvatureDot(Double curvatureDot) {
-    // empty
+    setCurvatureDot(curvatureDot);
   }
 
   @Override
   public void writeToLength(Double length) {
-    // empty
+    setLength(length);
   }
 
   @Override
   public void writeToStartTime(Double startTime) {
-    // empty
+    setStartTime(startTime);
   }
 
   @Override
   public void writeToStopTime(Double stopTime) {
-    // empty
+    setStopTime(stopTime);
   }
 
   @Override
   public void writeParameterToCurvature(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToCurvatureDot(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CURVATURE_DOT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToLength(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__LENGTH, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToStartTime(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__START_TIME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToStopTime(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__STOP_TIME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromCurvature() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CURVATURE);
   }
 
   @Override
   public String getParameterFromCurvatureDot() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CURVATURE_DOT);
   }
 
   @Override
   public String getParameterFromLength() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LENGTH);
   }
 
   @Override
   public String getParameterFromStartTime() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__START_TIME);
   }
 
   @Override
   public String getParameterFromStopTime() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STOP_TIME);
   }
 
   @Override
   public boolean isCurvatureParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CURVATURE);
   }
 
   @Override
   public boolean isCurvatureDotParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CURVATURE_DOT);
   }
 
   @Override
   public boolean isLengthParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LENGTH);
   }
 
   @Override
   public boolean isStartTimeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__START_TIME);
   }
 
   @Override
   public boolean isStopTimeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STOP_TIME);
   }
 
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

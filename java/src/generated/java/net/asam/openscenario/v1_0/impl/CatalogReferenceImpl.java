@@ -62,6 +62,9 @@ public class CatalogReferenceImpl extends BaseImpl
   private String entryName;
   private List<IParameterAssignment> parameterAssignments;
   private ICatalogElement ref;
+
+  private List<IParameterAssignmentWriter> parameterAssignmentsWriters;
+
   /** Default constructor */
   public CatalogReferenceImpl() {
     super();
@@ -294,54 +297,56 @@ public class CatalogReferenceImpl extends BaseImpl
 
   @Override
   public void writeToCatalogName(String catalogName) {
-    // empty
+    setCatalogName(catalogName);
   }
 
   @Override
   public void writeToEntryName(String entryName) {
-    // empty
+    setEntryName(entryName);
   }
 
   @Override
   public void writeParameterToCatalogName(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CATALOG_NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToEntryName(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTRY_NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromCatalogName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CATALOG_NAME);
   }
 
   @Override
   public String getParameterFromEntryName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTRY_NAME);
   }
 
   @Override
   public boolean isCatalogNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CATALOG_NAME);
   }
 
   @Override
   public boolean isEntryNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTRY_NAME);
   }
 
   // children
 
   @Override
   public List<IParameterAssignmentWriter> getParameterAssignmentsWriter() {
-    return null;
+    return this.parameterAssignmentsWriters;
   }
 
   @Override
   public void setParameterAssignmentsWriter(
       List<IParameterAssignmentWriter> parameterAssignmentsWriters) {
-    // empty
+    this.parameterAssignmentsWriters = parameterAssignmentsWriters;
   }
 }

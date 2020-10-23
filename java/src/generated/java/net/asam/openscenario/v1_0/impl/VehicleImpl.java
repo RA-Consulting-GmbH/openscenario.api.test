@@ -75,6 +75,13 @@ public class VehicleImpl extends BaseImpl implements IVehicle, IVehicleWriter {
   private IPerformance performance;
   private IAxles axles;
   private IProperties properties;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private IBoundingBoxWriter boundingBoxWriter;
+  private IPerformanceWriter performanceWriter;
+  private IAxlesWriter axlesWriter;
+  private IPropertiesWriter propertiesWriter;
+
   /** Default constructor */
   public VehicleImpl() {
     super();
@@ -449,93 +456,94 @@ public class VehicleImpl extends BaseImpl implements IVehicle, IVehicleWriter {
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeToVehicleCategory(VehicleCategory vehicleCategory) {
-    // empty
+    setVehicleCategory(vehicleCategory);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToVehicleCategory(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__VEHICLE_CATEGORY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public String getParameterFromVehicleCategory() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VEHICLE_CATEGORY);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isVehicleCategoryParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VEHICLE_CATEGORY);
   }
 
   // children
   @Override
   public IBoundingBoxWriter getBoundingBoxWriter() {
-    return null;
+    return this.boundingBoxWriter;
   }
 
   @Override
   public IPerformanceWriter getPerformanceWriter() {
-    return null;
+    return this.performanceWriter;
   }
 
   @Override
   public IAxlesWriter getAxlesWriter() {
-    return null;
+    return this.axlesWriter;
   }
 
   @Override
   public IPropertiesWriter getPropertiesWriter() {
-    return null;
+    return this.propertiesWriter;
   }
 
   @Override
   public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
-    // empty
+    this.boundingBoxWriter = boundingBoxWriter;
   }
 
   @Override
   public void writeToPerformanceWriter(IPerformanceWriter performanceWriter) {
-    // empty
+    this.performanceWriter = performanceWriter;
   }
 
   @Override
   public void writeToAxlesWriter(IAxlesWriter axlesWriter) {
-    // empty
+    this.axlesWriter = axlesWriter;
   }
 
   @Override
   public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    // empty
+    this.propertiesWriter = propertiesWriter;
   }
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 }

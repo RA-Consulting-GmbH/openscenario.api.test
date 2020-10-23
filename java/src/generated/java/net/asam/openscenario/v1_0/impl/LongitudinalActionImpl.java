@@ -54,6 +54,10 @@ public class LongitudinalActionImpl extends BaseImpl
 
   private ISpeedAction speedAction;
   private ILongitudinalDistanceAction longitudinalDistanceAction;
+
+  private ISpeedActionWriter speedActionWriter;
+  private ILongitudinalDistanceActionWriter longitudinalDistanceActionWriter;
+
   /** Default constructor */
   public LongitudinalActionImpl() {
     super();
@@ -247,22 +251,22 @@ public class LongitudinalActionImpl extends BaseImpl
   // children
   @Override
   public ISpeedActionWriter getSpeedActionWriter() {
-    return null;
+    return this.speedActionWriter;
   }
 
   @Override
   public ILongitudinalDistanceActionWriter getLongitudinalDistanceActionWriter() {
-    return null;
+    return this.longitudinalDistanceActionWriter;
   }
 
   @Override
   public void writeToSpeedActionWriter(ISpeedActionWriter speedActionWriter) {
-    // empty
+    this.speedActionWriter = speedActionWriter;
   }
 
   @Override
   public void writeToLongitudinalDistanceActionWriter(
       ILongitudinalDistanceActionWriter longitudinalDistanceActionWriter) {
-    // empty
+    this.longitudinalDistanceActionWriter = longitudinalDistanceActionWriter;
   }
 }

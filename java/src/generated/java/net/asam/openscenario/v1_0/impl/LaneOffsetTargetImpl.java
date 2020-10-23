@@ -54,6 +54,10 @@ public class LaneOffsetTargetImpl extends BaseImpl
 
   private IRelativeTargetLaneOffset relativeTargetLaneOffset;
   private IAbsoluteTargetLaneOffset absoluteTargetLaneOffset;
+
+  private IRelativeTargetLaneOffsetWriter relativeTargetLaneOffsetWriter;
+  private IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffsetWriter;
+
   /** Default constructor */
   public LaneOffsetTargetImpl() {
     super();
@@ -247,23 +251,23 @@ public class LaneOffsetTargetImpl extends BaseImpl
   // children
   @Override
   public IRelativeTargetLaneOffsetWriter getRelativeTargetLaneOffsetWriter() {
-    return null;
+    return this.relativeTargetLaneOffsetWriter;
   }
 
   @Override
   public IAbsoluteTargetLaneOffsetWriter getAbsoluteTargetLaneOffsetWriter() {
-    return null;
+    return this.absoluteTargetLaneOffsetWriter;
   }
 
   @Override
   public void writeToRelativeTargetLaneOffsetWriter(
       IRelativeTargetLaneOffsetWriter relativeTargetLaneOffsetWriter) {
-    // empty
+    this.relativeTargetLaneOffsetWriter = relativeTargetLaneOffsetWriter;
   }
 
   @Override
   public void writeToAbsoluteTargetLaneOffsetWriter(
       IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffsetWriter) {
-    // empty
+    this.absoluteTargetLaneOffsetWriter = absoluteTargetLaneOffsetWriter;
   }
 }

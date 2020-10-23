@@ -54,6 +54,10 @@ public class EnvironmentActionImpl extends BaseImpl
 
   private IEnvironment environment;
   private ICatalogReference catalogReference;
+
+  private IEnvironmentWriter environmentWriter;
+  private ICatalogReferenceWriter catalogReferenceWriter;
+
   /** Default constructor */
   public EnvironmentActionImpl() {
     super();
@@ -244,21 +248,21 @@ public class EnvironmentActionImpl extends BaseImpl
   // children
   @Override
   public IEnvironmentWriter getEnvironmentWriter() {
-    return null;
+    return this.environmentWriter;
   }
 
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public void writeToEnvironmentWriter(IEnvironmentWriter environmentWriter) {
-    // empty
+    this.environmentWriter = environmentWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 }

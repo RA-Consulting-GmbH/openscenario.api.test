@@ -52,6 +52,11 @@ public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
   private IAxle frontAxle;
   private IAxle rearAxle;
   private List<IAxle> additionalAxles;
+
+  private IAxleWriter frontAxleWriter;
+  private IAxleWriter rearAxleWriter;
+  private List<IAxleWriter> additionalAxlesWriters;
+
   /** Default constructor */
   public AxlesImpl() {
     super();
@@ -280,31 +285,31 @@ public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
   // children
   @Override
   public IAxleWriter getFrontAxleWriter() {
-    return null;
+    return this.frontAxleWriter;
   }
 
   @Override
   public IAxleWriter getRearAxleWriter() {
-    return null;
+    return this.rearAxleWriter;
   }
 
   @Override
   public void writeToFrontAxleWriter(IAxleWriter frontAxleWriter) {
-    // empty
+    this.frontAxleWriter = frontAxleWriter;
   }
 
   @Override
   public void writeToRearAxleWriter(IAxleWriter rearAxleWriter) {
-    // empty
+    this.rearAxleWriter = rearAxleWriter;
   }
 
   @Override
   public List<IAxleWriter> getAdditionalAxlesWriter() {
-    return null;
+    return this.additionalAxlesWriters;
   }
 
   @Override
   public void setAdditionalAxlesWriter(List<IAxleWriter> additionalAxlesWriters) {
-    // empty
+    this.additionalAxlesWriters = additionalAxlesWriters;
   }
 }

@@ -58,6 +58,7 @@ public class ActivateControllerActionImpl extends BaseImpl
 
   private Boolean lateral;
   private Boolean longitudinal;
+
   /** Default constructor */
   public ActivateControllerActionImpl() {
     super();
@@ -238,42 +239,43 @@ public class ActivateControllerActionImpl extends BaseImpl
 
   @Override
   public void writeToLateral(Boolean lateral) {
-    // empty
+    setLateral(lateral);
   }
 
   @Override
   public void writeToLongitudinal(Boolean longitudinal) {
-    // empty
+    setLongitudinal(longitudinal);
   }
 
   @Override
   public void writeParameterToLateral(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__LATERAL, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToLongitudinal(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__LONGITUDINAL, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromLateral() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LATERAL);
   }
 
   @Override
   public String getParameterFromLongitudinal() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LONGITUDINAL);
   }
 
   @Override
   public boolean isLateralParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LATERAL);
   }
 
   @Override
   public boolean isLongitudinalParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LONGITUDINAL);
   }
 
   // children

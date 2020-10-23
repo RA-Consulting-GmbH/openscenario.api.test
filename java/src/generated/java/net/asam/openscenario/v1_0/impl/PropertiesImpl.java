@@ -53,6 +53,10 @@ public class PropertiesImpl extends BaseImpl implements IProperties, IProperties
 
   private List<IProperty> properties;
   private List<IFile> files;
+
+  private List<IPropertyWriter> propertiesWriters;
+  private List<IFileWriter> filesWriters;
+
   /** Default constructor */
   public PropertiesImpl() {
     super();
@@ -260,21 +264,21 @@ public class PropertiesImpl extends BaseImpl implements IProperties, IProperties
 
   @Override
   public List<IPropertyWriter> getPropertiesWriter() {
-    return null;
+    return this.propertiesWriters;
   }
 
   @Override
   public List<IFileWriter> getFilesWriter() {
-    return null;
+    return this.filesWriters;
   }
 
   @Override
   public void setPropertiesWriter(List<IPropertyWriter> propertiesWriters) {
-    // empty
+    this.propertiesWriters = propertiesWriters;
   }
 
   @Override
   public void setFilesWriter(List<IFileWriter> filesWriters) {
-    // empty
+    this.filesWriters = filesWriters;
   }
 }

@@ -59,6 +59,7 @@ public class VisibilityActionImpl extends BaseImpl
   private Boolean graphics;
   private Boolean traffic;
   private Boolean sensors;
+
   /** Default constructor */
   public VisibilityActionImpl() {
     super();
@@ -264,62 +265,62 @@ public class VisibilityActionImpl extends BaseImpl
 
   @Override
   public void writeToGraphics(Boolean graphics) {
-    // empty
+    setGraphics(graphics);
   }
 
   @Override
   public void writeToTraffic(Boolean traffic) {
-    // empty
+    setTraffic(traffic);
   }
 
   @Override
   public void writeToSensors(Boolean sensors) {
-    // empty
+    setSensors(sensors);
   }
 
   @Override
   public void writeParameterToGraphics(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__GRAPHICS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToTraffic(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__TRAFFIC, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToSensors(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__SENSORS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromGraphics() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__GRAPHICS);
   }
 
   @Override
   public String getParameterFromTraffic() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRAFFIC);
   }
 
   @Override
   public String getParameterFromSensors() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SENSORS);
   }
 
   @Override
   public boolean isGraphicsParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__GRAPHICS);
   }
 
   @Override
   public boolean isTrafficParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TRAFFIC);
   }
 
   @Override
   public boolean isSensorsParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__SENSORS);
   }
 
   // children

@@ -53,6 +53,10 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter
 
   private IRoute route;
   private ICatalogReference catalogReference;
+
+  private IRouteWriter routeWriter;
+  private ICatalogReferenceWriter catalogReferenceWriter;
+
   /** Default constructor */
   public RouteRefImpl() {
     super();
@@ -243,21 +247,21 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter
   // children
   @Override
   public IRouteWriter getRouteWriter() {
-    return null;
+    return this.routeWriter;
   }
 
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public void writeToRouteWriter(IRouteWriter routeWriter) {
-    // empty
+    this.routeWriter = routeWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 }

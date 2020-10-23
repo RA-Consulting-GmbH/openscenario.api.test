@@ -63,6 +63,9 @@ public class TrafficSignalControllerImpl extends BaseImpl
   private Double delay;
   private String reference;
   private List<IPhase> phases;
+
+  private List<IPhaseWriter> phasesWriters;
+
   /** Default constructor */
   public TrafficSignalControllerImpl() {
     super();
@@ -314,73 +317,73 @@ public class TrafficSignalControllerImpl extends BaseImpl
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeToDelay(Double delay) {
-    // empty
+    setDelay(delay);
   }
 
   @Override
   public void writeToReference(String reference) {
-    // empty
+    setReference(reference);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDelay(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DELAY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToReference(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__REFERENCE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public String getParameterFromDelay() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DELAY);
   }
 
   @Override
   public String getParameterFromReference() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__REFERENCE);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isDelayParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DELAY);
   }
 
   @Override
   public boolean isReferenceParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__REFERENCE);
   }
 
   // children
 
   @Override
   public List<IPhaseWriter> getPhasesWriter() {
-    return null;
+    return this.phasesWriters;
   }
 
   @Override
   public void setPhasesWriter(List<IPhaseWriter> phasesWriters) {
-    // empty
+    this.phasesWriters = phasesWriters;
   }
 }

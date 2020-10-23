@@ -67,6 +67,9 @@ public class RelativeLanePositionImpl extends BaseImpl
   private Double ds;
   private Double offset;
   private IOrientation orientation;
+
+  private IOrientationWriter orientationWriter;
+
   /** Default constructor */
   public RelativeLanePositionImpl() {
     super();
@@ -346,92 +349,93 @@ public class RelativeLanePositionImpl extends BaseImpl
 
   @Override
   public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    // empty
+    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override
   public void writeToDLane(Integer dLane) {
-    // empty
+    setDLane(dLane);
   }
 
   @Override
   public void writeToDs(Double ds) {
-    // empty
+    setDs(ds);
   }
 
   @Override
   public void writeToOffset(Double offset) {
-    // empty
+    setOffset(offset);
   }
 
   @Override
   public void writeParameterToEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDLane(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__D_LANE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDs(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public String getParameterFromDLane() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__D_LANE);
   }
 
   @Override
   public String getParameterFromDs() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DS);
   }
 
   @Override
   public String getParameterFromOffset() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public boolean isEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public boolean isDLaneParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__D_LANE);
   }
 
   @Override
   public boolean isDsParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DS);
   }
 
   @Override
   public boolean isOffsetParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   // children
   @Override
   public IOrientationWriter getOrientationWriter() {
-    return null;
+    return this.orientationWriter;
   }
 
   @Override
   public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    // empty
+    this.orientationWriter = orientationWriter;
   }
 }

@@ -61,6 +61,10 @@ public class LaneOffsetActionImpl extends BaseImpl
   private Boolean continuous;
   private ILaneOffsetActionDynamics laneOffsetActionDynamics;
   private ILaneOffsetTarget laneOffsetTarget;
+
+  private ILaneOffsetActionDynamicsWriter laneOffsetActionDynamicsWriter;
+  private ILaneOffsetTargetWriter laneOffsetTargetWriter;
+
   /** Default constructor */
   public LaneOffsetActionImpl() {
     super();
@@ -280,43 +284,44 @@ public class LaneOffsetActionImpl extends BaseImpl
 
   @Override
   public void writeToContinuous(Boolean continuous) {
-    // empty
+    setContinuous(continuous);
   }
 
   @Override
   public void writeParameterToContinuous(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromContinuous() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   @Override
   public boolean isContinuousParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   // children
   @Override
   public ILaneOffsetActionDynamicsWriter getLaneOffsetActionDynamicsWriter() {
-    return null;
+    return this.laneOffsetActionDynamicsWriter;
   }
 
   @Override
   public ILaneOffsetTargetWriter getLaneOffsetTargetWriter() {
-    return null;
+    return this.laneOffsetTargetWriter;
   }
 
   @Override
   public void writeToLaneOffsetActionDynamicsWriter(
       ILaneOffsetActionDynamicsWriter laneOffsetActionDynamicsWriter) {
-    // empty
+    this.laneOffsetActionDynamicsWriter = laneOffsetActionDynamicsWriter;
   }
 
   @Override
   public void writeToLaneOffsetTargetWriter(ILaneOffsetTargetWriter laneOffsetTargetWriter) {
-    // empty
+    this.laneOffsetTargetWriter = laneOffsetTargetWriter;
   }
 }

@@ -59,6 +59,9 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
   private Double time;
   private Double weight;
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public ControlPointImpl() {
     super();
@@ -271,52 +274,52 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
 
   @Override
   public void writeToTime(Double time) {
-    // empty
+    setTime(time);
   }
 
   @Override
   public void writeToWeight(Double weight) {
-    // empty
+    setWeight(weight);
   }
 
   @Override
   public void writeParameterToTime(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__TIME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToWeight(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromTime() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TIME);
   }
 
   @Override
   public String getParameterFromWeight() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   @Override
   public boolean isTimeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TIME);
   }
 
   @Override
   public boolean isWeightParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

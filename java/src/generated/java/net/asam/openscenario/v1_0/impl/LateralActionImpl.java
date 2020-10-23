@@ -56,6 +56,11 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, ILate
   private ILaneChangeAction laneChangeAction;
   private ILaneOffsetAction laneOffsetAction;
   private ILateralDistanceAction lateralDistanceAction;
+
+  private ILaneChangeActionWriter laneChangeActionWriter;
+  private ILaneOffsetActionWriter laneOffsetActionWriter;
+  private ILateralDistanceActionWriter lateralDistanceActionWriter;
+
   /** Default constructor */
   public LateralActionImpl() {
     super();
@@ -277,32 +282,32 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, ILate
   // children
   @Override
   public ILaneChangeActionWriter getLaneChangeActionWriter() {
-    return null;
+    return this.laneChangeActionWriter;
   }
 
   @Override
   public ILaneOffsetActionWriter getLaneOffsetActionWriter() {
-    return null;
+    return this.laneOffsetActionWriter;
   }
 
   @Override
   public ILateralDistanceActionWriter getLateralDistanceActionWriter() {
-    return null;
+    return this.lateralDistanceActionWriter;
   }
 
   @Override
   public void writeToLaneChangeActionWriter(ILaneChangeActionWriter laneChangeActionWriter) {
-    // empty
+    this.laneChangeActionWriter = laneChangeActionWriter;
   }
 
   @Override
   public void writeToLaneOffsetActionWriter(ILaneOffsetActionWriter laneOffsetActionWriter) {
-    // empty
+    this.laneOffsetActionWriter = laneOffsetActionWriter;
   }
 
   @Override
   public void writeToLateralDistanceActionWriter(
       ILateralDistanceActionWriter lateralDistanceActionWriter) {
-    // empty
+    this.lateralDistanceActionWriter = lateralDistanceActionWriter;
   }
 }

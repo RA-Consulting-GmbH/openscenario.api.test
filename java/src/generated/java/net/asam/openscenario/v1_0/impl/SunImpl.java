@@ -58,6 +58,7 @@ public class SunImpl extends BaseImpl implements ISun, ISunWriter {
   private Double intensity;
   private Double azimuth;
   private Double elevation;
+
   /** Default constructor */
   public SunImpl() {
     super();
@@ -263,62 +264,62 @@ public class SunImpl extends BaseImpl implements ISun, ISunWriter {
 
   @Override
   public void writeToIntensity(Double intensity) {
-    // empty
+    setIntensity(intensity);
   }
 
   @Override
   public void writeToAzimuth(Double azimuth) {
-    // empty
+    setAzimuth(azimuth);
   }
 
   @Override
   public void writeToElevation(Double elevation) {
-    // empty
+    setElevation(elevation);
   }
 
   @Override
   public void writeParameterToIntensity(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToAzimuth(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__AZIMUTH, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToElevation(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__ELEVATION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromIntensity() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__INTENSITY);
   }
 
   @Override
   public String getParameterFromAzimuth() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__AZIMUTH);
   }
 
   @Override
   public String getParameterFromElevation() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ELEVATION);
   }
 
   @Override
   public boolean isIntensityParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__INTENSITY);
   }
 
   @Override
   public boolean isAzimuthParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__AZIMUTH);
   }
 
   @Override
   public boolean isElevationParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ELEVATION);
   }
 
   // children

@@ -69,6 +69,15 @@ public class ByValueConditionImpl extends BaseImpl
   private IUserDefinedValueCondition userDefinedValueCondition;
   private ITrafficSignalCondition trafficSignalCondition;
   private ITrafficSignalControllerCondition trafficSignalControllerCondition;
+
+  private IParameterConditionWriter parameterConditionWriter;
+  private ITimeOfDayConditionWriter timeOfDayConditionWriter;
+  private ISimulationTimeConditionWriter simulationTimeConditionWriter;
+  private IStoryboardElementStateConditionWriter storyboardElementStateConditionWriter;
+  private IUserDefinedValueConditionWriter userDefinedValueConditionWriter;
+  private ITrafficSignalConditionWriter trafficSignalConditionWriter;
+  private ITrafficSignalControllerConditionWriter trafficSignalControllerConditionWriter;
+
   /** Default constructor */
   public ByValueConditionImpl() {
     super();
@@ -413,76 +422,76 @@ public class ByValueConditionImpl extends BaseImpl
   // children
   @Override
   public IParameterConditionWriter getParameterConditionWriter() {
-    return null;
+    return this.parameterConditionWriter;
   }
 
   @Override
   public ITimeOfDayConditionWriter getTimeOfDayConditionWriter() {
-    return null;
+    return this.timeOfDayConditionWriter;
   }
 
   @Override
   public ISimulationTimeConditionWriter getSimulationTimeConditionWriter() {
-    return null;
+    return this.simulationTimeConditionWriter;
   }
 
   @Override
   public IStoryboardElementStateConditionWriter getStoryboardElementStateConditionWriter() {
-    return null;
+    return this.storyboardElementStateConditionWriter;
   }
 
   @Override
   public IUserDefinedValueConditionWriter getUserDefinedValueConditionWriter() {
-    return null;
+    return this.userDefinedValueConditionWriter;
   }
 
   @Override
   public ITrafficSignalConditionWriter getTrafficSignalConditionWriter() {
-    return null;
+    return this.trafficSignalConditionWriter;
   }
 
   @Override
   public ITrafficSignalControllerConditionWriter getTrafficSignalControllerConditionWriter() {
-    return null;
+    return this.trafficSignalControllerConditionWriter;
   }
 
   @Override
   public void writeToParameterConditionWriter(IParameterConditionWriter parameterConditionWriter) {
-    // empty
+    this.parameterConditionWriter = parameterConditionWriter;
   }
 
   @Override
   public void writeToTimeOfDayConditionWriter(ITimeOfDayConditionWriter timeOfDayConditionWriter) {
-    // empty
+    this.timeOfDayConditionWriter = timeOfDayConditionWriter;
   }
 
   @Override
   public void writeToSimulationTimeConditionWriter(
       ISimulationTimeConditionWriter simulationTimeConditionWriter) {
-    // empty
+    this.simulationTimeConditionWriter = simulationTimeConditionWriter;
   }
 
   @Override
   public void writeToStoryboardElementStateConditionWriter(
       IStoryboardElementStateConditionWriter storyboardElementStateConditionWriter) {
-    // empty
+    this.storyboardElementStateConditionWriter = storyboardElementStateConditionWriter;
   }
 
   @Override
   public void writeToUserDefinedValueConditionWriter(
       IUserDefinedValueConditionWriter userDefinedValueConditionWriter) {
-    // empty
+    this.userDefinedValueConditionWriter = userDefinedValueConditionWriter;
   }
 
   @Override
   public void writeToTrafficSignalConditionWriter(
       ITrafficSignalConditionWriter trafficSignalConditionWriter) {
-    // empty
+    this.trafficSignalConditionWriter = trafficSignalConditionWriter;
   }
 
   @Override
   public void writeToTrafficSignalControllerConditionWriter(
       ITrafficSignalControllerConditionWriter trafficSignalControllerConditionWriter) {
-    // empty
+    this.trafficSignalControllerConditionWriter = trafficSignalControllerConditionWriter;
   }
 }

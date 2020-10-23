@@ -53,6 +53,10 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, IModifyRule
 
   private IParameterAddValueRule addValue;
   private IParameterMultiplyByValueRule multiplyByValue;
+
+  private IParameterAddValueRuleWriter addValueWriter;
+  private IParameterMultiplyByValueRuleWriter multiplyByValueWriter;
+
   /** Default constructor */
   public ModifyRuleImpl() {
     super();
@@ -244,22 +248,22 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule, IModifyRule
   // children
   @Override
   public IParameterAddValueRuleWriter getAddValueWriter() {
-    return null;
+    return this.addValueWriter;
   }
 
   @Override
   public IParameterMultiplyByValueRuleWriter getMultiplyByValueWriter() {
-    return null;
+    return this.multiplyByValueWriter;
   }
 
   @Override
   public void writeToAddValueWriter(IParameterAddValueRuleWriter addValueWriter) {
-    // empty
+    this.addValueWriter = addValueWriter;
   }
 
   @Override
   public void writeToMultiplyByValueWriter(
       IParameterMultiplyByValueRuleWriter multiplyByValueWriter) {
-    // empty
+    this.multiplyByValueWriter = multiplyByValueWriter;
   }
 }

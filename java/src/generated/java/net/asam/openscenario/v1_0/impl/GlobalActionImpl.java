@@ -62,6 +62,13 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobal
   private IParameterAction parameterAction;
   private IInfrastructureAction infrastructureAction;
   private ITrafficAction trafficAction;
+
+  private IEnvironmentActionWriter environmentActionWriter;
+  private IEntityActionWriter entityActionWriter;
+  private IParameterActionWriter parameterActionWriter;
+  private IInfrastructureActionWriter infrastructureActionWriter;
+  private ITrafficActionWriter trafficActionWriter;
+
   /** Default constructor */
   public GlobalActionImpl() {
     super();
@@ -339,52 +346,52 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobal
   // children
   @Override
   public IEnvironmentActionWriter getEnvironmentActionWriter() {
-    return null;
+    return this.environmentActionWriter;
   }
 
   @Override
   public IEntityActionWriter getEntityActionWriter() {
-    return null;
+    return this.entityActionWriter;
   }
 
   @Override
   public IParameterActionWriter getParameterActionWriter() {
-    return null;
+    return this.parameterActionWriter;
   }
 
   @Override
   public IInfrastructureActionWriter getInfrastructureActionWriter() {
-    return null;
+    return this.infrastructureActionWriter;
   }
 
   @Override
   public ITrafficActionWriter getTrafficActionWriter() {
-    return null;
+    return this.trafficActionWriter;
   }
 
   @Override
   public void writeToEnvironmentActionWriter(IEnvironmentActionWriter environmentActionWriter) {
-    // empty
+    this.environmentActionWriter = environmentActionWriter;
   }
 
   @Override
   public void writeToEntityActionWriter(IEntityActionWriter entityActionWriter) {
-    // empty
+    this.entityActionWriter = entityActionWriter;
   }
 
   @Override
   public void writeToParameterActionWriter(IParameterActionWriter parameterActionWriter) {
-    // empty
+    this.parameterActionWriter = parameterActionWriter;
   }
 
   @Override
   public void writeToInfrastructureActionWriter(
       IInfrastructureActionWriter infrastructureActionWriter) {
-    // empty
+    this.infrastructureActionWriter = infrastructureActionWriter;
   }
 
   @Override
   public void writeToTrafficActionWriter(ITrafficActionWriter trafficActionWriter) {
-    // empty
+    this.trafficActionWriter = trafficActionWriter;
   }
 }

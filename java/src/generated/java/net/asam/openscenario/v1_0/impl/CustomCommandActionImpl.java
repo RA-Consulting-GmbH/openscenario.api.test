@@ -57,6 +57,7 @@ public class CustomCommandActionImpl extends BaseImpl
 
   private String type;
   private String content;
+
   /** Default constructor */
   public CustomCommandActionImpl() {
     super();
@@ -235,42 +236,42 @@ public class CustomCommandActionImpl extends BaseImpl
 
   @Override
   public void writeToType(String type) {
-    // empty
+    setType(type);
   }
 
   @Override
   public void writeToContent(String content) {
-    // empty
+    setContent(content);
   }
 
   @Override
   public void writeParameterToType(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__TYPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToContent(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__CONTENT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromType() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TYPE);
   }
 
   @Override
   public String getParameterFromContent() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTENT);
   }
 
   @Override
   public boolean isTypeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TYPE);
   }
 
   @Override
   public boolean isContentParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTENT);
   }
 
   // children

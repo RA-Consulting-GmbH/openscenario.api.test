@@ -61,6 +61,9 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, IRoadPo
   private Double s;
   private Double t;
   private IOrientation orientation;
+
+  private IOrientationWriter orientationWriter;
+
   /** Default constructor */
   public RoadPositionImpl() {
     super();
@@ -299,72 +302,72 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPosition, IRoadPo
 
   @Override
   public void writeToRoadId(String roadId) {
-    // empty
+    setRoadId(roadId);
   }
 
   @Override
   public void writeToS(Double s) {
-    // empty
+    setS(s);
   }
 
   @Override
   public void writeToT(Double t) {
-    // empty
+    setT(t);
   }
 
   @Override
   public void writeParameterToRoadId(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToS(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__S, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToT(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__T, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromRoadId() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ROAD_ID);
   }
 
   @Override
   public String getParameterFromS() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__S);
   }
 
   @Override
   public String getParameterFromT() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__T);
   }
 
   @Override
   public boolean isRoadIdParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ROAD_ID);
   }
 
   @Override
   public boolean isSParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__S);
   }
 
   @Override
   public boolean isTParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__T);
   }
 
   // children
   @Override
   public IOrientationWriter getOrientationWriter() {
-    return null;
+    return this.orientationWriter;
   }
 
   @Override
   public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    // empty
+    this.orientationWriter = orientationWriter;
   }
 }

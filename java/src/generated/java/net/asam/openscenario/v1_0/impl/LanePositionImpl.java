@@ -63,6 +63,9 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition, ILanePo
   private Double offset;
   private Double s;
   private IOrientation orientation;
+
+  private IOrientationWriter orientationWriter;
+
   /** Default constructor */
   public LanePositionImpl() {
     super();
@@ -326,92 +329,92 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition, ILanePo
 
   @Override
   public void writeToRoadId(String roadId) {
-    // empty
+    setRoadId(roadId);
   }
 
   @Override
   public void writeToLaneId(String laneId) {
-    // empty
+    setLaneId(laneId);
   }
 
   @Override
   public void writeToOffset(Double offset) {
-    // empty
+    setOffset(offset);
   }
 
   @Override
   public void writeToS(Double s) {
-    // empty
+    setS(s);
   }
 
   @Override
   public void writeParameterToRoadId(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToLaneId(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToS(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__S, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromRoadId() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ROAD_ID);
   }
 
   @Override
   public String getParameterFromLaneId() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LANE_ID);
   }
 
   @Override
   public String getParameterFromOffset() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public String getParameterFromS() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__S);
   }
 
   @Override
   public boolean isRoadIdParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ROAD_ID);
   }
 
   @Override
   public boolean isLaneIdParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LANE_ID);
   }
 
   @Override
   public boolean isOffsetParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public boolean isSParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__S);
   }
 
   // children
   @Override
   public IOrientationWriter getOrientationWriter() {
-    return null;
+    return this.orientationWriter;
   }
 
   @Override
   public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    // empty
+    this.orientationWriter = orientationWriter;
   }
 }

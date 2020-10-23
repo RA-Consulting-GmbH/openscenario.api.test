@@ -61,6 +61,7 @@ public class RelativeSpeedToMasterImpl extends BaseImpl
 
   private Double value;
   private SpeedTargetValueType speedTargetValueType;
+
   /** Default constructor */
   public RelativeSpeedToMasterImpl() {
     super();
@@ -258,42 +259,44 @@ public class RelativeSpeedToMasterImpl extends BaseImpl
 
   @Override
   public void writeToValue(Double value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
-    // empty
+    setSpeedTargetValueType(speedTargetValueType);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToSpeedTargetValueType(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public String getParameterFromSpeedTargetValueType() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isSpeedTargetValueTypeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
 
   // children

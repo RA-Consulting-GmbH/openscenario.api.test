@@ -53,6 +53,10 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedAct
 
   private ITransitionDynamics speedActionDynamics;
   private ISpeedActionTarget speedActionTarget;
+
+  private ITransitionDynamicsWriter speedActionDynamicsWriter;
+  private ISpeedActionTargetWriter speedActionTargetWriter;
+
   /** Default constructor */
   public SpeedActionImpl() {
     super();
@@ -244,22 +248,22 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedAct
   // children
   @Override
   public ITransitionDynamicsWriter getSpeedActionDynamicsWriter() {
-    return null;
+    return this.speedActionDynamicsWriter;
   }
 
   @Override
   public ISpeedActionTargetWriter getSpeedActionTargetWriter() {
-    return null;
+    return this.speedActionTargetWriter;
   }
 
   @Override
   public void writeToSpeedActionDynamicsWriter(
       ITransitionDynamicsWriter speedActionDynamicsWriter) {
-    // empty
+    this.speedActionDynamicsWriter = speedActionDynamicsWriter;
   }
 
   @Override
   public void writeToSpeedActionTargetWriter(ISpeedActionTargetWriter speedActionTargetWriter) {
-    // empty
+    this.speedActionTargetWriter = speedActionTargetWriter;
   }
 }

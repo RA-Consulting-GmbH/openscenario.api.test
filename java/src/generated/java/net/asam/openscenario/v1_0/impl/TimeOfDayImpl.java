@@ -56,6 +56,7 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, ITimeOfDayWri
 
   private Boolean animation;
   private java.util.Date dateTime;
+
   /** Default constructor */
   public TimeOfDayImpl() {
     super();
@@ -240,42 +241,42 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, ITimeOfDayWri
 
   @Override
   public void writeToAnimation(Boolean animation) {
-    // empty
+    setAnimation(animation);
   }
 
   @Override
   public void writeToDateTime(java.util.Date dateTime) {
-    // empty
+    setDateTime(dateTime);
   }
 
   @Override
   public void writeParameterToAnimation(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__ANIMATION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDateTime(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromAnimation() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ANIMATION);
   }
 
   @Override
   public String getParameterFromDateTime() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   @Override
   public boolean isAnimationParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ANIMATION);
   }
 
   @Override
   public boolean isDateTimeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   // children

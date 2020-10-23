@@ -65,6 +65,9 @@ public class RelativeRoadPositionImpl extends BaseImpl
   private Double ds;
   private Double dt;
   private IOrientation orientation;
+
+  private IOrientationWriter orientationWriter;
+
   /** Default constructor */
   public RelativeRoadPositionImpl() {
     super();
@@ -316,72 +319,73 @@ public class RelativeRoadPositionImpl extends BaseImpl
 
   @Override
   public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    // empty
+    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override
   public void writeToDs(Double ds) {
-    // empty
+    setDs(ds);
   }
 
   @Override
   public void writeToDt(Double dt) {
-    // empty
+    setDt(dt);
   }
 
   @Override
   public void writeParameterToEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDs(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDt(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public String getParameterFromDs() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DS);
   }
 
   @Override
   public String getParameterFromDt() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DT);
   }
 
   @Override
   public boolean isEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public boolean isDsParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DS);
   }
 
   @Override
   public boolean isDtParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DT);
   }
 
   // children
   @Override
   public IOrientationWriter getOrientationWriter() {
-    return null;
+    return this.orientationWriter;
   }
 
   @Override
   public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    // empty
+    this.orientationWriter = orientationWriter;
   }
 }

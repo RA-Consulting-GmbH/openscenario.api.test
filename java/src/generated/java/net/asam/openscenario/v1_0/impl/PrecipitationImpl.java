@@ -59,6 +59,7 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, IPrec
 
   private PrecipitationType precipitationType;
   private Double intensity;
+
   /** Default constructor */
   public PrecipitationImpl() {
     super();
@@ -256,42 +257,43 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, IPrec
 
   @Override
   public void writeToPrecipitationType(PrecipitationType precipitationType) {
-    // empty
+    setPrecipitationType(precipitationType);
   }
 
   @Override
   public void writeToIntensity(Double intensity) {
-    // empty
+    setIntensity(intensity);
   }
 
   @Override
   public void writeParameterToPrecipitationType(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PRECIPITATION_TYPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToIntensity(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromPrecipitationType() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE);
   }
 
   @Override
   public String getParameterFromIntensity() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__INTENSITY);
   }
 
   @Override
   public boolean isPrecipitationTypeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE);
   }
 
   @Override
   public boolean isIntensityParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__INTENSITY);
   }
 
   // children

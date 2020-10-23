@@ -67,6 +67,10 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
   private ConditionEdge conditionEdge;
   private IByEntityCondition byEntityCondition;
   private IByValueCondition byValueCondition;
+
+  private IByEntityConditionWriter byEntityConditionWriter;
+  private IByValueConditionWriter byValueConditionWriter;
+
   /** Default constructor */
   public ConditionImpl() {
     super();
@@ -352,82 +356,83 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeToDelay(Double delay) {
-    // empty
+    setDelay(delay);
   }
 
   @Override
   public void writeToConditionEdge(ConditionEdge conditionEdge) {
-    // empty
+    setConditionEdge(conditionEdge);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDelay(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DELAY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToConditionEdge(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CONDITION_EDGE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public String getParameterFromDelay() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DELAY);
   }
 
   @Override
   public String getParameterFromConditionEdge() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONDITION_EDGE);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isDelayParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DELAY);
   }
 
   @Override
   public boolean isConditionEdgeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONDITION_EDGE);
   }
 
   // children
   @Override
   public IByEntityConditionWriter getByEntityConditionWriter() {
-    return null;
+    return this.byEntityConditionWriter;
   }
 
   @Override
   public IByValueConditionWriter getByValueConditionWriter() {
-    return null;
+    return this.byValueConditionWriter;
   }
 
   @Override
   public void writeToByEntityConditionWriter(IByEntityConditionWriter byEntityConditionWriter) {
-    // empty
+    this.byEntityConditionWriter = byEntityConditionWriter;
   }
 
   @Override
   public void writeToByValueConditionWriter(IByValueConditionWriter byValueConditionWriter) {
-    // empty
+    this.byValueConditionWriter = byValueConditionWriter;
   }
 }

@@ -54,6 +54,10 @@ public class ControllerActionImpl extends BaseImpl
 
   private IAssignControllerAction assignControllerAction;
   private IOverrideControllerValueAction overrideControllerValueAction;
+
+  private IAssignControllerActionWriter assignControllerActionWriter;
+  private IOverrideControllerValueActionWriter overrideControllerValueActionWriter;
+
   /** Default constructor */
   public ControllerActionImpl() {
     super();
@@ -248,23 +252,23 @@ public class ControllerActionImpl extends BaseImpl
   // children
   @Override
   public IAssignControllerActionWriter getAssignControllerActionWriter() {
-    return null;
+    return this.assignControllerActionWriter;
   }
 
   @Override
   public IOverrideControllerValueActionWriter getOverrideControllerValueActionWriter() {
-    return null;
+    return this.overrideControllerValueActionWriter;
   }
 
   @Override
   public void writeToAssignControllerActionWriter(
       IAssignControllerActionWriter assignControllerActionWriter) {
-    // empty
+    this.assignControllerActionWriter = assignControllerActionWriter;
   }
 
   @Override
   public void writeToOverrideControllerValueActionWriter(
       IOverrideControllerValueActionWriter overrideControllerValueActionWriter) {
-    // empty
+    this.overrideControllerValueActionWriter = overrideControllerValueActionWriter;
   }
 }

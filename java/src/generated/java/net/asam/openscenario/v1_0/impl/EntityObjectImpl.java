@@ -59,6 +59,12 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, IEntity
   private IVehicle vehicle;
   private IPedestrian pedestrian;
   private IMiscObject miscObject;
+
+  private ICatalogReferenceWriter catalogReferenceWriter;
+  private IVehicleWriter vehicleWriter;
+  private IPedestrianWriter pedestrianWriter;
+  private IMiscObjectWriter miscObjectWriter;
+
   /** Default constructor */
   public EntityObjectImpl() {
     super();
@@ -305,41 +311,41 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject, IEntity
   // children
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public IVehicleWriter getVehicleWriter() {
-    return null;
+    return this.vehicleWriter;
   }
 
   @Override
   public IPedestrianWriter getPedestrianWriter() {
-    return null;
+    return this.pedestrianWriter;
   }
 
   @Override
   public IMiscObjectWriter getMiscObjectWriter() {
-    return null;
+    return this.miscObjectWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 
   @Override
   public void writeToVehicleWriter(IVehicleWriter vehicleWriter) {
-    // empty
+    this.vehicleWriter = vehicleWriter;
   }
 
   @Override
   public void writeToPedestrianWriter(IPedestrianWriter pedestrianWriter) {
-    // empty
+    this.pedestrianWriter = pedestrianWriter;
   }
 
   @Override
   public void writeToMiscObjectWriter(IMiscObjectWriter miscObjectWriter) {
-    // empty
+    this.miscObjectWriter = miscObjectWriter;
   }
 }

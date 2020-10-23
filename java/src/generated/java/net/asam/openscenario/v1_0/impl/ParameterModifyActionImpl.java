@@ -52,6 +52,9 @@ public class ParameterModifyActionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IModifyRule rule;
+
+  private IModifyRuleWriter ruleWriter;
+
   /** Default constructor */
   public ParameterModifyActionImpl() {
     super();
@@ -214,11 +217,11 @@ public class ParameterModifyActionImpl extends BaseImpl
   // children
   @Override
   public IModifyRuleWriter getRuleWriter() {
-    return null;
+    return this.ruleWriter;
   }
 
   @Override
   public void writeToRuleWriter(IModifyRuleWriter ruleWriter) {
-    // empty
+    this.ruleWriter = ruleWriter;
   }
 }

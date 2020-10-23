@@ -50,6 +50,9 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction, ITe
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public TeleportActionImpl() {
     super();
@@ -212,11 +215,11 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction, ITe
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

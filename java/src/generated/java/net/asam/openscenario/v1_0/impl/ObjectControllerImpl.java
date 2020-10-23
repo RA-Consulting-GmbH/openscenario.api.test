@@ -54,6 +54,10 @@ public class ObjectControllerImpl extends BaseImpl
 
   private ICatalogReference catalogReference;
   private IController controller;
+
+  private ICatalogReferenceWriter catalogReferenceWriter;
+  private IControllerWriter controllerWriter;
+
   /** Default constructor */
   public ObjectControllerImpl() {
     super();
@@ -244,21 +248,21 @@ public class ObjectControllerImpl extends BaseImpl
   // children
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public IControllerWriter getControllerWriter() {
-    return null;
+    return this.controllerWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 
   @Override
   public void writeToControllerWriter(IControllerWriter controllerWriter) {
-    // empty
+    this.controllerWriter = controllerWriter;
   }
 }

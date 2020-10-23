@@ -56,6 +56,7 @@ public class ParameterAddValueRuleImpl extends BaseImpl
   }
 
   private Double value;
+
   /** Default constructor */
   public ParameterAddValueRuleImpl() {
     super();
@@ -211,22 +212,22 @@ public class ParameterAddValueRuleImpl extends BaseImpl
 
   @Override
   public void writeToValue(Double value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   // children

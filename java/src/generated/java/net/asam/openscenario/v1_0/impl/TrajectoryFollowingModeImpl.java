@@ -58,6 +58,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
   }
 
   private FollowingMode followingMode;
+
   /** Default constructor */
   public TrajectoryFollowingModeImpl() {
     super();
@@ -229,22 +230,23 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
 
   @Override
   public void writeToFollowingMode(FollowingMode followingMode) {
-    // empty
+    setFollowingMode(followingMode);
   }
 
   @Override
   public void writeParameterToFollowingMode(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__FOLLOWING_MODE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromFollowingMode() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FOLLOWING_MODE);
   }
 
   @Override
   public boolean isFollowingModeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FOLLOWING_MODE);
   }
 
   // children

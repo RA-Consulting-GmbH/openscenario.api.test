@@ -56,6 +56,11 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActi
   private List<IGlobalAction> globalActions;
   private List<IUserDefinedAction> userDefinedActions;
   private List<IPrivate> privates;
+
+  private List<IGlobalActionWriter> globalActionsWriters;
+  private List<IUserDefinedActionWriter> userDefinedActionsWriters;
+  private List<IPrivateWriter> privatesWriters;
+
   /** Default constructor */
   public InitActionsImpl() {
     super();
@@ -296,32 +301,32 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActi
 
   @Override
   public List<IGlobalActionWriter> getGlobalActionsWriter() {
-    return null;
+    return this.globalActionsWriters;
   }
 
   @Override
   public List<IUserDefinedActionWriter> getUserDefinedActionsWriter() {
-    return null;
+    return this.userDefinedActionsWriters;
   }
 
   @Override
   public List<IPrivateWriter> getPrivatesWriter() {
-    return null;
+    return this.privatesWriters;
   }
 
   @Override
   public void setGlobalActionsWriter(List<IGlobalActionWriter> globalActionsWriters) {
-    // empty
+    this.globalActionsWriters = globalActionsWriters;
   }
 
   @Override
   public void setUserDefinedActionsWriter(
       List<IUserDefinedActionWriter> userDefinedActionsWriters) {
-    // empty
+    this.userDefinedActionsWriters = userDefinedActionsWriters;
   }
 
   @Override
   public void setPrivatesWriter(List<IPrivateWriter> privatesWriters) {
-    // empty
+    this.privatesWriters = privatesWriters;
   }
 }

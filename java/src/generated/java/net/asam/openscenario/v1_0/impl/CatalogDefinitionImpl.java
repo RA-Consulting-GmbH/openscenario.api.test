@@ -51,6 +51,9 @@ public class CatalogDefinitionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ICatalog catalog;
+
+  private ICatalogWriter catalogWriter;
+
   /** Default constructor */
   public CatalogDefinitionImpl() {
     super();
@@ -212,11 +215,11 @@ public class CatalogDefinitionImpl extends BaseImpl
   // children
   @Override
   public ICatalogWriter getCatalogWriter() {
-    return null;
+    return this.catalogWriter;
   }
 
   @Override
   public void writeToCatalogWriter(ICatalogWriter catalogWriter) {
-    // empty
+    this.catalogWriter = catalogWriter;
   }
 }
