@@ -63,6 +63,7 @@ public class TransitionDynamicsImpl extends BaseImpl
   private DynamicsShape dynamicsShape;
   private Double value;
   private DynamicsDimension dynamicsDimension;
+
   /** Default constructor */
   public TransitionDynamicsImpl() {
     super();
@@ -297,62 +298,64 @@ public class TransitionDynamicsImpl extends BaseImpl
 
   @Override
   public void writeToDynamicsShape(DynamicsShape dynamicsShape) {
-    // empty
+    setDynamicsShape(dynamicsShape);
   }
 
   @Override
   public void writeToValue(Double value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeToDynamicsDimension(DynamicsDimension dynamicsDimension) {
-    // empty
+    setDynamicsDimension(dynamicsDimension);
   }
 
   @Override
   public void writeParameterToDynamicsShape(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DYNAMICS_SHAPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDynamicsDimension(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromDynamicsShape() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public String getParameterFromDynamicsDimension() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION);
   }
 
   @Override
   public boolean isDynamicsShapeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isDynamicsDimensionParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION);
   }
 
   // children

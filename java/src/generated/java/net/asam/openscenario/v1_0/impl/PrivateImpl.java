@@ -59,6 +59,9 @@ public class PrivateImpl extends BaseImpl implements IPrivate, IPrivateWriter {
 
   private NamedReferenceProxy<IEntity> entityRef;
   private List<IPrivateAction> privateActions;
+
+  private List<IPrivateActionWriter> privateActionsWriters;
+
   /** Default constructor */
   public PrivateImpl() {
     super();
@@ -265,33 +268,34 @@ public class PrivateImpl extends BaseImpl implements IPrivate, IPrivateWriter {
 
   @Override
   public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    // empty
+    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override
   public void writeParameterToEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public boolean isEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   // children
 
   @Override
   public List<IPrivateActionWriter> getPrivateActionsWriter() {
-    return null;
+    return this.privateActionsWriters;
   }
 
   @Override
   public void setPrivateActionsWriter(List<IPrivateActionWriter> privateActionsWriters) {
-    // empty
+    this.privateActionsWriters = privateActionsWriters;
   }
 }

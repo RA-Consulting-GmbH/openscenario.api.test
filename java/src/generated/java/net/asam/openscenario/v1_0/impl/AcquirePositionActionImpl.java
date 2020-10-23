@@ -52,6 +52,9 @@ public class AcquirePositionActionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public AcquirePositionActionImpl() {
     super();
@@ -213,11 +216,11 @@ public class AcquirePositionActionImpl extends BaseImpl
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

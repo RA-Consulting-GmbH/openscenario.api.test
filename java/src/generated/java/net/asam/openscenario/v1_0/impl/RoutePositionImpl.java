@@ -56,6 +56,11 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRout
   private IRouteRef routeRef;
   private IOrientation orientation;
   private IInRoutePosition inRoutePosition;
+
+  private IRouteRefWriter routeRefWriter;
+  private IOrientationWriter orientationWriter;
+  private IInRoutePositionWriter inRoutePositionWriter;
+
   /** Default constructor */
   public RoutePositionImpl() {
     super();
@@ -276,31 +281,31 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRout
   // children
   @Override
   public IRouteRefWriter getRouteRefWriter() {
-    return null;
+    return this.routeRefWriter;
   }
 
   @Override
   public IOrientationWriter getOrientationWriter() {
-    return null;
+    return this.orientationWriter;
   }
 
   @Override
   public IInRoutePositionWriter getInRoutePositionWriter() {
-    return null;
+    return this.inRoutePositionWriter;
   }
 
   @Override
   public void writeToRouteRefWriter(IRouteRefWriter routeRefWriter) {
-    // empty
+    this.routeRefWriter = routeRefWriter;
   }
 
   @Override
   public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    // empty
+    this.orientationWriter = orientationWriter;
   }
 
   @Override
   public void writeToInRoutePositionWriter(IInRoutePositionWriter inRoutePositionWriter) {
-    // empty
+    this.inRoutePositionWriter = inRoutePositionWriter;
   }
 }

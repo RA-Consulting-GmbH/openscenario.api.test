@@ -54,6 +54,10 @@ public class SpeedActionTargetImpl extends BaseImpl
 
   private IRelativeTargetSpeed relativeTargetSpeed;
   private IAbsoluteTargetSpeed absoluteTargetSpeed;
+
+  private IRelativeTargetSpeedWriter relativeTargetSpeedWriter;
+  private IAbsoluteTargetSpeedWriter absoluteTargetSpeedWriter;
+
   /** Default constructor */
   public SpeedActionTargetImpl() {
     super();
@@ -245,23 +249,23 @@ public class SpeedActionTargetImpl extends BaseImpl
   // children
   @Override
   public IRelativeTargetSpeedWriter getRelativeTargetSpeedWriter() {
-    return null;
+    return this.relativeTargetSpeedWriter;
   }
 
   @Override
   public IAbsoluteTargetSpeedWriter getAbsoluteTargetSpeedWriter() {
-    return null;
+    return this.absoluteTargetSpeedWriter;
   }
 
   @Override
   public void writeToRelativeTargetSpeedWriter(
       IRelativeTargetSpeedWriter relativeTargetSpeedWriter) {
-    // empty
+    this.relativeTargetSpeedWriter = relativeTargetSpeedWriter;
   }
 
   @Override
   public void writeToAbsoluteTargetSpeedWriter(
       IAbsoluteTargetSpeedWriter absoluteTargetSpeedWriter) {
-    // empty
+    this.absoluteTargetSpeedWriter = absoluteTargetSpeedWriter;
   }
 }

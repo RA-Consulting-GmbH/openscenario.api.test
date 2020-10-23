@@ -62,6 +62,10 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   private Double weight;
   private IController controller;
   private ICatalogReference catalogReference;
+
+  private IControllerWriter controllerWriter;
+  private ICatalogReferenceWriter catalogReferenceWriter;
+
   /** Default constructor */
   public ControllerDistributionEntryImpl() {
     super();
@@ -278,42 +282,42 @@ public class ControllerDistributionEntryImpl extends BaseImpl
 
   @Override
   public void writeToWeight(Double weight) {
-    // empty
+    setWeight(weight);
   }
 
   @Override
   public void writeParameterToWeight(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromWeight() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   @Override
   public boolean isWeightParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   // children
   @Override
   public IControllerWriter getControllerWriter() {
-    return null;
+    return this.controllerWriter;
   }
 
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public void writeToControllerWriter(IControllerWriter controllerWriter) {
-    // empty
+    this.controllerWriter = controllerWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 }

@@ -58,6 +58,7 @@ public class CenterImpl extends BaseImpl implements ICenter, ICenterWriter {
   private Double x;
   private Double y;
   private Double z;
+
   /** Default constructor */
   public CenterImpl() {
     super();
@@ -256,62 +257,62 @@ public class CenterImpl extends BaseImpl implements ICenter, ICenterWriter {
 
   @Override
   public void writeToX(Double x) {
-    // empty
+    setX(x);
   }
 
   @Override
   public void writeToY(Double y) {
-    // empty
+    setY(y);
   }
 
   @Override
   public void writeToZ(Double z) {
-    // empty
+    setZ(z);
   }
 
   @Override
   public void writeParameterToX(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__X, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToY(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__Y, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToZ(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__Z, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromX() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__X);
   }
 
   @Override
   public String getParameterFromY() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Y);
   }
 
   @Override
   public String getParameterFromZ() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Z);
   }
 
   @Override
   public boolean isXParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__X);
   }
 
   @Override
   public boolean isYParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Y);
   }
 
   @Override
   public boolean isZParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Z);
   }
 
   // children

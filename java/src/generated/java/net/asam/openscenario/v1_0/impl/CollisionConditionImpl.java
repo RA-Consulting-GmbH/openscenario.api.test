@@ -54,6 +54,10 @@ public class CollisionConditionImpl extends BaseImpl
 
   private IEntityRef entityRef;
   private IByObjectType byType;
+
+  private IEntityRefWriter entityRefWriter;
+  private IByObjectTypeWriter byTypeWriter;
+
   /** Default constructor */
   public CollisionConditionImpl() {
     super();
@@ -244,21 +248,21 @@ public class CollisionConditionImpl extends BaseImpl
   // children
   @Override
   public IEntityRefWriter getEntityRefWriter() {
-    return null;
+    return this.entityRefWriter;
   }
 
   @Override
   public IByObjectTypeWriter getByTypeWriter() {
-    return null;
+    return this.byTypeWriter;
   }
 
   @Override
   public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter) {
-    // empty
+    this.entityRefWriter = entityRefWriter;
   }
 
   @Override
   public void writeToByTypeWriter(IByObjectTypeWriter byTypeWriter) {
-    // empty
+    this.byTypeWriter = byTypeWriter;
   }
 }

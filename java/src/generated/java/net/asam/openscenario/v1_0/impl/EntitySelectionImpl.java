@@ -58,6 +58,9 @@ public class EntitySelectionImpl extends BaseImpl
 
   private String name;
   private ISelectedEntities members;
+
+  private ISelectedEntitiesWriter membersWriter;
+
   /** Default constructor */
   public EntitySelectionImpl() {
     super();
@@ -246,32 +249,32 @@ public class EntitySelectionImpl extends BaseImpl
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public ISelectedEntitiesWriter getMembersWriter() {
-    return null;
+    return this.membersWriter;
   }
 
   @Override
   public void writeToMembersWriter(ISelectedEntitiesWriter membersWriter) {
-    // empty
+    this.membersWriter = membersWriter;
   }
 }

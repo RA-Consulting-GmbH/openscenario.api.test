@@ -73,6 +73,11 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian, IPedestrian
   private List<IParameterDeclaration> parameterDeclarations;
   private IBoundingBox boundingBox;
   private IProperties properties;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private IBoundingBoxWriter boundingBoxWriter;
+  private IPropertiesWriter propertiesWriter;
+
   /** Default constructor */
   public PedestrianImpl() {
     super();
@@ -442,113 +447,114 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian, IPedestrian
 
   @Override
   public void writeToModel(String model) {
-    // empty
+    setModel(model);
   }
 
   @Override
   public void writeToMass(Double mass) {
-    // empty
+    setMass(mass);
   }
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeToPedestrianCategory(PedestrianCategory pedestrianCategory) {
-    // empty
+    setPedestrianCategory(pedestrianCategory);
   }
 
   @Override
   public void writeParameterToModel(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__MODEL, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToMass(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__MASS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToPedestrianCategory(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromModel() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MODEL);
   }
 
   @Override
   public String getParameterFromMass() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MASS);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public String getParameterFromPedestrianCategory() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY);
   }
 
   @Override
   public boolean isModelParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MODEL);
   }
 
   @Override
   public boolean isMassParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MASS);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isPedestrianCategoryParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY);
   }
 
   // children
   @Override
   public IBoundingBoxWriter getBoundingBoxWriter() {
-    return null;
+    return this.boundingBoxWriter;
   }
 
   @Override
   public IPropertiesWriter getPropertiesWriter() {
-    return null;
+    return this.propertiesWriter;
   }
 
   @Override
   public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
-    // empty
+    this.boundingBoxWriter = boundingBoxWriter;
   }
 
   @Override
   public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    // empty
+    this.propertiesWriter = propertiesWriter;
   }
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 }

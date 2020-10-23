@@ -61,6 +61,12 @@ public class FollowTrajectoryActionImpl extends BaseImpl
   private ICatalogReference catalogReference;
   private ITimeReference timeReference;
   private ITrajectoryFollowingMode trajectoryFollowingMode;
+
+  private ITrajectoryWriter trajectoryWriter;
+  private ICatalogReferenceWriter catalogReferenceWriter;
+  private ITimeReferenceWriter timeReferenceWriter;
+  private ITrajectoryFollowingModeWriter trajectoryFollowingModeWriter;
+
   /** Default constructor */
   public FollowTrajectoryActionImpl() {
     super();
@@ -312,42 +318,42 @@ public class FollowTrajectoryActionImpl extends BaseImpl
   // children
   @Override
   public ITrajectoryWriter getTrajectoryWriter() {
-    return null;
+    return this.trajectoryWriter;
   }
 
   @Override
   public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return null;
+    return this.catalogReferenceWriter;
   }
 
   @Override
   public ITimeReferenceWriter getTimeReferenceWriter() {
-    return null;
+    return this.timeReferenceWriter;
   }
 
   @Override
   public ITrajectoryFollowingModeWriter getTrajectoryFollowingModeWriter() {
-    return null;
+    return this.trajectoryFollowingModeWriter;
   }
 
   @Override
   public void writeToTrajectoryWriter(ITrajectoryWriter trajectoryWriter) {
-    // empty
+    this.trajectoryWriter = trajectoryWriter;
   }
 
   @Override
   public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    // empty
+    this.catalogReferenceWriter = catalogReferenceWriter;
   }
 
   @Override
   public void writeToTimeReferenceWriter(ITimeReferenceWriter timeReferenceWriter) {
-    // empty
+    this.timeReferenceWriter = timeReferenceWriter;
   }
 
   @Override
   public void writeToTrajectoryFollowingModeWriter(
       ITrajectoryFollowingModeWriter trajectoryFollowingModeWriter) {
-    // empty
+    this.trajectoryFollowingModeWriter = trajectoryFollowingModeWriter;
   }
 }

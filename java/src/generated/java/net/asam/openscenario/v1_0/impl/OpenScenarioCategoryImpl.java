@@ -54,6 +54,10 @@ public class OpenScenarioCategoryImpl extends BaseImpl
 
   private IScenarioDefinition scenarioDefinition;
   private ICatalogDefinition catalogDefinition;
+
+  private IScenarioDefinitionWriter scenarioDefinitionWriter;
+  private ICatalogDefinitionWriter catalogDefinitionWriter;
+
   /** Default constructor */
   public OpenScenarioCategoryImpl() {
     super();
@@ -245,21 +249,21 @@ public class OpenScenarioCategoryImpl extends BaseImpl
   // children
   @Override
   public IScenarioDefinitionWriter getScenarioDefinitionWriter() {
-    return null;
+    return this.scenarioDefinitionWriter;
   }
 
   @Override
   public ICatalogDefinitionWriter getCatalogDefinitionWriter() {
-    return null;
+    return this.catalogDefinitionWriter;
   }
 
   @Override
   public void writeToScenarioDefinitionWriter(IScenarioDefinitionWriter scenarioDefinitionWriter) {
-    // empty
+    this.scenarioDefinitionWriter = scenarioDefinitionWriter;
   }
 
   @Override
   public void writeToCatalogDefinitionWriter(ICatalogDefinitionWriter catalogDefinitionWriter) {
-    // empty
+    this.catalogDefinitionWriter = catalogDefinitionWriter;
   }
 }

@@ -62,6 +62,7 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, IFileHeader
   private java.util.Date date;
   private String description;
   private String author;
+
   /** Default constructor */
   public FileHeaderImpl() {
     super();
@@ -323,102 +324,103 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, IFileHeader
 
   @Override
   public void writeToRevMajor(Integer revMajor) {
-    // empty
+    setRevMajor(revMajor);
   }
 
   @Override
   public void writeToRevMinor(Integer revMinor) {
-    // empty
+    setRevMinor(revMinor);
   }
 
   @Override
   public void writeToDate(java.util.Date date) {
-    // empty
+    setDate(date);
   }
 
   @Override
   public void writeToDescription(String description) {
-    // empty
+    setDescription(description);
   }
 
   @Override
   public void writeToAuthor(String author) {
-    // empty
+    setAuthor(author);
   }
 
   @Override
   public void writeParameterToRevMajor(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__REV_MAJOR, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToRevMinor(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__REV_MINOR, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDate(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DATE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDescription(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DESCRIPTION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToAuthor(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__AUTHOR, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromRevMajor() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__REV_MAJOR);
   }
 
   @Override
   public String getParameterFromRevMinor() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__REV_MINOR);
   }
 
   @Override
   public String getParameterFromDate() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DATE);
   }
 
   @Override
   public String getParameterFromDescription() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DESCRIPTION);
   }
 
   @Override
   public String getParameterFromAuthor() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__AUTHOR);
   }
 
   @Override
   public boolean isRevMajorParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__REV_MAJOR);
   }
 
   @Override
   public boolean isRevMinorParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__REV_MINOR);
   }
 
   @Override
   public boolean isDateParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DATE);
   }
 
   @Override
   public boolean isDescriptionParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DESCRIPTION);
   }
 
   @Override
   public boolean isAuthorParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__AUTHOR);
   }
 
   // children

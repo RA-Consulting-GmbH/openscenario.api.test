@@ -67,6 +67,9 @@ public class DistanceConditionImpl extends BaseImpl
   private Boolean alongRoute;
   private Rule rule;
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public DistanceConditionImpl() {
     super();
@@ -346,92 +349,93 @@ public class DistanceConditionImpl extends BaseImpl
 
   @Override
   public void writeToValue(Double value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeToFreespace(Boolean freespace) {
-    // empty
+    setFreespace(freespace);
   }
 
   @Override
   public void writeToAlongRoute(Boolean alongRoute) {
-    // empty
+    setAlongRoute(alongRoute);
   }
 
   @Override
   public void writeToRule(Rule rule) {
-    // empty
+    setRule(rule);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToFreespace(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToAlongRoute(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ALONG_ROUTE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToRule(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public String getParameterFromFreespace() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FREESPACE);
   }
 
   @Override
   public String getParameterFromAlongRoute() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ALONG_ROUTE);
   }
 
   @Override
   public String getParameterFromRule() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isFreespaceParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FREESPACE);
   }
 
   @Override
   public boolean isAlongRouteParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ALONG_ROUTE);
   }
 
   @Override
   public boolean isRuleParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
   }
 
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

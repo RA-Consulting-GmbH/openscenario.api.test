@@ -64,6 +64,13 @@ public class ScenarioDefinitionImpl extends BaseImpl
   private IRoadNetwork roadNetwork;
   private IEntities entities;
   private IStoryboard storyboard;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private ICatalogLocationsWriter catalogLocationsWriter;
+  private IRoadNetworkWriter roadNetworkWriter;
+  private IEntitiesWriter entitiesWriter;
+  private IStoryboardWriter storyboardWriter;
+
   /** Default constructor */
   public ScenarioDefinitionImpl() {
     super();
@@ -376,52 +383,52 @@ public class ScenarioDefinitionImpl extends BaseImpl
   // children
   @Override
   public ICatalogLocationsWriter getCatalogLocationsWriter() {
-    return null;
+    return this.catalogLocationsWriter;
   }
 
   @Override
   public IRoadNetworkWriter getRoadNetworkWriter() {
-    return null;
+    return this.roadNetworkWriter;
   }
 
   @Override
   public IEntitiesWriter getEntitiesWriter() {
-    return null;
+    return this.entitiesWriter;
   }
 
   @Override
   public IStoryboardWriter getStoryboardWriter() {
-    return null;
+    return this.storyboardWriter;
   }
 
   @Override
   public void writeToCatalogLocationsWriter(ICatalogLocationsWriter catalogLocationsWriter) {
-    // empty
+    this.catalogLocationsWriter = catalogLocationsWriter;
   }
 
   @Override
   public void writeToRoadNetworkWriter(IRoadNetworkWriter roadNetworkWriter) {
-    // empty
+    this.roadNetworkWriter = roadNetworkWriter;
   }
 
   @Override
   public void writeToEntitiesWriter(IEntitiesWriter entitiesWriter) {
-    // empty
+    this.entitiesWriter = entitiesWriter;
   }
 
   @Override
   public void writeToStoryboardWriter(IStoryboardWriter storyboardWriter) {
-    // empty
+    this.storyboardWriter = storyboardWriter;
   }
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 }

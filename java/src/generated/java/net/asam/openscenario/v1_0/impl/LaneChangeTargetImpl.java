@@ -54,6 +54,10 @@ public class LaneChangeTargetImpl extends BaseImpl
 
   private IRelativeTargetLane relativeTargetLane;
   private IAbsoluteTargetLane absoluteTargetLane;
+
+  private IRelativeTargetLaneWriter relativeTargetLaneWriter;
+  private IAbsoluteTargetLaneWriter absoluteTargetLaneWriter;
+
   /** Default constructor */
   public LaneChangeTargetImpl() {
     super();
@@ -245,21 +249,21 @@ public class LaneChangeTargetImpl extends BaseImpl
   // children
   @Override
   public IRelativeTargetLaneWriter getRelativeTargetLaneWriter() {
-    return null;
+    return this.relativeTargetLaneWriter;
   }
 
   @Override
   public IAbsoluteTargetLaneWriter getAbsoluteTargetLaneWriter() {
-    return null;
+    return this.absoluteTargetLaneWriter;
   }
 
   @Override
   public void writeToRelativeTargetLaneWriter(IRelativeTargetLaneWriter relativeTargetLaneWriter) {
-    // empty
+    this.relativeTargetLaneWriter = relativeTargetLaneWriter;
   }
 
   @Override
   public void writeToAbsoluteTargetLaneWriter(IAbsoluteTargetLaneWriter absoluteTargetLaneWriter) {
-    // empty
+    this.absoluteTargetLaneWriter = absoluteTargetLaneWriter;
   }
 }

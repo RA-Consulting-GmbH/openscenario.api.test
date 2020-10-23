@@ -53,6 +53,10 @@ public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter
 
   private List<IScenarioObject> scenarioObjects;
   private List<IEntitySelection> entitySelections;
+
+  private List<IScenarioObjectWriter> scenarioObjectsWriters;
+  private List<IEntitySelectionWriter> entitySelectionsWriters;
+
   /** Default constructor */
   public EntitiesImpl() {
     super();
@@ -258,21 +262,21 @@ public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter
 
   @Override
   public List<IScenarioObjectWriter> getScenarioObjectsWriter() {
-    return null;
+    return this.scenarioObjectsWriters;
   }
 
   @Override
   public List<IEntitySelectionWriter> getEntitySelectionsWriter() {
-    return null;
+    return this.entitySelectionsWriters;
   }
 
   @Override
   public void setScenarioObjectsWriter(List<IScenarioObjectWriter> scenarioObjectsWriters) {
-    // empty
+    this.scenarioObjectsWriters = scenarioObjectsWriters;
   }
 
   @Override
   public void setEntitySelectionsWriter(List<IEntitySelectionWriter> entitySelectionsWriters) {
-    // empty
+    this.entitySelectionsWriters = entitySelectionsWriters;
   }
 }

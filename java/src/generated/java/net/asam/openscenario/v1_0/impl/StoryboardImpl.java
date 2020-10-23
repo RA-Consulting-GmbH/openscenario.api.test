@@ -56,6 +56,11 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboard
   private IInit init;
   private List<IStory> stories;
   private ITrigger stopTrigger;
+
+  private IInitWriter initWriter;
+  private List<IStoryWriter> storiesWriters;
+  private ITriggerWriter stopTriggerWriter;
+
   /** Default constructor */
   public StoryboardImpl() {
     super();
@@ -286,31 +291,31 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboard
   // children
   @Override
   public IInitWriter getInitWriter() {
-    return null;
+    return this.initWriter;
   }
 
   @Override
   public ITriggerWriter getStopTriggerWriter() {
-    return null;
+    return this.stopTriggerWriter;
   }
 
   @Override
   public void writeToInitWriter(IInitWriter initWriter) {
-    // empty
+    this.initWriter = initWriter;
   }
 
   @Override
   public void writeToStopTriggerWriter(ITriggerWriter stopTriggerWriter) {
-    // empty
+    this.stopTriggerWriter = stopTriggerWriter;
   }
 
   @Override
   public List<IStoryWriter> getStoriesWriter() {
-    return null;
+    return this.storiesWriters;
   }
 
   @Override
   public void setStoriesWriter(List<IStoryWriter> storiesWriters) {
-    // empty
+    this.storiesWriters = storiesWriters;
   }
 }

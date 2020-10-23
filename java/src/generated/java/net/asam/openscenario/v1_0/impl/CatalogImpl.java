@@ -78,6 +78,16 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
   private List<IManeuver> maneuvers;
   private List<ITrajectory> trajectories;
   private List<IRoute> routes;
+
+  private List<IVehicleWriter> vehiclesWriters;
+  private List<IControllerWriter> controllersWriters;
+  private List<IPedestrianWriter> pedestriansWriters;
+  private List<IMiscObjectWriter> miscObjectsWriters;
+  private List<IEnvironmentWriter> environmentsWriters;
+  private List<IManeuverWriter> maneuversWriters;
+  private List<ITrajectoryWriter> trajectoriesWriters;
+  private List<IRouteWriter> routesWriters;
+
   /** Default constructor */
   public CatalogImpl() {
     super();
@@ -517,103 +527,103 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
 
   @Override
   public List<IVehicleWriter> getVehiclesWriter() {
-    return null;
+    return this.vehiclesWriters;
   }
 
   @Override
   public List<IControllerWriter> getControllersWriter() {
-    return null;
+    return this.controllersWriters;
   }
 
   @Override
   public List<IPedestrianWriter> getPedestriansWriter() {
-    return null;
+    return this.pedestriansWriters;
   }
 
   @Override
   public List<IMiscObjectWriter> getMiscObjectsWriter() {
-    return null;
+    return this.miscObjectsWriters;
   }
 
   @Override
   public List<IEnvironmentWriter> getEnvironmentsWriter() {
-    return null;
+    return this.environmentsWriters;
   }
 
   @Override
   public List<IManeuverWriter> getManeuversWriter() {
-    return null;
+    return this.maneuversWriters;
   }
 
   @Override
   public List<ITrajectoryWriter> getTrajectoriesWriter() {
-    return null;
+    return this.trajectoriesWriters;
   }
 
   @Override
   public List<IRouteWriter> getRoutesWriter() {
-    return null;
+    return this.routesWriters;
   }
 
   @Override
   public void setVehiclesWriter(List<IVehicleWriter> vehiclesWriters) {
-    // empty
+    this.vehiclesWriters = vehiclesWriters;
   }
 
   @Override
   public void setControllersWriter(List<IControllerWriter> controllersWriters) {
-    // empty
+    this.controllersWriters = controllersWriters;
   }
 
   @Override
   public void setPedestriansWriter(List<IPedestrianWriter> pedestriansWriters) {
-    // empty
+    this.pedestriansWriters = pedestriansWriters;
   }
 
   @Override
   public void setMiscObjectsWriter(List<IMiscObjectWriter> miscObjectsWriters) {
-    // empty
+    this.miscObjectsWriters = miscObjectsWriters;
   }
 
   @Override
   public void setEnvironmentsWriter(List<IEnvironmentWriter> environmentsWriters) {
-    // empty
+    this.environmentsWriters = environmentsWriters;
   }
 
   @Override
   public void setManeuversWriter(List<IManeuverWriter> maneuversWriters) {
-    // empty
+    this.maneuversWriters = maneuversWriters;
   }
 
   @Override
   public void setTrajectoriesWriter(List<ITrajectoryWriter> trajectoriesWriters) {
-    // empty
+    this.trajectoriesWriters = trajectoriesWriters;
   }
 
   @Override
   public void setRoutesWriter(List<IRouteWriter> routesWriters) {
-    // empty
+    this.routesWriters = routesWriters;
   }
 }

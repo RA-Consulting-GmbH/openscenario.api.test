@@ -67,6 +67,10 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
   private String name;
   private List<IAction> actions;
   private ITrigger startTrigger;
+
+  private List<IActionWriter> actionsWriters;
+  private ITriggerWriter startTriggerWriter;
+
   /** Default constructor */
   public EventImpl() {
     super();
@@ -359,82 +363,84 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
 
   @Override
   public void writeToPriority(Priority priority) {
-    // empty
+    setPriority(priority);
   }
 
   @Override
   public void writeToMaximumExecutionCount(Long maximumExecutionCount) {
-    // empty
+    setMaximumExecutionCount(maximumExecutionCount);
   }
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToPriority(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__PRIORITY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToMaximumExecutionCount(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromPriority() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PRIORITY);
   }
 
   @Override
   public String getParameterFromMaximumExecutionCount() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isPriorityParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PRIORITY);
   }
 
   @Override
   public boolean isMaximumExecutionCountParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public ITriggerWriter getStartTriggerWriter() {
-    return null;
+    return this.startTriggerWriter;
   }
 
   @Override
   public void writeToStartTriggerWriter(ITriggerWriter startTriggerWriter) {
-    // empty
+    this.startTriggerWriter = startTriggerWriter;
   }
 
   @Override
   public List<IActionWriter> getActionsWriter() {
-    return null;
+    return this.actionsWriters;
   }
 
   @Override
   public void setActionsWriter(List<IActionWriter> actionsWriters) {
-    // empty
+    this.actionsWriters = actionsWriters;
   }
 }

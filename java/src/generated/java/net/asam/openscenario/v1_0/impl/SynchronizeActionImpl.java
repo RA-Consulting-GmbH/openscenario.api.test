@@ -64,6 +64,11 @@ public class SynchronizeActionImpl extends BaseImpl
   private IPosition targetPositionMaster;
   private IPosition targetPosition;
   private IFinalSpeed finalSpeed;
+
+  private IPositionWriter targetPositionMasterWriter;
+  private IPositionWriter targetPositionWriter;
+  private IFinalSpeedWriter finalSpeedWriter;
+
   /** Default constructor */
   public SynchronizeActionImpl() {
     super();
@@ -325,52 +330,54 @@ public class SynchronizeActionImpl extends BaseImpl
 
   @Override
   public void writeToMasterEntityRef(INamedReference<IEntity> masterEntityRef) {
-    // empty
+    setMasterEntityRef(
+        new NamedReferenceProxy<>(masterEntityRef.getTargetObject(), masterEntityRef.getNameRef()));
   }
 
   @Override
   public void writeParameterToMasterEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MASTER_ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromMasterEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF);
   }
 
   @Override
   public boolean isMasterEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF);
   }
 
   // children
   @Override
   public IPositionWriter getTargetPositionMasterWriter() {
-    return null;
+    return this.targetPositionMasterWriter;
   }
 
   @Override
   public IPositionWriter getTargetPositionWriter() {
-    return null;
+    return this.targetPositionWriter;
   }
 
   @Override
   public IFinalSpeedWriter getFinalSpeedWriter() {
-    return null;
+    return this.finalSpeedWriter;
   }
 
   @Override
   public void writeToTargetPositionMasterWriter(IPositionWriter targetPositionMasterWriter) {
-    // empty
+    this.targetPositionMasterWriter = targetPositionMasterWriter;
   }
 
   @Override
   public void writeToTargetPositionWriter(IPositionWriter targetPositionWriter) {
-    // empty
+    this.targetPositionWriter = targetPositionWriter;
   }
 
   @Override
   public void writeToFinalSpeedWriter(IFinalSpeedWriter finalSpeedWriter) {
-    // empty
+    this.finalSpeedWriter = finalSpeedWriter;
   }
 }

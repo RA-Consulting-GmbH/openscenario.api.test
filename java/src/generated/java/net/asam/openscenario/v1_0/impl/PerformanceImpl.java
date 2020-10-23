@@ -58,6 +58,7 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, IPerforma
   private Double maxSpeed;
   private Double maxAcceleration;
   private Double maxDeceleration;
+
   /** Default constructor */
   public PerformanceImpl() {
     super();
@@ -262,62 +263,64 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, IPerforma
 
   @Override
   public void writeToMaxSpeed(Double maxSpeed) {
-    // empty
+    setMaxSpeed(maxSpeed);
   }
 
   @Override
   public void writeToMaxAcceleration(Double maxAcceleration) {
-    // empty
+    setMaxAcceleration(maxAcceleration);
   }
 
   @Override
   public void writeToMaxDeceleration(Double maxDeceleration) {
-    // empty
+    setMaxDeceleration(maxDeceleration);
   }
 
   @Override
   public void writeParameterToMaxSpeed(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__MAX_SPEED, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToMaxAcceleration(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_ACCELERATION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToMaxDeceleration(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_DECELERATION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromMaxSpeed() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_SPEED);
   }
 
   @Override
   public String getParameterFromMaxAcceleration() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
   }
 
   @Override
   public String getParameterFromMaxDeceleration() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_DECELERATION);
   }
 
   @Override
   public boolean isMaxSpeedParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_SPEED);
   }
 
   @Override
   public boolean isMaxAccelerationParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
   }
 
   @Override
   public boolean isMaxDecelerationParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_DECELERATION);
   }
 
   // children

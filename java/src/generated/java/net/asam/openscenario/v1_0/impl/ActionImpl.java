@@ -63,6 +63,11 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
   private IGlobalAction globalAction;
   private IUserDefinedAction userDefinedAction;
   private IPrivateAction privateAction;
+
+  private IGlobalActionWriter globalActionWriter;
+  private IUserDefinedActionWriter userDefinedActionWriter;
+  private IPrivateActionWriter privateActionWriter;
+
   /** Default constructor */
   public ActionImpl() {
     super();
@@ -308,52 +313,52 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public IGlobalActionWriter getGlobalActionWriter() {
-    return null;
+    return this.globalActionWriter;
   }
 
   @Override
   public IUserDefinedActionWriter getUserDefinedActionWriter() {
-    return null;
+    return this.userDefinedActionWriter;
   }
 
   @Override
   public IPrivateActionWriter getPrivateActionWriter() {
-    return null;
+    return this.privateActionWriter;
   }
 
   @Override
   public void writeToGlobalActionWriter(IGlobalActionWriter globalActionWriter) {
-    // empty
+    this.globalActionWriter = globalActionWriter;
   }
 
   @Override
   public void writeToUserDefinedActionWriter(IUserDefinedActionWriter userDefinedActionWriter) {
-    // empty
+    this.userDefinedActionWriter = userDefinedActionWriter;
   }
 
   @Override
   public void writeToPrivateActionWriter(IPrivateActionWriter privateActionWriter) {
-    // empty
+    this.privateActionWriter = privateActionWriter;
   }
 }

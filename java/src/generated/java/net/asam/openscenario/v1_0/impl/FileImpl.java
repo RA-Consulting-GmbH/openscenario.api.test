@@ -54,6 +54,7 @@ public class FileImpl extends BaseImpl implements IFile, IFileWriter {
   }
 
   private String filepath;
+
   /** Default constructor */
   public FileImpl() {
     super();
@@ -210,22 +211,22 @@ public class FileImpl extends BaseImpl implements IFile, IFileWriter {
 
   @Override
   public void writeToFilepath(String filepath) {
-    // empty
+    setFilepath(filepath);
   }
 
   @Override
   public void writeParameterToFilepath(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__FILEPATH, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromFilepath() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FILEPATH);
   }
 
   @Override
   public boolean isFilepathParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FILEPATH);
   }
 
   // children

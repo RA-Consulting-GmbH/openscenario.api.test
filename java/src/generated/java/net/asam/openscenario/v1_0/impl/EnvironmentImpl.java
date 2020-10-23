@@ -67,6 +67,12 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment, IEnvironm
   private ITimeOfDay timeOfDay;
   private IWeather weather;
   private IRoadCondition roadCondition;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private ITimeOfDayWriter timeOfDayWriter;
+  private IWeatherWriter weatherWriter;
+  private IRoadConditionWriter roadConditionWriter;
+
   /** Default constructor */
   public EnvironmentImpl() {
     super();
@@ -373,63 +379,63 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment, IEnvironm
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public ITimeOfDayWriter getTimeOfDayWriter() {
-    return null;
+    return this.timeOfDayWriter;
   }
 
   @Override
   public IWeatherWriter getWeatherWriter() {
-    return null;
+    return this.weatherWriter;
   }
 
   @Override
   public IRoadConditionWriter getRoadConditionWriter() {
-    return null;
+    return this.roadConditionWriter;
   }
 
   @Override
   public void writeToTimeOfDayWriter(ITimeOfDayWriter timeOfDayWriter) {
-    // empty
+    this.timeOfDayWriter = timeOfDayWriter;
   }
 
   @Override
   public void writeToWeatherWriter(IWeatherWriter weatherWriter) {
-    // empty
+    this.weatherWriter = weatherWriter;
   }
 
   @Override
   public void writeToRoadConditionWriter(IRoadConditionWriter roadConditionWriter) {
-    // empty
+    this.roadConditionWriter = roadConditionWriter;
   }
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 }

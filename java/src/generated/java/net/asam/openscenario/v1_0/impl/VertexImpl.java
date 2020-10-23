@@ -57,6 +57,9 @@ public class VertexImpl extends BaseImpl implements IVertex, IVertexWriter {
 
   private Double time;
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public VertexImpl() {
     super();
@@ -244,32 +247,32 @@ public class VertexImpl extends BaseImpl implements IVertex, IVertexWriter {
 
   @Override
   public void writeToTime(Double time) {
-    // empty
+    setTime(time);
   }
 
   @Override
   public void writeParameterToTime(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__TIME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromTime() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TIME);
   }
 
   @Override
   public boolean isTimeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TIME);
   }
 
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

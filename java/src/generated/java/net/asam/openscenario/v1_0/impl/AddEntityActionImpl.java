@@ -51,6 +51,9 @@ public class AddEntityActionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IPosition position;
+
+  private IPositionWriter positionWriter;
+
   /** Default constructor */
   public AddEntityActionImpl() {
     super();
@@ -213,11 +216,11 @@ public class AddEntityActionImpl extends BaseImpl
   // children
   @Override
   public IPositionWriter getPositionWriter() {
-    return null;
+    return this.positionWriter;
   }
 
   @Override
   public void writeToPositionWriter(IPositionWriter positionWriter) {
-    // empty
+    this.positionWriter = positionWriter;
   }
 }

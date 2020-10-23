@@ -68,6 +68,9 @@ public class RelativeObjectPositionImpl extends BaseImpl
   private Double dy;
   private Double dz;
   private IOrientation orientation;
+
+  private IOrientationWriter orientationWriter;
+
   /** Default constructor */
   public RelativeObjectPositionImpl() {
     super();
@@ -343,92 +346,93 @@ public class RelativeObjectPositionImpl extends BaseImpl
 
   @Override
   public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    // empty
+    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override
   public void writeToDx(Double dx) {
-    // empty
+    setDx(dx);
   }
 
   @Override
   public void writeToDy(Double dy) {
-    // empty
+    setDy(dy);
   }
 
   @Override
   public void writeToDz(Double dz) {
-    // empty
+    setDz(dz);
   }
 
   @Override
   public void writeParameterToEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDx(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DX, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDy(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDz(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DZ, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public String getParameterFromDx() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DX);
   }
 
   @Override
   public String getParameterFromDy() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DY);
   }
 
   @Override
   public String getParameterFromDz() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DZ);
   }
 
   @Override
   public boolean isEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public boolean isDxParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DX);
   }
 
   @Override
   public boolean isDyParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DY);
   }
 
   @Override
   public boolean isDzParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DZ);
   }
 
   // children
   @Override
   public IOrientationWriter getOrientationWriter() {
-    return null;
+    return this.orientationWriter;
   }
 
   @Override
   public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    // empty
+    this.orientationWriter = orientationWriter;
   }
 }

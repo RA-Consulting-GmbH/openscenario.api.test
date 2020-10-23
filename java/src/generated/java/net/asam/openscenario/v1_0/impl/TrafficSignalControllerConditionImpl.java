@@ -63,6 +63,7 @@ public class TrafficSignalControllerConditionImpl extends BaseImpl
   private NamedReferenceProxy<ITrafficSignalController> trafficSignalControllerRef;
   private String phase;
   private List<IPhase> phaseRef;
+
   /** Default constructor */
   public TrafficSignalControllerConditionImpl() {
     super();
@@ -278,42 +279,48 @@ public class TrafficSignalControllerConditionImpl extends BaseImpl
   @Override
   public void writeToTrafficSignalControllerRef(
       INamedReference<ITrafficSignalController> trafficSignalControllerRef) {
-    // empty
+    setTrafficSignalControllerRef(
+        new NamedReferenceProxy<>(
+            trafficSignalControllerRef.getTargetObject(), trafficSignalControllerRef.getNameRef()));
   }
 
   @Override
   public void writeToPhase(String phase) {
-    // empty
+    setPhase(phase);
   }
 
   @Override
   public void writeParameterToTrafficSignalControllerRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF,
+        parameterName,
+        null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToPhase(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__PHASE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromTrafficSignalControllerRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF);
   }
 
   @Override
   public String getParameterFromPhase() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PHASE);
   }
 
   @Override
   public boolean isTrafficSignalControllerRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF);
   }
 
   @Override
   public boolean isPhaseParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PHASE);
   }
 
   // children

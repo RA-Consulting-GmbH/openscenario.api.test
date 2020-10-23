@@ -58,6 +58,7 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, IDimensions
   private Double width;
   private Double length;
   private Double height;
+
   /** Default constructor */
   public DimensionsImpl() {
     super();
@@ -262,62 +263,62 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, IDimensions
 
   @Override
   public void writeToWidth(Double width) {
-    // empty
+    setWidth(width);
   }
 
   @Override
   public void writeToLength(Double length) {
-    // empty
+    setLength(length);
   }
 
   @Override
   public void writeToHeight(Double height) {
-    // empty
+    setHeight(height);
   }
 
   @Override
   public void writeParameterToWidth(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__WIDTH, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToLength(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__LENGTH, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToHeight(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__HEIGHT, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromWidth() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WIDTH);
   }
 
   @Override
   public String getParameterFromLength() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LENGTH);
   }
 
   @Override
   public String getParameterFromHeight() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__HEIGHT);
   }
 
   @Override
   public boolean isWidthParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WIDTH);
   }
 
   @Override
   public boolean isLengthParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LENGTH);
   }
 
   @Override
   public boolean isHeightParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__HEIGHT);
   }
 
   // children

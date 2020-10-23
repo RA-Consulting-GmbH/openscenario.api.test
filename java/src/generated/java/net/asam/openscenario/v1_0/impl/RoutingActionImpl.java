@@ -56,6 +56,11 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, IRout
   private IAssignRouteAction assignRouteAction;
   private IFollowTrajectoryAction followTrajectoryAction;
   private IAcquirePositionAction acquirePositionAction;
+
+  private IAssignRouteActionWriter assignRouteActionWriter;
+  private IFollowTrajectoryActionWriter followTrajectoryActionWriter;
+  private IAcquirePositionActionWriter acquirePositionActionWriter;
+
   /** Default constructor */
   public RoutingActionImpl() {
     super();
@@ -279,33 +284,33 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction, IRout
   // children
   @Override
   public IAssignRouteActionWriter getAssignRouteActionWriter() {
-    return null;
+    return this.assignRouteActionWriter;
   }
 
   @Override
   public IFollowTrajectoryActionWriter getFollowTrajectoryActionWriter() {
-    return null;
+    return this.followTrajectoryActionWriter;
   }
 
   @Override
   public IAcquirePositionActionWriter getAcquirePositionActionWriter() {
-    return null;
+    return this.acquirePositionActionWriter;
   }
 
   @Override
   public void writeToAssignRouteActionWriter(IAssignRouteActionWriter assignRouteActionWriter) {
-    // empty
+    this.assignRouteActionWriter = assignRouteActionWriter;
   }
 
   @Override
   public void writeToFollowTrajectoryActionWriter(
       IFollowTrajectoryActionWriter followTrajectoryActionWriter) {
-    // empty
+    this.followTrajectoryActionWriter = followTrajectoryActionWriter;
   }
 
   @Override
   public void writeToAcquirePositionActionWriter(
       IAcquirePositionActionWriter acquirePositionActionWriter) {
-    // empty
+    this.acquirePositionActionWriter = acquirePositionActionWriter;
   }
 }

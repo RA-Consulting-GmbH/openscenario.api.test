@@ -61,6 +61,7 @@ public class ParameterDeclarationImpl extends BaseImpl
   private String name;
   private ParameterType parameterType;
   private String value;
+
   /** Default constructor */
   public ParameterDeclarationImpl() {
     super();
@@ -273,42 +274,43 @@ public class ParameterDeclarationImpl extends BaseImpl
 
   @Override
   public void writeToParameterType(ParameterType parameterType) {
-    // empty
+    setParameterType(parameterType);
   }
 
   @Override
   public void writeToValue(String value) {
-    // empty
+    setValue(value);
   }
 
   @Override
   public void writeParameterToParameterType(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PARAMETER_TYPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromParameterType() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PARAMETER_TYPE);
   }
 
   @Override
   public String getParameterFromValue() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public boolean isParameterTypeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PARAMETER_TYPE);
   }
 
   @Override
   public boolean isValueParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
   }
 
   // children

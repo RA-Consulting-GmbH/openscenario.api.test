@@ -57,6 +57,7 @@ public class OverrideGearActionImpl extends BaseImpl
 
   private Double number;
   private Boolean active;
+
   /** Default constructor */
   public OverrideGearActionImpl() {
     super();
@@ -240,42 +241,42 @@ public class OverrideGearActionImpl extends BaseImpl
 
   @Override
   public void writeToNumber(Double number) {
-    // empty
+    setNumber(number);
   }
 
   @Override
   public void writeToActive(Boolean active) {
-    // empty
+    setActive(active);
   }
 
   @Override
   public void writeParameterToNumber(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NUMBER, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToActive(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromNumber() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NUMBER);
   }
 
   @Override
   public String getParameterFromActive() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   @Override
   public boolean isNumberParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NUMBER);
   }
 
   @Override
   public boolean isActiveParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   // children

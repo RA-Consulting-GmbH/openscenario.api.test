@@ -60,6 +60,9 @@ public class TriggeringEntitiesImpl extends BaseImpl
 
   private TriggeringEntitiesRule triggeringEntitiesRule;
   private List<IEntityRef> entityRefs;
+
+  private List<IEntityRefWriter> entityRefsWriters;
+
   /** Default constructor */
   public TriggeringEntitiesImpl() {
     super();
@@ -267,33 +270,35 @@ public class TriggeringEntitiesImpl extends BaseImpl
 
   @Override
   public void writeToTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule) {
-    // empty
+    setTriggeringEntitiesRule(triggeringEntitiesRule);
   }
 
   @Override
   public void writeParameterToTriggeringEntitiesRule(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromTriggeringEntitiesRule() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE);
   }
 
   @Override
   public boolean isTriggeringEntitiesRuleParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE);
   }
 
   // children
 
   @Override
   public List<IEntityRefWriter> getEntityRefsWriter() {
-    return null;
+    return this.entityRefsWriters;
   }
 
   @Override
   public void setEntityRefsWriter(List<IEntityRefWriter> entityRefsWriters) {
-    // empty
+    this.entityRefsWriters = entityRefsWriters;
   }
 }

@@ -54,6 +54,10 @@ public class SelectedEntitiesImpl extends BaseImpl
 
   private List<IEntityRef> entityRef;
   private List<IByType> byType;
+
+  private List<IEntityRefWriter> entityRefWriters;
+  private List<IByTypeWriter> byTypeWriters;
+
   /** Default constructor */
   public SelectedEntitiesImpl() {
     super();
@@ -259,21 +263,21 @@ public class SelectedEntitiesImpl extends BaseImpl
 
   @Override
   public List<IEntityRefWriter> getEntityRefWriter() {
-    return null;
+    return this.entityRefWriters;
   }
 
   @Override
   public List<IByTypeWriter> getByTypeWriter() {
-    return null;
+    return this.byTypeWriters;
   }
 
   @Override
   public void setEntityRefWriter(List<IEntityRefWriter> entityRefWriters) {
-    // empty
+    this.entityRefWriters = entityRefWriters;
   }
 
   @Override
   public void setByTypeWriter(List<IByTypeWriter> byTypeWriters) {
-    // empty
+    this.byTypeWriters = byTypeWriters;
   }
 }

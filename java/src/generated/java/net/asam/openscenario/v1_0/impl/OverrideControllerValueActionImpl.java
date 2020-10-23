@@ -67,6 +67,14 @@ public class OverrideControllerValueActionImpl extends BaseImpl
   private IOverrideParkingBrakeAction parkingBrake;
   private IOverrideSteeringWheelAction steeringWheel;
   private IOverrideGearAction gear;
+
+  private IOverrideThrottleActionWriter throttleWriter;
+  private IOverrideBrakeActionWriter brakeWriter;
+  private IOverrideClutchActionWriter clutchWriter;
+  private IOverrideParkingBrakeActionWriter parkingBrakeWriter;
+  private IOverrideSteeringWheelActionWriter steeringWheelWriter;
+  private IOverrideGearActionWriter gearWriter;
+
   /** Default constructor */
   public OverrideControllerValueActionImpl() {
     super();
@@ -376,61 +384,61 @@ public class OverrideControllerValueActionImpl extends BaseImpl
   // children
   @Override
   public IOverrideThrottleActionWriter getThrottleWriter() {
-    return null;
+    return this.throttleWriter;
   }
 
   @Override
   public IOverrideBrakeActionWriter getBrakeWriter() {
-    return null;
+    return this.brakeWriter;
   }
 
   @Override
   public IOverrideClutchActionWriter getClutchWriter() {
-    return null;
+    return this.clutchWriter;
   }
 
   @Override
   public IOverrideParkingBrakeActionWriter getParkingBrakeWriter() {
-    return null;
+    return this.parkingBrakeWriter;
   }
 
   @Override
   public IOverrideSteeringWheelActionWriter getSteeringWheelWriter() {
-    return null;
+    return this.steeringWheelWriter;
   }
 
   @Override
   public IOverrideGearActionWriter getGearWriter() {
-    return null;
+    return this.gearWriter;
   }
 
   @Override
   public void writeToThrottleWriter(IOverrideThrottleActionWriter throttleWriter) {
-    // empty
+    this.throttleWriter = throttleWriter;
   }
 
   @Override
   public void writeToBrakeWriter(IOverrideBrakeActionWriter brakeWriter) {
-    // empty
+    this.brakeWriter = brakeWriter;
   }
 
   @Override
   public void writeToClutchWriter(IOverrideClutchActionWriter clutchWriter) {
-    // empty
+    this.clutchWriter = clutchWriter;
   }
 
   @Override
   public void writeToParkingBrakeWriter(IOverrideParkingBrakeActionWriter parkingBrakeWriter) {
-    // empty
+    this.parkingBrakeWriter = parkingBrakeWriter;
   }
 
   @Override
   public void writeToSteeringWheelWriter(IOverrideSteeringWheelActionWriter steeringWheelWriter) {
-    // empty
+    this.steeringWheelWriter = steeringWheelWriter;
   }
 
   @Override
   public void writeToGearWriter(IOverrideGearActionWriter gearWriter) {
-    // empty
+    this.gearWriter = gearWriter;
   }
 }

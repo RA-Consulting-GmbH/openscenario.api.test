@@ -72,6 +72,16 @@ public class CatalogLocationsImpl extends BaseImpl
   private IManeuverCatalogLocation maneuverCatalog;
   private ITrajectoryCatalogLocation trajectoryCatalog;
   private IRouteCatalogLocation routeCatalog;
+
+  private IVehicleCatalogLocationWriter vehicleCatalogWriter;
+  private IControllerCatalogLocationWriter controllerCatalogWriter;
+  private IPedestrianCatalogLocationWriter pedestrianCatalogWriter;
+  private IMiscObjectCatalogLocationWriter miscObjectCatalogWriter;
+  private IEnvironmentCatalogLocationWriter environmentCatalogWriter;
+  private IManeuverCatalogLocationWriter maneuverCatalogWriter;
+  private ITrajectoryCatalogLocationWriter trajectoryCatalogWriter;
+  private IRouteCatalogLocationWriter routeCatalogWriter;
+
   /** Default constructor */
   public CatalogLocationsImpl() {
     super();
@@ -444,86 +454,86 @@ public class CatalogLocationsImpl extends BaseImpl
   // children
   @Override
   public IVehicleCatalogLocationWriter getVehicleCatalogWriter() {
-    return null;
+    return this.vehicleCatalogWriter;
   }
 
   @Override
   public IControllerCatalogLocationWriter getControllerCatalogWriter() {
-    return null;
+    return this.controllerCatalogWriter;
   }
 
   @Override
   public IPedestrianCatalogLocationWriter getPedestrianCatalogWriter() {
-    return null;
+    return this.pedestrianCatalogWriter;
   }
 
   @Override
   public IMiscObjectCatalogLocationWriter getMiscObjectCatalogWriter() {
-    return null;
+    return this.miscObjectCatalogWriter;
   }
 
   @Override
   public IEnvironmentCatalogLocationWriter getEnvironmentCatalogWriter() {
-    return null;
+    return this.environmentCatalogWriter;
   }
 
   @Override
   public IManeuverCatalogLocationWriter getManeuverCatalogWriter() {
-    return null;
+    return this.maneuverCatalogWriter;
   }
 
   @Override
   public ITrajectoryCatalogLocationWriter getTrajectoryCatalogWriter() {
-    return null;
+    return this.trajectoryCatalogWriter;
   }
 
   @Override
   public IRouteCatalogLocationWriter getRouteCatalogWriter() {
-    return null;
+    return this.routeCatalogWriter;
   }
 
   @Override
   public void writeToVehicleCatalogWriter(IVehicleCatalogLocationWriter vehicleCatalogWriter) {
-    // empty
+    this.vehicleCatalogWriter = vehicleCatalogWriter;
   }
 
   @Override
   public void writeToControllerCatalogWriter(
       IControllerCatalogLocationWriter controllerCatalogWriter) {
-    // empty
+    this.controllerCatalogWriter = controllerCatalogWriter;
   }
 
   @Override
   public void writeToPedestrianCatalogWriter(
       IPedestrianCatalogLocationWriter pedestrianCatalogWriter) {
-    // empty
+    this.pedestrianCatalogWriter = pedestrianCatalogWriter;
   }
 
   @Override
   public void writeToMiscObjectCatalogWriter(
       IMiscObjectCatalogLocationWriter miscObjectCatalogWriter) {
-    // empty
+    this.miscObjectCatalogWriter = miscObjectCatalogWriter;
   }
 
   @Override
   public void writeToEnvironmentCatalogWriter(
       IEnvironmentCatalogLocationWriter environmentCatalogWriter) {
-    // empty
+    this.environmentCatalogWriter = environmentCatalogWriter;
   }
 
   @Override
   public void writeToManeuverCatalogWriter(IManeuverCatalogLocationWriter maneuverCatalogWriter) {
-    // empty
+    this.maneuverCatalogWriter = maneuverCatalogWriter;
   }
 
   @Override
   public void writeToTrajectoryCatalogWriter(
       ITrajectoryCatalogLocationWriter trajectoryCatalogWriter) {
-    // empty
+    this.trajectoryCatalogWriter = trajectoryCatalogWriter;
   }
 
   @Override
   public void writeToRouteCatalogWriter(IRouteCatalogLocationWriter routeCatalogWriter) {
-    // empty
+    this.routeCatalogWriter = routeCatalogWriter;
   }
 }

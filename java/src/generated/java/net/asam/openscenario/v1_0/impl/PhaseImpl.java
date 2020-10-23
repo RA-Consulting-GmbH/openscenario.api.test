@@ -59,6 +59,9 @@ public class PhaseImpl extends BaseImpl implements IPhase, IPhaseWriter {
   private String name;
   private Double duration;
   private List<ITrafficSignalState> trafficSignalStates;
+
+  private List<ITrafficSignalStateWriter> trafficSignalStatesWriters;
+
   /** Default constructor */
   public PhaseImpl() {
     super();
@@ -282,54 +285,54 @@ public class PhaseImpl extends BaseImpl implements IPhase, IPhaseWriter {
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeToDuration(Double duration) {
-    // empty
+    setDuration(duration);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDuration(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DURATION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public String getParameterFromDuration() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DURATION);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isDurationParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DURATION);
   }
 
   // children
 
   @Override
   public List<ITrafficSignalStateWriter> getTrafficSignalStatesWriter() {
-    return null;
+    return this.trafficSignalStatesWriters;
   }
 
   @Override
   public void setTrafficSignalStatesWriter(
       List<ITrafficSignalStateWriter> trafficSignalStatesWriters) {
-    // empty
+    this.trafficSignalStatesWriters = trafficSignalStatesWriters;
   }
 }

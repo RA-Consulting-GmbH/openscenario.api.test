@@ -51,6 +51,9 @@ public class RouteCatalogLocationImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private IDirectory directory;
+
+  private IDirectoryWriter directoryWriter;
+
   /** Default constructor */
   public RouteCatalogLocationImpl() {
     super();
@@ -213,11 +216,11 @@ public class RouteCatalogLocationImpl extends BaseImpl
   // children
   @Override
   public IDirectoryWriter getDirectoryWriter() {
-    return null;
+    return this.directoryWriter;
   }
 
   @Override
   public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
-    // empty
+    this.directoryWriter = directoryWriter;
   }
 }

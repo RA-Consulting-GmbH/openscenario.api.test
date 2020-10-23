@@ -61,6 +61,10 @@ public class StoryImpl extends BaseImpl implements IStory, IStoryWriter {
   private String name;
   private List<IParameterDeclaration> parameterDeclarations;
   private List<IAct> acts;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private List<IActWriter> actsWriters;
+
   /** Default constructor */
   public StoryImpl() {
     super();
@@ -311,44 +315,44 @@ public class StoryImpl extends BaseImpl implements IStory, IStoryWriter {
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public List<IActWriter> getActsWriter() {
-    return null;
+    return this.actsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 
   @Override
   public void setActsWriter(List<IActWriter> actsWriters) {
-    // empty
+    this.actsWriters = actsWriters;
   }
 }

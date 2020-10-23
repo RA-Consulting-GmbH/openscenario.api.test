@@ -63,6 +63,10 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
   private Boolean closed;
   private List<IParameterDeclaration> parameterDeclarations;
   private List<IWaypoint> waypoints;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private List<IWaypointWriter> waypointsWriters;
+
   /** Default constructor */
   public RouteImpl() {
     super();
@@ -342,64 +346,64 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeToClosed(Boolean closed) {
-    // empty
+    setClosed(closed);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToClosed(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__CLOSED, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public String getParameterFromClosed() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CLOSED);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isClosedParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CLOSED);
   }
 
   // children
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public List<IWaypointWriter> getWaypointsWriter() {
-    return null;
+    return this.waypointsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 
   @Override
   public void setWaypointsWriter(List<IWaypointWriter> waypointsWriters) {
-    // empty
+    this.waypointsWriters = waypointsWriters;
   }
 }

@@ -60,6 +60,7 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
   private Double pathS;
   private String laneId;
   private Double laneOffset;
+
   /** Default constructor */
   public PositionInLaneCoordinatesImpl() {
     super();
@@ -267,62 +268,63 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
 
   @Override
   public void writeToPathS(Double pathS) {
-    // empty
+    setPathS(pathS);
   }
 
   @Override
   public void writeToLaneId(String laneId) {
-    // empty
+    setLaneId(laneId);
   }
 
   @Override
   public void writeToLaneOffset(Double laneOffset) {
-    // empty
+    setLaneOffset(laneOffset);
   }
 
   @Override
   public void writeParameterToPathS(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__PATH_S, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToLaneId(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToLaneOffset(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__LANE_OFFSET, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromPathS() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PATH_S);
   }
 
   @Override
   public String getParameterFromLaneId() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LANE_ID);
   }
 
   @Override
   public String getParameterFromLaneOffset() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LANE_OFFSET);
   }
 
   @Override
   public boolean isPathSParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PATH_S);
   }
 
   @Override
   public boolean isLaneIdParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LANE_ID);
   }
 
   @Override
   public boolean isLaneOffsetParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LANE_OFFSET);
   }
 
   // children

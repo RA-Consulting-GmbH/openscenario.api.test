@@ -71,6 +71,11 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
   private List<IParameterDeclaration> parameterDeclarations;
   private IBoundingBox boundingBox;
   private IProperties properties;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private IBoundingBoxWriter boundingBoxWriter;
+  private IPropertiesWriter propertiesWriter;
+
   /** Default constructor */
   public MiscObjectImpl() {
     super();
@@ -417,93 +422,94 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
 
   @Override
   public void writeToMiscObjectCategory(MiscObjectCategory miscObjectCategory) {
-    // empty
+    setMiscObjectCategory(miscObjectCategory);
   }
 
   @Override
   public void writeToMass(Double mass) {
-    // empty
+    setMass(mass);
   }
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToMiscObjectCategory(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToMass(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__MASS, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromMiscObjectCategory() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY);
   }
 
   @Override
   public String getParameterFromMass() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MASS);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isMiscObjectCategoryParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY);
   }
 
   @Override
   public boolean isMassParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MASS);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public IBoundingBoxWriter getBoundingBoxWriter() {
-    return null;
+    return this.boundingBoxWriter;
   }
 
   @Override
   public IPropertiesWriter getPropertiesWriter() {
-    return null;
+    return this.propertiesWriter;
   }
 
   @Override
   public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
-    // empty
+    this.boundingBoxWriter = boundingBoxWriter;
   }
 
   @Override
   public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    // empty
+    this.propertiesWriter = propertiesWriter;
   }
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 }

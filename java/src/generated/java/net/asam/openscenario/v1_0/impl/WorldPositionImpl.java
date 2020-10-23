@@ -64,6 +64,7 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, IWorl
   private Double h;
   private Double p;
   private Double r;
+
   /** Default constructor */
   public WorldPositionImpl() {
     super();
@@ -331,122 +332,122 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, IWorl
 
   @Override
   public void writeToX(Double x) {
-    // empty
+    setX(x);
   }
 
   @Override
   public void writeToY(Double y) {
-    // empty
+    setY(y);
   }
 
   @Override
   public void writeToZ(Double z) {
-    // empty
+    setZ(z);
   }
 
   @Override
   public void writeToH(Double h) {
-    // empty
+    setH(h);
   }
 
   @Override
   public void writeToP(Double p) {
-    // empty
+    setP(p);
   }
 
   @Override
   public void writeToR(Double r) {
-    // empty
+    setR(r);
   }
 
   @Override
   public void writeParameterToX(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__X, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToY(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__Y, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToZ(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__Z, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToH(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__H, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToP(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__P, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToR(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__R, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromX() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__X);
   }
 
   @Override
   public String getParameterFromY() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Y);
   }
 
   @Override
   public String getParameterFromZ() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Z);
   }
 
   @Override
   public String getParameterFromH() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__H);
   }
 
   @Override
   public String getParameterFromP() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__P);
   }
 
   @Override
   public String getParameterFromR() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__R);
   }
 
   @Override
   public boolean isXParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__X);
   }
 
   @Override
   public boolean isYParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Y);
   }
 
   @Override
   public boolean isZParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Z);
   }
 
   @Override
   public boolean isHParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__H);
   }
 
   @Override
   public boolean isPParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__P);
   }
 
   @Override
   public boolean isRParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__R);
   }
 
   // children

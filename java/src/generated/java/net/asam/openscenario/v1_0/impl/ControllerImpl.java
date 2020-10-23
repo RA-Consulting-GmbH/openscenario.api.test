@@ -61,6 +61,10 @@ public class ControllerImpl extends BaseImpl implements IController, IController
   private String name;
   private List<IParameterDeclaration> parameterDeclarations;
   private IProperties properties;
+
+  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
+  private IPropertiesWriter propertiesWriter;
+
   /** Default constructor */
   public ControllerImpl() {
     super();
@@ -308,43 +312,43 @@ public class ControllerImpl extends BaseImpl implements IController, IController
 
   @Override
   public void writeToName(String name) {
-    // empty
+    setName(name);
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromName() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public boolean isNameParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
   }
 
   // children
   @Override
   public IPropertiesWriter getPropertiesWriter() {
-    return null;
+    return this.propertiesWriter;
   }
 
   @Override
   public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    // empty
+    this.propertiesWriter = propertiesWriter;
   }
 
   @Override
   public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return null;
+    return this.parameterDeclarationsWriters;
   }
 
   @Override
   public void setParameterDeclarationsWriter(
       List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    // empty
+    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
   }
 }

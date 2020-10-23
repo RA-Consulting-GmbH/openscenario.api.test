@@ -61,6 +61,7 @@ public class TimingImpl extends BaseImpl implements ITiming, ITimingWriter {
   private ReferenceContext domainAbsoluteRelative;
   private Double scale;
   private Double offset;
+
   /** Default constructor */
   public TimingImpl() {
     super();
@@ -283,62 +284,64 @@ public class TimingImpl extends BaseImpl implements ITiming, ITimingWriter {
 
   @Override
   public void writeToDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative) {
-    // empty
+    setDomainAbsoluteRelative(domainAbsoluteRelative);
   }
 
   @Override
   public void writeToScale(Double scale) {
-    // empty
+    setScale(scale);
   }
 
   @Override
   public void writeToOffset(Double offset) {
-    // empty
+    setOffset(offset);
   }
 
   @Override
   public void writeParameterToDomainAbsoluteRelative(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToScale(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__SCALE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromDomainAbsoluteRelative() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE);
   }
 
   @Override
   public String getParameterFromScale() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SCALE);
   }
 
   @Override
   public String getParameterFromOffset() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public boolean isDomainAbsoluteRelativeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE);
   }
 
   @Override
   public boolean isScaleParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__SCALE);
   }
 
   @Override
   public boolean isOffsetParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   // children

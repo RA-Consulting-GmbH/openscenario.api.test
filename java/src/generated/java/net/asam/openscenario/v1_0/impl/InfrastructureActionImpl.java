@@ -51,6 +51,9 @@ public class InfrastructureActionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ITrafficSignalAction trafficSignalAction;
+
+  private ITrafficSignalActionWriter trafficSignalActionWriter;
+
   /** Default constructor */
   public InfrastructureActionImpl() {
     super();
@@ -213,12 +216,12 @@ public class InfrastructureActionImpl extends BaseImpl
   // children
   @Override
   public ITrafficSignalActionWriter getTrafficSignalActionWriter() {
-    return null;
+    return this.trafficSignalActionWriter;
   }
 
   @Override
   public void writeToTrafficSignalActionWriter(
       ITrafficSignalActionWriter trafficSignalActionWriter) {
-    // empty
+    this.trafficSignalActionWriter = trafficSignalActionWriter;
   }
 }

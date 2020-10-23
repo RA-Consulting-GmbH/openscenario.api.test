@@ -50,6 +50,9 @@ public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IVertex> vertices;
+
+  private List<IVertexWriter> verticesWriters;
+
   /** Default constructor */
   public PolylineImpl() {
     super();
@@ -220,11 +223,11 @@ public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter
 
   @Override
   public List<IVertexWriter> getVerticesWriter() {
-    return null;
+    return this.verticesWriters;
   }
 
   @Override
   public void setVerticesWriter(List<IVertexWriter> verticesWriters) {
-    // empty
+    this.verticesWriters = verticesWriters;
   }
 }

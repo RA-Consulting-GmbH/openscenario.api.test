@@ -54,6 +54,11 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, IRoadNetw
   private IFile logicFile;
   private IFile sceneGraphFile;
   private List<ITrafficSignalController> trafficSignals;
+
+  private IFileWriter logicFileWriter;
+  private IFileWriter sceneGraphFileWriter;
+  private List<ITrafficSignalControllerWriter> trafficSignalsWriters;
+
   /** Default constructor */
   public RoadNetworkImpl() {
     super();
@@ -285,31 +290,31 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork, IRoadNetw
   // children
   @Override
   public IFileWriter getLogicFileWriter() {
-    return null;
+    return this.logicFileWriter;
   }
 
   @Override
   public IFileWriter getSceneGraphFileWriter() {
-    return null;
+    return this.sceneGraphFileWriter;
   }
 
   @Override
   public void writeToLogicFileWriter(IFileWriter logicFileWriter) {
-    // empty
+    this.logicFileWriter = logicFileWriter;
   }
 
   @Override
   public void writeToSceneGraphFileWriter(IFileWriter sceneGraphFileWriter) {
-    // empty
+    this.sceneGraphFileWriter = sceneGraphFileWriter;
   }
 
   @Override
   public List<ITrafficSignalControllerWriter> getTrafficSignalsWriter() {
-    return null;
+    return this.trafficSignalsWriters;
   }
 
   @Override
   public void setTrafficSignalsWriter(List<ITrafficSignalControllerWriter> trafficSignalsWriters) {
-    // empty
+    this.trafficSignalsWriters = trafficSignalsWriters;
   }
 }

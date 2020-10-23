@@ -56,6 +56,7 @@ public class ByTypeImpl extends BaseImpl implements IByType, IByTypeWriter {
   }
 
   private ObjectType objectType;
+
   /** Default constructor */
   public ByTypeImpl() {
     super();
@@ -224,22 +225,23 @@ public class ByTypeImpl extends BaseImpl implements IByType, IByTypeWriter {
 
   @Override
   public void writeToObjectType(ObjectType objectType) {
-    // empty
+    setObjectType(objectType);
   }
 
   @Override
   public void writeParameterToObjectType(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__OBJECT_TYPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromObjectType() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OBJECT_TYPE);
   }
 
   @Override
   public boolean isObjectTypeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OBJECT_TYPE);
   }
 
   // children

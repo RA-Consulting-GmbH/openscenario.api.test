@@ -61,6 +61,7 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
 
   private Double maxLateralAcc;
   private DynamicsShape dynamicsShape;
+
   /** Default constructor */
   public LaneOffsetActionDynamicsImpl() {
     super();
@@ -257,42 +258,44 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
 
   @Override
   public void writeToMaxLateralAcc(Double maxLateralAcc) {
-    // empty
+    setMaxLateralAcc(maxLateralAcc);
   }
 
   @Override
   public void writeToDynamicsShape(DynamicsShape dynamicsShape) {
-    // empty
+    setDynamicsShape(dynamicsShape);
   }
 
   @Override
   public void writeParameterToMaxLateralAcc(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_LATERAL_ACC, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public void writeParameterToDynamicsShape(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DYNAMICS_SHAPE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromMaxLateralAcc() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
   }
 
   @Override
   public String getParameterFromDynamicsShape() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
 
   @Override
   public boolean isMaxLateralAccParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
   }
 
   @Override
   public boolean isDynamicsShapeParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
 
   // children

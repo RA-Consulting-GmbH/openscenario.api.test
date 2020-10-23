@@ -50,6 +50,9 @@ public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private List<IConditionGroup> conditionGroups;
+
+  private List<IConditionGroupWriter> conditionGroupsWriters;
+
   /** Default constructor */
   public TriggerImpl() {
     super();
@@ -220,11 +223,11 @@ public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
 
   @Override
   public List<IConditionGroupWriter> getConditionGroupsWriter() {
-    return null;
+    return this.conditionGroupsWriters;
   }
 
   @Override
   public void setConditionGroupsWriter(List<IConditionGroupWriter> conditionGroupsWriters) {
-    // empty
+    this.conditionGroupsWriters = conditionGroupsWriters;
   }
 }

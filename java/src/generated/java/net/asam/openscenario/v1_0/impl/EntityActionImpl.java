@@ -62,6 +62,10 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
   private NamedReferenceProxy<IEntity> entityRef;
   private IAddEntityAction addEntityAction;
   private IDeleteEntityAction deleteEntityAction;
+
+  private IAddEntityActionWriter addEntityActionWriter;
+  private IDeleteEntityActionWriter deleteEntityActionWriter;
+
   /** Default constructor */
   public EntityActionImpl() {
     super();
@@ -290,42 +294,43 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
 
   @Override
   public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    // empty
+    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override
   public void writeParameterToEntityRef(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromEntityRef() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public boolean isEntityRefParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   // children
   @Override
   public IAddEntityActionWriter getAddEntityActionWriter() {
-    return null;
+    return this.addEntityActionWriter;
   }
 
   @Override
   public IDeleteEntityActionWriter getDeleteEntityActionWriter() {
-    return null;
+    return this.deleteEntityActionWriter;
   }
 
   @Override
   public void writeToAddEntityActionWriter(IAddEntityActionWriter addEntityActionWriter) {
-    // empty
+    this.addEntityActionWriter = addEntityActionWriter;
   }
 
   @Override
   public void writeToDeleteEntityActionWriter(IDeleteEntityActionWriter deleteEntityActionWriter) {
-    // empty
+    this.deleteEntityActionWriter = deleteEntityActionWriter;
   }
 }

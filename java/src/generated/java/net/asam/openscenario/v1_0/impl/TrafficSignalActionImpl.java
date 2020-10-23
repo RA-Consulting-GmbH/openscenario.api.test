@@ -54,6 +54,10 @@ public class TrafficSignalActionImpl extends BaseImpl
 
   private ITrafficSignalControllerAction trafficSignalControllerAction;
   private ITrafficSignalStateAction trafficSignalStateAction;
+
+  private ITrafficSignalControllerActionWriter trafficSignalControllerActionWriter;
+  private ITrafficSignalStateActionWriter trafficSignalStateActionWriter;
+
   /** Default constructor */
   public TrafficSignalActionImpl() {
     super();
@@ -248,23 +252,23 @@ public class TrafficSignalActionImpl extends BaseImpl
   // children
   @Override
   public ITrafficSignalControllerActionWriter getTrafficSignalControllerActionWriter() {
-    return null;
+    return this.trafficSignalControllerActionWriter;
   }
 
   @Override
   public ITrafficSignalStateActionWriter getTrafficSignalStateActionWriter() {
-    return null;
+    return this.trafficSignalStateActionWriter;
   }
 
   @Override
   public void writeToTrafficSignalControllerActionWriter(
       ITrafficSignalControllerActionWriter trafficSignalControllerActionWriter) {
-    // empty
+    this.trafficSignalControllerActionWriter = trafficSignalControllerActionWriter;
   }
 
   @Override
   public void writeToTrafficSignalStateActionWriter(
       ITrafficSignalStateActionWriter trafficSignalStateActionWriter) {
-    // empty
+    this.trafficSignalStateActionWriter = trafficSignalStateActionWriter;
   }
 }

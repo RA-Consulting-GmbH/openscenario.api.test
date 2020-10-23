@@ -53,6 +53,10 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITime
 
   private INone none;
   private ITiming timing;
+
+  private INoneWriter noneWriter;
+  private ITimingWriter timingWriter;
+
   /** Default constructor */
   public TimeReferenceImpl() {
     super();
@@ -245,21 +249,21 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITime
   // children
   @Override
   public INoneWriter getNoneWriter() {
-    return null;
+    return this.noneWriter;
   }
 
   @Override
   public ITimingWriter getTimingWriter() {
-    return null;
+    return this.timingWriter;
   }
 
   @Override
   public void writeToNoneWriter(INoneWriter noneWriter) {
-    // empty
+    this.noneWriter = noneWriter;
   }
 
   @Override
   public void writeToTimingWriter(ITimingWriter timingWriter) {
-    // empty
+    this.timingWriter = timingWriter;
   }
 }

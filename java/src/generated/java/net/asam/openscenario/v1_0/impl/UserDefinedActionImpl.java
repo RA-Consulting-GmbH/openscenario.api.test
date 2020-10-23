@@ -51,6 +51,9 @@ public class UserDefinedActionImpl extends BaseImpl
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   private ICustomCommandAction customCommandAction;
+
+  private ICustomCommandActionWriter customCommandActionWriter;
+
   /** Default constructor */
   public UserDefinedActionImpl() {
     super();
@@ -213,12 +216,12 @@ public class UserDefinedActionImpl extends BaseImpl
   // children
   @Override
   public ICustomCommandActionWriter getCustomCommandActionWriter() {
-    return null;
+    return this.customCommandActionWriter;
   }
 
   @Override
   public void writeToCustomCommandActionWriter(
       ICustomCommandActionWriter customCommandActionWriter) {
-    // empty
+    this.customCommandActionWriter = customCommandActionWriter;
   }
 }

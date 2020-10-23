@@ -55,6 +55,7 @@ public class OffroadConditionImpl extends BaseImpl
   }
 
   private Double duration;
+
   /** Default constructor */
   public OffroadConditionImpl() {
     super();
@@ -211,22 +212,22 @@ public class OffroadConditionImpl extends BaseImpl
 
   @Override
   public void writeToDuration(Double duration) {
-    // empty
+    setDuration(duration);
   }
 
   @Override
   public void writeParameterToDuration(String parameterName) {
-    // empty
+    setAttributeParameter(OscConstants.ATTRIBUTE__DURATION, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromDuration() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DURATION);
   }
 
   @Override
   public boolean isDurationParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DURATION);
   }
 
   // children

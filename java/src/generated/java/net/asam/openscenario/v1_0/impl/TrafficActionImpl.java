@@ -56,6 +56,11 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, ITraf
   private ITrafficSourceAction trafficSourceAction;
   private ITrafficSinkAction trafficSinkAction;
   private ITrafficSwarmAction trafficSwarmAction;
+
+  private ITrafficSourceActionWriter trafficSourceActionWriter;
+  private ITrafficSinkActionWriter trafficSinkActionWriter;
+  private ITrafficSwarmActionWriter trafficSwarmActionWriter;
+
   /** Default constructor */
   public TrafficActionImpl() {
     super();
@@ -276,32 +281,32 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction, ITraf
   // children
   @Override
   public ITrafficSourceActionWriter getTrafficSourceActionWriter() {
-    return null;
+    return this.trafficSourceActionWriter;
   }
 
   @Override
   public ITrafficSinkActionWriter getTrafficSinkActionWriter() {
-    return null;
+    return this.trafficSinkActionWriter;
   }
 
   @Override
   public ITrafficSwarmActionWriter getTrafficSwarmActionWriter() {
-    return null;
+    return this.trafficSwarmActionWriter;
   }
 
   @Override
   public void writeToTrafficSourceActionWriter(
       ITrafficSourceActionWriter trafficSourceActionWriter) {
-    // empty
+    this.trafficSourceActionWriter = trafficSourceActionWriter;
   }
 
   @Override
   public void writeToTrafficSinkActionWriter(ITrafficSinkActionWriter trafficSinkActionWriter) {
-    // empty
+    this.trafficSinkActionWriter = trafficSinkActionWriter;
   }
 
   @Override
   public void writeToTrafficSwarmActionWriter(ITrafficSwarmActionWriter trafficSwarmActionWriter) {
-    // empty
+    this.trafficSwarmActionWriter = trafficSwarmActionWriter;
   }
 }

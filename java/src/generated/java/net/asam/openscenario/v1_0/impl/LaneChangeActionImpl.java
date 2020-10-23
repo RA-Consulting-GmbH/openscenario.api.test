@@ -61,6 +61,10 @@ public class LaneChangeActionImpl extends BaseImpl
   private Double targetLaneOffset;
   private ITransitionDynamics laneChangeActionDynamics;
   private ILaneChangeTarget laneChangeTarget;
+
+  private ITransitionDynamicsWriter laneChangeActionDynamicsWriter;
+  private ILaneChangeTargetWriter laneChangeTargetWriter;
+
   /** Default constructor */
   public LaneChangeActionImpl() {
     super();
@@ -279,43 +283,44 @@ public class LaneChangeActionImpl extends BaseImpl
 
   @Override
   public void writeToTargetLaneOffset(Double targetLaneOffset) {
-    // empty
+    setTargetLaneOffset(targetLaneOffset);
   }
 
   @Override
   public void writeParameterToTargetLaneOffset(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromTargetLaneOffset() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET);
   }
 
   @Override
   public boolean isTargetLaneOffsetParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET);
   }
 
   // children
   @Override
   public ITransitionDynamicsWriter getLaneChangeActionDynamicsWriter() {
-    return null;
+    return this.laneChangeActionDynamicsWriter;
   }
 
   @Override
   public ILaneChangeTargetWriter getLaneChangeTargetWriter() {
-    return null;
+    return this.laneChangeTargetWriter;
   }
 
   @Override
   public void writeToLaneChangeActionDynamicsWriter(
       ITransitionDynamicsWriter laneChangeActionDynamicsWriter) {
-    // empty
+    this.laneChangeActionDynamicsWriter = laneChangeActionDynamicsWriter;
   }
 
   @Override
   public void writeToLaneChangeTargetWriter(ILaneChangeTargetWriter laneChangeTargetWriter) {
-    // empty
+    this.laneChangeTargetWriter = laneChangeTargetWriter;
   }
 }

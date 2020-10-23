@@ -65,6 +65,11 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
   private ISun sun;
   private IFog fog;
   private IPrecipitation precipitation;
+
+  private ISunWriter sunWriter;
+  private IFogWriter fogWriter;
+  private IPrecipitationWriter precipitationWriter;
+
   /** Default constructor */
   public WeatherImpl() {
     super();
@@ -323,52 +328,53 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
 
   @Override
   public void writeToCloudState(CloudState cloudState) {
-    // empty
+    setCloudState(cloudState);
   }
 
   @Override
   public void writeParameterToCloudState(String parameterName) {
-    // empty
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CLOUD_STATE, parameterName, null /*no textmarker*/);
   }
 
   @Override
   public String getParameterFromCloudState() {
-    return null;
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CLOUD_STATE);
   }
 
   @Override
   public boolean isCloudStateParameterized() {
-    return false;
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CLOUD_STATE);
   }
 
   // children
   @Override
   public ISunWriter getSunWriter() {
-    return null;
+    return this.sunWriter;
   }
 
   @Override
   public IFogWriter getFogWriter() {
-    return null;
+    return this.fogWriter;
   }
 
   @Override
   public IPrecipitationWriter getPrecipitationWriter() {
-    return null;
+    return this.precipitationWriter;
   }
 
   @Override
   public void writeToSunWriter(ISunWriter sunWriter) {
-    // empty
+    this.sunWriter = sunWriter;
   }
 
   @Override
   public void writeToFogWriter(IFogWriter fogWriter) {
-    // empty
+    this.fogWriter = fogWriter;
   }
 
   @Override
   public void writeToPrecipitationWriter(IPrecipitationWriter precipitationWriter) {
-    // empty
+    this.precipitationWriter = precipitationWriter;
   }
 }
