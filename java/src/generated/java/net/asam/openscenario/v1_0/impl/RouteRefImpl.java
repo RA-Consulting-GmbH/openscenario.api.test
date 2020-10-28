@@ -80,11 +80,13 @@ public class RouteRefImpl extends BaseImpl implements IRouteRefWriter {
   @Override
   public void setRoute(IRouteWriter route) {
     this.route = route;
+    this.catalogReference = null;
   }
 
   @Override
   public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.route = null;
   }
 
   @Override

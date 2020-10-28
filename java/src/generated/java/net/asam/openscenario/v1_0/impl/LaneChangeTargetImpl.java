@@ -80,11 +80,13 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTargetW
   @Override
   public void setRelativeTargetLane(IRelativeTargetLaneWriter relativeTargetLane) {
     this.relativeTargetLane = relativeTargetLane;
+    this.absoluteTargetLane = null;
   }
 
   @Override
   public void setAbsoluteTargetLane(IAbsoluteTargetLaneWriter absoluteTargetLane) {
     this.absoluteTargetLane = absoluteTargetLane;
+    this.relativeTargetLane = null;
   }
 
   @Override

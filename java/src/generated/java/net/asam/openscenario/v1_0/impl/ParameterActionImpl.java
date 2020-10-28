@@ -99,11 +99,13 @@ public class ParameterActionImpl extends BaseImpl implements IParameterActionWri
   @Override
   public void setSetAction(IParameterSetActionWriter setAction) {
     this.setAction = setAction;
+    this.modifyAction = null;
   }
 
   @Override
   public void setModifyAction(IParameterModifyActionWriter modifyAction) {
     this.modifyAction = modifyAction;
+    this.setAction = null;
   }
 
   @Override

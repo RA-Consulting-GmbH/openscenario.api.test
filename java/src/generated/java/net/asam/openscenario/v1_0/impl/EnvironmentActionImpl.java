@@ -80,11 +80,13 @@ public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActio
   @Override
   public void setEnvironment(IEnvironmentWriter environment) {
     this.environment = environment;
+    this.catalogReference = null;
   }
 
   @Override
   public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.environment = null;
   }
 
   @Override

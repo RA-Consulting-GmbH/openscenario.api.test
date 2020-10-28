@@ -96,21 +96,33 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObjectWriter {
   @Override
   public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.vehicle = null;
+    this.pedestrian = null;
+    this.miscObject = null;
   }
 
   @Override
   public void setVehicle(IVehicleWriter vehicle) {
     this.vehicle = vehicle;
+    this.catalogReference = null;
+    this.pedestrian = null;
+    this.miscObject = null;
   }
 
   @Override
   public void setPedestrian(IPedestrianWriter pedestrian) {
     this.pedestrian = pedestrian;
+    this.catalogReference = null;
+    this.vehicle = null;
+    this.miscObject = null;
   }
 
   @Override
   public void setMiscObject(IMiscObjectWriter miscObject) {
     this.miscObject = miscObject;
+    this.catalogReference = null;
+    this.vehicle = null;
+    this.pedestrian = null;
   }
 
   @Override

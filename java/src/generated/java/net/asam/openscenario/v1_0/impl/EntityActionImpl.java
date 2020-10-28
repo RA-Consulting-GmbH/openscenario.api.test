@@ -99,11 +99,13 @@ public class EntityActionImpl extends BaseImpl implements IEntityActionWriter {
   @Override
   public void setAddEntityAction(IAddEntityActionWriter addEntityAction) {
     this.addEntityAction = addEntityAction;
+    this.deleteEntityAction = null;
   }
 
   @Override
   public void setDeleteEntityAction(IDeleteEntityActionWriter deleteEntityAction) {
     this.deleteEntityAction = deleteEntityAction;
+    this.addEntityAction = null;
   }
 
   @Override

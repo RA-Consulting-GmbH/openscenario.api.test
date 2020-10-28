@@ -120,39 +120,81 @@ public class ByValueConditionImpl extends BaseImpl implements IByValueConditionW
   @Override
   public void setParameterCondition(IParameterConditionWriter parameterCondition) {
     this.parameterCondition = parameterCondition;
+    this.timeOfDayCondition = null;
+    this.simulationTimeCondition = null;
+    this.storyboardElementStateCondition = null;
+    this.userDefinedValueCondition = null;
+    this.trafficSignalCondition = null;
+    this.trafficSignalControllerCondition = null;
   }
 
   @Override
   public void setTimeOfDayCondition(ITimeOfDayConditionWriter timeOfDayCondition) {
     this.timeOfDayCondition = timeOfDayCondition;
+    this.parameterCondition = null;
+    this.simulationTimeCondition = null;
+    this.storyboardElementStateCondition = null;
+    this.userDefinedValueCondition = null;
+    this.trafficSignalCondition = null;
+    this.trafficSignalControllerCondition = null;
   }
 
   @Override
   public void setSimulationTimeCondition(ISimulationTimeConditionWriter simulationTimeCondition) {
     this.simulationTimeCondition = simulationTimeCondition;
+    this.parameterCondition = null;
+    this.timeOfDayCondition = null;
+    this.storyboardElementStateCondition = null;
+    this.userDefinedValueCondition = null;
+    this.trafficSignalCondition = null;
+    this.trafficSignalControllerCondition = null;
   }
 
   @Override
   public void setStoryboardElementStateCondition(
       IStoryboardElementStateConditionWriter storyboardElementStateCondition) {
     this.storyboardElementStateCondition = storyboardElementStateCondition;
+    this.parameterCondition = null;
+    this.timeOfDayCondition = null;
+    this.simulationTimeCondition = null;
+    this.userDefinedValueCondition = null;
+    this.trafficSignalCondition = null;
+    this.trafficSignalControllerCondition = null;
   }
 
   @Override
   public void setUserDefinedValueCondition(
       IUserDefinedValueConditionWriter userDefinedValueCondition) {
     this.userDefinedValueCondition = userDefinedValueCondition;
+    this.parameterCondition = null;
+    this.timeOfDayCondition = null;
+    this.simulationTimeCondition = null;
+    this.storyboardElementStateCondition = null;
+    this.trafficSignalCondition = null;
+    this.trafficSignalControllerCondition = null;
   }
 
   @Override
   public void setTrafficSignalCondition(ITrafficSignalConditionWriter trafficSignalCondition) {
     this.trafficSignalCondition = trafficSignalCondition;
+    this.parameterCondition = null;
+    this.timeOfDayCondition = null;
+    this.simulationTimeCondition = null;
+    this.storyboardElementStateCondition = null;
+    this.userDefinedValueCondition = null;
+    this.trafficSignalControllerCondition = null;
   }
 
   @Override
   public void setTrafficSignalControllerCondition(
       ITrafficSignalControllerConditionWriter trafficSignalControllerCondition) {
     this.trafficSignalControllerCondition = trafficSignalControllerCondition;
+    this.parameterCondition = null;
+    this.timeOfDayCondition = null;
+    this.simulationTimeCondition = null;
+    this.storyboardElementStateCondition = null;
+    this.userDefinedValueCondition = null;
+    this.trafficSignalCondition = null;
   }
 
   @Override

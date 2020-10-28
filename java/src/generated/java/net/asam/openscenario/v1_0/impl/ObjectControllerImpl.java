@@ -80,11 +80,13 @@ public class ObjectControllerImpl extends BaseImpl implements IObjectControllerW
   @Override
   public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.controller = null;
   }
 
   @Override
   public void setController(IControllerWriter controller) {
     this.controller = controller;
+    this.catalogReference = null;
   }
 
   @Override

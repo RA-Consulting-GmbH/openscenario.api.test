@@ -124,11 +124,13 @@ public class ConditionImpl extends BaseImpl implements IConditionWriter {
   @Override
   public void setByEntityCondition(IByEntityConditionWriter byEntityCondition) {
     this.byEntityCondition = byEntityCondition;
+    this.byValueCondition = null;
   }
 
   @Override
   public void setByValueCondition(IByValueConditionWriter byValueCondition) {
     this.byValueCondition = byValueCondition;
+    this.byEntityCondition = null;
   }
 
   @Override

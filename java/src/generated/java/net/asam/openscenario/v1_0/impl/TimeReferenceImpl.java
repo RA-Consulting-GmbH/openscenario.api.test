@@ -80,11 +80,13 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReferenceWriter 
   @Override
   public void setNone(INoneWriter none) {
     this.none = none;
+    this.timing = null;
   }
 
   @Override
   public void setTiming(ITimingWriter timing) {
     this.timing = timing;
+    this.none = null;
   }
 
   @Override

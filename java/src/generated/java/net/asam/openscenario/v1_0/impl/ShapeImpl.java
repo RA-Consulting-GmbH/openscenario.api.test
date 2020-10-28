@@ -88,16 +88,22 @@ public class ShapeImpl extends BaseImpl implements IShapeWriter {
   @Override
   public void setPolyline(IPolylineWriter polyline) {
     this.polyline = polyline;
+    this.clothoid = null;
+    this.nurbs = null;
   }
 
   @Override
   public void setClothoid(IClothoidWriter clothoid) {
     this.clothoid = clothoid;
+    this.polyline = null;
+    this.nurbs = null;
   }
 
   @Override
   public void setNurbs(INurbsWriter nurbs) {
     this.nurbs = nurbs;
+    this.polyline = null;
+    this.clothoid = null;
   }
 
   @Override

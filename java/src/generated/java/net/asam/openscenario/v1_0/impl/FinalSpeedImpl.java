@@ -80,11 +80,13 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeedWriter {
   @Override
   public void setAbsoluteSpeed(IAbsoluteSpeedWriter absoluteSpeed) {
     this.absoluteSpeed = absoluteSpeed;
+    this.relativeSpeedToMaster = null;
   }
 
   @Override
   public void setRelativeSpeedToMaster(IRelativeSpeedToMasterWriter relativeSpeedToMaster) {
     this.relativeSpeedToMaster = relativeSpeedToMaster;
+    this.absoluteSpeed = null;
   }
 
   @Override
