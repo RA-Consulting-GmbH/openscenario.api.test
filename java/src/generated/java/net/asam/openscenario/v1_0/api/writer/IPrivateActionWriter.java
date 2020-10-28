@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPrivateAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,67 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPrivateActionWriter extends IOpenScenarioModelElement {
+public interface IPrivateActionWriter extends IPrivateAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Applies longitudinal control behavior on the
+   * reference entity/entities. Either a SpeedAction or a LongitudinalDistanceAction.
+   *
+   * @param longitudinalAction value of model property longitudinalAction
+   */
+  public void setLongitudinalAction(ILongitudinalActionWriter longitudinalAction);
+  /**
+   * From OpenSCENARIO class model specification: Applies lateral control behavior on the reference
+   * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a LateralDistanceAction.
+   *
+   * @param lateralAction value of model property lateralAction
+   */
+  public void setLateralAction(ILateralActionWriter lateralAction);
+  /**
+   * From OpenSCENARIO class model specification: Sets visibility attributes on the reference
+   * entity/entities.
+   *
+   * @param visibilityAction value of model property visibilityAction
+   */
+  public void setVisibilityAction(IVisibilityActionWriter visibilityAction);
+  /**
+   * From OpenSCENARIO class model specification: Synchronizes the reference entity/entities with a
+   * master entity. A target position is provided for the entity and for the master entity to be
+   * reached at the same time.
+   *
+   * @param synchronizeAction value of model property synchronizeAction
+   */
+  public void setSynchronizeAction(ISynchronizeActionWriter synchronizeAction);
+  /**
+   * From OpenSCENARIO class model specification: Activates/ deactivates a controller on the
+   * reference entity/entities.
+   *
+   * @param activateControllerAction value of model property activateControllerAction
+   */
+  public void setActivateControllerAction(IActivateControllerActionWriter activateControllerAction);
+  /**
+   * From OpenSCENARIO class model specification: Assigns a controller to the reference
+   * entity/entities.
+   *
+   * @param controllerAction value of model property controllerAction
+   */
+  public void setControllerAction(IControllerActionWriter controllerAction);
+  /**
+   * From OpenSCENARIO class model specification: Assigns a position to the reference
+   * entity/entities.
+   *
+   * @param teleportAction value of model property teleportAction
+   */
+  public void setTeleportAction(ITeleportActionWriter teleportAction);
+  /**
+   * From OpenSCENARIO class model specification: Applies an AssignRouteAction, a
+   * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.
+   *
+   * @param routingAction value of model property routingAction
+   */
+  public void setRoutingAction(IRoutingActionWriter routingAction);
 
   // children
   /**
@@ -36,21 +97,21 @@ public interface IPrivateActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property longitudinalAction
    */
-  public ILongitudinalActionWriter getLongitudinalActionWriter();
+  public ILongitudinalActionWriter getWriterLongitudinalAction();
   /**
    * From OpenSCENARIO class model specification: Applies lateral control behavior on the reference
    * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a LateralDistanceAction.
    *
    * @return a writer for model property lateralAction
    */
-  public ILateralActionWriter getLateralActionWriter();
+  public ILateralActionWriter getWriterLateralAction();
   /**
    * From OpenSCENARIO class model specification: Sets visibility attributes on the reference
    * entity/entities.
    *
    * @return a writer for model property visibilityAction
    */
-  public IVisibilityActionWriter getVisibilityActionWriter();
+  public IVisibilityActionWriter getWriterVisibilityAction();
   /**
    * From OpenSCENARIO class model specification: Synchronizes the reference entity/entities with a
    * master entity. A target position is provided for the entity and for the master entity to be
@@ -58,92 +119,33 @@ public interface IPrivateActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property synchronizeAction
    */
-  public ISynchronizeActionWriter getSynchronizeActionWriter();
+  public ISynchronizeActionWriter getWriterSynchronizeAction();
   /**
    * From OpenSCENARIO class model specification: Activates/ deactivates a controller on the
    * reference entity/entities.
    *
    * @return a writer for model property activateControllerAction
    */
-  public IActivateControllerActionWriter getActivateControllerActionWriter();
+  public IActivateControllerActionWriter getWriterActivateControllerAction();
   /**
    * From OpenSCENARIO class model specification: Assigns a controller to the reference
    * entity/entities.
    *
    * @return a writer for model property controllerAction
    */
-  public IControllerActionWriter getControllerActionWriter();
+  public IControllerActionWriter getWriterControllerAction();
   /**
    * From OpenSCENARIO class model specification: Assigns a position to the reference
    * entity/entities.
    *
    * @return a writer for model property teleportAction
    */
-  public ITeleportActionWriter getTeleportActionWriter();
+  public ITeleportActionWriter getWriterTeleportAction();
   /**
    * From OpenSCENARIO class model specification: Applies an AssignRouteAction, a
    * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.
    *
    * @return a writer for model property routingAction
    */
-  public IRoutingActionWriter getRoutingActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Applies longitudinal control behavior on the
-   * reference entity/entities. Either a SpeedAction or a LongitudinalDistanceAction.
-   *
-   * @param longitudinalActionWriter writer for the model property longitudinalAction
-   */
-  public void writeToLongitudinalActionWriter(ILongitudinalActionWriter longitudinalActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Applies lateral control behavior on the reference
-   * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a LateralDistanceAction.
-   *
-   * @param lateralActionWriter writer for the model property lateralAction
-   */
-  public void writeToLateralActionWriter(ILateralActionWriter lateralActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Sets visibility attributes on the reference
-   * entity/entities.
-   *
-   * @param visibilityActionWriter writer for the model property visibilityAction
-   */
-  public void writeToVisibilityActionWriter(IVisibilityActionWriter visibilityActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Synchronizes the reference entity/entities with a
-   * master entity. A target position is provided for the entity and for the master entity to be
-   * reached at the same time.
-   *
-   * @param synchronizeActionWriter writer for the model property synchronizeAction
-   */
-  public void writeToSynchronizeActionWriter(ISynchronizeActionWriter synchronizeActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Activates/ deactivates a controller on the
-   * reference entity/entities.
-   *
-   * @param activateControllerActionWriter writer for the model property activateControllerAction
-   */
-  public void writeToActivateControllerActionWriter(
-      IActivateControllerActionWriter activateControllerActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Assigns a controller to the reference
-   * entity/entities.
-   *
-   * @param controllerActionWriter writer for the model property controllerAction
-   */
-  public void writeToControllerActionWriter(IControllerActionWriter controllerActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Assigns a position to the reference
-   * entity/entities.
-   *
-   * @param teleportActionWriter writer for the model property teleportAction
-   */
-  public void writeToTeleportActionWriter(ITeleportActionWriter teleportActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Applies an AssignRouteAction, a
-   * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.
-   *
-   * @param routingActionWriter writer for the model property routingAction
-   */
-  public void writeToRoutingActionWriter(IRoutingActionWriter routingActionWriter);
+  public IRoutingActionWriter getWriterRoutingAction();
 }

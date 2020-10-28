@@ -48,15 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EnvironmentActionImpl extends BaseImpl
-    implements IEnvironmentAction, IEnvironmentActionWriter {
+public class EnvironmentActionImpl extends BaseImpl implements IEnvironmentActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IEnvironment environment;
-  private ICatalogReference catalogReference;
-
-  private IEnvironmentWriter environmentWriter;
-  private ICatalogReferenceWriter catalogReferenceWriter;
+  private IEnvironmentWriter environment;
+  private ICatalogReferenceWriter catalogReference;
 
   /** Default constructor */
   public EnvironmentActionImpl() {
@@ -80,21 +76,14 @@ public class EnvironmentActionImpl extends BaseImpl
   public ICatalogReference getCatalogReference() {
     return this.catalogReference;
   }
-  /**
-   * Sets the value of model property environment
-   *
-   * @param environment from OpenSCENARIO class model specification: [New environment definition.]
-   */
-  public void setEnvironment(IEnvironment environment) {
+
+  @Override
+  public void setEnvironment(IEnvironmentWriter environment) {
     this.environment = environment;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog
-   *     entry of type Environment.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
   }
 
@@ -119,13 +108,13 @@ public class EnvironmentActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IEnvironment environment = null;
-    environment = getEnvironment();
+    IEnvironmentWriter environment = null;
+    environment = getWriterEnvironment();
     if (environment != null) {
       result.add((BaseImpl) environment);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
@@ -148,17 +137,17 @@ public class EnvironmentActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IEnvironment environment = null;
-    environment = getEnvironment();
+    IEnvironmentWriter environment = null;
+    environment = getWriterEnvironment();
     if (environment != null) {
-      EnvironmentImpl clonedChild = ((EnvironmentImpl) environment).clone();
+      IEnvironmentWriter clonedChild = ((EnvironmentImpl) environment).clone();
       clonedObject.setEnvironment(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -247,22 +236,12 @@ public class EnvironmentActionImpl extends BaseImpl
 
   // children
   @Override
-  public IEnvironmentWriter getEnvironmentWriter() {
-    return this.environmentWriter;
+  public IEnvironmentWriter getWriterEnvironment() {
+    return this.environment;
   }
 
   @Override
-  public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return this.catalogReferenceWriter;
-  }
-
-  @Override
-  public void writeToEnvironmentWriter(IEnvironmentWriter environmentWriter) {
-    this.environmentWriter = environmentWriter;
-  }
-
-  @Override
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    this.catalogReferenceWriter = catalogReferenceWriter;
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 }

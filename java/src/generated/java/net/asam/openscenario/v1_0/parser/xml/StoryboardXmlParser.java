@@ -25,7 +25,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IStory;
+import net.asam.openscenario.v1_0.api.writer.IStoryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.InitImpl;
 import net.asam.openscenario.v1_0.impl.StoryImpl;
@@ -146,7 +146,7 @@ public class StoryboardXmlParser extends XmlComplexTypeParser<StoryboardImpl> {
       // Setting the parent
       stories.setParent(object);
       this.storyXmlParser.parseElement(indexedElement, parserContext, stories);
-      List<IStory> storiesList = object.getStories();
+      List<IStoryWriter> storiesList = object.getWriterStories();
       if (storiesList == null) {
         storiesList = new ArrayList<>();
         object.setStories(storiesList);

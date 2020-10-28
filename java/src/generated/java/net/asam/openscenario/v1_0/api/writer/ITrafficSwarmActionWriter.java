@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficSwarmAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -32,54 +33,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficSwarmActionWriter extends IOpenScenarioModelElement {
+public interface ITrafficSwarmActionWriter extends ITrafficSwarmAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Shape of the swarm traffic distribution area is
-   * given as an ellipsis around a central entity. SemiMajorAxis defines the half length of the
-   * major axis of this ellipsis. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property semiMajorAxis
-   */
-  public Double getSemiMajorAxis();
-  /**
-   * From OpenSCENARIO class model specification: Shape of the swarm traffic distribution area is
-   * given as an ellipsis around a central entity. SemiMinorAxis defines the half length of the
-   * minor axis of this ellipsis. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property semiMinorAxis
-   */
-  public Double getSemiMinorAxis();
-  /**
-   * From OpenSCENARIO class model specification: Radius of the inner circular area around the
-   * central entity. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property innerRadius
-   */
-  public Double getInnerRadius();
-  /**
-   * From OpenSCENARIO class model specification: Offset in longitudinal direction related to the
-   * x-axis of the central entity. Unit: m;.
-   *
-   * @return value of model property offset
-   */
-  public Double getOffset();
-  /**
-   * From OpenSCENARIO class model specification: The maximum number of vehicles surrounding the
-   * central entity. Depending on the current road situation less than numberOfVehicles might be set
-   * up. Range: [0..inf[.
-   *
-   * @return value of model property numberOfVehicles
-   */
-  public Long getNumberOfVehicles();
-  /**
-   * From OpenSCENARIO class model specification: The optional starting velocity of a created
-   * entity. Unit: m/s; Range: [0..inf[.
-   *
-   * @return value of model property velocity
-   */
-  public Double getVelocity();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Shape of the swarm traffic distribution area is
@@ -88,7 +44,7 @@ public interface ITrafficSwarmActionWriter extends IOpenScenarioModelElement {
    *
    * @param semiMajorAxis value of model property semiMajorAxis
    */
-  public void writeToSemiMajorAxis(Double semiMajorAxis);
+  public void setSemiMajorAxis(Double semiMajorAxis);
   /**
    * From OpenSCENARIO class model specification: Shape of the swarm traffic distribution area is
    * given as an ellipsis around a central entity. SemiMinorAxis defines the half length of the
@@ -96,21 +52,21 @@ public interface ITrafficSwarmActionWriter extends IOpenScenarioModelElement {
    *
    * @param semiMinorAxis value of model property semiMinorAxis
    */
-  public void writeToSemiMinorAxis(Double semiMinorAxis);
+  public void setSemiMinorAxis(Double semiMinorAxis);
   /**
    * From OpenSCENARIO class model specification: Radius of the inner circular area around the
    * central entity. Unit: m; Range: [0..inf[.
    *
    * @param innerRadius value of model property innerRadius
    */
-  public void writeToInnerRadius(Double innerRadius);
+  public void setInnerRadius(Double innerRadius);
   /**
    * From OpenSCENARIO class model specification: Offset in longitudinal direction related to the
    * x-axis of the central entity. Unit: m;.
    *
    * @param offset value of model property offset
    */
-  public void writeToOffset(Double offset);
+  public void setOffset(Double offset);
   /**
    * From OpenSCENARIO class model specification: The maximum number of vehicles surrounding the
    * central entity. Depending on the current road situation less than numberOfVehicles might be set
@@ -118,14 +74,27 @@ public interface ITrafficSwarmActionWriter extends IOpenScenarioModelElement {
    *
    * @param numberOfVehicles value of model property numberOfVehicles
    */
-  public void writeToNumberOfVehicles(Long numberOfVehicles);
+  public void setNumberOfVehicles(Long numberOfVehicles);
   /**
    * From OpenSCENARIO class model specification: The optional starting velocity of a created
    * entity. Unit: m/s; Range: [0..inf[.
    *
    * @param velocity value of model property velocity
    */
-  public void writeToVelocity(Double velocity);
+  public void setVelocity(Double velocity);
+  /**
+   * From OpenSCENARIO class model specification: The entity that represents the center of a swarm.
+   *
+   * @param centralObject value of model property centralObject
+   */
+  public void setCentralObject(ICentralSwarmObjectWriter centralObject);
+  /**
+   * From OpenSCENARIO class model specification: Specifies properties of autonomous traffic with
+   * respect to vehicle and driver distributions.
+   *
+   * @param trafficDefinition value of model property trafficDefinition
+   */
+  public void setTrafficDefinition(ITrafficDefinitionWriter trafficDefinition);
 
   /**
    * Set a parameter for the attribute semiMajorAxis
@@ -250,26 +219,12 @@ public interface ITrafficSwarmActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property centralObject
    */
-  public ICentralSwarmObjectWriter getCentralObjectWriter();
+  public ICentralSwarmObjectWriter getWriterCentralObject();
   /**
    * From OpenSCENARIO class model specification: Specifies properties of autonomous traffic with
    * respect to vehicle and driver distributions.
    *
    * @return a writer for model property trafficDefinition
    */
-  public ITrafficDefinitionWriter getTrafficDefinitionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The entity that represents the center of a swarm.
-   *
-   * @param centralObjectWriter writer for the model property centralObject
-   */
-  public void writeToCentralObjectWriter(ICentralSwarmObjectWriter centralObjectWriter);
-  /**
-   * From OpenSCENARIO class model specification: Specifies properties of autonomous traffic with
-   * respect to vehicle and driver distributions.
-   *
-   * @param trafficDefinitionWriter writer for the model property trafficDefinition
-   */
-  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter);
+  public ITrafficDefinitionWriter getWriterTrafficDefinition();
 }

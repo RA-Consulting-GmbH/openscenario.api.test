@@ -51,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ControllerDistributionEntryImpl extends BaseImpl
-    implements IControllerDistributionEntry, IControllerDistributionEntryWriter {
+    implements IControllerDistributionEntryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,11 +60,8 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   }
 
   private Double weight;
-  private IController controller;
-  private ICatalogReference catalogReference;
-
-  private IControllerWriter controllerWriter;
-  private ICatalogReferenceWriter catalogReferenceWriter;
+  private IControllerWriter controller;
+  private ICatalogReferenceWriter catalogReference;
 
   /** Default constructor */
   public ControllerDistributionEntryImpl() {
@@ -93,30 +90,19 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   public ICatalogReference getCatalogReference() {
     return this.catalogReference;
   }
-  /**
-   * Sets the value of model property weight
-   *
-   * @param weight from OpenSCENARIO class model specification: [The weight of the entry. Range:
-   *     ]0..inf[.]
-   */
+
+  @Override
   public void setWeight(Double weight) {
     this.weight = weight;
   }
-  /**
-   * Sets the value of model property controller
-   *
-   * @param controller from OpenSCENARIO class model specification: [The specified controller type.]
-   */
-  public void setController(IController controller) {
+
+  @Override
+  public void setController(IControllerWriter controller) {
     this.controller = controller;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [A controller type import
-   *     from a catalog.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
   }
 
@@ -146,13 +132,13 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
       result.add((BaseImpl) controller);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
@@ -177,17 +163,17 @@ public class ControllerDistributionEntryImpl extends BaseImpl
     // Simple type
     clonedObject.setWeight(getWeight());
     // clone children
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
-      ControllerImpl clonedChild = ((ControllerImpl) controller).clone();
+      IControllerWriter clonedChild = ((ControllerImpl) controller).clone();
       clonedObject.setController(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -281,11 +267,6 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   }
 
   @Override
-  public void writeToWeight(Double weight) {
-    setWeight(weight);
-  }
-
-  @Override
   public void writeParameterToWeight(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
   }
@@ -302,22 +283,12 @@ public class ControllerDistributionEntryImpl extends BaseImpl
 
   // children
   @Override
-  public IControllerWriter getControllerWriter() {
-    return this.controllerWriter;
+  public IControllerWriter getWriterController() {
+    return this.controller;
   }
 
   @Override
-  public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return this.catalogReferenceWriter;
-  }
-
-  @Override
-  public void writeToControllerWriter(IControllerWriter controllerWriter) {
-    this.controllerWriter = controllerWriter;
-  }
-
-  @Override
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    this.catalogReferenceWriter = catalogReferenceWriter;
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 }

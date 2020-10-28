@@ -49,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, IScenarioObjectWriter {
+public class ScenarioObjectImpl extends BaseImpl implements IScenarioObjectWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,11 +58,8 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
   }
 
   private String name;
-  private IEntityObject entityObject;
-  private IObjectController objectController;
-
-  private IEntityObjectWriter entityObjectWriter;
-  private IObjectControllerWriter objectControllerWriter;
+  private IEntityObjectWriter entityObject;
+  private IObjectControllerWriter objectController;
 
   /** Default constructor */
   public ScenarioObjectImpl() {
@@ -91,30 +88,19 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
   public IObjectController getObjectController() {
     return this.objectController;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Identifier of the scenario object.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property entityObject
-   *
-   * @param entityObject from OpenSCENARIO class model specification: [The EntityObject (either
-   *     instance of type Vehicle, Pedestrian or MiscObject).]
-   */
-  public void setEntityObject(IEntityObject entityObject) {
+
+  @Override
+  public void setEntityObject(IEntityObjectWriter entityObject) {
     this.entityObject = entityObject;
   }
-  /**
-   * Sets the value of model property objectController
-   *
-   * @param objectController from OpenSCENARIO class model specification: [Controller of the
-   *     EntityObject instance.]
-   */
-  public void setObjectController(IObjectController objectController) {
+
+  @Override
+  public void setObjectController(IObjectControllerWriter objectController) {
     this.objectController = objectController;
   }
 
@@ -144,13 +130,13 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IEntityObject entityObject = null;
-    entityObject = getEntityObject();
+    IEntityObjectWriter entityObject = null;
+    entityObject = getWriterEntityObject();
     if (entityObject != null) {
       result.add((BaseImpl) entityObject);
     }
-    IObjectController objectController = null;
-    objectController = getObjectController();
+    IObjectControllerWriter objectController = null;
+    objectController = getWriterObjectController();
     if (objectController != null) {
       result.add((BaseImpl) objectController);
     }
@@ -175,17 +161,17 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
     // Simple type
     clonedObject.setName(getName());
     // clone children
-    IEntityObject entityObject = null;
-    entityObject = getEntityObject();
+    IEntityObjectWriter entityObject = null;
+    entityObject = getWriterEntityObject();
     if (entityObject != null) {
-      EntityObjectImpl clonedChild = ((EntityObjectImpl) entityObject).clone();
+      IEntityObjectWriter clonedChild = ((EntityObjectImpl) entityObject).clone();
       clonedObject.setEntityObject(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IObjectController objectController = null;
-    objectController = getObjectController();
+    IObjectControllerWriter objectController = null;
+    objectController = getWriterObjectController();
     if (objectController != null) {
-      ObjectControllerImpl clonedChild = ((ObjectControllerImpl) objectController).clone();
+      IObjectControllerWriter clonedChild = ((ObjectControllerImpl) objectController).clone();
       clonedObject.setObjectController(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -279,11 +265,6 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -300,22 +281,12 @@ public class ScenarioObjectImpl extends BaseImpl implements IScenarioObject, ISc
 
   // children
   @Override
-  public IEntityObjectWriter getEntityObjectWriter() {
-    return this.entityObjectWriter;
+  public IEntityObjectWriter getWriterEntityObject() {
+    return this.entityObject;
   }
 
   @Override
-  public IObjectControllerWriter getObjectControllerWriter() {
-    return this.objectControllerWriter;
-  }
-
-  @Override
-  public void writeToEntityObjectWriter(IEntityObjectWriter entityObjectWriter) {
-    this.entityObjectWriter = entityObjectWriter;
-  }
-
-  @Override
-  public void writeToObjectControllerWriter(IObjectControllerWriter objectControllerWriter) {
-    this.objectControllerWriter = objectControllerWriter;
+  public IObjectControllerWriter getWriterObjectController() {
+    return this.objectController;
   }
 }

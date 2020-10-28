@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IObjectController;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IObjectControllerWriter extends IOpenScenarioModelElement {
+public interface IObjectControllerWriter extends IObjectController, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Catalog reference to a controller.
+   *
+   * @param catalogReference value of model property catalogReference
+   */
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference);
+  /**
+   * From OpenSCENARIO class model specification: Controller type definition.
+   *
+   * @param controller value of model property controller
+   */
+  public void setController(IControllerWriter controller);
 
   // children
   /**
@@ -35,24 +51,11 @@ public interface IObjectControllerWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property catalogReference
    */
-  public ICatalogReferenceWriter getCatalogReferenceWriter();
+  public ICatalogReferenceWriter getWriterCatalogReference();
   /**
    * From OpenSCENARIO class model specification: Controller type definition.
    *
    * @return a writer for model property controller
    */
-  public IControllerWriter getControllerWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Catalog reference to a controller.
-   *
-   * @param catalogReferenceWriter writer for the model property catalogReference
-   */
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter);
-  /**
-   * From OpenSCENARIO class model specification: Controller type definition.
-   *
-   * @param controllerWriter writer for the model property controller
-   */
-  public void writeToControllerWriter(IControllerWriter controllerWriter);
+  public IControllerWriter getWriterController();
 }

@@ -50,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class LaneOffsetActionDynamicsImpl extends BaseImpl
-    implements ILaneOffsetActionDynamics, ILaneOffsetActionDynamicsWriter {
+    implements ILaneOffsetActionDynamicsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -84,21 +84,13 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
   public DynamicsShape getDynamicsShape() {
     return this.dynamicsShape;
   }
-  /**
-   * Sets the value of model property maxLateralAcc
-   *
-   * @param maxLateralAcc from OpenSCENARIO class model specification: [Maximum lateral acceleration
-   *     used to initially reach and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxLateralAcc(Double maxLateralAcc) {
     this.maxLateralAcc = maxLateralAcc;
   }
-  /**
-   * Sets the value of model property dynamicsShape
-   *
-   * @param dynamicsShape from OpenSCENARIO class model specification: [Geometrical shape of the
-   *     LaneOffsetAction's dynamics.]
-   */
+
+  @Override
   public void setDynamicsShape(DynamicsShape dynamicsShape) {
     this.dynamicsShape = dynamicsShape;
   }
@@ -254,16 +246,6 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "LaneOffsetActionDynamics";
-  }
-
-  @Override
-  public void writeToMaxLateralAcc(Double maxLateralAcc) {
-    setMaxLateralAcc(maxLateralAcc);
-  }
-
-  @Override
-  public void writeToDynamicsShape(DynamicsShape dynamicsShape) {
-    setDynamicsShape(dynamicsShape);
   }
 
   @Override

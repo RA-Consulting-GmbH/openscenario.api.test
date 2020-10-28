@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IManeuverGroup;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,22 +30,10 @@ import java.util.List;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IManeuverGroupWriter extends IStoryboardElementWriter {
+public interface IManeuverGroupWriter
+    extends IStoryboardElementWriter, IManeuverGroup, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Number of allowed executions of the maneuver
-   * group. Default value is 1. Range: [1..inf[.
-   *
-   * @return value of model property maximumExecutionCount
-   */
-  public Long getMaximumExecutionCount();
-  /**
-   * From OpenSCENARIO class model specification: Name of the maneuver group.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Number of allowed executions of the maneuver
@@ -51,13 +41,32 @@ public interface IManeuverGroupWriter extends IStoryboardElementWriter {
    *
    * @param maximumExecutionCount value of model property maximumExecutionCount
    */
-  public void writeToMaximumExecutionCount(Long maximumExecutionCount);
+  public void setMaximumExecutionCount(Long maximumExecutionCount);
   /**
    * From OpenSCENARIO class model specification: Name of the maneuver group.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: Actors of the maneuver group.
+   *
+   * @param actors value of model property actors
+   */
+  public void setActors(IActorsWriter actors);
+  /**
+   * From OpenSCENARIO class model specification: Each element of this list of must reference a
+   * maneuver type in a catalog.
+   *
+   * @param catalogReferences value of model property catalogReferences
+   */
+  public void setCatalogReferences(List<ICatalogReferenceWriter> catalogReferences);
+  /**
+   * From OpenSCENARIO class model specification: Maneuver type definitions.
+   *
+   * @param maneuvers value of model property maneuvers
+   */
+  public void setManeuvers(List<IManeuverWriter> maneuvers);
 
   /**
    * Set a parameter for the attribute maximumExecutionCount
@@ -106,14 +115,7 @@ public interface IManeuverGroupWriter extends IStoryboardElementWriter {
    *
    * @return a writer for model property actors
    */
-  public IActorsWriter getActorsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Actors of the maneuver group.
-   *
-   * @param actorsWriter writer for the model property actors
-   */
-  public void writeToActorsWriter(IActorsWriter actorsWriter);
+  public IActorsWriter getWriterActors();
 
   /**
    * From OpenSCENARIO class model specification: Each element of this list of must reference a
@@ -121,25 +123,11 @@ public interface IManeuverGroupWriter extends IStoryboardElementWriter {
    *
    * @return a list of writers for model property catalogReferences
    */
-  public List<ICatalogReferenceWriter> getCatalogReferencesWriter();
+  public List<ICatalogReferenceWriter> getWriterCatalogReferences();
   /**
    * From OpenSCENARIO class model specification: Maneuver type definitions.
    *
    * @return a list of writers for model property maneuvers
    */
-  public List<IManeuverWriter> getManeuversWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Each element of this list of must reference a
-   * maneuver type in a catalog.
-   *
-   * @param catalogReferencesWriters list of writers for the model property catalogReferences
-   */
-  public void setCatalogReferencesWriter(List<ICatalogReferenceWriter> catalogReferencesWriters);
-  /**
-   * From OpenSCENARIO class model specification: Maneuver type definitions.
-   *
-   * @param maneuversWriters list of writers for the model property maneuvers
-   */
-  public void setManeuversWriter(List<IManeuverWriter> maneuversWriters);
+  public List<IManeuverWriter> getWriterManeuvers();
 }

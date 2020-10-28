@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPedestrian;
 import net.asam.openscenario.v1_0.api.PedestrianCategory;
 
 /**
@@ -27,60 +29,54 @@ import net.asam.openscenario.v1_0.api.PedestrianCategory;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPedestrianWriter extends ICatalogElementWriter {
+public interface IPedestrianWriter
+    extends ICatalogElementWriter, IPedestrian, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Definition of the model of the pedestrian.
-   *
-   * @return value of model property model
-   */
-  public String getModel();
-  /**
-   * From OpenSCENARIO class model specification: The mass of a pedestrian in kg.
-   *
-   * @return value of model property mass
-   */
-  public Double getMass();
-  /**
-   * From OpenSCENARIO class model specification: Name of the pedestrian type. Required when used in
-   * catalog.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: Category type of pedestrian.
-   *
-   * @return value of model property pedestrianCategory
-   */
-  public PedestrianCategory getPedestrianCategory();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Definition of the model of the pedestrian.
    *
    * @param model value of model property model
    */
-  public void writeToModel(String model);
+  public void setModel(String model);
   /**
    * From OpenSCENARIO class model specification: The mass of a pedestrian in kg.
    *
    * @param mass value of model property mass
    */
-  public void writeToMass(Double mass);
+  public void setMass(Double mass);
   /**
    * From OpenSCENARIO class model specification: Name of the pedestrian type. Required when used in
    * catalog.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: Category type of pedestrian.
    *
    * @param pedestrianCategory value of model property pedestrianCategory
    */
-  public void writeToPedestrianCategory(PedestrianCategory pedestrianCategory);
+  public void setPedestrianCategory(PedestrianCategory pedestrianCategory);
+  /**
+   * From OpenSCENARIO class model specification: Definition of additional parameters.
+   *
+   * @param parameterDeclarations value of model property parameterDeclarations
+   */
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations);
+  /**
+   * From OpenSCENARIO class model specification: Bounding box of the pedestrian.
+   *
+   * @param boundingBox value of model property boundingBox
+   */
+  public void setBoundingBox(IBoundingBoxWriter boundingBox);
+  /**
+   * From OpenSCENARIO class model specification: Properties (values/files) of the pedestrian.
+   *
+   * @param properties value of model property properties
+   */
+  public void setProperties(IPropertiesWriter properties);
 
   /**
    * Set a parameter for the attribute model
@@ -167,40 +163,18 @@ public interface IPedestrianWriter extends ICatalogElementWriter {
    *
    * @return a writer for model property boundingBox
    */
-  public IBoundingBoxWriter getBoundingBoxWriter();
+  public IBoundingBoxWriter getWriterBoundingBox();
   /**
    * From OpenSCENARIO class model specification: Properties (values/files) of the pedestrian.
    *
    * @return a writer for model property properties
    */
-  public IPropertiesWriter getPropertiesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Bounding box of the pedestrian.
-   *
-   * @param boundingBoxWriter writer for the model property boundingBox
-   */
-  public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter);
-  /**
-   * From OpenSCENARIO class model specification: Properties (values/files) of the pedestrian.
-   *
-   * @param propertiesWriter writer for the model property properties
-   */
-  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter);
+  public IPropertiesWriter getWriterProperties();
 
   /**
    * From OpenSCENARIO class model specification: Definition of additional parameters.
    *
    * @return a list of writers for model property parameterDeclarations
    */
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of additional parameters.
-   *
-   * @param parameterDeclarationsWriters list of writers for the model property
-   *     parameterDeclarations
-   */
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters);
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations();
 }

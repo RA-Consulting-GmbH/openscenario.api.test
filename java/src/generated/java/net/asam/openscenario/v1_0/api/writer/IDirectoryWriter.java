@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IDirectory;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,16 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IDirectoryWriter extends IOpenScenarioModelElement {
+public interface IDirectoryWriter extends IDirectory, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: File system path, e.g. path=/home/simulation/.
-   *
-   * @return value of model property path
-   */
-  public String getPath();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: File system path, e.g. path=/home/simulation/.
    *
    * @param path value of model property path
    */
-  public void writeToPath(String path);
+  public void setPath(String path);
 
   /**
    * Set a parameter for the attribute path

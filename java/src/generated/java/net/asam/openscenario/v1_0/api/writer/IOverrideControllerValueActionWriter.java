@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IOverrideControllerValueAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,50 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IOverrideControllerValueActionWriter extends IOpenScenarioModelElement {
+public interface IOverrideControllerValueActionWriter
+    extends IOverrideControllerValueAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: New value for throttle pedal position or unset
+   * value.
+   *
+   * @param throttle value of model property throttle
+   */
+  public void setThrottle(IOverrideThrottleActionWriter throttle);
+  /**
+   * From OpenSCENARIO class model specification: New value for brake position or unset value.
+   *
+   * @param brake value of model property brake
+   */
+  public void setBrake(IOverrideBrakeActionWriter brake);
+  /**
+   * From OpenSCENARIO class model specification: New value for clutch position or unset value.
+   *
+   * @param clutch value of model property clutch
+   */
+  public void setClutch(IOverrideClutchActionWriter clutch);
+  /**
+   * From OpenSCENARIO class model specification: New value for parking brake position or unset
+   * value.
+   *
+   * @param parkingBrake value of model property parkingBrake
+   */
+  public void setParkingBrake(IOverrideParkingBrakeActionWriter parkingBrake);
+  /**
+   * From OpenSCENARIO class model specification: New value for steering wheel position or unset
+   * value.
+   *
+   * @param steeringWheel value of model property steeringWheel
+   */
+  public void setSteeringWheel(IOverrideSteeringWheelActionWriter steeringWheel);
+  /**
+   * From OpenSCENARIO class model specification: New value for gear position or unset value.
+   *
+   * @param gear value of model property gear
+   */
+  public void setGear(IOverrideGearActionWriter gear);
 
   // children
   /**
@@ -35,77 +79,37 @@ public interface IOverrideControllerValueActionWriter extends IOpenScenarioModel
    *
    * @return a writer for model property throttle
    */
-  public IOverrideThrottleActionWriter getThrottleWriter();
+  public IOverrideThrottleActionWriter getWriterThrottle();
   /**
    * From OpenSCENARIO class model specification: New value for brake position or unset value.
    *
    * @return a writer for model property brake
    */
-  public IOverrideBrakeActionWriter getBrakeWriter();
+  public IOverrideBrakeActionWriter getWriterBrake();
   /**
    * From OpenSCENARIO class model specification: New value for clutch position or unset value.
    *
    * @return a writer for model property clutch
    */
-  public IOverrideClutchActionWriter getClutchWriter();
+  public IOverrideClutchActionWriter getWriterClutch();
   /**
    * From OpenSCENARIO class model specification: New value for parking brake position or unset
    * value.
    *
    * @return a writer for model property parkingBrake
    */
-  public IOverrideParkingBrakeActionWriter getParkingBrakeWriter();
+  public IOverrideParkingBrakeActionWriter getWriterParkingBrake();
   /**
    * From OpenSCENARIO class model specification: New value for steering wheel position or unset
    * value.
    *
    * @return a writer for model property steeringWheel
    */
-  public IOverrideSteeringWheelActionWriter getSteeringWheelWriter();
+  public IOverrideSteeringWheelActionWriter getWriterSteeringWheel();
   /**
    * From OpenSCENARIO class model specification: New value for gear position or unset value.
    *
    * @return a writer for model property gear
    */
-  public IOverrideGearActionWriter getGearWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: New value for throttle pedal position or unset
-   * value.
-   *
-   * @param throttleWriter writer for the model property throttle
-   */
-  public void writeToThrottleWriter(IOverrideThrottleActionWriter throttleWriter);
-  /**
-   * From OpenSCENARIO class model specification: New value for brake position or unset value.
-   *
-   * @param brakeWriter writer for the model property brake
-   */
-  public void writeToBrakeWriter(IOverrideBrakeActionWriter brakeWriter);
-  /**
-   * From OpenSCENARIO class model specification: New value for clutch position or unset value.
-   *
-   * @param clutchWriter writer for the model property clutch
-   */
-  public void writeToClutchWriter(IOverrideClutchActionWriter clutchWriter);
-  /**
-   * From OpenSCENARIO class model specification: New value for parking brake position or unset
-   * value.
-   *
-   * @param parkingBrakeWriter writer for the model property parkingBrake
-   */
-  public void writeToParkingBrakeWriter(IOverrideParkingBrakeActionWriter parkingBrakeWriter);
-  /**
-   * From OpenSCENARIO class model specification: New value for steering wheel position or unset
-   * value.
-   *
-   * @param steeringWheelWriter writer for the model property steeringWheel
-   */
-  public void writeToSteeringWheelWriter(IOverrideSteeringWheelActionWriter steeringWheelWriter);
-  /**
-   * From OpenSCENARIO class model specification: New value for gear position or unset value.
-   *
-   * @param gearWriter writer for the model property gear
-   */
-  public void writeToGearWriter(IOverrideGearActionWriter gearWriter);
+  public IOverrideGearActionWriter getWriterGear();
 }

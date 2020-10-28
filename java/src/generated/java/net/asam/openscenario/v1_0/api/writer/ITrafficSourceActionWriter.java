@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficSourceAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,30 +27,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficSourceActionWriter extends IOpenScenarioModelElement {
+public interface ITrafficSourceActionWriter
+    extends ITrafficSourceAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Defines the rate on which vehicles appear at the
-   * source location. Unit: vehicles/s. Range: [0..inf[.
-   *
-   * @return value of model property rate
-   */
-  public Double getRate();
-  /**
-   * From OpenSCENARIO class model specification: Defines the radius of the traffic source where
-   * vehicles appear around the specific position. Unit: m. Range: [0..inf[.
-   *
-   * @return value of model property radius
-   */
-  public Double getRadius();
-  /**
-   * From OpenSCENARIO class model specification: The optional starting velocity of a scenario
-   * object. Unit: m/s; Range: [0..inf[.
-   *
-   * @return value of model property velocity
-   */
-  public Double getVelocity();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Defines the rate on which vehicles appear at the
@@ -57,21 +38,34 @@ public interface ITrafficSourceActionWriter extends IOpenScenarioModelElement {
    *
    * @param rate value of model property rate
    */
-  public void writeToRate(Double rate);
+  public void setRate(Double rate);
   /**
    * From OpenSCENARIO class model specification: Defines the radius of the traffic source where
    * vehicles appear around the specific position. Unit: m. Range: [0..inf[.
    *
    * @param radius value of model property radius
    */
-  public void writeToRadius(Double radius);
+  public void setRadius(Double radius);
   /**
    * From OpenSCENARIO class model specification: The optional starting velocity of a scenario
    * object. Unit: m/s; Range: [0..inf[.
    *
    * @param velocity value of model property velocity
    */
-  public void writeToVelocity(Double velocity);
+  public void setVelocity(Double velocity);
+  /**
+   * From OpenSCENARIO class model specification: Defines the position of the traffic source.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
+  /**
+   * From OpenSCENARIO class model specification: Defines the vehicle and controller distribution
+   * for the source.
+   *
+   * @param trafficDefinition value of model property trafficDefinition
+   */
+  public void setTrafficDefinition(ITrafficDefinitionWriter trafficDefinition);
 
   /**
    * Set a parameter for the attribute rate
@@ -139,26 +133,12 @@ public interface ITrafficSourceActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
+  public IPositionWriter getWriterPosition();
   /**
    * From OpenSCENARIO class model specification: Defines the vehicle and controller distribution
    * for the source.
    *
    * @return a writer for model property trafficDefinition
    */
-  public ITrafficDefinitionWriter getTrafficDefinitionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Defines the position of the traffic source.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines the vehicle and controller distribution
-   * for the source.
-   *
-   * @param trafficDefinitionWriter writer for the model property trafficDefinition
-   */
-  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter);
+  public ITrafficDefinitionWriter getWriterTrafficDefinition();
 }

@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -50,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerImpl extends BaseImpl implements IController, IControllerWriter {
+public class ControllerImpl extends BaseImpl implements IControllerWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,11 +60,8 @@ public class ControllerImpl extends BaseImpl implements IController, IController
   }
 
   private String name;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private IProperties properties;
-
-  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
-  private IPropertiesWriter propertiesWriter;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private IPropertiesWriter properties;
 
   /** Default constructor */
   public ControllerImpl() {
@@ -84,38 +82,56 @@ public class ControllerImpl extends BaseImpl implements IController, IController
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
+  }
+
+  @Override
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(ControllerImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
   }
 
   @Override
   public IProperties getProperties() {
     return this.properties;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the controller type.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property properties
-   *
-   * @param properties from OpenSCENARIO class model specification: [Describing properties for the
-   *     controller.]
-   */
-  public void setProperties(IProperties properties) {
+
+  @Override
+  public void setProperties(IPropertiesWriter properties) {
     this.properties = properties;
   }
 
@@ -166,15 +182,15 @@ public class ControllerImpl extends BaseImpl implements IController, IController
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
       result.add((BaseImpl) properties);
     }
@@ -199,21 +215,21 @@ public class ControllerImpl extends BaseImpl implements IController, IController
     // Simple type
     clonedObject.setName(getName());
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      PropertiesImpl clonedChild = ((PropertiesImpl) properties).clone();
+      IPropertiesWriter clonedChild = ((PropertiesImpl) properties).clone();
       clonedObject.setProperties(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -311,11 +327,6 @@ public class ControllerImpl extends BaseImpl implements IController, IController
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -332,23 +343,7 @@ public class ControllerImpl extends BaseImpl implements IController, IController
 
   // children
   @Override
-  public IPropertiesWriter getPropertiesWriter() {
-    return this.propertiesWriter;
-  }
-
-  @Override
-  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    this.propertiesWriter = propertiesWriter;
-  }
-
-  @Override
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return this.parameterDeclarationsWriters;
-  }
-
-  @Override
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
+  public IPropertiesWriter getWriterProperties() {
+    return this.properties;
   }
 }

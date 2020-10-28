@@ -25,7 +25,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionEntryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ControllerDistributionEntryImpl;
 import net.asam.openscenario.v1_0.impl.ControllerDistributionImpl;
@@ -105,8 +105,8 @@ public class ControllerDistributionXmlParser
       controllerDistributionEntries.setParent(object);
       this.controllerDistributionEntryXmlParser.parseElement(
           indexedElement, parserContext, controllerDistributionEntries);
-      List<IControllerDistributionEntry> controllerDistributionEntriesList =
-          object.getControllerDistributionEntries();
+      List<IControllerDistributionEntryWriter> controllerDistributionEntriesList =
+          object.getWriterControllerDistributionEntries();
       if (controllerDistributionEntriesList == null) {
         controllerDistributionEntriesList = new ArrayList<>();
         object.setControllerDistributionEntries(controllerDistributionEntriesList);

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficSignalAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,25 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficSignalActionWriter extends IOpenScenarioModelElement {
+public interface ITrafficSignalActionWriter
+    extends ITrafficSignalAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Action used to control the state of a signal.
+   *
+   * @param trafficSignalControllerAction value of model property trafficSignalControllerAction
+   */
+  public void setTrafficSignalControllerAction(
+      ITrafficSignalControllerActionWriter trafficSignalControllerAction);
+  /**
+   * From OpenSCENARIO class model specification: Action used to set a specific phase of a signal
+   * controller.
+   *
+   * @param trafficSignalStateAction value of model property trafficSignalStateAction
+   */
+  public void setTrafficSignalStateAction(ITrafficSignalStateActionWriter trafficSignalStateAction);
 
   // children
   /**
@@ -34,29 +53,12 @@ public interface ITrafficSignalActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property trafficSignalControllerAction
    */
-  public ITrafficSignalControllerActionWriter getTrafficSignalControllerActionWriter();
+  public ITrafficSignalControllerActionWriter getWriterTrafficSignalControllerAction();
   /**
    * From OpenSCENARIO class model specification: Action used to set a specific phase of a signal
    * controller.
    *
    * @return a writer for model property trafficSignalStateAction
    */
-  public ITrafficSignalStateActionWriter getTrafficSignalStateActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Action used to control the state of a signal.
-   *
-   * @param trafficSignalControllerActionWriter writer for the model property
-   *     trafficSignalControllerAction
-   */
-  public void writeToTrafficSignalControllerActionWriter(
-      ITrafficSignalControllerActionWriter trafficSignalControllerActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Action used to set a specific phase of a signal
-   * controller.
-   *
-   * @param trafficSignalStateActionWriter writer for the model property trafficSignalStateAction
-   */
-  public void writeToTrafficSignalStateActionWriter(
-      ITrafficSignalStateActionWriter trafficSignalStateActionWriter);
+  public ITrafficSignalStateActionWriter getWriterTrafficSignalStateAction();
 }

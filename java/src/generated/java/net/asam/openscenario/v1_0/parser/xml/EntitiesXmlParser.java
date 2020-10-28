@@ -25,8 +25,8 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IEntitySelection;
-import net.asam.openscenario.v1_0.api.IScenarioObject;
+import net.asam.openscenario.v1_0.api.writer.IEntitySelectionWriter;
+import net.asam.openscenario.v1_0.api.writer.IScenarioObjectWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.EntitiesImpl;
 import net.asam.openscenario.v1_0.impl.EntitySelectionImpl;
@@ -100,7 +100,7 @@ public class EntitiesXmlParser extends XmlComplexTypeParser<EntitiesImpl> {
       // Setting the parent
       scenarioObjects.setParent(object);
       this.scenarioObjectXmlParser.parseElement(indexedElement, parserContext, scenarioObjects);
-      List<IScenarioObject> scenarioObjectsList = object.getScenarioObjects();
+      List<IScenarioObjectWriter> scenarioObjectsList = object.getWriterScenarioObjects();
       if (scenarioObjectsList == null) {
         scenarioObjectsList = new ArrayList<>();
         object.setScenarioObjects(scenarioObjectsList);
@@ -149,7 +149,7 @@ public class EntitiesXmlParser extends XmlComplexTypeParser<EntitiesImpl> {
       // Setting the parent
       entitySelections.setParent(object);
       this.entitySelectionXmlParser.parseElement(indexedElement, parserContext, entitySelections);
-      List<IEntitySelection> entitySelectionsList = object.getEntitySelections();
+      List<IEntitySelectionWriter> entitySelectionsList = object.getWriterEntitySelections();
       if (entitySelectionsList == null) {
         entitySelectionsList = new ArrayList<>();
         object.setEntitySelections(entitySelectionsList);

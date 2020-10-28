@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ICenter;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,46 +28,28 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ICenterWriter extends IOpenScenarioModelElement {
+public interface ICenterWriter extends ICenter, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Center offset in x direction.
-   *
-   * @return value of model property x
-   */
-  public Double getX();
-  /**
-   * From OpenSCENARIO class model specification: Center offset in y direction.
-   *
-   * @return value of model property y
-   */
-  public Double getY();
-  /**
-   * From OpenSCENARIO class model specification: Center offset in z direction.
-   *
-   * @return value of model property z
-   */
-  public Double getZ();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Center offset in x direction.
    *
    * @param x value of model property x
    */
-  public void writeToX(Double x);
+  public void setX(Double x);
   /**
    * From OpenSCENARIO class model specification: Center offset in y direction.
    *
    * @param y value of model property y
    */
-  public void writeToY(Double y);
+  public void setY(Double y);
   /**
    * From OpenSCENARIO class model specification: Center offset in z direction.
    *
    * @param z value of model property z
    */
-  public void writeToZ(Double z);
+  public void setZ(Double z);
 
   /**
    * Set a parameter for the attribute x

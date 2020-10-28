@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.ILongitudinalDistanceAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -31,78 +32,52 @@ import net.asam.openscenario.v1_0.api.IEntity;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILongitudinalDistanceActionWriter extends IOpenScenarioModelElement {
+public interface ILongitudinalDistanceActionWriter
+    extends ILongitudinalDistanceAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Reference entity the distance shall be kept to.
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
-  /**
-   * From OpenSCENARIO class model specification: Distance value, not to be used together with
-   * timeGap attribute. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property distance
-   */
-  public Double getDistance();
-  /**
-   * From OpenSCENARIO class model specification: Time gap value, not to be used together with
-   * distance attribute. Unit: s; Range: [0..inf[.
-   *
-   * @return value of model property timeGap
-   */
-  public Double getTimeGap();
-  /**
-   * From OpenSCENARIO class model specification: True: Distance is measured using the distance
-   * between closest bounding box points False: Reference point distance is used.
-   *
-   * @return value of model property freespace
-   */
-  public Boolean getFreespace();
-  /**
-   * From OpenSCENARIO class model specification: If false, the action ends when the target distance
-   * is reached. If true it does not end and can only be stopped.
-   *
-   * @return value of model property continuous
-   */
-  public Boolean getContinuous();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Reference entity the distance shall be kept to.
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
   /**
    * From OpenSCENARIO class model specification: Distance value, not to be used together with
    * timeGap attribute. Unit: m; Range: [0..inf[.
    *
    * @param distance value of model property distance
    */
-  public void writeToDistance(Double distance);
+  public void setDistance(Double distance);
   /**
    * From OpenSCENARIO class model specification: Time gap value, not to be used together with
    * distance attribute. Unit: s; Range: [0..inf[.
    *
    * @param timeGap value of model property timeGap
    */
-  public void writeToTimeGap(Double timeGap);
+  public void setTimeGap(Double timeGap);
   /**
    * From OpenSCENARIO class model specification: True: Distance is measured using the distance
    * between closest bounding box points False: Reference point distance is used.
    *
    * @param freespace value of model property freespace
    */
-  public void writeToFreespace(Boolean freespace);
+  public void setFreespace(Boolean freespace);
   /**
    * From OpenSCENARIO class model specification: If false, the action ends when the target distance
    * is reached. If true it does not end and can only be stopped.
    *
    * @param continuous value of model property continuous
    */
-  public void writeToContinuous(Boolean continuous);
+  public void setContinuous(Boolean continuous);
+  /**
+   * From OpenSCENARIO class model specification: Parameter that assigns either unlimited dynamics
+   * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
+   *
+   * @param dynamicConstraints value of model property dynamicConstraints
+   */
+  public void setDynamicConstraints(IDynamicConstraintsWriter dynamicConstraints);
 
   /**
    * Set a parameter for the attribute entityRef
@@ -209,13 +184,5 @@ public interface ILongitudinalDistanceActionWriter extends IOpenScenarioModelEle
    *
    * @return a writer for model property dynamicConstraints
    */
-  public IDynamicConstraintsWriter getDynamicConstraintsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Parameter that assigns either unlimited dynamics
-   * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the action.
-   *
-   * @param dynamicConstraintsWriter writer for the model property dynamicConstraints
-   */
-  public void writeToDynamicConstraintsWriter(IDynamicConstraintsWriter dynamicConstraintsWriter);
+  public IDynamicConstraintsWriter getWriterDynamicConstraints();
 }

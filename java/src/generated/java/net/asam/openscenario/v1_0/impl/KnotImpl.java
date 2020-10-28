@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class KnotImpl extends BaseImpl implements IKnot, IKnotWriter {
+public class KnotImpl extends BaseImpl implements IKnotWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -72,12 +72,8 @@ public class KnotImpl extends BaseImpl implements IKnot, IKnotWriter {
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Knot vector value. Range
-   *     ]-inf..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
@@ -207,11 +203,6 @@ public class KnotImpl extends BaseImpl implements IKnot, IKnotWriter {
   @Override
   public String getModelType() {
     return "Knot";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
   }
 
   @Override

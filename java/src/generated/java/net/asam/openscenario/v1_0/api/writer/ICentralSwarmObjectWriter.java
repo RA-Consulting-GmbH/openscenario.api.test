@@ -16,8 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
+import net.asam.openscenario.v1_0.api.ICentralSwarmObject;
 import net.asam.openscenario.v1_0.api.IEntity;
 
 /**
@@ -28,16 +29,9 @@ import net.asam.openscenario.v1_0.api.IEntity;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ICentralSwarmObjectWriter extends IOpenScenarioModelElement {
+public interface ICentralSwarmObjectWriter extends ICentralSwarmObject, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the central entity the swarm traffic is
-   * created around.
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the central entity the swarm traffic is
@@ -45,7 +39,7 @@ public interface ICentralSwarmObjectWriter extends IOpenScenarioModelElement {
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
 
   /**
    * Set a parameter for the attribute entityRef

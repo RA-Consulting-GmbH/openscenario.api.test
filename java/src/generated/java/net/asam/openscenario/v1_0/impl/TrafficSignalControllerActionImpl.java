@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -51,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TrafficSignalControllerActionImpl extends BaseImpl
-    implements ITrafficSignalControllerAction, ITrafficSignalControllerActionWriter {
+    implements ITrafficSignalControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,9 +61,9 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__PHASE, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<ITrafficSignalController> trafficSignalControllerRef;
+  private INamedReference<ITrafficSignalController> trafficSignalControllerRef;
   private String phase;
-  private List<IPhase> phaseRef;
+  private List<IPhase> phaseRef = new ArrayList<>();
 
   /** Default constructor */
   public TrafficSignalControllerActionImpl() {
@@ -88,35 +89,43 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
   }
 
   @Override
-  public List<IPhase> getPhaseRef() {
-    return this.phaseRef;
+  public Iterable<IPhase> getPhaseRef() {
+    return new Iterable<IPhase>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IPhase> iterator() {
+        return new ArrayList<>(TrafficSignalControllerActionImpl.this.phaseRef).iterator();
+      }
+    };
   }
-  /**
-   * Sets the value of model property trafficSignalControllerRef
-   *
-   * @param trafficSignalControllerRef from OpenSCENARIO class model specification: [ID of the
-   *     signal controller in a road network.]
-   */
+
+  @Override
+  public int getPhaseRefSize() {
+    if (this.phaseRef != null) return this.phaseRef.size();
+    return 0;
+  }
+
+  @Override
+  public IPhase getPhaseRefAtIndex(int index) {
+    if (index >= 0 && this.phaseRef != null && this.phaseRef.size() > index) {
+      return this.phaseRef.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setTrafficSignalControllerRef(
-      NamedReferenceProxy<ITrafficSignalController> trafficSignalControllerRef) {
+      INamedReference<ITrafficSignalController> trafficSignalControllerRef) {
     this.trafficSignalControllerRef = trafficSignalControllerRef;
   }
-  /**
-   * Sets the value of model property phase
-   *
-   * @param phase from OpenSCENARIO class model specification: [Targeted phase of the signal
-   *     controller. The available phases are defined in type RoadNetwork under the property ,
-   *     trafficSignalControllers.]
-   */
+
+  @Override
   public void setPhase(String phase) {
     this.phase = phase;
   }
-  /**
-   * Sets the value of model property phaseRef
-   *
-   * @param phaseRef from OpenSCENARIO class model specification: [The reference to the phase (phase
-   *     is the referential key in the referenced TrafficSignalController).]
-   */
+
+  @Override
   public void setPhaseRef(List<IPhase> phaseRef) {
     this.phaseRef = phaseRef;
   }
@@ -274,19 +283,6 @@ public class TrafficSignalControllerActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TrafficSignalControllerAction";
-  }
-
-  @Override
-  public void writeToTrafficSignalControllerRef(
-      INamedReference<ITrafficSignalController> trafficSignalControllerRef) {
-    setTrafficSignalControllerRef(
-        new NamedReferenceProxy<>(
-            trafficSignalControllerRef.getTargetObject(), trafficSignalControllerRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToPhase(String phase) {
-    setPhase(phase);
   }
 
   @Override

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IControllerAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,24 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IControllerActionWriter extends IOpenScenarioModelElement {
+public interface IControllerActionWriter extends IControllerAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Assign a controller to an entity.
+   *
+   * @param assignControllerAction value of model property assignControllerAction
+   */
+  public void setAssignControllerAction(IAssignControllerActionWriter assignControllerAction);
+  /**
+   * From OpenSCENARIO class model specification: Values for throttle, brake, clutch, parking brake,
+   * steering wheel or gear.
+   *
+   * @param overrideControllerValueAction value of model property overrideControllerValueAction
+   */
+  public void setOverrideControllerValueAction(
+      IOverrideControllerValueActionWriter overrideControllerValueAction);
 
   // children
   /**
@@ -34,29 +52,12 @@ public interface IControllerActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property assignControllerAction
    */
-  public IAssignControllerActionWriter getAssignControllerActionWriter();
+  public IAssignControllerActionWriter getWriterAssignControllerAction();
   /**
    * From OpenSCENARIO class model specification: Values for throttle, brake, clutch, parking brake,
    * steering wheel or gear.
    *
    * @return a writer for model property overrideControllerValueAction
    */
-  public IOverrideControllerValueActionWriter getOverrideControllerValueActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Assign a controller to an entity.
-   *
-   * @param assignControllerActionWriter writer for the model property assignControllerAction
-   */
-  public void writeToAssignControllerActionWriter(
-      IAssignControllerActionWriter assignControllerActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Values for throttle, brake, clutch, parking brake,
-   * steering wheel or gear.
-   *
-   * @param overrideControllerValueActionWriter writer for the model property
-   *     overrideControllerValueAction
-   */
-  public void writeToOverrideControllerValueActionWriter(
-      IOverrideControllerValueActionWriter overrideControllerValueActionWriter);
+  public IOverrideControllerValueActionWriter getWriterOverrideControllerValueAction();
 }

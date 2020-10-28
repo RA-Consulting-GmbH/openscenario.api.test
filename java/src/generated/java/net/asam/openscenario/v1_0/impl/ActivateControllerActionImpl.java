@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ActivateControllerActionImpl extends BaseImpl
-    implements IActivateControllerAction, IActivateControllerActionWriter {
+    implements IActivateControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -81,21 +81,13 @@ public class ActivateControllerActionImpl extends BaseImpl
   public Boolean getLongitudinal() {
     return this.longitudinal;
   }
-  /**
-   * Sets the value of model property lateral
-   *
-   * @param lateral from OpenSCENARIO class model specification: [In lateral domain: Activate or
-   *     deactivate controller defined (e.g. automated, autonomous) behavior.]
-   */
+
+  @Override
   public void setLateral(Boolean lateral) {
     this.lateral = lateral;
   }
-  /**
-   * Sets the value of model property longitudinal
-   *
-   * @param longitudinal from OpenSCENARIO class model specification: [In longitudinal domain:
-   *     Activate or deactivate autonomous behavior.]
-   */
+
+  @Override
   public void setLongitudinal(Boolean longitudinal) {
     this.longitudinal = longitudinal;
   }
@@ -235,16 +227,6 @@ public class ActivateControllerActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ActivateControllerAction";
-  }
-
-  @Override
-  public void writeToLateral(Boolean lateral) {
-    setLateral(lateral);
-  }
-
-  @Override
-  public void writeToLongitudinal(Boolean longitudinal) {
-    setLongitudinal(longitudinal);
   }
 
   @Override

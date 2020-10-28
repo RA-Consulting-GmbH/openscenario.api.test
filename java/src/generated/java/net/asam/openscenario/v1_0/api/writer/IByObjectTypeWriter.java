@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IByObjectType;
 import net.asam.openscenario.v1_0.api.ObjectType;
 
 /**
@@ -27,22 +28,16 @@ import net.asam.openscenario.v1_0.api.ObjectType;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IByObjectTypeWriter extends IOpenScenarioModelElement {
+public interface IByObjectTypeWriter extends IByObjectType, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Defines the type.
-   *
-   * @return value of model property type
-   */
-  public ObjectType getType();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Defines the type.
    *
    * @param type value of model property type
    */
-  public void writeToType(ObjectType type);
+  public void setType(ObjectType type);
 
   /**
    * Set a parameter for the attribute type

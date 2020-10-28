@@ -50,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class RelativeTargetLaneOffsetImpl extends BaseImpl
-    implements IRelativeTargetLaneOffset, IRelativeTargetLaneOffsetWriter {
+    implements IRelativeTargetLaneOffsetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,7 +59,7 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__VALUE, SimpleType.DOUBLE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
 
   /** Default constructor */
@@ -84,20 +84,13 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Lane offset with respect to the
-   *     reference entity's current lane position. Unit: m.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
@@ -253,16 +246,6 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "RelativeTargetLaneOffset";
-  }
-
-  @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
   }
 
   @Override

@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.ISynchronizeAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -30,22 +31,36 @@ import net.asam.openscenario.v1_0.api.IEntity;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ISynchronizeActionWriter extends IOpenScenarioModelElement {
+public interface ISynchronizeActionWriter extends ISynchronizeAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: A reference to the master entity.
-   *
-   * @return value of model property masterEntityRef
-   */
-  public INamedReference<IEntity> getMasterEntityRef();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: A reference to the master entity.
    *
    * @param masterEntityRef value of model property masterEntityRef
    */
-  public void writeToMasterEntityRef(INamedReference<IEntity> masterEntityRef);
+  public void setMasterEntityRef(INamedReference<IEntity> masterEntityRef);
+  /**
+   * From OpenSCENARIO class model specification: The target position for the master entity.
+   *
+   * @param targetPositionMaster value of model property targetPositionMaster
+   */
+  public void setTargetPositionMaster(IPositionWriter targetPositionMaster);
+  /**
+   * From OpenSCENARIO class model specification: The target position for the entity that should be
+   * synchronized.
+   *
+   * @param targetPosition value of model property targetPosition
+   */
+  public void setTargetPosition(IPositionWriter targetPosition);
+  /**
+   * From OpenSCENARIO class model specification: The speed that the synchronized entity should have
+   * at its target position.
+   *
+   * @param finalSpeed value of model property finalSpeed
+   */
+  public void setFinalSpeed(IFinalSpeedWriter finalSpeed);
 
   /**
    * Set a parameter for the attribute masterEntityRef
@@ -75,40 +90,19 @@ public interface ISynchronizeActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property targetPositionMaster
    */
-  public IPositionWriter getTargetPositionMasterWriter();
+  public IPositionWriter getWriterTargetPositionMaster();
   /**
    * From OpenSCENARIO class model specification: The target position for the entity that should be
    * synchronized.
    *
    * @return a writer for model property targetPosition
    */
-  public IPositionWriter getTargetPositionWriter();
+  public IPositionWriter getWriterTargetPosition();
   /**
    * From OpenSCENARIO class model specification: The speed that the synchronized entity should have
    * at its target position.
    *
    * @return a writer for model property finalSpeed
    */
-  public IFinalSpeedWriter getFinalSpeedWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The target position for the master entity.
-   *
-   * @param targetPositionMasterWriter writer for the model property targetPositionMaster
-   */
-  public void writeToTargetPositionMasterWriter(IPositionWriter targetPositionMasterWriter);
-  /**
-   * From OpenSCENARIO class model specification: The target position for the entity that should be
-   * synchronized.
-   *
-   * @param targetPositionWriter writer for the model property targetPosition
-   */
-  public void writeToTargetPositionWriter(IPositionWriter targetPositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: The speed that the synchronized entity should have
-   * at its target position.
-   *
-   * @param finalSpeedWriter writer for the model property finalSpeed
-   */
-  public void writeToFinalSpeedWriter(IFinalSpeedWriter finalSpeedWriter);
+  public IFinalSpeedWriter getWriterFinalSpeed();
 }

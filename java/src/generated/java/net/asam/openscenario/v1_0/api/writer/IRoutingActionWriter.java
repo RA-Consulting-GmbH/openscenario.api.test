@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IRoutingAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,31 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRoutingActionWriter extends IOpenScenarioModelElement {
+public interface IRoutingActionWriter extends IRoutingAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Assigns a route to an entity. The route is defined
+   * by at least two waypoints.
+   *
+   * @param assignRouteAction value of model property assignRouteAction
+   */
+  public void setAssignRouteAction(IAssignRouteActionWriter assignRouteAction);
+  /**
+   * From OpenSCENARIO class model specification: Controls an entity to follow a trajectory.
+   *
+   * @param followTrajectoryAction value of model property followTrajectoryAction
+   */
+  public void setFollowTrajectoryAction(IFollowTrajectoryActionWriter followTrajectoryAction);
+  /**
+   * From OpenSCENARIO class model specification: Assigns a route to an entity. The route assigned
+   * will be the shortest route (along roads) between the entity's current position and the position
+   * specified.
+   *
+   * @param acquirePositionAction value of model property acquirePositionAction
+   */
+  public void setAcquirePositionAction(IAcquirePositionActionWriter acquirePositionAction);
 
   // children
   /**
@@ -36,13 +61,13 @@ public interface IRoutingActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property assignRouteAction
    */
-  public IAssignRouteActionWriter getAssignRouteActionWriter();
+  public IAssignRouteActionWriter getWriterAssignRouteAction();
   /**
    * From OpenSCENARIO class model specification: Controls an entity to follow a trajectory.
    *
    * @return a writer for model property followTrajectoryAction
    */
-  public IFollowTrajectoryActionWriter getFollowTrajectoryActionWriter();
+  public IFollowTrajectoryActionWriter getWriterFollowTrajectoryAction();
   /**
    * From OpenSCENARIO class model specification: Assigns a route to an entity. The route assigned
    * will be the shortest route (along roads) between the entity's current position and the position
@@ -50,29 +75,5 @@ public interface IRoutingActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property acquirePositionAction
    */
-  public IAcquirePositionActionWriter getAcquirePositionActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Assigns a route to an entity. The route is defined
-   * by at least two waypoints.
-   *
-   * @param assignRouteActionWriter writer for the model property assignRouteAction
-   */
-  public void writeToAssignRouteActionWriter(IAssignRouteActionWriter assignRouteActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Controls an entity to follow a trajectory.
-   *
-   * @param followTrajectoryActionWriter writer for the model property followTrajectoryAction
-   */
-  public void writeToFollowTrajectoryActionWriter(
-      IFollowTrajectoryActionWriter followTrajectoryActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Assigns a route to an entity. The route assigned
-   * will be the shortest route (along roads) between the entity's current position and the position
-   * specified.
-   *
-   * @param acquirePositionActionWriter writer for the model property acquirePositionAction
-   */
-  public void writeToAcquirePositionActionWriter(
-      IAcquirePositionActionWriter acquirePositionActionWriter);
+  public IAcquirePositionActionWriter getWriterAcquirePositionAction();
 }

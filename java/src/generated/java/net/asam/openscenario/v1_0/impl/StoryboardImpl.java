@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -50,16 +51,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboardWriter {
+public class StoryboardImpl extends BaseImpl implements IStoryboardWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IInit init;
-  private List<IStory> stories;
-  private ITrigger stopTrigger;
-
-  private IInitWriter initWriter;
-  private List<IStoryWriter> storiesWriters;
-  private ITriggerWriter stopTriggerWriter;
+  private IInitWriter init;
+  private List<IStoryWriter> stories = new ArrayList<>();
+  private ITriggerWriter stopTrigger;
 
   /** Default constructor */
   public StoryboardImpl() {
@@ -80,39 +77,53 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboard
   }
 
   @Override
-  public List<IStory> getStories() {
+  public List<IStoryWriter> getWriterStories() {
     return this.stories;
+  }
+
+  @Override
+  public Iterable<IStory> getStories() {
+    return new Iterable<IStory>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IStory> iterator() {
+        return new ArrayList<IStory>(StoryboardImpl.this.stories).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getStoriesSize() {
+    if (this.stories != null) return this.stories.size();
+    return 0;
+  }
+
+  @Override
+  public IStory getStoriesAtIndex(int index) {
+    if (index >= 0 && this.stories != null && this.stories.size() > index) {
+      return this.stories.get(index);
+    }
+    return null;
   }
 
   @Override
   public ITrigger getStopTrigger() {
     return this.stopTrigger;
   }
-  /**
-   * Sets the value of model property init
-   *
-   * @param init from OpenSCENARIO class model specification: [Initialization of the storyboard
-   *     instance. Initial conditions are set and initial actions are applied to entities.]
-   */
-  public void setInit(IInit init) {
+
+  @Override
+  public void setInit(IInitWriter init) {
     this.init = init;
   }
-  /**
-   * Sets the value of model property stories
-   *
-   * @param stories from OpenSCENARIO class model specification: [List of stories defined in a story
-   *     board.]
-   */
-  public void setStories(List<IStory> stories) {
+
+  @Override
+  public void setStories(List<IStoryWriter> stories) {
     this.stories = stories;
   }
-  /**
-   * Sets the value of model property stopTrigger
-   *
-   * @param stopTrigger from OpenSCENARIO class model specification: [Trigger to stop the Storyboard
-   *     instance.]
-   */
-  public void setStopTrigger(ITrigger stopTrigger) {
+
+  @Override
+  public void setStopTrigger(ITriggerWriter stopTrigger) {
     this.stopTrigger = stopTrigger;
   }
 
@@ -137,20 +148,20 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboard
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IInit init = null;
-    init = getInit();
+    IInitWriter init = null;
+    init = getWriterInit();
     if (init != null) {
       result.add((BaseImpl) init);
     }
-    List<IStory> stories = null;
-    stories = getStories();
+    List<IStoryWriter> stories = null;
+    stories = getWriterStories();
     if (stories != null) {
-      for (IStory item : stories) {
+      for (IStoryWriter item : stories) {
         result.add((BaseImpl) item);
       }
     }
-    ITrigger stopTrigger = null;
-    stopTrigger = getStopTrigger();
+    ITriggerWriter stopTrigger = null;
+    stopTrigger = getWriterStopTrigger();
     if (stopTrigger != null) {
       result.add((BaseImpl) stopTrigger);
     }
@@ -173,28 +184,28 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboard
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IInit init = null;
-    init = getInit();
+    IInitWriter init = null;
+    init = getWriterInit();
     if (init != null) {
-      InitImpl clonedChild = ((InitImpl) init).clone();
+      IInitWriter clonedChild = ((InitImpl) init).clone();
       clonedObject.setInit(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    List<IStory> stories = null;
-    stories = getStories();
+    List<IStoryWriter> stories = null;
+    stories = getWriterStories();
     if (stories != null) {
-      List<IStory> clonedList = new ArrayList<>();
-      for (IStory item : stories) {
-        StoryImpl clonedChild = ((StoryImpl) item).clone();
+      List<IStoryWriter> clonedList = new ArrayList<>();
+      for (IStoryWriter item : stories) {
+        IStoryWriter clonedChild = ((StoryImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setStories(clonedList);
     }
-    ITrigger stopTrigger = null;
-    stopTrigger = getStopTrigger();
+    ITriggerWriter stopTrigger = null;
+    stopTrigger = getWriterStopTrigger();
     if (stopTrigger != null) {
-      TriggerImpl clonedChild = ((TriggerImpl) stopTrigger).clone();
+      ITriggerWriter clonedChild = ((TriggerImpl) stopTrigger).clone();
       clonedObject.setStopTrigger(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -290,32 +301,12 @@ public class StoryboardImpl extends BaseImpl implements IStoryboard, IStoryboard
 
   // children
   @Override
-  public IInitWriter getInitWriter() {
-    return this.initWriter;
+  public IInitWriter getWriterInit() {
+    return this.init;
   }
 
   @Override
-  public ITriggerWriter getStopTriggerWriter() {
-    return this.stopTriggerWriter;
-  }
-
-  @Override
-  public void writeToInitWriter(IInitWriter initWriter) {
-    this.initWriter = initWriter;
-  }
-
-  @Override
-  public void writeToStopTriggerWriter(ITriggerWriter stopTriggerWriter) {
-    this.stopTriggerWriter = stopTriggerWriter;
-  }
-
-  @Override
-  public List<IStoryWriter> getStoriesWriter() {
-    return this.storiesWriters;
-  }
-
-  @Override
-  public void setStoriesWriter(List<IStoryWriter> storiesWriters) {
-    this.storiesWriters = storiesWriters;
+  public ITriggerWriter getWriterStopTrigger() {
+    return this.stopTrigger;
   }
 }

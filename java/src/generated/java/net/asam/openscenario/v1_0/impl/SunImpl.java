@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SunImpl extends BaseImpl implements ISun, ISunWriter {
+public class SunImpl extends BaseImpl implements ISunWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -86,31 +86,18 @@ public class SunImpl extends BaseImpl implements ISun, ISunWriter {
   public Double getElevation() {
     return this.elevation;
   }
-  /**
-   * Sets the value of model property intensity
-   *
-   * @param intensity from OpenSCENARIO class model specification: [Illuminance of the sun, direct
-   *     sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.]
-   */
+
+  @Override
   public void setIntensity(Double intensity) {
     this.intensity = intensity;
   }
-  /**
-   * Sets the value of model property azimuth
-   *
-   * @param azimuth from OpenSCENARIO class model specification: [Azimuth of the sun, counted
-   *     counterclockwise, 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: ,
-   *     [0..2PI].]
-   */
+
+  @Override
   public void setAzimuth(Double azimuth) {
     this.azimuth = azimuth;
   }
-  /**
-   * Sets the value of model property elevation
-   *
-   * @param elevation from OpenSCENARIO class model specification: [Solar elevation angle, 0=x/y
-   *     plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].]
-   */
+
+  @Override
   public void setElevation(Double elevation) {
     this.elevation = elevation;
   }
@@ -260,21 +247,6 @@ public class SunImpl extends BaseImpl implements ISun, ISunWriter {
   @Override
   public String getModelType() {
     return "Sun";
-  }
-
-  @Override
-  public void writeToIntensity(Double intensity) {
-    setIntensity(intensity);
-  }
-
-  @Override
-  public void writeToAzimuth(Double azimuth) {
-    setAzimuth(azimuth);
-  }
-
-  @Override
-  public void writeToElevation(Double elevation) {
-    setElevation(elevation);
   }
 
   @Override

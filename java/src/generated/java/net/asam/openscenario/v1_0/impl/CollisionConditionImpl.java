@@ -48,15 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CollisionConditionImpl extends BaseImpl
-    implements ICollisionCondition, ICollisionConditionWriter {
+public class CollisionConditionImpl extends BaseImpl implements ICollisionConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IEntityRef entityRef;
-  private IByObjectType byType;
-
-  private IEntityRefWriter entityRefWriter;
-  private IByObjectTypeWriter byTypeWriter;
+  private IEntityRefWriter entityRef;
+  private IByObjectTypeWriter byType;
 
   /** Default constructor */
   public CollisionConditionImpl() {
@@ -80,21 +76,14 @@ public class CollisionConditionImpl extends BaseImpl
   public IByObjectType getByType() {
     return this.byType;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Name of a specific entity.]
-   */
-  public void setEntityRef(IEntityRef entityRef) {
+
+  @Override
+  public void setEntityRef(IEntityRefWriter entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property byType
-   *
-   * @param byType from OpenSCENARIO class model specification: [Entities of this type can trigger
-   *     the condition when collide.]
-   */
-  public void setByType(IByObjectType byType) {
+
+  @Override
+  public void setByType(IByObjectTypeWriter byType) {
     this.byType = byType;
   }
 
@@ -119,13 +108,13 @@ public class CollisionConditionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
       result.add((BaseImpl) entityRef);
     }
-    IByObjectType byType = null;
-    byType = getByType();
+    IByObjectTypeWriter byType = null;
+    byType = getWriterByType();
     if (byType != null) {
       result.add((BaseImpl) byType);
     }
@@ -148,17 +137,17 @@ public class CollisionConditionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
-      EntityRefImpl clonedChild = ((EntityRefImpl) entityRef).clone();
+      IEntityRefWriter clonedChild = ((EntityRefImpl) entityRef).clone();
       clonedObject.setEntityRef(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IByObjectType byType = null;
-    byType = getByType();
+    IByObjectTypeWriter byType = null;
+    byType = getWriterByType();
     if (byType != null) {
-      ByObjectTypeImpl clonedChild = ((ByObjectTypeImpl) byType).clone();
+      IByObjectTypeWriter clonedChild = ((ByObjectTypeImpl) byType).clone();
       clonedObject.setByType(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -247,22 +236,12 @@ public class CollisionConditionImpl extends BaseImpl
 
   // children
   @Override
-  public IEntityRefWriter getEntityRefWriter() {
-    return this.entityRefWriter;
+  public IEntityRefWriter getWriterEntityRef() {
+    return this.entityRef;
   }
 
   @Override
-  public IByObjectTypeWriter getByTypeWriter() {
-    return this.byTypeWriter;
-  }
-
-  @Override
-  public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter) {
-    this.entityRefWriter = entityRefWriter;
-  }
-
-  @Override
-  public void writeToByTypeWriter(IByObjectTypeWriter byTypeWriter) {
-    this.byTypeWriter = byTypeWriter;
+  public IByObjectTypeWriter getWriterByType() {
+    return this.byType;
   }
 }

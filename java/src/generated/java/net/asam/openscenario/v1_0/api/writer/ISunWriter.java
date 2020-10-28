@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ISun;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,30 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ISunWriter extends IOpenScenarioModelElement {
+public interface ISunWriter extends ISun, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Illuminance of the sun, direct sunlight is around
-   * 100,00 lx. Unit: lux; Range: [0..inf[.
-   *
-   * @return value of model property intensity
-   */
-  public Double getIntensity();
-  /**
-   * From OpenSCENARIO class model specification: Azimuth of the sun, counted counterclockwise,
-   * 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: [0..2PI].
-   *
-   * @return value of model property azimuth
-   */
-  public Double getAzimuth();
-  /**
-   * From OpenSCENARIO class model specification: Solar elevation angle, 0=x/y plane, PI/2=zenith.
-   * Unit: rad; Range: [-PI..PI].
-   *
-   * @return value of model property elevation
-   */
-  public Double getElevation();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Illuminance of the sun, direct sunlight is around
@@ -57,21 +37,21 @@ public interface ISunWriter extends IOpenScenarioModelElement {
    *
    * @param intensity value of model property intensity
    */
-  public void writeToIntensity(Double intensity);
+  public void setIntensity(Double intensity);
   /**
    * From OpenSCENARIO class model specification: Azimuth of the sun, counted counterclockwise,
    * 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: [0..2PI].
    *
    * @param azimuth value of model property azimuth
    */
-  public void writeToAzimuth(Double azimuth);
+  public void setAzimuth(Double azimuth);
   /**
    * From OpenSCENARIO class model specification: Solar elevation angle, 0=x/y plane, PI/2=zenith.
    * Unit: rad; Range: [-PI..PI].
    *
    * @param elevation value of model property elevation
    */
-  public void writeToElevation(Double elevation);
+  public void setElevation(Double elevation);
 
   /**
    * Set a parameter for the attribute intensity

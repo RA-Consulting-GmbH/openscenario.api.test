@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAxle;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,44 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IAxleWriter extends IOpenScenarioModelElement {
+public interface IAxleWriter extends IAxle, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Maximum steering angle which can be performed by
-   * the wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.
-   *
-   * @return value of model property maxSteering
-   */
-  public Double getMaxSteering();
-  /**
-   * From OpenSCENARIO class model specification: Diameter of the wheels on this axle. Unit: m;
-   * Range: ]0..inf[.
-   *
-   * @return value of model property wheelDiameter
-   */
-  public Double getWheelDiameter();
-  /**
-   * From OpenSCENARIO class model specification: Distance of the wheels center lines at zero
-   * steering. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property trackWidth
-   */
-  public Double getTrackWidth();
-  /**
-   * From OpenSCENARIO class model specification: Longitudinal position of the axle with respect to
-   * the vehicles reference point. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property positionX
-   */
-  public Double getPositionX();
-  /**
-   * From OpenSCENARIO class model specification: Z-position of the axle with respect to the
-   * vehicles reference point. Usually this is half of wheel diameter. Unit:m; Range:[0..inf[.
-   *
-   * @return value of model property positionZ
-   */
-  public Double getPositionZ();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Maximum steering angle which can be performed by
@@ -71,35 +37,35 @@ public interface IAxleWriter extends IOpenScenarioModelElement {
    *
    * @param maxSteering value of model property maxSteering
    */
-  public void writeToMaxSteering(Double maxSteering);
+  public void setMaxSteering(Double maxSteering);
   /**
    * From OpenSCENARIO class model specification: Diameter of the wheels on this axle. Unit: m;
    * Range: ]0..inf[.
    *
    * @param wheelDiameter value of model property wheelDiameter
    */
-  public void writeToWheelDiameter(Double wheelDiameter);
+  public void setWheelDiameter(Double wheelDiameter);
   /**
    * From OpenSCENARIO class model specification: Distance of the wheels center lines at zero
    * steering. Unit: m; Range: [0..inf[.
    *
    * @param trackWidth value of model property trackWidth
    */
-  public void writeToTrackWidth(Double trackWidth);
+  public void setTrackWidth(Double trackWidth);
   /**
    * From OpenSCENARIO class model specification: Longitudinal position of the axle with respect to
    * the vehicles reference point. Unit: m; Range: [0..inf[.
    *
    * @param positionX value of model property positionX
    */
-  public void writeToPositionX(Double positionX);
+  public void setPositionX(Double positionX);
   /**
    * From OpenSCENARIO class model specification: Z-position of the axle with respect to the
    * vehicles reference point. Usually this is half of wheel diameter. Unit:m; Range:[0..inf[.
    *
    * @param positionZ value of model property positionZ
    */
-  public void writeToPositionZ(Double positionZ);
+  public void setPositionZ(Double positionZ);
 
   /**
    * Set a parameter for the attribute maxSteering

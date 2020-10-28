@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class OverrideSteeringWheelActionImpl extends BaseImpl
-    implements IOverrideSteeringWheelAction, IOverrideSteeringWheelActionWriter {
+    implements IOverrideSteeringWheelActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -81,20 +81,13 @@ public class OverrideSteeringWheelActionImpl extends BaseImpl
   public Boolean getActive() {
     return this.active;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Steering wheel angle. Unit: rad.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property active
-   *
-   * @param active from OpenSCENARIO class model specification: [True: override; false: stop
-   *     overriding.]
-   */
+
+  @Override
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -238,16 +231,6 @@ public class OverrideSteeringWheelActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "OverrideSteeringWheelAction";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToActive(Boolean active) {
-    setActive(active);
   }
 
   @Override

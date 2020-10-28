@@ -50,8 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DistanceConditionImpl extends BaseImpl
-    implements IDistanceCondition, IDistanceConditionWriter {
+public class DistanceConditionImpl extends BaseImpl implements IDistanceConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,9 +65,7 @@ public class DistanceConditionImpl extends BaseImpl
   private Boolean freespace;
   private Boolean alongRoute;
   private Rule rule;
-  private IPosition position;
-
-  private IPositionWriter positionWriter;
+  private IPositionWriter position;
 
   /** Default constructor */
   public DistanceConditionImpl() {
@@ -107,48 +104,29 @@ public class DistanceConditionImpl extends BaseImpl
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The distance value. Unit: s; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: distance is measured
-   *     between closest bounding box points. False: reference point distance is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
   }
-  /**
-   * Sets the value of model property alongRoute
-   *
-   * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into
-   *     account, e.g. turns will increase distance. False: straight line distance is used.]
-   */
+
+  @Override
   public void setAlongRoute(Boolean alongRoute) {
     this.alongRoute = alongRoute;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [The given position the distance
-   *     is related to.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -204,8 +182,8 @@ public class DistanceConditionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -239,10 +217,10 @@ public class DistanceConditionImpl extends BaseImpl
       clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
     }
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -348,26 +326,6 @@ public class DistanceConditionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToFreespace(Boolean freespace) {
-    setFreespace(freespace);
-  }
-
-  @Override
-  public void writeToAlongRoute(Boolean alongRoute) {
-    setAlongRoute(alongRoute);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
-  }
-
-  @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
@@ -430,12 +388,7 @@ public class DistanceConditionImpl extends BaseImpl
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

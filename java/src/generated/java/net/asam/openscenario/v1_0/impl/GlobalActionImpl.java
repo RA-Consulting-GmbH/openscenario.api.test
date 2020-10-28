@@ -54,20 +54,14 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobalActionWriter {
+public class GlobalActionImpl extends BaseImpl implements IGlobalActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IEnvironmentAction environmentAction;
-  private IEntityAction entityAction;
-  private IParameterAction parameterAction;
-  private IInfrastructureAction infrastructureAction;
-  private ITrafficAction trafficAction;
-
-  private IEnvironmentActionWriter environmentActionWriter;
-  private IEntityActionWriter entityActionWriter;
-  private IParameterActionWriter parameterActionWriter;
-  private IInfrastructureActionWriter infrastructureActionWriter;
-  private ITrafficActionWriter trafficActionWriter;
+  private IEnvironmentActionWriter environmentAction;
+  private IEntityActionWriter entityAction;
+  private IParameterActionWriter parameterAction;
+  private IInfrastructureActionWriter infrastructureAction;
+  private ITrafficActionWriter trafficAction;
 
   /** Default constructor */
   public GlobalActionImpl() {
@@ -106,47 +100,29 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobal
   public ITrafficAction getTrafficAction() {
     return this.trafficAction;
   }
-  /**
-   * Sets the value of model property environmentAction
-   *
-   * @param environmentAction from OpenSCENARIO class model specification: [Sets the weather state,
-   *     road conditions, and time of the day.]
-   */
-  public void setEnvironmentAction(IEnvironmentAction environmentAction) {
+
+  @Override
+  public void setEnvironmentAction(IEnvironmentActionWriter environmentAction) {
     this.environmentAction = environmentAction;
   }
-  /**
-   * Sets the value of model property entityAction
-   *
-   * @param entityAction from OpenSCENARIO class model specification: [Removing or adding entities.]
-   */
-  public void setEntityAction(IEntityAction entityAction) {
+
+  @Override
+  public void setEntityAction(IEntityActionWriter entityAction) {
     this.entityAction = entityAction;
   }
-  /**
-   * Sets the value of model property parameterAction
-   *
-   * @param parameterAction from OpenSCENARIO class model specification: [Setting/modifying values
-   *     of parameters.]
-   */
-  public void setParameterAction(IParameterAction parameterAction) {
+
+  @Override
+  public void setParameterAction(IParameterActionWriter parameterAction) {
     this.parameterAction = parameterAction;
   }
-  /**
-   * Sets the value of model property infrastructureAction
-   *
-   * @param infrastructureAction from OpenSCENARIO class model specification: [Setting/modifying
-   *     traffic signals.]
-   */
-  public void setInfrastructureAction(IInfrastructureAction infrastructureAction) {
+
+  @Override
+  public void setInfrastructureAction(IInfrastructureActionWriter infrastructureAction) {
     this.infrastructureAction = infrastructureAction;
   }
-  /**
-   * Sets the value of model property trafficAction
-   *
-   * @param trafficAction from OpenSCENARIO class model specification: [Populating ambient traffic.]
-   */
-  public void setTrafficAction(ITrafficAction trafficAction) {
+
+  @Override
+  public void setTrafficAction(ITrafficActionWriter trafficAction) {
     this.trafficAction = trafficAction;
   }
 
@@ -171,28 +147,28 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobal
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IEnvironmentAction environmentAction = null;
-    environmentAction = getEnvironmentAction();
+    IEnvironmentActionWriter environmentAction = null;
+    environmentAction = getWriterEnvironmentAction();
     if (environmentAction != null) {
       result.add((BaseImpl) environmentAction);
     }
-    IEntityAction entityAction = null;
-    entityAction = getEntityAction();
+    IEntityActionWriter entityAction = null;
+    entityAction = getWriterEntityAction();
     if (entityAction != null) {
       result.add((BaseImpl) entityAction);
     }
-    IParameterAction parameterAction = null;
-    parameterAction = getParameterAction();
+    IParameterActionWriter parameterAction = null;
+    parameterAction = getWriterParameterAction();
     if (parameterAction != null) {
       result.add((BaseImpl) parameterAction);
     }
-    IInfrastructureAction infrastructureAction = null;
-    infrastructureAction = getInfrastructureAction();
+    IInfrastructureActionWriter infrastructureAction = null;
+    infrastructureAction = getWriterInfrastructureAction();
     if (infrastructureAction != null) {
       result.add((BaseImpl) infrastructureAction);
     }
-    ITrafficAction trafficAction = null;
-    trafficAction = getTrafficAction();
+    ITrafficActionWriter trafficAction = null;
+    trafficAction = getWriterTrafficAction();
     if (trafficAction != null) {
       result.add((BaseImpl) trafficAction);
     }
@@ -215,39 +191,39 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobal
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IEnvironmentAction environmentAction = null;
-    environmentAction = getEnvironmentAction();
+    IEnvironmentActionWriter environmentAction = null;
+    environmentAction = getWriterEnvironmentAction();
     if (environmentAction != null) {
-      EnvironmentActionImpl clonedChild = ((EnvironmentActionImpl) environmentAction).clone();
+      IEnvironmentActionWriter clonedChild = ((EnvironmentActionImpl) environmentAction).clone();
       clonedObject.setEnvironmentAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IEntityAction entityAction = null;
-    entityAction = getEntityAction();
+    IEntityActionWriter entityAction = null;
+    entityAction = getWriterEntityAction();
     if (entityAction != null) {
-      EntityActionImpl clonedChild = ((EntityActionImpl) entityAction).clone();
+      IEntityActionWriter clonedChild = ((EntityActionImpl) entityAction).clone();
       clonedObject.setEntityAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IParameterAction parameterAction = null;
-    parameterAction = getParameterAction();
+    IParameterActionWriter parameterAction = null;
+    parameterAction = getWriterParameterAction();
     if (parameterAction != null) {
-      ParameterActionImpl clonedChild = ((ParameterActionImpl) parameterAction).clone();
+      IParameterActionWriter clonedChild = ((ParameterActionImpl) parameterAction).clone();
       clonedObject.setParameterAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IInfrastructureAction infrastructureAction = null;
-    infrastructureAction = getInfrastructureAction();
+    IInfrastructureActionWriter infrastructureAction = null;
+    infrastructureAction = getWriterInfrastructureAction();
     if (infrastructureAction != null) {
-      InfrastructureActionImpl clonedChild =
+      IInfrastructureActionWriter clonedChild =
           ((InfrastructureActionImpl) infrastructureAction).clone();
       clonedObject.setInfrastructureAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrafficAction trafficAction = null;
-    trafficAction = getTrafficAction();
+    ITrafficActionWriter trafficAction = null;
+    trafficAction = getWriterTrafficAction();
     if (trafficAction != null) {
-      TrafficActionImpl clonedChild = ((TrafficActionImpl) trafficAction).clone();
+      ITrafficActionWriter clonedChild = ((TrafficActionImpl) trafficAction).clone();
       clonedObject.setTrafficAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -345,53 +321,27 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalAction, IGlobal
 
   // children
   @Override
-  public IEnvironmentActionWriter getEnvironmentActionWriter() {
-    return this.environmentActionWriter;
+  public IEnvironmentActionWriter getWriterEnvironmentAction() {
+    return this.environmentAction;
   }
 
   @Override
-  public IEntityActionWriter getEntityActionWriter() {
-    return this.entityActionWriter;
+  public IEntityActionWriter getWriterEntityAction() {
+    return this.entityAction;
   }
 
   @Override
-  public IParameterActionWriter getParameterActionWriter() {
-    return this.parameterActionWriter;
+  public IParameterActionWriter getWriterParameterAction() {
+    return this.parameterAction;
   }
 
   @Override
-  public IInfrastructureActionWriter getInfrastructureActionWriter() {
-    return this.infrastructureActionWriter;
+  public IInfrastructureActionWriter getWriterInfrastructureAction() {
+    return this.infrastructureAction;
   }
 
   @Override
-  public ITrafficActionWriter getTrafficActionWriter() {
-    return this.trafficActionWriter;
-  }
-
-  @Override
-  public void writeToEnvironmentActionWriter(IEnvironmentActionWriter environmentActionWriter) {
-    this.environmentActionWriter = environmentActionWriter;
-  }
-
-  @Override
-  public void writeToEntityActionWriter(IEntityActionWriter entityActionWriter) {
-    this.entityActionWriter = entityActionWriter;
-  }
-
-  @Override
-  public void writeToParameterActionWriter(IParameterActionWriter parameterActionWriter) {
-    this.parameterActionWriter = parameterActionWriter;
-  }
-
-  @Override
-  public void writeToInfrastructureActionWriter(
-      IInfrastructureActionWriter infrastructureActionWriter) {
-    this.infrastructureActionWriter = infrastructureActionWriter;
-  }
-
-  @Override
-  public void writeToTrafficActionWriter(ITrafficActionWriter trafficActionWriter) {
-    this.trafficActionWriter = trafficActionWriter;
+  public ITrafficActionWriter getWriterTrafficAction() {
+    return this.trafficAction;
   }
 }

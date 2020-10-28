@@ -51,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
+public class ActionImpl extends BaseImpl implements IActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,13 +60,9 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
   }
 
   private String name;
-  private IGlobalAction globalAction;
-  private IUserDefinedAction userDefinedAction;
-  private IPrivateAction privateAction;
-
-  private IGlobalActionWriter globalActionWriter;
-  private IUserDefinedActionWriter userDefinedActionWriter;
-  private IPrivateActionWriter privateActionWriter;
+  private IGlobalActionWriter globalAction;
+  private IUserDefinedActionWriter userDefinedAction;
+  private IPrivateActionWriter privateAction;
 
   /** Default constructor */
   public ActionImpl() {
@@ -100,39 +96,24 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
   public IPrivateAction getPrivateAction() {
     return this.privateAction;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of this action.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property globalAction
-   *
-   * @param globalAction from OpenSCENARIO class model specification: [The GlobalAction to be
-   *     executed when the enclosing Action is startedis started.]
-   */
-  public void setGlobalAction(IGlobalAction globalAction) {
+
+  @Override
+  public void setGlobalAction(IGlobalActionWriter globalAction) {
     this.globalAction = globalAction;
   }
-  /**
-   * Sets the value of model property userDefinedAction
-   *
-   * @param userDefinedAction from OpenSCENARIO class model specification: [The UserDefinedAction to
-   *     be executed when the enclosing Action is started.]
-   */
-  public void setUserDefinedAction(IUserDefinedAction userDefinedAction) {
+
+  @Override
+  public void setUserDefinedAction(IUserDefinedActionWriter userDefinedAction) {
     this.userDefinedAction = userDefinedAction;
   }
-  /**
-   * Sets the value of model property privateAction
-   *
-   * @param privateAction from OpenSCENARIO class model specification: [The PrivateAction to be
-   *     executed when the enclosing Action is started.]
-   */
-  public void setPrivateAction(IPrivateAction privateAction) {
+
+  @Override
+  public void setPrivateAction(IPrivateActionWriter privateAction) {
     this.privateAction = privateAction;
   }
 
@@ -162,18 +143,18 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IGlobalAction globalAction = null;
-    globalAction = getGlobalAction();
+    IGlobalActionWriter globalAction = null;
+    globalAction = getWriterGlobalAction();
     if (globalAction != null) {
       result.add((BaseImpl) globalAction);
     }
-    IUserDefinedAction userDefinedAction = null;
-    userDefinedAction = getUserDefinedAction();
+    IUserDefinedActionWriter userDefinedAction = null;
+    userDefinedAction = getWriterUserDefinedAction();
     if (userDefinedAction != null) {
       result.add((BaseImpl) userDefinedAction);
     }
-    IPrivateAction privateAction = null;
-    privateAction = getPrivateAction();
+    IPrivateActionWriter privateAction = null;
+    privateAction = getWriterPrivateAction();
     if (privateAction != null) {
       result.add((BaseImpl) privateAction);
     }
@@ -198,24 +179,24 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
     // Simple type
     clonedObject.setName(getName());
     // clone children
-    IGlobalAction globalAction = null;
-    globalAction = getGlobalAction();
+    IGlobalActionWriter globalAction = null;
+    globalAction = getWriterGlobalAction();
     if (globalAction != null) {
-      GlobalActionImpl clonedChild = ((GlobalActionImpl) globalAction).clone();
+      IGlobalActionWriter clonedChild = ((GlobalActionImpl) globalAction).clone();
       clonedObject.setGlobalAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IUserDefinedAction userDefinedAction = null;
-    userDefinedAction = getUserDefinedAction();
+    IUserDefinedActionWriter userDefinedAction = null;
+    userDefinedAction = getWriterUserDefinedAction();
     if (userDefinedAction != null) {
-      UserDefinedActionImpl clonedChild = ((UserDefinedActionImpl) userDefinedAction).clone();
+      IUserDefinedActionWriter clonedChild = ((UserDefinedActionImpl) userDefinedAction).clone();
       clonedObject.setUserDefinedAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPrivateAction privateAction = null;
-    privateAction = getPrivateAction();
+    IPrivateActionWriter privateAction = null;
+    privateAction = getWriterPrivateAction();
     if (privateAction != null) {
-      PrivateActionImpl clonedChild = ((PrivateActionImpl) privateAction).clone();
+      IPrivateActionWriter clonedChild = ((PrivateActionImpl) privateAction).clone();
       clonedObject.setPrivateAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -312,11 +293,6 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -333,32 +309,17 @@ public class ActionImpl extends BaseImpl implements IAction, IActionWriter {
 
   // children
   @Override
-  public IGlobalActionWriter getGlobalActionWriter() {
-    return this.globalActionWriter;
+  public IGlobalActionWriter getWriterGlobalAction() {
+    return this.globalAction;
   }
 
   @Override
-  public IUserDefinedActionWriter getUserDefinedActionWriter() {
-    return this.userDefinedActionWriter;
+  public IUserDefinedActionWriter getWriterUserDefinedAction() {
+    return this.userDefinedAction;
   }
 
   @Override
-  public IPrivateActionWriter getPrivateActionWriter() {
-    return this.privateActionWriter;
-  }
-
-  @Override
-  public void writeToGlobalActionWriter(IGlobalActionWriter globalActionWriter) {
-    this.globalActionWriter = globalActionWriter;
-  }
-
-  @Override
-  public void writeToUserDefinedActionWriter(IUserDefinedActionWriter userDefinedActionWriter) {
-    this.userDefinedActionWriter = userDefinedActionWriter;
-  }
-
-  @Override
-  public void writeToPrivateActionWriter(IPrivateActionWriter privateActionWriter) {
-    this.privateActionWriter = privateActionWriter;
+  public IPrivateActionWriter getWriterPrivateAction() {
+    return this.privateAction;
   }
 }

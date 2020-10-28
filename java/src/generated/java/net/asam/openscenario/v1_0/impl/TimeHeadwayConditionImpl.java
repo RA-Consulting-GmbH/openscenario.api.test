@@ -51,8 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeHeadwayConditionImpl extends BaseImpl
-    implements ITimeHeadwayCondition, ITimeHeadwayConditionWriter {
+public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,7 +63,7 @@ public class TimeHeadwayConditionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
   private Boolean freespace;
   private Boolean alongRoute;
@@ -107,48 +106,28 @@ public class TimeHeadwayConditionImpl extends BaseImpl
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity to which the
-   *     time headway is computed.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The time headway value. Unit: s;
-   *     Range: [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: time headway is measured
-   *     using the distance between closest bounding box points. False: reference point distance ,
-   *     is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
   }
-  /**
-   * Sets the value of model property alongRoute
-   *
-   * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into
-   *     account, e.g. turns will increase distance. False: straight line distance is used.]
-   */
+
+  @Override
   public void setAlongRoute(Boolean alongRoute) {
     this.alongRoute = alongRoute;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
@@ -354,31 +333,6 @@ public class TimeHeadwayConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TimeHeadwayCondition";
-  }
-
-  @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToFreespace(Boolean freespace) {
-    setFreespace(freespace);
-  }
-
-  @Override
-  public void writeToAlongRoute(Boolean alongRoute) {
-    setAlongRoute(alongRoute);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
   }
 
   @Override

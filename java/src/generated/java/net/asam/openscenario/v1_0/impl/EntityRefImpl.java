@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityRefImpl extends BaseImpl implements IEntityRef, IEntityRefWriter {
+public class EntityRefImpl extends BaseImpl implements IEntityRefWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,7 +55,7 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, IEntityRefWri
     propertyToType.put(OscConstants.ATTRIBUTE__ENTITY_REF, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
 
   /** Default constructor */
   public EntityRefImpl() {
@@ -74,12 +74,9 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, IEntityRefWri
   public INamedReference<IEntity> getEntityRef() {
     return this.entityRef;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
 
@@ -220,11 +217,6 @@ public class EntityRefImpl extends BaseImpl implements IEntityRef, IEntityRefWri
   @Override
   public String getModelType() {
     return "EntityRef";
-  }
-
-  @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IProperty;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,34 +27,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPropertyWriter extends IOpenScenarioModelElement {
+public interface IPropertyWriter extends IProperty, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of a user defined property.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: Value of a user defined property.
-   *
-   * @return value of model property value
-   */
-  public String getValue();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of a user defined property.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: Value of a user defined property.
    *
    * @param value value of model property value
    */
-  public void writeToValue(String value);
+  public void setValue(String value);
 
   /**
    * Set a parameter for the attribute name

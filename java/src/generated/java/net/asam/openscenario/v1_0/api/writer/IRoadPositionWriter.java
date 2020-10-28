@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IRoadPosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,30 +28,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRoadPositionWriter extends IOpenScenarioModelElement {
+public interface IRoadPositionWriter extends IRoadPosition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Identifier of the road, defined in the road
-   * network definition file (external to ASAM OpenSCENARIO).
-   *
-   * @return value of model property roadId
-   */
-  public String getRoadId();
-  /**
-   * From OpenSCENARIO class model specification: Represents s coordinate along the reference line
-   * of the road.
-   *
-   * @return value of model property s
-   */
-  public Double getS();
-  /**
-   * From OpenSCENARIO class model specification: Represents t coordinate orthogonal to the
-   * reference line of the road.
-   *
-   * @return value of model property t
-   */
-  public Double getT();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Identifier of the road, defined in the road
@@ -58,21 +38,28 @@ public interface IRoadPositionWriter extends IOpenScenarioModelElement {
    *
    * @param roadId value of model property roadId
    */
-  public void writeToRoadId(String roadId);
+  public void setRoadId(String roadId);
   /**
    * From OpenSCENARIO class model specification: Represents s coordinate along the reference line
    * of the road.
    *
    * @param s value of model property s
    */
-  public void writeToS(Double s);
+  public void setS(Double s);
   /**
    * From OpenSCENARIO class model specification: Represents t coordinate orthogonal to the
    * reference line of the road.
    *
    * @param t value of model property t
    */
-  public void writeToT(Double t);
+  public void setT(Double t);
+  /**
+   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
+   * to the referenced road's s and t coordinates.
+   *
+   * @param orientation value of model property orientation
+   */
+  public void setOrientation(IOrientationWriter orientation);
 
   /**
    * Set a parameter for the attribute roadId
@@ -141,13 +128,5 @@ public interface IRoadPositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property orientation
    */
-  public IOrientationWriter getOrientationWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
-   * to the referenced road's s and t coordinates.
-   *
-   * @param orientationWriter writer for the model property orientation
-   */
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter);
+  public IOrientationWriter getWriterOrientation();
 }

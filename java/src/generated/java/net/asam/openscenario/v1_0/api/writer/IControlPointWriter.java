@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IControlPoint;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,23 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IControlPointWriter extends IOpenScenarioModelElement {
+public interface IControlPointWriter extends IControlPoint, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Optional specification of the time dimension of
-   * the control point. Unit: s;Range [0..inf[.
-   *
-   * @return value of model property time
-   */
-  public Double getTime();
-  /**
-   * From OpenSCENARIO class model specification: Optional weight specification of the control
-   * point. If unspecified, all control points will be equal weighted. Range ]-inf..inf[.
-   *
-   * @return value of model property weight
-   */
-  public Double getWeight();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Optional specification of the time dimension of
@@ -50,14 +37,20 @@ public interface IControlPointWriter extends IOpenScenarioModelElement {
    *
    * @param time value of model property time
    */
-  public void writeToTime(Double time);
+  public void setTime(Double time);
   /**
    * From OpenSCENARIO class model specification: Optional weight specification of the control
    * point. If unspecified, all control points will be equal weighted. Range ]-inf..inf[.
    *
    * @param weight value of model property weight
    */
-  public void writeToWeight(Double weight);
+  public void setWeight(Double weight);
+  /**
+   * From OpenSCENARIO class model specification: Position of the control point.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
 
   /**
    * Set a parameter for the attribute time
@@ -106,12 +99,5 @@ public interface IControlPointWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Position of the control point.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
+  public IPositionWriter getWriterPosition();
 }

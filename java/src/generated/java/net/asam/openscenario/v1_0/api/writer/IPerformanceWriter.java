@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPerformance;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,50 +27,30 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPerformanceWriter extends IOpenScenarioModelElement {
+public interface IPerformanceWriter extends IPerformance, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Maximum speed of the vehicle. Unit: m/s.
-   *
-   * @return value of model property maxSpeed
-   */
-  public Double getMaxSpeed();
-  /**
-   * From OpenSCENARIO class model specification: Maximum acceleration of the vehicle. Unit: m/s^2.
-   * Range: [0..inf[.
-   *
-   * @return value of model property maxAcceleration
-   */
-  public Double getMaxAcceleration();
-  /**
-   * From OpenSCENARIO class model specification: Maximum deceleration of the vehicle. Unit: m/s^2.
-   * Range: [0..inf[.
-   *
-   * @return value of model property maxDeceleration
-   */
-  public Double getMaxDeceleration();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Maximum speed of the vehicle. Unit: m/s.
    *
    * @param maxSpeed value of model property maxSpeed
    */
-  public void writeToMaxSpeed(Double maxSpeed);
+  public void setMaxSpeed(Double maxSpeed);
   /**
    * From OpenSCENARIO class model specification: Maximum acceleration of the vehicle. Unit: m/s^2.
    * Range: [0..inf[.
    *
    * @param maxAcceleration value of model property maxAcceleration
    */
-  public void writeToMaxAcceleration(Double maxAcceleration);
+  public void setMaxAcceleration(Double maxAcceleration);
   /**
    * From OpenSCENARIO class model specification: Maximum deceleration of the vehicle. Unit: m/s^2.
    * Range: [0..inf[.
    *
    * @param maxDeceleration value of model property maxDeceleration
    */
-  public void writeToMaxDeceleration(Double maxDeceleration);
+  public void setMaxDeceleration(Double maxDeceleration);
 
   /**
    * Set a parameter for the attribute maxSpeed

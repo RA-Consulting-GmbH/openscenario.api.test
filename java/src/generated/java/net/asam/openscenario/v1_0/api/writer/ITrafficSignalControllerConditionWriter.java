@@ -16,9 +16,12 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
+import net.asam.openscenario.v1_0.api.IPhase;
 import net.asam.openscenario.v1_0.api.ITrafficSignalController;
+import net.asam.openscenario.v1_0.api.ITrafficSignalControllerCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -29,24 +32,10 @@ import net.asam.openscenario.v1_0.api.ITrafficSignalController;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficSignalControllerConditionWriter extends IOpenScenarioModelElement {
+public interface ITrafficSignalControllerConditionWriter
+    extends ITrafficSignalControllerCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: ID of the referenced signal controller in a road
-   * network.
-   *
-   * @return value of model property trafficSignalControllerRef
-   */
-  public INamedReference<ITrafficSignalController> getTrafficSignalControllerRef();
-  /**
-   * From OpenSCENARIO class model specification: Name of the phase of the signal controller to be
-   * reached for the condition to become true. The available phases are defined in type RoadNetwork
-   * under the property trafficSignalControllers.
-   *
-   * @return value of model property phase
-   */
-  public String getPhase();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: ID of the referenced signal controller in a road
@@ -54,7 +43,7 @@ public interface ITrafficSignalControllerConditionWriter extends IOpenScenarioMo
    *
    * @param trafficSignalControllerRef value of model property trafficSignalControllerRef
    */
-  public void writeToTrafficSignalControllerRef(
+  public void setTrafficSignalControllerRef(
       INamedReference<ITrafficSignalController> trafficSignalControllerRef);
   /**
    * From OpenSCENARIO class model specification: Name of the phase of the signal controller to be
@@ -63,7 +52,14 @@ public interface ITrafficSignalControllerConditionWriter extends IOpenScenarioMo
    *
    * @param phase value of model property phase
    */
-  public void writeToPhase(String phase);
+  public void setPhase(String phase);
+  /**
+   * From OpenSCENARIO class model specification: The reference to the phase (phase is the
+   * referential key in the referenced TrafficSignalController).
+   *
+   * @param phaseRef value of model property phaseRef
+   */
+  public void setPhaseRef(List<IPhase> phaseRef);
 
   /**
    * Set a parameter for the attribute trafficSignalControllerRef

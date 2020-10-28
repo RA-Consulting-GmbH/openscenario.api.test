@@ -48,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OrientationImpl extends BaseImpl implements IOrientation, IOrientationWriter {
+public class OrientationImpl extends BaseImpl implements IOrientationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -96,35 +96,23 @@ public class OrientationImpl extends BaseImpl implements IOrientation, IOrientat
   public Double getR() {
     return this.r;
   }
-  /**
-   * Sets the value of model property type
-   *
-   * @param type from OpenSCENARIO class model specification: [Relative or absolute definition.]
-   */
+
+  @Override
   public void setType(ReferenceContext type) {
     this.type = type;
   }
-  /**
-   * Sets the value of model property h
-   *
-   * @param h from OpenSCENARIO class model specification: [Heading angle. Unit: rad;.]
-   */
+
+  @Override
   public void setH(Double h) {
     this.h = h;
   }
-  /**
-   * Sets the value of model property p
-   *
-   * @param p from OpenSCENARIO class model specification: [Pitch angle. Unit: rad;.]
-   */
+
+  @Override
   public void setP(Double p) {
     this.p = p;
   }
-  /**
-   * Sets the value of model property r
-   *
-   * @param r from OpenSCENARIO class model specification: [Roll angle. Unit: rad;.]
-   */
+
+  @Override
   public void setR(Double r) {
     this.r = r;
   }
@@ -297,26 +285,6 @@ public class OrientationImpl extends BaseImpl implements IOrientation, IOrientat
   @Override
   public String getModelType() {
     return "Orientation";
-  }
-
-  @Override
-  public void writeToType(ReferenceContext type) {
-    setType(type);
-  }
-
-  @Override
-  public void writeToH(Double h) {
-    setH(h);
-  }
-
-  @Override
-  public void writeToP(Double p) {
-    setP(p);
-  }
-
-  @Override
-  public void writeToR(Double r) {
-    setR(r);
   }
 
   @Override

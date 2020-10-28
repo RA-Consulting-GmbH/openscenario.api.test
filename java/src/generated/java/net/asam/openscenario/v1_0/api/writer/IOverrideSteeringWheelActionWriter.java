@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IOverrideSteeringWheelAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,34 +28,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IOverrideSteeringWheelActionWriter extends IOpenScenarioModelElement {
+public interface IOverrideSteeringWheelActionWriter
+    extends IOverrideSteeringWheelAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Steering wheel angle. Unit: rad.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
-  /**
-   * From OpenSCENARIO class model specification: True: override; false: stop overriding.
-   *
-   * @return value of model property active
-   */
-  public Boolean getActive();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Steering wheel angle. Unit: rad.
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
   /**
    * From OpenSCENARIO class model specification: True: override; false: stop overriding.
    *
    * @param active value of model property active
    */
-  public void writeToActive(Boolean active);
+  public void setActive(Boolean active);
 
   /**
    * Set a parameter for the attribute value

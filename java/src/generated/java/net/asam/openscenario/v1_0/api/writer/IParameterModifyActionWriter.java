@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IParameterModifyAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IParameterModifyActionWriter extends IOpenScenarioModelElement {
+public interface IParameterModifyActionWriter
+    extends IParameterModifyAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Either adding a value to a parameter or multiply a
+   * parameter by a value. Has to match the parameter type.
+   *
+   * @param rule value of model property rule
+   */
+  public void setRule(IModifyRuleWriter rule);
 
   // children
   /**
@@ -35,13 +47,5 @@ public interface IParameterModifyActionWriter extends IOpenScenarioModelElement 
    *
    * @return a writer for model property rule
    */
-  public IModifyRuleWriter getRuleWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Either adding a value to a parameter or multiply a
-   * parameter by a value. Has to match the parameter type.
-   *
-   * @param ruleWriter writer for the model property rule
-   */
-  public void writeToRuleWriter(IModifyRuleWriter ruleWriter);
+  public IModifyRuleWriter getWriterRule();
 }

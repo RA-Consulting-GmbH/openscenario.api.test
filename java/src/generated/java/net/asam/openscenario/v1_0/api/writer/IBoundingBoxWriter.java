@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IBoundingBox;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,24 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IBoundingBoxWriter extends IOpenScenarioModelElement {
+public interface IBoundingBoxWriter extends IBoundingBox, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Represents the geometrical center of the bounding
+   * box expressed in coordinates that refer to the coordinate system of the entity (e.g. the
+   * vehicle coordinate system).
+   *
+   * @param center value of model property center
+   */
+  public void setCenter(ICenterWriter center);
+  /**
+   * From OpenSCENARIO class model specification: Width, length and height of the bounding box.
+   *
+   * @param dimensions value of model property dimensions
+   */
+  public void setDimensions(IDimensionsWriter dimensions);
 
   // children
   /**
@@ -36,26 +54,11 @@ public interface IBoundingBoxWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property center
    */
-  public ICenterWriter getCenterWriter();
+  public ICenterWriter getWriterCenter();
   /**
    * From OpenSCENARIO class model specification: Width, length and height of the bounding box.
    *
    * @return a writer for model property dimensions
    */
-  public IDimensionsWriter getDimensionsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Represents the geometrical center of the bounding
-   * box expressed in coordinates that refer to the coordinate system of the entity (e.g. the
-   * vehicle coordinate system).
-   *
-   * @param centerWriter writer for the model property center
-   */
-  public void writeToCenterWriter(ICenterWriter centerWriter);
-  /**
-   * From OpenSCENARIO class model specification: Width, length and height of the bounding box.
-   *
-   * @param dimensionsWriter writer for the model property dimensions
-   */
-  public void writeToDimensionsWriter(IDimensionsWriter dimensionsWriter);
+  public IDimensionsWriter getWriterDimensions();
 }

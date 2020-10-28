@@ -268,7 +268,7 @@ public class ParameterResolver {
       Map<String, String> injectedParameters,
       IScenarioDefinition scenarioDefinition) {
     Set<String> notUsedInjectedParameters = injectedParameters.keySet();
-    List<IParameterDeclaration> parameterDeclarations =
+    Iterable<IParameterDeclaration> parameterDeclarations =
         scenarioDefinition.getParameterDeclarations();
     Textmarker textmarker = null;
     ILocator locator = (ILocator) scenarioDefinition.getAdapter(ILocator.class);

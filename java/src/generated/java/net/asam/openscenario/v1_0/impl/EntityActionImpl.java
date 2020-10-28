@@ -51,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntityActionWriter {
+public class EntityActionImpl extends BaseImpl implements IEntityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,12 +59,9 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
     propertyToType.put(OscConstants.ATTRIBUTE__ENTITY_REF, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
-  private IAddEntityAction addEntityAction;
-  private IDeleteEntityAction deleteEntityAction;
-
-  private IAddEntityActionWriter addEntityActionWriter;
-  private IDeleteEntityActionWriter deleteEntityActionWriter;
+  private INamedReference<IEntity> entityRef;
+  private IAddEntityActionWriter addEntityAction;
+  private IDeleteEntityActionWriter deleteEntityAction;
 
   /** Default constructor */
   public EntityActionImpl() {
@@ -93,30 +90,19 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
   public IDeleteEntityAction getDeleteEntityAction() {
     return this.deleteEntityAction;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property addEntityAction
-   *
-   * @param addEntityAction from OpenSCENARIO class model specification: [Action that adds the
-   *     reference entity to the scenario.]
-   */
-  public void setAddEntityAction(IAddEntityAction addEntityAction) {
+
+  @Override
+  public void setAddEntityAction(IAddEntityActionWriter addEntityAction) {
     this.addEntityAction = addEntityAction;
   }
-  /**
-   * Sets the value of model property deleteEntityAction
-   *
-   * @param deleteEntityAction from OpenSCENARIO class model specification: [Action that deletes the
-   *     reference entity from the scenario.]
-   */
-  public void setDeleteEntityAction(IDeleteEntityAction deleteEntityAction) {
+
+  @Override
+  public void setDeleteEntityAction(IDeleteEntityActionWriter deleteEntityAction) {
     this.deleteEntityAction = deleteEntityAction;
   }
 
@@ -146,13 +132,13 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IAddEntityAction addEntityAction = null;
-    addEntityAction = getAddEntityAction();
+    IAddEntityActionWriter addEntityAction = null;
+    addEntityAction = getWriterAddEntityAction();
     if (addEntityAction != null) {
       result.add((BaseImpl) addEntityAction);
     }
-    IDeleteEntityAction deleteEntityAction = null;
-    deleteEntityAction = getDeleteEntityAction();
+    IDeleteEntityActionWriter deleteEntityAction = null;
+    deleteEntityAction = getWriterDeleteEntityAction();
     if (deleteEntityAction != null) {
       result.add((BaseImpl) deleteEntityAction);
     }
@@ -179,17 +165,17 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
     clonedObject.setEntityRef(proxy);
     proxy.setParent(clonedObject);
     // clone children
-    IAddEntityAction addEntityAction = null;
-    addEntityAction = getAddEntityAction();
+    IAddEntityActionWriter addEntityAction = null;
+    addEntityAction = getWriterAddEntityAction();
     if (addEntityAction != null) {
-      AddEntityActionImpl clonedChild = ((AddEntityActionImpl) addEntityAction).clone();
+      IAddEntityActionWriter clonedChild = ((AddEntityActionImpl) addEntityAction).clone();
       clonedObject.setAddEntityAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IDeleteEntityAction deleteEntityAction = null;
-    deleteEntityAction = getDeleteEntityAction();
+    IDeleteEntityActionWriter deleteEntityAction = null;
+    deleteEntityAction = getWriterDeleteEntityAction();
     if (deleteEntityAction != null) {
-      DeleteEntityActionImpl clonedChild = ((DeleteEntityActionImpl) deleteEntityAction).clone();
+      IDeleteEntityActionWriter clonedChild = ((DeleteEntityActionImpl) deleteEntityAction).clone();
       clonedObject.setDeleteEntityAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -293,11 +279,6 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
   }
 
   @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
@@ -315,22 +296,12 @@ public class EntityActionImpl extends BaseImpl implements IEntityAction, IEntity
 
   // children
   @Override
-  public IAddEntityActionWriter getAddEntityActionWriter() {
-    return this.addEntityActionWriter;
+  public IAddEntityActionWriter getWriterAddEntityAction() {
+    return this.addEntityAction;
   }
 
   @Override
-  public IDeleteEntityActionWriter getDeleteEntityActionWriter() {
-    return this.deleteEntityActionWriter;
-  }
-
-  @Override
-  public void writeToAddEntityActionWriter(IAddEntityActionWriter addEntityActionWriter) {
-    this.addEntityActionWriter = addEntityActionWriter;
-  }
-
-  @Override
-  public void writeToDeleteEntityActionWriter(IDeleteEntityActionWriter deleteEntityActionWriter) {
-    this.deleteEntityActionWriter = deleteEntityActionWriter;
+  public IDeleteEntityActionWriter getWriterDeleteEntityAction() {
+    return this.deleteEntityAction;
   }
 }

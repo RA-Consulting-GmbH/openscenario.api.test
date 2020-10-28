@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class AbsoluteTargetLaneOffsetImpl extends BaseImpl
-    implements IAbsoluteTargetLaneOffset, IAbsoluteTargetLaneOffsetWriter {
+    implements IAbsoluteTargetLaneOffsetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -74,12 +74,8 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Signed number in meters the vehicle
-   *     should respect as an offset from the center of the current lane.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
@@ -209,11 +205,6 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "AbsoluteTargetLaneOffset";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
   }
 
   @Override

@@ -49,8 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSourceActionImpl extends BaseImpl
-    implements ITrafficSourceAction, ITrafficSourceActionWriter {
+public class TrafficSourceActionImpl extends BaseImpl implements ITrafficSourceActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,11 +62,8 @@ public class TrafficSourceActionImpl extends BaseImpl
   private Double rate;
   private Double radius;
   private Double velocity;
-  private IPosition position;
-  private ITrafficDefinition trafficDefinition;
-
-  private IPositionWriter positionWriter;
-  private ITrafficDefinitionWriter trafficDefinitionWriter;
+  private IPositionWriter position;
+  private ITrafficDefinitionWriter trafficDefinition;
 
   /** Default constructor */
   public TrafficSourceActionImpl() {
@@ -106,49 +102,29 @@ public class TrafficSourceActionImpl extends BaseImpl
   public ITrafficDefinition getTrafficDefinition() {
     return this.trafficDefinition;
   }
-  /**
-   * Sets the value of model property rate
-   *
-   * @param rate from OpenSCENARIO class model specification: [Defines the rate on which vehicles
-   *     appear at the source location. Unit: vehicles/s. Range: [0..inf[.]
-   */
+
+  @Override
   public void setRate(Double rate) {
     this.rate = rate;
   }
-  /**
-   * Sets the value of model property radius
-   *
-   * @param radius from OpenSCENARIO class model specification: [Defines the radius of the traffic
-   *     source where vehicles appear around the specific position. Unit: m. Range: [0..inf[.]
-   */
+
+  @Override
   public void setRadius(Double radius) {
     this.radius = radius;
   }
-  /**
-   * Sets the value of model property velocity
-   *
-   * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of
-   *     a scenario object. Unit: m/s; Range: [0..inf[.]
-   */
+
+  @Override
   public void setVelocity(Double velocity) {
     this.velocity = velocity;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [Defines the position of the
-   *     traffic source.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
-  /**
-   * Sets the value of model property trafficDefinition
-   *
-   * @param trafficDefinition from OpenSCENARIO class model specification: [Defines the vehicle and
-   *     controller distribution for the source.]
-   */
-  public void setTrafficDefinition(ITrafficDefinition trafficDefinition) {
+
+  @Override
+  public void setTrafficDefinition(ITrafficDefinitionWriter trafficDefinition) {
     this.trafficDefinition = trafficDefinition;
   }
 
@@ -190,13 +166,13 @@ public class TrafficSourceActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
-    ITrafficDefinition trafficDefinition = null;
-    trafficDefinition = getTrafficDefinition();
+    ITrafficDefinitionWriter trafficDefinition = null;
+    trafficDefinition = getWriterTrafficDefinition();
     if (trafficDefinition != null) {
       result.add((BaseImpl) trafficDefinition);
     }
@@ -225,17 +201,17 @@ public class TrafficSourceActionImpl extends BaseImpl
     // Simple type
     clonedObject.setVelocity(getVelocity());
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrafficDefinition trafficDefinition = null;
-    trafficDefinition = getTrafficDefinition();
+    ITrafficDefinitionWriter trafficDefinition = null;
+    trafficDefinition = getWriterTrafficDefinition();
     if (trafficDefinition != null) {
-      TrafficDefinitionImpl clonedChild = ((TrafficDefinitionImpl) trafficDefinition).clone();
+      ITrafficDefinitionWriter clonedChild = ((TrafficDefinitionImpl) trafficDefinition).clone();
       clonedObject.setTrafficDefinition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -333,21 +309,6 @@ public class TrafficSourceActionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToRate(Double rate) {
-    setRate(rate);
-  }
-
-  @Override
-  public void writeToRadius(Double radius) {
-    setRadius(radius);
-  }
-
-  @Override
-  public void writeToVelocity(Double velocity) {
-    setVelocity(velocity);
-  }
-
-  @Override
   public void writeParameterToRate(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__RATE, parameterName, null /*no textmarker*/);
   }
@@ -394,22 +355,12 @@ public class TrafficSourceActionImpl extends BaseImpl
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 
   @Override
-  public ITrafficDefinitionWriter getTrafficDefinitionWriter() {
-    return this.trafficDefinitionWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
-  }
-
-  @Override
-  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter) {
-    this.trafficDefinitionWriter = trafficDefinitionWriter;
+  public ITrafficDefinitionWriter getWriterTrafficDefinition() {
+    return this.trafficDefinition;
   }
 }

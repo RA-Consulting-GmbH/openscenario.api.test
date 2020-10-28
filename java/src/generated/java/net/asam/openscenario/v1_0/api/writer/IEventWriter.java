@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.Priority;
 
 /**
@@ -28,48 +30,42 @@ import net.asam.openscenario.v1_0.api.Priority;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEventWriter extends IStoryboardElementWriter {
+public interface IEventWriter extends IStoryboardElementWriter, IEvent, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Priority of each event.
-   *
-   * @return value of model property priority
-   */
-  public Priority getPriority();
-  /**
-   * From OpenSCENARIO class model specification: Maximum number of executions. Default value is 1.
-   * Range: [1..inf[.
-   *
-   * @return value of model property maximumExecutionCount
-   */
-  public Long getMaximumExecutionCount();
-  /**
-   * From OpenSCENARIO class model specification: Name of the event.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Priority of each event.
    *
    * @param priority value of model property priority
    */
-  public void writeToPriority(Priority priority);
+  public void setPriority(Priority priority);
   /**
    * From OpenSCENARIO class model specification: Maximum number of executions. Default value is 1.
    * Range: [1..inf[.
    *
    * @param maximumExecutionCount value of model property maximumExecutionCount
    */
-  public void writeToMaximumExecutionCount(Long maximumExecutionCount);
+  public void setMaximumExecutionCount(Long maximumExecutionCount);
   /**
    * From OpenSCENARIO class model specification: Name of the event.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: List of actions in an event.
+   *
+   * @param actions value of model property actions
+   */
+  public void setActions(List<IActionWriter> actions);
+  /**
+   * From OpenSCENARIO class model specification: Actions are executed as soon as the start trigger
+   * fires. This point in time represents the start of the event.
+   *
+   * @param startTrigger value of model property startTrigger
+   */
+  public void setStartTrigger(ITriggerWriter startTrigger);
 
   /**
    * Set a parameter for the attribute priority
@@ -138,27 +134,12 @@ public interface IEventWriter extends IStoryboardElementWriter {
    *
    * @return a writer for model property startTrigger
    */
-  public ITriggerWriter getStartTriggerWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Actions are executed as soon as the start trigger
-   * fires. This point in time represents the start of the event.
-   *
-   * @param startTriggerWriter writer for the model property startTrigger
-   */
-  public void writeToStartTriggerWriter(ITriggerWriter startTriggerWriter);
+  public ITriggerWriter getWriterStartTrigger();
 
   /**
    * From OpenSCENARIO class model specification: List of actions in an event.
    *
    * @return a list of writers for model property actions
    */
-  public List<IActionWriter> getActionsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: List of actions in an event.
-   *
-   * @param actionsWriters list of writers for the model property actions
-   */
-  public void setActionsWriter(List<IActionWriter> actionsWriters);
+  public List<IActionWriter> getWriterActions();
 }

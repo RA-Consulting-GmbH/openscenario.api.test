@@ -25,7 +25,6 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
-import net.asam.openscenario.v1_0.api.IStory;
 import net.asam.openscenario.v1_0.api.IStoryboard;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -78,15 +77,12 @@ public class StoryboardCardinalityCheckerRule extends CardinalityCheckerRule<ISt
           new CardinalityViolation(OscConstants.ELEMENT__INIT, 0, 1, ViolationType.REQUIRED));
     }
     // Check violation
-    List<IStory> stories = object.getStories();
+    int storiesSize = object.getStoriesSize();
     // Check too few elements
-    if (stories == null || stories.size() < 1) {
+    if (storiesSize < 1) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__STORY,
-              1,
-              stories == null ? 0 : stories.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__STORY, 1, storiesSize, ViolationType.TOO_FEW));
     }
     // Check violation
     // Check required

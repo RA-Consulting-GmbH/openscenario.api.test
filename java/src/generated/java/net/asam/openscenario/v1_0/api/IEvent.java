@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -51,7 +49,7 @@ public interface IEvent extends IStoryboardElement {
    *
    * @return value of model property actions
    */
-  public List<IAction> getActions();
+  public Iterable<IAction> getActions();
   /**
    * From OpenSCENARIO class model specification: Actions are executed as soon as the start trigger
    * fires. This point in time represents the start of the event.
@@ -59,4 +57,18 @@ public interface IEvent extends IStoryboardElement {
    * @return value of model property startTrigger
    */
   public ITrigger getStartTrigger();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getActionsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IAction getActionsAtIndex(int index);
 }

@@ -309,8 +309,7 @@ public class TestFiles extends TestBase {
               .getStoryboard()
               .getInit()
               .getActions()
-              .getUserDefinedActions()
-              .get(0)
+              .getUserDefinedActionsAtIndex(0)
               .getCustomCommandAction()
               .getContent();
       Assertions.assertEquals("\n				This is text defined  Inhalt\n			", content);

@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -49,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TrafficSignalControllerImpl extends BaseImpl
-    implements ITrafficSignalController, ITrafficSignalControllerWriter {
+    implements ITrafficSignalControllerWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,9 +63,7 @@ public class TrafficSignalControllerImpl extends BaseImpl
   private String name;
   private Double delay;
   private String reference;
-  private List<IPhase> phases;
-
-  private List<IPhaseWriter> phasesWriters;
+  private List<IPhaseWriter> phases = new ArrayList<>();
 
   /** Default constructor */
   public TrafficSignalControllerImpl() {
@@ -95,47 +94,53 @@ public class TrafficSignalControllerImpl extends BaseImpl
   }
 
   @Override
-  public List<IPhase> getPhases() {
+  public List<IPhaseWriter> getWriterPhases() {
     return this.phases;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [ID of the traffic signal controller
-   *     in the road network.]
-   */
+
+  @Override
+  public Iterable<IPhase> getPhases() {
+    return new Iterable<IPhase>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IPhase> iterator() {
+        return new ArrayList<IPhase>(TrafficSignalControllerImpl.this.phases).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getPhasesSize() {
+    if (this.phases != null) return this.phases.size();
+    return 0;
+  }
+
+  @Override
+  public IPhase getPhasesAtIndex(int index) {
+    if (index >= 0 && this.phases != null && this.phases.size() > index) {
+      return this.phases.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property delay
-   *
-   * @param delay from OpenSCENARIO class model specification: [The delay to the controller in the
-   *     reference property. A controller having a delay to another one means that its first , phase
-   *     virtually starts delaytime seconds after the start of the reference's first phase. This can
-   *     be used to define a , progressive signal system, but only makes sense, if the total times
-   *     of all connected controllers are the same. If delay , is set, reference is required. Unit:
-   *     s; Range: [0..inf[.]
-   */
+
+  @Override
   public void setDelay(Double delay) {
     this.delay = delay;
   }
-  /**
-   * Sets the value of model property reference
-   *
-   * @param reference from OpenSCENARIO class model specification: [A reference (ID) to the
-   *     connected controller in the road network. If reference is set, a delay is required.]
-   */
+
+  @Override
   public void setReference(String reference) {
     this.reference = reference;
   }
-  /**
-   * Sets the value of model property phases
-   *
-   * @param phases from OpenSCENARIO class model specification: [Phases of a
-   *     TrafficSignalController.]
-   */
-  public void setPhases(List<IPhase> phases) {
+
+  @Override
+  public void setPhases(List<IPhaseWriter> phases) {
     this.phases = phases;
   }
 
@@ -177,10 +182,10 @@ public class TrafficSignalControllerImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IPhase> phases = null;
-    phases = getPhases();
+    List<IPhaseWriter> phases = null;
+    phases = getWriterPhases();
     if (phases != null) {
-      for (IPhase item : phases) {
+      for (IPhaseWriter item : phases) {
         result.add((BaseImpl) item);
       }
     }
@@ -209,12 +214,12 @@ public class TrafficSignalControllerImpl extends BaseImpl
     // Simple type
     clonedObject.setReference(getReference());
     // clone children
-    List<IPhase> phases = null;
-    phases = getPhases();
+    List<IPhaseWriter> phases = null;
+    phases = getWriterPhases();
     if (phases != null) {
-      List<IPhase> clonedList = new ArrayList<>();
-      for (IPhase item : phases) {
-        PhaseImpl clonedChild = ((PhaseImpl) item).clone();
+      List<IPhaseWriter> clonedList = new ArrayList<>();
+      for (IPhaseWriter item : phases) {
+        IPhaseWriter clonedChild = ((PhaseImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -316,21 +321,6 @@ public class TrafficSignalControllerImpl extends BaseImpl
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
-  public void writeToDelay(Double delay) {
-    setDelay(delay);
-  }
-
-  @Override
-  public void writeToReference(String reference) {
-    setReference(reference);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -377,13 +367,4 @@ public class TrafficSignalControllerImpl extends BaseImpl
 
   // children
 
-  @Override
-  public List<IPhaseWriter> getPhasesWriter() {
-    return this.phasesWriters;
-  }
-
-  @Override
-  public void setPhasesWriter(List<IPhaseWriter> phasesWriters) {
-    this.phasesWriters = phasesWriters;
-  }
 }

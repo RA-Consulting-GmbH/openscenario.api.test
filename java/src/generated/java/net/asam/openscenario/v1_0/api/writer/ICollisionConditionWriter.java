@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ICollisionCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ICollisionConditionWriter extends IOpenScenarioModelElement {
+public interface ICollisionConditionWriter extends ICollisionCondition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Name of a specific entity.
+   *
+   * @param entityRef value of model property entityRef
+   */
+  public void setEntityRef(IEntityRefWriter entityRef);
+  /**
+   * From OpenSCENARIO class model specification: Entities of this type can trigger the condition
+   * when collide.
+   *
+   * @param byType value of model property byType
+   */
+  public void setByType(IByObjectTypeWriter byType);
 
   // children
   /**
@@ -35,26 +52,12 @@ public interface ICollisionConditionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property entityRef
    */
-  public IEntityRefWriter getEntityRefWriter();
+  public IEntityRefWriter getWriterEntityRef();
   /**
    * From OpenSCENARIO class model specification: Entities of this type can trigger the condition
    * when collide.
    *
    * @return a writer for model property byType
    */
-  public IByObjectTypeWriter getByTypeWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Name of a specific entity.
-   *
-   * @param entityRefWriter writer for the model property entityRef
-   */
-  public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter);
-  /**
-   * From OpenSCENARIO class model specification: Entities of this type can trigger the condition
-   * when collide.
-   *
-   * @param byTypeWriter writer for the model property byType
-   */
-  public void writeToByTypeWriter(IByObjectTypeWriter byTypeWriter);
+  public IByObjectTypeWriter getWriterByType();
 }

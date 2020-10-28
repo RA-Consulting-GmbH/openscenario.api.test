@@ -50,16 +50,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
+public class ShapeImpl extends BaseImpl implements IShapeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IPolyline polyline;
-  private IClothoid clothoid;
-  private INurbs nurbs;
-
-  private IPolylineWriter polylineWriter;
-  private IClothoidWriter clothoidWriter;
-  private INurbsWriter nurbsWriter;
+  private IPolylineWriter polyline;
+  private IClothoidWriter clothoid;
+  private INurbsWriter nurbs;
 
   /** Default constructor */
   public ShapeImpl() {
@@ -88,28 +84,19 @@ public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
   public INurbs getNurbs() {
     return this.nurbs;
   }
-  /**
-   * Sets the value of model property polyline
-   *
-   * @param polyline from OpenSCENARIO class model specification: [Polyline property of a shape.]
-   */
-  public void setPolyline(IPolyline polyline) {
+
+  @Override
+  public void setPolyline(IPolylineWriter polyline) {
     this.polyline = polyline;
   }
-  /**
-   * Sets the value of model property clothoid
-   *
-   * @param clothoid from OpenSCENARIO class model specification: [Clothoid property of a shape.]
-   */
-  public void setClothoid(IClothoid clothoid) {
+
+  @Override
+  public void setClothoid(IClothoidWriter clothoid) {
     this.clothoid = clothoid;
   }
-  /**
-   * Sets the value of model property nurbs
-   *
-   * @param nurbs from OpenSCENARIO class model specification: [NURBS property of a shape.]
-   */
-  public void setNurbs(INurbs nurbs) {
+
+  @Override
+  public void setNurbs(INurbsWriter nurbs) {
     this.nurbs = nurbs;
   }
 
@@ -134,18 +121,18 @@ public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPolyline polyline = null;
-    polyline = getPolyline();
+    IPolylineWriter polyline = null;
+    polyline = getWriterPolyline();
     if (polyline != null) {
       result.add((BaseImpl) polyline);
     }
-    IClothoid clothoid = null;
-    clothoid = getClothoid();
+    IClothoidWriter clothoid = null;
+    clothoid = getWriterClothoid();
     if (clothoid != null) {
       result.add((BaseImpl) clothoid);
     }
-    INurbs nurbs = null;
-    nurbs = getNurbs();
+    INurbsWriter nurbs = null;
+    nurbs = getWriterNurbs();
     if (nurbs != null) {
       result.add((BaseImpl) nurbs);
     }
@@ -168,24 +155,24 @@ public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IPolyline polyline = null;
-    polyline = getPolyline();
+    IPolylineWriter polyline = null;
+    polyline = getWriterPolyline();
     if (polyline != null) {
-      PolylineImpl clonedChild = ((PolylineImpl) polyline).clone();
+      IPolylineWriter clonedChild = ((PolylineImpl) polyline).clone();
       clonedObject.setPolyline(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IClothoid clothoid = null;
-    clothoid = getClothoid();
+    IClothoidWriter clothoid = null;
+    clothoid = getWriterClothoid();
     if (clothoid != null) {
-      ClothoidImpl clonedChild = ((ClothoidImpl) clothoid).clone();
+      IClothoidWriter clonedChild = ((ClothoidImpl) clothoid).clone();
       clonedObject.setClothoid(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    INurbs nurbs = null;
-    nurbs = getNurbs();
+    INurbsWriter nurbs = null;
+    nurbs = getWriterNurbs();
     if (nurbs != null) {
-      NurbsImpl clonedChild = ((NurbsImpl) nurbs).clone();
+      INurbsWriter clonedChild = ((NurbsImpl) nurbs).clone();
       clonedObject.setNurbs(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -277,32 +264,17 @@ public class ShapeImpl extends BaseImpl implements IShape, IShapeWriter {
 
   // children
   @Override
-  public IPolylineWriter getPolylineWriter() {
-    return this.polylineWriter;
+  public IPolylineWriter getWriterPolyline() {
+    return this.polyline;
   }
 
   @Override
-  public IClothoidWriter getClothoidWriter() {
-    return this.clothoidWriter;
+  public IClothoidWriter getWriterClothoid() {
+    return this.clothoid;
   }
 
   @Override
-  public INurbsWriter getNurbsWriter() {
-    return this.nurbsWriter;
-  }
-
-  @Override
-  public void writeToPolylineWriter(IPolylineWriter polylineWriter) {
-    this.polylineWriter = polylineWriter;
-  }
-
-  @Override
-  public void writeToClothoidWriter(IClothoidWriter clothoidWriter) {
-    this.clothoidWriter = clothoidWriter;
-  }
-
-  @Override
-  public void writeToNurbsWriter(INurbsWriter nurbsWriter) {
-    this.nurbsWriter = nurbsWriter;
+  public INurbsWriter getWriterNurbs() {
+    return this.nurbs;
   }
 }

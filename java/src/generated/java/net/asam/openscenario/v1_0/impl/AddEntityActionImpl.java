@@ -46,13 +46,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AddEntityActionImpl extends BaseImpl
-    implements IAddEntityAction, IAddEntityActionWriter {
+public class AddEntityActionImpl extends BaseImpl implements IAddEntityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IPosition position;
-
-  private IPositionWriter positionWriter;
+  private IPositionWriter position;
 
   /** Default constructor */
   public AddEntityActionImpl() {
@@ -71,13 +68,9 @@ public class AddEntityActionImpl extends BaseImpl
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [Adds an entity at the specified
-   *     position.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -102,8 +95,8 @@ public class AddEntityActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -126,10 +119,10 @@ public class AddEntityActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -215,12 +208,7 @@ public class AddEntityActionImpl extends BaseImpl
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

@@ -27,8 +27,8 @@ import net.asam.openscenario.parser.WrappedListParser;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IAct;
-import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.writer.IActWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ActImpl;
 import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
@@ -147,7 +147,8 @@ public class StoryXmlParser extends XmlComplexTypeParser<StoryImpl> {
       parameterDeclarations.setParent(object);
       this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
-      List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
+      List<IParameterDeclarationWriter> parameterDeclarationsList =
+          object.getWriterParameterDeclarations();
       if (parameterDeclarationsList == null) {
         parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
@@ -195,7 +196,7 @@ public class StoryXmlParser extends XmlComplexTypeParser<StoryImpl> {
       // Setting the parent
       acts.setParent(object);
       this.actXmlParser.parseElement(indexedElement, parserContext, acts);
-      List<IAct> actsList = object.getActs();
+      List<IActWriter> actsList = object.getWriterActs();
       if (actsList == null) {
         actsList = new ArrayList<>();
         object.setActs(actsList);

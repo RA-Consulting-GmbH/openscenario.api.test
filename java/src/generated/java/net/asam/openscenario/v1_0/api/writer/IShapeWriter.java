@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IShape;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,28 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IShapeWriter extends IOpenScenarioModelElement {
+public interface IShapeWriter extends IShape, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Polyline property of a shape.
+   *
+   * @param polyline value of model property polyline
+   */
+  public void setPolyline(IPolylineWriter polyline);
+  /**
+   * From OpenSCENARIO class model specification: Clothoid property of a shape.
+   *
+   * @param clothoid value of model property clothoid
+   */
+  public void setClothoid(IClothoidWriter clothoid);
+  /**
+   * From OpenSCENARIO class model specification: NURBS property of a shape.
+   *
+   * @param nurbs value of model property nurbs
+   */
+  public void setNurbs(INurbsWriter nurbs);
 
   // children
   /**
@@ -34,36 +56,17 @@ public interface IShapeWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property polyline
    */
-  public IPolylineWriter getPolylineWriter();
+  public IPolylineWriter getWriterPolyline();
   /**
    * From OpenSCENARIO class model specification: Clothoid property of a shape.
    *
    * @return a writer for model property clothoid
    */
-  public IClothoidWriter getClothoidWriter();
+  public IClothoidWriter getWriterClothoid();
   /**
    * From OpenSCENARIO class model specification: NURBS property of a shape.
    *
    * @return a writer for model property nurbs
    */
-  public INurbsWriter getNurbsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Polyline property of a shape.
-   *
-   * @param polylineWriter writer for the model property polyline
-   */
-  public void writeToPolylineWriter(IPolylineWriter polylineWriter);
-  /**
-   * From OpenSCENARIO class model specification: Clothoid property of a shape.
-   *
-   * @param clothoidWriter writer for the model property clothoid
-   */
-  public void writeToClothoidWriter(IClothoidWriter clothoidWriter);
-  /**
-   * From OpenSCENARIO class model specification: NURBS property of a shape.
-   *
-   * @param nurbsWriter writer for the model property nurbs
-   */
-  public void writeToNurbsWriter(INurbsWriter nurbsWriter);
+  public INurbsWriter getWriterNurbs();
 }

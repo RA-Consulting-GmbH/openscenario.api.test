@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -52,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
+public class EventImpl extends BaseImpl implements IEventWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -65,11 +66,8 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
   private Priority priority;
   private Long maximumExecutionCount;
   private String name;
-  private List<IAction> actions;
-  private ITrigger startTrigger;
-
-  private List<IActionWriter> actionsWriters;
-  private ITriggerWriter startTriggerWriter;
+  private List<IActionWriter> actions = new ArrayList<>();
+  private ITriggerWriter startTrigger;
 
   /** Default constructor */
   public EventImpl() {
@@ -100,54 +98,63 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
   }
 
   @Override
-  public List<IAction> getActions() {
+  public List<IActionWriter> getWriterActions() {
     return this.actions;
+  }
+
+  @Override
+  public Iterable<IAction> getActions() {
+    return new Iterable<IAction>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IAction> iterator() {
+        return new ArrayList<IAction>(EventImpl.this.actions).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getActionsSize() {
+    if (this.actions != null) return this.actions.size();
+    return 0;
+  }
+
+  @Override
+  public IAction getActionsAtIndex(int index) {
+    if (index >= 0 && this.actions != null && this.actions.size() > index) {
+      return this.actions.get(index);
+    }
+    return null;
   }
 
   @Override
   public ITrigger getStartTrigger() {
     return this.startTrigger;
   }
-  /**
-   * Sets the value of model property priority
-   *
-   * @param priority from OpenSCENARIO class model specification: [Priority of each event.]
-   */
+
+  @Override
   public void setPriority(Priority priority) {
     this.priority = priority;
   }
-  /**
-   * Sets the value of model property maximumExecutionCount
-   *
-   * @param maximumExecutionCount from OpenSCENARIO class model specification: [Maximum number of
-   *     executions. Default value is 1. Range: [1..inf[.]
-   */
+
+  @Override
   public void setMaximumExecutionCount(Long maximumExecutionCount) {
     this.maximumExecutionCount = maximumExecutionCount;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the event.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property actions
-   *
-   * @param actions from OpenSCENARIO class model specification: [List of actions in an event.]
-   */
-  public void setActions(List<IAction> actions) {
+
+  @Override
+  public void setActions(List<IActionWriter> actions) {
     this.actions = actions;
   }
-  /**
-   * Sets the value of model property startTrigger
-   *
-   * @param startTrigger from OpenSCENARIO class model specification: [Actions are executed as soon
-   *     as the start trigger fires. This point in time represents the start of the event.]
-   */
-  public void setStartTrigger(ITrigger startTrigger) {
+
+  @Override
+  public void setStartTrigger(ITriggerWriter startTrigger) {
     this.startTrigger = startTrigger;
   }
 
@@ -197,15 +204,15 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IAction> actions = null;
-    actions = getActions();
+    List<IActionWriter> actions = null;
+    actions = getWriterActions();
     if (actions != null) {
-      for (IAction item : actions) {
+      for (IActionWriter item : actions) {
         result.add((BaseImpl) item);
       }
     }
-    ITrigger startTrigger = null;
-    startTrigger = getStartTrigger();
+    ITriggerWriter startTrigger = null;
+    startTrigger = getWriterStartTrigger();
     if (startTrigger != null) {
       result.add((BaseImpl) startTrigger);
     }
@@ -237,21 +244,21 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
     // Simple type
     clonedObject.setName(getName());
     // clone children
-    List<IAction> actions = null;
-    actions = getActions();
+    List<IActionWriter> actions = null;
+    actions = getWriterActions();
     if (actions != null) {
-      List<IAction> clonedList = new ArrayList<>();
-      for (IAction item : actions) {
-        ActionImpl clonedChild = ((ActionImpl) item).clone();
+      List<IActionWriter> clonedList = new ArrayList<>();
+      for (IActionWriter item : actions) {
+        IActionWriter clonedChild = ((ActionImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setActions(clonedList);
     }
-    ITrigger startTrigger = null;
-    startTrigger = getStartTrigger();
+    ITriggerWriter startTrigger = null;
+    startTrigger = getWriterStartTrigger();
     if (startTrigger != null) {
-      TriggerImpl clonedChild = ((TriggerImpl) startTrigger).clone();
+      ITriggerWriter clonedChild = ((TriggerImpl) startTrigger).clone();
       clonedObject.setStartTrigger(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -362,21 +369,6 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
   }
 
   @Override
-  public void writeToPriority(Priority priority) {
-    setPriority(priority);
-  }
-
-  @Override
-  public void writeToMaximumExecutionCount(Long maximumExecutionCount) {
-    setMaximumExecutionCount(maximumExecutionCount);
-  }
-
-  @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
   public void writeParameterToPriority(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__PRIORITY, parameterName, null /*no textmarker*/);
   }
@@ -425,22 +417,7 @@ public class EventImpl extends BaseImpl implements IEvent, IEventWriter {
 
   // children
   @Override
-  public ITriggerWriter getStartTriggerWriter() {
-    return this.startTriggerWriter;
-  }
-
-  @Override
-  public void writeToStartTriggerWriter(ITriggerWriter startTriggerWriter) {
-    this.startTriggerWriter = startTriggerWriter;
-  }
-
-  @Override
-  public List<IActionWriter> getActionsWriter() {
-    return this.actionsWriters;
-  }
-
-  @Override
-  public void setActionsWriter(List<IActionWriter> actionsWriters) {
-    this.actionsWriters = actionsWriters;
+  public ITriggerWriter getWriterStartTrigger() {
+    return this.startTrigger;
   }
 }

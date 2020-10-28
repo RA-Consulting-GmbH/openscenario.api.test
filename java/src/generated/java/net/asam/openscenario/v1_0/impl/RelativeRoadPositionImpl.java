@@ -50,8 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeRoadPositionImpl extends BaseImpl
-    implements IRelativeRoadPosition, IRelativeRoadPositionWriter {
+public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,12 +60,10 @@ public class RelativeRoadPositionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__DT, SimpleType.DOUBLE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double ds;
   private Double dt;
-  private IOrientation orientation;
-
-  private IOrientationWriter orientationWriter;
+  private IOrientationWriter orientation;
 
   /** Default constructor */
   public RelativeRoadPositionImpl() {
@@ -100,39 +97,24 @@ public class RelativeRoadPositionImpl extends BaseImpl
   public IOrientation getOrientation() {
     return this.orientation;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property ds
-   *
-   * @param ds from OpenSCENARIO class model specification: [Relative ds road coordinate to s
-   *     coordinate of the reference entity.]
-   */
+
+  @Override
   public void setDs(Double ds) {
     this.ds = ds;
   }
-  /**
-   * Sets the value of model property dt
-   *
-   * @param dt from OpenSCENARIO class model specification: [Relative dt road coordinate to t
-   *     coordinate of the reference entity.]
-   */
+
+  @Override
   public void setDt(Double dt) {
     this.dt = dt;
   }
-  /**
-   * Sets the value of model property orientation
-   *
-   * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative
-   *     reference context refers to the referenced road's s and t coordinates.]
-   */
-  public void setOrientation(IOrientation orientation) {
+
+  @Override
+  public void setOrientation(IOrientationWriter orientation) {
     this.orientation = orientation;
   }
 
@@ -174,8 +156,8 @@ public class RelativeRoadPositionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
       result.add((BaseImpl) orientation);
     }
@@ -206,10 +188,10 @@ public class RelativeRoadPositionImpl extends BaseImpl
     // Simple type
     clonedObject.setDt(getDt());
     // clone children
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
-      OrientationImpl clonedChild = ((OrientationImpl) orientation).clone();
+      IOrientationWriter clonedChild = ((OrientationImpl) orientation).clone();
       clonedObject.setOrientation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -318,21 +300,6 @@ public class RelativeRoadPositionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToDs(Double ds) {
-    setDs(ds);
-  }
-
-  @Override
-  public void writeToDt(Double dt) {
-    setDt(dt);
-  }
-
-  @Override
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
@@ -380,12 +347,7 @@ public class RelativeRoadPositionImpl extends BaseImpl
 
   // children
   @Override
-  public IOrientationWriter getOrientationWriter() {
-    return this.orientationWriter;
-  }
-
-  @Override
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    this.orientationWriter = orientationWriter;
+  public IOrientationWriter getWriterOrientation() {
+    return this.orientation;
   }
 }

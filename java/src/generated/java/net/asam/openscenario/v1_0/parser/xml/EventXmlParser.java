@@ -28,8 +28,8 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IAction;
 import net.asam.openscenario.v1_0.api.Priority;
+import net.asam.openscenario.v1_0.api.writer.IActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ActionImpl;
 import net.asam.openscenario.v1_0.impl.EventImpl;
@@ -226,7 +226,7 @@ public class EventXmlParser extends XmlComplexTypeParser<EventImpl> {
       // Setting the parent
       actions.setParent(object);
       this.actionXmlParser.parseElement(indexedElement, parserContext, actions);
-      List<IAction> actionsList = object.getActions();
+      List<IActionWriter> actionsList = object.getWriterActions();
       if (actionsList == null) {
         actionsList = new ArrayList<>();
         object.setActions(actionsList);

@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IRoadNetwork;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -31,7 +32,31 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRoadNetworkWriter extends IOpenScenarioModelElement {
+public interface IRoadNetworkWriter extends IRoadNetwork, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: File path of the road network file (e.g. an ASAM
+   * OpenDRIVE file).
+   *
+   * @param logicFile value of model property logicFile
+   */
+  public void setLogicFile(IFileWriter logicFile);
+  /**
+   * From OpenSCENARIO class model specification: File path of a 3D model representing the virtual
+   * environment. This may be used for visual representation (rendering).
+   *
+   * @param sceneGraphFile value of model property sceneGraphFile
+   */
+  public void setSceneGraphFile(IFileWriter sceneGraphFile);
+  /**
+   * From OpenSCENARIO class model specification: Name references and description of dynamic
+   * behavior for traffic signals defined in the road network file.
+   *
+   * @param trafficSignals value of model property trafficSignals
+   */
+  public void setTrafficSignals(List<ITrafficSignalControllerWriter> trafficSignals);
 
   // children
   /**
@@ -40,29 +65,14 @@ public interface IRoadNetworkWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property logicFile
    */
-  public IFileWriter getLogicFileWriter();
+  public IFileWriter getWriterLogicFile();
   /**
    * From OpenSCENARIO class model specification: File path of a 3D model representing the virtual
    * environment. This may be used for visual representation (rendering).
    *
    * @return a writer for model property sceneGraphFile
    */
-  public IFileWriter getSceneGraphFileWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: File path of the road network file (e.g. an ASAM
-   * OpenDRIVE file).
-   *
-   * @param logicFileWriter writer for the model property logicFile
-   */
-  public void writeToLogicFileWriter(IFileWriter logicFileWriter);
-  /**
-   * From OpenSCENARIO class model specification: File path of a 3D model representing the virtual
-   * environment. This may be used for visual representation (rendering).
-   *
-   * @param sceneGraphFileWriter writer for the model property sceneGraphFile
-   */
-  public void writeToSceneGraphFileWriter(IFileWriter sceneGraphFileWriter);
+  public IFileWriter getWriterSceneGraphFile();
 
   /**
    * From OpenSCENARIO class model specification: Name references and description of dynamic
@@ -70,13 +80,5 @@ public interface IRoadNetworkWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property trafficSignals
    */
-  public List<ITrafficSignalControllerWriter> getTrafficSignalsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Name references and description of dynamic
-   * behavior for traffic signals defined in the road network file.
-   *
-   * @param trafficSignalsWriters list of writers for the model property trafficSignals
-   */
-  public void setTrafficSignalsWriter(List<ITrafficSignalControllerWriter> trafficSignalsWriters);
+  public List<ITrafficSignalControllerWriter> getWriterTrafficSignals();
 }

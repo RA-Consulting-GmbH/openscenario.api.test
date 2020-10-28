@@ -25,7 +25,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IConditionGroup;
+import net.asam.openscenario.v1_0.api.writer.IConditionGroupWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ConditionGroupImpl;
 import net.asam.openscenario.v1_0.impl.TriggerImpl;
@@ -97,7 +97,7 @@ public class TriggerXmlParser extends XmlComplexTypeParser<TriggerImpl> {
       // Setting the parent
       conditionGroups.setParent(object);
       this.conditionGroupXmlParser.parseElement(indexedElement, parserContext, conditionGroups);
-      List<IConditionGroup> conditionGroupsList = object.getConditionGroups();
+      List<IConditionGroupWriter> conditionGroupsList = object.getWriterConditionGroups();
       if (conditionGroupsList == null) {
         conditionGroupsList = new ArrayList<>();
         object.setConditionGroups(conditionGroupsList);

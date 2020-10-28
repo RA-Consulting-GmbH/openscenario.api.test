@@ -46,8 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterAddValueRuleImpl extends BaseImpl
-    implements IParameterAddValueRule, IParameterAddValueRuleWriter {
+public class ParameterAddValueRuleImpl extends BaseImpl implements IParameterAddValueRuleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -74,11 +73,8 @@ public class ParameterAddValueRuleImpl extends BaseImpl
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Add value to existing parameter.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
@@ -208,11 +204,6 @@ public class ParameterAddValueRuleImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ParameterAddValueRule";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
   }
 
   @Override

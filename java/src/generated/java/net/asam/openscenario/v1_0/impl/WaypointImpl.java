@@ -49,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter {
+public class WaypointImpl extends BaseImpl implements IWaypointWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,9 +58,7 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
   }
 
   private RouteStrategy routeStrategy;
-  private IPosition position;
-
-  private IPositionWriter positionWriter;
+  private IPositionWriter position;
 
   /** Default constructor */
   public WaypointImpl() {
@@ -84,22 +82,14 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property routeStrategy
-   *
-   * @param routeStrategy from OpenSCENARIO class model specification: [The corresponding routing
-   *     strategy (fastest, shortest, random, leastIntersections).]
-   */
+
+  @Override
   public void setRouteStrategy(RouteStrategy routeStrategy) {
     this.routeStrategy = routeStrategy;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [The reference position to form
-   *     the route.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -137,8 +127,8 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -166,10 +156,10 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
       clonedObject.setRouteStrategy(RouteStrategy.getFromLiteral(routeStrategy.getLiteral()));
     }
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -261,11 +251,6 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
   }
 
   @Override
-  public void writeToRouteStrategy(RouteStrategy routeStrategy) {
-    setRouteStrategy(routeStrategy);
-  }
-
-  @Override
   public void writeParameterToRouteStrategy(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ROUTE_STRATEGY, parameterName, null /*no textmarker*/);
@@ -283,12 +268,7 @@ public class WaypointImpl extends BaseImpl implements IWaypoint, IWaypointWriter
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

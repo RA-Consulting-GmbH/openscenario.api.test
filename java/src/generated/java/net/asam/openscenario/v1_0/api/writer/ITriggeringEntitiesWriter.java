@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITriggeringEntities;
 import net.asam.openscenario.v1_0.api.TriggeringEntitiesRule;
 
 /**
@@ -29,22 +30,23 @@ import net.asam.openscenario.v1_0.api.TriggeringEntitiesRule;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITriggeringEntitiesWriter extends IOpenScenarioModelElement {
+public interface ITriggeringEntitiesWriter extends ITriggeringEntities, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: All or any.
-   *
-   * @return value of model property triggeringEntitiesRule
-   */
-  public TriggeringEntitiesRule getTriggeringEntitiesRule();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: All or any.
    *
    * @param triggeringEntitiesRule value of model property triggeringEntitiesRule
    */
-  public void writeToTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule);
+  public void setTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule);
+  /**
+   * From OpenSCENARIO class model specification: List of referenced entities that trigger the
+   * condition.
+   *
+   * @param entityRefs value of model property entityRefs
+   */
+  public void setEntityRefs(List<IEntityRefWriter> entityRefs);
 
   /**
    * Set a parameter for the attribute triggeringEntitiesRule
@@ -76,13 +78,5 @@ public interface ITriggeringEntitiesWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property entityRefs
    */
-  public List<IEntityRefWriter> getEntityRefsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: List of referenced entities that trigger the
-   * condition.
-   *
-   * @param entityRefsWriters list of writers for the model property entityRefs
-   */
-  public void setEntityRefsWriter(List<IEntityRefWriter> entityRefsWriters);
+  public List<IEntityRefWriter> getWriterEntityRefs();
 }

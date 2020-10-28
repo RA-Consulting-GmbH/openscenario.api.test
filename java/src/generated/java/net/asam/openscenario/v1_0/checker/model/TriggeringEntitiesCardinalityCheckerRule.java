@@ -25,7 +25,6 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
-import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.ITriggeringEntities;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -81,15 +80,12 @@ public class TriggeringEntitiesCardinalityCheckerRule
               OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE, 0, 1, ViolationType.REQUIRED));
     }
     // Check violation
-    List<IEntityRef> entityRefs = object.getEntityRefs();
+    int entityRefsSize = object.getEntityRefsSize();
     // Check too few elements
-    if (entityRefs == null || entityRefs.size() < 1) {
+    if (entityRefsSize < 1) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__ENTITY_REF,
-              1,
-              entityRefs == null ? 0 : entityRefs.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__ENTITY_REF, 1, entityRefsSize, ViolationType.TOO_FEW));
     }
     return violations;
   }

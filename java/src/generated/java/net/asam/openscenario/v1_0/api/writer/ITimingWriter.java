@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITiming;
 import net.asam.openscenario.v1_0.api.ReferenceContext;
 
 /**
@@ -27,31 +28,9 @@ import net.asam.openscenario.v1_0.api.ReferenceContext;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITimingWriter extends IOpenScenarioModelElement {
+public interface ITimingWriter extends ITiming, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Definition of time value context as either
-   * absolute or relative.
-   *
-   * @return value of model property domainAbsoluteRelative
-   */
-  public ReferenceContext getDomainAbsoluteRelative();
-  /**
-   * From OpenSCENARIO class model specification: Scaling factor for time values. While values
-   * smaller than 1.0 represent negative scaling, values larger than 1.0 will result in positive
-   * scaling. A value of 1.0 means no scaling. Range: ]0..inf[.
-   *
-   * @return value of model property scale
-   */
-  public Double getScale();
-  /**
-   * From OpenSCENARIO class model specification: Introduction of a global offset for all time
-   * values. Unit: s; Range: ]-inf..inf[.
-   *
-   * @return value of model property offset
-   */
-  public Double getOffset();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Definition of time value context as either
@@ -59,7 +38,7 @@ public interface ITimingWriter extends IOpenScenarioModelElement {
    *
    * @param domainAbsoluteRelative value of model property domainAbsoluteRelative
    */
-  public void writeToDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative);
+  public void setDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative);
   /**
    * From OpenSCENARIO class model specification: Scaling factor for time values. While values
    * smaller than 1.0 represent negative scaling, values larger than 1.0 will result in positive
@@ -67,14 +46,14 @@ public interface ITimingWriter extends IOpenScenarioModelElement {
    *
    * @param scale value of model property scale
    */
-  public void writeToScale(Double scale);
+  public void setScale(Double scale);
   /**
    * From OpenSCENARIO class model specification: Introduction of a global offset for all time
    * values. Unit: s; Range: ]-inf..inf[.
    *
    * @param offset value of model property offset
    */
-  public void writeToOffset(Double offset);
+  public void setOffset(Double offset);
 
   /**
    * Set a parameter for the attribute domainAbsoluteRelative

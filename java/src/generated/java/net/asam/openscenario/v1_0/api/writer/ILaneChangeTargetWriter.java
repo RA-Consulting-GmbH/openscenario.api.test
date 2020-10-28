@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ILaneChangeTarget;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILaneChangeTargetWriter extends IOpenScenarioModelElement {
+public interface ILaneChangeTargetWriter extends ILaneChangeTarget, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Lane change direction relative to entity's lane.
+   *
+   * @param relativeTargetLane value of model property relativeTargetLane
+   */
+  public void setRelativeTargetLane(IRelativeTargetLaneWriter relativeTargetLane);
+  /**
+   * From OpenSCENARIO class model specification: Lane change target lane number.
+   *
+   * @param absoluteTargetLane value of model property absoluteTargetLane
+   */
+  public void setAbsoluteTargetLane(IAbsoluteTargetLaneWriter absoluteTargetLane);
 
   // children
   /**
@@ -34,24 +50,11 @@ public interface ILaneChangeTargetWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property relativeTargetLane
    */
-  public IRelativeTargetLaneWriter getRelativeTargetLaneWriter();
+  public IRelativeTargetLaneWriter getWriterRelativeTargetLane();
   /**
    * From OpenSCENARIO class model specification: Lane change target lane number.
    *
    * @return a writer for model property absoluteTargetLane
    */
-  public IAbsoluteTargetLaneWriter getAbsoluteTargetLaneWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Lane change direction relative to entity's lane.
-   *
-   * @param relativeTargetLaneWriter writer for the model property relativeTargetLane
-   */
-  public void writeToRelativeTargetLaneWriter(IRelativeTargetLaneWriter relativeTargetLaneWriter);
-  /**
-   * From OpenSCENARIO class model specification: Lane change target lane number.
-   *
-   * @param absoluteTargetLaneWriter writer for the model property absoluteTargetLane
-   */
-  public void writeToAbsoluteTargetLaneWriter(IAbsoluteTargetLaneWriter absoluteTargetLaneWriter);
+  public IAbsoluteTargetLaneWriter getWriterAbsoluteTargetLane();
 }

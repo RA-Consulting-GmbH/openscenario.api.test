@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PerformanceImpl extends BaseImpl implements IPerformance, IPerformanceWriter {
+public class PerformanceImpl extends BaseImpl implements IPerformanceWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -86,30 +86,18 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, IPerforma
   public Double getMaxDeceleration() {
     return this.maxDeceleration;
   }
-  /**
-   * Sets the value of model property maxSpeed
-   *
-   * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed of the vehicle.
-   *     Unit: m/s.]
-   */
+
+  @Override
   public void setMaxSpeed(Double maxSpeed) {
     this.maxSpeed = maxSpeed;
   }
-  /**
-   * Sets the value of model property maxAcceleration
-   *
-   * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration of
-   *     the vehicle. Unit: m/s^2. Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxAcceleration(Double maxAcceleration) {
     this.maxAcceleration = maxAcceleration;
   }
-  /**
-   * Sets the value of model property maxDeceleration
-   *
-   * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration of
-   *     the vehicle. Unit: m/s^2. Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxDeceleration(Double maxDeceleration) {
     this.maxDeceleration = maxDeceleration;
   }
@@ -259,21 +247,6 @@ public class PerformanceImpl extends BaseImpl implements IPerformance, IPerforma
   @Override
   public String getModelType() {
     return "Performance";
-  }
-
-  @Override
-  public void writeToMaxSpeed(Double maxSpeed) {
-    setMaxSpeed(maxSpeed);
-  }
-
-  @Override
-  public void writeToMaxAcceleration(Double maxAcceleration) {
-    setMaxAcceleration(maxAcceleration);
-  }
-
-  @Override
-  public void writeToMaxDeceleration(Double maxDeceleration) {
-    setMaxDeceleration(maxDeceleration);
   }
 
   @Override

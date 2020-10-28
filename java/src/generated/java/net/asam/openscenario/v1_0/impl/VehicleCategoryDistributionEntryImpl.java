@@ -50,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class VehicleCategoryDistributionEntryImpl extends BaseImpl
-    implements IVehicleCategoryDistributionEntry, IVehicleCategoryDistributionEntryWriter {
+    implements IVehicleCategoryDistributionEntryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -84,21 +84,13 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   public Double getWeight() {
     return this.weight;
   }
-  /**
-   * Sets the value of model property category
-   *
-   * @param category from OpenSCENARIO class model specification: [The category of the vehicles that
-   *     appear in traffic.]
-   */
+
+  @Override
   public void setCategory(VehicleCategory category) {
     this.category = category;
   }
-  /**
-   * Sets the value of model property weight
-   *
-   * @param weight from OpenSCENARIO class model specification: [The weight of a vehicle category
-   *     within a traffic distribution. Range: [0..inf[.]
-   */
+
+  @Override
   public void setWeight(Double weight) {
     this.weight = weight;
   }
@@ -254,16 +246,6 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "VehicleCategoryDistributionEntry";
-  }
-
-  @Override
-  public void writeToCategory(VehicleCategory category) {
-    setCategory(category);
-  }
-
-  @Override
-  public void writeToWeight(Double weight) {
-    setWeight(weight);
   }
 
   @Override

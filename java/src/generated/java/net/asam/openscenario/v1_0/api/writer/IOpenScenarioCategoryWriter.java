@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IOpenScenarioCategory;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IOpenScenarioCategoryWriter extends IOpenScenarioModelElement {
+public interface IOpenScenarioCategoryWriter
+    extends IOpenScenarioCategory, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Definition of a scenario.
+   *
+   * @param scenarioDefinition value of model property scenarioDefinition
+   */
+  public void setScenarioDefinition(IScenarioDefinitionWriter scenarioDefinition);
+  /**
+   * From OpenSCENARIO class model specification: Definition of a catalog.
+   *
+   * @param catalogDefinition value of model property catalogDefinition
+   */
+  public void setCatalogDefinition(ICatalogDefinitionWriter catalogDefinition);
 
   // children
   /**
@@ -34,24 +51,11 @@ public interface IOpenScenarioCategoryWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property scenarioDefinition
    */
-  public IScenarioDefinitionWriter getScenarioDefinitionWriter();
+  public IScenarioDefinitionWriter getWriterScenarioDefinition();
   /**
    * From OpenSCENARIO class model specification: Definition of a catalog.
    *
    * @return a writer for model property catalogDefinition
    */
-  public ICatalogDefinitionWriter getCatalogDefinitionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of a scenario.
-   *
-   * @param scenarioDefinitionWriter writer for the model property scenarioDefinition
-   */
-  public void writeToScenarioDefinitionWriter(IScenarioDefinitionWriter scenarioDefinitionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Definition of a catalog.
-   *
-   * @param catalogDefinitionWriter writer for the model property catalogDefinition
-   */
-  public void writeToCatalogDefinitionWriter(ICatalogDefinitionWriter catalogDefinitionWriter);
+  public ICatalogDefinitionWriter getWriterCatalogDefinition();
 }

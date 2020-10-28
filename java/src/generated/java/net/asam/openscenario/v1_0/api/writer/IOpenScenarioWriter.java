@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IOpenScenario;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,24 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IOpenScenarioWriter extends IOpenScenarioModelElement {
+public interface IOpenScenarioWriter extends IOpenScenario, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Header information for the scenario or the
+   * catalog.
+   *
+   * @param fileHeader value of model property fileHeader
+   */
+  public void setFileHeader(IFileHeaderWriter fileHeader);
+  /**
+   * From OpenSCENARIO class model specification: Category (catalog or scenario) of the OpenSCENARIO
+   * description.
+   *
+   * @param openScenarioCategory value of model property openScenarioCategory
+   */
+  public void setOpenScenarioCategory(IOpenScenarioCategoryWriter openScenarioCategory);
 
   // children
   /**
@@ -35,28 +53,12 @@ public interface IOpenScenarioWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property fileHeader
    */
-  public IFileHeaderWriter getFileHeaderWriter();
+  public IFileHeaderWriter getWriterFileHeader();
   /**
    * From OpenSCENARIO class model specification: Category (catalog or scenario) of the OpenSCENARIO
    * description.
    *
    * @return a writer for model property openScenarioCategory
    */
-  public IOpenScenarioCategoryWriter getOpenScenarioCategoryWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Header information for the scenario or the
-   * catalog.
-   *
-   * @param fileHeaderWriter writer for the model property fileHeader
-   */
-  public void writeToFileHeaderWriter(IFileHeaderWriter fileHeaderWriter);
-  /**
-   * From OpenSCENARIO class model specification: Category (catalog or scenario) of the OpenSCENARIO
-   * description.
-   *
-   * @param openScenarioCategoryWriter writer for the model property openScenarioCategory
-   */
-  public void writeToOpenScenarioCategoryWriter(
-      IOpenScenarioCategoryWriter openScenarioCategoryWriter);
+  public IOpenScenarioCategoryWriter getWriterOpenScenarioCategory();
 }

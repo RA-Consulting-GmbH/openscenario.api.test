@@ -54,11 +54,11 @@ public class SelectedEntitiesUnionCheckerRule extends UnionCheckerRule<ISelected
 
   private List<String> getNotNullChildren(ISelectedEntities object) {
     List<String> propertyNamesNotNull = new ArrayList<>();
-    if (object.getEntityRef() != null || object.getEntityRef().size() == 0) {
+    if (object.getEntityRefSize() != 0) {
       propertyNamesNotNull.add(OscConstants.ELEMENT__ENTITY_REF);
     }
 
-    if (object.getByType() != null || object.getByType().size() == 0) {
+    if (object.getByTypeSize() != 0) {
       propertyNamesNotNull.add(OscConstants.ELEMENT__BY_TYPE);
     }
 

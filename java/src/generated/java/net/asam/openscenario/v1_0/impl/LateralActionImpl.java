@@ -50,16 +50,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LateralActionImpl extends BaseImpl implements ILateralAction, ILateralActionWriter {
+public class LateralActionImpl extends BaseImpl implements ILateralActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ILaneChangeAction laneChangeAction;
-  private ILaneOffsetAction laneOffsetAction;
-  private ILateralDistanceAction lateralDistanceAction;
-
-  private ILaneChangeActionWriter laneChangeActionWriter;
-  private ILaneOffsetActionWriter laneOffsetActionWriter;
-  private ILateralDistanceActionWriter lateralDistanceActionWriter;
+  private ILaneChangeActionWriter laneChangeAction;
+  private ILaneOffsetActionWriter laneOffsetAction;
+  private ILateralDistanceActionWriter lateralDistanceAction;
 
   /** Default constructor */
   public LateralActionImpl() {
@@ -88,31 +84,19 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, ILate
   public ILateralDistanceAction getLateralDistanceAction() {
     return this.lateralDistanceAction;
   }
-  /**
-   * Sets the value of model property laneChangeAction
-   *
-   * @param laneChangeAction from OpenSCENARIO class model specification: [Action defining a lane
-   *     change.]
-   */
-  public void setLaneChangeAction(ILaneChangeAction laneChangeAction) {
+
+  @Override
+  public void setLaneChangeAction(ILaneChangeActionWriter laneChangeAction) {
     this.laneChangeAction = laneChangeAction;
   }
-  /**
-   * Sets the value of model property laneOffsetAction
-   *
-   * @param laneOffsetAction from OpenSCENARIO class model specification: [Action defining a
-   *     continuously kept lane offset.]
-   */
-  public void setLaneOffsetAction(ILaneOffsetAction laneOffsetAction) {
+
+  @Override
+  public void setLaneOffsetAction(ILaneOffsetActionWriter laneOffsetAction) {
     this.laneOffsetAction = laneOffsetAction;
   }
-  /**
-   * Sets the value of model property lateralDistanceAction
-   *
-   * @param lateralDistanceAction from OpenSCENARIO class model specification: [Action defining a
-   *     continuously kept lateral distance to a specific entity.]
-   */
-  public void setLateralDistanceAction(ILateralDistanceAction lateralDistanceAction) {
+
+  @Override
+  public void setLateralDistanceAction(ILateralDistanceActionWriter lateralDistanceAction) {
     this.lateralDistanceAction = lateralDistanceAction;
   }
 
@@ -137,18 +121,18 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, ILate
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ILaneChangeAction laneChangeAction = null;
-    laneChangeAction = getLaneChangeAction();
+    ILaneChangeActionWriter laneChangeAction = null;
+    laneChangeAction = getWriterLaneChangeAction();
     if (laneChangeAction != null) {
       result.add((BaseImpl) laneChangeAction);
     }
-    ILaneOffsetAction laneOffsetAction = null;
-    laneOffsetAction = getLaneOffsetAction();
+    ILaneOffsetActionWriter laneOffsetAction = null;
+    laneOffsetAction = getWriterLaneOffsetAction();
     if (laneOffsetAction != null) {
       result.add((BaseImpl) laneOffsetAction);
     }
-    ILateralDistanceAction lateralDistanceAction = null;
-    lateralDistanceAction = getLateralDistanceAction();
+    ILateralDistanceActionWriter lateralDistanceAction = null;
+    lateralDistanceAction = getWriterLateralDistanceAction();
     if (lateralDistanceAction != null) {
       result.add((BaseImpl) lateralDistanceAction);
     }
@@ -171,24 +155,24 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, ILate
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ILaneChangeAction laneChangeAction = null;
-    laneChangeAction = getLaneChangeAction();
+    ILaneChangeActionWriter laneChangeAction = null;
+    laneChangeAction = getWriterLaneChangeAction();
     if (laneChangeAction != null) {
-      LaneChangeActionImpl clonedChild = ((LaneChangeActionImpl) laneChangeAction).clone();
+      ILaneChangeActionWriter clonedChild = ((LaneChangeActionImpl) laneChangeAction).clone();
       clonedObject.setLaneChangeAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ILaneOffsetAction laneOffsetAction = null;
-    laneOffsetAction = getLaneOffsetAction();
+    ILaneOffsetActionWriter laneOffsetAction = null;
+    laneOffsetAction = getWriterLaneOffsetAction();
     if (laneOffsetAction != null) {
-      LaneOffsetActionImpl clonedChild = ((LaneOffsetActionImpl) laneOffsetAction).clone();
+      ILaneOffsetActionWriter clonedChild = ((LaneOffsetActionImpl) laneOffsetAction).clone();
       clonedObject.setLaneOffsetAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ILateralDistanceAction lateralDistanceAction = null;
-    lateralDistanceAction = getLateralDistanceAction();
+    ILateralDistanceActionWriter lateralDistanceAction = null;
+    lateralDistanceAction = getWriterLateralDistanceAction();
     if (lateralDistanceAction != null) {
-      LateralDistanceActionImpl clonedChild =
+      ILateralDistanceActionWriter clonedChild =
           ((LateralDistanceActionImpl) lateralDistanceAction).clone();
       clonedObject.setLateralDistanceAction(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -281,33 +265,17 @@ public class LateralActionImpl extends BaseImpl implements ILateralAction, ILate
 
   // children
   @Override
-  public ILaneChangeActionWriter getLaneChangeActionWriter() {
-    return this.laneChangeActionWriter;
+  public ILaneChangeActionWriter getWriterLaneChangeAction() {
+    return this.laneChangeAction;
   }
 
   @Override
-  public ILaneOffsetActionWriter getLaneOffsetActionWriter() {
-    return this.laneOffsetActionWriter;
+  public ILaneOffsetActionWriter getWriterLaneOffsetAction() {
+    return this.laneOffsetAction;
   }
 
   @Override
-  public ILateralDistanceActionWriter getLateralDistanceActionWriter() {
-    return this.lateralDistanceActionWriter;
-  }
-
-  @Override
-  public void writeToLaneChangeActionWriter(ILaneChangeActionWriter laneChangeActionWriter) {
-    this.laneChangeActionWriter = laneChangeActionWriter;
-  }
-
-  @Override
-  public void writeToLaneOffsetActionWriter(ILaneOffsetActionWriter laneOffsetActionWriter) {
-    this.laneOffsetActionWriter = laneOffsetActionWriter;
-  }
-
-  @Override
-  public void writeToLateralDistanceActionWriter(
-      ILateralDistanceActionWriter lateralDistanceActionWriter) {
-    this.lateralDistanceActionWriter = lateralDistanceActionWriter;
+  public ILateralDistanceActionWriter getWriterLateralDistanceAction() {
+    return this.lateralDistanceAction;
   }
 }

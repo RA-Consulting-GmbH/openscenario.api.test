@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IModifyRule;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IModifyRuleWriter extends IOpenScenarioModelElement {
+public interface IModifyRuleWriter extends IModifyRule, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Adding a value to a parameter.
+   *
+   * @param addValue value of model property addValue
+   */
+  public void setAddValue(IParameterAddValueRuleWriter addValue);
+  /**
+   * From OpenSCENARIO class model specification: Multiply a parameter by a value.
+   *
+   * @param multiplyByValue value of model property multiplyByValue
+   */
+  public void setMultiplyByValue(IParameterMultiplyByValueRuleWriter multiplyByValue);
 
   // children
   /**
@@ -35,25 +51,11 @@ public interface IModifyRuleWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property addValue
    */
-  public IParameterAddValueRuleWriter getAddValueWriter();
+  public IParameterAddValueRuleWriter getWriterAddValue();
   /**
    * From OpenSCENARIO class model specification: Multiply a parameter by a value.
    *
    * @return a writer for model property multiplyByValue
    */
-  public IParameterMultiplyByValueRuleWriter getMultiplyByValueWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Adding a value to a parameter.
-   *
-   * @param addValueWriter writer for the model property addValue
-   */
-  public void writeToAddValueWriter(IParameterAddValueRuleWriter addValueWriter);
-  /**
-   * From OpenSCENARIO class model specification: Multiply a parameter by a value.
-   *
-   * @param multiplyByValueWriter writer for the model property multiplyByValue
-   */
-  public void writeToMultiplyByValueWriter(
-      IParameterMultiplyByValueRuleWriter multiplyByValueWriter);
+  public IParameterMultiplyByValueRuleWriter getWriterMultiplyByValue();
 }

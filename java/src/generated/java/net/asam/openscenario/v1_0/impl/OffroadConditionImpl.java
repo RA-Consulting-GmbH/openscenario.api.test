@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OffroadConditionImpl extends BaseImpl
-    implements IOffroadCondition, IOffroadConditionWriter {
+public class OffroadConditionImpl extends BaseImpl implements IOffroadConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -73,12 +72,8 @@ public class OffroadConditionImpl extends BaseImpl
   public Double getDuration() {
     return this.duration;
   }
-  /**
-   * Sets the value of model property duration
-   *
-   * @param duration from OpenSCENARIO class model specification: [Amount of time of driving
-   *     offroad. Unit: s; Range: [0..inf[.]
-   */
+
+  @Override
   public void setDuration(Double duration) {
     this.duration = duration;
   }
@@ -208,11 +203,6 @@ public class OffroadConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "OffroadCondition";
-  }
-
-  @Override
-  public void writeToDuration(Double duration) {
-    setDuration(duration);
   }
 
   @Override

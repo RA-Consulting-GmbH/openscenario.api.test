@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITimeOfDay;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITimeOfDayWriter extends IOpenScenarioModelElement {
+public interface ITimeOfDayWriter extends ITimeOfDay, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: If true, the timeofday is animated with
-   * progressing simulation time, e.g. in order to animate the position of the sun.
-   *
-   * @return value of model property animation
-   */
-  public Boolean getAnimation();
-  /**
-   * From OpenSCENARIO class model specification: Datetime value.
-   *
-   * @return value of model property dateTime
-   */
-  public java.util.Date getDateTime();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: If true, the timeofday is animated with
@@ -49,13 +37,13 @@ public interface ITimeOfDayWriter extends IOpenScenarioModelElement {
    *
    * @param animation value of model property animation
    */
-  public void writeToAnimation(Boolean animation);
+  public void setAnimation(Boolean animation);
   /**
    * From OpenSCENARIO class model specification: Datetime value.
    *
    * @param dateTime value of model property dateTime
    */
-  public void writeToDateTime(java.util.Date dateTime);
+  public void setDateTime(java.util.Date dateTime);
 
   /**
    * Set a parameter for the attribute animation

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IParameterAddValueRule;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,17 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IParameterAddValueRuleWriter extends IOpenScenarioModelElement {
+public interface IParameterAddValueRuleWriter
+    extends IParameterAddValueRule, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Add value to existing parameter.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Add value to existing parameter.
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
 
   /**
    * Set a parameter for the attribute value

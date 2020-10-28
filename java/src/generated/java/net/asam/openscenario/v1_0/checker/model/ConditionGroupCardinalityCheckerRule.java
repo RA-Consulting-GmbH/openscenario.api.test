@@ -25,7 +25,6 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
-import net.asam.openscenario.v1_0.api.ICondition;
 import net.asam.openscenario.v1_0.api.IConditionGroup;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -72,15 +71,12 @@ public class ConditionGroupCardinalityCheckerRule extends CardinalityCheckerRule
   private List<CardinalityViolation> getAllViolations(IConditionGroup object) {
     List<CardinalityViolation> violations = new ArrayList<>();
     // Check violation
-    List<ICondition> conditions = object.getConditions();
+    int conditionsSize = object.getConditionsSize();
     // Check too few elements
-    if (conditions == null || conditions.size() < 1) {
+    if (conditionsSize < 1) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__CONDITION,
-              1,
-              conditions == null ? 0 : conditions.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__CONDITION, 1, conditionsSize, ViolationType.TOO_FEW));
     }
     return violations;
   }

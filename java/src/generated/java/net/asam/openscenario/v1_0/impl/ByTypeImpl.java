@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByTypeImpl extends BaseImpl implements IByType, IByTypeWriter {
+public class ByTypeImpl extends BaseImpl implements IByTypeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -74,12 +74,8 @@ public class ByTypeImpl extends BaseImpl implements IByType, IByTypeWriter {
   public ObjectType getObjectType() {
     return this.objectType;
   }
-  /**
-   * Sets the value of model property objectType
-   *
-   * @param objectType from OpenSCENARIO class model specification: [If a scenario object's entity
-   *     object is of this type, it is part of the entity selection.]
-   */
+
+  @Override
   public void setObjectType(ObjectType objectType) {
     this.objectType = objectType;
   }
@@ -221,11 +217,6 @@ public class ByTypeImpl extends BaseImpl implements IByType, IByTypeWriter {
   @Override
   public String getModelType() {
     return "ByType";
-  }
-
-  @Override
-  public void writeToObjectType(ObjectType objectType) {
-    setObjectType(objectType);
   }
 
   @Override

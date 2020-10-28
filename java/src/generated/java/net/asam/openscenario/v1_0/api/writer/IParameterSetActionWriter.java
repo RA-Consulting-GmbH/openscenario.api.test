@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IParameterSetAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,16 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IParameterSetActionWriter extends IOpenScenarioModelElement {
+public interface IParameterSetActionWriter extends IParameterSetAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The new value for the parameter.
-   *
-   * @return value of model property value
-   */
-  public String getValue();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The new value for the parameter.
    *
    * @param value value of model property value
    */
-  public void writeToValue(String value);
+  public void setValue(String value);
 
   /**
    * Set a parameter for the attribute value

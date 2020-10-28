@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPrecipitation;
 import net.asam.openscenario.v1_0.api.PrecipitationType;
 
 /**
@@ -27,34 +28,22 @@ import net.asam.openscenario.v1_0.api.PrecipitationType;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPrecipitationWriter extends IOpenScenarioModelElement {
+public interface IPrecipitationWriter extends IPrecipitation, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Type of the precipitation.
-   *
-   * @return value of model property precipitationType
-   */
-  public PrecipitationType getPrecipitationType();
-  /**
-   * From OpenSCENARIO class model specification: The intensity of the precipitation. Range: [0..1].
-   *
-   * @return value of model property intensity
-   */
-  public Double getIntensity();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Type of the precipitation.
    *
    * @param precipitationType value of model property precipitationType
    */
-  public void writeToPrecipitationType(PrecipitationType precipitationType);
+  public void setPrecipitationType(PrecipitationType precipitationType);
   /**
    * From OpenSCENARIO class model specification: The intensity of the precipitation. Range: [0..1].
    *
    * @param intensity value of model property intensity
    */
-  public void writeToIntensity(Double intensity);
+  public void setIntensity(Double intensity);
 
   /**
    * Set a parameter for the attribute precipitationType

@@ -48,14 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter {
+public class RouteRefImpl extends BaseImpl implements IRouteRefWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IRoute route;
-  private ICatalogReference catalogReference;
-
-  private IRouteWriter routeWriter;
-  private ICatalogReferenceWriter catalogReferenceWriter;
+  private IRouteWriter route;
+  private ICatalogReferenceWriter catalogReference;
 
   /** Default constructor */
   public RouteRefImpl() {
@@ -79,21 +76,14 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter
   public ICatalogReference getCatalogReference() {
     return this.catalogReference;
   }
-  /**
-   * Sets the value of model property route
-   *
-   * @param route from OpenSCENARIO class model specification: [Route definition.]
-   */
-  public void setRoute(IRoute route) {
+
+  @Override
+  public void setRoute(IRouteWriter route) {
     this.route = route;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [Reference to route in the
-   *     catalog.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
   }
 
@@ -118,13 +108,13 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IRoute route = null;
-    route = getRoute();
+    IRouteWriter route = null;
+    route = getWriterRoute();
     if (route != null) {
       result.add((BaseImpl) route);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
@@ -147,17 +137,17 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IRoute route = null;
-    route = getRoute();
+    IRouteWriter route = null;
+    route = getWriterRoute();
     if (route != null) {
-      RouteImpl clonedChild = ((RouteImpl) route).clone();
+      IRouteWriter clonedChild = ((RouteImpl) route).clone();
       clonedObject.setRoute(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -246,22 +236,12 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef, IRouteRefWriter
 
   // children
   @Override
-  public IRouteWriter getRouteWriter() {
-    return this.routeWriter;
+  public IRouteWriter getWriterRoute() {
+    return this.route;
   }
 
   @Override
-  public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return this.catalogReferenceWriter;
-  }
-
-  @Override
-  public void writeToRouteWriter(IRouteWriter routeWriter) {
-    this.routeWriter = routeWriter;
-  }
-
-  @Override
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    this.catalogReferenceWriter = catalogReferenceWriter;
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 }

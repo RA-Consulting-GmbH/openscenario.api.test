@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IFile;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,16 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IFileWriter extends IOpenScenarioModelElement {
+public interface IFileWriter extends IFile, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Filepath e.g.
-   * filepath=/home/simulator/customDriverSpecification.xml.
-   *
-   * @return value of model property filepath
-   */
-  public String getFilepath();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Filepath e.g.
@@ -43,7 +37,7 @@ public interface IFileWriter extends IOpenScenarioModelElement {
    *
    * @param filepath value of model property filepath
    */
-  public void writeToFilepath(String filepath);
+  public void setFilepath(String filepath);
 
   /**
    * Set a parameter for the attribute filepath

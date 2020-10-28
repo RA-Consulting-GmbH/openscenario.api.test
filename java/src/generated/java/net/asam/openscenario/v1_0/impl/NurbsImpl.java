@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -49,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
+public class NurbsImpl extends BaseImpl implements INurbsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,11 +59,8 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
   }
 
   private Long order;
-  private List<IControlPoint> controlPoints;
-  private List<IKnot> knots;
-
-  private List<IControlPointWriter> controlPointsWriters;
-  private List<IKnotWriter> knotsWriters;
+  private List<IControlPointWriter> controlPoints = new ArrayList<>();
+  private List<IKnotWriter> knots = new ArrayList<>();
 
   /** Default constructor */
   public NurbsImpl() {
@@ -83,42 +81,79 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
   }
 
   @Override
-  public List<IControlPoint> getControlPoints() {
+  public List<IControlPointWriter> getWriterControlPoints() {
     return this.controlPoints;
   }
 
   @Override
-  public List<IKnot> getKnots() {
+  public Iterable<IControlPoint> getControlPoints() {
+    return new Iterable<IControlPoint>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IControlPoint> iterator() {
+        return new ArrayList<IControlPoint>(NurbsImpl.this.controlPoints).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getControlPointsSize() {
+    if (this.controlPoints != null) return this.controlPoints.size();
+    return 0;
+  }
+
+  @Override
+  public IControlPoint getControlPointsAtIndex(int index) {
+    if (index >= 0 && this.controlPoints != null && this.controlPoints.size() > index) {
+      return this.controlPoints.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IKnotWriter> getWriterKnots() {
     return this.knots;
   }
-  /**
-   * Sets the value of model property order
-   *
-   * @param order from OpenSCENARIO class model specification: [Order of the NURBS trajectory. This
-   *     is the order of the curve, not the degree of the polynomials, which will be one less, than
-   *     the order of the curve. Range [2..inf[.]
-   */
+
+  @Override
+  public Iterable<IKnot> getKnots() {
+    return new Iterable<IKnot>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IKnot> iterator() {
+        return new ArrayList<IKnot>(NurbsImpl.this.knots).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getKnotsSize() {
+    if (this.knots != null) return this.knots.size();
+    return 0;
+  }
+
+  @Override
+  public IKnot getKnotsAtIndex(int index) {
+    if (index >= 0 && this.knots != null && this.knots.size() > index) {
+      return this.knots.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setOrder(Long order) {
     this.order = order;
   }
-  /**
-   * Sets the value of model property controlPoints
-   *
-   * @param controlPoints from OpenSCENARIO class model specification: [Control point vector of the
-   *     NURBS trajectory. The number of control points must be greater or equal to the order of the
-   *     , curve.]
-   */
-  public void setControlPoints(List<IControlPoint> controlPoints) {
+
+  @Override
+  public void setControlPoints(List<IControlPointWriter> controlPoints) {
     this.controlPoints = controlPoints;
   }
-  /**
-   * Sets the value of model property knots
-   *
-   * @param knots from OpenSCENARIO class model specification: [Knot vector of the NURBS trajectory.
-   *     Knot values must be given in ascending order. The number of knot vector values must, be
-   *     equal to the number of control points plus the order of the curve.]
-   */
-  public void setKnots(List<IKnot> knots) {
+
+  @Override
+  public void setKnots(List<IKnotWriter> knots) {
     this.knots = knots;
   }
 
@@ -148,17 +183,17 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IControlPoint> controlPoints = null;
-    controlPoints = getControlPoints();
+    List<IControlPointWriter> controlPoints = null;
+    controlPoints = getWriterControlPoints();
     if (controlPoints != null) {
-      for (IControlPoint item : controlPoints) {
+      for (IControlPointWriter item : controlPoints) {
         result.add((BaseImpl) item);
       }
     }
-    List<IKnot> knots = null;
-    knots = getKnots();
+    List<IKnotWriter> knots = null;
+    knots = getWriterKnots();
     if (knots != null) {
-      for (IKnot item : knots) {
+      for (IKnotWriter item : knots) {
         result.add((BaseImpl) item);
       }
     }
@@ -183,23 +218,23 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
     // Simple type
     clonedObject.setOrder(getOrder());
     // clone children
-    List<IControlPoint> controlPoints = null;
-    controlPoints = getControlPoints();
+    List<IControlPointWriter> controlPoints = null;
+    controlPoints = getWriterControlPoints();
     if (controlPoints != null) {
-      List<IControlPoint> clonedList = new ArrayList<>();
-      for (IControlPoint item : controlPoints) {
-        ControlPointImpl clonedChild = ((ControlPointImpl) item).clone();
+      List<IControlPointWriter> clonedList = new ArrayList<>();
+      for (IControlPointWriter item : controlPoints) {
+        IControlPointWriter clonedChild = ((ControlPointImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setControlPoints(clonedList);
     }
-    List<IKnot> knots = null;
-    knots = getKnots();
+    List<IKnotWriter> knots = null;
+    knots = getWriterKnots();
     if (knots != null) {
-      List<IKnot> clonedList = new ArrayList<>();
-      for (IKnot item : knots) {
-        KnotImpl clonedChild = ((KnotImpl) item).clone();
+      List<IKnotWriter> clonedList = new ArrayList<>();
+      for (IKnotWriter item : knots) {
+        IKnotWriter clonedChild = ((KnotImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -296,11 +331,6 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
   }
 
   @Override
-  public void writeToOrder(Long order) {
-    setOrder(order);
-  }
-
-  @Override
   public void writeParameterToOrder(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ORDER, parameterName, null /*no textmarker*/);
   }
@@ -317,23 +347,4 @@ public class NurbsImpl extends BaseImpl implements INurbs, INurbsWriter {
 
   // children
 
-  @Override
-  public List<IControlPointWriter> getControlPointsWriter() {
-    return this.controlPointsWriters;
-  }
-
-  @Override
-  public List<IKnotWriter> getKnotsWriter() {
-    return this.knotsWriters;
-  }
-
-  @Override
-  public void setControlPointsWriter(List<IControlPointWriter> controlPointsWriters) {
-    this.controlPointsWriters = controlPointsWriters;
-  }
-
-  @Override
-  public void setKnotsWriter(List<IKnotWriter> knotsWriters) {
-    this.knotsWriters = knotsWriters;
-  }
 }

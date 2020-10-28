@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IController;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +28,29 @@ import java.util.List;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IControllerWriter extends ICatalogElementWriter {
+public interface IControllerWriter
+    extends ICatalogElementWriter, IController, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the controller type.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the controller type.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: Definition of additional parameters.
+   *
+   * @param parameterDeclarations value of model property parameterDeclarations
+   */
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations);
+  /**
+   * From OpenSCENARIO class model specification: Describing properties for the controller.
+   *
+   * @param properties value of model property properties
+   */
+  public void setProperties(IPropertiesWriter properties);
 
   /**
    * Set a parameter for the attribute name
@@ -71,28 +80,12 @@ public interface IControllerWriter extends ICatalogElementWriter {
    *
    * @return a writer for model property properties
    */
-  public IPropertiesWriter getPropertiesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Describing properties for the controller.
-   *
-   * @param propertiesWriter writer for the model property properties
-   */
-  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter);
+  public IPropertiesWriter getWriterProperties();
 
   /**
    * From OpenSCENARIO class model specification: Definition of additional parameters.
    *
    * @return a list of writers for model property parameterDeclarations
    */
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of additional parameters.
-   *
-   * @param parameterDeclarationsWriters list of writers for the model property
-   *     parameterDeclarations
-   */
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters);
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations();
 }

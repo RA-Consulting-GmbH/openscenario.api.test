@@ -50,17 +50,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InRoutePositionImpl extends BaseImpl
-    implements IInRoutePosition, IInRoutePositionWriter {
+public class InRoutePositionImpl extends BaseImpl implements IInRoutePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IPositionOfCurrentEntity fromCurrentEntity;
-  private IPositionInRoadCoordinates fromRoadCoordinates;
-  private IPositionInLaneCoordinates fromLaneCoordinates;
-
-  private IPositionOfCurrentEntityWriter fromCurrentEntityWriter;
-  private IPositionInRoadCoordinatesWriter fromRoadCoordinatesWriter;
-  private IPositionInLaneCoordinatesWriter fromLaneCoordinatesWriter;
+  private IPositionOfCurrentEntityWriter fromCurrentEntity;
+  private IPositionInRoadCoordinatesWriter fromRoadCoordinates;
+  private IPositionInLaneCoordinatesWriter fromLaneCoordinates;
 
   /** Default constructor */
   public InRoutePositionImpl() {
@@ -89,31 +84,19 @@ public class InRoutePositionImpl extends BaseImpl
   public IPositionInLaneCoordinates getFromLaneCoordinates() {
     return this.fromLaneCoordinates;
   }
-  /**
-   * Sets the value of model property fromCurrentEntity
-   *
-   * @param fromCurrentEntity from OpenSCENARIO class model specification: [The position is defined
-   *     through the current position of a given entity.]
-   */
-  public void setFromCurrentEntity(IPositionOfCurrentEntity fromCurrentEntity) {
+
+  @Override
+  public void setFromCurrentEntity(IPositionOfCurrentEntityWriter fromCurrentEntity) {
     this.fromCurrentEntity = fromCurrentEntity;
   }
-  /**
-   * Sets the value of model property fromRoadCoordinates
-   *
-   * @param fromRoadCoordinates from OpenSCENARIO class model specification: [Route position in road
-   *     coordinate system.]
-   */
-  public void setFromRoadCoordinates(IPositionInRoadCoordinates fromRoadCoordinates) {
+
+  @Override
+  public void setFromRoadCoordinates(IPositionInRoadCoordinatesWriter fromRoadCoordinates) {
     this.fromRoadCoordinates = fromRoadCoordinates;
   }
-  /**
-   * Sets the value of model property fromLaneCoordinates
-   *
-   * @param fromLaneCoordinates from OpenSCENARIO class model specification: [Route position in lane
-   *     coordinate system.]
-   */
-  public void setFromLaneCoordinates(IPositionInLaneCoordinates fromLaneCoordinates) {
+
+  @Override
+  public void setFromLaneCoordinates(IPositionInLaneCoordinatesWriter fromLaneCoordinates) {
     this.fromLaneCoordinates = fromLaneCoordinates;
   }
 
@@ -138,18 +121,18 @@ public class InRoutePositionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPositionOfCurrentEntity fromCurrentEntity = null;
-    fromCurrentEntity = getFromCurrentEntity();
+    IPositionOfCurrentEntityWriter fromCurrentEntity = null;
+    fromCurrentEntity = getWriterFromCurrentEntity();
     if (fromCurrentEntity != null) {
       result.add((BaseImpl) fromCurrentEntity);
     }
-    IPositionInRoadCoordinates fromRoadCoordinates = null;
-    fromRoadCoordinates = getFromRoadCoordinates();
+    IPositionInRoadCoordinatesWriter fromRoadCoordinates = null;
+    fromRoadCoordinates = getWriterFromRoadCoordinates();
     if (fromRoadCoordinates != null) {
       result.add((BaseImpl) fromRoadCoordinates);
     }
-    IPositionInLaneCoordinates fromLaneCoordinates = null;
-    fromLaneCoordinates = getFromLaneCoordinates();
+    IPositionInLaneCoordinatesWriter fromLaneCoordinates = null;
+    fromLaneCoordinates = getWriterFromLaneCoordinates();
     if (fromLaneCoordinates != null) {
       result.add((BaseImpl) fromLaneCoordinates);
     }
@@ -172,26 +155,26 @@ public class InRoutePositionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IPositionOfCurrentEntity fromCurrentEntity = null;
-    fromCurrentEntity = getFromCurrentEntity();
+    IPositionOfCurrentEntityWriter fromCurrentEntity = null;
+    fromCurrentEntity = getWriterFromCurrentEntity();
     if (fromCurrentEntity != null) {
-      PositionOfCurrentEntityImpl clonedChild =
+      IPositionOfCurrentEntityWriter clonedChild =
           ((PositionOfCurrentEntityImpl) fromCurrentEntity).clone();
       clonedObject.setFromCurrentEntity(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPositionInRoadCoordinates fromRoadCoordinates = null;
-    fromRoadCoordinates = getFromRoadCoordinates();
+    IPositionInRoadCoordinatesWriter fromRoadCoordinates = null;
+    fromRoadCoordinates = getWriterFromRoadCoordinates();
     if (fromRoadCoordinates != null) {
-      PositionInRoadCoordinatesImpl clonedChild =
+      IPositionInRoadCoordinatesWriter clonedChild =
           ((PositionInRoadCoordinatesImpl) fromRoadCoordinates).clone();
       clonedObject.setFromRoadCoordinates(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPositionInLaneCoordinates fromLaneCoordinates = null;
-    fromLaneCoordinates = getFromLaneCoordinates();
+    IPositionInLaneCoordinatesWriter fromLaneCoordinates = null;
+    fromLaneCoordinates = getWriterFromLaneCoordinates();
     if (fromLaneCoordinates != null) {
-      PositionInLaneCoordinatesImpl clonedChild =
+      IPositionInLaneCoordinatesWriter clonedChild =
           ((PositionInLaneCoordinatesImpl) fromLaneCoordinates).clone();
       clonedObject.setFromLaneCoordinates(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -284,35 +267,17 @@ public class InRoutePositionImpl extends BaseImpl
 
   // children
   @Override
-  public IPositionOfCurrentEntityWriter getFromCurrentEntityWriter() {
-    return this.fromCurrentEntityWriter;
+  public IPositionOfCurrentEntityWriter getWriterFromCurrentEntity() {
+    return this.fromCurrentEntity;
   }
 
   @Override
-  public IPositionInRoadCoordinatesWriter getFromRoadCoordinatesWriter() {
-    return this.fromRoadCoordinatesWriter;
+  public IPositionInRoadCoordinatesWriter getWriterFromRoadCoordinates() {
+    return this.fromRoadCoordinates;
   }
 
   @Override
-  public IPositionInLaneCoordinatesWriter getFromLaneCoordinatesWriter() {
-    return this.fromLaneCoordinatesWriter;
-  }
-
-  @Override
-  public void writeToFromCurrentEntityWriter(
-      IPositionOfCurrentEntityWriter fromCurrentEntityWriter) {
-    this.fromCurrentEntityWriter = fromCurrentEntityWriter;
-  }
-
-  @Override
-  public void writeToFromRoadCoordinatesWriter(
-      IPositionInRoadCoordinatesWriter fromRoadCoordinatesWriter) {
-    this.fromRoadCoordinatesWriter = fromRoadCoordinatesWriter;
-  }
-
-  @Override
-  public void writeToFromLaneCoordinatesWriter(
-      IPositionInLaneCoordinatesWriter fromLaneCoordinatesWriter) {
-    this.fromLaneCoordinatesWriter = fromLaneCoordinatesWriter;
+  public IPositionInLaneCoordinatesWriter getWriterFromLaneCoordinates() {
+    return this.fromLaneCoordinates;
   }
 }

@@ -17,8 +17,6 @@
 
 package net.asam.openscenario.v1_0.test;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import net.asam.openscenario.checker.ICheckerRule;
@@ -83,7 +81,7 @@ public class TestExamples extends TestBase {
       IScenarioDefinition scenarioDefinition = openScenarioCategory.getScenarioDefinition();
 
       // Browse through parameter declarations
-      List<IParameterDeclaration> parameterDeclarations =
+      Iterable<IParameterDeclaration> parameterDeclarations =
           scenarioDefinition.getParameterDeclarations();
 
       // Browse through roadNetwork definition

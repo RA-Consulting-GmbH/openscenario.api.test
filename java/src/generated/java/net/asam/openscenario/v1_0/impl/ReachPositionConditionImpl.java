@@ -48,8 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ReachPositionConditionImpl extends BaseImpl
-    implements IReachPositionCondition, IReachPositionConditionWriter {
+public class ReachPositionConditionImpl extends BaseImpl implements IReachPositionConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,9 +57,7 @@ public class ReachPositionConditionImpl extends BaseImpl
   }
 
   private Double tolerance;
-  private IPosition position;
-
-  private IPositionWriter positionWriter;
+  private IPositionWriter position;
 
   /** Default constructor */
   public ReachPositionConditionImpl() {
@@ -84,22 +81,14 @@ public class ReachPositionConditionImpl extends BaseImpl
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property tolerance
-   *
-   * @param tolerance from OpenSCENARIO class model specification: [Radius of tolerance circle
-   *     around given position. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setTolerance(Double tolerance) {
     this.tolerance = tolerance;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [The position to be reached with
-   *     the defined tolerance.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -129,8 +118,8 @@ public class ReachPositionConditionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -155,10 +144,10 @@ public class ReachPositionConditionImpl extends BaseImpl
     // Simple type
     clonedObject.setTolerance(getTolerance());
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -249,11 +238,6 @@ public class ReachPositionConditionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToTolerance(Double tolerance) {
-    setTolerance(tolerance);
-  }
-
-  @Override
   public void writeParameterToTolerance(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TOLERANCE, parameterName, null /*no textmarker*/);
   }
@@ -270,12 +254,7 @@ public class ReachPositionConditionImpl extends BaseImpl
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

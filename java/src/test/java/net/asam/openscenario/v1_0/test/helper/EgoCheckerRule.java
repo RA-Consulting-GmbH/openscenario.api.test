@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.test.helper;
 
-import java.util.List;
-
 import net.asam.openscenario.checker.ICheckerRule;
 import net.asam.openscenario.checker.tree.BaseTreeContext;
 import net.asam.openscenario.common.ErrorLevel;
@@ -57,8 +55,8 @@ public class EgoCheckerRule implements ICheckerRule<IEntities> {
     boolean isEgoDefined = false;
 
     // We are adding the validation code here
-    List<IScenarioObject> scenarioObjects = object.getScenarioObjects();
-    if (scenarioObjects != null && !scenarioObjects.isEmpty()) {
+    Iterable<IScenarioObject> scenarioObjects = object.getScenarioObjects();
+    if (object.getScenarioObjectsSize() != 0) {
       for (IScenarioObject scenarioObject : scenarioObjects) {
         if (scenarioObject.getName().toLowerCase().contentEquals("ego")) {
           isEgoDefined = true;
@@ -72,16 +70,8 @@ public class EgoCheckerRule implements ICheckerRule<IEntities> {
   public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IEntities object)
   {
     if (!isEgoDefined(object)) {
-      ILocator locator = (ILocator) object.getAdapter(ILocator.class);
-      Textmarker textmarker = null;
-
-      if (locator != null) {
-        textmarker = locator.getStartMarker();
-      }
       messageLogger.logMessage(
-          new TreeContentMessage("No ego vehicle defined", ErrorLevel.ERROR, new BaseTreeContext(object)
-          {
-          }));
+          new TreeContentMessage("No ego vehicle defined", ErrorLevel.ERROR, new BaseTreeContext(object)));
     }
     
   }

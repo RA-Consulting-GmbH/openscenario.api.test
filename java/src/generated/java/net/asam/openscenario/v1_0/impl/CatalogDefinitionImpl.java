@@ -46,13 +46,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogDefinitionImpl extends BaseImpl
-    implements ICatalogDefinition, ICatalogDefinitionWriter {
+public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ICatalog catalog;
-
-  private ICatalogWriter catalogWriter;
+  private ICatalogWriter catalog;
 
   /** Default constructor */
   public CatalogDefinitionImpl() {
@@ -71,12 +68,9 @@ public class CatalogDefinitionImpl extends BaseImpl
   public ICatalog getCatalog() {
     return this.catalog;
   }
-  /**
-   * Sets the value of model property catalog
-   *
-   * @param catalog from OpenSCENARIO class model specification: [Definition of a catalog.]
-   */
-  public void setCatalog(ICatalog catalog) {
+
+  @Override
+  public void setCatalog(ICatalogWriter catalog) {
     this.catalog = catalog;
   }
 
@@ -101,8 +95,8 @@ public class CatalogDefinitionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ICatalog catalog = null;
-    catalog = getCatalog();
+    ICatalogWriter catalog = null;
+    catalog = getWriterCatalog();
     if (catalog != null) {
       result.add((BaseImpl) catalog);
     }
@@ -125,10 +119,10 @@ public class CatalogDefinitionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ICatalog catalog = null;
-    catalog = getCatalog();
+    ICatalogWriter catalog = null;
+    catalog = getWriterCatalog();
     if (catalog != null) {
-      CatalogImpl clonedChild = ((CatalogImpl) catalog).clone();
+      ICatalogWriter clonedChild = ((CatalogImpl) catalog).clone();
       clonedObject.setCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -214,12 +208,7 @@ public class CatalogDefinitionImpl extends BaseImpl
 
   // children
   @Override
-  public ICatalogWriter getCatalogWriter() {
-    return this.catalogWriter;
-  }
-
-  @Override
-  public void writeToCatalogWriter(ICatalogWriter catalogWriter) {
-    this.catalogWriter = catalogWriter;
+  public ICatalogWriter getWriterCatalog() {
+    return this.catalog;
   }
 }

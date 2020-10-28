@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IFollowTrajectoryAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,38 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IFollowTrajectoryActionWriter extends IOpenScenarioModelElement {
+public interface IFollowTrajectoryActionWriter
+    extends IFollowTrajectoryAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Trajectory definition.
+   *
+   * @param trajectory value of model property trajectory
+   */
+  public void setTrajectory(ITrajectoryWriter trajectory);
+  /**
+   * From OpenSCENARIO class model specification: A reference to the trajectory type in a catalog.
+   *
+   * @param catalogReference value of model property catalogReference
+   */
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference);
+  /**
+   * From OpenSCENARIO class model specification: Defines if time information provided within the
+   * trajectory should be considered. If so, it may be used as either absolute or relative time
+   * along the trajectory in order to define longitudinal velocity of the actor. Moreover, a time
+   * offset or time scaling may be applied.
+   *
+   * @param timeReference value of model property timeReference
+   */
+  public void setTimeReference(ITimeReferenceWriter timeReference);
+  /**
+   * From OpenSCENARIO class model specification: The mode how to follow the given trajectory.
+   *
+   * @param trajectoryFollowingMode value of model property trajectoryFollowingMode
+   */
+  public void setTrajectoryFollowingMode(ITrajectoryFollowingModeWriter trajectoryFollowingMode);
 
   // children
   /**
@@ -36,13 +68,13 @@ public interface IFollowTrajectoryActionWriter extends IOpenScenarioModelElement
    *
    * @return a writer for model property trajectory
    */
-  public ITrajectoryWriter getTrajectoryWriter();
+  public ITrajectoryWriter getWriterTrajectory();
   /**
    * From OpenSCENARIO class model specification: A reference to the trajectory type in a catalog.
    *
    * @return a writer for model property catalogReference
    */
-  public ICatalogReferenceWriter getCatalogReferenceWriter();
+  public ICatalogReferenceWriter getWriterCatalogReference();
   /**
    * From OpenSCENARIO class model specification: Defines if time information provided within the
    * trajectory should be considered. If so, it may be used as either absolute or relative time
@@ -51,40 +83,11 @@ public interface IFollowTrajectoryActionWriter extends IOpenScenarioModelElement
    *
    * @return a writer for model property timeReference
    */
-  public ITimeReferenceWriter getTimeReferenceWriter();
+  public ITimeReferenceWriter getWriterTimeReference();
   /**
    * From OpenSCENARIO class model specification: The mode how to follow the given trajectory.
    *
    * @return a writer for model property trajectoryFollowingMode
    */
-  public ITrajectoryFollowingModeWriter getTrajectoryFollowingModeWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Trajectory definition.
-   *
-   * @param trajectoryWriter writer for the model property trajectory
-   */
-  public void writeToTrajectoryWriter(ITrajectoryWriter trajectoryWriter);
-  /**
-   * From OpenSCENARIO class model specification: A reference to the trajectory type in a catalog.
-   *
-   * @param catalogReferenceWriter writer for the model property catalogReference
-   */
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines if time information provided within the
-   * trajectory should be considered. If so, it may be used as either absolute or relative time
-   * along the trajectory in order to define longitudinal velocity of the actor. Moreover, a time
-   * offset or time scaling may be applied.
-   *
-   * @param timeReferenceWriter writer for the model property timeReference
-   */
-  public void writeToTimeReferenceWriter(ITimeReferenceWriter timeReferenceWriter);
-  /**
-   * From OpenSCENARIO class model specification: The mode how to follow the given trajectory.
-   *
-   * @param trajectoryFollowingModeWriter writer for the model property trajectoryFollowingMode
-   */
-  public void writeToTrajectoryFollowingModeWriter(
-      ITrajectoryFollowingModeWriter trajectoryFollowingModeWriter);
+  public ITrajectoryFollowingModeWriter getWriterTrajectoryFollowingMode();
 }

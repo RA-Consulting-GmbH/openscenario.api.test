@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalStateImpl extends BaseImpl
-    implements ITrafficSignalState, ITrafficSignalStateWriter {
+public class TrafficSignalStateImpl extends BaseImpl implements ITrafficSignalStateWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -80,22 +79,13 @@ public class TrafficSignalStateImpl extends BaseImpl
   public String getState() {
     return this.state;
   }
-  /**
-   * Sets the value of model property trafficSignalId
-   *
-   * @param trafficSignalId from OpenSCENARIO class model specification: [ID of the referenced
-   *     signal in a road network. The signal ID must be listed in TrafficSignal list of the
-   *     RoadNetwork.]
-   */
+
+  @Override
   public void setTrafficSignalId(String trafficSignalId) {
     this.trafficSignalId = trafficSignalId;
   }
-  /**
-   * Sets the value of model property state
-   *
-   * @param state from OpenSCENARIO class model specification: [State of the signal. The available
-   *     states are listed in the TrafficSignal list of the RoadNetwork.]
-   */
+
+  @Override
   public void setState(String state) {
     this.state = state;
   }
@@ -235,16 +225,6 @@ public class TrafficSignalStateImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TrafficSignalState";
-  }
-
-  @Override
-  public void writeToTrafficSignalId(String trafficSignalId) {
-    setTrafficSignalId(trafficSignalId);
-  }
-
-  @Override
-  public void writeToState(String state) {
-    setState(state);
   }
 
   @Override

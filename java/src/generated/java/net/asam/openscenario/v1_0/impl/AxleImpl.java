@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AxleImpl extends BaseImpl implements IAxle, IAxleWriter {
+public class AxleImpl extends BaseImpl implements IAxleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -100,49 +100,28 @@ public class AxleImpl extends BaseImpl implements IAxle, IAxleWriter {
   public Double getPositionZ() {
     return this.positionZ;
   }
-  /**
-   * Sets the value of model property maxSteering
-   *
-   * @param maxSteering from OpenSCENARIO class model specification: [Maximum steering angle which
-   *     can be performed by the wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.]
-   */
+
+  @Override
   public void setMaxSteering(Double maxSteering) {
     this.maxSteering = maxSteering;
   }
-  /**
-   * Sets the value of model property wheelDiameter
-   *
-   * @param wheelDiameter from OpenSCENARIO class model specification: [Diameter of the wheels on
-   *     this axle. Unit: m; Range: ]0..inf[.]
-   */
+
+  @Override
   public void setWheelDiameter(Double wheelDiameter) {
     this.wheelDiameter = wheelDiameter;
   }
-  /**
-   * Sets the value of model property trackWidth
-   *
-   * @param trackWidth from OpenSCENARIO class model specification: [Distance of the wheels center
-   *     lines at zero steering. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setTrackWidth(Double trackWidth) {
     this.trackWidth = trackWidth;
   }
-  /**
-   * Sets the value of model property positionX
-   *
-   * @param positionX from OpenSCENARIO class model specification: [Longitudinal position of the
-   *     axle with respect to the vehicles reference point. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setPositionX(Double positionX) {
     this.positionX = positionX;
   }
-  /**
-   * Sets the value of model property positionZ
-   *
-   * @param positionZ from OpenSCENARIO class model specification: [Z-position of the axle with
-   *     respect to the vehicles reference point. Usually this is half of wheel diameter. Unit:m; ,
-   *     Range:[0..inf[.]
-   */
+
+  @Override
   public void setPositionZ(Double positionZ) {
     this.positionZ = positionZ;
   }
@@ -312,31 +291,6 @@ public class AxleImpl extends BaseImpl implements IAxle, IAxleWriter {
   @Override
   public String getModelType() {
     return "Axle";
-  }
-
-  @Override
-  public void writeToMaxSteering(Double maxSteering) {
-    setMaxSteering(maxSteering);
-  }
-
-  @Override
-  public void writeToWheelDiameter(Double wheelDiameter) {
-    setWheelDiameter(wheelDiameter);
-  }
-
-  @Override
-  public void writeToTrackWidth(Double trackWidth) {
-    setTrackWidth(trackWidth);
-  }
-
-  @Override
-  public void writeToPositionX(Double positionX) {
-    setPositionX(positionX);
-  }
-
-  @Override
-  public void writeToPositionZ(Double positionZ) {
-    setPositionZ(positionZ);
   }
 
   @Override

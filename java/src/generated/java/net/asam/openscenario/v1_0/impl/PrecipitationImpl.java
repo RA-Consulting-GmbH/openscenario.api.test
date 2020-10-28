@@ -48,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrecipitationImpl extends BaseImpl implements IPrecipitation, IPrecipitationWriter {
+public class PrecipitationImpl extends BaseImpl implements IPrecipitationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -82,21 +82,13 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, IPrec
   public Double getIntensity() {
     return this.intensity;
   }
-  /**
-   * Sets the value of model property precipitationType
-   *
-   * @param precipitationType from OpenSCENARIO class model specification: [Type of the
-   *     precipitation.]
-   */
+
+  @Override
   public void setPrecipitationType(PrecipitationType precipitationType) {
     this.precipitationType = precipitationType;
   }
-  /**
-   * Sets the value of model property intensity
-   *
-   * @param intensity from OpenSCENARIO class model specification: [The intensity of the
-   *     precipitation. Range: [0..1].]
-   */
+
+  @Override
   public void setIntensity(Double intensity) {
     this.intensity = intensity;
   }
@@ -253,16 +245,6 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation, IPrec
   @Override
   public String getModelType() {
     return "Precipitation";
-  }
-
-  @Override
-  public void writeToPrecipitationType(PrecipitationType precipitationType) {
-    setPrecipitationType(precipitationType);
-  }
-
-  @Override
-  public void writeToIntensity(Double intensity) {
-    setIntensity(intensity);
   }
 
   @Override

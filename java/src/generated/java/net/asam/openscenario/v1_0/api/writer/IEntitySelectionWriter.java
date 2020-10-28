@@ -16,6 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IEntitySelection;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -25,16 +28,10 @@ package net.asam.openscenario.v1_0.api.writer;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEntitySelectionWriter extends IEntityWriter {
+public interface IEntitySelectionWriter
+    extends IEntityWriter, IEntitySelection, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the entity selection. By this name, a
-   * selection can be referenced as an entity.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the entity selection. By this name, a
@@ -42,7 +39,14 @@ public interface IEntitySelectionWriter extends IEntityWriter {
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: Selected entities as members of the entity
+   * selection.
+   *
+   * @param members value of model property members
+   */
+  public void setMembers(ISelectedEntitiesWriter members);
 
   /**
    * Set a parameter for the attribute name
@@ -73,13 +77,5 @@ public interface IEntitySelectionWriter extends IEntityWriter {
    *
    * @return a writer for model property members
    */
-  public ISelectedEntitiesWriter getMembersWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Selected entities as members of the entity
-   * selection.
-   *
-   * @param membersWriter writer for the model property members
-   */
-  public void writeToMembersWriter(ISelectedEntitiesWriter membersWriter);
+  public ISelectedEntitiesWriter getWriterMembers();
 }

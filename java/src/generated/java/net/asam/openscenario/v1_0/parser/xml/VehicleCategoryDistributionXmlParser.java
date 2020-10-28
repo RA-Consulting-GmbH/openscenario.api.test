@@ -25,7 +25,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IVehicleCategoryDistributionEntry;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCategoryDistributionEntryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.VehicleCategoryDistributionEntryImpl;
 import net.asam.openscenario.v1_0.impl.VehicleCategoryDistributionImpl;
@@ -105,8 +105,8 @@ public class VehicleCategoryDistributionXmlParser
       vehicleCategoryDistributionEntries.setParent(object);
       this.vehicleCategoryDistributionEntryXmlParser.parseElement(
           indexedElement, parserContext, vehicleCategoryDistributionEntries);
-      List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntriesList =
-          object.getVehicleCategoryDistributionEntries();
+      List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntriesList =
+          object.getWriterVehicleCategoryDistributionEntries();
       if (vehicleCategoryDistributionEntriesList == null) {
         vehicleCategoryDistributionEntriesList = new ArrayList<>();
         object.setVehicleCategoryDistributionEntries(vehicleCategoryDistributionEntriesList);

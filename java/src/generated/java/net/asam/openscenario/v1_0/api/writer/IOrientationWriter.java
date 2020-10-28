@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.ReferenceContext;
 
 /**
@@ -27,58 +28,34 @@ import net.asam.openscenario.v1_0.api.ReferenceContext;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IOrientationWriter extends IOpenScenarioModelElement {
+public interface IOrientationWriter extends IOrientation, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Relative or absolute definition.
-   *
-   * @return value of model property type
-   */
-  public ReferenceContext getType();
-  /**
-   * From OpenSCENARIO class model specification: Heading angle. Unit: rad;.
-   *
-   * @return value of model property h
-   */
-  public Double getH();
-  /**
-   * From OpenSCENARIO class model specification: Pitch angle. Unit: rad;.
-   *
-   * @return value of model property p
-   */
-  public Double getP();
-  /**
-   * From OpenSCENARIO class model specification: Roll angle. Unit: rad;.
-   *
-   * @return value of model property r
-   */
-  public Double getR();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Relative or absolute definition.
    *
    * @param type value of model property type
    */
-  public void writeToType(ReferenceContext type);
+  public void setType(ReferenceContext type);
   /**
    * From OpenSCENARIO class model specification: Heading angle. Unit: rad;.
    *
    * @param h value of model property h
    */
-  public void writeToH(Double h);
+  public void setH(Double h);
   /**
    * From OpenSCENARIO class model specification: Pitch angle. Unit: rad;.
    *
    * @param p value of model property p
    */
-  public void writeToP(Double p);
+  public void setP(Double p);
   /**
    * From OpenSCENARIO class model specification: Roll angle. Unit: rad;.
    *
    * @param r value of model property r
    */
-  public void writeToR(Double r);
+  public void setR(Double r);
 
   /**
    * Set a parameter for the attribute type

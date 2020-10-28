@@ -26,8 +26,8 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.ICatalogReference;
-import net.asam.openscenario.v1_0.api.IManeuver;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ActorsImpl;
 import net.asam.openscenario.v1_0.impl.CatalogReferenceImpl;
@@ -232,7 +232,7 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
       // Setting the parent
       catalogReferences.setParent(object);
       this.catalogReferenceXmlParser.parseElement(indexedElement, parserContext, catalogReferences);
-      List<ICatalogReference> catalogReferencesList = object.getCatalogReferences();
+      List<ICatalogReferenceWriter> catalogReferencesList = object.getWriterCatalogReferences();
       if (catalogReferencesList == null) {
         catalogReferencesList = new ArrayList<>();
         object.setCatalogReferences(catalogReferencesList);
@@ -282,7 +282,7 @@ public class ManeuverGroupXmlParser extends XmlComplexTypeParser<ManeuverGroupIm
       // Setting the parent
       maneuvers.setParent(object);
       this.maneuverXmlParser.parseElement(indexedElement, parserContext, maneuvers);
-      List<IManeuver> maneuversList = object.getManeuvers();
+      List<IManeuverWriter> maneuversList = object.getWriterManeuvers();
       if (maneuversList == null) {
         maneuversList = new ArrayList<>();
         object.setManeuvers(maneuversList);

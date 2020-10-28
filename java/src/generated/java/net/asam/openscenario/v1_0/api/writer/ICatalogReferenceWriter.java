@@ -17,7 +17,9 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ICatalogElement;
+import net.asam.openscenario.v1_0.api.ICatalogReference;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,34 +30,35 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ICatalogReferenceWriter extends IOpenScenarioModelElement {
+public interface ICatalogReferenceWriter extends ICatalogReference, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the catalog.
-   *
-   * @return value of model property catalogName
-   */
-  public String getCatalogName();
-  /**
-   * From OpenSCENARIO class model specification: Name of catalog entry.
-   *
-   * @return value of model property entryName
-   */
-  public String getEntryName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the catalog.
    *
    * @param catalogName value of model property catalogName
    */
-  public void writeToCatalogName(String catalogName);
+  public void setCatalogName(String catalogName);
   /**
    * From OpenSCENARIO class model specification: Name of catalog entry.
    *
    * @param entryName value of model property entryName
    */
-  public void writeToEntryName(String entryName);
+  public void setEntryName(String entryName);
+  /**
+   * From OpenSCENARIO class model specification: List of parameter assignments for instantiation.
+   *
+   * @param parameterAssignments value of model property parameterAssignments
+   */
+  public void setParameterAssignments(List<IParameterAssignmentWriter> parameterAssignments);
+  /**
+   * From OpenSCENARIO class model specification: The resolved reference to a catalog element (out
+   * of the catalogName and entryName). Transient means, that it is not mapped to the schema.
+   *
+   * @param ref value of model property ref
+   */
+  public void setRef(ICatalogElement ref);
 
   /**
    * Set a parameter for the attribute catalogName
@@ -105,13 +108,5 @@ public interface ICatalogReferenceWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property parameterAssignments
    */
-  public List<IParameterAssignmentWriter> getParameterAssignmentsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: List of parameter assignments for instantiation.
-   *
-   * @param parameterAssignmentsWriters list of writers for the model property parameterAssignments
-   */
-  public void setParameterAssignmentsWriter(
-      List<IParameterAssignmentWriter> parameterAssignmentsWriters);
+  public List<IParameterAssignmentWriter> getWriterParameterAssignments();
 }

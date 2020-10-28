@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAxles;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,28 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IAxlesWriter extends IOpenScenarioModelElement {
+public interface IAxlesWriter extends IAxles, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Front axle.
+   *
+   * @param frontAxle value of model property frontAxle
+   */
+  public void setFrontAxle(IAxleWriter frontAxle);
+  /**
+   * From OpenSCENARIO class model specification: Rear axle.
+   *
+   * @param rearAxle value of model property rearAxle
+   */
+  public void setRearAxle(IAxleWriter rearAxle);
+  /**
+   * From OpenSCENARIO class model specification: A list of optional additional axles.
+   *
+   * @param additionalAxles value of model property additionalAxles
+   */
+  public void setAdditionalAxles(List<IAxleWriter> additionalAxles);
 
   // children
   /**
@@ -35,38 +57,18 @@ public interface IAxlesWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property frontAxle
    */
-  public IAxleWriter getFrontAxleWriter();
+  public IAxleWriter getWriterFrontAxle();
   /**
    * From OpenSCENARIO class model specification: Rear axle.
    *
    * @return a writer for model property rearAxle
    */
-  public IAxleWriter getRearAxleWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Front axle.
-   *
-   * @param frontAxleWriter writer for the model property frontAxle
-   */
-  public void writeToFrontAxleWriter(IAxleWriter frontAxleWriter);
-  /**
-   * From OpenSCENARIO class model specification: Rear axle.
-   *
-   * @param rearAxleWriter writer for the model property rearAxle
-   */
-  public void writeToRearAxleWriter(IAxleWriter rearAxleWriter);
+  public IAxleWriter getWriterRearAxle();
 
   /**
    * From OpenSCENARIO class model specification: A list of optional additional axles.
    *
    * @return a list of writers for model property additionalAxles
    */
-  public List<IAxleWriter> getAdditionalAxlesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of optional additional axles.
-   *
-   * @param additionalAxlesWriters list of writers for the model property additionalAxles
-   */
-  public void setAdditionalAxlesWriter(List<IAxleWriter> additionalAxlesWriters);
+  public List<IAxleWriter> getWriterAdditionalAxles();
 }

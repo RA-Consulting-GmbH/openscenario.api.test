@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ILanePosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,37 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILanePositionWriter extends IOpenScenarioModelElement {
+public interface ILanePositionWriter extends ILanePosition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: ID of the current road (ID of a road in road
-   * network).
-   *
-   * @return value of model property roadId
-   */
-  public String getRoadId();
-  /**
-   * From OpenSCENARIO class model specification: ID of the current lane (ID of a lane in road
-   * network).
-   *
-   * @return value of model property laneId
-   */
-  public String getLaneId();
-  /**
-   * From OpenSCENARIO class model specification: Lateral offset to the centerline of the current
-   * lane. Unit: m.
-   *
-   * @return value of model property offset
-   */
-  public Double getOffset();
-  /**
-   * From OpenSCENARIO class model specification: The s coordinate of the current position. Unit: m;
-   * Range: [0..inf[.
-   *
-   * @return value of model property s
-   */
-  public Double getS();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: ID of the current road (ID of a road in road
@@ -64,28 +37,35 @@ public interface ILanePositionWriter extends IOpenScenarioModelElement {
    *
    * @param roadId value of model property roadId
    */
-  public void writeToRoadId(String roadId);
+  public void setRoadId(String roadId);
   /**
    * From OpenSCENARIO class model specification: ID of the current lane (ID of a lane in road
    * network).
    *
    * @param laneId value of model property laneId
    */
-  public void writeToLaneId(String laneId);
+  public void setLaneId(String laneId);
   /**
    * From OpenSCENARIO class model specification: Lateral offset to the centerline of the current
    * lane. Unit: m.
    *
    * @param offset value of model property offset
    */
-  public void writeToOffset(Double offset);
+  public void setOffset(Double offset);
   /**
    * From OpenSCENARIO class model specification: The s coordinate of the current position. Unit: m;
    * Range: [0..inf[.
    *
    * @param s value of model property s
    */
-  public void writeToS(Double s);
+  public void setS(Double s);
+  /**
+   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
+   * to the referenced road's s and t coordinates.
+   *
+   * @param orientation value of model property orientation
+   */
+  public void setOrientation(IOrientationWriter orientation);
 
   /**
    * Set a parameter for the attribute roadId
@@ -173,13 +153,5 @@ public interface ILanePositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property orientation
    */
-  public IOrientationWriter getOrientationWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
-   * to the referenced road's s and t coordinates.
-   *
-   * @param orientationWriter writer for the model property orientation
-   */
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter);
+  public IOrientationWriter getWriterOrientation();
 }

@@ -48,14 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeedWriter {
+public class FinalSpeedImpl extends BaseImpl implements IFinalSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IAbsoluteSpeed absoluteSpeed;
-  private IRelativeSpeedToMaster relativeSpeedToMaster;
-
-  private IAbsoluteSpeedWriter absoluteSpeedWriter;
-  private IRelativeSpeedToMasterWriter relativeSpeedToMasterWriter;
+  private IAbsoluteSpeedWriter absoluteSpeed;
+  private IRelativeSpeedToMasterWriter relativeSpeedToMaster;
 
   /** Default constructor */
   public FinalSpeedImpl() {
@@ -79,22 +76,14 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeed
   public IRelativeSpeedToMaster getRelativeSpeedToMaster() {
     return this.relativeSpeedToMaster;
   }
-  /**
-   * Sets the value of model property absoluteSpeed
-   *
-   * @param absoluteSpeed from OpenSCENARIO class model specification: [The absolute speed a
-   *     synchronized entity should have at its target position.]
-   */
-  public void setAbsoluteSpeed(IAbsoluteSpeed absoluteSpeed) {
+
+  @Override
+  public void setAbsoluteSpeed(IAbsoluteSpeedWriter absoluteSpeed) {
     this.absoluteSpeed = absoluteSpeed;
   }
-  /**
-   * Sets the value of model property relativeSpeedToMaster
-   *
-   * @param relativeSpeedToMaster from OpenSCENARIO class model specification: [The speed a
-   *     synchronized entity should have relative to its master entity at its target position.]
-   */
-  public void setRelativeSpeedToMaster(IRelativeSpeedToMaster relativeSpeedToMaster) {
+
+  @Override
+  public void setRelativeSpeedToMaster(IRelativeSpeedToMasterWriter relativeSpeedToMaster) {
     this.relativeSpeedToMaster = relativeSpeedToMaster;
   }
 
@@ -119,13 +108,13 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeed
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IAbsoluteSpeed absoluteSpeed = null;
-    absoluteSpeed = getAbsoluteSpeed();
+    IAbsoluteSpeedWriter absoluteSpeed = null;
+    absoluteSpeed = getWriterAbsoluteSpeed();
     if (absoluteSpeed != null) {
       result.add((BaseImpl) absoluteSpeed);
     }
-    IRelativeSpeedToMaster relativeSpeedToMaster = null;
-    relativeSpeedToMaster = getRelativeSpeedToMaster();
+    IRelativeSpeedToMasterWriter relativeSpeedToMaster = null;
+    relativeSpeedToMaster = getWriterRelativeSpeedToMaster();
     if (relativeSpeedToMaster != null) {
       result.add((BaseImpl) relativeSpeedToMaster);
     }
@@ -148,17 +137,17 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeed
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IAbsoluteSpeed absoluteSpeed = null;
-    absoluteSpeed = getAbsoluteSpeed();
+    IAbsoluteSpeedWriter absoluteSpeed = null;
+    absoluteSpeed = getWriterAbsoluteSpeed();
     if (absoluteSpeed != null) {
-      AbsoluteSpeedImpl clonedChild = ((AbsoluteSpeedImpl) absoluteSpeed).clone();
+      IAbsoluteSpeedWriter clonedChild = ((AbsoluteSpeedImpl) absoluteSpeed).clone();
       clonedObject.setAbsoluteSpeed(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRelativeSpeedToMaster relativeSpeedToMaster = null;
-    relativeSpeedToMaster = getRelativeSpeedToMaster();
+    IRelativeSpeedToMasterWriter relativeSpeedToMaster = null;
+    relativeSpeedToMaster = getWriterRelativeSpeedToMaster();
     if (relativeSpeedToMaster != null) {
-      RelativeSpeedToMasterImpl clonedChild =
+      IRelativeSpeedToMasterWriter clonedChild =
           ((RelativeSpeedToMasterImpl) relativeSpeedToMaster).clone();
       clonedObject.setRelativeSpeedToMaster(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -248,23 +237,12 @@ public class FinalSpeedImpl extends BaseImpl implements IFinalSpeed, IFinalSpeed
 
   // children
   @Override
-  public IAbsoluteSpeedWriter getAbsoluteSpeedWriter() {
-    return this.absoluteSpeedWriter;
+  public IAbsoluteSpeedWriter getWriterAbsoluteSpeed() {
+    return this.absoluteSpeed;
   }
 
   @Override
-  public IRelativeSpeedToMasterWriter getRelativeSpeedToMasterWriter() {
-    return this.relativeSpeedToMasterWriter;
-  }
-
-  @Override
-  public void writeToAbsoluteSpeedWriter(IAbsoluteSpeedWriter absoluteSpeedWriter) {
-    this.absoluteSpeedWriter = absoluteSpeedWriter;
-  }
-
-  @Override
-  public void writeToRelativeSpeedToMasterWriter(
-      IRelativeSpeedToMasterWriter relativeSpeedToMasterWriter) {
-    this.relativeSpeedToMasterWriter = relativeSpeedToMasterWriter;
+  public IRelativeSpeedToMasterWriter getWriterRelativeSpeedToMaster() {
+    return this.relativeSpeedToMaster;
   }
 }

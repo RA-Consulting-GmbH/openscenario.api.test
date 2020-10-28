@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
+public class ActorsImpl extends BaseImpl implements IActorsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,9 +57,7 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
   }
 
   private Boolean selectTriggeringEntities;
-  private List<IEntityRef> entityRefs;
-
-  private List<IEntityRefWriter> entityRefsWriters;
+  private List<IEntityRefWriter> entityRefs = new ArrayList<>();
 
   /** Default constructor */
   public ActorsImpl() {
@@ -79,25 +78,43 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
   }
 
   @Override
-  public List<IEntityRef> getEntityRefs() {
+  public List<IEntityRefWriter> getWriterEntityRefs() {
     return this.entityRefs;
   }
-  /**
-   * Sets the value of model property selectTriggeringEntities
-   *
-   * @param selectTriggeringEntities from OpenSCENARIO class model specification: [Indicates whether
-   *     the triggering entities are considered actors.]
-   */
+
+  @Override
+  public Iterable<IEntityRef> getEntityRefs() {
+    return new Iterable<IEntityRef>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IEntityRef> iterator() {
+        return new ArrayList<IEntityRef>(ActorsImpl.this.entityRefs).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getEntityRefsSize() {
+    if (this.entityRefs != null) return this.entityRefs.size();
+    return 0;
+  }
+
+  @Override
+  public IEntityRef getEntityRefsAtIndex(int index) {
+    if (index >= 0 && this.entityRefs != null && this.entityRefs.size() > index) {
+      return this.entityRefs.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setSelectTriggeringEntities(Boolean selectTriggeringEntities) {
     this.selectTriggeringEntities = selectTriggeringEntities;
   }
-  /**
-   * Sets the value of model property entityRefs
-   *
-   * @param entityRefs from OpenSCENARIO class model specification: [A list of entities this actor
-   *     is referencing.]
-   */
-  public void setEntityRefs(List<IEntityRef> entityRefs) {
+
+  @Override
+  public void setEntityRefs(List<IEntityRefWriter> entityRefs) {
     this.entityRefs = entityRefs;
   }
 
@@ -127,10 +144,10 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IEntityRef> entityRefs = null;
-    entityRefs = getEntityRefs();
+    List<IEntityRefWriter> entityRefs = null;
+    entityRefs = getWriterEntityRefs();
     if (entityRefs != null) {
-      for (IEntityRef item : entityRefs) {
+      for (IEntityRefWriter item : entityRefs) {
         result.add((BaseImpl) item);
       }
     }
@@ -155,12 +172,12 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
     // Simple type
     clonedObject.setSelectTriggeringEntities(getSelectTriggeringEntities());
     // clone children
-    List<IEntityRef> entityRefs = null;
-    entityRefs = getEntityRefs();
+    List<IEntityRefWriter> entityRefs = null;
+    entityRefs = getWriterEntityRefs();
     if (entityRefs != null) {
-      List<IEntityRef> clonedList = new ArrayList<>();
-      for (IEntityRef item : entityRefs) {
-        EntityRefImpl clonedChild = ((EntityRefImpl) item).clone();
+      List<IEntityRefWriter> clonedList = new ArrayList<>();
+      for (IEntityRefWriter item : entityRefs) {
+        IEntityRefWriter clonedChild = ((EntityRefImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -254,11 +271,6 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
   }
 
   @Override
-  public void writeToSelectTriggeringEntities(Boolean selectTriggeringEntities) {
-    setSelectTriggeringEntities(selectTriggeringEntities);
-  }
-
-  @Override
   public void writeParameterToSelectTriggeringEntities(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, parameterName, null /*no textmarker*/);
@@ -277,13 +289,4 @@ public class ActorsImpl extends BaseImpl implements IActors, IActorsWriter {
 
   // children
 
-  @Override
-  public List<IEntityRefWriter> getEntityRefsWriter() {
-    return this.entityRefsWriters;
-  }
-
-  @Override
-  public void setEntityRefsWriter(List<IEntityRefWriter> entityRefsWriters) {
-    this.entityRefsWriters = entityRefsWriters;
-  }
 }

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.ParameterType;
 
 /**
@@ -27,34 +28,29 @@ import net.asam.openscenario.v1_0.api.ParameterType;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IParameterDeclarationWriter extends IOpenScenarioModelElement {
+public interface IParameterDeclarationWriter
+    extends IParameterDeclaration, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Type of the parameter.
-   *
-   * @return value of model property parameterType
-   */
-  public ParameterType getParameterType();
-  /**
-   * From OpenSCENARIO class model specification: Value of the parameter as its default value.
-   *
-   * @return value of model property value
-   */
-  public String getValue();
+  // Setters for all attributes
 
+  /**
+   * From OpenSCENARIO class model specification: Name of the parameter.
+   *
+   * @param name value of model property name
+   */
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: Type of the parameter.
    *
    * @param parameterType value of model property parameterType
    */
-  public void writeToParameterType(ParameterType parameterType);
+  public void setParameterType(ParameterType parameterType);
   /**
    * From OpenSCENARIO class model specification: Value of the parameter as its default value.
    *
    * @param value value of model property value
    */
-  public void writeToValue(String value);
+  public void setValue(String value);
 
   /**
    * Set a parameter for the attribute parameterType

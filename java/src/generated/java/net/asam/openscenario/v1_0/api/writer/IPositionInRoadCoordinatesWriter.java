@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPositionInRoadCoordinates;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,23 +28,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPositionInRoadCoordinatesWriter extends IOpenScenarioModelElement {
+public interface IPositionInRoadCoordinatesWriter
+    extends IPositionInRoadCoordinates, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Position in s coordinates along the reference line
-   * of the road.
-   *
-   * @return value of model property pathS
-   */
-  public Double getPathS();
-  /**
-   * From OpenSCENARIO class model specification: Position in t coordinates orthogonal to the
-   * reference line of the road.
-   *
-   * @return value of model property t
-   */
-  public Double getT();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Position in s coordinates along the reference line
@@ -51,14 +39,14 @@ public interface IPositionInRoadCoordinatesWriter extends IOpenScenarioModelElem
    *
    * @param pathS value of model property pathS
    */
-  public void writeToPathS(Double pathS);
+  public void setPathS(Double pathS);
   /**
    * From OpenSCENARIO class model specification: Position in t coordinates orthogonal to the
    * reference line of the road.
    *
    * @param t value of model property t
    */
-  public void writeToT(Double t);
+  public void setT(Double t);
 
   /**
    * Set a parameter for the attribute pathS

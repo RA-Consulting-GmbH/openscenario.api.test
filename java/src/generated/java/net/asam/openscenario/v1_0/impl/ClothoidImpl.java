@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter {
+public class ClothoidImpl extends BaseImpl implements IClothoidWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,9 +64,7 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
   private Double length;
   private Double startTime;
   private Double stopTime;
-  private IPosition position;
-
-  private IPositionWriter positionWriter;
+  private IPositionWriter position;
 
   /** Default constructor */
   public ClothoidImpl() {
@@ -110,55 +108,34 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property curvature
-   *
-   * @param curvature from OpenSCENARIO class model specification: [Start curvature of clothoid.]
-   */
+
+  @Override
   public void setCurvature(Double curvature) {
     this.curvature = curvature;
   }
-  /**
-   * Sets the value of model property curvatureDot
-   *
-   * @param curvatureDot from OpenSCENARIO class model specification: [Rate of change of the
-   *     curvature of the clothoid.Unit: 1/s;Range [0..inf[.]
-   */
+
+  @Override
   public void setCurvatureDot(Double curvatureDot) {
     this.curvatureDot = curvatureDot;
   }
-  /**
-   * Sets the value of model property length
-   *
-   * @param length from OpenSCENARIO class model specification: [Length of clothoid.]
-   */
+
+  @Override
   public void setLength(Double length) {
     this.length = length;
   }
-  /**
-   * Sets the value of model property startTime
-   *
-   * @param startTime from OpenSCENARIO class model specification: [Optional time specification at
-   *     the start of the clothoid. Unit: s;Range [0..inf[.]
-   */
+
+  @Override
   public void setStartTime(Double startTime) {
     this.startTime = startTime;
   }
-  /**
-   * Sets the value of model property stopTime
-   *
-   * @param stopTime from OpenSCENARIO class model specification: [Optional time specification at
-   *     the end of the clothoid. Unit: s;Range ]0..inf[.]
-   */
+
+  @Override
   public void setStopTime(Double stopTime) {
     this.stopTime = stopTime;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [Start position of a clothoid.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -212,8 +189,8 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -246,10 +223,10 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
     // Simple type
     clonedObject.setStopTime(getStopTime());
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -348,31 +325,6 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
   }
 
   @Override
-  public void writeToCurvature(Double curvature) {
-    setCurvature(curvature);
-  }
-
-  @Override
-  public void writeToCurvatureDot(Double curvatureDot) {
-    setCurvatureDot(curvatureDot);
-  }
-
-  @Override
-  public void writeToLength(Double length) {
-    setLength(length);
-  }
-
-  @Override
-  public void writeToStartTime(Double startTime) {
-    setStartTime(startTime);
-  }
-
-  @Override
-  public void writeToStopTime(Double stopTime) {
-    setStopTime(stopTime);
-  }
-
-  @Override
   public void writeParameterToCurvature(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE, parameterName, null /*no textmarker*/);
   }
@@ -451,12 +403,7 @@ public class ClothoidImpl extends BaseImpl implements IClothoid, IClothoidWriter
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

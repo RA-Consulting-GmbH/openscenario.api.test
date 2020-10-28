@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IControllerDistribution;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,19 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IControllerDistributionWriter extends IOpenScenarioModelElement {
+public interface IControllerDistributionWriter
+    extends IControllerDistribution, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: The weights of controllers of a specific type in a
+   * traffic.
+   *
+   * @param controllerDistributionEntries value of model property controllerDistributionEntries
+   */
+  public void setControllerDistributionEntries(
+      List<IControllerDistributionEntryWriter> controllerDistributionEntries);
 
   // children
 
@@ -37,15 +50,5 @@ public interface IControllerDistributionWriter extends IOpenScenarioModelElement
    *
    * @return a list of writers for model property controllerDistributionEntries
    */
-  public List<IControllerDistributionEntryWriter> getControllerDistributionEntriesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The weights of controllers of a specific type in a
-   * traffic.
-   *
-   * @param controllerDistributionEntriesWriters list of writers for the model property
-   *     controllerDistributionEntries
-   */
-  public void setControllerDistributionEntriesWriter(
-      List<IControllerDistributionEntryWriter> controllerDistributionEntriesWriters);
+  public List<IControllerDistributionEntryWriter> getWriterControllerDistributionEntries();
 }

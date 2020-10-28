@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ICatalogDefinition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,16 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ICatalogDefinitionWriter extends IOpenScenarioModelElement {
+public interface ICatalogDefinitionWriter extends ICatalogDefinition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Definition of a catalog.
+   *
+   * @param catalog value of model property catalog
+   */
+  public void setCatalog(ICatalogWriter catalog);
 
   // children
   /**
@@ -34,12 +44,5 @@ public interface ICatalogDefinitionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property catalog
    */
-  public ICatalogWriter getCatalogWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of a catalog.
-   *
-   * @param catalogWriter writer for the model property catalog
-   */
-  public void writeToCatalogWriter(ICatalogWriter catalogWriter);
+  public ICatalogWriter getWriterCatalog();
 }

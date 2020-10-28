@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoadConditionWriter {
+public class RoadConditionImpl extends BaseImpl implements IRoadConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,9 +56,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
   }
 
   private Double frictionScaleFactor;
-  private IProperties properties;
-
-  private IPropertiesWriter propertiesWriter;
+  private IPropertiesWriter properties;
 
   /** Default constructor */
   public RoadConditionImpl() {
@@ -82,22 +80,14 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
   public IProperties getProperties() {
     return this.properties;
   }
-  /**
-   * Sets the value of model property frictionScaleFactor
-   *
-   * @param frictionScaleFactor from OpenSCENARIO class model specification: [Friction scale factor.
-   *     Range: [0..inf[]
-   */
+
+  @Override
   public void setFrictionScaleFactor(Double frictionScaleFactor) {
     this.frictionScaleFactor = frictionScaleFactor;
   }
-  /**
-   * Sets the value of model property properties
-   *
-   * @param properties from OpenSCENARIO class model specification: [Additional properties to
-   *     describe the road condition.]
-   */
-  public void setProperties(IProperties properties) {
+
+  @Override
+  public void setProperties(IPropertiesWriter properties) {
     this.properties = properties;
   }
 
@@ -127,8 +117,8 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
       result.add((BaseImpl) properties);
     }
@@ -153,10 +143,10 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
     // Simple type
     clonedObject.setFrictionScaleFactor(getFrictionScaleFactor());
     // clone children
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      PropertiesImpl clonedChild = ((PropertiesImpl) properties).clone();
+      IPropertiesWriter clonedChild = ((PropertiesImpl) properties).clone();
       clonedObject.setProperties(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -247,11 +237,6 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
   }
 
   @Override
-  public void writeToFrictionScaleFactor(Double frictionScaleFactor) {
-    setFrictionScaleFactor(frictionScaleFactor);
-  }
-
-  @Override
   public void writeParameterToFrictionScaleFactor(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR, parameterName, null /*no textmarker*/);
@@ -269,12 +254,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition, IRoad
 
   // children
   @Override
-  public IPropertiesWriter getPropertiesWriter() {
-    return this.propertiesWriter;
-  }
-
-  @Override
-  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    this.propertiesWriter = propertiesWriter;
+  public IPropertiesWriter getWriterProperties() {
+    return this.properties;
   }
 }

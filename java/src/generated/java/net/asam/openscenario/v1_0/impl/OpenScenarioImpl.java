@@ -48,14 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenScenarioWriter {
+public class OpenScenarioImpl extends BaseImpl implements IOpenScenarioWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IFileHeader fileHeader;
-  private IOpenScenarioCategory openScenarioCategory;
-
-  private IFileHeaderWriter fileHeaderWriter;
-  private IOpenScenarioCategoryWriter openScenarioCategoryWriter;
+  private IFileHeaderWriter fileHeader;
+  private IOpenScenarioCategoryWriter openScenarioCategory;
 
   /** Default constructor */
   public OpenScenarioImpl() {
@@ -79,22 +76,14 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenSc
   public IOpenScenarioCategory getOpenScenarioCategory() {
     return this.openScenarioCategory;
   }
-  /**
-   * Sets the value of model property fileHeader
-   *
-   * @param fileHeader from OpenSCENARIO class model specification: [Header information for the
-   *     scenario or the catalog.]
-   */
-  public void setFileHeader(IFileHeader fileHeader) {
+
+  @Override
+  public void setFileHeader(IFileHeaderWriter fileHeader) {
     this.fileHeader = fileHeader;
   }
-  /**
-   * Sets the value of model property openScenarioCategory
-   *
-   * @param openScenarioCategory from OpenSCENARIO class model specification: [Category (catalog or
-   *     scenario) of the OpenSCENARIO description.]
-   */
-  public void setOpenScenarioCategory(IOpenScenarioCategory openScenarioCategory) {
+
+  @Override
+  public void setOpenScenarioCategory(IOpenScenarioCategoryWriter openScenarioCategory) {
     this.openScenarioCategory = openScenarioCategory;
   }
 
@@ -119,13 +108,13 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenSc
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IFileHeader fileHeader = null;
-    fileHeader = getFileHeader();
+    IFileHeaderWriter fileHeader = null;
+    fileHeader = getWriterFileHeader();
     if (fileHeader != null) {
       result.add((BaseImpl) fileHeader);
     }
-    IOpenScenarioCategory openScenarioCategory = null;
-    openScenarioCategory = getOpenScenarioCategory();
+    IOpenScenarioCategoryWriter openScenarioCategory = null;
+    openScenarioCategory = getWriterOpenScenarioCategory();
     if (openScenarioCategory != null) {
       result.add((BaseImpl) openScenarioCategory);
     }
@@ -148,17 +137,17 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenSc
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IFileHeader fileHeader = null;
-    fileHeader = getFileHeader();
+    IFileHeaderWriter fileHeader = null;
+    fileHeader = getWriterFileHeader();
     if (fileHeader != null) {
-      FileHeaderImpl clonedChild = ((FileHeaderImpl) fileHeader).clone();
+      IFileHeaderWriter clonedChild = ((FileHeaderImpl) fileHeader).clone();
       clonedObject.setFileHeader(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOpenScenarioCategory openScenarioCategory = null;
-    openScenarioCategory = getOpenScenarioCategory();
+    IOpenScenarioCategoryWriter openScenarioCategory = null;
+    openScenarioCategory = getWriterOpenScenarioCategory();
     if (openScenarioCategory != null) {
-      OpenScenarioCategoryImpl clonedChild =
+      IOpenScenarioCategoryWriter clonedChild =
           ((OpenScenarioCategoryImpl) openScenarioCategory).clone();
       clonedObject.setOpenScenarioCategory(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -248,23 +237,12 @@ public class OpenScenarioImpl extends BaseImpl implements IOpenScenario, IOpenSc
 
   // children
   @Override
-  public IFileHeaderWriter getFileHeaderWriter() {
-    return this.fileHeaderWriter;
+  public IFileHeaderWriter getWriterFileHeader() {
+    return this.fileHeader;
   }
 
   @Override
-  public IOpenScenarioCategoryWriter getOpenScenarioCategoryWriter() {
-    return this.openScenarioCategoryWriter;
-  }
-
-  @Override
-  public void writeToFileHeaderWriter(IFileHeaderWriter fileHeaderWriter) {
-    this.fileHeaderWriter = fileHeaderWriter;
-  }
-
-  @Override
-  public void writeToOpenScenarioCategoryWriter(
-      IOpenScenarioCategoryWriter openScenarioCategoryWriter) {
-    this.openScenarioCategoryWriter = openScenarioCategoryWriter;
+  public IOpenScenarioCategoryWriter getWriterOpenScenarioCategory() {
+    return this.openScenarioCategory;
   }
 }

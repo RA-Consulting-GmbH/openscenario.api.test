@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IActors;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,16 +28,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IActorsWriter extends IOpenScenarioModelElement {
+public interface IActorsWriter extends IActors, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Indicates whether the triggering entities are
-   * considered actors.
-   *
-   * @return value of model property selectTriggeringEntities
-   */
-  public Boolean getSelectTriggeringEntities();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Indicates whether the triggering entities are
@@ -44,7 +38,13 @@ public interface IActorsWriter extends IOpenScenarioModelElement {
    *
    * @param selectTriggeringEntities value of model property selectTriggeringEntities
    */
-  public void writeToSelectTriggeringEntities(Boolean selectTriggeringEntities);
+  public void setSelectTriggeringEntities(Boolean selectTriggeringEntities);
+  /**
+   * From OpenSCENARIO class model specification: A list of entities this actor is referencing.
+   *
+   * @param entityRefs value of model property entityRefs
+   */
+  public void setEntityRefs(List<IEntityRefWriter> entityRefs);
 
   /**
    * Set a parameter for the attribute selectTriggeringEntities
@@ -75,12 +75,5 @@ public interface IActorsWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property entityRefs
    */
-  public List<IEntityRefWriter> getEntityRefsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of entities this actor is referencing.
-   *
-   * @param entityRefsWriters list of writers for the model property entityRefs
-   */
-  public void setEntityRefsWriter(List<IEntityRefWriter> entityRefsWriters);
+  public List<IEntityRefWriter> getWriterEntityRefs();
 }

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IRoutePosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,31 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRoutePositionWriter extends IOpenScenarioModelElement {
+public interface IRoutePositionWriter extends IRoutePosition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Reference to the route the position is calculated
+   * from.
+   *
+   * @param routeRef value of model property routeRef
+   */
+  public void setRouteRef(IRouteRefWriter routeRef);
+  /**
+   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
+   * to the referenced road's s and t coordinates, to the current lane's s and t coordinates or to
+   * the orientation of the reference entity.
+   *
+   * @param orientation value of model property orientation
+   */
+  public void setOrientation(IOrientationWriter orientation);
+  /**
+   * From OpenSCENARIO class model specification: Position along the route.
+   *
+   * @param inRoutePosition value of model property inRoutePosition
+   */
+  public void setInRoutePosition(IInRoutePositionWriter inRoutePosition);
 
   // children
   /**
@@ -36,7 +61,7 @@ public interface IRoutePositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property routeRef
    */
-  public IRouteRefWriter getRouteRefWriter();
+  public IRouteRefWriter getWriterRouteRef();
   /**
    * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
    * to the referenced road's s and t coordinates, to the current lane's s and t coordinates or to
@@ -44,33 +69,11 @@ public interface IRoutePositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property orientation
    */
-  public IOrientationWriter getOrientationWriter();
+  public IOrientationWriter getWriterOrientation();
   /**
    * From OpenSCENARIO class model specification: Position along the route.
    *
    * @return a writer for model property inRoutePosition
    */
-  public IInRoutePositionWriter getInRoutePositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Reference to the route the position is calculated
-   * from.
-   *
-   * @param routeRefWriter writer for the model property routeRef
-   */
-  public void writeToRouteRefWriter(IRouteRefWriter routeRefWriter);
-  /**
-   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
-   * to the referenced road's s and t coordinates, to the current lane's s and t coordinates or to
-   * the orientation of the reference entity.
-   *
-   * @param orientationWriter writer for the model property orientation
-   */
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position along the route.
-   *
-   * @param inRoutePositionWriter writer for the model property inRoutePosition
-   */
-  public void writeToInRoutePositionWriter(IInRoutePositionWriter inRoutePositionWriter);
+  public IInRoutePositionWriter getWriterInRoutePosition();
 }

@@ -52,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TimeToCollisionConditionImpl extends BaseImpl
-    implements ITimeToCollisionCondition, ITimeToCollisionConditionWriter {
+    implements ITimeToCollisionConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -67,9 +67,7 @@ public class TimeToCollisionConditionImpl extends BaseImpl
   private Boolean freespace;
   private Boolean alongRoute;
   private Rule rule;
-  private ITimeToCollisionConditionTarget timeToCollisionConditionTarget;
-
-  private ITimeToCollisionConditionTargetWriter timeToCollisionConditionTargetWriter;
+  private ITimeToCollisionConditionTargetWriter timeToCollisionConditionTarget;
 
   /** Default constructor */
   public TimeToCollisionConditionImpl() {
@@ -108,51 +106,30 @@ public class TimeToCollisionConditionImpl extends BaseImpl
   public ITimeToCollisionConditionTarget getTimeToCollisionConditionTarget() {
     return this.timeToCollisionConditionTarget;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The time to collision value. Unit:
-   *     s; Range: [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: time to collision is
-   *     measured using the distance between closest bounding box points.False: reference point ,
-   *     distance is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
   }
-  /**
-   * Sets the value of model property alongRoute
-   *
-   * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into
-   *     account, e.g. turns will increase distance. False: straight line distance is used.]
-   */
+
+  @Override
   public void setAlongRoute(Boolean alongRoute) {
     this.alongRoute = alongRoute;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
-  /**
-   * Sets the value of model property timeToCollisionConditionTarget
-   *
-   * @param timeToCollisionConditionTarget from OpenSCENARIO class model specification: [The
-   *     explicit position or a position defined through the current position of a reference
-   *     entity.]
-   */
+
+  @Override
   public void setTimeToCollisionConditionTarget(
-      ITimeToCollisionConditionTarget timeToCollisionConditionTarget) {
+      ITimeToCollisionConditionTargetWriter timeToCollisionConditionTarget) {
     this.timeToCollisionConditionTarget = timeToCollisionConditionTarget;
   }
 
@@ -208,8 +185,8 @@ public class TimeToCollisionConditionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ITimeToCollisionConditionTarget timeToCollisionConditionTarget = null;
-    timeToCollisionConditionTarget = getTimeToCollisionConditionTarget();
+    ITimeToCollisionConditionTargetWriter timeToCollisionConditionTarget = null;
+    timeToCollisionConditionTarget = getWriterTimeToCollisionConditionTarget();
     if (timeToCollisionConditionTarget != null) {
       result.add((BaseImpl) timeToCollisionConditionTarget);
     }
@@ -243,10 +220,10 @@ public class TimeToCollisionConditionImpl extends BaseImpl
       clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
     }
     // clone children
-    ITimeToCollisionConditionTarget timeToCollisionConditionTarget = null;
-    timeToCollisionConditionTarget = getTimeToCollisionConditionTarget();
+    ITimeToCollisionConditionTargetWriter timeToCollisionConditionTarget = null;
+    timeToCollisionConditionTarget = getWriterTimeToCollisionConditionTarget();
     if (timeToCollisionConditionTarget != null) {
-      TimeToCollisionConditionTargetImpl clonedChild =
+      ITimeToCollisionConditionTargetWriter clonedChild =
           ((TimeToCollisionConditionTargetImpl) timeToCollisionConditionTarget).clone();
       clonedObject.setTimeToCollisionConditionTarget(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -353,26 +330,6 @@ public class TimeToCollisionConditionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToFreespace(Boolean freespace) {
-    setFreespace(freespace);
-  }
-
-  @Override
-  public void writeToAlongRoute(Boolean alongRoute) {
-    setAlongRoute(alongRoute);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
-  }
-
-  @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
   }
@@ -435,13 +392,7 @@ public class TimeToCollisionConditionImpl extends BaseImpl
 
   // children
   @Override
-  public ITimeToCollisionConditionTargetWriter getTimeToCollisionConditionTargetWriter() {
-    return this.timeToCollisionConditionTargetWriter;
-  }
-
-  @Override
-  public void writeToTimeToCollisionConditionTargetWriter(
-      ITimeToCollisionConditionTargetWriter timeToCollisionConditionTargetWriter) {
-    this.timeToCollisionConditionTargetWriter = timeToCollisionConditionTargetWriter;
+  public ITimeToCollisionConditionTargetWriter getWriterTimeToCollisionConditionTarget() {
+    return this.timeToCollisionConditionTarget;
   }
 }

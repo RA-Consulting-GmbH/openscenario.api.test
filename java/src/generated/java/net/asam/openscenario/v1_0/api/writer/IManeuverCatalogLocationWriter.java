@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IManeuverCatalogLocation;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IManeuverCatalogLocationWriter extends IOpenScenarioModelElement {
+public interface IManeuverCatalogLocationWriter
+    extends IManeuverCatalogLocation, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: All catalogs files in this directory must be
+   * evaluated.
+   *
+   * @param directory value of model property directory
+   */
+  public void setDirectory(IDirectoryWriter directory);
 
   // children
   /**
@@ -35,13 +47,5 @@ public interface IManeuverCatalogLocationWriter extends IOpenScenarioModelElemen
    *
    * @return a writer for model property directory
    */
-  public IDirectoryWriter getDirectoryWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: All catalogs files in this directory must be
-   * evaluated.
-   *
-   * @param directoryWriter writer for the model property directory
-   */
-  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter);
+  public IDirectoryWriter getWriterDirectory();
 }

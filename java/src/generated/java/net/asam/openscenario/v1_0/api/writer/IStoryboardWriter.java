@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IStoryboard;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,29 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IStoryboardWriter extends IOpenScenarioModelElement {
+public interface IStoryboardWriter extends IStoryboard, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Initialization of the storyboard instance. Initial
+   * conditions are set and initial actions are applied to entities.
+   *
+   * @param init value of model property init
+   */
+  public void setInit(IInitWriter init);
+  /**
+   * From OpenSCENARIO class model specification: List of stories defined in a story board.
+   *
+   * @param stories value of model property stories
+   */
+  public void setStories(List<IStoryWriter> stories);
+  /**
+   * From OpenSCENARIO class model specification: Trigger to stop the Storyboard instance.
+   *
+   * @param stopTrigger value of model property stopTrigger
+   */
+  public void setStopTrigger(ITriggerWriter stopTrigger);
 
   // children
   /**
@@ -36,39 +59,18 @@ public interface IStoryboardWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property init
    */
-  public IInitWriter getInitWriter();
+  public IInitWriter getWriterInit();
   /**
    * From OpenSCENARIO class model specification: Trigger to stop the Storyboard instance.
    *
    * @return a writer for model property stopTrigger
    */
-  public ITriggerWriter getStopTriggerWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Initialization of the storyboard instance. Initial
-   * conditions are set and initial actions are applied to entities.
-   *
-   * @param initWriter writer for the model property init
-   */
-  public void writeToInitWriter(IInitWriter initWriter);
-  /**
-   * From OpenSCENARIO class model specification: Trigger to stop the Storyboard instance.
-   *
-   * @param stopTriggerWriter writer for the model property stopTrigger
-   */
-  public void writeToStopTriggerWriter(ITriggerWriter stopTriggerWriter);
+  public ITriggerWriter getWriterStopTrigger();
 
   /**
    * From OpenSCENARIO class model specification: List of stories defined in a story board.
    *
    * @return a list of writers for model property stories
    */
-  public List<IStoryWriter> getStoriesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: List of stories defined in a story board.
-   *
-   * @param storiesWriters list of writers for the model property stories
-   */
-  public void setStoriesWriter(List<IStoryWriter> storiesWriters);
+  public List<IStoryWriter> getWriterStories();
 }

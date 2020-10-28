@@ -25,7 +25,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.ICondition;
+import net.asam.openscenario.v1_0.api.writer.IConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ConditionGroupImpl;
 import net.asam.openscenario.v1_0.impl.ConditionImpl;
@@ -98,7 +98,7 @@ public class ConditionGroupXmlParser extends XmlComplexTypeParser<ConditionGroup
       // Setting the parent
       conditions.setParent(object);
       this.conditionXmlParser.parseElement(indexedElement, parserContext, conditions);
-      List<ICondition> conditionsList = object.getConditions();
+      List<IConditionWriter> conditionsList = object.getWriterConditions();
       if (conditionsList == null) {
         conditionsList = new ArrayList<>();
         object.setConditions(conditionsList);

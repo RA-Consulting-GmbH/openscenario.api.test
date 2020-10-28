@@ -94,10 +94,8 @@ public class TestInjectedParameters extends TestBase {
       Date date =
           event
               .getStartTrigger()
-              .getConditionGroups()
-              .get(0)
-              .getConditions()
-              .get(0)
+              .getConditionGroupsAtIndex(0)
+              .getConditionsAtIndex(0)
               .getByValueCondition()
               .getTimeOfDayCondition()
               .getDateTime();
@@ -113,12 +111,9 @@ public class TestInjectedParameters extends TestBase {
               .getOpenScenarioCategory()
               .getScenarioDefinition()
               .getStoryboard()
-              .getStories()
-              .get(0)
-              .getActs()
-              .get(0)
-              .getManeuverGroups()
-              .get(0)
+              .getStoriesAtIndex(0)
+              .getActsAtIndex(0)
+              .getManeuverGroupsAtIndex(0)
               .getActors()
               .getSelectTriggeringEntities());
       // testUnsignedShort
@@ -223,7 +218,7 @@ public class TestInjectedParameters extends TestBase {
    * @return
    */
   private ILaneChangeAction getLaneChangeAction(IEvent event) {
-    return event.getActions().get(0).getPrivateAction().getLateralAction().getLaneChangeAction();
+    return event.getActionsAtIndex(0).getPrivateAction().getLateralAction().getLaneChangeAction();
   }
 
   /**
@@ -235,15 +230,10 @@ public class TestInjectedParameters extends TestBase {
         .getOpenScenarioCategory()
         .getScenarioDefinition()
         .getStoryboard()
-        .getStories()
-        .get(0)
-        .getActs()
-        .get(0)
-        .getManeuverGroups()
-        .get(0)
-        .getManeuvers()
-        .get(0)
-        .getEvents()
-        .get(0);
+        .getStoriesAtIndex(0)
+        .getActsAtIndex(0)
+        .getManeuverGroupsAtIndex(0)
+        .getManeuversAtIndex(0)
+        .getEventsAtIndex(0);
   }
 }

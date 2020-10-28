@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ISpeedAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ISpeedActionWriter extends IOpenScenarioModelElement {
+public interface ISpeedActionWriter extends ISpeedAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Defines how the target speed is reached.
+   *
+   * @param speedActionDynamics value of model property speedActionDynamics
+   */
+  public void setSpeedActionDynamics(ITransitionDynamicsWriter speedActionDynamics);
+  /**
+   * From OpenSCENARIO class model specification: Defines the target speed which should be reached.
+   *
+   * @param speedActionTarget value of model property speedActionTarget
+   */
+  public void setSpeedActionTarget(ISpeedActionTargetWriter speedActionTarget);
 
   // children
   /**
@@ -36,24 +52,11 @@ public interface ISpeedActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property speedActionDynamics
    */
-  public ITransitionDynamicsWriter getSpeedActionDynamicsWriter();
+  public ITransitionDynamicsWriter getWriterSpeedActionDynamics();
   /**
    * From OpenSCENARIO class model specification: Defines the target speed which should be reached.
    *
    * @return a writer for model property speedActionTarget
    */
-  public ISpeedActionTargetWriter getSpeedActionTargetWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Defines how the target speed is reached.
-   *
-   * @param speedActionDynamicsWriter writer for the model property speedActionDynamics
-   */
-  public void writeToSpeedActionDynamicsWriter(ITransitionDynamicsWriter speedActionDynamicsWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines the target speed which should be reached.
-   *
-   * @param speedActionTargetWriter writer for the model property speedActionTarget
-   */
-  public void writeToSpeedActionTargetWriter(ISpeedActionTargetWriter speedActionTargetWriter);
+  public ISpeedActionTargetWriter getWriterSpeedActionTarget();
 }

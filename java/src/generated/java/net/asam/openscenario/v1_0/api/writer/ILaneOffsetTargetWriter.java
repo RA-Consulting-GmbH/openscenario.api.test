@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ILaneOffsetTarget;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,24 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILaneOffsetTargetWriter extends IOpenScenarioModelElement {
+public interface ILaneOffsetTargetWriter extends ILaneOffsetTarget, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Relative reference to the lane position of a
+   * specific entity.
+   *
+   * @param relativeTargetLaneOffset value of model property relativeTargetLaneOffset
+   */
+  public void setRelativeTargetLaneOffset(IRelativeTargetLaneOffsetWriter relativeTargetLaneOffset);
+  /**
+   * From OpenSCENARIO class model specification: Absolute reference to the current lane's center
+   * line.
+   *
+   * @param absoluteTargetLaneOffset value of model property absoluteTargetLaneOffset
+   */
+  public void setAbsoluteTargetLaneOffset(IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffset);
 
   // children
   /**
@@ -35,29 +53,12 @@ public interface ILaneOffsetTargetWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property relativeTargetLaneOffset
    */
-  public IRelativeTargetLaneOffsetWriter getRelativeTargetLaneOffsetWriter();
+  public IRelativeTargetLaneOffsetWriter getWriterRelativeTargetLaneOffset();
   /**
    * From OpenSCENARIO class model specification: Absolute reference to the current lane's center
    * line.
    *
    * @return a writer for model property absoluteTargetLaneOffset
    */
-  public IAbsoluteTargetLaneOffsetWriter getAbsoluteTargetLaneOffsetWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Relative reference to the lane position of a
-   * specific entity.
-   *
-   * @param relativeTargetLaneOffsetWriter writer for the model property relativeTargetLaneOffset
-   */
-  public void writeToRelativeTargetLaneOffsetWriter(
-      IRelativeTargetLaneOffsetWriter relativeTargetLaneOffsetWriter);
-  /**
-   * From OpenSCENARIO class model specification: Absolute reference to the current lane's center
-   * line.
-   *
-   * @param absoluteTargetLaneOffsetWriter writer for the model property absoluteTargetLaneOffset
-   */
-  public void writeToAbsoluteTargetLaneOffsetWriter(
-      IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffsetWriter);
+  public IAbsoluteTargetLaneOffsetWriter getWriterAbsoluteTargetLaneOffset();
 }

@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IProperties;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,26 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPropertiesWriter extends IOpenScenarioModelElement {
+public interface IPropertiesWriter extends IProperties, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: A name/value pair. The semantic of the name/values
+   * are subject of a contract between the provider of a simulation environment and the author of a
+   * scenario.
+   *
+   * @param properties value of model property properties
+   */
+  public void setProperties(List<IPropertyWriter> properties);
+  /**
+   * From OpenSCENARIO class model specification: A list of arbitrary files attached to an object
+   * that owns the properties. The semantic and the file formats are subject of a contract between
+   * the provider of a simulation environment and the author of a scenario.
+   *
+   * @param files value of model property files
+   */
+  public void setFiles(List<IFileWriter> files);
 
   // children
 
@@ -39,7 +59,7 @@ public interface IPropertiesWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property properties
    */
-  public List<IPropertyWriter> getPropertiesWriter();
+  public List<IPropertyWriter> getWriterProperties();
   /**
    * From OpenSCENARIO class model specification: A list of arbitrary files attached to an object
    * that owns the properties. The semantic and the file formats are subject of a contract between
@@ -47,22 +67,5 @@ public interface IPropertiesWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property files
    */
-  public List<IFileWriter> getFilesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A name/value pair. The semantic of the name/values
-   * are subject of a contract between the provider of a simulation environment and the author of a
-   * scenario.
-   *
-   * @param propertiesWriters list of writers for the model property properties
-   */
-  public void setPropertiesWriter(List<IPropertyWriter> propertiesWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of arbitrary files attached to an object
-   * that owns the properties. The semantic and the file formats are subject of a contract between
-   * the provider of a simulation environment and the author of a scenario.
-   *
-   * @param filesWriters list of writers for the model property files
-   */
-  public void setFilesWriter(List<IFileWriter> filesWriters);
+  public List<IFileWriter> getWriterFiles();
 }

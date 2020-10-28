@@ -49,8 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSwarmActionImpl extends BaseImpl
-    implements ITrafficSwarmAction, ITrafficSwarmActionWriter {
+public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -69,11 +68,8 @@ public class TrafficSwarmActionImpl extends BaseImpl
   private Double offset;
   private Long numberOfVehicles;
   private Double velocity;
-  private ICentralSwarmObject centralObject;
-  private ITrafficDefinition trafficDefinition;
-
-  private ICentralSwarmObjectWriter centralObjectWriter;
-  private ITrafficDefinitionWriter trafficDefinitionWriter;
+  private ICentralSwarmObjectWriter centralObject;
+  private ITrafficDefinitionWriter trafficDefinition;
 
   /** Default constructor */
   public TrafficSwarmActionImpl() {
@@ -127,79 +123,44 @@ public class TrafficSwarmActionImpl extends BaseImpl
   public ITrafficDefinition getTrafficDefinition() {
     return this.trafficDefinition;
   }
-  /**
-   * Sets the value of model property semiMajorAxis
-   *
-   * @param semiMajorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic
-   *     distribution area is given as an ellipsis around a central entity. SemiMajorAxis defines
-   *     the , half length of the major axis of this ellipsis. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setSemiMajorAxis(Double semiMajorAxis) {
     this.semiMajorAxis = semiMajorAxis;
   }
-  /**
-   * Sets the value of model property semiMinorAxis
-   *
-   * @param semiMinorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic
-   *     distribution area is given as an ellipsis around a central entity. SemiMinorAxis defines
-   *     the , half length of the minor axis of this ellipsis. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setSemiMinorAxis(Double semiMinorAxis) {
     this.semiMinorAxis = semiMinorAxis;
   }
-  /**
-   * Sets the value of model property innerRadius
-   *
-   * @param innerRadius from OpenSCENARIO class model specification: [Radius of the inner circular
-   *     area around the central entity. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setInnerRadius(Double innerRadius) {
     this.innerRadius = innerRadius;
   }
-  /**
-   * Sets the value of model property offset
-   *
-   * @param offset from OpenSCENARIO class model specification: [Offset in longitudinal direction
-   *     related to the x-axis of the central entity. Unit: m;.]
-   */
+
+  @Override
   public void setOffset(Double offset) {
     this.offset = offset;
   }
-  /**
-   * Sets the value of model property numberOfVehicles
-   *
-   * @param numberOfVehicles from OpenSCENARIO class model specification: [The maximum number of
-   *     vehicles surrounding the central entity. Depending on the current road situation less than
-   *     , numberOfVehicles might be set up. Range: [0..inf[.]
-   */
+
+  @Override
   public void setNumberOfVehicles(Long numberOfVehicles) {
     this.numberOfVehicles = numberOfVehicles;
   }
-  /**
-   * Sets the value of model property velocity
-   *
-   * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of
-   *     a created entity. Unit: m/s; Range: [0..inf[.]
-   */
+
+  @Override
   public void setVelocity(Double velocity) {
     this.velocity = velocity;
   }
-  /**
-   * Sets the value of model property centralObject
-   *
-   * @param centralObject from OpenSCENARIO class model specification: [The entity that represents
-   *     the center of a swarm.]
-   */
-  public void setCentralObject(ICentralSwarmObject centralObject) {
+
+  @Override
+  public void setCentralObject(ICentralSwarmObjectWriter centralObject) {
     this.centralObject = centralObject;
   }
-  /**
-   * Sets the value of model property trafficDefinition
-   *
-   * @param trafficDefinition from OpenSCENARIO class model specification: [Specifies properties of
-   *     autonomous traffic with respect to vehicle and driver distributions.]
-   */
-  public void setTrafficDefinition(ITrafficDefinition trafficDefinition) {
+
+  @Override
+  public void setTrafficDefinition(ITrafficDefinitionWriter trafficDefinition) {
     this.trafficDefinition = trafficDefinition;
   }
 
@@ -259,13 +220,13 @@ public class TrafficSwarmActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ICentralSwarmObject centralObject = null;
-    centralObject = getCentralObject();
+    ICentralSwarmObjectWriter centralObject = null;
+    centralObject = getWriterCentralObject();
     if (centralObject != null) {
       result.add((BaseImpl) centralObject);
     }
-    ITrafficDefinition trafficDefinition = null;
-    trafficDefinition = getTrafficDefinition();
+    ITrafficDefinitionWriter trafficDefinition = null;
+    trafficDefinition = getWriterTrafficDefinition();
     if (trafficDefinition != null) {
       result.add((BaseImpl) trafficDefinition);
     }
@@ -300,17 +261,17 @@ public class TrafficSwarmActionImpl extends BaseImpl
     // Simple type
     clonedObject.setVelocity(getVelocity());
     // clone children
-    ICentralSwarmObject centralObject = null;
-    centralObject = getCentralObject();
+    ICentralSwarmObjectWriter centralObject = null;
+    centralObject = getWriterCentralObject();
     if (centralObject != null) {
-      CentralSwarmObjectImpl clonedChild = ((CentralSwarmObjectImpl) centralObject).clone();
+      ICentralSwarmObjectWriter clonedChild = ((CentralSwarmObjectImpl) centralObject).clone();
       clonedObject.setCentralObject(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrafficDefinition trafficDefinition = null;
-    trafficDefinition = getTrafficDefinition();
+    ITrafficDefinitionWriter trafficDefinition = null;
+    trafficDefinition = getWriterTrafficDefinition();
     if (trafficDefinition != null) {
-      TrafficDefinitionImpl clonedChild = ((TrafficDefinitionImpl) trafficDefinition).clone();
+      ITrafficDefinitionWriter clonedChild = ((TrafficDefinitionImpl) trafficDefinition).clone();
       clonedObject.setTrafficDefinition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -418,36 +379,6 @@ public class TrafficSwarmActionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToSemiMajorAxis(Double semiMajorAxis) {
-    setSemiMajorAxis(semiMajorAxis);
-  }
-
-  @Override
-  public void writeToSemiMinorAxis(Double semiMinorAxis) {
-    setSemiMinorAxis(semiMinorAxis);
-  }
-
-  @Override
-  public void writeToInnerRadius(Double innerRadius) {
-    setInnerRadius(innerRadius);
-  }
-
-  @Override
-  public void writeToOffset(Double offset) {
-    setOffset(offset);
-  }
-
-  @Override
-  public void writeToNumberOfVehicles(Long numberOfVehicles) {
-    setNumberOfVehicles(numberOfVehicles);
-  }
-
-  @Override
-  public void writeToVelocity(Double velocity) {
-    setVelocity(velocity);
-  }
-
-  @Override
   public void writeParameterToSemiMajorAxis(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS, parameterName, null /*no textmarker*/);
@@ -543,22 +474,12 @@ public class TrafficSwarmActionImpl extends BaseImpl
 
   // children
   @Override
-  public ICentralSwarmObjectWriter getCentralObjectWriter() {
-    return this.centralObjectWriter;
+  public ICentralSwarmObjectWriter getWriterCentralObject() {
+    return this.centralObject;
   }
 
   @Override
-  public ITrafficDefinitionWriter getTrafficDefinitionWriter() {
-    return this.trafficDefinitionWriter;
-  }
-
-  @Override
-  public void writeToCentralObjectWriter(ICentralSwarmObjectWriter centralObjectWriter) {
-    this.centralObjectWriter = centralObjectWriter;
-  }
-
-  @Override
-  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter) {
-    this.trafficDefinitionWriter = trafficDefinitionWriter;
+  public ITrafficDefinitionWriter getWriterTrafficDefinition() {
+    return this.trafficDefinition;
   }
 }

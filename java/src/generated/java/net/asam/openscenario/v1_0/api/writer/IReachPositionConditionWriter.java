@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IReachPositionCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,16 +28,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IReachPositionConditionWriter extends IOpenScenarioModelElement {
+public interface IReachPositionConditionWriter
+    extends IReachPositionCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Radius of tolerance circle around given position.
-   * Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property tolerance
-   */
-  public Double getTolerance();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Radius of tolerance circle around given position.
@@ -44,7 +39,14 @@ public interface IReachPositionConditionWriter extends IOpenScenarioModelElement
    *
    * @param tolerance value of model property tolerance
    */
-  public void writeToTolerance(Double tolerance);
+  public void setTolerance(Double tolerance);
+  /**
+   * From OpenSCENARIO class model specification: The position to be reached with the defined
+   * tolerance.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
 
   /**
    * Set a parameter for the attribute tolerance
@@ -75,13 +77,5 @@ public interface IReachPositionConditionWriter extends IOpenScenarioModelElement
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The position to be reached with the defined
-   * tolerance.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
+  public IPositionWriter getWriterPosition();
 }

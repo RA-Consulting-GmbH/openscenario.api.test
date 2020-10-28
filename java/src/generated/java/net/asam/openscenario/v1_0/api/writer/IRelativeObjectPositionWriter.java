@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.IRelativeObjectPosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -30,64 +31,45 @@ import net.asam.openscenario.v1_0.api.IEntity;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRelativeObjectPositionWriter extends IOpenScenarioModelElement {
+public interface IRelativeObjectPositionWriter
+    extends IRelativeObjectPosition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Reference entity.
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
-  /**
-   * From OpenSCENARIO class model specification: Relative position in the x axis, using the
-   * coordinate system of the reference entity.
-   *
-   * @return value of model property dx
-   */
-  public Double getDx();
-  /**
-   * From OpenSCENARIO class model specification: Relative position in the y axis, using the
-   * coordinate system of the reference entity.
-   *
-   * @return value of model property dy
-   */
-  public Double getDy();
-  /**
-   * From OpenSCENARIO class model specification: Relative position in the z axis, using the
-   * coordinate system of the reference entity.
-   *
-   * @return value of model property dz
-   */
-  public Double getDz();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
   /**
    * From OpenSCENARIO class model specification: Relative position in the x axis, using the
    * coordinate system of the reference entity.
    *
    * @param dx value of model property dx
    */
-  public void writeToDx(Double dx);
+  public void setDx(Double dx);
   /**
    * From OpenSCENARIO class model specification: Relative position in the y axis, using the
    * coordinate system of the reference entity.
    *
    * @param dy value of model property dy
    */
-  public void writeToDy(Double dy);
+  public void setDy(Double dy);
   /**
    * From OpenSCENARIO class model specification: Relative position in the z axis, using the
    * coordinate system of the reference entity.
    *
    * @param dz value of model property dz
    */
-  public void writeToDz(Double dz);
+  public void setDz(Double dz);
+  /**
+   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
+   * to the orientation of the reference entity.
+   *
+   * @param orientation value of model property orientation
+   */
+  public void setOrientation(IOrientationWriter orientation);
 
   /**
    * Set a parameter for the attribute entityRef
@@ -175,13 +157,5 @@ public interface IRelativeObjectPositionWriter extends IOpenScenarioModelElement
    *
    * @return a writer for model property orientation
    */
-  public IOrientationWriter getOrientationWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
-   * to the orientation of the reference entity.
-   *
-   * @param orientationWriter writer for the model property orientation
-   */
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter);
+  public IOrientationWriter getWriterOrientation();
 }

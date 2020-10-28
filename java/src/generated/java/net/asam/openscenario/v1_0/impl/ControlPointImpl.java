@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControlPointImpl extends BaseImpl implements IControlPoint, IControlPointWriter {
+public class ControlPointImpl extends BaseImpl implements IControlPointWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,9 +58,7 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
 
   private Double time;
   private Double weight;
-  private IPosition position;
-
-  private IPositionWriter positionWriter;
+  private IPositionWriter position;
 
   /** Default constructor */
   public ControlPointImpl() {
@@ -89,31 +87,19 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property time
-   *
-   * @param time from OpenSCENARIO class model specification: [Optional specification of the time
-   *     dimension of the control point. Unit: s;Range [0..inf[.]
-   */
+
+  @Override
   public void setTime(Double time) {
     this.time = time;
   }
-  /**
-   * Sets the value of model property weight
-   *
-   * @param weight from OpenSCENARIO class model specification: [Optional weight specification of
-   *     the control point. If unspecified, all control points will be equal weighted. Range ,
-   *     ]-inf..inf[.]
-   */
+
+  @Override
   public void setWeight(Double weight) {
     this.weight = weight;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [Position of the control point.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -149,8 +135,8 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -177,10 +163,10 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
     // Simple type
     clonedObject.setWeight(getWeight());
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -273,16 +259,6 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
   }
 
   @Override
-  public void writeToTime(Double time) {
-    setTime(time);
-  }
-
-  @Override
-  public void writeToWeight(Double weight) {
-    setWeight(weight);
-  }
-
-  @Override
   public void writeParameterToTime(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TIME, parameterName, null /*no textmarker*/);
   }
@@ -314,12 +290,7 @@ public class ControlPointImpl extends BaseImpl implements IControlPoint, IContro
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

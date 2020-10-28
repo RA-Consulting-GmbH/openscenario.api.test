@@ -26,7 +26,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IPhase;
+import net.asam.openscenario.v1_0.api.writer.IPhaseWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.PhaseImpl;
 import net.asam.openscenario.v1_0.impl.TrafficSignalControllerImpl;
@@ -221,7 +221,7 @@ public class TrafficSignalControllerXmlParser
       // Setting the parent
       phases.setParent(object);
       this.phaseXmlParser.parseElement(indexedElement, parserContext, phases);
-      List<IPhase> phasesList = object.getPhases();
+      List<IPhaseWriter> phasesList = object.getWriterPhases();
       if (phasesList == null) {
         phasesList = new ArrayList<>();
         object.setPhases(phasesList);

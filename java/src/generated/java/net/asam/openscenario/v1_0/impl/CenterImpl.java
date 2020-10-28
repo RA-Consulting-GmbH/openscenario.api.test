@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CenterImpl extends BaseImpl implements ICenter, ICenterWriter {
+public class CenterImpl extends BaseImpl implements ICenterWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -86,27 +86,18 @@ public class CenterImpl extends BaseImpl implements ICenter, ICenterWriter {
   public Double getZ() {
     return this.z;
   }
-  /**
-   * Sets the value of model property x
-   *
-   * @param x from OpenSCENARIO class model specification: [Center offset in x direction.]
-   */
+
+  @Override
   public void setX(Double x) {
     this.x = x;
   }
-  /**
-   * Sets the value of model property y
-   *
-   * @param y from OpenSCENARIO class model specification: [Center offset in y direction.]
-   */
+
+  @Override
   public void setY(Double y) {
     this.y = y;
   }
-  /**
-   * Sets the value of model property z
-   *
-   * @param z from OpenSCENARIO class model specification: [Center offset in z direction.]
-   */
+
+  @Override
   public void setZ(Double z) {
     this.z = z;
   }
@@ -253,21 +244,6 @@ public class CenterImpl extends BaseImpl implements ICenter, ICenterWriter {
   @Override
   public String getModelType() {
     return "Center";
-  }
-
-  @Override
-  public void writeToX(Double x) {
-    setX(x);
-  }
-
-  @Override
-  public void writeToY(Double y) {
-    setY(y);
-  }
-
-  @Override
-  public void writeToZ(Double z) {
-    setZ(z);
   }
 
   @Override

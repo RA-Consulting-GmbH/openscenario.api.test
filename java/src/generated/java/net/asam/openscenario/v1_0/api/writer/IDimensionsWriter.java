@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IDimensions;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,30 +28,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IDimensionsWriter extends IOpenScenarioModelElement {
+public interface IDimensionsWriter extends IDimensions, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Width of the entity's bounding box. Unit: m;
-   * Range: [0..inf[.
-   *
-   * @return value of model property width
-   */
-  public Double getWidth();
-  /**
-   * From OpenSCENARIO class model specification: Length of the entity's bounding box. Unit: m;
-   * Range: [0..inf[.
-   *
-   * @return value of model property length
-   */
-  public Double getLength();
-  /**
-   * From OpenSCENARIO class model specification: Height of the entity's bounding box. Unit: m;
-   * Range: [0..inf[.
-   *
-   * @return value of model property height
-   */
-  public Double getHeight();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Width of the entity's bounding box. Unit: m;
@@ -58,21 +38,21 @@ public interface IDimensionsWriter extends IOpenScenarioModelElement {
    *
    * @param width value of model property width
    */
-  public void writeToWidth(Double width);
+  public void setWidth(Double width);
   /**
    * From OpenSCENARIO class model specification: Length of the entity's bounding box. Unit: m;
    * Range: [0..inf[.
    *
    * @param length value of model property length
    */
-  public void writeToLength(Double length);
+  public void setLength(Double length);
   /**
    * From OpenSCENARIO class model specification: Height of the entity's bounding box. Unit: m;
    * Range: [0..inf[.
    *
    * @param height value of model property height
    */
-  public void writeToHeight(Double height);
+  public void setHeight(Double height);
 
   /**
    * Set a parameter for the attribute width

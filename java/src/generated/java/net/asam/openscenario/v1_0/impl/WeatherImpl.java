@@ -53,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
+public class WeatherImpl extends BaseImpl implements IWeatherWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,13 +62,9 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
   }
 
   private CloudState cloudState;
-  private ISun sun;
-  private IFog fog;
-  private IPrecipitation precipitation;
-
-  private ISunWriter sunWriter;
-  private IFogWriter fogWriter;
-  private IPrecipitationWriter precipitationWriter;
+  private ISunWriter sun;
+  private IFogWriter fog;
+  private IPrecipitationWriter precipitation;
 
   /** Default constructor */
   public WeatherImpl() {
@@ -102,40 +98,24 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
   public IPrecipitation getPrecipitation() {
     return this.precipitation;
   }
-  /**
-   * Sets the value of model property cloudState
-   *
-   * @param cloudState from OpenSCENARIO class model specification: [Definition of the cloud state,
-   *     i.e. cloud state and sky visualization settings.]
-   */
+
+  @Override
   public void setCloudState(CloudState cloudState) {
     this.cloudState = cloudState;
   }
-  /**
-   * Sets the value of model property sun
-   *
-   * @param sun from OpenSCENARIO class model specification: [Definition of the sun, i.e. position
-   *     and intensity.]
-   */
-  public void setSun(ISun sun) {
+
+  @Override
+  public void setSun(ISunWriter sun) {
     this.sun = sun;
   }
-  /**
-   * Sets the value of model property fog
-   *
-   * @param fog from OpenSCENARIO class model specification: [Definition of fog, i.e. visual range
-   *     and bounding box.]
-   */
-  public void setFog(IFog fog) {
+
+  @Override
+  public void setFog(IFogWriter fog) {
     this.fog = fog;
   }
-  /**
-   * Sets the value of model property precipitation
-   *
-   * @param precipitation from OpenSCENARIO class model specification: [Definition of precipitation,
-   *     i.e. type and intensity.]
-   */
-  public void setPrecipitation(IPrecipitation precipitation) {
+
+  @Override
+  public void setPrecipitation(IPrecipitationWriter precipitation) {
     this.precipitation = precipitation;
   }
 
@@ -173,18 +153,18 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ISun sun = null;
-    sun = getSun();
+    ISunWriter sun = null;
+    sun = getWriterSun();
     if (sun != null) {
       result.add((BaseImpl) sun);
     }
-    IFog fog = null;
-    fog = getFog();
+    IFogWriter fog = null;
+    fog = getWriterFog();
     if (fog != null) {
       result.add((BaseImpl) fog);
     }
-    IPrecipitation precipitation = null;
-    precipitation = getPrecipitation();
+    IPrecipitationWriter precipitation = null;
+    precipitation = getWriterPrecipitation();
     if (precipitation != null) {
       result.add((BaseImpl) precipitation);
     }
@@ -212,24 +192,24 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
       clonedObject.setCloudState(CloudState.getFromLiteral(cloudState.getLiteral()));
     }
     // clone children
-    ISun sun = null;
-    sun = getSun();
+    ISunWriter sun = null;
+    sun = getWriterSun();
     if (sun != null) {
-      SunImpl clonedChild = ((SunImpl) sun).clone();
+      ISunWriter clonedChild = ((SunImpl) sun).clone();
       clonedObject.setSun(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IFog fog = null;
-    fog = getFog();
+    IFogWriter fog = null;
+    fog = getWriterFog();
     if (fog != null) {
-      FogImpl clonedChild = ((FogImpl) fog).clone();
+      IFogWriter clonedChild = ((FogImpl) fog).clone();
       clonedObject.setFog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPrecipitation precipitation = null;
-    precipitation = getPrecipitation();
+    IPrecipitationWriter precipitation = null;
+    precipitation = getWriterPrecipitation();
     if (precipitation != null) {
-      PrecipitationImpl clonedChild = ((PrecipitationImpl) precipitation).clone();
+      IPrecipitationWriter clonedChild = ((PrecipitationImpl) precipitation).clone();
       clonedObject.setPrecipitation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -327,11 +307,6 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
   }
 
   @Override
-  public void writeToCloudState(CloudState cloudState) {
-    setCloudState(cloudState);
-  }
-
-  @Override
   public void writeParameterToCloudState(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CLOUD_STATE, parameterName, null /*no textmarker*/);
@@ -349,32 +324,17 @@ public class WeatherImpl extends BaseImpl implements IWeather, IWeatherWriter {
 
   // children
   @Override
-  public ISunWriter getSunWriter() {
-    return this.sunWriter;
+  public ISunWriter getWriterSun() {
+    return this.sun;
   }
 
   @Override
-  public IFogWriter getFogWriter() {
-    return this.fogWriter;
+  public IFogWriter getWriterFog() {
+    return this.fog;
   }
 
   @Override
-  public IPrecipitationWriter getPrecipitationWriter() {
-    return this.precipitationWriter;
-  }
-
-  @Override
-  public void writeToSunWriter(ISunWriter sunWriter) {
-    this.sunWriter = sunWriter;
-  }
-
-  @Override
-  public void writeToFogWriter(IFogWriter fogWriter) {
-    this.fogWriter = fogWriter;
-  }
-
-  @Override
-  public void writeToPrecipitationWriter(IPrecipitationWriter precipitationWriter) {
-    this.precipitationWriter = precipitationWriter;
+  public IPrecipitationWriter getWriterPrecipitation() {
+    return this.precipitation;
   }
 }

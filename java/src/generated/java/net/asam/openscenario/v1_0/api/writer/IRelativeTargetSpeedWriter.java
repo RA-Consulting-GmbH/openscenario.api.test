@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.IRelativeTargetSpeed;
 import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
 
 /**
@@ -29,47 +30,17 @@ import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRelativeTargetSpeedWriter extends IOpenScenarioModelElement {
+public interface IRelativeTargetSpeedWriter
+    extends IRelativeTargetSpeed, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Reference entity.
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
-  /**
-   * From OpenSCENARIO class model specification: Value of the relative speed. This value is either
-   * given as a delta or as a factor. E.g. value=10 together with valueType=delta means the
-   * entity/entities are supposed to drive 10m/s faster than the target reference entity. E.g.
-   * value=1.1 together with valueType=factor means that the entity/entities are supposed to drive
-   * 10% faster than the target reference entity. Unit: m/s or 1.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
-  /**
-   * From OpenSCENARIO class model specification: The value is either a delta (Unit m/s) or a factor
-   * (no Unit).
-   *
-   * @return value of model property speedTargetValueType
-   */
-  public SpeedTargetValueType getSpeedTargetValueType();
-  /**
-   * From OpenSCENARIO class model specification: By setting continuous to true a controller comes
-   * into place and tries to maintain a continuous relative speed. This may not be used together
-   * with Dynamics.time or Dynamics.distance.
-   *
-   * @return value of model property continuous
-   */
-  public Boolean getContinuous();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
   /**
    * From OpenSCENARIO class model specification: Value of the relative speed. This value is either
    * given as a delta or as a factor. E.g. value=10 together with valueType=delta means the
@@ -79,14 +50,14 @@ public interface IRelativeTargetSpeedWriter extends IOpenScenarioModelElement {
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
   /**
    * From OpenSCENARIO class model specification: The value is either a delta (Unit m/s) or a factor
    * (no Unit).
    *
    * @param speedTargetValueType value of model property speedTargetValueType
    */
-  public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType);
+  public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType);
   /**
    * From OpenSCENARIO class model specification: By setting continuous to true a controller comes
    * into place and tries to maintain a continuous relative speed. This may not be used together
@@ -94,7 +65,7 @@ public interface IRelativeTargetSpeedWriter extends IOpenScenarioModelElement {
    *
    * @param continuous value of model property continuous
    */
-  public void writeToContinuous(Boolean continuous);
+  public void setContinuous(Boolean continuous);
 
   /**
    * Set a parameter for the attribute entityRef

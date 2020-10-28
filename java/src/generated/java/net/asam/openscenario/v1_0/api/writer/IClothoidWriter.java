@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IClothoid;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,76 +28,49 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IClothoidWriter extends IOpenScenarioModelElement {
+public interface IClothoidWriter extends IClothoid, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Start curvature of clothoid.
-   *
-   * @return value of model property curvature
-   */
-  public Double getCurvature();
-  /**
-   * From OpenSCENARIO class model specification: Rate of change of the curvature of the
-   * clothoid.Unit: 1/s;Range [0..inf[.
-   *
-   * @return value of model property curvatureDot
-   */
-  public Double getCurvatureDot();
-  /**
-   * From OpenSCENARIO class model specification: Length of clothoid.
-   *
-   * @return value of model property length
-   */
-  public Double getLength();
-  /**
-   * From OpenSCENARIO class model specification: Optional time specification at the start of the
-   * clothoid. Unit: s;Range [0..inf[.
-   *
-   * @return value of model property startTime
-   */
-  public Double getStartTime();
-  /**
-   * From OpenSCENARIO class model specification: Optional time specification at the end of the
-   * clothoid. Unit: s;Range ]0..inf[.
-   *
-   * @return value of model property stopTime
-   */
-  public Double getStopTime();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Start curvature of clothoid.
    *
    * @param curvature value of model property curvature
    */
-  public void writeToCurvature(Double curvature);
+  public void setCurvature(Double curvature);
   /**
    * From OpenSCENARIO class model specification: Rate of change of the curvature of the
    * clothoid.Unit: 1/s;Range [0..inf[.
    *
    * @param curvatureDot value of model property curvatureDot
    */
-  public void writeToCurvatureDot(Double curvatureDot);
+  public void setCurvatureDot(Double curvatureDot);
   /**
    * From OpenSCENARIO class model specification: Length of clothoid.
    *
    * @param length value of model property length
    */
-  public void writeToLength(Double length);
+  public void setLength(Double length);
   /**
    * From OpenSCENARIO class model specification: Optional time specification at the start of the
    * clothoid. Unit: s;Range [0..inf[.
    *
    * @param startTime value of model property startTime
    */
-  public void writeToStartTime(Double startTime);
+  public void setStartTime(Double startTime);
   /**
    * From OpenSCENARIO class model specification: Optional time specification at the end of the
    * clothoid. Unit: s;Range ]0..inf[.
    *
    * @param stopTime value of model property stopTime
    */
-  public void writeToStopTime(Double stopTime);
+  public void setStopTime(Double stopTime);
+  /**
+   * From OpenSCENARIO class model specification: Start position of a clothoid.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
 
   /**
    * Set a parameter for the attribute curvature
@@ -202,12 +176,5 @@ public interface IClothoidWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Start position of a clothoid.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
+  public IPositionWriter getWriterPosition();
 }

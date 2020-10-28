@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITimeReference;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,25 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITimeReferenceWriter extends IOpenScenarioModelElement {
+public interface ITimeReferenceWriter extends ITimeReference, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: This property indicates Timing information is
+   * neglected.
+   *
+   * @param none value of model property none
+   */
+  public void setNone(INoneWriter none);
+  /**
+   * From OpenSCENARIO class model specification: This property indicates timing information is
+   * taken into account. Its underlying properties allow specification of the time domain (absolute
+   * or relative), time scaling and a global time offset.
+   *
+   * @param timing value of model property timing
+   */
+  public void setTiming(ITimingWriter timing);
 
   // children
   /**
@@ -37,7 +56,7 @@ public interface ITimeReferenceWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property none
    */
-  public INoneWriter getNoneWriter();
+  public INoneWriter getWriterNone();
   /**
    * From OpenSCENARIO class model specification: This property indicates timing information is
    * taken into account. Its underlying properties allow specification of the time domain (absolute
@@ -45,21 +64,5 @@ public interface ITimeReferenceWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property timing
    */
-  public ITimingWriter getTimingWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: This property indicates Timing information is
-   * neglected.
-   *
-   * @param noneWriter writer for the model property none
-   */
-  public void writeToNoneWriter(INoneWriter noneWriter);
-  /**
-   * From OpenSCENARIO class model specification: This property indicates timing information is
-   * taken into account. Its underlying properties allow specification of the time domain (absolute
-   * or relative), time scaling and a global time offset.
-   *
-   * @param timingWriter writer for the model property timing
-   */
-  public void writeToTimingWriter(ITimingWriter timingWriter);
+  public ITimingWriter getWriterTiming();
 }

@@ -25,9 +25,9 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IGlobalAction;
-import net.asam.openscenario.v1_0.api.IPrivate;
-import net.asam.openscenario.v1_0.api.IUserDefinedAction;
+import net.asam.openscenario.v1_0.api.writer.IGlobalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrivateWriter;
+import net.asam.openscenario.v1_0.api.writer.IUserDefinedActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.GlobalActionImpl;
 import net.asam.openscenario.v1_0.impl.InitActionsImpl;
@@ -103,7 +103,7 @@ public class InitActionsXmlParser extends XmlComplexTypeParser<InitActionsImpl> 
       // Setting the parent
       globalActions.setParent(object);
       this.globalActionXmlParser.parseElement(indexedElement, parserContext, globalActions);
-      List<IGlobalAction> globalActionsList = object.getGlobalActions();
+      List<IGlobalActionWriter> globalActionsList = object.getWriterGlobalActions();
       if (globalActionsList == null) {
         globalActionsList = new ArrayList<>();
         object.setGlobalActions(globalActionsList);
@@ -153,7 +153,7 @@ public class InitActionsXmlParser extends XmlComplexTypeParser<InitActionsImpl> 
       userDefinedActions.setParent(object);
       this.userDefinedActionXmlParser.parseElement(
           indexedElement, parserContext, userDefinedActions);
-      List<IUserDefinedAction> userDefinedActionsList = object.getUserDefinedActions();
+      List<IUserDefinedActionWriter> userDefinedActionsList = object.getWriterUserDefinedActions();
       if (userDefinedActionsList == null) {
         userDefinedActionsList = new ArrayList<>();
         object.setUserDefinedActions(userDefinedActionsList);
@@ -202,7 +202,7 @@ public class InitActionsXmlParser extends XmlComplexTypeParser<InitActionsImpl> 
       // Setting the parent
       privates.setParent(object);
       this.privateXmlParser.parseElement(indexedElement, parserContext, privates);
-      List<IPrivate> privatesList = object.getPrivates();
+      List<IPrivateWriter> privatesList = object.getWriterPrivates();
       if (privatesList == null) {
         privatesList = new ArrayList<>();
         object.setPrivates(privatesList);

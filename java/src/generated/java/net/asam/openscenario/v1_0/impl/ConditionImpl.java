@@ -52,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ConditionImpl extends BaseImpl implements ICondition, IConditionWriter {
+public class ConditionImpl extends BaseImpl implements IConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -65,11 +65,8 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
   private String name;
   private Double delay;
   private ConditionEdge conditionEdge;
-  private IByEntityCondition byEntityCondition;
-  private IByValueCondition byValueCondition;
-
-  private IByEntityConditionWriter byEntityConditionWriter;
-  private IByValueConditionWriter byValueConditionWriter;
+  private IByEntityConditionWriter byEntityCondition;
+  private IByValueConditionWriter byValueCondition;
 
   /** Default constructor */
   public ConditionImpl() {
@@ -108,49 +105,29 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
   public IByValueCondition getByValueCondition() {
     return this.byValueCondition;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the condition.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property delay
-   *
-   * @param delay from OpenSCENARIO class model specification: [Time elapsed after the edge
-   *     condition is verified, until the condition returns true to the scenario. Unit: s; Range: ,
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setDelay(Double delay) {
     this.delay = delay;
   }
-  /**
-   * Sets the value of model property conditionEdge
-   *
-   * @param conditionEdge from OpenSCENARIO class model specification: [Specifies the edge when the
-   *     condition is evaluated to true (rising, falling, any).]
-   */
+
+  @Override
   public void setConditionEdge(ConditionEdge conditionEdge) {
     this.conditionEdge = conditionEdge;
   }
-  /**
-   * Sets the value of model property byEntityCondition
-   *
-   * @param byEntityCondition from OpenSCENARIO class model specification: [A condition that refers
-   *     to an entity.]
-   */
-  public void setByEntityCondition(IByEntityCondition byEntityCondition) {
+
+  @Override
+  public void setByEntityCondition(IByEntityConditionWriter byEntityCondition) {
     this.byEntityCondition = byEntityCondition;
   }
-  /**
-   * Sets the value of model property byValueCondition
-   *
-   * @param byValueCondition from OpenSCENARIO class model specification: [A condition that refers
-   *     to a runtime value.]
-   */
-  public void setByValueCondition(IByValueCondition byValueCondition) {
+
+  @Override
+  public void setByValueCondition(IByValueConditionWriter byValueCondition) {
     this.byValueCondition = byValueCondition;
   }
 
@@ -200,13 +177,13 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IByEntityCondition byEntityCondition = null;
-    byEntityCondition = getByEntityCondition();
+    IByEntityConditionWriter byEntityCondition = null;
+    byEntityCondition = getWriterByEntityCondition();
     if (byEntityCondition != null) {
       result.add((BaseImpl) byEntityCondition);
     }
-    IByValueCondition byValueCondition = null;
-    byValueCondition = getByValueCondition();
+    IByValueConditionWriter byValueCondition = null;
+    byValueCondition = getWriterByValueCondition();
     if (byValueCondition != null) {
       result.add((BaseImpl) byValueCondition);
     }
@@ -238,17 +215,17 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
       clonedObject.setConditionEdge(ConditionEdge.getFromLiteral(conditionEdge.getLiteral()));
     }
     // clone children
-    IByEntityCondition byEntityCondition = null;
-    byEntityCondition = getByEntityCondition();
+    IByEntityConditionWriter byEntityCondition = null;
+    byEntityCondition = getWriterByEntityCondition();
     if (byEntityCondition != null) {
-      ByEntityConditionImpl clonedChild = ((ByEntityConditionImpl) byEntityCondition).clone();
+      IByEntityConditionWriter clonedChild = ((ByEntityConditionImpl) byEntityCondition).clone();
       clonedObject.setByEntityCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IByValueCondition byValueCondition = null;
-    byValueCondition = getByValueCondition();
+    IByValueConditionWriter byValueCondition = null;
+    byValueCondition = getWriterByValueCondition();
     if (byValueCondition != null) {
-      ByValueConditionImpl clonedChild = ((ByValueConditionImpl) byValueCondition).clone();
+      IByValueConditionWriter clonedChild = ((ByValueConditionImpl) byValueCondition).clone();
       clonedObject.setByValueCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -355,21 +332,6 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
-  public void writeToDelay(Double delay) {
-    setDelay(delay);
-  }
-
-  @Override
-  public void writeToConditionEdge(ConditionEdge conditionEdge) {
-    setConditionEdge(conditionEdge);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -417,22 +379,12 @@ public class ConditionImpl extends BaseImpl implements ICondition, IConditionWri
 
   // children
   @Override
-  public IByEntityConditionWriter getByEntityConditionWriter() {
-    return this.byEntityConditionWriter;
+  public IByEntityConditionWriter getWriterByEntityCondition() {
+    return this.byEntityCondition;
   }
 
   @Override
-  public IByValueConditionWriter getByValueConditionWriter() {
-    return this.byValueConditionWriter;
-  }
-
-  @Override
-  public void writeToByEntityConditionWriter(IByEntityConditionWriter byEntityConditionWriter) {
-    this.byEntityConditionWriter = byEntityConditionWriter;
-  }
-
-  @Override
-  public void writeToByValueConditionWriter(IByValueConditionWriter byValueConditionWriter) {
-    this.byValueConditionWriter = byValueConditionWriter;
+  public IByValueConditionWriter getWriterByValueCondition() {
+    return this.byValueCondition;
   }
 }

@@ -25,8 +25,6 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
-import net.asam.openscenario.v1_0.api.IControlPoint;
-import net.asam.openscenario.v1_0.api.IKnot;
 import net.asam.openscenario.v1_0.api.INurbs;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -79,26 +77,20 @@ public class NurbsCardinalityCheckerRule extends CardinalityCheckerRule<INurbs> 
           new CardinalityViolation(OscConstants.ATTRIBUTE__ORDER, 0, 1, ViolationType.REQUIRED));
     }
     // Check violation
-    List<IControlPoint> controlPoints = object.getControlPoints();
+    int controlPointsSize = object.getControlPointsSize();
     // Check too few elements
-    if (controlPoints == null || controlPoints.size() < 2) {
+    if (controlPointsSize < 2) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__CONTROL_POINT,
-              2,
-              controlPoints == null ? 0 : controlPoints.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__CONTROL_POINT, 2, controlPointsSize, ViolationType.TOO_FEW));
     }
     // Check violation
-    List<IKnot> knots = object.getKnots();
+    int knotsSize = object.getKnotsSize();
     // Check too few elements
-    if (knots == null || knots.size() < 2) {
+    if (knotsSize < 2) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__KNOT,
-              2,
-              knots == null ? 0 : knots.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__KNOT, 2, knotsSize, ViolationType.TOO_FEW));
     }
     return violations;
   }

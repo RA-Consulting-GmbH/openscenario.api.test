@@ -26,7 +26,6 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.v1_0.api.IPolyline;
-import net.asam.openscenario.v1_0.api.IVertex;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -72,15 +71,12 @@ public class PolylineCardinalityCheckerRule extends CardinalityCheckerRule<IPoly
   private List<CardinalityViolation> getAllViolations(IPolyline object) {
     List<CardinalityViolation> violations = new ArrayList<>();
     // Check violation
-    List<IVertex> vertices = object.getVertices();
+    int verticesSize = object.getVerticesSize();
     // Check too few elements
-    if (vertices == null || vertices.size() < 2) {
+    if (verticesSize < 2) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__VERTEX,
-              2,
-              vertices == null ? 0 : vertices.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__VERTEX, 2, verticesSize, ViolationType.TOO_FEW));
     }
     return violations;
   }

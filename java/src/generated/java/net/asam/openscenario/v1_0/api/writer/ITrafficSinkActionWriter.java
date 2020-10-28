@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficSinkAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,23 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficSinkActionWriter extends IOpenScenarioModelElement {
+public interface ITrafficSinkActionWriter extends ITrafficSinkAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Defines the rate on which vehicles disappear at
-   * the sinks location. Unit: vehicles/s Range: [0..inf[.
-   *
-   * @return value of model property rate
-   */
-  public Double getRate();
-  /**
-   * From OpenSCENARIO class model specification: Defines the radius of the traffic sink where
-   * vehicles disappear around the specified position. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property radius
-   */
-  public Double getRadius();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Defines the rate on which vehicles disappear at
@@ -50,14 +37,27 @@ public interface ITrafficSinkActionWriter extends IOpenScenarioModelElement {
    *
    * @param rate value of model property rate
    */
-  public void writeToRate(Double rate);
+  public void setRate(Double rate);
   /**
    * From OpenSCENARIO class model specification: Defines the radius of the traffic sink where
    * vehicles disappear around the specified position. Unit: m; Range: [0..inf[.
    *
    * @param radius value of model property radius
    */
-  public void writeToRadius(Double radius);
+  public void setRadius(Double radius);
+  /**
+   * From OpenSCENARIO class model specification: Defines the position of the traffic sink.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
+  /**
+   * From OpenSCENARIO class model specification: Defines the vehicle and controller distribution
+   * for the sink.
+   *
+   * @param trafficDefinition value of model property trafficDefinition
+   */
+  public void setTrafficDefinition(ITrafficDefinitionWriter trafficDefinition);
 
   /**
    * Set a parameter for the attribute rate
@@ -106,26 +106,12 @@ public interface ITrafficSinkActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
+  public IPositionWriter getWriterPosition();
   /**
    * From OpenSCENARIO class model specification: Defines the vehicle and controller distribution
    * for the sink.
    *
    * @return a writer for model property trafficDefinition
    */
-  public ITrafficDefinitionWriter getTrafficDefinitionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Defines the position of the traffic sink.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines the vehicle and controller distribution
-   * for the sink.
-   *
-   * @param trafficDefinitionWriter writer for the model property trafficDefinition
-   */
-  public void writeToTrafficDefinitionWriter(ITrafficDefinitionWriter trafficDefinitionWriter);
+  public ITrafficDefinitionWriter getWriterTrafficDefinition();
 }

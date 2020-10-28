@@ -27,8 +27,8 @@ import net.asam.openscenario.parser.WrappedListParser;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IEvent;
-import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.writer.IEventWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.EventImpl;
 import net.asam.openscenario.v1_0.impl.ManeuverImpl;
@@ -149,7 +149,8 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
       parameterDeclarations.setParent(object);
       this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
-      List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
+      List<IParameterDeclarationWriter> parameterDeclarationsList =
+          object.getWriterParameterDeclarations();
       if (parameterDeclarationsList == null) {
         parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);
@@ -197,7 +198,7 @@ public class ManeuverXmlParser extends XmlComplexTypeParser<ManeuverImpl> {
       // Setting the parent
       events.setParent(object);
       this.eventXmlParser.parseElement(indexedElement, parserContext, events);
-      List<IEvent> eventsList = object.getEvents();
+      List<IEventWriter> eventsList = object.getWriterEvents();
       if (eventsList == null) {
         eventsList = new ArrayList<>();
         object.setEvents(eventsList);

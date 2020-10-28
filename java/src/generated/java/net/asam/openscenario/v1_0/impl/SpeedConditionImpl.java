@@ -48,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, ISpeedConditionWriter {
+public class SpeedConditionImpl extends BaseImpl implements ISpeedConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -82,20 +82,13 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, ISp
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Speed value of the speed condition.
-   *     Unit m/s.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
@@ -251,16 +244,6 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition, ISp
   @Override
   public String getModelType() {
     return "SpeedCondition";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
   }
 
   @Override

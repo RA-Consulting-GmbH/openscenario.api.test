@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IInitActions;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,28 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IInitActionsWriter extends IOpenScenarioModelElement {
+public interface IInitActionsWriter extends IInitActions, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: An optional list of global actions.
+   *
+   * @param globalActions value of model property globalActions
+   */
+  public void setGlobalActions(List<IGlobalActionWriter> globalActions);
+  /**
+   * From OpenSCENARIO class model specification: An optional list of user defined actions.
+   *
+   * @param userDefinedActions value of model property userDefinedActions
+   */
+  public void setUserDefinedActions(List<IUserDefinedActionWriter> userDefinedActions);
+  /**
+   * From OpenSCENARIO class model specification: An optional list of private actions.
+   *
+   * @param privates value of model property privates
+   */
+  public void setPrivates(List<IPrivateWriter> privates);
 
   // children
 
@@ -37,36 +59,17 @@ public interface IInitActionsWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property globalActions
    */
-  public List<IGlobalActionWriter> getGlobalActionsWriter();
+  public List<IGlobalActionWriter> getWriterGlobalActions();
   /**
    * From OpenSCENARIO class model specification: An optional list of user defined actions.
    *
    * @return a list of writers for model property userDefinedActions
    */
-  public List<IUserDefinedActionWriter> getUserDefinedActionsWriter();
+  public List<IUserDefinedActionWriter> getWriterUserDefinedActions();
   /**
    * From OpenSCENARIO class model specification: An optional list of private actions.
    *
    * @return a list of writers for model property privates
    */
-  public List<IPrivateWriter> getPrivatesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: An optional list of global actions.
-   *
-   * @param globalActionsWriters list of writers for the model property globalActions
-   */
-  public void setGlobalActionsWriter(List<IGlobalActionWriter> globalActionsWriters);
-  /**
-   * From OpenSCENARIO class model specification: An optional list of user defined actions.
-   *
-   * @param userDefinedActionsWriters list of writers for the model property userDefinedActions
-   */
-  public void setUserDefinedActionsWriter(List<IUserDefinedActionWriter> userDefinedActionsWriters);
-  /**
-   * From OpenSCENARIO class model specification: An optional list of private actions.
-   *
-   * @param privatesWriters list of writers for the model property privates
-   */
-  public void setPrivatesWriter(List<IPrivateWriter> privatesWriters);
+  public List<IPrivateWriter> getWriterPrivates();
 }

@@ -16,6 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IScenarioObject;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -26,22 +29,30 @@ package net.asam.openscenario.v1_0.api.writer;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IScenarioObjectWriter extends IEntityWriter {
+public interface IScenarioObjectWriter
+    extends IEntityWriter, IScenarioObject, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Identifier of the scenario object.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Identifier of the scenario object.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: The EntityObject (either instance of type Vehicle,
+   * Pedestrian or MiscObject).
+   *
+   * @param entityObject value of model property entityObject
+   */
+  public void setEntityObject(IEntityObjectWriter entityObject);
+  /**
+   * From OpenSCENARIO class model specification: Controller of the EntityObject instance.
+   *
+   * @param objectController value of model property objectController
+   */
+  public void setObjectController(IObjectControllerWriter objectController);
 
   /**
    * Set a parameter for the attribute name
@@ -72,25 +83,11 @@ public interface IScenarioObjectWriter extends IEntityWriter {
    *
    * @return a writer for model property entityObject
    */
-  public IEntityObjectWriter getEntityObjectWriter();
+  public IEntityObjectWriter getWriterEntityObject();
   /**
    * From OpenSCENARIO class model specification: Controller of the EntityObject instance.
    *
    * @return a writer for model property objectController
    */
-  public IObjectControllerWriter getObjectControllerWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The EntityObject (either instance of type Vehicle,
-   * Pedestrian or MiscObject).
-   *
-   * @param entityObjectWriter writer for the model property entityObject
-   */
-  public void writeToEntityObjectWriter(IEntityObjectWriter entityObjectWriter);
-  /**
-   * From OpenSCENARIO class model specification: Controller of the EntityObject instance.
-   *
-   * @param objectControllerWriter writer for the model property objectController
-   */
-  public void writeToObjectControllerWriter(IObjectControllerWriter objectControllerWriter);
+  public IObjectControllerWriter getWriterObjectController();
 }

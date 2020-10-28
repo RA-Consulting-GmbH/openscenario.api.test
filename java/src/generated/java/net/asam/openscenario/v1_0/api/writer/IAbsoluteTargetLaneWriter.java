@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAbsoluteTargetLane;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,16 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IAbsoluteTargetLaneWriter extends IOpenScenarioModelElement {
+public interface IAbsoluteTargetLaneWriter extends IAbsoluteTargetLane, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Number (ID) of the target lane the entity will
-   * change to.
-   *
-   * @return value of model property value
-   */
-  public String getValue();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Number (ID) of the target lane the entity will
@@ -43,7 +37,7 @@ public interface IAbsoluteTargetLaneWriter extends IOpenScenarioModelElement {
    *
    * @param value value of model property value
    */
-  public void writeToValue(String value);
+  public void setValue(String value);
 
   /**
    * Set a parameter for the attribute value

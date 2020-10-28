@@ -48,14 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITimeReferenceWriter {
+public class TimeReferenceImpl extends BaseImpl implements ITimeReferenceWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private INone none;
-  private ITiming timing;
-
-  private INoneWriter noneWriter;
-  private ITimingWriter timingWriter;
+  private INoneWriter none;
+  private ITimingWriter timing;
 
   /** Default constructor */
   public TimeReferenceImpl() {
@@ -79,23 +76,14 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITime
   public ITiming getTiming() {
     return this.timing;
   }
-  /**
-   * Sets the value of model property none
-   *
-   * @param none from OpenSCENARIO class model specification: [This property indicates Timing
-   *     information is neglected.]
-   */
-  public void setNone(INone none) {
+
+  @Override
+  public void setNone(INoneWriter none) {
     this.none = none;
   }
-  /**
-   * Sets the value of model property timing
-   *
-   * @param timing from OpenSCENARIO class model specification: [This property indicates timing
-   *     information is taken into account. Its underlying properties allow specification of the ,
-   *     time domain (absolute or relative), time scaling and a global time offset.]
-   */
-  public void setTiming(ITiming timing) {
+
+  @Override
+  public void setTiming(ITimingWriter timing) {
     this.timing = timing;
   }
 
@@ -120,13 +108,13 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITime
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    INone none = null;
-    none = getNone();
+    INoneWriter none = null;
+    none = getWriterNone();
     if (none != null) {
       result.add((BaseImpl) none);
     }
-    ITiming timing = null;
-    timing = getTiming();
+    ITimingWriter timing = null;
+    timing = getWriterTiming();
     if (timing != null) {
       result.add((BaseImpl) timing);
     }
@@ -149,17 +137,17 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITime
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    INone none = null;
-    none = getNone();
+    INoneWriter none = null;
+    none = getWriterNone();
     if (none != null) {
-      NoneImpl clonedChild = ((NoneImpl) none).clone();
+      INoneWriter clonedChild = ((NoneImpl) none).clone();
       clonedObject.setNone(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITiming timing = null;
-    timing = getTiming();
+    ITimingWriter timing = null;
+    timing = getWriterTiming();
     if (timing != null) {
-      TimingImpl clonedChild = ((TimingImpl) timing).clone();
+      ITimingWriter clonedChild = ((TimingImpl) timing).clone();
       clonedObject.setTiming(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -248,22 +236,12 @@ public class TimeReferenceImpl extends BaseImpl implements ITimeReference, ITime
 
   // children
   @Override
-  public INoneWriter getNoneWriter() {
-    return this.noneWriter;
+  public INoneWriter getWriterNone() {
+    return this.none;
   }
 
   @Override
-  public ITimingWriter getTimingWriter() {
-    return this.timingWriter;
-  }
-
-  @Override
-  public void writeToNoneWriter(INoneWriter noneWriter) {
-    this.noneWriter = noneWriter;
-  }
-
-  @Override
-  public void writeToTimingWriter(ITimingWriter timingWriter) {
-    this.timingWriter = timingWriter;
+  public ITimingWriter getWriterTiming() {
+    return this.timing;
   }
 }

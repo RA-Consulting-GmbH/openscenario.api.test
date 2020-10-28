@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -61,7 +62,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
+public class CatalogImpl extends BaseImpl implements ICatalogWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -70,23 +71,14 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
   }
 
   private String name;
-  private List<IVehicle> vehicles;
-  private List<IController> controllers;
-  private List<IPedestrian> pedestrians;
-  private List<IMiscObject> miscObjects;
-  private List<IEnvironment> environments;
-  private List<IManeuver> maneuvers;
-  private List<ITrajectory> trajectories;
-  private List<IRoute> routes;
-
-  private List<IVehicleWriter> vehiclesWriters;
-  private List<IControllerWriter> controllersWriters;
-  private List<IPedestrianWriter> pedestriansWriters;
-  private List<IMiscObjectWriter> miscObjectsWriters;
-  private List<IEnvironmentWriter> environmentsWriters;
-  private List<IManeuverWriter> maneuversWriters;
-  private List<ITrajectoryWriter> trajectoriesWriters;
-  private List<IRouteWriter> routesWriters;
+  private List<IVehicleWriter> vehicles = new ArrayList<>();
+  private List<IControllerWriter> controllers = new ArrayList<>();
+  private List<IPedestrianWriter> pedestrians = new ArrayList<>();
+  private List<IMiscObjectWriter> miscObjects = new ArrayList<>();
+  private List<IEnvironmentWriter> environments = new ArrayList<>();
+  private List<IManeuverWriter> maneuvers = new ArrayList<>();
+  private List<ITrajectoryWriter> trajectories = new ArrayList<>();
+  private List<IRouteWriter> routes = new ArrayList<>();
 
   /** Default constructor */
   public CatalogImpl() {
@@ -107,122 +99,295 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
   }
 
   @Override
-  public List<IVehicle> getVehicles() {
+  public List<IVehicleWriter> getWriterVehicles() {
     return this.vehicles;
   }
 
   @Override
-  public List<IController> getControllers() {
+  public Iterable<IVehicle> getVehicles() {
+    return new Iterable<IVehicle>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IVehicle> iterator() {
+        return new ArrayList<IVehicle>(CatalogImpl.this.vehicles).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getVehiclesSize() {
+    if (this.vehicles != null) return this.vehicles.size();
+    return 0;
+  }
+
+  @Override
+  public IVehicle getVehiclesAtIndex(int index) {
+    if (index >= 0 && this.vehicles != null && this.vehicles.size() > index) {
+      return this.vehicles.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IControllerWriter> getWriterControllers() {
     return this.controllers;
   }
 
   @Override
-  public List<IPedestrian> getPedestrians() {
+  public Iterable<IController> getControllers() {
+    return new Iterable<IController>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IController> iterator() {
+        return new ArrayList<IController>(CatalogImpl.this.controllers).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getControllersSize() {
+    if (this.controllers != null) return this.controllers.size();
+    return 0;
+  }
+
+  @Override
+  public IController getControllersAtIndex(int index) {
+    if (index >= 0 && this.controllers != null && this.controllers.size() > index) {
+      return this.controllers.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IPedestrianWriter> getWriterPedestrians() {
     return this.pedestrians;
   }
 
   @Override
-  public List<IMiscObject> getMiscObjects() {
+  public Iterable<IPedestrian> getPedestrians() {
+    return new Iterable<IPedestrian>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IPedestrian> iterator() {
+        return new ArrayList<IPedestrian>(CatalogImpl.this.pedestrians).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getPedestriansSize() {
+    if (this.pedestrians != null) return this.pedestrians.size();
+    return 0;
+  }
+
+  @Override
+  public IPedestrian getPedestriansAtIndex(int index) {
+    if (index >= 0 && this.pedestrians != null && this.pedestrians.size() > index) {
+      return this.pedestrians.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IMiscObjectWriter> getWriterMiscObjects() {
     return this.miscObjects;
   }
 
   @Override
-  public List<IEnvironment> getEnvironments() {
+  public Iterable<IMiscObject> getMiscObjects() {
+    return new Iterable<IMiscObject>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IMiscObject> iterator() {
+        return new ArrayList<IMiscObject>(CatalogImpl.this.miscObjects).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getMiscObjectsSize() {
+    if (this.miscObjects != null) return this.miscObjects.size();
+    return 0;
+  }
+
+  @Override
+  public IMiscObject getMiscObjectsAtIndex(int index) {
+    if (index >= 0 && this.miscObjects != null && this.miscObjects.size() > index) {
+      return this.miscObjects.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IEnvironmentWriter> getWriterEnvironments() {
     return this.environments;
   }
 
   @Override
-  public List<IManeuver> getManeuvers() {
+  public Iterable<IEnvironment> getEnvironments() {
+    return new Iterable<IEnvironment>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IEnvironment> iterator() {
+        return new ArrayList<IEnvironment>(CatalogImpl.this.environments).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getEnvironmentsSize() {
+    if (this.environments != null) return this.environments.size();
+    return 0;
+  }
+
+  @Override
+  public IEnvironment getEnvironmentsAtIndex(int index) {
+    if (index >= 0 && this.environments != null && this.environments.size() > index) {
+      return this.environments.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IManeuverWriter> getWriterManeuvers() {
     return this.maneuvers;
   }
 
   @Override
-  public List<ITrajectory> getTrajectories() {
+  public Iterable<IManeuver> getManeuvers() {
+    return new Iterable<IManeuver>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IManeuver> iterator() {
+        return new ArrayList<IManeuver>(CatalogImpl.this.maneuvers).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getManeuversSize() {
+    if (this.maneuvers != null) return this.maneuvers.size();
+    return 0;
+  }
+
+  @Override
+  public IManeuver getManeuversAtIndex(int index) {
+    if (index >= 0 && this.maneuvers != null && this.maneuvers.size() > index) {
+      return this.maneuvers.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<ITrajectoryWriter> getWriterTrajectories() {
     return this.trajectories;
   }
 
   @Override
-  public List<IRoute> getRoutes() {
+  public Iterable<ITrajectory> getTrajectories() {
+    return new Iterable<ITrajectory>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<ITrajectory> iterator() {
+        return new ArrayList<ITrajectory>(CatalogImpl.this.trajectories).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getTrajectoriesSize() {
+    if (this.trajectories != null) return this.trajectories.size();
+    return 0;
+  }
+
+  @Override
+  public ITrajectory getTrajectoriesAtIndex(int index) {
+    if (index >= 0 && this.trajectories != null && this.trajectories.size() > index) {
+      return this.trajectories.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IRouteWriter> getWriterRoutes() {
     return this.routes;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the catalog.]
-   */
+
+  @Override
+  public Iterable<IRoute> getRoutes() {
+    return new Iterable<IRoute>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IRoute> iterator() {
+        return new ArrayList<IRoute>(CatalogImpl.this.routes).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getRoutesSize() {
+    if (this.routes != null) return this.routes.size();
+    return 0;
+  }
+
+  @Override
+  public IRoute getRoutesAtIndex(int index) {
+    if (index >= 0 && this.routes != null && this.routes.size() > index) {
+      return this.routes.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property vehicles
-   *
-   * @param vehicles from OpenSCENARIO class model specification: [A list of vehicle types that can
-   *     be reused in a scenario.]
-   */
-  public void setVehicles(List<IVehicle> vehicles) {
+
+  @Override
+  public void setVehicles(List<IVehicleWriter> vehicles) {
     this.vehicles = vehicles;
   }
-  /**
-   * Sets the value of model property controllers
-   *
-   * @param controllers from OpenSCENARIO class model specification: [A list of controller types
-   *     that can be reused in a scenario.]
-   */
-  public void setControllers(List<IController> controllers) {
+
+  @Override
+  public void setControllers(List<IControllerWriter> controllers) {
     this.controllers = controllers;
   }
-  /**
-   * Sets the value of model property pedestrians
-   *
-   * @param pedestrians from OpenSCENARIO class model specification: [A list of pedestrian types
-   *     that can be reused in a scenario.]
-   */
-  public void setPedestrians(List<IPedestrian> pedestrians) {
+
+  @Override
+  public void setPedestrians(List<IPedestrianWriter> pedestrians) {
     this.pedestrians = pedestrians;
   }
-  /**
-   * Sets the value of model property miscObjects
-   *
-   * @param miscObjects from OpenSCENARIO class model specification: [A list of miscellaneous object
-   *     type that that can be reused in a scenario.]
-   */
-  public void setMiscObjects(List<IMiscObject> miscObjects) {
+
+  @Override
+  public void setMiscObjects(List<IMiscObjectWriter> miscObjects) {
     this.miscObjects = miscObjects;
   }
-  /**
-   * Sets the value of model property environments
-   *
-   * @param environments from OpenSCENARIO class model specification: [A list of environment types
-   *     that can be reused in a scenario.]
-   */
-  public void setEnvironments(List<IEnvironment> environments) {
+
+  @Override
+  public void setEnvironments(List<IEnvironmentWriter> environments) {
     this.environments = environments;
   }
-  /**
-   * Sets the value of model property maneuvers
-   *
-   * @param maneuvers from OpenSCENARIO class model specification: [A list of maneuver types that
-   *     can be reused in a scenario.]
-   */
-  public void setManeuvers(List<IManeuver> maneuvers) {
+
+  @Override
+  public void setManeuvers(List<IManeuverWriter> maneuvers) {
     this.maneuvers = maneuvers;
   }
-  /**
-   * Sets the value of model property trajectories
-   *
-   * @param trajectories from OpenSCENARIO class model specification: [A list of trajectory types
-   *     that can be reused in a scenario.]
-   */
-  public void setTrajectories(List<ITrajectory> trajectories) {
+
+  @Override
+  public void setTrajectories(List<ITrajectoryWriter> trajectories) {
     this.trajectories = trajectories;
   }
-  /**
-   * Sets the value of model property routes
-   *
-   * @param routes from OpenSCENARIO class model specification: [A list of route types that can be
-   *     reused in a scenario.]
-   */
-  public void setRoutes(List<IRoute> routes) {
+
+  @Override
+  public void setRoutes(List<IRouteWriter> routes) {
     this.routes = routes;
   }
 
@@ -252,59 +417,59 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IVehicle> vehicles = null;
-    vehicles = getVehicles();
+    List<IVehicleWriter> vehicles = null;
+    vehicles = getWriterVehicles();
     if (vehicles != null) {
-      for (IVehicle item : vehicles) {
+      for (IVehicleWriter item : vehicles) {
         result.add((BaseImpl) item);
       }
     }
-    List<IController> controllers = null;
-    controllers = getControllers();
+    List<IControllerWriter> controllers = null;
+    controllers = getWriterControllers();
     if (controllers != null) {
-      for (IController item : controllers) {
+      for (IControllerWriter item : controllers) {
         result.add((BaseImpl) item);
       }
     }
-    List<IPedestrian> pedestrians = null;
-    pedestrians = getPedestrians();
+    List<IPedestrianWriter> pedestrians = null;
+    pedestrians = getWriterPedestrians();
     if (pedestrians != null) {
-      for (IPedestrian item : pedestrians) {
+      for (IPedestrianWriter item : pedestrians) {
         result.add((BaseImpl) item);
       }
     }
-    List<IMiscObject> miscObjects = null;
-    miscObjects = getMiscObjects();
+    List<IMiscObjectWriter> miscObjects = null;
+    miscObjects = getWriterMiscObjects();
     if (miscObjects != null) {
-      for (IMiscObject item : miscObjects) {
+      for (IMiscObjectWriter item : miscObjects) {
         result.add((BaseImpl) item);
       }
     }
-    List<IEnvironment> environments = null;
-    environments = getEnvironments();
+    List<IEnvironmentWriter> environments = null;
+    environments = getWriterEnvironments();
     if (environments != null) {
-      for (IEnvironment item : environments) {
+      for (IEnvironmentWriter item : environments) {
         result.add((BaseImpl) item);
       }
     }
-    List<IManeuver> maneuvers = null;
-    maneuvers = getManeuvers();
+    List<IManeuverWriter> maneuvers = null;
+    maneuvers = getWriterManeuvers();
     if (maneuvers != null) {
-      for (IManeuver item : maneuvers) {
+      for (IManeuverWriter item : maneuvers) {
         result.add((BaseImpl) item);
       }
     }
-    List<ITrajectory> trajectories = null;
-    trajectories = getTrajectories();
+    List<ITrajectoryWriter> trajectories = null;
+    trajectories = getWriterTrajectories();
     if (trajectories != null) {
-      for (ITrajectory item : trajectories) {
+      for (ITrajectoryWriter item : trajectories) {
         result.add((BaseImpl) item);
       }
     }
-    List<IRoute> routes = null;
-    routes = getRoutes();
+    List<IRouteWriter> routes = null;
+    routes = getWriterRoutes();
     if (routes != null) {
-      for (IRoute item : routes) {
+      for (IRouteWriter item : routes) {
         result.add((BaseImpl) item);
       }
     }
@@ -329,89 +494,89 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
     // Simple type
     clonedObject.setName(getName());
     // clone children
-    List<IVehicle> vehicles = null;
-    vehicles = getVehicles();
+    List<IVehicleWriter> vehicles = null;
+    vehicles = getWriterVehicles();
     if (vehicles != null) {
-      List<IVehicle> clonedList = new ArrayList<>();
-      for (IVehicle item : vehicles) {
-        VehicleImpl clonedChild = ((VehicleImpl) item).clone();
+      List<IVehicleWriter> clonedList = new ArrayList<>();
+      for (IVehicleWriter item : vehicles) {
+        IVehicleWriter clonedChild = ((VehicleImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setVehicles(clonedList);
     }
-    List<IController> controllers = null;
-    controllers = getControllers();
+    List<IControllerWriter> controllers = null;
+    controllers = getWriterControllers();
     if (controllers != null) {
-      List<IController> clonedList = new ArrayList<>();
-      for (IController item : controllers) {
-        ControllerImpl clonedChild = ((ControllerImpl) item).clone();
+      List<IControllerWriter> clonedList = new ArrayList<>();
+      for (IControllerWriter item : controllers) {
+        IControllerWriter clonedChild = ((ControllerImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setControllers(clonedList);
     }
-    List<IPedestrian> pedestrians = null;
-    pedestrians = getPedestrians();
+    List<IPedestrianWriter> pedestrians = null;
+    pedestrians = getWriterPedestrians();
     if (pedestrians != null) {
-      List<IPedestrian> clonedList = new ArrayList<>();
-      for (IPedestrian item : pedestrians) {
-        PedestrianImpl clonedChild = ((PedestrianImpl) item).clone();
+      List<IPedestrianWriter> clonedList = new ArrayList<>();
+      for (IPedestrianWriter item : pedestrians) {
+        IPedestrianWriter clonedChild = ((PedestrianImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setPedestrians(clonedList);
     }
-    List<IMiscObject> miscObjects = null;
-    miscObjects = getMiscObjects();
+    List<IMiscObjectWriter> miscObjects = null;
+    miscObjects = getWriterMiscObjects();
     if (miscObjects != null) {
-      List<IMiscObject> clonedList = new ArrayList<>();
-      for (IMiscObject item : miscObjects) {
-        MiscObjectImpl clonedChild = ((MiscObjectImpl) item).clone();
+      List<IMiscObjectWriter> clonedList = new ArrayList<>();
+      for (IMiscObjectWriter item : miscObjects) {
+        IMiscObjectWriter clonedChild = ((MiscObjectImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setMiscObjects(clonedList);
     }
-    List<IEnvironment> environments = null;
-    environments = getEnvironments();
+    List<IEnvironmentWriter> environments = null;
+    environments = getWriterEnvironments();
     if (environments != null) {
-      List<IEnvironment> clonedList = new ArrayList<>();
-      for (IEnvironment item : environments) {
-        EnvironmentImpl clonedChild = ((EnvironmentImpl) item).clone();
+      List<IEnvironmentWriter> clonedList = new ArrayList<>();
+      for (IEnvironmentWriter item : environments) {
+        IEnvironmentWriter clonedChild = ((EnvironmentImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setEnvironments(clonedList);
     }
-    List<IManeuver> maneuvers = null;
-    maneuvers = getManeuvers();
+    List<IManeuverWriter> maneuvers = null;
+    maneuvers = getWriterManeuvers();
     if (maneuvers != null) {
-      List<IManeuver> clonedList = new ArrayList<>();
-      for (IManeuver item : maneuvers) {
-        ManeuverImpl clonedChild = ((ManeuverImpl) item).clone();
+      List<IManeuverWriter> clonedList = new ArrayList<>();
+      for (IManeuverWriter item : maneuvers) {
+        IManeuverWriter clonedChild = ((ManeuverImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setManeuvers(clonedList);
     }
-    List<ITrajectory> trajectories = null;
-    trajectories = getTrajectories();
+    List<ITrajectoryWriter> trajectories = null;
+    trajectories = getWriterTrajectories();
     if (trajectories != null) {
-      List<ITrajectory> clonedList = new ArrayList<>();
-      for (ITrajectory item : trajectories) {
-        TrajectoryImpl clonedChild = ((TrajectoryImpl) item).clone();
+      List<ITrajectoryWriter> clonedList = new ArrayList<>();
+      for (ITrajectoryWriter item : trajectories) {
+        ITrajectoryWriter clonedChild = ((TrajectoryImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setTrajectories(clonedList);
     }
-    List<IRoute> routes = null;
-    routes = getRoutes();
+    List<IRouteWriter> routes = null;
+    routes = getWriterRoutes();
     if (routes != null) {
-      List<IRoute> clonedList = new ArrayList<>();
-      for (IRoute item : routes) {
-        RouteImpl clonedChild = ((RouteImpl) item).clone();
+      List<IRouteWriter> clonedList = new ArrayList<>();
+      for (IRouteWriter item : routes) {
+        IRouteWriter clonedChild = ((RouteImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -526,11 +691,6 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -547,83 +707,4 @@ public class CatalogImpl extends BaseImpl implements ICatalog, ICatalogWriter {
 
   // children
 
-  @Override
-  public List<IVehicleWriter> getVehiclesWriter() {
-    return this.vehiclesWriters;
-  }
-
-  @Override
-  public List<IControllerWriter> getControllersWriter() {
-    return this.controllersWriters;
-  }
-
-  @Override
-  public List<IPedestrianWriter> getPedestriansWriter() {
-    return this.pedestriansWriters;
-  }
-
-  @Override
-  public List<IMiscObjectWriter> getMiscObjectsWriter() {
-    return this.miscObjectsWriters;
-  }
-
-  @Override
-  public List<IEnvironmentWriter> getEnvironmentsWriter() {
-    return this.environmentsWriters;
-  }
-
-  @Override
-  public List<IManeuverWriter> getManeuversWriter() {
-    return this.maneuversWriters;
-  }
-
-  @Override
-  public List<ITrajectoryWriter> getTrajectoriesWriter() {
-    return this.trajectoriesWriters;
-  }
-
-  @Override
-  public List<IRouteWriter> getRoutesWriter() {
-    return this.routesWriters;
-  }
-
-  @Override
-  public void setVehiclesWriter(List<IVehicleWriter> vehiclesWriters) {
-    this.vehiclesWriters = vehiclesWriters;
-  }
-
-  @Override
-  public void setControllersWriter(List<IControllerWriter> controllersWriters) {
-    this.controllersWriters = controllersWriters;
-  }
-
-  @Override
-  public void setPedestriansWriter(List<IPedestrianWriter> pedestriansWriters) {
-    this.pedestriansWriters = pedestriansWriters;
-  }
-
-  @Override
-  public void setMiscObjectsWriter(List<IMiscObjectWriter> miscObjectsWriters) {
-    this.miscObjectsWriters = miscObjectsWriters;
-  }
-
-  @Override
-  public void setEnvironmentsWriter(List<IEnvironmentWriter> environmentsWriters) {
-    this.environmentsWriters = environmentsWriters;
-  }
-
-  @Override
-  public void setManeuversWriter(List<IManeuverWriter> maneuversWriters) {
-    this.maneuversWriters = maneuversWriters;
-  }
-
-  @Override
-  public void setTrajectoriesWriter(List<ITrajectoryWriter> trajectoriesWriters) {
-    this.trajectoriesWriters = trajectoriesWriters;
-  }
-
-  @Override
-  public void setRoutesWriter(List<IRouteWriter> routesWriters) {
-    this.routesWriters = routesWriters;
-  }
 }

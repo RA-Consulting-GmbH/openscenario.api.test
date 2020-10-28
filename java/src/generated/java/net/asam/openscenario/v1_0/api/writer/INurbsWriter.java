@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.INurbs;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,17 +28,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface INurbsWriter extends IOpenScenarioModelElement {
+public interface INurbsWriter extends INurbs, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Order of the NURBS trajectory. This is the order
-   * of the curve, not the degree of the polynomials, which will be one less than the order of the
-   * curve. Range [2..inf[.
-   *
-   * @return value of model property order
-   */
-  public Long getOrder();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Order of the NURBS trajectory. This is the order
@@ -46,7 +39,22 @@ public interface INurbsWriter extends IOpenScenarioModelElement {
    *
    * @param order value of model property order
    */
-  public void writeToOrder(Long order);
+  public void setOrder(Long order);
+  /**
+   * From OpenSCENARIO class model specification: Control point vector of the NURBS trajectory. The
+   * number of control points must be greater or equal to the order of the curve.
+   *
+   * @param controlPoints value of model property controlPoints
+   */
+  public void setControlPoints(List<IControlPointWriter> controlPoints);
+  /**
+   * From OpenSCENARIO class model specification: Knot vector of the NURBS trajectory. Knot values
+   * must be given in ascending order. The number of knot vector values must be equal to the number
+   * of control points plus the order of the curve.
+   *
+   * @param knots value of model property knots
+   */
+  public void setKnots(List<IKnotWriter> knots);
 
   /**
    * Set a parameter for the attribute order
@@ -78,7 +86,7 @@ public interface INurbsWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property controlPoints
    */
-  public List<IControlPointWriter> getControlPointsWriter();
+  public List<IControlPointWriter> getWriterControlPoints();
   /**
    * From OpenSCENARIO class model specification: Knot vector of the NURBS trajectory. Knot values
    * must be given in ascending order. The number of knot vector values must be equal to the number
@@ -86,21 +94,5 @@ public interface INurbsWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property knots
    */
-  public List<IKnotWriter> getKnotsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Control point vector of the NURBS trajectory. The
-   * number of control points must be greater or equal to the order of the curve.
-   *
-   * @param controlPointsWriters list of writers for the model property controlPoints
-   */
-  public void setControlPointsWriter(List<IControlPointWriter> controlPointsWriters);
-  /**
-   * From OpenSCENARIO class model specification: Knot vector of the NURBS trajectory. Knot values
-   * must be given in ascending order. The number of knot vector values must be equal to the number
-   * of control points plus the order of the curve.
-   *
-   * @param knotsWriters list of writers for the model property knots
-   */
-  public void setKnotsWriter(List<IKnotWriter> knotsWriters);
+  public List<IKnotWriter> getWriterKnots();
 }

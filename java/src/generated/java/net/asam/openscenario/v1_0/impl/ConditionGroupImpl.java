@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -46,12 +47,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, IConditionGroupWriter {
+public class ConditionGroupImpl extends BaseImpl implements IConditionGroupWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<ICondition> conditions;
-
-  private List<IConditionWriter> conditionsWriters;
+  private List<IConditionWriter> conditions = new ArrayList<>();
 
   /** Default constructor */
   public ConditionGroupImpl() {
@@ -67,16 +66,38 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, ICo
   }
 
   @Override
-  public List<ICondition> getConditions() {
+  public List<IConditionWriter> getWriterConditions() {
     return this.conditions;
   }
-  /**
-   * Sets the value of model property conditions
-   *
-   * @param conditions from OpenSCENARIO class model specification: [A associated list of
-   *     conditions.]
-   */
-  public void setConditions(List<ICondition> conditions) {
+
+  @Override
+  public Iterable<ICondition> getConditions() {
+    return new Iterable<ICondition>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<ICondition> iterator() {
+        return new ArrayList<ICondition>(ConditionGroupImpl.this.conditions).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getConditionsSize() {
+    if (this.conditions != null) return this.conditions.size();
+    return 0;
+  }
+
+  @Override
+  public ICondition getConditionsAtIndex(int index) {
+    if (index >= 0 && this.conditions != null && this.conditions.size() > index) {
+      return this.conditions.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setConditions(List<IConditionWriter> conditions) {
     this.conditions = conditions;
   }
 
@@ -101,10 +122,10 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, ICo
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<ICondition> conditions = null;
-    conditions = getConditions();
+    List<IConditionWriter> conditions = null;
+    conditions = getWriterConditions();
     if (conditions != null) {
-      for (ICondition item : conditions) {
+      for (IConditionWriter item : conditions) {
         result.add((BaseImpl) item);
       }
     }
@@ -127,12 +148,12 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, ICo
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<ICondition> conditions = null;
-    conditions = getConditions();
+    List<IConditionWriter> conditions = null;
+    conditions = getWriterConditions();
     if (conditions != null) {
-      List<ICondition> clonedList = new ArrayList<>();
-      for (ICondition item : conditions) {
-        ConditionImpl clonedChild = ((ConditionImpl) item).clone();
+      List<IConditionWriter> clonedList = new ArrayList<>();
+      for (IConditionWriter item : conditions) {
+        IConditionWriter clonedChild = ((ConditionImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -221,13 +242,4 @@ public class ConditionGroupImpl extends BaseImpl implements IConditionGroup, ICo
 
   // children
 
-  @Override
-  public List<IConditionWriter> getConditionsWriter() {
-    return this.conditionsWriters;
-  }
-
-  @Override
-  public void setConditionsWriter(List<IConditionWriter> conditionsWriters) {
-    this.conditionsWriters = conditionsWriters;
-  }
 }

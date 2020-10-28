@@ -51,8 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterActionImpl extends BaseImpl
-    implements IParameterAction, IParameterActionWriter {
+public class ParameterActionImpl extends BaseImpl implements IParameterActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,12 +59,9 @@ public class ParameterActionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__PARAMETER_REF, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IParameterDeclaration> parameterRef;
-  private IParameterSetAction setAction;
-  private IParameterModifyAction modifyAction;
-
-  private IParameterSetActionWriter setActionWriter;
-  private IParameterModifyActionWriter modifyActionWriter;
+  private INamedReference<IParameterDeclaration> parameterRef;
+  private IParameterSetActionWriter setAction;
+  private IParameterModifyActionWriter modifyAction;
 
   /** Default constructor */
   public ParameterActionImpl() {
@@ -94,29 +90,19 @@ public class ParameterActionImpl extends BaseImpl
   public IParameterModifyAction getModifyAction() {
     return this.modifyAction;
   }
-  /**
-   * Sets the value of model property parameterRef
-   *
-   * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter.]
-   */
-  public void setParameterRef(NamedReferenceProxy<IParameterDeclaration> parameterRef) {
+
+  @Override
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
     this.parameterRef = parameterRef;
   }
-  /**
-   * Sets the value of model property setAction
-   *
-   * @param setAction from OpenSCENARIO class model specification: [New value for the parameter.]
-   */
-  public void setSetAction(IParameterSetAction setAction) {
+
+  @Override
+  public void setSetAction(IParameterSetActionWriter setAction) {
     this.setAction = setAction;
   }
-  /**
-   * Sets the value of model property modifyAction
-   *
-   * @param modifyAction from OpenSCENARIO class model specification: [Modifying rule for the
-   *     parameter (Add value or multiply by value).]
-   */
-  public void setModifyAction(IParameterModifyAction modifyAction) {
+
+  @Override
+  public void setModifyAction(IParameterModifyActionWriter modifyAction) {
     this.modifyAction = modifyAction;
   }
 
@@ -147,13 +133,13 @@ public class ParameterActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IParameterSetAction setAction = null;
-    setAction = getSetAction();
+    IParameterSetActionWriter setAction = null;
+    setAction = getWriterSetAction();
     if (setAction != null) {
       result.add((BaseImpl) setAction);
     }
-    IParameterModifyAction modifyAction = null;
-    modifyAction = getModifyAction();
+    IParameterModifyActionWriter modifyAction = null;
+    modifyAction = getWriterModifyAction();
     if (modifyAction != null) {
       result.add((BaseImpl) modifyAction);
     }
@@ -181,17 +167,17 @@ public class ParameterActionImpl extends BaseImpl
     clonedObject.setParameterRef(proxy);
     proxy.setParent(clonedObject);
     // clone children
-    IParameterSetAction setAction = null;
-    setAction = getSetAction();
+    IParameterSetActionWriter setAction = null;
+    setAction = getWriterSetAction();
     if (setAction != null) {
-      ParameterSetActionImpl clonedChild = ((ParameterSetActionImpl) setAction).clone();
+      IParameterSetActionWriter clonedChild = ((ParameterSetActionImpl) setAction).clone();
       clonedObject.setSetAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IParameterModifyAction modifyAction = null;
-    modifyAction = getModifyAction();
+    IParameterModifyActionWriter modifyAction = null;
+    modifyAction = getWriterModifyAction();
     if (modifyAction != null) {
-      ParameterModifyActionImpl clonedChild = ((ParameterModifyActionImpl) modifyAction).clone();
+      IParameterModifyActionWriter clonedChild = ((ParameterModifyActionImpl) modifyAction).clone();
       clonedObject.setModifyAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -297,12 +283,6 @@ public class ParameterActionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
-    setParameterRef(
-        new NamedReferenceProxy<>(parameterRef.getTargetObject(), parameterRef.getNameRef()));
-  }
-
-  @Override
   public void writeParameterToParameterRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__PARAMETER_REF, parameterName, null /*no textmarker*/);
@@ -320,22 +300,12 @@ public class ParameterActionImpl extends BaseImpl
 
   // children
   @Override
-  public IParameterSetActionWriter getSetActionWriter() {
-    return this.setActionWriter;
+  public IParameterSetActionWriter getWriterSetAction() {
+    return this.setAction;
   }
 
   @Override
-  public IParameterModifyActionWriter getModifyActionWriter() {
-    return this.modifyActionWriter;
-  }
-
-  @Override
-  public void writeToSetActionWriter(IParameterSetActionWriter setActionWriter) {
-    this.setActionWriter = setActionWriter;
-  }
-
-  @Override
-  public void writeToModifyActionWriter(IParameterModifyActionWriter modifyActionWriter) {
-    this.modifyActionWriter = modifyActionWriter;
+  public IParameterModifyActionWriter getWriterModifyAction() {
+    return this.modifyAction;
   }
 }

@@ -50,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class UserDefinedValueConditionImpl extends BaseImpl
-    implements IUserDefinedValueCondition, IUserDefinedValueConditionWriter {
+    implements IUserDefinedValueConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -91,28 +91,18 @@ public class UserDefinedValueConditionImpl extends BaseImpl
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the external value.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Reference value the external value
-   *     is compared to.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
@@ -278,21 +268,6 @@ public class UserDefinedValueConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "UserDefinedValueCondition";
-  }
-
-  @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
-  public void writeToValue(String value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
   }
 
   @Override

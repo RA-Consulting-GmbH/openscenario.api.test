@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IVehicleCategoryDistributionEntry;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
 
 /**
@@ -29,23 +30,10 @@ import net.asam.openscenario.v1_0.api.VehicleCategory;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IVehicleCategoryDistributionEntryWriter extends IOpenScenarioModelElement {
+public interface IVehicleCategoryDistributionEntryWriter
+    extends IVehicleCategoryDistributionEntry, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The category of the vehicles that appear in
-   * traffic.
-   *
-   * @return value of model property category
-   */
-  public VehicleCategory getCategory();
-  /**
-   * From OpenSCENARIO class model specification: The weight of a vehicle category within a traffic
-   * distribution. Range: [0..inf[.
-   *
-   * @return value of model property weight
-   */
-  public Double getWeight();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The category of the vehicles that appear in
@@ -53,14 +41,14 @@ public interface IVehicleCategoryDistributionEntryWriter extends IOpenScenarioMo
    *
    * @param category value of model property category
    */
-  public void writeToCategory(VehicleCategory category);
+  public void setCategory(VehicleCategory category);
   /**
    * From OpenSCENARIO class model specification: The weight of a vehicle category within a traffic
    * distribution. Range: [0..inf[.
    *
    * @param weight value of model property weight
    */
-  public void writeToWeight(Double weight);
+  public void setWeight(Double weight);
 
   /**
    * Set a parameter for the attribute category

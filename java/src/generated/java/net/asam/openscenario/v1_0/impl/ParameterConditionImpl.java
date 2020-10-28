@@ -51,8 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterConditionImpl extends BaseImpl
-    implements IParameterCondition, IParameterConditionWriter {
+public class ParameterConditionImpl extends BaseImpl implements IParameterConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,7 +61,7 @@ public class ParameterConditionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IParameterDeclaration> parameterRef;
+  private INamedReference<IParameterDeclaration> parameterRef;
   private String value;
   private Rule rule;
 
@@ -93,28 +92,18 @@ public class ParameterConditionImpl extends BaseImpl
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property parameterRef
-   *
-   * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that
-   *     must be defined.]
-   */
-  public void setParameterRef(NamedReferenceProxy<IParameterDeclaration> parameterRef) {
+
+  @Override
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
     this.parameterRef = parameterRef;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the parameter.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
@@ -296,22 +285,6 @@ public class ParameterConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ParameterCondition";
-  }
-
-  @Override
-  public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
-    setParameterRef(
-        new NamedReferenceProxy<>(parameterRef.getTargetObject(), parameterRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToValue(String value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
   }
 
   @Override

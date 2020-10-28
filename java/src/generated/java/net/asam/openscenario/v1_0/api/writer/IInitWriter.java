@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IInit;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,17 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IInitWriter extends IOpenScenarioModelElement {
+public interface IInitWriter extends IInit, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: A list of actions initially executed when the
+   * enclosing storyboard starts.
+   *
+   * @param actions value of model property actions
+   */
+  public void setActions(IInitActionsWriter actions);
 
   // children
   /**
@@ -35,13 +46,5 @@ public interface IInitWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property actions
    */
-  public IInitActionsWriter getActionsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of actions initially executed when the
-   * enclosing storyboard starts.
-   *
-   * @param actionsWriter writer for the model property actions
-   */
-  public void writeToActionsWriter(IInitActionsWriter actionsWriter);
+  public IInitActionsWriter getWriterActions();
 }

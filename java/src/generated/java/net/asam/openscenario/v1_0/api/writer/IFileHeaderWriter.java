@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IFileHeader;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,42 +27,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IFileHeaderWriter extends IOpenScenarioModelElement {
+public interface IFileHeaderWriter extends IFileHeader, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Major OpenSCENARIO revision, this file conforms to
-   * Range: [0..inf[.
-   *
-   * @return value of model property revMajor
-   */
-  public Integer getRevMajor();
-  /**
-   * From OpenSCENARIO class model specification: Minor OpenSCENARIO revision, this file conforms to
-   * Range: [0..inf[.
-   *
-   * @return value of model property revMinor
-   */
-  public Integer getRevMinor();
-  /**
-   * From OpenSCENARIO class model specification: User specific date and time recommended:
-   * YYYY-MM-DDThh:mm:ss.
-   *
-   * @return value of model property date
-   */
-  public java.util.Date getDate();
-  /**
-   * From OpenSCENARIO class model specification: User specific description.
-   *
-   * @return value of model property description
-   */
-  public String getDescription();
-  /**
-   * From OpenSCENARIO class model specification: Author of the scenario or the catalog.
-   *
-   * @return value of model property author
-   */
-  public String getAuthor();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Major OpenSCENARIO revision, this file conforms to
@@ -69,33 +37,33 @@ public interface IFileHeaderWriter extends IOpenScenarioModelElement {
    *
    * @param revMajor value of model property revMajor
    */
-  public void writeToRevMajor(Integer revMajor);
+  public void setRevMajor(Integer revMajor);
   /**
    * From OpenSCENARIO class model specification: Minor OpenSCENARIO revision, this file conforms to
    * Range: [0..inf[.
    *
    * @param revMinor value of model property revMinor
    */
-  public void writeToRevMinor(Integer revMinor);
+  public void setRevMinor(Integer revMinor);
   /**
    * From OpenSCENARIO class model specification: User specific date and time recommended:
    * YYYY-MM-DDThh:mm:ss.
    *
    * @param date value of model property date
    */
-  public void writeToDate(java.util.Date date);
+  public void setDate(java.util.Date date);
   /**
    * From OpenSCENARIO class model specification: User specific description.
    *
    * @param description value of model property description
    */
-  public void writeToDescription(String description);
+  public void setDescription(String description);
   /**
    * From OpenSCENARIO class model specification: Author of the scenario or the catalog.
    *
    * @param author value of model property author
    */
-  public void writeToAuthor(String author);
+  public void setAuthor(String author);
 
   /**
    * Set a parameter for the attribute revMajor

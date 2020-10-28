@@ -48,8 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterAssignmentImpl extends BaseImpl
-    implements IParameterAssignment, IParameterAssignmentWriter {
+public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssignmentWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,7 +56,7 @@ public class ParameterAssignmentImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__VALUE, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IParameterDeclaration> parameterRef;
+  private INamedReference<IParameterDeclaration> parameterRef;
   private String value;
 
   /** Default constructor */
@@ -82,21 +81,13 @@ public class ParameterAssignmentImpl extends BaseImpl
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property parameterRef
-   *
-   * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that
-   *     must be declared in the catalog.]
-   */
-  public void setParameterRef(NamedReferenceProxy<IParameterDeclaration> parameterRef) {
+
+  @Override
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
     this.parameterRef = parameterRef;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the parameter that is
-   *     handed over to the parametrizable type.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
   }
@@ -245,11 +236,6 @@ public class ParameterAssignmentImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ParameterAssignment";
-  }
-
-  @Override
-  public void writeToValue(String value) {
-    setValue(value);
   }
 
   @Override

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAssignControllerAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,24 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IAssignControllerActionWriter extends IOpenScenarioModelElement {
+public interface IAssignControllerActionWriter
+    extends IAssignControllerAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Assigns a controller to a given entity.
+   *
+   * @param controller value of model property controller
+   */
+  public void setController(IControllerWriter controller);
+  /**
+   * From OpenSCENARIO class model specification: Uses a CatalogReference to assign a controller to
+   * a given entity. CatalogReference must point to a Controller type.
+   *
+   * @param catalogReference value of model property catalogReference
+   */
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference);
 
   // children
   /**
@@ -35,26 +53,12 @@ public interface IAssignControllerActionWriter extends IOpenScenarioModelElement
    *
    * @return a writer for model property controller
    */
-  public IControllerWriter getControllerWriter();
+  public IControllerWriter getWriterController();
   /**
    * From OpenSCENARIO class model specification: Uses a CatalogReference to assign a controller to
    * a given entity. CatalogReference must point to a Controller type.
    *
    * @return a writer for model property catalogReference
    */
-  public ICatalogReferenceWriter getCatalogReferenceWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Assigns a controller to a given entity.
-   *
-   * @param controllerWriter writer for the model property controller
-   */
-  public void writeToControllerWriter(IControllerWriter controllerWriter);
-  /**
-   * From OpenSCENARIO class model specification: Uses a CatalogReference to assign a controller to
-   * a given entity. CatalogReference must point to a Controller type.
-   *
-   * @param catalogReferenceWriter writer for the model property catalogReference
-   */
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter);
+  public ICatalogReferenceWriter getWriterCatalogReference();
 }

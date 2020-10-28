@@ -54,7 +54,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class RelativeDistanceConditionImpl extends BaseImpl
-    implements IRelativeDistanceCondition, IRelativeDistanceConditionWriter {
+    implements IRelativeDistanceConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,7 +66,7 @@ public class RelativeDistanceConditionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private RelativeDistanceType relativeDistanceType;
   private Double value;
   private Boolean freespace;
@@ -109,46 +109,28 @@ public class RelativeDistanceConditionImpl extends BaseImpl
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property relativeDistanceType
-   *
-   * @param relativeDistanceType from OpenSCENARIO class model specification: [The domain the
-   *     distance is calculated in.]
-   */
+
+  @Override
   public void setRelativeDistanceType(RelativeDistanceType relativeDistanceType) {
     this.relativeDistanceType = relativeDistanceType;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The distance value. Unit: m; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: distance is measured
-   *     between closest bounding box points. False: reference point distance is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
@@ -367,31 +349,6 @@ public class RelativeDistanceConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "RelativeDistanceCondition";
-  }
-
-  @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToRelativeDistanceType(RelativeDistanceType relativeDistanceType) {
-    setRelativeDistanceType(relativeDistanceType);
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToFreespace(Boolean freespace) {
-    setFreespace(freespace);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
   }
 
   @Override

@@ -48,15 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LongitudinalActionImpl extends BaseImpl
-    implements ILongitudinalAction, ILongitudinalActionWriter {
+public class LongitudinalActionImpl extends BaseImpl implements ILongitudinalActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ISpeedAction speedAction;
-  private ILongitudinalDistanceAction longitudinalDistanceAction;
-
-  private ISpeedActionWriter speedActionWriter;
-  private ILongitudinalDistanceActionWriter longitudinalDistanceActionWriter;
+  private ISpeedActionWriter speedAction;
+  private ILongitudinalDistanceActionWriter longitudinalDistanceAction;
 
   /** Default constructor */
   public LongitudinalActionImpl() {
@@ -80,23 +76,15 @@ public class LongitudinalActionImpl extends BaseImpl
   public ILongitudinalDistanceAction getLongitudinalDistanceAction() {
     return this.longitudinalDistanceAction;
   }
-  /**
-   * Sets the value of model property speedAction
-   *
-   * @param speedAction from OpenSCENARIO class model specification: [This action describes the
-   *     transition between the current longitudinal speed of an entity and its target speed.]
-   */
-  public void setSpeedAction(ISpeedAction speedAction) {
+
+  @Override
+  public void setSpeedAction(ISpeedActionWriter speedAction) {
     this.speedAction = speedAction;
   }
-  /**
-   * Sets the value of model property longitudinalDistanceAction
-   *
-   * @param longitudinalDistanceAction from OpenSCENARIO class model specification: [This Action
-   *     defines a continuously kept longitudinal distance to a specific entity.]
-   */
+
+  @Override
   public void setLongitudinalDistanceAction(
-      ILongitudinalDistanceAction longitudinalDistanceAction) {
+      ILongitudinalDistanceActionWriter longitudinalDistanceAction) {
     this.longitudinalDistanceAction = longitudinalDistanceAction;
   }
 
@@ -121,13 +109,13 @@ public class LongitudinalActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ISpeedAction speedAction = null;
-    speedAction = getSpeedAction();
+    ISpeedActionWriter speedAction = null;
+    speedAction = getWriterSpeedAction();
     if (speedAction != null) {
       result.add((BaseImpl) speedAction);
     }
-    ILongitudinalDistanceAction longitudinalDistanceAction = null;
-    longitudinalDistanceAction = getLongitudinalDistanceAction();
+    ILongitudinalDistanceActionWriter longitudinalDistanceAction = null;
+    longitudinalDistanceAction = getWriterLongitudinalDistanceAction();
     if (longitudinalDistanceAction != null) {
       result.add((BaseImpl) longitudinalDistanceAction);
     }
@@ -150,17 +138,17 @@ public class LongitudinalActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ISpeedAction speedAction = null;
-    speedAction = getSpeedAction();
+    ISpeedActionWriter speedAction = null;
+    speedAction = getWriterSpeedAction();
     if (speedAction != null) {
-      SpeedActionImpl clonedChild = ((SpeedActionImpl) speedAction).clone();
+      ISpeedActionWriter clonedChild = ((SpeedActionImpl) speedAction).clone();
       clonedObject.setSpeedAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ILongitudinalDistanceAction longitudinalDistanceAction = null;
-    longitudinalDistanceAction = getLongitudinalDistanceAction();
+    ILongitudinalDistanceActionWriter longitudinalDistanceAction = null;
+    longitudinalDistanceAction = getWriterLongitudinalDistanceAction();
     if (longitudinalDistanceAction != null) {
-      LongitudinalDistanceActionImpl clonedChild =
+      ILongitudinalDistanceActionWriter clonedChild =
           ((LongitudinalDistanceActionImpl) longitudinalDistanceAction).clone();
       clonedObject.setLongitudinalDistanceAction(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -250,23 +238,12 @@ public class LongitudinalActionImpl extends BaseImpl
 
   // children
   @Override
-  public ISpeedActionWriter getSpeedActionWriter() {
-    return this.speedActionWriter;
+  public ISpeedActionWriter getWriterSpeedAction() {
+    return this.speedAction;
   }
 
   @Override
-  public ILongitudinalDistanceActionWriter getLongitudinalDistanceActionWriter() {
-    return this.longitudinalDistanceActionWriter;
-  }
-
-  @Override
-  public void writeToSpeedActionWriter(ISpeedActionWriter speedActionWriter) {
-    this.speedActionWriter = speedActionWriter;
-  }
-
-  @Override
-  public void writeToLongitudinalDistanceActionWriter(
-      ILongitudinalDistanceActionWriter longitudinalDistanceActionWriter) {
-    this.longitudinalDistanceActionWriter = longitudinalDistanceActionWriter;
+  public ILongitudinalDistanceActionWriter getWriterLongitudinalDistanceAction() {
+    return this.longitudinalDistanceAction;
   }
 }

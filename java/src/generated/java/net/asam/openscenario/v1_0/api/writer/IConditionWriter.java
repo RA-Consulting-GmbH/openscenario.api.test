@@ -16,8 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.v1_0.api.ConditionEdge;
+import net.asam.openscenario.v1_0.api.ICondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -29,50 +30,42 @@ import net.asam.openscenario.v1_0.api.ConditionEdge;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IConditionWriter extends IOpenScenarioModelElement {
+public interface IConditionWriter extends ICondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the condition.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: Time elapsed after the edge condition is verified,
-   * until the condition returns true to the scenario. Unit: s; Range: [0..inf[.
-   *
-   * @return value of model property delay
-   */
-  public Double getDelay();
-  /**
-   * From OpenSCENARIO class model specification: Specifies the edge when the condition is evaluated
-   * to true (rising, falling, any).
-   *
-   * @return value of model property conditionEdge
-   */
-  public ConditionEdge getConditionEdge();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the condition.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: Time elapsed after the edge condition is verified,
    * until the condition returns true to the scenario. Unit: s; Range: [0..inf[.
    *
    * @param delay value of model property delay
    */
-  public void writeToDelay(Double delay);
+  public void setDelay(Double delay);
   /**
    * From OpenSCENARIO class model specification: Specifies the edge when the condition is evaluated
    * to true (rising, falling, any).
    *
    * @param conditionEdge value of model property conditionEdge
    */
-  public void writeToConditionEdge(ConditionEdge conditionEdge);
+  public void setConditionEdge(ConditionEdge conditionEdge);
+  /**
+   * From OpenSCENARIO class model specification: A condition that refers to an entity.
+   *
+   * @param byEntityCondition value of model property byEntityCondition
+   */
+  public void setByEntityCondition(IByEntityConditionWriter byEntityCondition);
+  /**
+   * From OpenSCENARIO class model specification: A condition that refers to a runtime value.
+   *
+   * @param byValueCondition value of model property byValueCondition
+   */
+  public void setByValueCondition(IByValueConditionWriter byValueCondition);
 
   /**
    * Set a parameter for the attribute name
@@ -140,24 +133,11 @@ public interface IConditionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property byEntityCondition
    */
-  public IByEntityConditionWriter getByEntityConditionWriter();
+  public IByEntityConditionWriter getWriterByEntityCondition();
   /**
    * From OpenSCENARIO class model specification: A condition that refers to a runtime value.
    *
    * @return a writer for model property byValueCondition
    */
-  public IByValueConditionWriter getByValueConditionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A condition that refers to an entity.
-   *
-   * @param byEntityConditionWriter writer for the model property byEntityCondition
-   */
-  public void writeToByEntityConditionWriter(IByEntityConditionWriter byEntityConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: A condition that refers to a runtime value.
-   *
-   * @param byValueConditionWriter writer for the model property byValueCondition
-   */
-  public void writeToByValueConditionWriter(IByValueConditionWriter byValueConditionWriter);
+  public IByValueConditionWriter getWriterByValueCondition();
 }

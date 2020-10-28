@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -45,12 +43,39 @@ public interface IRoute extends ICatalogElement {
    *
    * @return value of model property parameterDeclarations
    */
-  public List<IParameterDeclaration> getParameterDeclarations();
+  public Iterable<IParameterDeclaration> getParameterDeclarations();
   /**
    * From OpenSCENARIO class model specification: At least two waypoints are needed to define a
    * route.
    *
    * @return value of model property waypoints
    */
-  public List<IWaypoint> getWaypoints();
+  public Iterable<IWaypoint> getWaypoints();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getParameterDeclarationsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getWaypointsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IWaypoint getWaypointsAtIndex(int index);
 }

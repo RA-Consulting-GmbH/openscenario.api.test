@@ -46,13 +46,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InfrastructureActionImpl extends BaseImpl
-    implements IInfrastructureAction, IInfrastructureActionWriter {
+public class InfrastructureActionImpl extends BaseImpl implements IInfrastructureActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ITrafficSignalAction trafficSignalAction;
-
-  private ITrafficSignalActionWriter trafficSignalActionWriter;
+  private ITrafficSignalActionWriter trafficSignalAction;
 
   /** Default constructor */
   public InfrastructureActionImpl() {
@@ -71,13 +68,9 @@ public class InfrastructureActionImpl extends BaseImpl
   public ITrafficSignalAction getTrafficSignalAction() {
     return this.trafficSignalAction;
   }
-  /**
-   * Sets the value of model property trafficSignalAction
-   *
-   * @param trafficSignalAction from OpenSCENARIO class model specification: [Set or overwrite a
-   *     signals state or a signal controllers state from a road network.]
-   */
-  public void setTrafficSignalAction(ITrafficSignalAction trafficSignalAction) {
+
+  @Override
+  public void setTrafficSignalAction(ITrafficSignalActionWriter trafficSignalAction) {
     this.trafficSignalAction = trafficSignalAction;
   }
 
@@ -102,8 +95,8 @@ public class InfrastructureActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ITrafficSignalAction trafficSignalAction = null;
-    trafficSignalAction = getTrafficSignalAction();
+    ITrafficSignalActionWriter trafficSignalAction = null;
+    trafficSignalAction = getWriterTrafficSignalAction();
     if (trafficSignalAction != null) {
       result.add((BaseImpl) trafficSignalAction);
     }
@@ -126,10 +119,11 @@ public class InfrastructureActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ITrafficSignalAction trafficSignalAction = null;
-    trafficSignalAction = getTrafficSignalAction();
+    ITrafficSignalActionWriter trafficSignalAction = null;
+    trafficSignalAction = getWriterTrafficSignalAction();
     if (trafficSignalAction != null) {
-      TrafficSignalActionImpl clonedChild = ((TrafficSignalActionImpl) trafficSignalAction).clone();
+      ITrafficSignalActionWriter clonedChild =
+          ((TrafficSignalActionImpl) trafficSignalAction).clone();
       clonedObject.setTrafficSignalAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -215,13 +209,7 @@ public class InfrastructureActionImpl extends BaseImpl
 
   // children
   @Override
-  public ITrafficSignalActionWriter getTrafficSignalActionWriter() {
-    return this.trafficSignalActionWriter;
-  }
-
-  @Override
-  public void writeToTrafficSignalActionWriter(
-      ITrafficSignalActionWriter trafficSignalActionWriter) {
-    this.trafficSignalActionWriter = trafficSignalActionWriter;
+  public ITrafficSignalActionWriter getWriterTrafficSignalAction() {
+    return this.trafficSignalAction;
   }
 }

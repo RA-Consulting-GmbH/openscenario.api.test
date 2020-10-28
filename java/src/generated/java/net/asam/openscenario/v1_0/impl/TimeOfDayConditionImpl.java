@@ -48,8 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayConditionImpl extends BaseImpl
-    implements ITimeOfDayCondition, ITimeOfDayConditionWriter {
+public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -83,19 +82,13 @@ public class TimeOfDayConditionImpl extends BaseImpl
   public java.util.Date getDateTime() {
     return this.dateTime;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
-  /**
-   * Sets the value of model property dateTime
-   *
-   * @param dateTime from OpenSCENARIO class model specification: [Datetime value for comparison.]
-   */
+
+  @Override
   public void setDateTime(java.util.Date dateTime) {
     this.dateTime = dateTime;
   }
@@ -251,16 +244,6 @@ public class TimeOfDayConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TimeOfDayCondition";
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
-  }
-
-  @Override
-  public void writeToDateTime(java.util.Date dateTime) {
-    setDateTime(dateTime);
   }
 
   @Override

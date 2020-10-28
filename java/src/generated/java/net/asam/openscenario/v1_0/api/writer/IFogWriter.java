@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IFog;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IFogWriter extends IOpenScenarioModelElement {
+public interface IFogWriter extends IFog, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property visualRange
-   */
-  public Double getVisualRange();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Unit: m; Range: [0..inf[.
    *
    * @param visualRange value of model property visualRange
    */
-  public void writeToVisualRange(Double visualRange);
+  public void setVisualRange(Double visualRange);
+  /**
+   * From OpenSCENARIO class model specification: Dimensions and center of fog in fixed coordinates.
+   *
+   * @param boundingBox value of model property boundingBox
+   */
+  public void setBoundingBox(IBoundingBoxWriter boundingBox);
 
   /**
    * Set a parameter for the attribute visualRange
@@ -71,12 +72,5 @@ public interface IFogWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property boundingBox
    */
-  public IBoundingBoxWriter getBoundingBoxWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Dimensions and center of fog in fixed coordinates.
-   *
-   * @param boundingBoxWriter writer for the model property boundingBox
-   */
-  public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter);
+  public IBoundingBoxWriter getWriterBoundingBox();
 }
