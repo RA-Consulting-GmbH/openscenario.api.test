@@ -128,11 +128,13 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReferenceW
   @Override
   public void setCatalogName(String catalogName) {
     this.catalogName = catalogName;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CATALOG_NAME);
   }
 
   @Override
   public void setEntryName(String entryName) {
     this.entryName = entryName;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTRY_NAME);
   }
 
   @Override
@@ -203,9 +205,9 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReferenceW
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setCatalogName(getCatalogName());
+    clonedObject.catalogName = getCatalogName();
     // Simple type
-    clonedObject.setEntryName(getEntryName());
+    clonedObject.entryName = getEntryName();
     // clone children
     List<IParameterAssignmentWriter> parameterAssignments = null;
     parameterAssignments = getWriterParameterAssignments();
@@ -311,12 +313,14 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReferenceW
   public void writeParameterToCatalogName(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CATALOG_NAME, parameterName, null /*no textmarker*/);
+    this.catalogName = null;
   }
 
   @Override
   public void writeParameterToEntryName(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTRY_NAME, parameterName, null /*no textmarker*/);
+    this.entryName = null;
   }
 
   @Override

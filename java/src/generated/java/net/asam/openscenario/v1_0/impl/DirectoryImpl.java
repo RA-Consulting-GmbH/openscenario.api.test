@@ -76,6 +76,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectoryWriter {
   @Override
   public void setPath(String path) {
     this.path = path;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PATH);
   }
 
   @Override
@@ -123,7 +124,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectoryWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setPath(getPath());
+    clonedObject.path = getPath();
     // clone children
     return clonedObject;
   }
@@ -208,6 +209,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectoryWriter {
   @Override
   public void writeParameterToPath(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__PATH, parameterName, null /*no textmarker*/);
+    this.path = null;
   }
 
   @Override

@@ -110,21 +110,25 @@ public class TimeToCollisionConditionImpl extends BaseImpl
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE);
   }
 
   @Override
   public void setAlongRoute(Boolean alongRoute) {
     this.alongRoute = alongRoute;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ALONG_ROUTE);
   }
 
   @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -209,15 +213,15 @@ public class TimeToCollisionConditionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Simple type
-    clonedObject.setFreespace(getFreespace());
+    clonedObject.freespace = getFreespace();
     // Simple type
-    clonedObject.setAlongRoute(getAlongRoute());
+    clonedObject.alongRoute = getAlongRoute();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     ITimeToCollisionConditionTargetWriter timeToCollisionConditionTarget = null;
@@ -332,22 +336,26 @@ public class TimeToCollisionConditionImpl extends BaseImpl
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
   public void writeParameterToFreespace(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
+    this.freespace = null;
   }
 
   @Override
   public void writeParameterToAlongRoute(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ALONG_ROUTE, parameterName, null /*no textmarker*/);
+    this.alongRoute = null;
   }
 
   @Override
   public void writeParameterToRule(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
   }
 
   @Override

@@ -100,21 +100,25 @@ public class OrientationImpl extends BaseImpl implements IOrientationWriter {
   @Override
   public void setType(ReferenceContext type) {
     this.type = type;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TYPE);
   }
 
   @Override
   public void setH(Double h) {
     this.h = h;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__H);
   }
 
   @Override
   public void setP(Double p) {
     this.p = p;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__P);
   }
 
   @Override
   public void setR(Double r) {
     this.r = r;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__R);
   }
 
   @Override
@@ -187,14 +191,14 @@ public class OrientationImpl extends BaseImpl implements IOrientationWriter {
     // Enumeration Type
     ReferenceContext type = getType();
     if (type != null) {
-      clonedObject.setType(ReferenceContext.getFromLiteral(type.getLiteral()));
+      clonedObject.type = ReferenceContext.getFromLiteral(type.getLiteral());
     }
     // Simple type
-    clonedObject.setH(getH());
+    clonedObject.h = getH();
     // Simple type
-    clonedObject.setP(getP());
+    clonedObject.p = getP();
     // Simple type
-    clonedObject.setR(getR());
+    clonedObject.r = getR();
     // clone children
     return clonedObject;
   }
@@ -290,21 +294,25 @@ public class OrientationImpl extends BaseImpl implements IOrientationWriter {
   @Override
   public void writeParameterToType(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TYPE, parameterName, null /*no textmarker*/);
+    this.type = null;
   }
 
   @Override
   public void writeParameterToH(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__H, parameterName, null /*no textmarker*/);
+    this.h = null;
   }
 
   @Override
   public void writeParameterToP(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__P, parameterName, null /*no textmarker*/);
+    this.p = null;
   }
 
   @Override
   public void writeParameterToR(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__R, parameterName, null /*no textmarker*/);
+    this.r = null;
   }
 
   @Override

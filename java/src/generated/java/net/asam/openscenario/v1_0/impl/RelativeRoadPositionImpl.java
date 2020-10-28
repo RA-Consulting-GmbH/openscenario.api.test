@@ -101,16 +101,19 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
   @Override
   public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public void setDs(Double ds) {
     this.ds = ds;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DS);
   }
 
   @Override
   public void setDt(Double dt) {
     this.dt = dt;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DT);
   }
 
   @Override
@@ -181,12 +184,12 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDs(getDs());
+    clonedObject.ds = getDs();
     // Simple type
-    clonedObject.setDt(getDt());
+    clonedObject.dt = getDt();
     // clone children
     IOrientationWriter orientation = null;
     orientation = getWriterOrientation();
@@ -303,16 +306,19 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
   }
 
   @Override
   public void writeParameterToDs(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DS, parameterName, null /*no textmarker*/);
+    this.ds = null;
   }
 
   @Override
   public void writeParameterToDt(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DT, parameterName, null /*no textmarker*/);
+    this.dt = null;
   }
 
   @Override

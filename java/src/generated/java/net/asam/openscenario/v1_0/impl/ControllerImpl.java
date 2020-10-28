@@ -123,6 +123,7 @@ public class ControllerImpl extends BaseImpl implements IControllerWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -213,7 +214,7 @@ public class ControllerImpl extends BaseImpl implements IControllerWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     List<IParameterDeclarationWriter> parameterDeclarations = null;
     parameterDeclarations = getWriterParameterDeclarations();
@@ -329,6 +330,7 @@ public class ControllerImpl extends BaseImpl implements IControllerWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

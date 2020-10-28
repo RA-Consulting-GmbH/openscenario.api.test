@@ -94,6 +94,7 @@ public class ParameterActionImpl extends BaseImpl implements IParameterActionWri
   @Override
   public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
     this.parameterRef = parameterRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PARAMETER_REF);
   }
 
   @Override
@@ -166,7 +167,7 @@ public class ParameterActionImpl extends BaseImpl implements IParameterActionWri
     // Proxy
     NamedReferenceProxy<IParameterDeclaration> proxy =
         ((NamedReferenceProxy<IParameterDeclaration>) getParameterRef()).clone();
-    clonedObject.setParameterRef(proxy);
+    clonedObject.parameterRef = proxy;
     proxy.setParent(clonedObject);
     // clone children
     IParameterSetActionWriter setAction = null;
@@ -288,6 +289,7 @@ public class ParameterActionImpl extends BaseImpl implements IParameterActionWri
   public void writeParameterToParameterRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__PARAMETER_REF, parameterName, null /*no textmarker*/);
+    this.parameterRef = null;
   }
 
   @Override

@@ -100,6 +100,7 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
   @Override
   public void setMasterEntityRef(INamedReference<IEntity> masterEntityRef) {
     this.masterEntityRef = masterEntityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF);
   }
 
   @Override
@@ -179,7 +180,7 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
     // Proxy
     NamedReferenceProxy<IEntity> proxy =
         ((NamedReferenceProxy<IEntity>) getMasterEntityRef()).clone();
-    clonedObject.setMasterEntityRef(proxy);
+    clonedObject.masterEntityRef = proxy;
     proxy.setParent(clonedObject);
     // clone children
     IPositionWriter targetPositionMaster = null;
@@ -311,6 +312,7 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
   public void writeParameterToMasterEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MASTER_ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.masterEntityRef = null;
   }
 
   @Override

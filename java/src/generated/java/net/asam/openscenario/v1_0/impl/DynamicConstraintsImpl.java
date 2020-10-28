@@ -90,16 +90,19 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
   @Override
   public void setMaxAcceleration(Double maxAcceleration) {
     this.maxAcceleration = maxAcceleration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
   }
 
   @Override
   public void setMaxDeceleration(Double maxDeceleration) {
     this.maxDeceleration = maxDeceleration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_DECELERATION);
   }
 
   @Override
   public void setMaxSpeed(Double maxSpeed) {
     this.maxSpeed = maxSpeed;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_SPEED);
   }
 
   @Override
@@ -159,11 +162,11 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaxAcceleration(getMaxAcceleration());
+    clonedObject.maxAcceleration = getMaxAcceleration();
     // Simple type
-    clonedObject.setMaxDeceleration(getMaxDeceleration());
+    clonedObject.maxDeceleration = getMaxDeceleration();
     // Simple type
-    clonedObject.setMaxSpeed(getMaxSpeed());
+    clonedObject.maxSpeed = getMaxSpeed();
     // clone children
     return clonedObject;
   }
@@ -253,17 +256,20 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
   public void writeParameterToMaxAcceleration(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MAX_ACCELERATION, parameterName, null /*no textmarker*/);
+    this.maxAcceleration = null;
   }
 
   @Override
   public void writeParameterToMaxDeceleration(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MAX_DECELERATION, parameterName, null /*no textmarker*/);
+    this.maxDeceleration = null;
   }
 
   @Override
   public void writeParameterToMaxSpeed(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__MAX_SPEED, parameterName, null /*no textmarker*/);
+    this.maxSpeed = null;
   }
 
   @Override

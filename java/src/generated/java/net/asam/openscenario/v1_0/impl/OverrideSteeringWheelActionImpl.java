@@ -85,11 +85,13 @@ public class OverrideSteeringWheelActionImpl extends BaseImpl
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public void setActive(Boolean active) {
     this.active = active;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   @Override
@@ -143,9 +145,9 @@ public class OverrideSteeringWheelActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Simple type
-    clonedObject.setActive(getActive());
+    clonedObject.active = getActive();
     // clone children
     return clonedObject;
   }
@@ -236,11 +238,13 @@ public class OverrideSteeringWheelActionImpl extends BaseImpl
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
   public void writeParameterToActive(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE, parameterName, null /*no textmarker*/);
+    this.active = null;
   }
 
   @Override

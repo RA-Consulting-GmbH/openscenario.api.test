@@ -83,11 +83,13 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
   @Override
   public void setNumber(Double number) {
     this.number = number;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NUMBER);
   }
 
   @Override
   public void setActive(Boolean active) {
     this.active = active;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   @Override
@@ -141,9 +143,9 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setNumber(getNumber());
+    clonedObject.number = getNumber();
     // Simple type
-    clonedObject.setActive(getActive());
+    clonedObject.active = getActive();
     // clone children
     return clonedObject;
   }
@@ -234,11 +236,13 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
   @Override
   public void writeParameterToNumber(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NUMBER, parameterName, null /*no textmarker*/);
+    this.number = null;
   }
 
   @Override
   public void writeParameterToActive(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE, parameterName, null /*no textmarker*/);
+    this.active = null;
   }
 
   @Override

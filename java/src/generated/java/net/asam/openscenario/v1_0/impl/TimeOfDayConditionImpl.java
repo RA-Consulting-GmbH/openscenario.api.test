@@ -86,11 +86,13 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
   @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
   public void setDateTime(java.util.Date dateTime) {
     this.dateTime = dateTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   @Override
@@ -154,10 +156,10 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // Simple type
-    clonedObject.setDateTime(getDateTime());
+    clonedObject.dateTime = getDateTime();
     // clone children
     return clonedObject;
   }
@@ -249,11 +251,13 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
   @Override
   public void writeParameterToRule(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
   }
 
   @Override
   public void writeParameterToDateTime(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME, parameterName, null /*no textmarker*/);
+    this.dateTime = null;
   }
 
   @Override

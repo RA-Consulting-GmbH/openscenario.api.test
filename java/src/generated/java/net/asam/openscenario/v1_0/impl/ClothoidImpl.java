@@ -112,26 +112,31 @@ public class ClothoidImpl extends BaseImpl implements IClothoidWriter {
   @Override
   public void setCurvature(Double curvature) {
     this.curvature = curvature;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE);
   }
 
   @Override
   public void setCurvatureDot(Double curvatureDot) {
     this.curvatureDot = curvatureDot;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE_DOT);
   }
 
   @Override
   public void setLength(Double length) {
     this.length = length;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LENGTH);
   }
 
   @Override
   public void setStartTime(Double startTime) {
     this.startTime = startTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__START_TIME);
   }
 
   @Override
   public void setStopTime(Double stopTime) {
     this.stopTime = stopTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STOP_TIME);
   }
 
   @Override
@@ -213,15 +218,15 @@ public class ClothoidImpl extends BaseImpl implements IClothoidWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setCurvature(getCurvature());
+    clonedObject.curvature = getCurvature();
     // Simple type
-    clonedObject.setCurvatureDot(getCurvatureDot());
+    clonedObject.curvatureDot = getCurvatureDot();
     // Simple type
-    clonedObject.setLength(getLength());
+    clonedObject.length = getLength();
     // Simple type
-    clonedObject.setStartTime(getStartTime());
+    clonedObject.startTime = getStartTime();
     // Simple type
-    clonedObject.setStopTime(getStopTime());
+    clonedObject.stopTime = getStopTime();
     // clone children
     IPositionWriter position = null;
     position = getWriterPosition();
@@ -327,28 +332,33 @@ public class ClothoidImpl extends BaseImpl implements IClothoidWriter {
   @Override
   public void writeParameterToCurvature(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE, parameterName, null /*no textmarker*/);
+    this.curvature = null;
   }
 
   @Override
   public void writeParameterToCurvatureDot(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CURVATURE_DOT, parameterName, null /*no textmarker*/);
+    this.curvatureDot = null;
   }
 
   @Override
   public void writeParameterToLength(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__LENGTH, parameterName, null /*no textmarker*/);
+    this.length = null;
   }
 
   @Override
   public void writeParameterToStartTime(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__START_TIME, parameterName, null /*no textmarker*/);
+    this.startTime = null;
   }
 
   @Override
   public void writeParameterToStopTime(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__STOP_TIME, parameterName, null /*no textmarker*/);
+    this.stopTime = null;
   }
 
   @Override

@@ -130,11 +130,13 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectoryWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public void setClosed(Boolean closed) {
     this.closed = closed;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CLOSED);
   }
 
   @Override
@@ -231,9 +233,9 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectoryWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setClosed(getClosed());
+    clonedObject.closed = getClosed();
     // clone children
     List<IParameterDeclarationWriter> parameterDeclarations = null;
     parameterDeclarations = getWriterParameterDeclarations();
@@ -355,11 +357,13 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectoryWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override
   public void writeParameterToClosed(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__CLOSED, parameterName, null /*no textmarker*/);
+    this.closed = null;
   }
 
   @Override

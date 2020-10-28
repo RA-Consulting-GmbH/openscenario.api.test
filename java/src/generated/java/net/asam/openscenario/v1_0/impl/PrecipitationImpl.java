@@ -86,11 +86,13 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitationWriter 
   @Override
   public void setPrecipitationType(PrecipitationType precipitationType) {
     this.precipitationType = precipitationType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE);
   }
 
   @Override
   public void setIntensity(Double intensity) {
     this.intensity = intensity;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY);
   }
 
   @Override
@@ -154,11 +156,11 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitationWriter 
     // Enumeration Type
     PrecipitationType precipitationType = getPrecipitationType();
     if (precipitationType != null) {
-      clonedObject.setPrecipitationType(
-          PrecipitationType.getFromLiteral(precipitationType.getLiteral()));
+      clonedObject.precipitationType =
+          PrecipitationType.getFromLiteral(precipitationType.getLiteral());
     }
     // Simple type
-    clonedObject.setIntensity(getIntensity());
+    clonedObject.intensity = getIntensity();
     // clone children
     return clonedObject;
   }
@@ -251,11 +253,13 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitationWriter 
   public void writeParameterToPrecipitationType(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__PRECIPITATION_TYPE, parameterName, null /*no textmarker*/);
+    this.precipitationType = null;
   }
 
   @Override
   public void writeParameterToIntensity(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY, parameterName, null /*no textmarker*/);
+    this.intensity = null;
   }
 
   @Override

@@ -90,16 +90,19 @@ public class SunImpl extends BaseImpl implements ISunWriter {
   @Override
   public void setIntensity(Double intensity) {
     this.intensity = intensity;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY);
   }
 
   @Override
   public void setAzimuth(Double azimuth) {
     this.azimuth = azimuth;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__AZIMUTH);
   }
 
   @Override
   public void setElevation(Double elevation) {
     this.elevation = elevation;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ELEVATION);
   }
 
   @Override
@@ -159,11 +162,11 @@ public class SunImpl extends BaseImpl implements ISunWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setIntensity(getIntensity());
+    clonedObject.intensity = getIntensity();
     // Simple type
-    clonedObject.setAzimuth(getAzimuth());
+    clonedObject.azimuth = getAzimuth();
     // Simple type
-    clonedObject.setElevation(getElevation());
+    clonedObject.elevation = getElevation();
     // clone children
     return clonedObject;
   }
@@ -252,16 +255,19 @@ public class SunImpl extends BaseImpl implements ISunWriter {
   @Override
   public void writeParameterToIntensity(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY, parameterName, null /*no textmarker*/);
+    this.intensity = null;
   }
 
   @Override
   public void writeParameterToAzimuth(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__AZIMUTH, parameterName, null /*no textmarker*/);
+    this.azimuth = null;
   }
 
   @Override
   public void writeParameterToElevation(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ELEVATION, parameterName, null /*no textmarker*/);
+    this.elevation = null;
   }
 
   @Override

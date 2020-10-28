@@ -113,6 +113,7 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
   @Override
   public void setTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule) {
     this.triggeringEntitiesRule = triggeringEntitiesRule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE);
   }
 
   @Override
@@ -182,8 +183,8 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
     // Enumeration Type
     TriggeringEntitiesRule triggeringEntitiesRule = getTriggeringEntitiesRule();
     if (triggeringEntitiesRule != null) {
-      clonedObject.setTriggeringEntitiesRule(
-          TriggeringEntitiesRule.getFromLiteral(triggeringEntitiesRule.getLiteral()));
+      clonedObject.triggeringEntitiesRule =
+          TriggeringEntitiesRule.getFromLiteral(triggeringEntitiesRule.getLiteral());
     }
     // clone children
     List<IEntityRefWriter> entityRefs = null;
@@ -289,6 +290,7 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
   public void writeParameterToTriggeringEntitiesRule(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE, parameterName, null /*no textmarker*/);
+    this.triggeringEntitiesRule = null;
   }
 
   @Override

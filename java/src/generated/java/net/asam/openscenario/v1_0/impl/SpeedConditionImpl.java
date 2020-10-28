@@ -86,11 +86,13 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedConditionWrite
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -152,11 +154,11 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedConditionWrite
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -249,11 +251,13 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedConditionWrite
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
   public void writeParameterToRule(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
   }
 
   @Override

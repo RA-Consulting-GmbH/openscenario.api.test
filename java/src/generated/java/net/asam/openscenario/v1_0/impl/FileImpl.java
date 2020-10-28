@@ -76,6 +76,7 @@ public class FileImpl extends BaseImpl implements IFileWriter {
   @Override
   public void setFilepath(String filepath) {
     this.filepath = filepath;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FILEPATH);
   }
 
   @Override
@@ -123,7 +124,7 @@ public class FileImpl extends BaseImpl implements IFileWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setFilepath(getFilepath());
+    clonedObject.filepath = getFilepath();
     // clone children
     return clonedObject;
   }
@@ -208,6 +209,7 @@ public class FileImpl extends BaseImpl implements IFileWriter {
   @Override
   public void writeParameterToFilepath(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__FILEPATH, parameterName, null /*no textmarker*/);
+    this.filepath = null;
   }
 
   @Override

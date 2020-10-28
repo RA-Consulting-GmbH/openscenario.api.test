@@ -100,6 +100,7 @@ public class ActionImpl extends BaseImpl implements IActionWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -183,7 +184,7 @@ public class ActionImpl extends BaseImpl implements IActionWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     IGlobalActionWriter globalAction = null;
     globalAction = getWriterGlobalAction();
@@ -301,6 +302,7 @@ public class ActionImpl extends BaseImpl implements IActionWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

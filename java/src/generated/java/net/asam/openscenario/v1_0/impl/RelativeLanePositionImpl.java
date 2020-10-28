@@ -108,21 +108,25 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
   @Override
   public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public void setDLane(Integer dLane) {
     this.dLane = dLane;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__D_LANE);
   }
 
   @Override
   public void setDs(Double ds) {
     this.ds = ds;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DS);
   }
 
   @Override
   public void setOffset(Double offset) {
     this.offset = offset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
@@ -199,14 +203,14 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDLane(getDLane());
+    clonedObject.dLane = getDLane();
     // Simple type
-    clonedObject.setDs(getDs());
+    clonedObject.ds = getDs();
     // Simple type
-    clonedObject.setOffset(getOffset());
+    clonedObject.offset = getOffset();
     // clone children
     IOrientationWriter orientation = null;
     orientation = getWriterOrientation();
@@ -329,21 +333,25 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
   }
 
   @Override
   public void writeParameterToDLane(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__D_LANE, parameterName, null /*no textmarker*/);
+    this.dLane = null;
   }
 
   @Override
   public void writeParameterToDs(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DS, parameterName, null /*no textmarker*/);
+    this.ds = null;
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
+    this.offset = null;
   }
 
   @Override

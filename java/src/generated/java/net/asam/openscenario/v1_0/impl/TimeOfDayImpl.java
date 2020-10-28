@@ -83,11 +83,13 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDayWriter {
   @Override
   public void setAnimation(Boolean animation) {
     this.animation = animation;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ANIMATION);
   }
 
   @Override
   public void setDateTime(java.util.Date dateTime) {
     this.dateTime = dateTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   @Override
@@ -141,9 +143,9 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDayWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setAnimation(getAnimation());
+    clonedObject.animation = getAnimation();
     // Simple type
-    clonedObject.setDateTime(getDateTime());
+    clonedObject.dateTime = getDateTime();
     // clone children
     return clonedObject;
   }
@@ -234,11 +236,13 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDayWriter {
   @Override
   public void writeParameterToAnimation(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ANIMATION, parameterName, null /*no textmarker*/);
+    this.animation = null;
   }
 
   @Override
   public void writeParameterToDateTime(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME, parameterName, null /*no textmarker*/);
+    this.dateTime = null;
   }
 
   @Override

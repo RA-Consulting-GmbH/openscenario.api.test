@@ -88,11 +88,13 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   @Override
   public void setCategory(VehicleCategory category) {
     this.category = category;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CATEGORY);
   }
 
   @Override
   public void setWeight(Double weight) {
     this.weight = weight;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   @Override
@@ -156,10 +158,10 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
     // Enumeration Type
     VehicleCategory category = getCategory();
     if (category != null) {
-      clonedObject.setCategory(VehicleCategory.getFromLiteral(category.getLiteral()));
+      clonedObject.category = VehicleCategory.getFromLiteral(category.getLiteral());
     }
     // Simple type
-    clonedObject.setWeight(getWeight());
+    clonedObject.weight = getWeight();
     // clone children
     return clonedObject;
   }
@@ -251,11 +253,13 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   @Override
   public void writeParameterToCategory(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__CATEGORY, parameterName, null /*no textmarker*/);
+    this.category = null;
   }
 
   @Override
   public void writeParameterToWeight(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
+    this.weight = null;
   }
 
   @Override

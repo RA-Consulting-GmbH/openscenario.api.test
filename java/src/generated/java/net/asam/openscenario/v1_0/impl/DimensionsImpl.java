@@ -90,16 +90,19 @@ public class DimensionsImpl extends BaseImpl implements IDimensionsWriter {
   @Override
   public void setWidth(Double width) {
     this.width = width;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WIDTH);
   }
 
   @Override
   public void setLength(Double length) {
     this.length = length;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LENGTH);
   }
 
   @Override
   public void setHeight(Double height) {
     this.height = height;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__HEIGHT);
   }
 
   @Override
@@ -159,11 +162,11 @@ public class DimensionsImpl extends BaseImpl implements IDimensionsWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setWidth(getWidth());
+    clonedObject.width = getWidth();
     // Simple type
-    clonedObject.setLength(getLength());
+    clonedObject.length = getLength();
     // Simple type
-    clonedObject.setHeight(getHeight());
+    clonedObject.height = getHeight();
     // clone children
     return clonedObject;
   }
@@ -252,16 +255,19 @@ public class DimensionsImpl extends BaseImpl implements IDimensionsWriter {
   @Override
   public void writeParameterToWidth(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__WIDTH, parameterName, null /*no textmarker*/);
+    this.width = null;
   }
 
   @Override
   public void writeParameterToLength(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__LENGTH, parameterName, null /*no textmarker*/);
+    this.length = null;
   }
 
   @Override
   public void writeParameterToHeight(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__HEIGHT, parameterName, null /*no textmarker*/);
+    this.height = null;
   }
 
   @Override

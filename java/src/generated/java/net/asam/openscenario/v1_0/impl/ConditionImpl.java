@@ -109,16 +109,19 @@ public class ConditionImpl extends BaseImpl implements IConditionWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public void setDelay(Double delay) {
     this.delay = delay;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DELAY);
   }
 
   @Override
   public void setConditionEdge(ConditionEdge conditionEdge) {
     this.conditionEdge = conditionEdge;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONDITION_EDGE);
   }
 
   @Override
@@ -208,13 +211,13 @@ public class ConditionImpl extends BaseImpl implements IConditionWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setDelay(getDelay());
+    clonedObject.delay = getDelay();
     // Enumeration Type
     ConditionEdge conditionEdge = getConditionEdge();
     if (conditionEdge != null) {
-      clonedObject.setConditionEdge(ConditionEdge.getFromLiteral(conditionEdge.getLiteral()));
+      clonedObject.conditionEdge = ConditionEdge.getFromLiteral(conditionEdge.getLiteral());
     }
     // clone children
     IByEntityConditionWriter byEntityCondition = null;
@@ -336,17 +339,20 @@ public class ConditionImpl extends BaseImpl implements IConditionWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override
   public void writeParameterToDelay(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DELAY, parameterName, null /*no textmarker*/);
+    this.delay = null;
   }
 
   @Override
   public void writeParameterToConditionEdge(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CONDITION_EDGE, parameterName, null /*no textmarker*/);
+    this.conditionEdge = null;
   }
 
   @Override

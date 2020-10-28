@@ -118,11 +118,13 @@ public class TrafficSignalControllerConditionImpl extends BaseImpl
   public void setTrafficSignalControllerRef(
       INamedReference<ITrafficSignalController> trafficSignalControllerRef) {
     this.trafficSignalControllerRef = trafficSignalControllerRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF);
   }
 
   @Override
   public void setPhase(String phase) {
     this.phase = phase;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PHASE);
   }
 
   @Override
@@ -184,10 +186,10 @@ public class TrafficSignalControllerConditionImpl extends BaseImpl
     // Proxy
     NamedReferenceProxy<ITrafficSignalController> proxy =
         ((NamedReferenceProxy<ITrafficSignalController>) getTrafficSignalControllerRef()).clone();
-    clonedObject.setTrafficSignalControllerRef(proxy);
+    clonedObject.trafficSignalControllerRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setPhase(getPhase());
+    clonedObject.phase = getPhase();
     // clone children
     return clonedObject;
   }
@@ -291,11 +293,13 @@ public class TrafficSignalControllerConditionImpl extends BaseImpl
         OscConstants.ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF,
         parameterName,
         null /*no textmarker*/);
+    this.trafficSignalControllerRef = null;
   }
 
   @Override
   public void writeParameterToPhase(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__PHASE, parameterName, null /*no textmarker*/);
+    this.phase = null;
   }
 
   @Override

@@ -349,6 +349,7 @@ public class CatalogImpl extends BaseImpl implements ICatalogWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -492,7 +493,7 @@ public class CatalogImpl extends BaseImpl implements ICatalogWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     List<IVehicleWriter> vehicles = null;
     vehicles = getWriterVehicles();
@@ -693,6 +694,7 @@ public class CatalogImpl extends BaseImpl implements ICatalogWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

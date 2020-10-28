@@ -92,6 +92,7 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetActionW
   @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   @Override
@@ -160,7 +161,7 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetActionW
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setContinuous(getContinuous());
+    clonedObject.continuous = getContinuous();
     // clone children
     ILaneOffsetActionDynamicsWriter laneOffsetActionDynamics = null;
     laneOffsetActionDynamics = getWriterLaneOffsetActionDynamics();
@@ -270,6 +271,7 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetActionW
   public void writeParameterToContinuous(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
+    this.continuous = null;
   }
 
   @Override

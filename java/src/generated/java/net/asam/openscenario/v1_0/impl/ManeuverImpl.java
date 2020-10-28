@@ -149,6 +149,7 @@ public class ManeuverImpl extends BaseImpl implements IManeuverWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -241,7 +242,7 @@ public class ManeuverImpl extends BaseImpl implements IManeuverWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     List<IParameterDeclarationWriter> parameterDeclarations = null;
     parameterDeclarations = getWriterParameterDeclarations();
@@ -358,6 +359,7 @@ public class ManeuverImpl extends BaseImpl implements IManeuverWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

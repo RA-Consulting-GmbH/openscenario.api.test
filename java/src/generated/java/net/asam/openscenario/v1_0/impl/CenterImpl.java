@@ -90,16 +90,19 @@ public class CenterImpl extends BaseImpl implements ICenterWriter {
   @Override
   public void setX(Double x) {
     this.x = x;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__X);
   }
 
   @Override
   public void setY(Double y) {
     this.y = y;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Y);
   }
 
   @Override
   public void setZ(Double z) {
     this.z = z;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Z);
   }
 
   @Override
@@ -156,11 +159,11 @@ public class CenterImpl extends BaseImpl implements ICenterWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setX(getX());
+    clonedObject.x = getX();
     // Simple type
-    clonedObject.setY(getY());
+    clonedObject.y = getY();
     // Simple type
-    clonedObject.setZ(getZ());
+    clonedObject.z = getZ();
     // clone children
     return clonedObject;
   }
@@ -249,16 +252,19 @@ public class CenterImpl extends BaseImpl implements ICenterWriter {
   @Override
   public void writeParameterToX(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__X, parameterName, null /*no textmarker*/);
+    this.x = null;
   }
 
   @Override
   public void writeParameterToY(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__Y, parameterName, null /*no textmarker*/);
+    this.y = null;
   }
 
   @Override
   public void writeParameterToZ(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__Z, parameterName, null /*no textmarker*/);
+    this.z = null;
   }
 
   @Override

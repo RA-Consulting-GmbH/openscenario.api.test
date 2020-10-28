@@ -91,11 +91,13 @@ public class ControlPointImpl extends BaseImpl implements IControlPointWriter {
   @Override
   public void setTime(Double time) {
     this.time = time;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TIME);
   }
 
   @Override
   public void setWeight(Double weight) {
     this.weight = weight;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   @Override
@@ -159,9 +161,9 @@ public class ControlPointImpl extends BaseImpl implements IControlPointWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setTime(getTime());
+    clonedObject.time = getTime();
     // Simple type
-    clonedObject.setWeight(getWeight());
+    clonedObject.weight = getWeight();
     // clone children
     IPositionWriter position = null;
     position = getWriterPosition();
@@ -261,11 +263,13 @@ public class ControlPointImpl extends BaseImpl implements IControlPointWriter {
   @Override
   public void writeParameterToTime(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TIME, parameterName, null /*no textmarker*/);
+    this.time = null;
   }
 
   @Override
   public void writeParameterToWeight(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
+    this.weight = null;
   }
 
   @Override

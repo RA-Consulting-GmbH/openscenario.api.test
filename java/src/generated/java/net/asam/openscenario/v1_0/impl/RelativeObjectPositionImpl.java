@@ -109,21 +109,25 @@ public class RelativeObjectPositionImpl extends BaseImpl implements IRelativeObj
   @Override
   public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public void setDx(Double dx) {
     this.dx = dx;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DX);
   }
 
   @Override
   public void setDy(Double dy) {
     this.dy = dy;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DY);
   }
 
   @Override
   public void setDz(Double dz) {
     this.dz = dz;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DZ);
   }
 
   @Override
@@ -200,14 +204,14 @@ public class RelativeObjectPositionImpl extends BaseImpl implements IRelativeObj
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDx(getDx());
+    clonedObject.dx = getDx();
     // Simple type
-    clonedObject.setDy(getDy());
+    clonedObject.dy = getDy();
     // Simple type
-    clonedObject.setDz(getDz());
+    clonedObject.dz = getDz();
     // clone children
     IOrientationWriter orientation = null;
     orientation = getWriterOrientation();
@@ -326,21 +330,25 @@ public class RelativeObjectPositionImpl extends BaseImpl implements IRelativeObj
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
   }
 
   @Override
   public void writeParameterToDx(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DX, parameterName, null /*no textmarker*/);
+    this.dx = null;
   }
 
   @Override
   public void writeParameterToDy(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DY, parameterName, null /*no textmarker*/);
+    this.dy = null;
   }
 
   @Override
   public void writeParameterToDz(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DZ, parameterName, null /*no textmarker*/);
+    this.dz = null;
   }
 
   @Override

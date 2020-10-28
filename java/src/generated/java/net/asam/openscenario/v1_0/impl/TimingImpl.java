@@ -93,16 +93,19 @@ public class TimingImpl extends BaseImpl implements ITimingWriter {
   @Override
   public void setDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative) {
     this.domainAbsoluteRelative = domainAbsoluteRelative;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE);
   }
 
   @Override
   public void setScale(Double scale) {
     this.scale = scale;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SCALE);
   }
 
   @Override
   public void setOffset(Double offset) {
     this.offset = offset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
@@ -172,13 +175,13 @@ public class TimingImpl extends BaseImpl implements ITimingWriter {
     // Enumeration Type
     ReferenceContext domainAbsoluteRelative = getDomainAbsoluteRelative();
     if (domainAbsoluteRelative != null) {
-      clonedObject.setDomainAbsoluteRelative(
-          ReferenceContext.getFromLiteral(domainAbsoluteRelative.getLiteral()));
+      clonedObject.domainAbsoluteRelative =
+          ReferenceContext.getFromLiteral(domainAbsoluteRelative.getLiteral());
     }
     // Simple type
-    clonedObject.setScale(getScale());
+    clonedObject.scale = getScale();
     // Simple type
-    clonedObject.setOffset(getOffset());
+    clonedObject.offset = getOffset();
     // clone children
     return clonedObject;
   }
@@ -273,16 +276,19 @@ public class TimingImpl extends BaseImpl implements ITimingWriter {
   public void writeParameterToDomainAbsoluteRelative(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, parameterName, null /*no textmarker*/);
+    this.domainAbsoluteRelative = null;
   }
 
   @Override
   public void writeParameterToScale(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__SCALE, parameterName, null /*no textmarker*/);
+    this.scale = null;
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
+    this.offset = null;
   }
 
   @Override

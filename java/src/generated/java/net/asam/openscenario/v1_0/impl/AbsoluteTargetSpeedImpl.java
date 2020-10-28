@@ -76,6 +76,7 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -123,7 +124,7 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -208,6 +209,7 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override

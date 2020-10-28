@@ -84,6 +84,7 @@ public class VertexImpl extends BaseImpl implements IVertexWriter {
   @Override
   public void setTime(Double time) {
     this.time = time;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TIME);
   }
 
   @Override
@@ -141,7 +142,7 @@ public class VertexImpl extends BaseImpl implements IVertexWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setTime(getTime());
+    clonedObject.time = getTime();
     // clone children
     IPositionWriter position = null;
     position = getWriterPosition();
@@ -239,6 +240,7 @@ public class VertexImpl extends BaseImpl implements IVertexWriter {
   @Override
   public void writeParameterToTime(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TIME, parameterName, null /*no textmarker*/);
+    this.time = null;
   }
 
   @Override

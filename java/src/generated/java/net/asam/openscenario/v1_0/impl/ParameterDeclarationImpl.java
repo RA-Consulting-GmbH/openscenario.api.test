@@ -97,11 +97,13 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
   @Override
   public void setParameterType(ParameterType parameterType) {
     this.parameterType = parameterType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PARAMETER_TYPE);
   }
 
   @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -163,14 +165,14 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Enumeration Type
     ParameterType parameterType = getParameterType();
     if (parameterType != null) {
-      clonedObject.setParameterType(ParameterType.getFromLiteral(parameterType.getLiteral()));
+      clonedObject.parameterType = ParameterType.getFromLiteral(parameterType.getLiteral());
     }
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -265,11 +267,13 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
   public void writeParameterToParameterType(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__PARAMETER_TYPE, parameterName, null /*no textmarker*/);
+    this.parameterType = null;
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
