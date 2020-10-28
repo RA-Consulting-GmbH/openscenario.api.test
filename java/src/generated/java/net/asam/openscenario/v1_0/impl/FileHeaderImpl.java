@@ -104,26 +104,31 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeaderWriter {
   @Override
   public void setRevMajor(Integer revMajor) {
     this.revMajor = revMajor;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__REV_MAJOR);
   }
 
   @Override
   public void setRevMinor(Integer revMinor) {
     this.revMinor = revMinor;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__REV_MINOR);
   }
 
   @Override
   public void setDate(java.util.Date date) {
     this.date = date;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DATE);
   }
 
   @Override
   public void setDescription(String description) {
     this.description = description;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DESCRIPTION);
   }
 
   @Override
   public void setAuthor(String author) {
     this.author = author;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__AUTHOR);
   }
 
   @Override
@@ -197,15 +202,15 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeaderWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setRevMajor(getRevMajor());
+    clonedObject.revMajor = getRevMajor();
     // Simple type
-    clonedObject.setRevMinor(getRevMinor());
+    clonedObject.revMinor = getRevMinor();
     // Simple type
-    clonedObject.setDate(getDate());
+    clonedObject.date = getDate();
     // Simple type
-    clonedObject.setDescription(getDescription());
+    clonedObject.description = getDescription();
     // Simple type
-    clonedObject.setAuthor(getAuthor());
+    clonedObject.author = getAuthor();
     // clone children
     return clonedObject;
   }
@@ -306,27 +311,32 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeaderWriter {
   @Override
   public void writeParameterToRevMajor(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__REV_MAJOR, parameterName, null /*no textmarker*/);
+    this.revMajor = null;
   }
 
   @Override
   public void writeParameterToRevMinor(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__REV_MINOR, parameterName, null /*no textmarker*/);
+    this.revMinor = null;
   }
 
   @Override
   public void writeParameterToDate(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DATE, parameterName, null /*no textmarker*/);
+    this.date = null;
   }
 
   @Override
   public void writeParameterToDescription(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__DESCRIPTION, parameterName, null /*no textmarker*/);
+    this.description = null;
   }
 
   @Override
   public void writeParameterToAuthor(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__AUTHOR, parameterName, null /*no textmarker*/);
+    this.author = null;
   }
 
   @Override

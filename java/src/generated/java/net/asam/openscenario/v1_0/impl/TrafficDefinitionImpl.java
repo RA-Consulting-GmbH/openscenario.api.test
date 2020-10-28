@@ -92,6 +92,7 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -160,7 +161,7 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     IVehicleCategoryDistributionWriter vehicleCategoryDistribution = null;
     vehicleCategoryDistribution = getWriterVehicleCategoryDistribution();
@@ -270,6 +271,7 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

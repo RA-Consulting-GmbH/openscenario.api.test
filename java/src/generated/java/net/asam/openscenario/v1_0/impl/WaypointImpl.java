@@ -86,6 +86,7 @@ public class WaypointImpl extends BaseImpl implements IWaypointWriter {
   @Override
   public void setRouteStrategy(RouteStrategy routeStrategy) {
     this.routeStrategy = routeStrategy;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ROUTE_STRATEGY);
   }
 
   @Override
@@ -153,7 +154,7 @@ public class WaypointImpl extends BaseImpl implements IWaypointWriter {
     // Enumeration Type
     RouteStrategy routeStrategy = getRouteStrategy();
     if (routeStrategy != null) {
-      clonedObject.setRouteStrategy(RouteStrategy.getFromLiteral(routeStrategy.getLiteral()));
+      clonedObject.routeStrategy = RouteStrategy.getFromLiteral(routeStrategy.getLiteral());
     }
     // clone children
     IPositionWriter position = null;
@@ -254,6 +255,7 @@ public class WaypointImpl extends BaseImpl implements IWaypointWriter {
   public void writeParameterToRouteStrategy(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ROUTE_STRATEGY, parameterName, null /*no textmarker*/);
+    this.routeStrategy = null;
   }
 
   @Override

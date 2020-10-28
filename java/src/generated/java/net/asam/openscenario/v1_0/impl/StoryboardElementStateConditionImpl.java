@@ -98,16 +98,19 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   @Override
   public void setStoryboardElementType(StoryboardElementType storyboardElementType) {
     this.storyboardElementType = storyboardElementType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE);
   }
 
   @Override
   public void setStoryboardElementRef(INamedReference<IStoryboardElement> storyboardElementRef) {
     this.storyboardElementRef = storyboardElementRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF);
   }
 
   @Override
   public void setState(StoryboardElementState state) {
     this.state = state;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STATE);
   }
 
   @Override
@@ -186,18 +189,18 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
     // Enumeration Type
     StoryboardElementType storyboardElementType = getStoryboardElementType();
     if (storyboardElementType != null) {
-      clonedObject.setStoryboardElementType(
-          StoryboardElementType.getFromLiteral(storyboardElementType.getLiteral()));
+      clonedObject.storyboardElementType =
+          StoryboardElementType.getFromLiteral(storyboardElementType.getLiteral());
     }
     // Proxy
     NamedReferenceProxy<IStoryboardElement> proxy =
         ((NamedReferenceProxy<IStoryboardElement>) getStoryboardElementRef()).clone();
-    clonedObject.setStoryboardElementRef(proxy);
+    clonedObject.storyboardElementRef = proxy;
     proxy.setParent(clonedObject);
     // Enumeration Type
     StoryboardElementState state = getState();
     if (state != null) {
-      clonedObject.setState(StoryboardElementState.getFromLiteral(state.getLiteral()));
+      clonedObject.state = StoryboardElementState.getFromLiteral(state.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -306,17 +309,20 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   public void writeParameterToStoryboardElementType(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, parameterName, null /*no textmarker*/);
+    this.storyboardElementType = null;
   }
 
   @Override
   public void writeParameterToStoryboardElementRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF, parameterName, null /*no textmarker*/);
+    this.storyboardElementRef = null;
   }
 
   @Override
   public void writeParameterToState(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__STATE, parameterName, null /*no textmarker*/);
+    this.state = null;
   }
 
   @Override

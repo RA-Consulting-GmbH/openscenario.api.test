@@ -94,16 +94,19 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
   @Override
   public void setDynamicsShape(DynamicsShape dynamicsShape) {
     this.dynamicsShape = dynamicsShape;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
 
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public void setDynamicsDimension(DynamicsDimension dynamicsDimension) {
     this.dynamicsDimension = dynamicsDimension;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION);
   }
 
   @Override
@@ -181,15 +184,15 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
     // Enumeration Type
     DynamicsShape dynamicsShape = getDynamicsShape();
     if (dynamicsShape != null) {
-      clonedObject.setDynamicsShape(DynamicsShape.getFromLiteral(dynamicsShape.getLiteral()));
+      clonedObject.dynamicsShape = DynamicsShape.getFromLiteral(dynamicsShape.getLiteral());
     }
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     DynamicsDimension dynamicsDimension = getDynamicsDimension();
     if (dynamicsDimension != null) {
-      clonedObject.setDynamicsDimension(
-          DynamicsDimension.getFromLiteral(dynamicsDimension.getLiteral()));
+      clonedObject.dynamicsDimension =
+          DynamicsDimension.getFromLiteral(dynamicsDimension.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -286,17 +289,20 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
   public void writeParameterToDynamicsShape(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__DYNAMICS_SHAPE, parameterName, null /*no textmarker*/);
+    this.dynamicsShape = null;
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
   public void writeParameterToDynamicsDimension(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION, parameterName, null /*no textmarker*/);
+    this.dynamicsDimension = null;
   }
 
   @Override

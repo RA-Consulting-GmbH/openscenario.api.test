@@ -148,16 +148,19 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObjectWriter {
   @Override
   public void setMiscObjectCategory(MiscObjectCategory miscObjectCategory) {
     this.miscObjectCategory = miscObjectCategory;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY);
   }
 
   @Override
   public void setMass(Double mass) {
     this.mass = mass;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MASS);
   }
 
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -280,13 +283,13 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObjectWriter {
     // Enumeration Type
     MiscObjectCategory miscObjectCategory = getMiscObjectCategory();
     if (miscObjectCategory != null) {
-      clonedObject.setMiscObjectCategory(
-          MiscObjectCategory.getFromLiteral(miscObjectCategory.getLiteral()));
+      clonedObject.miscObjectCategory =
+          MiscObjectCategory.getFromLiteral(miscObjectCategory.getLiteral());
     }
     // Simple type
-    clonedObject.setMass(getMass());
+    clonedObject.mass = getMass();
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     List<IParameterDeclarationWriter> parameterDeclarations = null;
     parameterDeclarations = getWriterParameterDeclarations();
@@ -426,16 +429,19 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObjectWriter {
   public void writeParameterToMiscObjectCategory(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY, parameterName, null /*no textmarker*/);
+    this.miscObjectCategory = null;
   }
 
   @Override
   public void writeParameterToMass(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__MASS, parameterName, null /*no textmarker*/);
+    this.mass = null;
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

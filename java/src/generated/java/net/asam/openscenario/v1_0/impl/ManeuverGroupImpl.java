@@ -161,11 +161,13 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroupWriter 
   @Override
   public void setMaximumExecutionCount(Long maximumExecutionCount) {
     this.maximumExecutionCount = maximumExecutionCount;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
 
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -253,9 +255,9 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroupWriter 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaximumExecutionCount(getMaximumExecutionCount());
+    clonedObject.maximumExecutionCount = getMaximumExecutionCount();
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     IActorsWriter actors = null;
     actors = getWriterActors();
@@ -392,11 +394,13 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroupWriter 
   public void writeParameterToMaximumExecutionCount(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, parameterName, null /*no textmarker*/);
+    this.maximumExecutionCount = null;
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

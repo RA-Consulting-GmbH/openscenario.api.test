@@ -78,6 +78,7 @@ public class ByTypeImpl extends BaseImpl implements IByTypeWriter {
   @Override
   public void setObjectType(ObjectType objectType) {
     this.objectType = objectType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OBJECT_TYPE);
   }
 
   @Override
@@ -135,7 +136,7 @@ public class ByTypeImpl extends BaseImpl implements IByTypeWriter {
     // Enumeration Type
     ObjectType objectType = getObjectType();
     if (objectType != null) {
-      clonedObject.setObjectType(ObjectType.getFromLiteral(objectType.getLiteral()));
+      clonedObject.objectType = ObjectType.getFromLiteral(objectType.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -223,6 +224,7 @@ public class ByTypeImpl extends BaseImpl implements IByTypeWriter {
   public void writeParameterToObjectType(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__OBJECT_TYPE, parameterName, null /*no textmarker*/);
+    this.objectType = null;
   }
 
   @Override

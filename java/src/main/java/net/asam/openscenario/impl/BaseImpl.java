@@ -185,6 +185,16 @@ public abstract class BaseImpl
     this.attributeKeyToParameterName.put(
         attributeKey, new ParameterizedAttribute(parameterName, textmarker));
   }
+  
+  /**
+   * Removes a parameter from a attribute.
+   *
+   * @param attributeKey the key of this attribute.
+   */
+  public void removeAttributeParameter(String attributeKey) {
+    this.attributeKeyToParameterName.remove(
+        attributeKey);
+  }
 
   /**
    * Adds the resolved attribute value to the list of resolved parameters.

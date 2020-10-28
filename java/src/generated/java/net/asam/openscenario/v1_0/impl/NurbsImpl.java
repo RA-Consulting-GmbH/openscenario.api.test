@@ -145,6 +145,7 @@ public class NurbsImpl extends BaseImpl implements INurbsWriter {
   @Override
   public void setOrder(Long order) {
     this.order = order;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ORDER);
   }
 
   @Override
@@ -216,7 +217,7 @@ public class NurbsImpl extends BaseImpl implements INurbsWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setOrder(getOrder());
+    clonedObject.order = getOrder();
     // clone children
     List<IControlPointWriter> controlPoints = null;
     controlPoints = getWriterControlPoints();
@@ -333,6 +334,7 @@ public class NurbsImpl extends BaseImpl implements INurbsWriter {
   @Override
   public void writeParameterToOrder(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ORDER, parameterName, null /*no textmarker*/);
+    this.order = null;
   }
 
   @Override

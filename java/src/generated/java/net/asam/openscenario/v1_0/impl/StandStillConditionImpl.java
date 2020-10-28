@@ -76,6 +76,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
   @Override
   public void setDuration(Double duration) {
     this.duration = duration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DURATION);
   }
 
   @Override
@@ -123,7 +124,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setDuration(getDuration());
+    clonedObject.duration = getDuration();
     // clone children
     return clonedObject;
   }
@@ -208,6 +209,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
   @Override
   public void writeParameterToDuration(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DURATION, parameterName, null /*no textmarker*/);
+    this.duration = null;
   }
 
   @Override

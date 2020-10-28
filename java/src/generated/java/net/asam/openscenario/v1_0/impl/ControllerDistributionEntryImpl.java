@@ -94,6 +94,7 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   @Override
   public void setWeight(Double weight) {
     this.weight = weight;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   @Override
@@ -163,7 +164,7 @@ public class ControllerDistributionEntryImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setWeight(getWeight());
+    clonedObject.weight = getWeight();
     // clone children
     IControllerWriter controller = null;
     controller = getWriterController();
@@ -271,6 +272,7 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   @Override
   public void writeParameterToWeight(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
+    this.weight = null;
   }
 
   @Override

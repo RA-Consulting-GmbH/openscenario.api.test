@@ -92,16 +92,19 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
   @Override
   public void setPathS(Double pathS) {
     this.pathS = pathS;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PATH_S);
   }
 
   @Override
   public void setLaneId(String laneId) {
     this.laneId = laneId;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID);
   }
 
   @Override
   public void setLaneOffset(Double laneOffset) {
     this.laneOffset = laneOffset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LANE_OFFSET);
   }
 
   @Override
@@ -161,11 +164,11 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setPathS(getPathS());
+    clonedObject.pathS = getPathS();
     // Simple type
-    clonedObject.setLaneId(getLaneId());
+    clonedObject.laneId = getLaneId();
     // Simple type
-    clonedObject.setLaneOffset(getLaneOffset());
+    clonedObject.laneOffset = getLaneOffset();
     // clone children
     return clonedObject;
   }
@@ -258,17 +261,20 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
   @Override
   public void writeParameterToPathS(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__PATH_S, parameterName, null /*no textmarker*/);
+    this.pathS = null;
   }
 
   @Override
   public void writeParameterToLaneId(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID, parameterName, null /*no textmarker*/);
+    this.laneId = null;
   }
 
   @Override
   public void writeParameterToLaneOffset(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__LANE_OFFSET, parameterName, null /*no textmarker*/);
+    this.laneOffset = null;
   }
 
   @Override

@@ -157,11 +157,13 @@ public class VehicleImpl extends BaseImpl implements IVehicleWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public void setVehicleCategory(VehicleCategory vehicleCategory) {
     this.vehicleCategory = vehicleCategory;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VEHICLE_CATEGORY);
   }
 
   @Override
@@ -296,11 +298,11 @@ public class VehicleImpl extends BaseImpl implements IVehicleWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Enumeration Type
     VehicleCategory vehicleCategory = getVehicleCategory();
     if (vehicleCategory != null) {
-      clonedObject.setVehicleCategory(VehicleCategory.getFromLiteral(vehicleCategory.getLiteral()));
+      clonedObject.vehicleCategory = VehicleCategory.getFromLiteral(vehicleCategory.getLiteral());
     }
     // clone children
     List<IParameterDeclarationWriter> parameterDeclarations = null;
@@ -454,12 +456,14 @@ public class VehicleImpl extends BaseImpl implements IVehicleWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override
   public void writeParameterToVehicleCategory(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__VEHICLE_CATEGORY, parameterName, null /*no textmarker*/);
+    this.vehicleCategory = null;
   }
 
   @Override

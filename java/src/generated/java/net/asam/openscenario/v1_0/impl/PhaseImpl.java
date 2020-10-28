@@ -118,11 +118,13 @@ public class PhaseImpl extends BaseImpl implements IPhaseWriter {
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public void setDuration(Double duration) {
     this.duration = duration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DURATION);
   }
 
   @Override
@@ -188,9 +190,9 @@ public class PhaseImpl extends BaseImpl implements IPhaseWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setDuration(getDuration());
+    clonedObject.duration = getDuration();
     // clone children
     List<ITrafficSignalStateWriter> trafficSignalStates = null;
     trafficSignalStates = getWriterTrafficSignalStates();
@@ -299,11 +301,13 @@ public class PhaseImpl extends BaseImpl implements IPhaseWriter {
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override
   public void writeParameterToDuration(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DURATION, parameterName, null /*no textmarker*/);
+    this.duration = null;
   }
 
   @Override

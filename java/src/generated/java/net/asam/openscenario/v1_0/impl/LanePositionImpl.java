@@ -105,21 +105,25 @@ public class LanePositionImpl extends BaseImpl implements ILanePositionWriter {
   @Override
   public void setRoadId(String roadId) {
     this.roadId = roadId;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID);
   }
 
   @Override
   public void setLaneId(String laneId) {
     this.laneId = laneId;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID);
   }
 
   @Override
   public void setOffset(Double offset) {
     this.offset = offset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public void setS(Double s) {
     this.s = s;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__S);
   }
 
   @Override
@@ -194,13 +198,13 @@ public class LanePositionImpl extends BaseImpl implements ILanePositionWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setRoadId(getRoadId());
+    clonedObject.roadId = getRoadId();
     // Simple type
-    clonedObject.setLaneId(getLaneId());
+    clonedObject.laneId = getLaneId();
     // Simple type
-    clonedObject.setOffset(getOffset());
+    clonedObject.offset = getOffset();
     // Simple type
-    clonedObject.setS(getS());
+    clonedObject.s = getS();
     // clone children
     IOrientationWriter orientation = null;
     orientation = getWriterOrientation();
@@ -308,21 +312,25 @@ public class LanePositionImpl extends BaseImpl implements ILanePositionWriter {
   @Override
   public void writeParameterToRoadId(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID, parameterName, null /*no textmarker*/);
+    this.roadId = null;
   }
 
   @Override
   public void writeParameterToLaneId(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID, parameterName, null /*no textmarker*/);
+    this.laneId = null;
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
+    this.offset = null;
   }
 
   @Override
   public void writeParameterToS(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__S, parameterName, null /*no textmarker*/);
+    this.s = null;
   }
 
   @Override

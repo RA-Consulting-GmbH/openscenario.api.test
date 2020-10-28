@@ -127,31 +127,37 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
   @Override
   public void setSemiMajorAxis(Double semiMajorAxis) {
     this.semiMajorAxis = semiMajorAxis;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS);
   }
 
   @Override
   public void setSemiMinorAxis(Double semiMinorAxis) {
     this.semiMinorAxis = semiMinorAxis;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS);
   }
 
   @Override
   public void setInnerRadius(Double innerRadius) {
     this.innerRadius = innerRadius;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__INNER_RADIUS);
   }
 
   @Override
   public void setOffset(Double offset) {
     this.offset = offset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
   public void setNumberOfVehicles(Long numberOfVehicles) {
     this.numberOfVehicles = numberOfVehicles;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES);
   }
 
   @Override
   public void setVelocity(Double velocity) {
     this.velocity = velocity;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VELOCITY);
   }
 
   @Override
@@ -249,17 +255,17 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setSemiMajorAxis(getSemiMajorAxis());
+    clonedObject.semiMajorAxis = getSemiMajorAxis();
     // Simple type
-    clonedObject.setSemiMinorAxis(getSemiMinorAxis());
+    clonedObject.semiMinorAxis = getSemiMinorAxis();
     // Simple type
-    clonedObject.setInnerRadius(getInnerRadius());
+    clonedObject.innerRadius = getInnerRadius();
     // Simple type
-    clonedObject.setOffset(getOffset());
+    clonedObject.offset = getOffset();
     // Simple type
-    clonedObject.setNumberOfVehicles(getNumberOfVehicles());
+    clonedObject.numberOfVehicles = getNumberOfVehicles();
     // Simple type
-    clonedObject.setVelocity(getVelocity());
+    clonedObject.velocity = getVelocity();
     // clone children
     ICentralSwarmObjectWriter centralObject = null;
     centralObject = getWriterCentralObject();
@@ -382,34 +388,40 @@ public class TrafficSwarmActionImpl extends BaseImpl implements ITrafficSwarmAct
   public void writeParameterToSemiMajorAxis(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__SEMI_MAJOR_AXIS, parameterName, null /*no textmarker*/);
+    this.semiMajorAxis = null;
   }
 
   @Override
   public void writeParameterToSemiMinorAxis(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__SEMI_MINOR_AXIS, parameterName, null /*no textmarker*/);
+    this.semiMinorAxis = null;
   }
 
   @Override
   public void writeParameterToInnerRadius(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__INNER_RADIUS, parameterName, null /*no textmarker*/);
+    this.innerRadius = null;
   }
 
   @Override
   public void writeParameterToOffset(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
+    this.offset = null;
   }
 
   @Override
   public void writeParameterToNumberOfVehicles(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__NUMBER_OF_VEHICLES, parameterName, null /*no textmarker*/);
+    this.numberOfVehicles = null;
   }
 
   @Override
   public void writeParameterToVelocity(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VELOCITY, parameterName, null /*no textmarker*/);
+    this.velocity = null;
   }
 
   @Override

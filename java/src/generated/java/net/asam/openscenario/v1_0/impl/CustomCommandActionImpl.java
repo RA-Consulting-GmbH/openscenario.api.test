@@ -83,11 +83,13 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
   @Override
   public void setType(String type) {
     this.type = type;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TYPE);
   }
 
   @Override
   public void setContent(String content) {
     this.content = content;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTENT);
   }
 
   @Override
@@ -141,7 +143,7 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setType(getType());
+    clonedObject.type = getType();
     // clone children
     return clonedObject;
   }
@@ -228,11 +230,13 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
   @Override
   public void writeParameterToType(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TYPE, parameterName, null /*no textmarker*/);
+    this.type = null;
   }
 
   @Override
   public void writeParameterToContent(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__CONTENT, parameterName, null /*no textmarker*/);
+    this.content = null;
   }
 
   @Override

@@ -84,6 +84,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadConditionWriter 
   @Override
   public void setFrictionScaleFactor(Double frictionScaleFactor) {
     this.frictionScaleFactor = frictionScaleFactor;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
   }
 
   @Override
@@ -141,7 +142,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadConditionWriter 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setFrictionScaleFactor(getFrictionScaleFactor());
+    clonedObject.frictionScaleFactor = getFrictionScaleFactor();
     // clone children
     IPropertiesWriter properties = null;
     properties = getWriterProperties();
@@ -240,6 +241,7 @@ public class RoadConditionImpl extends BaseImpl implements IRoadConditionWriter 
   public void writeParameterToFrictionScaleFactor(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR, parameterName, null /*no textmarker*/);
+    this.frictionScaleFactor = null;
   }
 
   @Override

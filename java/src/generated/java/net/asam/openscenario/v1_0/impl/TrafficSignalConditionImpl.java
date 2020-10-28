@@ -84,11 +84,13 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public void setState(String state) {
     this.state = state;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STATE);
   }
 
   @Override
@@ -142,9 +144,9 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setState(getState());
+    clonedObject.state = getState();
     // clone children
     return clonedObject;
   }
@@ -231,11 +233,13 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override
   public void writeParameterToState(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__STATE, parameterName, null /*no textmarker*/);
+    this.state = null;
   }
 
   @Override

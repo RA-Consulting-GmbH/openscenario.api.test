@@ -76,6 +76,7 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
   @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -123,7 +124,7 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -208,6 +209,7 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override

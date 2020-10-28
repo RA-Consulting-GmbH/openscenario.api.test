@@ -92,6 +92,7 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeActionW
   @Override
   public void setTargetLaneOffset(Double targetLaneOffset) {
     this.targetLaneOffset = targetLaneOffset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET);
   }
 
   @Override
@@ -159,7 +160,7 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeActionW
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setTargetLaneOffset(getTargetLaneOffset());
+    clonedObject.targetLaneOffset = getTargetLaneOffset();
     // clone children
     ITransitionDynamicsWriter laneChangeActionDynamics = null;
     laneChangeActionDynamics = getWriterLaneChangeActionDynamics();
@@ -269,6 +270,7 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeActionW
   public void writeParameterToTargetLaneOffset(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET, parameterName, null /*no textmarker*/);
+    this.targetLaneOffset = null;
   }
 
   @Override

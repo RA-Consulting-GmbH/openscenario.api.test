@@ -84,6 +84,7 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelectionWri
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -141,7 +142,7 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelectionWri
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     ISelectedEntitiesWriter members = null;
     members = getWriterMembers();
@@ -239,6 +240,7 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelectionWri
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

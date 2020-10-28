@@ -104,26 +104,31 @@ public class AxleImpl extends BaseImpl implements IAxleWriter {
   @Override
   public void setMaxSteering(Double maxSteering) {
     this.maxSteering = maxSteering;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_STEERING);
   }
 
   @Override
   public void setWheelDiameter(Double wheelDiameter) {
     this.wheelDiameter = wheelDiameter;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
   }
 
   @Override
   public void setTrackWidth(Double trackWidth) {
     this.trackWidth = trackWidth;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TRACK_WIDTH);
   }
 
   @Override
   public void setPositionX(Double positionX) {
     this.positionX = positionX;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__POSITION_X);
   }
 
   @Override
   public void setPositionZ(Double positionZ) {
     this.positionZ = positionZ;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__POSITION_Z);
   }
 
   @Override
@@ -195,15 +200,15 @@ public class AxleImpl extends BaseImpl implements IAxleWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaxSteering(getMaxSteering());
+    clonedObject.maxSteering = getMaxSteering();
     // Simple type
-    clonedObject.setWheelDiameter(getWheelDiameter());
+    clonedObject.wheelDiameter = getWheelDiameter();
     // Simple type
-    clonedObject.setTrackWidth(getTrackWidth());
+    clonedObject.trackWidth = getTrackWidth();
     // Simple type
-    clonedObject.setPositionX(getPositionX());
+    clonedObject.positionX = getPositionX();
     // Simple type
-    clonedObject.setPositionZ(getPositionZ());
+    clonedObject.positionZ = getPositionZ();
     // clone children
     return clonedObject;
   }
@@ -297,30 +302,35 @@ public class AxleImpl extends BaseImpl implements IAxleWriter {
   public void writeParameterToMaxSteering(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MAX_STEERING, parameterName, null /*no textmarker*/);
+    this.maxSteering = null;
   }
 
   @Override
   public void writeParameterToWheelDiameter(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__WHEEL_DIAMETER, parameterName, null /*no textmarker*/);
+    this.wheelDiameter = null;
   }
 
   @Override
   public void writeParameterToTrackWidth(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__TRACK_WIDTH, parameterName, null /*no textmarker*/);
+    this.trackWidth = null;
   }
 
   @Override
   public void writeParameterToPositionX(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__POSITION_X, parameterName, null /*no textmarker*/);
+    this.positionX = null;
   }
 
   @Override
   public void writeParameterToPositionZ(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__POSITION_Z, parameterName, null /*no textmarker*/);
+    this.positionZ = null;
   }
 
   @Override

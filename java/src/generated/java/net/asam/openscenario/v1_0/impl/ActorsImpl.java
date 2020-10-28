@@ -111,6 +111,7 @@ public class ActorsImpl extends BaseImpl implements IActorsWriter {
   @Override
   public void setSelectTriggeringEntities(Boolean selectTriggeringEntities) {
     this.selectTriggeringEntities = selectTriggeringEntities;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES);
   }
 
   @Override
@@ -170,7 +171,7 @@ public class ActorsImpl extends BaseImpl implements IActorsWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setSelectTriggeringEntities(getSelectTriggeringEntities());
+    clonedObject.selectTriggeringEntities = getSelectTriggeringEntities();
     // clone children
     List<IEntityRefWriter> entityRefs = null;
     entityRefs = getWriterEntityRefs();
@@ -274,6 +275,7 @@ public class ActorsImpl extends BaseImpl implements IActorsWriter {
   public void writeParameterToSelectTriggeringEntities(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, parameterName, null /*no textmarker*/);
+    this.selectTriggeringEntities = null;
   }
 
   @Override

@@ -103,21 +103,25 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
   @Override
   public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
     this.speedTargetValueType = speedTargetValueType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
 
   @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   @Override
@@ -192,18 +196,18 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     SpeedTargetValueType speedTargetValueType = getSpeedTargetValueType();
     if (speedTargetValueType != null) {
-      clonedObject.setSpeedTargetValueType(
-          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral()));
+      clonedObject.speedTargetValueType =
+          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral());
     }
     // Simple type
-    clonedObject.setContinuous(getContinuous());
+    clonedObject.continuous = getContinuous();
     // clone children
     return clonedObject;
   }
@@ -318,23 +322,27 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
   public void writeParameterToSpeedTargetValueType(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, parameterName, null /*no textmarker*/);
+    this.speedTargetValueType = null;
   }
 
   @Override
   public void writeParameterToContinuous(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
+    this.continuous = null;
   }
 
   @Override

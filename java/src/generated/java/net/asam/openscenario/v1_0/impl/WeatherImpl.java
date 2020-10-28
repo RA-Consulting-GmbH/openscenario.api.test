@@ -102,6 +102,7 @@ public class WeatherImpl extends BaseImpl implements IWeatherWriter {
   @Override
   public void setCloudState(CloudState cloudState) {
     this.cloudState = cloudState;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CLOUD_STATE);
   }
 
   @Override
@@ -189,7 +190,7 @@ public class WeatherImpl extends BaseImpl implements IWeatherWriter {
     // Enumeration Type
     CloudState cloudState = getCloudState();
     if (cloudState != null) {
-      clonedObject.setCloudState(CloudState.getFromLiteral(cloudState.getLiteral()));
+      clonedObject.cloudState = CloudState.getFromLiteral(cloudState.getLiteral());
     }
     // clone children
     ISunWriter sun = null;
@@ -310,6 +311,7 @@ public class WeatherImpl extends BaseImpl implements IWeatherWriter {
   public void writeParameterToCloudState(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CLOUD_STATE, parameterName, null /*no textmarker*/);
+    this.cloudState = null;
   }
 
   @Override

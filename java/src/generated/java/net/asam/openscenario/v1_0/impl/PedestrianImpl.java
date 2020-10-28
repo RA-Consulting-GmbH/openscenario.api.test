@@ -155,21 +155,25 @@ public class PedestrianImpl extends BaseImpl implements IPedestrianWriter {
   @Override
   public void setModel(String model) {
     this.model = model;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MODEL);
   }
 
   @Override
   public void setMass(Double mass) {
     this.mass = mass;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MASS);
   }
 
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public void setPedestrianCategory(PedestrianCategory pedestrianCategory) {
     this.pedestrianCategory = pedestrianCategory;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY);
   }
 
   @Override
@@ -296,16 +300,16 @@ public class PedestrianImpl extends BaseImpl implements IPedestrianWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setModel(getModel());
+    clonedObject.model = getModel();
     // Simple type
-    clonedObject.setMass(getMass());
+    clonedObject.mass = getMass();
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Enumeration Type
     PedestrianCategory pedestrianCategory = getPedestrianCategory();
     if (pedestrianCategory != null) {
-      clonedObject.setPedestrianCategory(
-          PedestrianCategory.getFromLiteral(pedestrianCategory.getLiteral()));
+      clonedObject.pedestrianCategory =
+          PedestrianCategory.getFromLiteral(pedestrianCategory.getLiteral());
     }
     // clone children
     List<IParameterDeclarationWriter> parameterDeclarations = null;
@@ -447,22 +451,26 @@ public class PedestrianImpl extends BaseImpl implements IPedestrianWriter {
   @Override
   public void writeParameterToModel(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__MODEL, parameterName, null /*no textmarker*/);
+    this.model = null;
   }
 
   @Override
   public void writeParameterToMass(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__MASS, parameterName, null /*no textmarker*/);
+    this.mass = null;
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override
   public void writeParameterToPedestrianCategory(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY, parameterName, null /*no textmarker*/);
+    this.pedestrianCategory = null;
   }
 
   @Override

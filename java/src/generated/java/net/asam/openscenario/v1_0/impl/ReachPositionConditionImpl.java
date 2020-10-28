@@ -85,6 +85,7 @@ public class ReachPositionConditionImpl extends BaseImpl implements IReachPositi
   @Override
   public void setTolerance(Double tolerance) {
     this.tolerance = tolerance;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TOLERANCE);
   }
 
   @Override
@@ -142,7 +143,7 @@ public class ReachPositionConditionImpl extends BaseImpl implements IReachPositi
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setTolerance(getTolerance());
+    clonedObject.tolerance = getTolerance();
     // clone children
     IPositionWriter position = null;
     position = getWriterPosition();
@@ -240,6 +241,7 @@ public class ReachPositionConditionImpl extends BaseImpl implements IReachPositi
   @Override
   public void writeParameterToTolerance(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TOLERANCE, parameterName, null /*no textmarker*/);
+    this.tolerance = null;
   }
 
   @Override

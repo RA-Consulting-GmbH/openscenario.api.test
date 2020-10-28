@@ -127,16 +127,19 @@ public class TrafficSignalControllerImpl extends BaseImpl
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
   public void setDelay(Double delay) {
     this.delay = delay;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DELAY);
   }
 
   @Override
   public void setReference(String reference) {
     this.reference = reference;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__REFERENCE);
   }
 
   @Override
@@ -208,11 +211,11 @@ public class TrafficSignalControllerImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setDelay(getDelay());
+    clonedObject.delay = getDelay();
     // Simple type
-    clonedObject.setReference(getReference());
+    clonedObject.reference = getReference();
     // clone children
     List<IPhaseWriter> phases = null;
     phases = getWriterPhases();
@@ -323,16 +326,19 @@ public class TrafficSignalControllerImpl extends BaseImpl
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override
   public void writeParameterToDelay(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DELAY, parameterName, null /*no textmarker*/);
+    this.delay = null;
   }
 
   @Override
   public void writeParameterToReference(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__REFERENCE, parameterName, null /*no textmarker*/);
+    this.reference = null;
   }
 
   @Override

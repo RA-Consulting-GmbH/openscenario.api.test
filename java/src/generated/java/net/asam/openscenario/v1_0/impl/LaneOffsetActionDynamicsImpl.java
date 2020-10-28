@@ -88,11 +88,13 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
   @Override
   public void setMaxLateralAcc(Double maxLateralAcc) {
     this.maxLateralAcc = maxLateralAcc;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
   }
 
   @Override
   public void setDynamicsShape(DynamicsShape dynamicsShape) {
     this.dynamicsShape = dynamicsShape;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
 
   @Override
@@ -154,11 +156,11 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaxLateralAcc(getMaxLateralAcc());
+    clonedObject.maxLateralAcc = getMaxLateralAcc();
     // Enumeration Type
     DynamicsShape dynamicsShape = getDynamicsShape();
     if (dynamicsShape != null) {
-      clonedObject.setDynamicsShape(DynamicsShape.getFromLiteral(dynamicsShape.getLiteral()));
+      clonedObject.dynamicsShape = DynamicsShape.getFromLiteral(dynamicsShape.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -252,12 +254,14 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl
   public void writeParameterToMaxLateralAcc(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MAX_LATERAL_ACC, parameterName, null /*no textmarker*/);
+    this.maxLateralAcc = null;
   }
 
   @Override
   public void writeParameterToDynamicsShape(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__DYNAMICS_SHAPE, parameterName, null /*no textmarker*/);
+    this.dynamicsShape = null;
   }
 
   @Override

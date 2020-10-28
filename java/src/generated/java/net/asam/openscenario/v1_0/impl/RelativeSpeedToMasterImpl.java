@@ -87,11 +87,13 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
     this.speedTargetValueType = speedTargetValueType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
 
   @Override
@@ -153,12 +155,12 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     SpeedTargetValueType speedTargetValueType = getSpeedTargetValueType();
     if (speedTargetValueType != null) {
-      clonedObject.setSpeedTargetValueType(
-          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral()));
+      clonedObject.speedTargetValueType =
+          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -251,12 +253,14 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
   public void writeParameterToSpeedTargetValueType(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, parameterName, null /*no textmarker*/);
+    this.speedTargetValueType = null;
   }
 
   @Override

@@ -90,16 +90,19 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityActionW
   @Override
   public void setGraphics(Boolean graphics) {
     this.graphics = graphics;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__GRAPHICS);
   }
 
   @Override
   public void setTraffic(Boolean traffic) {
     this.traffic = traffic;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TRAFFIC);
   }
 
   @Override
   public void setSensors(Boolean sensors) {
     this.sensors = sensors;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SENSORS);
   }
 
   @Override
@@ -159,11 +162,11 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityActionW
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setGraphics(getGraphics());
+    clonedObject.graphics = getGraphics();
     // Simple type
-    clonedObject.setTraffic(getTraffic());
+    clonedObject.traffic = getTraffic();
     // Simple type
-    clonedObject.setSensors(getSensors());
+    clonedObject.sensors = getSensors();
     // clone children
     return clonedObject;
   }
@@ -252,16 +255,19 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityActionW
   @Override
   public void writeParameterToGraphics(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__GRAPHICS, parameterName, null /*no textmarker*/);
+    this.graphics = null;
   }
 
   @Override
   public void writeParameterToTraffic(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__TRAFFIC, parameterName, null /*no textmarker*/);
+    this.traffic = null;
   }
 
   @Override
   public void writeParameterToSensors(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__SENSORS, parameterName, null /*no textmarker*/);
+    this.sensors = null;
   }
 
   @Override

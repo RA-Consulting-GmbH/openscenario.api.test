@@ -90,6 +90,7 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
   @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -139,10 +140,10 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
     // Proxy
     NamedReferenceProxy<IParameterDeclaration> proxy =
         ((NamedReferenceProxy<IParameterDeclaration>) getParameterRef()).clone();
-    clonedObject.setParameterRef(proxy);
+    clonedObject.parameterRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -241,6 +242,7 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override

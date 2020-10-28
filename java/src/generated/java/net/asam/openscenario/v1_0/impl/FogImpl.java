@@ -84,6 +84,7 @@ public class FogImpl extends BaseImpl implements IFogWriter {
   @Override
   public void setVisualRange(Double visualRange) {
     this.visualRange = visualRange;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VISUAL_RANGE);
   }
 
   @Override
@@ -141,7 +142,7 @@ public class FogImpl extends BaseImpl implements IFogWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setVisualRange(getVisualRange());
+    clonedObject.visualRange = getVisualRange();
     // clone children
     IBoundingBoxWriter boundingBox = null;
     boundingBox = getWriterBoundingBox();
@@ -240,6 +241,7 @@ public class FogImpl extends BaseImpl implements IFogWriter {
   public void writeParameterToVisualRange(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__VISUAL_RANGE, parameterName, null /*no textmarker*/);
+    this.visualRange = null;
   }
 
   @Override

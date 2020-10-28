@@ -99,11 +99,13 @@ public class TrafficSinkActionImpl extends BaseImpl implements ITrafficSinkActio
   @Override
   public void setRate(Double rate) {
     this.rate = rate;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RATE);
   }
 
   @Override
   public void setRadius(Double radius) {
     this.radius = radius;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RADIUS);
   }
 
   @Override
@@ -177,9 +179,9 @@ public class TrafficSinkActionImpl extends BaseImpl implements ITrafficSinkActio
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setRate(getRate());
+    clonedObject.rate = getRate();
     // Simple type
-    clonedObject.setRadius(getRadius());
+    clonedObject.radius = getRadius();
     // clone children
     IPositionWriter position = null;
     position = getWriterPosition();
@@ -289,11 +291,13 @@ public class TrafficSinkActionImpl extends BaseImpl implements ITrafficSinkActio
   @Override
   public void writeParameterToRate(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__RATE, parameterName, null /*no textmarker*/);
+    this.rate = null;
   }
 
   @Override
   public void writeParameterToRadius(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__RADIUS, parameterName, null /*no textmarker*/);
+    this.radius = null;
   }
 
   @Override

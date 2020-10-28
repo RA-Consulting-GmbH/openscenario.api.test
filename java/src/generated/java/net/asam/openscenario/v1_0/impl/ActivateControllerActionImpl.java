@@ -85,11 +85,13 @@ public class ActivateControllerActionImpl extends BaseImpl
   @Override
   public void setLateral(Boolean lateral) {
     this.lateral = lateral;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LATERAL);
   }
 
   @Override
   public void setLongitudinal(Boolean longitudinal) {
     this.longitudinal = longitudinal;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LONGITUDINAL);
   }
 
   @Override
@@ -143,9 +145,9 @@ public class ActivateControllerActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setLateral(getLateral());
+    clonedObject.lateral = getLateral();
     // Simple type
-    clonedObject.setLongitudinal(getLongitudinal());
+    clonedObject.longitudinal = getLongitudinal();
     // clone children
     return clonedObject;
   }
@@ -232,12 +234,14 @@ public class ActivateControllerActionImpl extends BaseImpl
   @Override
   public void writeParameterToLateral(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__LATERAL, parameterName, null /*no textmarker*/);
+    this.lateral = null;
   }
 
   @Override
   public void writeParameterToLongitudinal(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__LONGITUDINAL, parameterName, null /*no textmarker*/);
+    this.longitudinal = null;
   }
 
   @Override

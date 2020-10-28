@@ -98,16 +98,19 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPositionWriter {
   @Override
   public void setRoadId(String roadId) {
     this.roadId = roadId;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID);
   }
 
   @Override
   public void setS(Double s) {
     this.s = s;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__S);
   }
 
   @Override
   public void setT(Double t) {
     this.t = t;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__T);
   }
 
   @Override
@@ -175,11 +178,11 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPositionWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setRoadId(getRoadId());
+    clonedObject.roadId = getRoadId();
     // Simple type
-    clonedObject.setS(getS());
+    clonedObject.s = getS();
     // Simple type
-    clonedObject.setT(getT());
+    clonedObject.t = getT();
     // clone children
     IOrientationWriter orientation = null;
     orientation = getWriterOrientation();
@@ -285,16 +288,19 @@ public class RoadPositionImpl extends BaseImpl implements IRoadPositionWriter {
   @Override
   public void writeParameterToRoadId(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID, parameterName, null /*no textmarker*/);
+    this.roadId = null;
   }
 
   @Override
   public void writeParameterToS(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__S, parameterName, null /*no textmarker*/);
+    this.s = null;
   }
 
   @Override
   public void writeParameterToT(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__T, parameterName, null /*no textmarker*/);
+    this.t = null;
   }
 
   @Override

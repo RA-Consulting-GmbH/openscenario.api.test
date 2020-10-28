@@ -109,21 +109,25 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
   @Override
   public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public void setDistance(Double distance) {
     this.distance = distance;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DISTANCE);
   }
 
   @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE);
   }
 
   @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   @Override
@@ -200,14 +204,14 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDistance(getDistance());
+    clonedObject.distance = getDistance();
     // Simple type
-    clonedObject.setFreespace(getFreespace());
+    clonedObject.freespace = getFreespace();
     // Simple type
-    clonedObject.setContinuous(getContinuous());
+    clonedObject.continuous = getContinuous();
     // clone children
     IDynamicConstraintsWriter dynamicConstraints = null;
     dynamicConstraints = getWriterDynamicConstraints();
@@ -330,22 +334,26 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
   }
 
   @Override
   public void writeParameterToDistance(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__DISTANCE, parameterName, null /*no textmarker*/);
+    this.distance = null;
   }
 
   @Override
   public void writeParameterToFreespace(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
+    this.freespace = null;
   }
 
   @Override
   public void writeParameterToContinuous(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
+    this.continuous = null;
   }
 
   @Override

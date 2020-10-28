@@ -136,16 +136,19 @@ public class EventImpl extends BaseImpl implements IEventWriter {
   @Override
   public void setPriority(Priority priority) {
     this.priority = priority;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PRIORITY);
   }
 
   @Override
   public void setMaximumExecutionCount(Long maximumExecutionCount) {
     this.maximumExecutionCount = maximumExecutionCount;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
 
   @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
 
   @Override
@@ -237,12 +240,12 @@ public class EventImpl extends BaseImpl implements IEventWriter {
     // Enumeration Type
     Priority priority = getPriority();
     if (priority != null) {
-      clonedObject.setPriority(Priority.getFromLiteral(priority.getLiteral()));
+      clonedObject.priority = Priority.getFromLiteral(priority.getLiteral());
     }
     // Simple type
-    clonedObject.setMaximumExecutionCount(getMaximumExecutionCount());
+    clonedObject.maximumExecutionCount = getMaximumExecutionCount();
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
     List<IActionWriter> actions = null;
     actions = getWriterActions();
@@ -371,17 +374,20 @@ public class EventImpl extends BaseImpl implements IEventWriter {
   @Override
   public void writeParameterToPriority(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__PRIORITY, parameterName, null /*no textmarker*/);
+    this.priority = null;
   }
 
   @Override
   public void writeParameterToMaximumExecutionCount(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, parameterName, null /*no textmarker*/);
+    this.maximumExecutionCount = null;
   }
 
   @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
   }
 
   @Override

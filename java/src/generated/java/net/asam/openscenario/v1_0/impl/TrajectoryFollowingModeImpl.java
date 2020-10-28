@@ -80,6 +80,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
   @Override
   public void setFollowingMode(FollowingMode followingMode) {
     this.followingMode = followingMode;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FOLLOWING_MODE);
   }
 
   @Override
@@ -137,7 +138,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
     // Enumeration Type
     FollowingMode followingMode = getFollowingMode();
     if (followingMode != null) {
-      clonedObject.setFollowingMode(FollowingMode.getFromLiteral(followingMode.getLiteral()));
+      clonedObject.followingMode = FollowingMode.getFromLiteral(followingMode.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -225,6 +226,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
   public void writeParameterToFollowingMode(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__FOLLOWING_MODE, parameterName, null /*no textmarker*/);
+    this.followingMode = null;
   }
 
   @Override

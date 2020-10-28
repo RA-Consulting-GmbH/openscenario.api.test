@@ -85,11 +85,13 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
   @Override
   public void setPathS(Double pathS) {
     this.pathS = pathS;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PATH_S);
   }
 
   @Override
   public void setT(Double t) {
     this.t = t;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__T);
   }
 
   @Override
@@ -142,9 +144,9 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setPathS(getPathS());
+    clonedObject.pathS = getPathS();
     // Simple type
-    clonedObject.setT(getT());
+    clonedObject.t = getT();
     // clone children
     return clonedObject;
   }
@@ -231,11 +233,13 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
   @Override
   public void writeParameterToPathS(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__PATH_S, parameterName, null /*no textmarker*/);
+    this.pathS = null;
   }
 
   @Override
   public void writeParameterToT(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__T, parameterName, null /*no textmarker*/);
+    this.t = null;
   }
 
   @Override

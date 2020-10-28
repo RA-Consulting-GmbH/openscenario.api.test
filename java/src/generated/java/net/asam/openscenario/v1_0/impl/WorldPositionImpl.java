@@ -111,31 +111,37 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPositionWriter 
   @Override
   public void setX(Double x) {
     this.x = x;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__X);
   }
 
   @Override
   public void setY(Double y) {
     this.y = y;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Y);
   }
 
   @Override
   public void setZ(Double z) {
     this.z = z;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Z);
   }
 
   @Override
   public void setH(Double h) {
     this.h = h;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__H);
   }
 
   @Override
   public void setP(Double p) {
     this.p = p;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__P);
   }
 
   @Override
   public void setR(Double r) {
     this.r = r;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__R);
   }
 
   @Override
@@ -207,17 +213,17 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPositionWriter 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setX(getX());
+    clonedObject.x = getX();
     // Simple type
-    clonedObject.setY(getY());
+    clonedObject.y = getY();
     // Simple type
-    clonedObject.setZ(getZ());
+    clonedObject.z = getZ();
     // Simple type
-    clonedObject.setH(getH());
+    clonedObject.h = getH();
     // Simple type
-    clonedObject.setP(getP());
+    clonedObject.p = getP();
     // Simple type
-    clonedObject.setR(getR());
+    clonedObject.r = getR();
     // clone children
     return clonedObject;
   }
@@ -312,31 +318,37 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPositionWriter 
   @Override
   public void writeParameterToX(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__X, parameterName, null /*no textmarker*/);
+    this.x = null;
   }
 
   @Override
   public void writeParameterToY(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__Y, parameterName, null /*no textmarker*/);
+    this.y = null;
   }
 
   @Override
   public void writeParameterToZ(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__Z, parameterName, null /*no textmarker*/);
+    this.z = null;
   }
 
   @Override
   public void writeParameterToH(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__H, parameterName, null /*no textmarker*/);
+    this.h = null;
   }
 
   @Override
   public void writeParameterToP(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__P, parameterName, null /*no textmarker*/);
+    this.p = null;
   }
 
   @Override
   public void writeParameterToR(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__R, parameterName, null /*no textmarker*/);
+    this.r = null;
   }
 
   @Override

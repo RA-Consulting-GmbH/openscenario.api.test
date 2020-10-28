@@ -113,26 +113,31 @@ public class RelativeDistanceConditionImpl extends BaseImpl
   @Override
   public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
   public void setRelativeDistanceType(RelativeDistanceType relativeDistanceType) {
     this.relativeDistanceType = relativeDistanceType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
   }
 
   @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE);
   }
 
   @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -221,22 +226,22 @@ public class RelativeDistanceConditionImpl extends BaseImpl
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Enumeration Type
     RelativeDistanceType relativeDistanceType = getRelativeDistanceType();
     if (relativeDistanceType != null) {
-      clonedObject.setRelativeDistanceType(
-          RelativeDistanceType.getFromLiteral(relativeDistanceType.getLiteral()));
+      clonedObject.relativeDistanceType =
+          RelativeDistanceType.getFromLiteral(relativeDistanceType.getLiteral());
     }
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Simple type
-    clonedObject.setFreespace(getFreespace());
+    clonedObject.freespace = getFreespace();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -355,27 +360,32 @@ public class RelativeDistanceConditionImpl extends BaseImpl
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
   }
 
   @Override
   public void writeParameterToRelativeDistanceType(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE, parameterName, null /*no textmarker*/);
+    this.relativeDistanceType = null;
   }
 
   @Override
   public void writeParameterToValue(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
   }
 
   @Override
   public void writeParameterToFreespace(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
+    this.freespace = null;
   }
 
   @Override
   public void writeParameterToRule(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
   }
 
   @Override
