@@ -133,11 +133,13 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntitiesW
   @Override
   public void setEntityRef(List<IEntityRefWriter> entityRef) {
     this.entityRef = entityRef;
+    this.byType = new ArrayList<>();
   }
 
   @Override
   public void setByType(List<IByTypeWriter> byType) {
     this.byType = byType;
+    this.entityRef = new ArrayList<>();
   }
 
   @Override

@@ -80,12 +80,14 @@ public class LongitudinalActionImpl extends BaseImpl implements ILongitudinalAct
   @Override
   public void setSpeedAction(ISpeedActionWriter speedAction) {
     this.speedAction = speedAction;
+    this.longitudinalDistanceAction = null;
   }
 
   @Override
   public void setLongitudinalDistanceAction(
       ILongitudinalDistanceActionWriter longitudinalDistanceAction) {
     this.longitudinalDistanceAction = longitudinalDistanceAction;
+    this.speedAction = null;
   }
 
   @Override

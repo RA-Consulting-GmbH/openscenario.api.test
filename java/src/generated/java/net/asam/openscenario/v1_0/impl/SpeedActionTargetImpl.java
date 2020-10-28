@@ -80,11 +80,13 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
   @Override
   public void setRelativeTargetSpeed(IRelativeTargetSpeedWriter relativeTargetSpeed) {
     this.relativeTargetSpeed = relativeTargetSpeed;
+    this.absoluteTargetSpeed = null;
   }
 
   @Override
   public void setAbsoluteTargetSpeed(IAbsoluteTargetSpeedWriter absoluteTargetSpeed) {
     this.absoluteTargetSpeed = absoluteTargetSpeed;
+    this.relativeTargetSpeed = null;
   }
 
   @Override

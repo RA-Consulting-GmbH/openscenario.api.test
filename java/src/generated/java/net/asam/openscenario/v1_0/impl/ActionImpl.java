@@ -105,16 +105,22 @@ public class ActionImpl extends BaseImpl implements IActionWriter {
   @Override
   public void setGlobalAction(IGlobalActionWriter globalAction) {
     this.globalAction = globalAction;
+    this.userDefinedAction = null;
+    this.privateAction = null;
   }
 
   @Override
   public void setUserDefinedAction(IUserDefinedActionWriter userDefinedAction) {
     this.userDefinedAction = userDefinedAction;
+    this.globalAction = null;
+    this.privateAction = null;
   }
 
   @Override
   public void setPrivateAction(IPrivateActionWriter privateAction) {
     this.privateAction = privateAction;
+    this.globalAction = null;
+    this.userDefinedAction = null;
   }
 
   @Override

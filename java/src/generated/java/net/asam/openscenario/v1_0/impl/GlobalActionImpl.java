@@ -104,26 +104,46 @@ public class GlobalActionImpl extends BaseImpl implements IGlobalActionWriter {
   @Override
   public void setEnvironmentAction(IEnvironmentActionWriter environmentAction) {
     this.environmentAction = environmentAction;
+    this.entityAction = null;
+    this.parameterAction = null;
+    this.infrastructureAction = null;
+    this.trafficAction = null;
   }
 
   @Override
   public void setEntityAction(IEntityActionWriter entityAction) {
     this.entityAction = entityAction;
+    this.environmentAction = null;
+    this.parameterAction = null;
+    this.infrastructureAction = null;
+    this.trafficAction = null;
   }
 
   @Override
   public void setParameterAction(IParameterActionWriter parameterAction) {
     this.parameterAction = parameterAction;
+    this.environmentAction = null;
+    this.entityAction = null;
+    this.infrastructureAction = null;
+    this.trafficAction = null;
   }
 
   @Override
   public void setInfrastructureAction(IInfrastructureActionWriter infrastructureAction) {
     this.infrastructureAction = infrastructureAction;
+    this.environmentAction = null;
+    this.entityAction = null;
+    this.parameterAction = null;
+    this.trafficAction = null;
   }
 
   @Override
   public void setTrafficAction(ITrafficActionWriter trafficAction) {
     this.trafficAction = trafficAction;
+    this.environmentAction = null;
+    this.entityAction = null;
+    this.parameterAction = null;
+    this.infrastructureAction = null;
   }
 
   @Override

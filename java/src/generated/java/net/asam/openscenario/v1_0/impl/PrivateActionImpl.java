@@ -128,42 +128,98 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateActionWriter 
   @Override
   public void setLongitudinalAction(ILongitudinalActionWriter longitudinalAction) {
     this.longitudinalAction = longitudinalAction;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
 
   @Override
   public void setLateralAction(ILateralActionWriter lateralAction) {
     this.lateralAction = lateralAction;
+    this.longitudinalAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
 
   @Override
   public void setVisibilityAction(IVisibilityActionWriter visibilityAction) {
     this.visibilityAction = visibilityAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
 
   @Override
   public void setSynchronizeAction(ISynchronizeActionWriter synchronizeAction) {
     this.synchronizeAction = synchronizeAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
 
   @Override
   public void setActivateControllerAction(
       IActivateControllerActionWriter activateControllerAction) {
     this.activateControllerAction = activateControllerAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
 
   @Override
   public void setControllerAction(IControllerActionWriter controllerAction) {
     this.controllerAction = controllerAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
 
   @Override
   public void setTeleportAction(ITeleportActionWriter teleportAction) {
     this.teleportAction = teleportAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.routingAction = null;
   }
 
   @Override
   public void setRoutingAction(IRoutingActionWriter routingAction) {
     this.routingAction = routingAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
   }
 
   @Override

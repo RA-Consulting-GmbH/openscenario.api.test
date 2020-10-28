@@ -88,16 +88,22 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficActionWriter 
   @Override
   public void setTrafficSourceAction(ITrafficSourceActionWriter trafficSourceAction) {
     this.trafficSourceAction = trafficSourceAction;
+    this.trafficSinkAction = null;
+    this.trafficSwarmAction = null;
   }
 
   @Override
   public void setTrafficSinkAction(ITrafficSinkActionWriter trafficSinkAction) {
     this.trafficSinkAction = trafficSinkAction;
+    this.trafficSourceAction = null;
+    this.trafficSwarmAction = null;
   }
 
   @Override
   public void setTrafficSwarmAction(ITrafficSwarmActionWriter trafficSwarmAction) {
     this.trafficSwarmAction = trafficSwarmAction;
+    this.trafficSourceAction = null;
+    this.trafficSinkAction = null;
   }
 
   @Override

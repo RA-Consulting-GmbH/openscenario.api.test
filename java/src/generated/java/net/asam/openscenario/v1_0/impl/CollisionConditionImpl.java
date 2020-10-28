@@ -80,11 +80,13 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
   @Override
   public void setEntityRef(IEntityRefWriter entityRef) {
     this.entityRef = entityRef;
+    this.byType = null;
   }
 
   @Override
   public void setByType(IByObjectTypeWriter byType) {
     this.byType = byType;
+    this.entityRef = null;
   }
 
   @Override

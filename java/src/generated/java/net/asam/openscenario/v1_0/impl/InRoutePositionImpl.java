@@ -88,16 +88,22 @@ public class InRoutePositionImpl extends BaseImpl implements IInRoutePositionWri
   @Override
   public void setFromCurrentEntity(IPositionOfCurrentEntityWriter fromCurrentEntity) {
     this.fromCurrentEntity = fromCurrentEntity;
+    this.fromRoadCoordinates = null;
+    this.fromLaneCoordinates = null;
   }
 
   @Override
   public void setFromRoadCoordinates(IPositionInRoadCoordinatesWriter fromRoadCoordinates) {
     this.fromRoadCoordinates = fromRoadCoordinates;
+    this.fromCurrentEntity = null;
+    this.fromLaneCoordinates = null;
   }
 
   @Override
   public void setFromLaneCoordinates(IPositionInLaneCoordinatesWriter fromLaneCoordinates) {
     this.fromLaneCoordinates = fromLaneCoordinates;
+    this.fromCurrentEntity = null;
+    this.fromRoadCoordinates = null;
   }
 
   @Override

@@ -81,12 +81,14 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTargetW
   public void setRelativeTargetLaneOffset(
       IRelativeTargetLaneOffsetWriter relativeTargetLaneOffset) {
     this.relativeTargetLaneOffset = relativeTargetLaneOffset;
+    this.absoluteTargetLaneOffset = null;
   }
 
   @Override
   public void setAbsoluteTargetLaneOffset(
       IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffset) {
     this.absoluteTargetLaneOffset = absoluteTargetLaneOffset;
+    this.relativeTargetLaneOffset = null;
   }
 
   @Override

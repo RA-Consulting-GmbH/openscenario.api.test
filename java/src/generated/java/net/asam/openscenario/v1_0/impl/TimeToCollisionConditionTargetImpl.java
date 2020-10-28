@@ -82,11 +82,13 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   @Override
   public void setPosition(IPositionWriter position) {
     this.position = position;
+    this.entityRef = null;
   }
 
   @Override
   public void setEntityRef(IEntityRefWriter entityRef) {
     this.entityRef = entityRef;
+    this.position = null;
   }
 
   @Override

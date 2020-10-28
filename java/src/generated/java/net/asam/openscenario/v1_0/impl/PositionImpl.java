@@ -128,41 +128,97 @@ public class PositionImpl extends BaseImpl implements IPositionWriter {
   @Override
   public void setWorldPosition(IWorldPositionWriter worldPosition) {
     this.worldPosition = worldPosition;
+    this.relativeWorldPosition = null;
+    this.relativeObjectPosition = null;
+    this.roadPosition = null;
+    this.relativeRoadPosition = null;
+    this.lanePosition = null;
+    this.relativeLanePosition = null;
+    this.routePosition = null;
   }
 
   @Override
   public void setRelativeWorldPosition(IRelativeWorldPositionWriter relativeWorldPosition) {
     this.relativeWorldPosition = relativeWorldPosition;
+    this.worldPosition = null;
+    this.relativeObjectPosition = null;
+    this.roadPosition = null;
+    this.relativeRoadPosition = null;
+    this.lanePosition = null;
+    this.relativeLanePosition = null;
+    this.routePosition = null;
   }
 
   @Override
   public void setRelativeObjectPosition(IRelativeObjectPositionWriter relativeObjectPosition) {
     this.relativeObjectPosition = relativeObjectPosition;
+    this.worldPosition = null;
+    this.relativeWorldPosition = null;
+    this.roadPosition = null;
+    this.relativeRoadPosition = null;
+    this.lanePosition = null;
+    this.relativeLanePosition = null;
+    this.routePosition = null;
   }
 
   @Override
   public void setRoadPosition(IRoadPositionWriter roadPosition) {
     this.roadPosition = roadPosition;
+    this.worldPosition = null;
+    this.relativeWorldPosition = null;
+    this.relativeObjectPosition = null;
+    this.relativeRoadPosition = null;
+    this.lanePosition = null;
+    this.relativeLanePosition = null;
+    this.routePosition = null;
   }
 
   @Override
   public void setRelativeRoadPosition(IRelativeRoadPositionWriter relativeRoadPosition) {
     this.relativeRoadPosition = relativeRoadPosition;
+    this.worldPosition = null;
+    this.relativeWorldPosition = null;
+    this.relativeObjectPosition = null;
+    this.roadPosition = null;
+    this.lanePosition = null;
+    this.relativeLanePosition = null;
+    this.routePosition = null;
   }
 
   @Override
   public void setLanePosition(ILanePositionWriter lanePosition) {
     this.lanePosition = lanePosition;
+    this.worldPosition = null;
+    this.relativeWorldPosition = null;
+    this.relativeObjectPosition = null;
+    this.roadPosition = null;
+    this.relativeRoadPosition = null;
+    this.relativeLanePosition = null;
+    this.routePosition = null;
   }
 
   @Override
   public void setRelativeLanePosition(IRelativeLanePositionWriter relativeLanePosition) {
     this.relativeLanePosition = relativeLanePosition;
+    this.worldPosition = null;
+    this.relativeWorldPosition = null;
+    this.relativeObjectPosition = null;
+    this.roadPosition = null;
+    this.relativeRoadPosition = null;
+    this.lanePosition = null;
+    this.routePosition = null;
   }
 
   @Override
   public void setRoutePosition(IRoutePositionWriter routePosition) {
     this.routePosition = routePosition;
+    this.worldPosition = null;
+    this.relativeWorldPosition = null;
+    this.relativeObjectPosition = null;
+    this.roadPosition = null;
+    this.relativeRoadPosition = null;
+    this.lanePosition = null;
+    this.relativeLanePosition = null;
   }
 
   @Override

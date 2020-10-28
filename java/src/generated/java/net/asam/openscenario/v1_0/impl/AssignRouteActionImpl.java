@@ -80,11 +80,13 @@ public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteActio
   @Override
   public void setRoute(IRouteWriter route) {
     this.route = route;
+    this.catalogReference = null;
   }
 
   @Override
   public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.route = null;
   }
 
   @Override

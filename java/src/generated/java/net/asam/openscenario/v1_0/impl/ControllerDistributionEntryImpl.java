@@ -99,11 +99,13 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   @Override
   public void setController(IControllerWriter controller) {
     this.controller = controller;
+    this.catalogReference = null;
   }
 
   @Override
   public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.controller = null;
   }
 
   @Override

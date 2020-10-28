@@ -81,12 +81,14 @@ public class TrafficSignalActionImpl extends BaseImpl implements ITrafficSignalA
   public void setTrafficSignalControllerAction(
       ITrafficSignalControllerActionWriter trafficSignalControllerAction) {
     this.trafficSignalControllerAction = trafficSignalControllerAction;
+    this.trafficSignalStateAction = null;
   }
 
   @Override
   public void setTrafficSignalStateAction(
       ITrafficSignalStateActionWriter trafficSignalStateAction) {
     this.trafficSignalStateAction = trafficSignalStateAction;
+    this.trafficSignalControllerAction = null;
   }
 
   @Override

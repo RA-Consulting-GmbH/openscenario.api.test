@@ -80,11 +80,13 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
   @Override
   public void setScenarioDefinition(IScenarioDefinitionWriter scenarioDefinition) {
     this.scenarioDefinition = scenarioDefinition;
+    this.catalogDefinition = null;
   }
 
   @Override
   public void setCatalogDefinition(ICatalogDefinitionWriter catalogDefinition) {
     this.catalogDefinition = catalogDefinition;
+    this.scenarioDefinition = null;
   }
 
   @Override

@@ -80,11 +80,13 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRuleWriter {
   @Override
   public void setAddValue(IParameterAddValueRuleWriter addValue) {
     this.addValue = addValue;
+    this.multiplyByValue = null;
   }
 
   @Override
   public void setMultiplyByValue(IParameterMultiplyByValueRuleWriter multiplyByValue) {
     this.multiplyByValue = multiplyByValue;
+    this.addValue = null;
   }
 
   @Override

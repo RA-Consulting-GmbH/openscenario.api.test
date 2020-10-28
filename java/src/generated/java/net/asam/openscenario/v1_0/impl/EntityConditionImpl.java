@@ -168,69 +168,225 @@ public class EntityConditionImpl extends BaseImpl implements IEntityConditionWri
   @Override
   public void setEndOfRoadCondition(IEndOfRoadConditionWriter endOfRoadCondition) {
     this.endOfRoadCondition = endOfRoadCondition;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setCollisionCondition(ICollisionConditionWriter collisionCondition) {
     this.collisionCondition = collisionCondition;
+    this.endOfRoadCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setOffroadCondition(IOffroadConditionWriter offroadCondition) {
     this.offroadCondition = offroadCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setTimeHeadwayCondition(ITimeHeadwayConditionWriter timeHeadwayCondition) {
     this.timeHeadwayCondition = timeHeadwayCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setTimeToCollisionCondition(
       ITimeToCollisionConditionWriter timeToCollisionCondition) {
     this.timeToCollisionCondition = timeToCollisionCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setAccelerationCondition(IAccelerationConditionWriter accelerationCondition) {
     this.accelerationCondition = accelerationCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setStandStillCondition(IStandStillConditionWriter standStillCondition) {
     this.standStillCondition = standStillCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setSpeedCondition(ISpeedConditionWriter speedCondition) {
     this.speedCondition = speedCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setRelativeSpeedCondition(IRelativeSpeedConditionWriter relativeSpeedCondition) {
     this.relativeSpeedCondition = relativeSpeedCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setTraveledDistanceCondition(
       ITraveledDistanceConditionWriter traveledDistanceCondition) {
     this.traveledDistanceCondition = traveledDistanceCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setReachPositionCondition(IReachPositionConditionWriter reachPositionCondition) {
     this.reachPositionCondition = reachPositionCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.distanceCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setDistanceCondition(IDistanceConditionWriter distanceCondition) {
     this.distanceCondition = distanceCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.relativeDistanceCondition = null;
   }
 
   @Override
   public void setRelativeDistanceCondition(
       IRelativeDistanceConditionWriter relativeDistanceCondition) {
     this.relativeDistanceCondition = relativeDistanceCondition;
+    this.endOfRoadCondition = null;
+    this.collisionCondition = null;
+    this.offroadCondition = null;
+    this.timeHeadwayCondition = null;
+    this.timeToCollisionCondition = null;
+    this.accelerationCondition = null;
+    this.standStillCondition = null;
+    this.speedCondition = null;
+    this.relativeSpeedCondition = null;
+    this.traveledDistanceCondition = null;
+    this.reachPositionCondition = null;
+    this.distanceCondition = null;
   }
 
   @Override

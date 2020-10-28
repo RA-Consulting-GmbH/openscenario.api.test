@@ -88,16 +88,22 @@ public class LateralActionImpl extends BaseImpl implements ILateralActionWriter 
   @Override
   public void setLaneChangeAction(ILaneChangeActionWriter laneChangeAction) {
     this.laneChangeAction = laneChangeAction;
+    this.laneOffsetAction = null;
+    this.lateralDistanceAction = null;
   }
 
   @Override
   public void setLaneOffsetAction(ILaneOffsetActionWriter laneOffsetAction) {
     this.laneOffsetAction = laneOffsetAction;
+    this.laneChangeAction = null;
+    this.lateralDistanceAction = null;
   }
 
   @Override
   public void setLateralDistanceAction(ILateralDistanceActionWriter lateralDistanceAction) {
     this.lateralDistanceAction = lateralDistanceAction;
+    this.laneChangeAction = null;
+    this.laneOffsetAction = null;
   }
 
   @Override

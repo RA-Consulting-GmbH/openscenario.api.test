@@ -88,16 +88,22 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingActionWriter 
   @Override
   public void setAssignRouteAction(IAssignRouteActionWriter assignRouteAction) {
     this.assignRouteAction = assignRouteAction;
+    this.followTrajectoryAction = null;
+    this.acquirePositionAction = null;
   }
 
   @Override
   public void setFollowTrajectoryAction(IFollowTrajectoryActionWriter followTrajectoryAction) {
     this.followTrajectoryAction = followTrajectoryAction;
+    this.assignRouteAction = null;
+    this.acquirePositionAction = null;
   }
 
   @Override
   public void setAcquirePositionAction(IAcquirePositionActionWriter acquirePositionAction) {
     this.acquirePositionAction = acquirePositionAction;
+    this.assignRouteAction = null;
+    this.followTrajectoryAction = null;
   }
 
   @Override
