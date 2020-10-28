@@ -48,15 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByEntityConditionImpl extends BaseImpl
-    implements IByEntityCondition, IByEntityConditionWriter {
+public class ByEntityConditionImpl extends BaseImpl implements IByEntityConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ITriggeringEntities triggeringEntities;
-  private IEntityCondition entityCondition;
-
-  private ITriggeringEntitiesWriter triggeringEntitiesWriter;
-  private IEntityConditionWriter entityConditionWriter;
+  private ITriggeringEntitiesWriter triggeringEntities;
+  private IEntityConditionWriter entityCondition;
 
   /** Default constructor */
   public ByEntityConditionImpl() {
@@ -80,22 +76,14 @@ public class ByEntityConditionImpl extends BaseImpl
   public IEntityCondition getEntityCondition() {
     return this.entityCondition;
   }
-  /**
-   * Sets the value of model property triggeringEntities
-   *
-   * @param triggeringEntities from OpenSCENARIO class model specification: [A list of entities
-   *     triggering this condition.]
-   */
-  public void setTriggeringEntities(ITriggeringEntities triggeringEntities) {
+
+  @Override
+  public void setTriggeringEntities(ITriggeringEntitiesWriter triggeringEntities) {
     this.triggeringEntities = triggeringEntities;
   }
-  /**
-   * Sets the value of model property entityCondition
-   *
-   * @param entityCondition from OpenSCENARIO class model specification: [The condition which is
-   *     related to the triggering entities.]
-   */
-  public void setEntityCondition(IEntityCondition entityCondition) {
+
+  @Override
+  public void setEntityCondition(IEntityConditionWriter entityCondition) {
     this.entityCondition = entityCondition;
   }
 
@@ -120,13 +108,13 @@ public class ByEntityConditionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ITriggeringEntities triggeringEntities = null;
-    triggeringEntities = getTriggeringEntities();
+    ITriggeringEntitiesWriter triggeringEntities = null;
+    triggeringEntities = getWriterTriggeringEntities();
     if (triggeringEntities != null) {
       result.add((BaseImpl) triggeringEntities);
     }
-    IEntityCondition entityCondition = null;
-    entityCondition = getEntityCondition();
+    IEntityConditionWriter entityCondition = null;
+    entityCondition = getWriterEntityCondition();
     if (entityCondition != null) {
       result.add((BaseImpl) entityCondition);
     }
@@ -149,17 +137,17 @@ public class ByEntityConditionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ITriggeringEntities triggeringEntities = null;
-    triggeringEntities = getTriggeringEntities();
+    ITriggeringEntitiesWriter triggeringEntities = null;
+    triggeringEntities = getWriterTriggeringEntities();
     if (triggeringEntities != null) {
-      TriggeringEntitiesImpl clonedChild = ((TriggeringEntitiesImpl) triggeringEntities).clone();
+      ITriggeringEntitiesWriter clonedChild = ((TriggeringEntitiesImpl) triggeringEntities).clone();
       clonedObject.setTriggeringEntities(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IEntityCondition entityCondition = null;
-    entityCondition = getEntityCondition();
+    IEntityConditionWriter entityCondition = null;
+    entityCondition = getWriterEntityCondition();
     if (entityCondition != null) {
-      EntityConditionImpl clonedChild = ((EntityConditionImpl) entityCondition).clone();
+      IEntityConditionWriter clonedChild = ((EntityConditionImpl) entityCondition).clone();
       clonedObject.setEntityCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -248,22 +236,12 @@ public class ByEntityConditionImpl extends BaseImpl
 
   // children
   @Override
-  public ITriggeringEntitiesWriter getTriggeringEntitiesWriter() {
-    return this.triggeringEntitiesWriter;
+  public ITriggeringEntitiesWriter getWriterTriggeringEntities() {
+    return this.triggeringEntities;
   }
 
   @Override
-  public IEntityConditionWriter getEntityConditionWriter() {
-    return this.entityConditionWriter;
-  }
-
-  @Override
-  public void writeToTriggeringEntitiesWriter(ITriggeringEntitiesWriter triggeringEntitiesWriter) {
-    this.triggeringEntitiesWriter = triggeringEntitiesWriter;
-  }
-
-  @Override
-  public void writeToEntityConditionWriter(IEntityConditionWriter entityConditionWriter) {
-    this.entityConditionWriter = entityConditionWriter;
+  public IEntityConditionWriter getWriterEntityCondition() {
+    return this.entityCondition;
   }
 }

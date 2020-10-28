@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DynamicConstraintsImpl extends BaseImpl
-    implements IDynamicConstraints, IDynamicConstraintsWriter {
+public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstraintsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -87,32 +86,18 @@ public class DynamicConstraintsImpl extends BaseImpl
   public Double getMaxSpeed() {
     return this.maxSpeed;
   }
-  /**
-   * Sets the value of model property maxAcceleration
-   *
-   * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration the
-   *     distance controller is allowed to use for keeping the distance. Unit: m/s2; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setMaxAcceleration(Double maxAcceleration) {
     this.maxAcceleration = maxAcceleration;
   }
-  /**
-   * Sets the value of model property maxDeceleration
-   *
-   * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration the
-   *     distance controller is allowed to use for keeping the distance. Unit: m/s2; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setMaxDeceleration(Double maxDeceleration) {
     this.maxDeceleration = maxDeceleration;
   }
-  /**
-   * Sets the value of model property maxSpeed
-   *
-   * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed the distance
-   *     controller is allowed to use for keeping the distance. Unit: m/s; Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxSpeed(Double maxSpeed) {
     this.maxSpeed = maxSpeed;
   }
@@ -262,21 +247,6 @@ public class DynamicConstraintsImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "DynamicConstraints";
-  }
-
-  @Override
-  public void writeToMaxAcceleration(Double maxAcceleration) {
-    setMaxAcceleration(maxAcceleration);
-  }
-
-  @Override
-  public void writeToMaxDeceleration(Double maxDeceleration) {
-    setMaxDeceleration(maxDeceleration);
-  }
-
-  @Override
-  public void writeToMaxSpeed(Double maxSpeed) {
-    setMaxSpeed(maxSpeed);
   }
 
   @Override

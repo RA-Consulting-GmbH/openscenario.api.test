@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VisibilityActionImpl extends BaseImpl
-    implements IVisibilityAction, IVisibilityActionWriter {
+public class VisibilityActionImpl extends BaseImpl implements IVisibilityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -87,31 +86,18 @@ public class VisibilityActionImpl extends BaseImpl
   public Boolean getSensors() {
     return this.sensors;
   }
-  /**
-   * Sets the value of model property graphics
-   *
-   * @param graphics from OpenSCENARIO class model specification: [True: actor is visible in image
-   *     generator(s). False: actor is not visible in image generator(s).]
-   */
+
+  @Override
   public void setGraphics(Boolean graphics) {
     this.graphics = graphics;
   }
-  /**
-   * Sets the value of model property traffic
-   *
-   * @param traffic from OpenSCENARIO class model specification: [True: actor is visible for other
-   *     traffic participants, particularly for autonomous driver models. False: actor is not ,
-   *     visible for other traffic participants.]
-   */
+
+  @Override
   public void setTraffic(Boolean traffic) {
     this.traffic = traffic;
   }
-  /**
-   * Sets the value of model property sensors
-   *
-   * @param sensors from OpenSCENARIO class model specification: [True: actor is visible in
-   *     sensor(s). False: actor is not visible in sensor(s).]
-   */
+
+  @Override
   public void setSensors(Boolean sensors) {
     this.sensors = sensors;
   }
@@ -261,21 +247,6 @@ public class VisibilityActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "VisibilityAction";
-  }
-
-  @Override
-  public void writeToGraphics(Boolean graphics) {
-    setGraphics(graphics);
-  }
-
-  @Override
-  public void writeToTraffic(Boolean traffic) {
-    setTraffic(traffic);
-  }
-
-  @Override
-  public void writeToSensors(Boolean sensors) {
-    setSensors(sensors);
   }
 
   @Override

@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -55,7 +56,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObjectWriter {
+public class MiscObjectImpl extends BaseImpl implements IMiscObjectWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -68,13 +69,9 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
   private MiscObjectCategory miscObjectCategory;
   private Double mass;
   private String name;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private IBoundingBox boundingBox;
-  private IProperties properties;
-
-  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
-  private IBoundingBoxWriter boundingBoxWriter;
-  private IPropertiesWriter propertiesWriter;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private IBoundingBoxWriter boundingBox;
+  private IPropertiesWriter properties;
 
   /** Default constructor */
   public MiscObjectImpl() {
@@ -105,8 +102,37 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
+  }
+
+  @Override
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(MiscObjectImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
   }
 
   @Override
@@ -118,58 +144,34 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
   public IProperties getProperties() {
     return this.properties;
   }
-  /**
-   * Sets the value of model property miscObjectCategory
-   *
-   * @param miscObjectCategory from OpenSCENARIO class model specification: [Categorization of the
-   *     miscellaneous object.]
-   */
+
+  @Override
   public void setMiscObjectCategory(MiscObjectCategory miscObjectCategory) {
     this.miscObjectCategory = miscObjectCategory;
   }
-  /**
-   * Sets the value of model property mass
-   *
-   * @param mass from OpenSCENARIO class model specification: [Mass of the miscellaneous object.
-   *     Unit: kg; Range: [0..inf[.]
-   */
+
+  @Override
   public void setMass(Double mass) {
     this.mass = mass;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the miscellaneous object
-   *     type.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property boundingBox
-   *
-   * @param boundingBox from OpenSCENARIO class model specification: [Bounding box definition for
-   *     the miscellaneous object.]
-   */
-  public void setBoundingBox(IBoundingBox boundingBox) {
+
+  @Override
+  public void setBoundingBox(IBoundingBoxWriter boundingBox) {
     this.boundingBox = boundingBox;
   }
-  /**
-   * Sets the value of model property properties
-   *
-   * @param properties from OpenSCENARIO class model specification: [Property definitions for the
-   *     miscellaneous object.]
-   */
-  public void setProperties(IProperties properties) {
+
+  @Override
+  public void setProperties(IPropertiesWriter properties) {
     this.properties = properties;
   }
 
@@ -240,20 +242,20 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
       result.add((BaseImpl) boundingBox);
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
       result.add((BaseImpl) properties);
     }
@@ -286,28 +288,28 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
     // Simple type
     clonedObject.setName(getName());
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
-      BoundingBoxImpl clonedChild = ((BoundingBoxImpl) boundingBox).clone();
+      IBoundingBoxWriter clonedChild = ((BoundingBoxImpl) boundingBox).clone();
       clonedObject.setBoundingBox(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      PropertiesImpl clonedChild = ((PropertiesImpl) properties).clone();
+      IPropertiesWriter clonedChild = ((PropertiesImpl) properties).clone();
       clonedObject.setProperties(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -421,21 +423,6 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
   }
 
   @Override
-  public void writeToMiscObjectCategory(MiscObjectCategory miscObjectCategory) {
-    setMiscObjectCategory(miscObjectCategory);
-  }
-
-  @Override
-  public void writeToMass(Double mass) {
-    setMass(mass);
-  }
-
-  @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
   public void writeParameterToMiscObjectCategory(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__MISC_OBJECT_CATEGORY, parameterName, null /*no textmarker*/);
@@ -483,33 +470,12 @@ public class MiscObjectImpl extends BaseImpl implements IMiscObject, IMiscObject
 
   // children
   @Override
-  public IBoundingBoxWriter getBoundingBoxWriter() {
-    return this.boundingBoxWriter;
+  public IBoundingBoxWriter getWriterBoundingBox() {
+    return this.boundingBox;
   }
 
   @Override
-  public IPropertiesWriter getPropertiesWriter() {
-    return this.propertiesWriter;
-  }
-
-  @Override
-  public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter) {
-    this.boundingBoxWriter = boundingBoxWriter;
-  }
-
-  @Override
-  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter) {
-    this.propertiesWriter = propertiesWriter;
-  }
-
-  @Override
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return this.parameterDeclarationsWriters;
-  }
-
-  @Override
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
+  public IPropertiesWriter getWriterProperties() {
+    return this.properties;
   }
 }

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,62 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPositionWriter extends IOpenScenarioModelElement {
+public interface IPositionWriter extends IPosition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Position that uses global coordinates.
+   *
+   * @param worldPosition value of model property worldPosition
+   */
+  public void setWorldPosition(IWorldPositionWriter worldPosition);
+  /**
+   * From OpenSCENARIO class model specification: Position is given relative to a world position.
+   *
+   * @param relativeWorldPosition value of model property relativeWorldPosition
+   */
+  public void setRelativeWorldPosition(IRelativeWorldPositionWriter relativeWorldPosition);
+  /**
+   * From OpenSCENARIO class model specification: Position is given relative to an entity.
+   *
+   * @param relativeObjectPosition value of model property relativeObjectPosition
+   */
+  public void setRelativeObjectPosition(IRelativeObjectPositionWriter relativeObjectPosition);
+  /**
+   * From OpenSCENARIO class model specification: Position in road coordinates (t,s) applied to a
+   * given road.
+   *
+   * @param roadPosition value of model property roadPosition
+   */
+  public void setRoadPosition(IRoadPositionWriter roadPosition);
+  /**
+   * From OpenSCENARIO class model specification: Position relative to an entity's road position
+   * (ds, dt).
+   *
+   * @param relativeRoadPosition value of model property relativeRoadPosition
+   */
+  public void setRelativeRoadPosition(IRelativeRoadPositionWriter relativeRoadPosition);
+  /**
+   * From OpenSCENARIO class model specification: Position that is determined by a lane (lane ID)
+   * and the s coordinate of a given road.
+   *
+   * @param lanePosition value of model property lanePosition
+   */
+  public void setLanePosition(ILanePositionWriter lanePosition);
+  /**
+   * From OpenSCENARIO class model specification: Position that is determined relative to the lane
+   * coordinates of a given entity. (Relative lane and relative s to this entity).
+   *
+   * @param relativeLanePosition value of model property relativeLanePosition
+   */
+  public void setRelativeLanePosition(IRelativeLanePositionWriter relativeLanePosition);
+  /**
+   * From OpenSCENARIO class model specification: Position that is determined by a given route.
+   *
+   * @param routePosition value of model property routePosition
+   */
+  public void setRoutePosition(IRoutePositionWriter routePosition);
 
   // children
   /**
@@ -34,108 +90,51 @@ public interface IPositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property worldPosition
    */
-  public IWorldPositionWriter getWorldPositionWriter();
+  public IWorldPositionWriter getWriterWorldPosition();
   /**
    * From OpenSCENARIO class model specification: Position is given relative to a world position.
    *
    * @return a writer for model property relativeWorldPosition
    */
-  public IRelativeWorldPositionWriter getRelativeWorldPositionWriter();
+  public IRelativeWorldPositionWriter getWriterRelativeWorldPosition();
   /**
    * From OpenSCENARIO class model specification: Position is given relative to an entity.
    *
    * @return a writer for model property relativeObjectPosition
    */
-  public IRelativeObjectPositionWriter getRelativeObjectPositionWriter();
+  public IRelativeObjectPositionWriter getWriterRelativeObjectPosition();
   /**
    * From OpenSCENARIO class model specification: Position in road coordinates (t,s) applied to a
    * given road.
    *
    * @return a writer for model property roadPosition
    */
-  public IRoadPositionWriter getRoadPositionWriter();
+  public IRoadPositionWriter getWriterRoadPosition();
   /**
    * From OpenSCENARIO class model specification: Position relative to an entity's road position
    * (ds, dt).
    *
    * @return a writer for model property relativeRoadPosition
    */
-  public IRelativeRoadPositionWriter getRelativeRoadPositionWriter();
+  public IRelativeRoadPositionWriter getWriterRelativeRoadPosition();
   /**
    * From OpenSCENARIO class model specification: Position that is determined by a lane (lane ID)
    * and the s coordinate of a given road.
    *
    * @return a writer for model property lanePosition
    */
-  public ILanePositionWriter getLanePositionWriter();
+  public ILanePositionWriter getWriterLanePosition();
   /**
    * From OpenSCENARIO class model specification: Position that is determined relative to the lane
    * coordinates of a given entity. (Relative lane and relative s to this entity).
    *
    * @return a writer for model property relativeLanePosition
    */
-  public IRelativeLanePositionWriter getRelativeLanePositionWriter();
+  public IRelativeLanePositionWriter getWriterRelativeLanePosition();
   /**
    * From OpenSCENARIO class model specification: Position that is determined by a given route.
    *
    * @return a writer for model property routePosition
    */
-  public IRoutePositionWriter getRoutePositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Position that uses global coordinates.
-   *
-   * @param worldPositionWriter writer for the model property worldPosition
-   */
-  public void writeToWorldPositionWriter(IWorldPositionWriter worldPositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position is given relative to a world position.
-   *
-   * @param relativeWorldPositionWriter writer for the model property relativeWorldPosition
-   */
-  public void writeToRelativeWorldPositionWriter(
-      IRelativeWorldPositionWriter relativeWorldPositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position is given relative to an entity.
-   *
-   * @param relativeObjectPositionWriter writer for the model property relativeObjectPosition
-   */
-  public void writeToRelativeObjectPositionWriter(
-      IRelativeObjectPositionWriter relativeObjectPositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position in road coordinates (t,s) applied to a
-   * given road.
-   *
-   * @param roadPositionWriter writer for the model property roadPosition
-   */
-  public void writeToRoadPositionWriter(IRoadPositionWriter roadPositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position relative to an entity's road position
-   * (ds, dt).
-   *
-   * @param relativeRoadPositionWriter writer for the model property relativeRoadPosition
-   */
-  public void writeToRelativeRoadPositionWriter(
-      IRelativeRoadPositionWriter relativeRoadPositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position that is determined by a lane (lane ID)
-   * and the s coordinate of a given road.
-   *
-   * @param lanePositionWriter writer for the model property lanePosition
-   */
-  public void writeToLanePositionWriter(ILanePositionWriter lanePositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position that is determined relative to the lane
-   * coordinates of a given entity. (Relative lane and relative s to this entity).
-   *
-   * @param relativeLanePositionWriter writer for the model property relativeLanePosition
-   */
-  public void writeToRelativeLanePositionWriter(
-      IRelativeLanePositionWriter relativeLanePositionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Position that is determined by a given route.
-   *
-   * @param routePositionWriter writer for the model property routePosition
-   */
-  public void writeToRoutePositionWriter(IRoutePositionWriter routePositionWriter);
+  public IRoutePositionWriter getWriterRoutePosition();
 }

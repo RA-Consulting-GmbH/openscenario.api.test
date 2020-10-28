@@ -49,8 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficDefinitionImpl extends BaseImpl
-    implements ITrafficDefinition, ITrafficDefinitionWriter {
+public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,11 +58,8 @@ public class TrafficDefinitionImpl extends BaseImpl
   }
 
   private String name;
-  private IVehicleCategoryDistribution vehicleCategoryDistribution;
-  private IControllerDistribution controllerDistribution;
-
-  private IVehicleCategoryDistributionWriter vehicleCategoryDistributionWriter;
-  private IControllerDistributionWriter controllerDistributionWriter;
+  private IVehicleCategoryDistributionWriter vehicleCategoryDistribution;
+  private IControllerDistributionWriter controllerDistribution;
 
   /** Default constructor */
   public TrafficDefinitionImpl() {
@@ -92,31 +88,20 @@ public class TrafficDefinitionImpl extends BaseImpl
   public IControllerDistribution getControllerDistribution() {
     return this.controllerDistribution;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the traffic definition.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property vehicleCategoryDistribution
-   *
-   * @param vehicleCategoryDistribution from OpenSCENARIO class model specification: [Distribution
-   *     of vehicle categories within the traffic.]
-   */
+
+  @Override
   public void setVehicleCategoryDistribution(
-      IVehicleCategoryDistribution vehicleCategoryDistribution) {
+      IVehicleCategoryDistributionWriter vehicleCategoryDistribution) {
     this.vehicleCategoryDistribution = vehicleCategoryDistribution;
   }
-  /**
-   * Sets the value of model property controllerDistribution
-   *
-   * @param controllerDistribution from OpenSCENARIO class model specification: [Distribution of
-   *     controllers within this traffic.]
-   */
-  public void setControllerDistribution(IControllerDistribution controllerDistribution) {
+
+  @Override
+  public void setControllerDistribution(IControllerDistributionWriter controllerDistribution) {
     this.controllerDistribution = controllerDistribution;
   }
 
@@ -146,13 +131,13 @@ public class TrafficDefinitionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IVehicleCategoryDistribution vehicleCategoryDistribution = null;
-    vehicleCategoryDistribution = getVehicleCategoryDistribution();
+    IVehicleCategoryDistributionWriter vehicleCategoryDistribution = null;
+    vehicleCategoryDistribution = getWriterVehicleCategoryDistribution();
     if (vehicleCategoryDistribution != null) {
       result.add((BaseImpl) vehicleCategoryDistribution);
     }
-    IControllerDistribution controllerDistribution = null;
-    controllerDistribution = getControllerDistribution();
+    IControllerDistributionWriter controllerDistribution = null;
+    controllerDistribution = getWriterControllerDistribution();
     if (controllerDistribution != null) {
       result.add((BaseImpl) controllerDistribution);
     }
@@ -177,18 +162,18 @@ public class TrafficDefinitionImpl extends BaseImpl
     // Simple type
     clonedObject.setName(getName());
     // clone children
-    IVehicleCategoryDistribution vehicleCategoryDistribution = null;
-    vehicleCategoryDistribution = getVehicleCategoryDistribution();
+    IVehicleCategoryDistributionWriter vehicleCategoryDistribution = null;
+    vehicleCategoryDistribution = getWriterVehicleCategoryDistribution();
     if (vehicleCategoryDistribution != null) {
-      VehicleCategoryDistributionImpl clonedChild =
+      IVehicleCategoryDistributionWriter clonedChild =
           ((VehicleCategoryDistributionImpl) vehicleCategoryDistribution).clone();
       clonedObject.setVehicleCategoryDistribution(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IControllerDistribution controllerDistribution = null;
-    controllerDistribution = getControllerDistribution();
+    IControllerDistributionWriter controllerDistribution = null;
+    controllerDistribution = getWriterControllerDistribution();
     if (controllerDistribution != null) {
-      ControllerDistributionImpl clonedChild =
+      IControllerDistributionWriter clonedChild =
           ((ControllerDistributionImpl) controllerDistribution).clone();
       clonedObject.setControllerDistribution(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -283,11 +268,6 @@ public class TrafficDefinitionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -304,24 +284,12 @@ public class TrafficDefinitionImpl extends BaseImpl
 
   // children
   @Override
-  public IVehicleCategoryDistributionWriter getVehicleCategoryDistributionWriter() {
-    return this.vehicleCategoryDistributionWriter;
+  public IVehicleCategoryDistributionWriter getWriterVehicleCategoryDistribution() {
+    return this.vehicleCategoryDistribution;
   }
 
   @Override
-  public IControllerDistributionWriter getControllerDistributionWriter() {
-    return this.controllerDistributionWriter;
-  }
-
-  @Override
-  public void writeToVehicleCategoryDistributionWriter(
-      IVehicleCategoryDistributionWriter vehicleCategoryDistributionWriter) {
-    this.vehicleCategoryDistributionWriter = vehicleCategoryDistributionWriter;
-  }
-
-  @Override
-  public void writeToControllerDistributionWriter(
-      IControllerDistributionWriter controllerDistributionWriter) {
-    this.controllerDistributionWriter = controllerDistributionWriter;
+  public IControllerDistributionWriter getWriterControllerDistribution() {
+    return this.controllerDistribution;
   }
 }

@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -50,16 +51,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActionsWriter {
+public class InitActionsImpl extends BaseImpl implements IInitActionsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IGlobalAction> globalActions;
-  private List<IUserDefinedAction> userDefinedActions;
-  private List<IPrivate> privates;
-
-  private List<IGlobalActionWriter> globalActionsWriters;
-  private List<IUserDefinedActionWriter> userDefinedActionsWriters;
-  private List<IPrivateWriter> privatesWriters;
+  private List<IGlobalActionWriter> globalActions = new ArrayList<>();
+  private List<IUserDefinedActionWriter> userDefinedActions = new ArrayList<>();
+  private List<IPrivateWriter> privates = new ArrayList<>();
 
   /** Default constructor */
   public InitActionsImpl() {
@@ -75,44 +72,111 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActi
   }
 
   @Override
-  public List<IGlobalAction> getGlobalActions() {
+  public List<IGlobalActionWriter> getWriterGlobalActions() {
     return this.globalActions;
   }
 
   @Override
-  public List<IUserDefinedAction> getUserDefinedActions() {
+  public Iterable<IGlobalAction> getGlobalActions() {
+    return new Iterable<IGlobalAction>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IGlobalAction> iterator() {
+        return new ArrayList<IGlobalAction>(InitActionsImpl.this.globalActions).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getGlobalActionsSize() {
+    if (this.globalActions != null) return this.globalActions.size();
+    return 0;
+  }
+
+  @Override
+  public IGlobalAction getGlobalActionsAtIndex(int index) {
+    if (index >= 0 && this.globalActions != null && this.globalActions.size() > index) {
+      return this.globalActions.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IUserDefinedActionWriter> getWriterUserDefinedActions() {
     return this.userDefinedActions;
   }
 
   @Override
-  public List<IPrivate> getPrivates() {
+  public Iterable<IUserDefinedAction> getUserDefinedActions() {
+    return new Iterable<IUserDefinedAction>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IUserDefinedAction> iterator() {
+        return new ArrayList<IUserDefinedAction>(InitActionsImpl.this.userDefinedActions)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getUserDefinedActionsSize() {
+    if (this.userDefinedActions != null) return this.userDefinedActions.size();
+    return 0;
+  }
+
+  @Override
+  public IUserDefinedAction getUserDefinedActionsAtIndex(int index) {
+    if (index >= 0 && this.userDefinedActions != null && this.userDefinedActions.size() > index) {
+      return this.userDefinedActions.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IPrivateWriter> getWriterPrivates() {
     return this.privates;
   }
-  /**
-   * Sets the value of model property globalActions
-   *
-   * @param globalActions from OpenSCENARIO class model specification: [An optional list of global
-   *     actions.]
-   */
-  public void setGlobalActions(List<IGlobalAction> globalActions) {
+
+  @Override
+  public Iterable<IPrivate> getPrivates() {
+    return new Iterable<IPrivate>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IPrivate> iterator() {
+        return new ArrayList<IPrivate>(InitActionsImpl.this.privates).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getPrivatesSize() {
+    if (this.privates != null) return this.privates.size();
+    return 0;
+  }
+
+  @Override
+  public IPrivate getPrivatesAtIndex(int index) {
+    if (index >= 0 && this.privates != null && this.privates.size() > index) {
+      return this.privates.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setGlobalActions(List<IGlobalActionWriter> globalActions) {
     this.globalActions = globalActions;
   }
-  /**
-   * Sets the value of model property userDefinedActions
-   *
-   * @param userDefinedActions from OpenSCENARIO class model specification: [An optional list of
-   *     user defined actions.]
-   */
-  public void setUserDefinedActions(List<IUserDefinedAction> userDefinedActions) {
+
+  @Override
+  public void setUserDefinedActions(List<IUserDefinedActionWriter> userDefinedActions) {
     this.userDefinedActions = userDefinedActions;
   }
-  /**
-   * Sets the value of model property privates
-   *
-   * @param privates from OpenSCENARIO class model specification: [An optional list of private
-   *     actions.]
-   */
-  public void setPrivates(List<IPrivate> privates) {
+
+  @Override
+  public void setPrivates(List<IPrivateWriter> privates) {
     this.privates = privates;
   }
 
@@ -137,24 +201,24 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActi
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IGlobalAction> globalActions = null;
-    globalActions = getGlobalActions();
+    List<IGlobalActionWriter> globalActions = null;
+    globalActions = getWriterGlobalActions();
     if (globalActions != null) {
-      for (IGlobalAction item : globalActions) {
+      for (IGlobalActionWriter item : globalActions) {
         result.add((BaseImpl) item);
       }
     }
-    List<IUserDefinedAction> userDefinedActions = null;
-    userDefinedActions = getUserDefinedActions();
+    List<IUserDefinedActionWriter> userDefinedActions = null;
+    userDefinedActions = getWriterUserDefinedActions();
     if (userDefinedActions != null) {
-      for (IUserDefinedAction item : userDefinedActions) {
+      for (IUserDefinedActionWriter item : userDefinedActions) {
         result.add((BaseImpl) item);
       }
     }
-    List<IPrivate> privates = null;
-    privates = getPrivates();
+    List<IPrivateWriter> privates = null;
+    privates = getWriterPrivates();
     if (privates != null) {
-      for (IPrivate item : privates) {
+      for (IPrivateWriter item : privates) {
         result.add((BaseImpl) item);
       }
     }
@@ -177,34 +241,34 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActi
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IGlobalAction> globalActions = null;
-    globalActions = getGlobalActions();
+    List<IGlobalActionWriter> globalActions = null;
+    globalActions = getWriterGlobalActions();
     if (globalActions != null) {
-      List<IGlobalAction> clonedList = new ArrayList<>();
-      for (IGlobalAction item : globalActions) {
-        GlobalActionImpl clonedChild = ((GlobalActionImpl) item).clone();
+      List<IGlobalActionWriter> clonedList = new ArrayList<>();
+      for (IGlobalActionWriter item : globalActions) {
+        IGlobalActionWriter clonedChild = ((GlobalActionImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setGlobalActions(clonedList);
     }
-    List<IUserDefinedAction> userDefinedActions = null;
-    userDefinedActions = getUserDefinedActions();
+    List<IUserDefinedActionWriter> userDefinedActions = null;
+    userDefinedActions = getWriterUserDefinedActions();
     if (userDefinedActions != null) {
-      List<IUserDefinedAction> clonedList = new ArrayList<>();
-      for (IUserDefinedAction item : userDefinedActions) {
-        UserDefinedActionImpl clonedChild = ((UserDefinedActionImpl) item).clone();
+      List<IUserDefinedActionWriter> clonedList = new ArrayList<>();
+      for (IUserDefinedActionWriter item : userDefinedActions) {
+        IUserDefinedActionWriter clonedChild = ((UserDefinedActionImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setUserDefinedActions(clonedList);
     }
-    List<IPrivate> privates = null;
-    privates = getPrivates();
+    List<IPrivateWriter> privates = null;
+    privates = getWriterPrivates();
     if (privates != null) {
-      List<IPrivate> clonedList = new ArrayList<>();
-      for (IPrivate item : privates) {
-        PrivateImpl clonedChild = ((PrivateImpl) item).clone();
+      List<IPrivateWriter> clonedList = new ArrayList<>();
+      for (IPrivateWriter item : privates) {
+        IPrivateWriter clonedChild = ((PrivateImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -299,34 +363,4 @@ public class InitActionsImpl extends BaseImpl implements IInitActions, IInitActi
 
   // children
 
-  @Override
-  public List<IGlobalActionWriter> getGlobalActionsWriter() {
-    return this.globalActionsWriters;
-  }
-
-  @Override
-  public List<IUserDefinedActionWriter> getUserDefinedActionsWriter() {
-    return this.userDefinedActionsWriters;
-  }
-
-  @Override
-  public List<IPrivateWriter> getPrivatesWriter() {
-    return this.privatesWriters;
-  }
-
-  @Override
-  public void setGlobalActionsWriter(List<IGlobalActionWriter> globalActionsWriters) {
-    this.globalActionsWriters = globalActionsWriters;
-  }
-
-  @Override
-  public void setUserDefinedActionsWriter(
-      List<IUserDefinedActionWriter> userDefinedActionsWriters) {
-    this.userDefinedActionsWriters = userDefinedActionsWriters;
-  }
-
-  @Override
-  public void setPrivatesWriter(List<IPrivateWriter> privatesWriters) {
-    this.privatesWriters = privatesWriters;
-  }
 }

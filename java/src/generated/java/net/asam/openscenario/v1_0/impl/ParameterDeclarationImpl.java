@@ -48,8 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterDeclarationImpl extends BaseImpl
-    implements IParameterDeclaration, IParameterDeclarationWriter {
+public class ParameterDeclarationImpl extends BaseImpl implements IParameterDeclarationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -89,28 +88,18 @@ public class ParameterDeclarationImpl extends BaseImpl
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the parameter.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property parameterType
-   *
-   * @param parameterType from OpenSCENARIO class model specification: [Type of the parameter.]
-   */
+
+  @Override
   public void setParameterType(ParameterType parameterType) {
     this.parameterType = parameterType;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the parameter as its
-   *     default value.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
   }
@@ -270,16 +259,6 @@ public class ParameterDeclarationImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ParameterDeclaration";
-  }
-
-  @Override
-  public void writeToParameterType(ParameterType parameterType) {
-    setParameterType(parameterType);
-  }
-
-  @Override
-  public void writeToValue(String value) {
-    setValue(value);
   }
 
   @Override

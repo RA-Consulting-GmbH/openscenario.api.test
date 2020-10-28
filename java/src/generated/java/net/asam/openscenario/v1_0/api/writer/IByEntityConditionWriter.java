@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IByEntityCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -29,7 +30,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IByEntityConditionWriter extends IOpenScenarioModelElement {
+public interface IByEntityConditionWriter extends IByEntityCondition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: A list of entities triggering this condition.
+   *
+   * @param triggeringEntities value of model property triggeringEntities
+   */
+  public void setTriggeringEntities(ITriggeringEntitiesWriter triggeringEntities);
+  /**
+   * From OpenSCENARIO class model specification: The condition which is related to the triggering
+   * entities.
+   *
+   * @param entityCondition value of model property entityCondition
+   */
+  public void setEntityCondition(IEntityConditionWriter entityCondition);
 
   // children
   /**
@@ -37,26 +54,12 @@ public interface IByEntityConditionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property triggeringEntities
    */
-  public ITriggeringEntitiesWriter getTriggeringEntitiesWriter();
+  public ITriggeringEntitiesWriter getWriterTriggeringEntities();
   /**
    * From OpenSCENARIO class model specification: The condition which is related to the triggering
    * entities.
    *
    * @return a writer for model property entityCondition
    */
-  public IEntityConditionWriter getEntityConditionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of entities triggering this condition.
-   *
-   * @param triggeringEntitiesWriter writer for the model property triggeringEntities
-   */
-  public void writeToTriggeringEntitiesWriter(ITriggeringEntitiesWriter triggeringEntitiesWriter);
-  /**
-   * From OpenSCENARIO class model specification: The condition which is related to the triggering
-   * entities.
-   *
-   * @param entityConditionWriter writer for the model property entityCondition
-   */
-  public void writeToEntityConditionWriter(IEntityConditionWriter entityConditionWriter);
+  public IEntityConditionWriter getWriterEntityCondition();
 }

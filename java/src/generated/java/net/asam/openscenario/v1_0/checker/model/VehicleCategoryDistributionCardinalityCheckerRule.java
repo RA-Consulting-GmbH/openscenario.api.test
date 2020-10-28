@@ -26,7 +26,6 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistribution;
-import net.asam.openscenario.v1_0.api.IVehicleCategoryDistributionEntry;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -74,18 +73,14 @@ public class VehicleCategoryDistributionCardinalityCheckerRule
   private List<CardinalityViolation> getAllViolations(IVehicleCategoryDistribution object) {
     List<CardinalityViolation> violations = new ArrayList<>();
     // Check violation
-    List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries =
-        object.getVehicleCategoryDistributionEntries();
+    int vehicleCategoryDistributionEntriesSize = object.getVehicleCategoryDistributionEntriesSize();
     // Check too few elements
-    if (vehicleCategoryDistributionEntries == null
-        || vehicleCategoryDistributionEntries.size() < 1) {
+    if (vehicleCategoryDistributionEntriesSize < 1) {
       violations.add(
           new CardinalityViolation(
               OscConstants.ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY,
               1,
-              vehicleCategoryDistributionEntries == null
-                  ? 0
-                  : vehicleCategoryDistributionEntries.size(),
+              vehicleCategoryDistributionEntriesSize,
               ViolationType.TOO_FEW));
     }
     return violations;

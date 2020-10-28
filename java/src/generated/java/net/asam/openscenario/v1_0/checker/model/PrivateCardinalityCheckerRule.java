@@ -26,7 +26,6 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.v1_0.api.IPrivate;
-import net.asam.openscenario.v1_0.api.IPrivateAction;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -79,15 +78,12 @@ public class PrivateCardinalityCheckerRule extends CardinalityCheckerRule<IPriva
               OscConstants.ATTRIBUTE__ENTITY_REF, 0, 1, ViolationType.REQUIRED));
     }
     // Check violation
-    List<IPrivateAction> privateActions = object.getPrivateActions();
+    int privateActionsSize = object.getPrivateActionsSize();
     // Check too few elements
-    if (privateActions == null || privateActions.size() < 1) {
+    if (privateActionsSize < 1) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__PRIVATE_ACTION,
-              1,
-              privateActions == null ? 0 : privateActions.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__PRIVATE_ACTION, 1, privateActionsSize, ViolationType.TOO_FEW));
     }
     return violations;
   }

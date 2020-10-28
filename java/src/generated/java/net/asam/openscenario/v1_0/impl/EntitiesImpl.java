@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -48,14 +49,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter {
+public class EntitiesImpl extends BaseImpl implements IEntitiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IScenarioObject> scenarioObjects;
-  private List<IEntitySelection> entitySelections;
-
-  private List<IScenarioObjectWriter> scenarioObjectsWriters;
-  private List<IEntitySelectionWriter> entitySelectionsWriters;
+  private List<IScenarioObjectWriter> scenarioObjects = new ArrayList<>();
+  private List<IEntitySelectionWriter> entitySelections = new ArrayList<>();
 
   /** Default constructor */
   public EntitiesImpl() {
@@ -71,30 +69,74 @@ public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter
   }
 
   @Override
-  public List<IScenarioObject> getScenarioObjects() {
+  public List<IScenarioObjectWriter> getWriterScenarioObjects() {
     return this.scenarioObjects;
   }
 
   @Override
-  public List<IEntitySelection> getEntitySelections() {
+  public Iterable<IScenarioObject> getScenarioObjects() {
+    return new Iterable<IScenarioObject>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IScenarioObject> iterator() {
+        return new ArrayList<IScenarioObject>(EntitiesImpl.this.scenarioObjects).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getScenarioObjectsSize() {
+    if (this.scenarioObjects != null) return this.scenarioObjects.size();
+    return 0;
+  }
+
+  @Override
+  public IScenarioObject getScenarioObjectsAtIndex(int index) {
+    if (index >= 0 && this.scenarioObjects != null && this.scenarioObjects.size() > index) {
+      return this.scenarioObjects.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IEntitySelectionWriter> getWriterEntitySelections() {
     return this.entitySelections;
   }
-  /**
-   * Sets the value of model property scenarioObjects
-   *
-   * @param scenarioObjects from OpenSCENARIO class model specification: [A list of scenario object
-   *     definitions that pairs an entity object and a controller.]
-   */
-  public void setScenarioObjects(List<IScenarioObject> scenarioObjects) {
+
+  @Override
+  public Iterable<IEntitySelection> getEntitySelections() {
+    return new Iterable<IEntitySelection>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IEntitySelection> iterator() {
+        return new ArrayList<IEntitySelection>(EntitiesImpl.this.entitySelections).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getEntitySelectionsSize() {
+    if (this.entitySelections != null) return this.entitySelections.size();
+    return 0;
+  }
+
+  @Override
+  public IEntitySelection getEntitySelectionsAtIndex(int index) {
+    if (index >= 0 && this.entitySelections != null && this.entitySelections.size() > index) {
+      return this.entitySelections.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setScenarioObjects(List<IScenarioObjectWriter> scenarioObjects) {
     this.scenarioObjects = scenarioObjects;
   }
-  /**
-   * Sets the value of model property entitySelections
-   *
-   * @param entitySelections from OpenSCENARIO class model specification: [A list of entity
-   *     selection definitions.]
-   */
-  public void setEntitySelections(List<IEntitySelection> entitySelections) {
+
+  @Override
+  public void setEntitySelections(List<IEntitySelectionWriter> entitySelections) {
     this.entitySelections = entitySelections;
   }
 
@@ -119,17 +161,17 @@ public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IScenarioObject> scenarioObjects = null;
-    scenarioObjects = getScenarioObjects();
+    List<IScenarioObjectWriter> scenarioObjects = null;
+    scenarioObjects = getWriterScenarioObjects();
     if (scenarioObjects != null) {
-      for (IScenarioObject item : scenarioObjects) {
+      for (IScenarioObjectWriter item : scenarioObjects) {
         result.add((BaseImpl) item);
       }
     }
-    List<IEntitySelection> entitySelections = null;
-    entitySelections = getEntitySelections();
+    List<IEntitySelectionWriter> entitySelections = null;
+    entitySelections = getWriterEntitySelections();
     if (entitySelections != null) {
-      for (IEntitySelection item : entitySelections) {
+      for (IEntitySelectionWriter item : entitySelections) {
         result.add((BaseImpl) item);
       }
     }
@@ -152,23 +194,23 @@ public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IScenarioObject> scenarioObjects = null;
-    scenarioObjects = getScenarioObjects();
+    List<IScenarioObjectWriter> scenarioObjects = null;
+    scenarioObjects = getWriterScenarioObjects();
     if (scenarioObjects != null) {
-      List<IScenarioObject> clonedList = new ArrayList<>();
-      for (IScenarioObject item : scenarioObjects) {
-        ScenarioObjectImpl clonedChild = ((ScenarioObjectImpl) item).clone();
+      List<IScenarioObjectWriter> clonedList = new ArrayList<>();
+      for (IScenarioObjectWriter item : scenarioObjects) {
+        IScenarioObjectWriter clonedChild = ((ScenarioObjectImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setScenarioObjects(clonedList);
     }
-    List<IEntitySelection> entitySelections = null;
-    entitySelections = getEntitySelections();
+    List<IEntitySelectionWriter> entitySelections = null;
+    entitySelections = getWriterEntitySelections();
     if (entitySelections != null) {
-      List<IEntitySelection> clonedList = new ArrayList<>();
-      for (IEntitySelection item : entitySelections) {
-        EntitySelectionImpl clonedChild = ((EntitySelectionImpl) item).clone();
+      List<IEntitySelectionWriter> clonedList = new ArrayList<>();
+      for (IEntitySelectionWriter item : entitySelections) {
+        IEntitySelectionWriter clonedChild = ((EntitySelectionImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -260,23 +302,4 @@ public class EntitiesImpl extends BaseImpl implements IEntities, IEntitiesWriter
 
   // children
 
-  @Override
-  public List<IScenarioObjectWriter> getScenarioObjectsWriter() {
-    return this.scenarioObjectsWriters;
-  }
-
-  @Override
-  public List<IEntitySelectionWriter> getEntitySelectionsWriter() {
-    return this.entitySelectionsWriters;
-  }
-
-  @Override
-  public void setScenarioObjectsWriter(List<IScenarioObjectWriter> scenarioObjectsWriters) {
-    this.scenarioObjectsWriters = scenarioObjectsWriters;
-  }
-
-  @Override
-  public void setEntitySelectionsWriter(List<IEntitySelectionWriter> entitySelectionsWriters) {
-    this.entitySelectionsWriters = entitySelectionsWriters;
-  }
 }

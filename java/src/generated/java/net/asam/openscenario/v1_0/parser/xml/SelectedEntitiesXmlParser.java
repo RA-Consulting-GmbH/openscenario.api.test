@@ -25,8 +25,8 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlChoiceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IByType;
-import net.asam.openscenario.v1_0.api.IEntityRef;
+import net.asam.openscenario.v1_0.api.writer.IByTypeWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ByTypeImpl;
 import net.asam.openscenario.v1_0.impl.EntityRefImpl;
@@ -102,7 +102,7 @@ public class SelectedEntitiesXmlParser extends XmlComplexTypeParser<SelectedEnti
       // Setting the parent
       entityRef.setParent(object);
       this.entityRefXmlParser.parseElement(indexedElement, parserContext, entityRef);
-      List<IEntityRef> entityRefList = object.getEntityRef();
+      List<IEntityRefWriter> entityRefList = object.getWriterEntityRef();
       if (entityRefList == null) {
         entityRefList = new ArrayList<>();
         object.setEntityRef(entityRefList);
@@ -152,7 +152,7 @@ public class SelectedEntitiesXmlParser extends XmlComplexTypeParser<SelectedEnti
       // Setting the parent
       byType.setParent(object);
       this.byTypeXmlParser.parseElement(indexedElement, parserContext, byType);
-      List<IByType> byTypeList = object.getByType();
+      List<IByTypeWriter> byTypeList = object.getWriterByType();
       if (byTypeList == null) {
         byTypeList = new ArrayList<>();
         object.setByType(byTypeList);

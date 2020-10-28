@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IInRoutePosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,29 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IInRoutePositionWriter extends IOpenScenarioModelElement {
+public interface IInRoutePositionWriter extends IInRoutePosition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: The position is defined through the current
+   * position of a given entity.
+   *
+   * @param fromCurrentEntity value of model property fromCurrentEntity
+   */
+  public void setFromCurrentEntity(IPositionOfCurrentEntityWriter fromCurrentEntity);
+  /**
+   * From OpenSCENARIO class model specification: Route position in road coordinate system.
+   *
+   * @param fromRoadCoordinates value of model property fromRoadCoordinates
+   */
+  public void setFromRoadCoordinates(IPositionInRoadCoordinatesWriter fromRoadCoordinates);
+  /**
+   * From OpenSCENARIO class model specification: Route position in lane coordinate system.
+   *
+   * @param fromLaneCoordinates value of model property fromLaneCoordinates
+   */
+  public void setFromLaneCoordinates(IPositionInLaneCoordinatesWriter fromLaneCoordinates);
 
   // children
   /**
@@ -36,40 +59,17 @@ public interface IInRoutePositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property fromCurrentEntity
    */
-  public IPositionOfCurrentEntityWriter getFromCurrentEntityWriter();
+  public IPositionOfCurrentEntityWriter getWriterFromCurrentEntity();
   /**
    * From OpenSCENARIO class model specification: Route position in road coordinate system.
    *
    * @return a writer for model property fromRoadCoordinates
    */
-  public IPositionInRoadCoordinatesWriter getFromRoadCoordinatesWriter();
+  public IPositionInRoadCoordinatesWriter getWriterFromRoadCoordinates();
   /**
    * From OpenSCENARIO class model specification: Route position in lane coordinate system.
    *
    * @return a writer for model property fromLaneCoordinates
    */
-  public IPositionInLaneCoordinatesWriter getFromLaneCoordinatesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The position is defined through the current
-   * position of a given entity.
-   *
-   * @param fromCurrentEntityWriter writer for the model property fromCurrentEntity
-   */
-  public void writeToFromCurrentEntityWriter(
-      IPositionOfCurrentEntityWriter fromCurrentEntityWriter);
-  /**
-   * From OpenSCENARIO class model specification: Route position in road coordinate system.
-   *
-   * @param fromRoadCoordinatesWriter writer for the model property fromRoadCoordinates
-   */
-  public void writeToFromRoadCoordinatesWriter(
-      IPositionInRoadCoordinatesWriter fromRoadCoordinatesWriter);
-  /**
-   * From OpenSCENARIO class model specification: Route position in lane coordinate system.
-   *
-   * @param fromLaneCoordinatesWriter writer for the model property fromLaneCoordinates
-   */
-  public void writeToFromLaneCoordinatesWriter(
-      IPositionInLaneCoordinatesWriter fromLaneCoordinatesWriter);
+  public IPositionInLaneCoordinatesWriter getWriterFromLaneCoordinates();
 }

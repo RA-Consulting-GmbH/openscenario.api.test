@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITimeOfDayCondition;
 import net.asam.openscenario.v1_0.api.Rule;
 
 /**
@@ -28,34 +29,22 @@ import net.asam.openscenario.v1_0.api.Rule;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITimeOfDayConditionWriter extends IOpenScenarioModelElement {
+public interface ITimeOfDayConditionWriter extends ITimeOfDayCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The operator (less, greater, equal).
-   *
-   * @return value of model property rule
-   */
-  public Rule getRule();
-  /**
-   * From OpenSCENARIO class model specification: Datetime value for comparison.
-   *
-   * @return value of model property dateTime
-   */
-  public java.util.Date getDateTime();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @param rule value of model property rule
    */
-  public void writeToRule(Rule rule);
+  public void setRule(Rule rule);
   /**
    * From OpenSCENARIO class model specification: Datetime value for comparison.
    *
    * @param dateTime value of model property dateTime
    */
-  public void writeToDateTime(java.util.Date dateTime);
+  public void setDateTime(java.util.Date dateTime);
 
   /**
    * Set a parameter for the attribute rule

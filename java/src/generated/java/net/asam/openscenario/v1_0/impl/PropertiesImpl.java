@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -48,14 +49,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PropertiesImpl extends BaseImpl implements IProperties, IPropertiesWriter {
+public class PropertiesImpl extends BaseImpl implements IPropertiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IProperty> properties;
-  private List<IFile> files;
-
-  private List<IPropertyWriter> propertiesWriters;
-  private List<IFileWriter> filesWriters;
+  private List<IPropertyWriter> properties = new ArrayList<>();
+  private List<IFileWriter> files = new ArrayList<>();
 
   /** Default constructor */
   public PropertiesImpl() {
@@ -71,32 +69,74 @@ public class PropertiesImpl extends BaseImpl implements IProperties, IProperties
   }
 
   @Override
-  public List<IProperty> getProperties() {
+  public List<IPropertyWriter> getWriterProperties() {
     return this.properties;
   }
 
   @Override
-  public List<IFile> getFiles() {
+  public Iterable<IProperty> getProperties() {
+    return new Iterable<IProperty>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IProperty> iterator() {
+        return new ArrayList<IProperty>(PropertiesImpl.this.properties).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getPropertiesSize() {
+    if (this.properties != null) return this.properties.size();
+    return 0;
+  }
+
+  @Override
+  public IProperty getPropertiesAtIndex(int index) {
+    if (index >= 0 && this.properties != null && this.properties.size() > index) {
+      return this.properties.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IFileWriter> getWriterFiles() {
     return this.files;
   }
-  /**
-   * Sets the value of model property properties
-   *
-   * @param properties from OpenSCENARIO class model specification: [A name/value pair. The semantic
-   *     of the name/values are subject of a contract between the provider of a simulation ,
-   *     environment and the author of a scenario.]
-   */
-  public void setProperties(List<IProperty> properties) {
+
+  @Override
+  public Iterable<IFile> getFiles() {
+    return new Iterable<IFile>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IFile> iterator() {
+        return new ArrayList<IFile>(PropertiesImpl.this.files).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getFilesSize() {
+    if (this.files != null) return this.files.size();
+    return 0;
+  }
+
+  @Override
+  public IFile getFilesAtIndex(int index) {
+    if (index >= 0 && this.files != null && this.files.size() > index) {
+      return this.files.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setProperties(List<IPropertyWriter> properties) {
     this.properties = properties;
   }
-  /**
-   * Sets the value of model property files
-   *
-   * @param files from OpenSCENARIO class model specification: [A list of arbitrary files attached
-   *     to an object that owns the properties. The semantic and the file formats are subject , of a
-   *     contract between the provider of a simulation environment and the author of a scenario.]
-   */
-  public void setFiles(List<IFile> files) {
+
+  @Override
+  public void setFiles(List<IFileWriter> files) {
     this.files = files;
   }
 
@@ -121,17 +161,17 @@ public class PropertiesImpl extends BaseImpl implements IProperties, IProperties
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IProperty> properties = null;
-    properties = getProperties();
+    List<IPropertyWriter> properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      for (IProperty item : properties) {
+      for (IPropertyWriter item : properties) {
         result.add((BaseImpl) item);
       }
     }
-    List<IFile> files = null;
-    files = getFiles();
+    List<IFileWriter> files = null;
+    files = getWriterFiles();
     if (files != null) {
-      for (IFile item : files) {
+      for (IFileWriter item : files) {
         result.add((BaseImpl) item);
       }
     }
@@ -154,23 +194,23 @@ public class PropertiesImpl extends BaseImpl implements IProperties, IProperties
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IProperty> properties = null;
-    properties = getProperties();
+    List<IPropertyWriter> properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      List<IProperty> clonedList = new ArrayList<>();
-      for (IProperty item : properties) {
-        PropertyImpl clonedChild = ((PropertyImpl) item).clone();
+      List<IPropertyWriter> clonedList = new ArrayList<>();
+      for (IPropertyWriter item : properties) {
+        IPropertyWriter clonedChild = ((PropertyImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setProperties(clonedList);
     }
-    List<IFile> files = null;
-    files = getFiles();
+    List<IFileWriter> files = null;
+    files = getWriterFiles();
     if (files != null) {
-      List<IFile> clonedList = new ArrayList<>();
-      for (IFile item : files) {
-        FileImpl clonedChild = ((FileImpl) item).clone();
+      List<IFileWriter> clonedList = new ArrayList<>();
+      for (IFileWriter item : files) {
+        IFileWriter clonedChild = ((FileImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -262,23 +302,4 @@ public class PropertiesImpl extends BaseImpl implements IProperties, IProperties
 
   // children
 
-  @Override
-  public List<IPropertyWriter> getPropertiesWriter() {
-    return this.propertiesWriters;
-  }
-
-  @Override
-  public List<IFileWriter> getFilesWriter() {
-    return this.filesWriters;
-  }
-
-  @Override
-  public void setPropertiesWriter(List<IPropertyWriter> propertiesWriters) {
-    this.propertiesWriters = propertiesWriters;
-  }
-
-  @Override
-  public void setFilesWriter(List<IFileWriter> filesWriters) {
-    this.filesWriters = filesWriters;
-  }
 }

@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteTargetSpeedImpl extends BaseImpl
-    implements IAbsoluteTargetSpeed, IAbsoluteTargetSpeedWriter {
+public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTargetSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -73,12 +72,8 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Target speed in m/s the vehicle
-   *     should change to.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
@@ -208,11 +203,6 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "AbsoluteTargetSpeed";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
   }
 
   @Override

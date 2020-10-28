@@ -53,19 +53,13 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FollowTrajectoryActionImpl extends BaseImpl
-    implements IFollowTrajectoryAction, IFollowTrajectoryActionWriter {
+public class FollowTrajectoryActionImpl extends BaseImpl implements IFollowTrajectoryActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ITrajectory trajectory;
-  private ICatalogReference catalogReference;
-  private ITimeReference timeReference;
-  private ITrajectoryFollowingMode trajectoryFollowingMode;
-
-  private ITrajectoryWriter trajectoryWriter;
-  private ICatalogReferenceWriter catalogReferenceWriter;
-  private ITimeReferenceWriter timeReferenceWriter;
-  private ITrajectoryFollowingModeWriter trajectoryFollowingModeWriter;
+  private ITrajectoryWriter trajectory;
+  private ICatalogReferenceWriter catalogReference;
+  private ITimeReferenceWriter timeReference;
+  private ITrajectoryFollowingModeWriter trajectoryFollowingMode;
 
   /** Default constructor */
   public FollowTrajectoryActionImpl() {
@@ -99,41 +93,24 @@ public class FollowTrajectoryActionImpl extends BaseImpl
   public ITrajectoryFollowingMode getTrajectoryFollowingMode() {
     return this.trajectoryFollowingMode;
   }
-  /**
-   * Sets the value of model property trajectory
-   *
-   * @param trajectory from OpenSCENARIO class model specification: [Trajectory definition.]
-   */
-  public void setTrajectory(ITrajectory trajectory) {
+
+  @Override
+  public void setTrajectory(ITrajectoryWriter trajectory) {
     this.trajectory = trajectory;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [A reference to the
-   *     trajectory type in a catalog.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
   }
-  /**
-   * Sets the value of model property timeReference
-   *
-   * @param timeReference from OpenSCENARIO class model specification: [Defines if time information
-   *     provided within the trajectory should be considered. If so, it may be used as either ,
-   *     absolute or relative time along the trajectory in order to define longitudinal velocity of
-   *     the actor. Moreover, a time , offset or time scaling may be applied.]
-   */
-  public void setTimeReference(ITimeReference timeReference) {
+
+  @Override
+  public void setTimeReference(ITimeReferenceWriter timeReference) {
     this.timeReference = timeReference;
   }
-  /**
-   * Sets the value of model property trajectoryFollowingMode
-   *
-   * @param trajectoryFollowingMode from OpenSCENARIO class model specification: [The mode how to
-   *     follow the given trajectory.]
-   */
-  public void setTrajectoryFollowingMode(ITrajectoryFollowingMode trajectoryFollowingMode) {
+
+  @Override
+  public void setTrajectoryFollowingMode(ITrajectoryFollowingModeWriter trajectoryFollowingMode) {
     this.trajectoryFollowingMode = trajectoryFollowingMode;
   }
 
@@ -158,23 +135,23 @@ public class FollowTrajectoryActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ITrajectory trajectory = null;
-    trajectory = getTrajectory();
+    ITrajectoryWriter trajectory = null;
+    trajectory = getWriterTrajectory();
     if (trajectory != null) {
       result.add((BaseImpl) trajectory);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
-    ITimeReference timeReference = null;
-    timeReference = getTimeReference();
+    ITimeReferenceWriter timeReference = null;
+    timeReference = getWriterTimeReference();
     if (timeReference != null) {
       result.add((BaseImpl) timeReference);
     }
-    ITrajectoryFollowingMode trajectoryFollowingMode = null;
-    trajectoryFollowingMode = getTrajectoryFollowingMode();
+    ITrajectoryFollowingModeWriter trajectoryFollowingMode = null;
+    trajectoryFollowingMode = getWriterTrajectoryFollowingMode();
     if (trajectoryFollowingMode != null) {
       result.add((BaseImpl) trajectoryFollowingMode);
     }
@@ -197,31 +174,31 @@ public class FollowTrajectoryActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ITrajectory trajectory = null;
-    trajectory = getTrajectory();
+    ITrajectoryWriter trajectory = null;
+    trajectory = getWriterTrajectory();
     if (trajectory != null) {
-      TrajectoryImpl clonedChild = ((TrajectoryImpl) trajectory).clone();
+      ITrajectoryWriter clonedChild = ((TrajectoryImpl) trajectory).clone();
       clonedObject.setTrajectory(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITimeReference timeReference = null;
-    timeReference = getTimeReference();
+    ITimeReferenceWriter timeReference = null;
+    timeReference = getWriterTimeReference();
     if (timeReference != null) {
-      TimeReferenceImpl clonedChild = ((TimeReferenceImpl) timeReference).clone();
+      ITimeReferenceWriter clonedChild = ((TimeReferenceImpl) timeReference).clone();
       clonedObject.setTimeReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrajectoryFollowingMode trajectoryFollowingMode = null;
-    trajectoryFollowingMode = getTrajectoryFollowingMode();
+    ITrajectoryFollowingModeWriter trajectoryFollowingMode = null;
+    trajectoryFollowingMode = getWriterTrajectoryFollowingMode();
     if (trajectoryFollowingMode != null) {
-      TrajectoryFollowingModeImpl clonedChild =
+      ITrajectoryFollowingModeWriter clonedChild =
           ((TrajectoryFollowingModeImpl) trajectoryFollowingMode).clone();
       clonedObject.setTrajectoryFollowingMode(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -317,43 +294,22 @@ public class FollowTrajectoryActionImpl extends BaseImpl
 
   // children
   @Override
-  public ITrajectoryWriter getTrajectoryWriter() {
-    return this.trajectoryWriter;
+  public ITrajectoryWriter getWriterTrajectory() {
+    return this.trajectory;
   }
 
   @Override
-  public ICatalogReferenceWriter getCatalogReferenceWriter() {
-    return this.catalogReferenceWriter;
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 
   @Override
-  public ITimeReferenceWriter getTimeReferenceWriter() {
-    return this.timeReferenceWriter;
+  public ITimeReferenceWriter getWriterTimeReference() {
+    return this.timeReference;
   }
 
   @Override
-  public ITrajectoryFollowingModeWriter getTrajectoryFollowingModeWriter() {
-    return this.trajectoryFollowingModeWriter;
-  }
-
-  @Override
-  public void writeToTrajectoryWriter(ITrajectoryWriter trajectoryWriter) {
-    this.trajectoryWriter = trajectoryWriter;
-  }
-
-  @Override
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter) {
-    this.catalogReferenceWriter = catalogReferenceWriter;
-  }
-
-  @Override
-  public void writeToTimeReferenceWriter(ITimeReferenceWriter timeReferenceWriter) {
-    this.timeReferenceWriter = timeReferenceWriter;
-  }
-
-  @Override
-  public void writeToTrajectoryFollowingModeWriter(
-      ITrajectoryFollowingModeWriter trajectoryFollowingModeWriter) {
-    this.trajectoryFollowingModeWriter = trajectoryFollowingModeWriter;
+  public ITrajectoryFollowingModeWriter getWriterTrajectoryFollowingMode() {
+    return this.trajectoryFollowingMode;
   }
 }

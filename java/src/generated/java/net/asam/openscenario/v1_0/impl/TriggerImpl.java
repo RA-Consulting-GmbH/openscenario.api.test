@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -46,12 +47,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
+public class TriggerImpl extends BaseImpl implements ITriggerWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IConditionGroup> conditionGroups;
-
-  private List<IConditionGroupWriter> conditionGroupsWriters;
+  private List<IConditionGroupWriter> conditionGroups = new ArrayList<>();
 
   /** Default constructor */
   public TriggerImpl() {
@@ -67,16 +66,38 @@ public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
   }
 
   @Override
-  public List<IConditionGroup> getConditionGroups() {
+  public List<IConditionGroupWriter> getWriterConditionGroups() {
     return this.conditionGroups;
   }
-  /**
-   * Sets the value of model property conditionGroups
-   *
-   * @param conditionGroups from OpenSCENARIO class model specification: [List of condition groups
-   *     as a container of conditions.]
-   */
-  public void setConditionGroups(List<IConditionGroup> conditionGroups) {
+
+  @Override
+  public Iterable<IConditionGroup> getConditionGroups() {
+    return new Iterable<IConditionGroup>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IConditionGroup> iterator() {
+        return new ArrayList<IConditionGroup>(TriggerImpl.this.conditionGroups).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getConditionGroupsSize() {
+    if (this.conditionGroups != null) return this.conditionGroups.size();
+    return 0;
+  }
+
+  @Override
+  public IConditionGroup getConditionGroupsAtIndex(int index) {
+    if (index >= 0 && this.conditionGroups != null && this.conditionGroups.size() > index) {
+      return this.conditionGroups.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setConditionGroups(List<IConditionGroupWriter> conditionGroups) {
     this.conditionGroups = conditionGroups;
   }
 
@@ -101,10 +122,10 @@ public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IConditionGroup> conditionGroups = null;
-    conditionGroups = getConditionGroups();
+    List<IConditionGroupWriter> conditionGroups = null;
+    conditionGroups = getWriterConditionGroups();
     if (conditionGroups != null) {
-      for (IConditionGroup item : conditionGroups) {
+      for (IConditionGroupWriter item : conditionGroups) {
         result.add((BaseImpl) item);
       }
     }
@@ -127,12 +148,12 @@ public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IConditionGroup> conditionGroups = null;
-    conditionGroups = getConditionGroups();
+    List<IConditionGroupWriter> conditionGroups = null;
+    conditionGroups = getWriterConditionGroups();
     if (conditionGroups != null) {
-      List<IConditionGroup> clonedList = new ArrayList<>();
-      for (IConditionGroup item : conditionGroups) {
-        ConditionGroupImpl clonedChild = ((ConditionGroupImpl) item).clone();
+      List<IConditionGroupWriter> clonedList = new ArrayList<>();
+      for (IConditionGroupWriter item : conditionGroups) {
+        IConditionGroupWriter clonedChild = ((ConditionGroupImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -221,13 +242,4 @@ public class TriggerImpl extends BaseImpl implements ITrigger, ITriggerWriter {
 
   // children
 
-  @Override
-  public List<IConditionGroupWriter> getConditionGroupsWriter() {
-    return this.conditionGroupsWriters;
-  }
-
-  @Override
-  public void setConditionGroupsWriter(List<IConditionGroupWriter> conditionGroupsWriters) {
-    this.conditionGroupsWriters = conditionGroupsWriters;
-  }
 }

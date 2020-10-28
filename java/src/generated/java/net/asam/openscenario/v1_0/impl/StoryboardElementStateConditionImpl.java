@@ -53,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class StoryboardElementStateConditionImpl extends BaseImpl
-    implements IStoryboardElementStateCondition, IStoryboardElementStateConditionWriter {
+    implements IStoryboardElementStateConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,7 +64,7 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   }
 
   private StoryboardElementType storyboardElementType;
-  private NamedReferenceProxy<IStoryboardElement> storyboardElementRef;
+  private INamedReference<IStoryboardElement> storyboardElementRef;
   private StoryboardElementState state;
 
   /** Default constructor */
@@ -94,31 +94,18 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   public StoryboardElementState getState() {
     return this.state;
   }
-  /**
-   * Sets the value of model property storyboardElementType
-   *
-   * @param storyboardElementType from OpenSCENARIO class model specification: [Type of storyboard
-   *     element instance.]
-   */
+
+  @Override
   public void setStoryboardElementType(StoryboardElementType storyboardElementType) {
     this.storyboardElementType = storyboardElementType;
   }
-  /**
-   * Sets the value of model property storyboardElementRef
-   *
-   * @param storyboardElementRef from OpenSCENARIO class model specification: [Name of the
-   *     referenced Storyboard instance.]
-   */
-  public void setStoryboardElementRef(
-      NamedReferenceProxy<IStoryboardElement> storyboardElementRef) {
+
+  @Override
+  public void setStoryboardElementRef(INamedReference<IStoryboardElement> storyboardElementRef) {
     this.storyboardElementRef = storyboardElementRef;
   }
-  /**
-   * Sets the value of model property state
-   *
-   * @param state from OpenSCENARIO class model specification: [The state or the transition of the
-   *     storyboard element instance for which the condition becomes true.]
-   */
+
+  @Override
   public void setState(StoryboardElementState state) {
     this.state = state;
   }
@@ -313,24 +300,6 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "StoryboardElementStateCondition";
-  }
-
-  @Override
-  public void writeToStoryboardElementType(StoryboardElementType storyboardElementType) {
-    setStoryboardElementType(storyboardElementType);
-  }
-
-  @Override
-  public void writeToStoryboardElementRef(
-      INamedReference<IStoryboardElement> storyboardElementRef) {
-    setStoryboardElementRef(
-        new NamedReferenceProxy<>(
-            storyboardElementRef.getTargetObject(), storyboardElementRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToState(StoryboardElementState state) {
-    setState(state);
   }
 
   @Override

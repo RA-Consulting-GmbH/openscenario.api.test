@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ILaneOffsetAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -34,16 +35,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILaneOffsetActionWriter extends IOpenScenarioModelElement {
+public interface ILaneOffsetActionWriter extends ILaneOffsetAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: If false, the action ends when the target lane is
-   * reached. If true it does not end but has to be stopped.
-   *
-   * @return value of model property continuous
-   */
-  public Boolean getContinuous();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: If false, the action ends when the target lane is
@@ -51,7 +45,21 @@ public interface ILaneOffsetActionWriter extends IOpenScenarioModelElement {
    *
    * @param continuous value of model property continuous
    */
-  public void writeToContinuous(Boolean continuous);
+  public void setContinuous(Boolean continuous);
+  /**
+   * From OpenSCENARIO class model specification: Parameters defining the dynamics of the
+   * LaneOffsetAction.
+   *
+   * @param laneOffsetActionDynamics value of model property laneOffsetActionDynamics
+   */
+  public void setLaneOffsetActionDynamics(ILaneOffsetActionDynamicsWriter laneOffsetActionDynamics);
+  /**
+   * From OpenSCENARIO class model specification: Parameters indicating if the lane offset is
+   * defined relative to another entity or absolute to the current lane's center line.
+   *
+   * @param laneOffsetTarget value of model property laneOffsetTarget
+   */
+  public void setLaneOffsetTarget(ILaneOffsetTargetWriter laneOffsetTarget);
 
   /**
    * Set a parameter for the attribute continuous
@@ -82,28 +90,12 @@ public interface ILaneOffsetActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property laneOffsetActionDynamics
    */
-  public ILaneOffsetActionDynamicsWriter getLaneOffsetActionDynamicsWriter();
+  public ILaneOffsetActionDynamicsWriter getWriterLaneOffsetActionDynamics();
   /**
    * From OpenSCENARIO class model specification: Parameters indicating if the lane offset is
    * defined relative to another entity or absolute to the current lane's center line.
    *
    * @return a writer for model property laneOffsetTarget
    */
-  public ILaneOffsetTargetWriter getLaneOffsetTargetWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Parameters defining the dynamics of the
-   * LaneOffsetAction.
-   *
-   * @param laneOffsetActionDynamicsWriter writer for the model property laneOffsetActionDynamics
-   */
-  public void writeToLaneOffsetActionDynamicsWriter(
-      ILaneOffsetActionDynamicsWriter laneOffsetActionDynamicsWriter);
-  /**
-   * From OpenSCENARIO class model specification: Parameters indicating if the lane offset is
-   * defined relative to another entity or absolute to the current lane's center line.
-   *
-   * @param laneOffsetTargetWriter writer for the model property laneOffsetTarget
-   */
-  public void writeToLaneOffsetTargetWriter(ILaneOffsetTargetWriter laneOffsetTargetWriter);
+  public ILaneOffsetTargetWriter getWriterLaneOffsetTarget();
 }

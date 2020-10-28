@@ -16,7 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.common.INamedReference;
+import net.asam.openscenario.v1_0.api.IParameterAssignment;
+import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,24 +30,25 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IParameterAssignmentWriter extends IOpenScenarioModelElement {
+public interface IParameterAssignmentWriter
+    extends IParameterAssignment, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
+  // Setters for all attributes
+
   /**
-   * From OpenSCENARIO class model specification: Value of the parameter that is handed over to the
-   * parametrizable type.
+   * From OpenSCENARIO class model specification: Name of the parameter that must be declared in the
+   * catalog.
    *
-   * @return value of model property value
+   * @param parameterRef value of model property parameterRef
    */
-  public String getValue();
-
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef);
   /**
    * From OpenSCENARIO class model specification: Value of the parameter that is handed over to the
    * parametrizable type.
    *
    * @param value value of model property value
    */
-  public void writeToValue(String value);
+  public void setValue(String value);
 
   /**
    * Set a parameter for the attribute value

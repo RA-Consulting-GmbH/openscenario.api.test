@@ -16,6 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAction;
+
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -24,22 +27,38 @@ package net.asam.openscenario.v1_0.api.writer;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IActionWriter extends IStoryboardElementWriter {
+public interface IActionWriter
+    extends IStoryboardElementWriter, IAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of this action.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of this action.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: The GlobalAction to be executed when the enclosing
+   * Action is startedis started.
+   *
+   * @param globalAction value of model property globalAction
+   */
+  public void setGlobalAction(IGlobalActionWriter globalAction);
+  /**
+   * From OpenSCENARIO class model specification: The UserDefinedAction to be executed when the
+   * enclosing Action is started.
+   *
+   * @param userDefinedAction value of model property userDefinedAction
+   */
+  public void setUserDefinedAction(IUserDefinedActionWriter userDefinedAction);
+  /**
+   * From OpenSCENARIO class model specification: The PrivateAction to be executed when the
+   * enclosing Action is started.
+   *
+   * @param privateAction value of model property privateAction
+   */
+  public void setPrivateAction(IPrivateActionWriter privateAction);
 
   /**
    * Set a parameter for the attribute name
@@ -70,41 +89,19 @@ public interface IActionWriter extends IStoryboardElementWriter {
    *
    * @return a writer for model property globalAction
    */
-  public IGlobalActionWriter getGlobalActionWriter();
+  public IGlobalActionWriter getWriterGlobalAction();
   /**
    * From OpenSCENARIO class model specification: The UserDefinedAction to be executed when the
    * enclosing Action is started.
    *
    * @return a writer for model property userDefinedAction
    */
-  public IUserDefinedActionWriter getUserDefinedActionWriter();
+  public IUserDefinedActionWriter getWriterUserDefinedAction();
   /**
    * From OpenSCENARIO class model specification: The PrivateAction to be executed when the
    * enclosing Action is started.
    *
    * @return a writer for model property privateAction
    */
-  public IPrivateActionWriter getPrivateActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The GlobalAction to be executed when the enclosing
-   * Action is startedis started.
-   *
-   * @param globalActionWriter writer for the model property globalAction
-   */
-  public void writeToGlobalActionWriter(IGlobalActionWriter globalActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: The UserDefinedAction to be executed when the
-   * enclosing Action is started.
-   *
-   * @param userDefinedActionWriter writer for the model property userDefinedAction
-   */
-  public void writeToUserDefinedActionWriter(IUserDefinedActionWriter userDefinedActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: The PrivateAction to be executed when the
-   * enclosing Action is started.
-   *
-   * @param privateActionWriter writer for the model property privateAction
-   */
-  public void writeToPrivateActionWriter(IPrivateActionWriter privateActionWriter);
+  public IPrivateActionWriter getWriterPrivateAction();
 }

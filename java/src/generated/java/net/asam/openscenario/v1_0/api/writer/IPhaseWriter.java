@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPhase;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,34 +29,30 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPhaseWriter extends IOpenScenarioModelElement {
+public interface IPhaseWriter extends IPhase, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the phase.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: Duration of the phase. Unit: s; Range: [0..inf[.
-   *
-   * @return value of model property duration
-   */
-  public Double getDuration();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the phase.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: Duration of the phase. Unit: s; Range: [0..inf[.
    *
    * @param duration value of model property duration
    */
-  public void writeToDuration(Double duration);
+  public void setDuration(Double duration);
+  /**
+   * From OpenSCENARIO class model specification: Each phase has multiple TrafficSignalStates. One
+   * for each TrafficSignal that is controlled. E.g. phase1 (trafficSignal1:true;false;false,
+   * trafficSignal2:false;false;true).
+   *
+   * @param trafficSignalStates value of model property trafficSignalStates
+   */
+  public void setTrafficSignalStates(List<ITrafficSignalStateWriter> trafficSignalStates);
 
   /**
    * Set a parameter for the attribute name
@@ -107,15 +104,5 @@ public interface IPhaseWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property trafficSignalStates
    */
-  public List<ITrafficSignalStateWriter> getTrafficSignalStatesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Each phase has multiple TrafficSignalStates. One
-   * for each TrafficSignal that is controlled. E.g. phase1 (trafficSignal1:true;false;false,
-   * trafficSignal2:false;false;true).
-   *
-   * @param trafficSignalStatesWriters list of writers for the model property trafficSignalStates
-   */
-  public void setTrafficSignalStatesWriter(
-      List<ITrafficSignalStateWriter> trafficSignalStatesWriters);
+  public List<ITrafficSignalStateWriter> getWriterTrafficSignalStates();
 }

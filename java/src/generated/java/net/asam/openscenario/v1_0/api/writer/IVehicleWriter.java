@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IVehicle;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
 
 /**
@@ -27,34 +29,55 @@ import net.asam.openscenario.v1_0.api.VehicleCategory;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IVehicleWriter extends ICatalogElementWriter {
+public interface IVehicleWriter
+    extends ICatalogElementWriter, IVehicle, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the vehicle type.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: Category of the vehicle (bicycle, train,...).
-   *
-   * @return value of model property vehicleCategory
-   */
-  public VehicleCategory getVehicleCategory();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the vehicle type.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: Category of the vehicle (bicycle, train,...).
    *
    * @param vehicleCategory value of model property vehicleCategory
    */
-  public void writeToVehicleCategory(VehicleCategory vehicleCategory);
+  public void setVehicleCategory(VehicleCategory vehicleCategory);
+  /**
+   * From OpenSCENARIO class model specification: Definition of additional parameters.
+   *
+   * @param parameterDeclarations value of model property parameterDeclarations
+   */
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations);
+  /**
+   * From OpenSCENARIO class model specification: The three dimensional bounding box that encloses
+   * the vehicle.
+   *
+   * @param boundingBox value of model property boundingBox
+   */
+  public void setBoundingBox(IBoundingBoxWriter boundingBox);
+  /**
+   * From OpenSCENARIO class model specification: Performance properties of the vehicle.
+   *
+   * @param performance value of model property performance
+   */
+  public void setPerformance(IPerformanceWriter performance);
+  /**
+   * From OpenSCENARIO class model specification: A set of axles (front, rear, additional) and their
+   * geometric locations.
+   *
+   * @param axles value of model property axles
+   */
+  public void setAxles(IAxlesWriter axles);
+  /**
+   * From OpenSCENARIO class model specification: Additional properties as name value pairs.
+   *
+   * @param properties value of model property properties
+   */
+  public void setProperties(IPropertiesWriter properties);
 
   /**
    * Set a parameter for the attribute name
@@ -104,67 +127,31 @@ public interface IVehicleWriter extends ICatalogElementWriter {
    *
    * @return a writer for model property boundingBox
    */
-  public IBoundingBoxWriter getBoundingBoxWriter();
+  public IBoundingBoxWriter getWriterBoundingBox();
   /**
    * From OpenSCENARIO class model specification: Performance properties of the vehicle.
    *
    * @return a writer for model property performance
    */
-  public IPerformanceWriter getPerformanceWriter();
+  public IPerformanceWriter getWriterPerformance();
   /**
    * From OpenSCENARIO class model specification: A set of axles (front, rear, additional) and their
    * geometric locations.
    *
    * @return a writer for model property axles
    */
-  public IAxlesWriter getAxlesWriter();
+  public IAxlesWriter getWriterAxles();
   /**
    * From OpenSCENARIO class model specification: Additional properties as name value pairs.
    *
    * @return a writer for model property properties
    */
-  public IPropertiesWriter getPropertiesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The three dimensional bounding box that encloses
-   * the vehicle.
-   *
-   * @param boundingBoxWriter writer for the model property boundingBox
-   */
-  public void writeToBoundingBoxWriter(IBoundingBoxWriter boundingBoxWriter);
-  /**
-   * From OpenSCENARIO class model specification: Performance properties of the vehicle.
-   *
-   * @param performanceWriter writer for the model property performance
-   */
-  public void writeToPerformanceWriter(IPerformanceWriter performanceWriter);
-  /**
-   * From OpenSCENARIO class model specification: A set of axles (front, rear, additional) and their
-   * geometric locations.
-   *
-   * @param axlesWriter writer for the model property axles
-   */
-  public void writeToAxlesWriter(IAxlesWriter axlesWriter);
-  /**
-   * From OpenSCENARIO class model specification: Additional properties as name value pairs.
-   *
-   * @param propertiesWriter writer for the model property properties
-   */
-  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter);
+  public IPropertiesWriter getWriterProperties();
 
   /**
    * From OpenSCENARIO class model specification: Definition of additional parameters.
    *
    * @return a list of writers for model property parameterDeclarations
    */
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of additional parameters.
-   *
-   * @param parameterDeclarationsWriters list of writers for the model property
-   *     parameterDeclarations
-   */
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters);
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations();
 }

@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DimensionsImpl extends BaseImpl implements IDimensions, IDimensionsWriter {
+public class DimensionsImpl extends BaseImpl implements IDimensionsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -86,30 +86,18 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, IDimensions
   public Double getHeight() {
     return this.height;
   }
-  /**
-   * Sets the value of model property width
-   *
-   * @param width from OpenSCENARIO class model specification: [Width of the entity's bounding box.
-   *     Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setWidth(Double width) {
     this.width = width;
   }
-  /**
-   * Sets the value of model property length
-   *
-   * @param length from OpenSCENARIO class model specification: [Length of the entity's bounding
-   *     box. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setLength(Double length) {
     this.length = length;
   }
-  /**
-   * Sets the value of model property height
-   *
-   * @param height from OpenSCENARIO class model specification: [Height of the entity's bounding
-   *     box. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setHeight(Double height) {
     this.height = height;
   }
@@ -259,21 +247,6 @@ public class DimensionsImpl extends BaseImpl implements IDimensions, IDimensions
   @Override
   public String getModelType() {
     return "Dimensions";
-  }
-
-  @Override
-  public void writeToWidth(Double width) {
-    setWidth(width);
-  }
-
-  @Override
-  public void writeToLength(Double length) {
-    setLength(length);
-  }
-
-  @Override
-  public void writeToHeight(Double height) {
-    setHeight(height);
   }
 
   @Override

@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IStory;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,16 +29,9 @@ import java.util.List;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IStoryWriter extends IStoryboardElementWriter {
+public interface IStoryWriter extends IStoryboardElementWriter, IStory, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the story, must be unique within an
-   * OpenSCENARIO file.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the story, must be unique within an
@@ -44,7 +39,19 @@ public interface IStoryWriter extends IStoryboardElementWriter {
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: Definition of additional parameters.
+   *
+   * @param parameterDeclarations value of model property parameterDeclarations
+   */
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations);
+  /**
+   * From OpenSCENARIO class model specification: Defines the acts of the story.
+   *
+   * @param acts value of model property acts
+   */
+  public void setActs(List<IActWriter> acts);
 
   /**
    * Set a parameter for the attribute name
@@ -75,26 +82,11 @@ public interface IStoryWriter extends IStoryboardElementWriter {
    *
    * @return a list of writers for model property parameterDeclarations
    */
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter();
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations();
   /**
    * From OpenSCENARIO class model specification: Defines the acts of the story.
    *
    * @return a list of writers for model property acts
    */
-  public List<IActWriter> getActsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of additional parameters.
-   *
-   * @param parameterDeclarationsWriters list of writers for the model property
-   *     parameterDeclarations
-   */
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters);
-  /**
-   * From OpenSCENARIO class model specification: Defines the acts of the story.
-   *
-   * @param actsWriters list of writers for the model property acts
-   */
-  public void setActsWriter(List<IActWriter> actsWriters);
+  public List<IActWriter> getWriterActs();
 }

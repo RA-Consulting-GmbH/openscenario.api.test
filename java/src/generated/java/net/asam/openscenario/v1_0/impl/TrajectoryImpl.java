@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -50,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrajectoryImpl extends BaseImpl implements ITrajectory, ITrajectoryWriter {
+public class TrajectoryImpl extends BaseImpl implements ITrajectoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,11 +62,8 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectory, ITrajectory
 
   private String name;
   private Boolean closed;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private IShape shape;
-
-  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
-  private IShapeWriter shapeWriter;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private IShapeWriter shape;
 
   /** Default constructor */
   public TrajectoryImpl() {
@@ -91,47 +89,61 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectory, ITrajectory
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
+  }
+
+  @Override
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(TrajectoryImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
   }
 
   @Override
   public IShape getShape() {
     return this.shape;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the trajectory type. Required
-   *     if used in catalog.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property closed
-   *
-   * @param closed from OpenSCENARIO class model specification: [True if trajectory is closed.]
-   */
+
+  @Override
   public void setClosed(Boolean closed) {
     this.closed = closed;
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property shape
-   *
-   * @param shape from OpenSCENARIO class model specification: [The shape of a trajectory (Polyline,
-   *     Clothoid or Nurbs)]
-   */
-  public void setShape(IShape shape) {
+
+  @Override
+  public void setShape(IShapeWriter shape) {
     this.shape = shape;
   }
 
@@ -188,15 +200,15 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectory, ITrajectory
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    IShape shape = null;
-    shape = getShape();
+    IShapeWriter shape = null;
+    shape = getWriterShape();
     if (shape != null) {
       result.add((BaseImpl) shape);
     }
@@ -223,21 +235,21 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectory, ITrajectory
     // Simple type
     clonedObject.setClosed(getClosed());
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    IShape shape = null;
-    shape = getShape();
+    IShapeWriter shape = null;
+    shape = getWriterShape();
     if (shape != null) {
-      ShapeImpl clonedChild = ((ShapeImpl) shape).clone();
+      IShapeWriter clonedChild = ((ShapeImpl) shape).clone();
       clonedObject.setShape(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -341,16 +353,6 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectory, ITrajectory
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
-  public void writeToClosed(Boolean closed) {
-    setClosed(closed);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -382,23 +384,7 @@ public class TrajectoryImpl extends BaseImpl implements ITrajectory, ITrajectory
 
   // children
   @Override
-  public IShapeWriter getShapeWriter() {
-    return this.shapeWriter;
-  }
-
-  @Override
-  public void writeToShapeWriter(IShapeWriter shapeWriter) {
-    this.shapeWriter = shapeWriter;
-  }
-
-  @Override
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return this.parameterDeclarationsWriters;
-  }
-
-  @Override
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
+  public IShapeWriter getWriterShape() {
+    return this.shape;
   }
 }

@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IEntities;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEntitiesWriter extends IOpenScenarioModelElement {
+public interface IEntitiesWriter extends IEntities, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: A list of scenario object definitions that pairs
+   * an entity object and a controller.
+   *
+   * @param scenarioObjects value of model property scenarioObjects
+   */
+  public void setScenarioObjects(List<IScenarioObjectWriter> scenarioObjects);
+  /**
+   * From OpenSCENARIO class model specification: A list of entity selection definitions.
+   *
+   * @param entitySelections value of model property entitySelections
+   */
+  public void setEntitySelections(List<IEntitySelectionWriter> entitySelections);
 
   // children
 
@@ -37,25 +54,11 @@ public interface IEntitiesWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property scenarioObjects
    */
-  public List<IScenarioObjectWriter> getScenarioObjectsWriter();
+  public List<IScenarioObjectWriter> getWriterScenarioObjects();
   /**
    * From OpenSCENARIO class model specification: A list of entity selection definitions.
    *
    * @return a list of writers for model property entitySelections
    */
-  public List<IEntitySelectionWriter> getEntitySelectionsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of scenario object definitions that pairs
-   * an entity object and a controller.
-   *
-   * @param scenarioObjectsWriters list of writers for the model property scenarioObjects
-   */
-  public void setScenarioObjectsWriter(List<IScenarioObjectWriter> scenarioObjectsWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of entity selection definitions.
-   *
-   * @param entitySelectionsWriters list of writers for the model property entitySelections
-   */
-  public void setEntitySelectionsWriter(List<IEntitySelectionWriter> entitySelectionsWriters);
+  public List<IEntitySelectionWriter> getWriterEntitySelections();
 }

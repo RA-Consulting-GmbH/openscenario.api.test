@@ -48,14 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedActionWriter {
+public class SpeedActionImpl extends BaseImpl implements ISpeedActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ITransitionDynamics speedActionDynamics;
-  private ISpeedActionTarget speedActionTarget;
-
-  private ITransitionDynamicsWriter speedActionDynamicsWriter;
-  private ISpeedActionTargetWriter speedActionTargetWriter;
+  private ITransitionDynamicsWriter speedActionDynamics;
+  private ISpeedActionTargetWriter speedActionTarget;
 
   /** Default constructor */
   public SpeedActionImpl() {
@@ -79,22 +76,14 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedAct
   public ISpeedActionTarget getSpeedActionTarget() {
     return this.speedActionTarget;
   }
-  /**
-   * Sets the value of model property speedActionDynamics
-   *
-   * @param speedActionDynamics from OpenSCENARIO class model specification: [Defines how the target
-   *     speed is reached.]
-   */
-  public void setSpeedActionDynamics(ITransitionDynamics speedActionDynamics) {
+
+  @Override
+  public void setSpeedActionDynamics(ITransitionDynamicsWriter speedActionDynamics) {
     this.speedActionDynamics = speedActionDynamics;
   }
-  /**
-   * Sets the value of model property speedActionTarget
-   *
-   * @param speedActionTarget from OpenSCENARIO class model specification: [Defines the target speed
-   *     which should be reached.]
-   */
-  public void setSpeedActionTarget(ISpeedActionTarget speedActionTarget) {
+
+  @Override
+  public void setSpeedActionTarget(ISpeedActionTargetWriter speedActionTarget) {
     this.speedActionTarget = speedActionTarget;
   }
 
@@ -119,13 +108,13 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedAct
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ITransitionDynamics speedActionDynamics = null;
-    speedActionDynamics = getSpeedActionDynamics();
+    ITransitionDynamicsWriter speedActionDynamics = null;
+    speedActionDynamics = getWriterSpeedActionDynamics();
     if (speedActionDynamics != null) {
       result.add((BaseImpl) speedActionDynamics);
     }
-    ISpeedActionTarget speedActionTarget = null;
-    speedActionTarget = getSpeedActionTarget();
+    ISpeedActionTargetWriter speedActionTarget = null;
+    speedActionTarget = getWriterSpeedActionTarget();
     if (speedActionTarget != null) {
       result.add((BaseImpl) speedActionTarget);
     }
@@ -148,17 +137,18 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedAct
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ITransitionDynamics speedActionDynamics = null;
-    speedActionDynamics = getSpeedActionDynamics();
+    ITransitionDynamicsWriter speedActionDynamics = null;
+    speedActionDynamics = getWriterSpeedActionDynamics();
     if (speedActionDynamics != null) {
-      TransitionDynamicsImpl clonedChild = ((TransitionDynamicsImpl) speedActionDynamics).clone();
+      ITransitionDynamicsWriter clonedChild =
+          ((TransitionDynamicsImpl) speedActionDynamics).clone();
       clonedObject.setSpeedActionDynamics(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ISpeedActionTarget speedActionTarget = null;
-    speedActionTarget = getSpeedActionTarget();
+    ISpeedActionTargetWriter speedActionTarget = null;
+    speedActionTarget = getWriterSpeedActionTarget();
     if (speedActionTarget != null) {
-      SpeedActionTargetImpl clonedChild = ((SpeedActionTargetImpl) speedActionTarget).clone();
+      ISpeedActionTargetWriter clonedChild = ((SpeedActionTargetImpl) speedActionTarget).clone();
       clonedObject.setSpeedActionTarget(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -247,23 +237,12 @@ public class SpeedActionImpl extends BaseImpl implements ISpeedAction, ISpeedAct
 
   // children
   @Override
-  public ITransitionDynamicsWriter getSpeedActionDynamicsWriter() {
-    return this.speedActionDynamicsWriter;
+  public ITransitionDynamicsWriter getWriterSpeedActionDynamics() {
+    return this.speedActionDynamics;
   }
 
   @Override
-  public ISpeedActionTargetWriter getSpeedActionTargetWriter() {
-    return this.speedActionTargetWriter;
-  }
-
-  @Override
-  public void writeToSpeedActionDynamicsWriter(
-      ITransitionDynamicsWriter speedActionDynamicsWriter) {
-    this.speedActionDynamicsWriter = speedActionDynamicsWriter;
-  }
-
-  @Override
-  public void writeToSpeedActionTargetWriter(ISpeedActionTargetWriter speedActionTargetWriter) {
-    this.speedActionTargetWriter = speedActionTargetWriter;
+  public ISpeedActionTargetWriter getWriterSpeedActionTarget() {
+    return this.speedActionTarget;
   }
 }

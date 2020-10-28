@@ -49,8 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeSpeedToMasterImpl extends BaseImpl
-    implements IRelativeSpeedToMaster, IRelativeSpeedToMasterWriter {
+public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpeedToMasterWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -84,21 +83,13 @@ public class RelativeSpeedToMasterImpl extends BaseImpl
   public SpeedTargetValueType getSpeedTargetValueType() {
     return this.speedTargetValueType;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Relative speed. Unit: m/s. Range:
-   *     ]-inf..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property speedTargetValueType
-   *
-   * @param speedTargetValueType from OpenSCENARIO class model specification: [The semantics of the
-   *     value (delta, offset, factor).]
-   */
+
+  @Override
   public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
     this.speedTargetValueType = speedTargetValueType;
   }
@@ -255,16 +246,6 @@ public class RelativeSpeedToMasterImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "RelativeSpeedToMaster";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
-    setSpeedTargetValueType(speedTargetValueType);
   }
 
   @Override

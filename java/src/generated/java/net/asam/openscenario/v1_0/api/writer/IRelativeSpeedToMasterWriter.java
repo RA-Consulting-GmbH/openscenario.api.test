@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IRelativeSpeedToMaster;
 import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
 
 /**
@@ -27,36 +28,24 @@ import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRelativeSpeedToMasterWriter extends IOpenScenarioModelElement {
+public interface IRelativeSpeedToMasterWriter
+    extends IRelativeSpeedToMaster, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Relative speed. Unit: m/s. Range: ]-inf..inf[.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
-  /**
-   * From OpenSCENARIO class model specification: The semantics of the value (delta, offset,
-   * factor).
-   *
-   * @return value of model property speedTargetValueType
-   */
-  public SpeedTargetValueType getSpeedTargetValueType();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Relative speed. Unit: m/s. Range: ]-inf..inf[.
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
   /**
    * From OpenSCENARIO class model specification: The semantics of the value (delta, offset,
    * factor).
    *
    * @param speedTargetValueType value of model property speedTargetValueType
    */
-  public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType);
+  public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType);
 
   /**
    * Set a parameter for the attribute value

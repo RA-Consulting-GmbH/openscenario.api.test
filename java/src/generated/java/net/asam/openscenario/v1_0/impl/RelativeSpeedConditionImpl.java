@@ -52,8 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeSpeedConditionImpl extends BaseImpl
-    implements IRelativeSpeedCondition, IRelativeSpeedConditionWriter {
+public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpeedConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,7 +62,7 @@ public class RelativeSpeedConditionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
   private Rule rule;
 
@@ -94,27 +93,18 @@ public class RelativeSpeedConditionImpl extends BaseImpl
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Relative speed value. Unit: m/s.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
@@ -296,21 +286,6 @@ public class RelativeSpeedConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "RelativeSpeedCondition";
-  }
-
-  @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
   }
 
   @Override

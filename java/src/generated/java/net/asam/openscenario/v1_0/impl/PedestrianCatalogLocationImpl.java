@@ -48,12 +48,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class PedestrianCatalogLocationImpl extends BaseImpl
-    implements IPedestrianCatalogLocation, IPedestrianCatalogLocationWriter {
+    implements IPedestrianCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IDirectory directory;
-
-  private IDirectoryWriter directoryWriter;
+  private IDirectoryWriter directory;
 
   /** Default constructor */
   public PedestrianCatalogLocationImpl() {
@@ -72,13 +70,9 @@ public class PedestrianCatalogLocationImpl extends BaseImpl
   public IDirectory getDirectory() {
     return this.directory;
   }
-  /**
-   * Sets the value of model property directory
-   *
-   * @param directory from OpenSCENARIO class model specification: [File path for the pedestrian
-   *     catalog files.]
-   */
-  public void setDirectory(IDirectory directory) {
+
+  @Override
+  public void setDirectory(IDirectoryWriter directory) {
     this.directory = directory;
   }
 
@@ -103,8 +97,8 @@ public class PedestrianCatalogLocationImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
       result.add((BaseImpl) directory);
     }
@@ -127,10 +121,10 @@ public class PedestrianCatalogLocationImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
-      DirectoryImpl clonedChild = ((DirectoryImpl) directory).clone();
+      IDirectoryWriter clonedChild = ((DirectoryImpl) directory).clone();
       clonedObject.setDirectory(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -216,12 +210,7 @@ public class PedestrianCatalogLocationImpl extends BaseImpl
 
   // children
   @Override
-  public IDirectoryWriter getDirectoryWriter() {
-    return this.directoryWriter;
-  }
-
-  @Override
-  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter) {
-    this.directoryWriter = directoryWriter;
+  public IDirectoryWriter getWriterDirectory() {
+    return this.directory;
   }
 }

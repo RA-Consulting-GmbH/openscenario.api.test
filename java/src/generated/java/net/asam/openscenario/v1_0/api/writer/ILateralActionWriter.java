@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ILateralAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,29 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILateralActionWriter extends IOpenScenarioModelElement {
+public interface ILateralActionWriter extends ILateralAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Action defining a lane change.
+   *
+   * @param laneChangeAction value of model property laneChangeAction
+   */
+  public void setLaneChangeAction(ILaneChangeActionWriter laneChangeAction);
+  /**
+   * From OpenSCENARIO class model specification: Action defining a continuously kept lane offset.
+   *
+   * @param laneOffsetAction value of model property laneOffsetAction
+   */
+  public void setLaneOffsetAction(ILaneOffsetActionWriter laneOffsetAction);
+  /**
+   * From OpenSCENARIO class model specification: Action defining a continuously kept lateral
+   * distance to a specific entity.
+   *
+   * @param lateralDistanceAction value of model property lateralDistanceAction
+   */
+  public void setLateralDistanceAction(ILateralDistanceActionWriter lateralDistanceAction);
 
   // children
   /**
@@ -34,39 +57,18 @@ public interface ILateralActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property laneChangeAction
    */
-  public ILaneChangeActionWriter getLaneChangeActionWriter();
+  public ILaneChangeActionWriter getWriterLaneChangeAction();
   /**
    * From OpenSCENARIO class model specification: Action defining a continuously kept lane offset.
    *
    * @return a writer for model property laneOffsetAction
    */
-  public ILaneOffsetActionWriter getLaneOffsetActionWriter();
+  public ILaneOffsetActionWriter getWriterLaneOffsetAction();
   /**
    * From OpenSCENARIO class model specification: Action defining a continuously kept lateral
    * distance to a specific entity.
    *
    * @return a writer for model property lateralDistanceAction
    */
-  public ILateralDistanceActionWriter getLateralDistanceActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Action defining a lane change.
-   *
-   * @param laneChangeActionWriter writer for the model property laneChangeAction
-   */
-  public void writeToLaneChangeActionWriter(ILaneChangeActionWriter laneChangeActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Action defining a continuously kept lane offset.
-   *
-   * @param laneOffsetActionWriter writer for the model property laneOffsetAction
-   */
-  public void writeToLaneOffsetActionWriter(ILaneOffsetActionWriter laneOffsetActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Action defining a continuously kept lateral
-   * distance to a specific entity.
-   *
-   * @param lateralDistanceActionWriter writer for the model property lateralDistanceAction
-   */
-  public void writeToLateralDistanceActionWriter(
-      ILateralDistanceActionWriter lateralDistanceActionWriter);
+  public ILateralDistanceActionWriter getWriterLateralDistanceAction();
 }

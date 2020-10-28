@@ -25,7 +25,6 @@ import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
-import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.IManeuver;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -78,15 +77,12 @@ public class ManeuverCardinalityCheckerRule extends CardinalityCheckerRule<IMane
           new CardinalityViolation(OscConstants.ATTRIBUTE__NAME, 0, 1, ViolationType.REQUIRED));
     }
     // Check violation
-    List<IEvent> events = object.getEvents();
+    int eventsSize = object.getEventsSize();
     // Check too few elements
-    if (events == null || events.size() < 1) {
+    if (eventsSize < 1) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__EVENT,
-              1,
-              events == null ? 0 : events.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__EVENT, 1, eventsSize, ViolationType.TOO_FEW));
     }
     return violations;
   }

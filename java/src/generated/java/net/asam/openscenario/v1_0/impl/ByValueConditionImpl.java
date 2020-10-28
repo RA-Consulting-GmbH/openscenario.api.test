@@ -58,25 +58,16 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByValueConditionImpl extends BaseImpl
-    implements IByValueCondition, IByValueConditionWriter {
+public class ByValueConditionImpl extends BaseImpl implements IByValueConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IParameterCondition parameterCondition;
-  private ITimeOfDayCondition timeOfDayCondition;
-  private ISimulationTimeCondition simulationTimeCondition;
-  private IStoryboardElementStateCondition storyboardElementStateCondition;
-  private IUserDefinedValueCondition userDefinedValueCondition;
-  private ITrafficSignalCondition trafficSignalCondition;
-  private ITrafficSignalControllerCondition trafficSignalControllerCondition;
-
-  private IParameterConditionWriter parameterConditionWriter;
-  private ITimeOfDayConditionWriter timeOfDayConditionWriter;
-  private ISimulationTimeConditionWriter simulationTimeConditionWriter;
-  private IStoryboardElementStateConditionWriter storyboardElementStateConditionWriter;
-  private IUserDefinedValueConditionWriter userDefinedValueConditionWriter;
-  private ITrafficSignalConditionWriter trafficSignalConditionWriter;
-  private ITrafficSignalControllerConditionWriter trafficSignalControllerConditionWriter;
+  private IParameterConditionWriter parameterCondition;
+  private ITimeOfDayConditionWriter timeOfDayCondition;
+  private ISimulationTimeConditionWriter simulationTimeCondition;
+  private IStoryboardElementStateConditionWriter storyboardElementStateCondition;
+  private IUserDefinedValueConditionWriter userDefinedValueCondition;
+  private ITrafficSignalConditionWriter trafficSignalCondition;
+  private ITrafficSignalControllerConditionWriter trafficSignalControllerCondition;
 
   /** Default constructor */
   public ByValueConditionImpl() {
@@ -125,70 +116,42 @@ public class ByValueConditionImpl extends BaseImpl
   public ITrafficSignalControllerCondition getTrafficSignalControllerCondition() {
     return this.trafficSignalControllerCondition;
   }
-  /**
-   * Sets the value of model property parameterCondition
-   *
-   * @param parameterCondition from OpenSCENARIO class model specification: [A current parameter
-   *     value is compared to a reference value.]
-   */
-  public void setParameterCondition(IParameterCondition parameterCondition) {
+
+  @Override
+  public void setParameterCondition(IParameterConditionWriter parameterCondition) {
     this.parameterCondition = parameterCondition;
   }
-  /**
-   * Sets the value of model property timeOfDayCondition
-   *
-   * @param timeOfDayCondition from OpenSCENARIO class model specification: [The current time of day
-   *     is compared to a reference value.]
-   */
-  public void setTimeOfDayCondition(ITimeOfDayCondition timeOfDayCondition) {
+
+  @Override
+  public void setTimeOfDayCondition(ITimeOfDayConditionWriter timeOfDayCondition) {
     this.timeOfDayCondition = timeOfDayCondition;
   }
-  /**
-   * Sets the value of model property simulationTimeCondition
-   *
-   * @param simulationTimeCondition from OpenSCENARIO class model specification: [The current
-   *     simulation time is compared to a reference value.]
-   */
-  public void setSimulationTimeCondition(ISimulationTimeCondition simulationTimeCondition) {
+
+  @Override
+  public void setSimulationTimeCondition(ISimulationTimeConditionWriter simulationTimeCondition) {
     this.simulationTimeCondition = simulationTimeCondition;
   }
-  /**
-   * Sets the value of model property storyboardElementStateCondition
-   *
-   * @param storyboardElementStateCondition from OpenSCENARIO class model specification: [Condition
-   *     becomes true if the referenced StoryboardElement terminates according to the given rule.]
-   */
+
+  @Override
   public void setStoryboardElementStateCondition(
-      IStoryboardElementStateCondition storyboardElementStateCondition) {
+      IStoryboardElementStateConditionWriter storyboardElementStateCondition) {
     this.storyboardElementStateCondition = storyboardElementStateCondition;
   }
-  /**
-   * Sets the value of model property userDefinedValueCondition
-   *
-   * @param userDefinedValueCondition from OpenSCENARIO class model specification: [The current
-   *     value of an externally defined named value is compared to a reference value (less, greater,
-   *     equal).]
-   */
-  public void setUserDefinedValueCondition(IUserDefinedValueCondition userDefinedValueCondition) {
+
+  @Override
+  public void setUserDefinedValueCondition(
+      IUserDefinedValueConditionWriter userDefinedValueCondition) {
     this.userDefinedValueCondition = userDefinedValueCondition;
   }
-  /**
-   * Sets the value of model property trafficSignalCondition
-   *
-   * @param trafficSignalCondition from OpenSCENARIO class model specification: [Condition becomes
-   *     true if the referenced signal reaches the indicated state.]
-   */
-  public void setTrafficSignalCondition(ITrafficSignalCondition trafficSignalCondition) {
+
+  @Override
+  public void setTrafficSignalCondition(ITrafficSignalConditionWriter trafficSignalCondition) {
     this.trafficSignalCondition = trafficSignalCondition;
   }
-  /**
-   * Sets the value of model property trafficSignalControllerCondition
-   *
-   * @param trafficSignalControllerCondition from OpenSCENARIO class model specification: [Condition
-   *     becomes true if the referenced signal controller reaches the indicated state.]
-   */
+
+  @Override
   public void setTrafficSignalControllerCondition(
-      ITrafficSignalControllerCondition trafficSignalControllerCondition) {
+      ITrafficSignalControllerConditionWriter trafficSignalControllerCondition) {
     this.trafficSignalControllerCondition = trafficSignalControllerCondition;
   }
 
@@ -213,38 +176,38 @@ public class ByValueConditionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IParameterCondition parameterCondition = null;
-    parameterCondition = getParameterCondition();
+    IParameterConditionWriter parameterCondition = null;
+    parameterCondition = getWriterParameterCondition();
     if (parameterCondition != null) {
       result.add((BaseImpl) parameterCondition);
     }
-    ITimeOfDayCondition timeOfDayCondition = null;
-    timeOfDayCondition = getTimeOfDayCondition();
+    ITimeOfDayConditionWriter timeOfDayCondition = null;
+    timeOfDayCondition = getWriterTimeOfDayCondition();
     if (timeOfDayCondition != null) {
       result.add((BaseImpl) timeOfDayCondition);
     }
-    ISimulationTimeCondition simulationTimeCondition = null;
-    simulationTimeCondition = getSimulationTimeCondition();
+    ISimulationTimeConditionWriter simulationTimeCondition = null;
+    simulationTimeCondition = getWriterSimulationTimeCondition();
     if (simulationTimeCondition != null) {
       result.add((BaseImpl) simulationTimeCondition);
     }
-    IStoryboardElementStateCondition storyboardElementStateCondition = null;
-    storyboardElementStateCondition = getStoryboardElementStateCondition();
+    IStoryboardElementStateConditionWriter storyboardElementStateCondition = null;
+    storyboardElementStateCondition = getWriterStoryboardElementStateCondition();
     if (storyboardElementStateCondition != null) {
       result.add((BaseImpl) storyboardElementStateCondition);
     }
-    IUserDefinedValueCondition userDefinedValueCondition = null;
-    userDefinedValueCondition = getUserDefinedValueCondition();
+    IUserDefinedValueConditionWriter userDefinedValueCondition = null;
+    userDefinedValueCondition = getWriterUserDefinedValueCondition();
     if (userDefinedValueCondition != null) {
       result.add((BaseImpl) userDefinedValueCondition);
     }
-    ITrafficSignalCondition trafficSignalCondition = null;
-    trafficSignalCondition = getTrafficSignalCondition();
+    ITrafficSignalConditionWriter trafficSignalCondition = null;
+    trafficSignalCondition = getWriterTrafficSignalCondition();
     if (trafficSignalCondition != null) {
       result.add((BaseImpl) trafficSignalCondition);
     }
-    ITrafficSignalControllerCondition trafficSignalControllerCondition = null;
-    trafficSignalControllerCondition = getTrafficSignalControllerCondition();
+    ITrafficSignalControllerConditionWriter trafficSignalControllerCondition = null;
+    trafficSignalControllerCondition = getWriterTrafficSignalControllerCondition();
     if (trafficSignalControllerCondition != null) {
       result.add((BaseImpl) trafficSignalControllerCondition);
     }
@@ -267,56 +230,56 @@ public class ByValueConditionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IParameterCondition parameterCondition = null;
-    parameterCondition = getParameterCondition();
+    IParameterConditionWriter parameterCondition = null;
+    parameterCondition = getWriterParameterCondition();
     if (parameterCondition != null) {
-      ParameterConditionImpl clonedChild = ((ParameterConditionImpl) parameterCondition).clone();
+      IParameterConditionWriter clonedChild = ((ParameterConditionImpl) parameterCondition).clone();
       clonedObject.setParameterCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITimeOfDayCondition timeOfDayCondition = null;
-    timeOfDayCondition = getTimeOfDayCondition();
+    ITimeOfDayConditionWriter timeOfDayCondition = null;
+    timeOfDayCondition = getWriterTimeOfDayCondition();
     if (timeOfDayCondition != null) {
-      TimeOfDayConditionImpl clonedChild = ((TimeOfDayConditionImpl) timeOfDayCondition).clone();
+      ITimeOfDayConditionWriter clonedChild = ((TimeOfDayConditionImpl) timeOfDayCondition).clone();
       clonedObject.setTimeOfDayCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ISimulationTimeCondition simulationTimeCondition = null;
-    simulationTimeCondition = getSimulationTimeCondition();
+    ISimulationTimeConditionWriter simulationTimeCondition = null;
+    simulationTimeCondition = getWriterSimulationTimeCondition();
     if (simulationTimeCondition != null) {
-      SimulationTimeConditionImpl clonedChild =
+      ISimulationTimeConditionWriter clonedChild =
           ((SimulationTimeConditionImpl) simulationTimeCondition).clone();
       clonedObject.setSimulationTimeCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IStoryboardElementStateCondition storyboardElementStateCondition = null;
-    storyboardElementStateCondition = getStoryboardElementStateCondition();
+    IStoryboardElementStateConditionWriter storyboardElementStateCondition = null;
+    storyboardElementStateCondition = getWriterStoryboardElementStateCondition();
     if (storyboardElementStateCondition != null) {
-      StoryboardElementStateConditionImpl clonedChild =
+      IStoryboardElementStateConditionWriter clonedChild =
           ((StoryboardElementStateConditionImpl) storyboardElementStateCondition).clone();
       clonedObject.setStoryboardElementStateCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IUserDefinedValueCondition userDefinedValueCondition = null;
-    userDefinedValueCondition = getUserDefinedValueCondition();
+    IUserDefinedValueConditionWriter userDefinedValueCondition = null;
+    userDefinedValueCondition = getWriterUserDefinedValueCondition();
     if (userDefinedValueCondition != null) {
-      UserDefinedValueConditionImpl clonedChild =
+      IUserDefinedValueConditionWriter clonedChild =
           ((UserDefinedValueConditionImpl) userDefinedValueCondition).clone();
       clonedObject.setUserDefinedValueCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrafficSignalCondition trafficSignalCondition = null;
-    trafficSignalCondition = getTrafficSignalCondition();
+    ITrafficSignalConditionWriter trafficSignalCondition = null;
+    trafficSignalCondition = getWriterTrafficSignalCondition();
     if (trafficSignalCondition != null) {
-      TrafficSignalConditionImpl clonedChild =
+      ITrafficSignalConditionWriter clonedChild =
           ((TrafficSignalConditionImpl) trafficSignalCondition).clone();
       clonedObject.setTrafficSignalCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrafficSignalControllerCondition trafficSignalControllerCondition = null;
-    trafficSignalControllerCondition = getTrafficSignalControllerCondition();
+    ITrafficSignalControllerConditionWriter trafficSignalControllerCondition = null;
+    trafficSignalControllerCondition = getWriterTrafficSignalControllerCondition();
     if (trafficSignalControllerCondition != null) {
-      TrafficSignalControllerConditionImpl clonedChild =
+      ITrafficSignalControllerConditionWriter clonedChild =
           ((TrafficSignalControllerConditionImpl) trafficSignalControllerCondition).clone();
       clonedObject.setTrafficSignalControllerCondition(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -421,77 +384,37 @@ public class ByValueConditionImpl extends BaseImpl
 
   // children
   @Override
-  public IParameterConditionWriter getParameterConditionWriter() {
-    return this.parameterConditionWriter;
+  public IParameterConditionWriter getWriterParameterCondition() {
+    return this.parameterCondition;
   }
 
   @Override
-  public ITimeOfDayConditionWriter getTimeOfDayConditionWriter() {
-    return this.timeOfDayConditionWriter;
+  public ITimeOfDayConditionWriter getWriterTimeOfDayCondition() {
+    return this.timeOfDayCondition;
   }
 
   @Override
-  public ISimulationTimeConditionWriter getSimulationTimeConditionWriter() {
-    return this.simulationTimeConditionWriter;
+  public ISimulationTimeConditionWriter getWriterSimulationTimeCondition() {
+    return this.simulationTimeCondition;
   }
 
   @Override
-  public IStoryboardElementStateConditionWriter getStoryboardElementStateConditionWriter() {
-    return this.storyboardElementStateConditionWriter;
+  public IStoryboardElementStateConditionWriter getWriterStoryboardElementStateCondition() {
+    return this.storyboardElementStateCondition;
   }
 
   @Override
-  public IUserDefinedValueConditionWriter getUserDefinedValueConditionWriter() {
-    return this.userDefinedValueConditionWriter;
+  public IUserDefinedValueConditionWriter getWriterUserDefinedValueCondition() {
+    return this.userDefinedValueCondition;
   }
 
   @Override
-  public ITrafficSignalConditionWriter getTrafficSignalConditionWriter() {
-    return this.trafficSignalConditionWriter;
+  public ITrafficSignalConditionWriter getWriterTrafficSignalCondition() {
+    return this.trafficSignalCondition;
   }
 
   @Override
-  public ITrafficSignalControllerConditionWriter getTrafficSignalControllerConditionWriter() {
-    return this.trafficSignalControllerConditionWriter;
-  }
-
-  @Override
-  public void writeToParameterConditionWriter(IParameterConditionWriter parameterConditionWriter) {
-    this.parameterConditionWriter = parameterConditionWriter;
-  }
-
-  @Override
-  public void writeToTimeOfDayConditionWriter(ITimeOfDayConditionWriter timeOfDayConditionWriter) {
-    this.timeOfDayConditionWriter = timeOfDayConditionWriter;
-  }
-
-  @Override
-  public void writeToSimulationTimeConditionWriter(
-      ISimulationTimeConditionWriter simulationTimeConditionWriter) {
-    this.simulationTimeConditionWriter = simulationTimeConditionWriter;
-  }
-
-  @Override
-  public void writeToStoryboardElementStateConditionWriter(
-      IStoryboardElementStateConditionWriter storyboardElementStateConditionWriter) {
-    this.storyboardElementStateConditionWriter = storyboardElementStateConditionWriter;
-  }
-
-  @Override
-  public void writeToUserDefinedValueConditionWriter(
-      IUserDefinedValueConditionWriter userDefinedValueConditionWriter) {
-    this.userDefinedValueConditionWriter = userDefinedValueConditionWriter;
-  }
-
-  @Override
-  public void writeToTrafficSignalConditionWriter(
-      ITrafficSignalConditionWriter trafficSignalConditionWriter) {
-    this.trafficSignalConditionWriter = trafficSignalConditionWriter;
-  }
-
-  @Override
-  public void writeToTrafficSignalControllerConditionWriter(
-      ITrafficSignalControllerConditionWriter trafficSignalControllerConditionWriter) {
-    this.trafficSignalControllerConditionWriter = trafficSignalControllerConditionWriter;
+  public ITrafficSignalControllerConditionWriter getWriterTrafficSignalControllerCondition() {
+    return this.trafficSignalControllerCondition;
   }
 }

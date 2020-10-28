@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class PositionInLaneCoordinatesImpl extends BaseImpl
-    implements IPositionInLaneCoordinates, IPositionInLaneCoordinatesWriter {
+    implements IPositionInLaneCoordinatesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -88,29 +88,18 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
   public Double getLaneOffset() {
     return this.laneOffset;
   }
-  /**
-   * Sets the value of model property pathS
-   *
-   * @param pathS from OpenSCENARIO class model specification: [s-coordinate of the actual position.
-   *     Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setPathS(Double pathS) {
     this.pathS = pathS;
   }
-  /**
-   * Sets the value of model property laneId
-   *
-   * @param laneId from OpenSCENARIO class model specification: [Lane ID of the actual position.]
-   */
+
+  @Override
   public void setLaneId(String laneId) {
     this.laneId = laneId;
   }
-  /**
-   * Sets the value of model property laneOffset
-   *
-   * @param laneOffset from OpenSCENARIO class model specification: [Lateral offset (relative to the
-   *     lane centerline) of the actual position. Unit: m.]
-   */
+
+  @Override
   public void setLaneOffset(Double laneOffset) {
     this.laneOffset = laneOffset;
   }
@@ -264,21 +253,6 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "PositionInLaneCoordinates";
-  }
-
-  @Override
-  public void writeToPathS(Double pathS) {
-    setPathS(pathS);
-  }
-
-  @Override
-  public void writeToLaneId(String laneId) {
-    setLaneId(laneId);
-  }
-
-  @Override
-  public void writeToLaneOffset(Double laneOffset) {
-    setLaneOffset(laneOffset);
   }
 
   @Override

@@ -49,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TrajectoryFollowingModeImpl extends BaseImpl
-    implements ITrajectoryFollowingMode, ITrajectoryFollowingModeWriter {
+    implements ITrajectoryFollowingModeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -76,15 +76,8 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
   public FollowingMode getFollowingMode() {
     return this.followingMode;
   }
-  /**
-   * Sets the value of model property followingMode
-   *
-   * @param followingMode from OpenSCENARIO class model specification: [Defines (lateral) trajectory
-   *     following behavior of the actor: Mode 'position' forces the actor to strictly adhere to
-   *     the, trajectory. In contrast, mode 'follow' hands over control to the actor. In this mode,
-   *     the actor tries to follow the , trajectory as best as he can. This may be restricted by
-   *     dynamics constraints and/or control loop implementation.]
-   */
+
+  @Override
   public void setFollowingMode(FollowingMode followingMode) {
     this.followingMode = followingMode;
   }
@@ -226,11 +219,6 @@ public class TrajectoryFollowingModeImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TrajectoryFollowingMode";
-  }
-
-  @Override
-  public void writeToFollowingMode(FollowingMode followingMode) {
-    setFollowingMode(followingMode);
   }
 
   @Override

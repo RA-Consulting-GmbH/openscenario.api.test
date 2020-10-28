@@ -50,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class SimulationTimeConditionImpl extends BaseImpl
-    implements ISimulationTimeCondition, ISimulationTimeConditionWriter {
+    implements ISimulationTimeConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -84,20 +84,13 @@ public class SimulationTimeConditionImpl extends BaseImpl
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Time value of the simulation time
-   *     condition. Unit: s.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
   }
@@ -253,16 +246,6 @@ public class SimulationTimeConditionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "SimulationTimeCondition";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToRule(Rule rule) {
-    setRule(rule);
   }
 
   @Override

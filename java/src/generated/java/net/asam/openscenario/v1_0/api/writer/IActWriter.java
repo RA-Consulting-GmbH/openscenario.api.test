@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAct;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,22 +30,34 @@ import java.util.List;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IActWriter extends IStoryboardElementWriter {
+public interface IActWriter extends IStoryboardElementWriter, IAct, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of this act.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of this act.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: A list of maneuver groups representing the act.
+   *
+   * @param maneuverGroups value of model property maneuverGroups
+   */
+  public void setManeuverGroups(List<IManeuverGroupWriter> maneuverGroups);
+  /**
+   * From OpenSCENARIO class model specification: Defines a trigger to that starts the act.
+   *
+   * @param startTrigger value of model property startTrigger
+   */
+  public void setStartTrigger(ITriggerWriter startTrigger);
+  /**
+   * From OpenSCENARIO class model specification: Defines a trigger that stops the act.
+   *
+   * @param stopTrigger value of model property stopTrigger
+   */
+  public void setStopTrigger(ITriggerWriter stopTrigger);
 
   /**
    * Set a parameter for the attribute name
@@ -73,38 +87,18 @@ public interface IActWriter extends IStoryboardElementWriter {
    *
    * @return a writer for model property startTrigger
    */
-  public ITriggerWriter getStartTriggerWriter();
+  public ITriggerWriter getWriterStartTrigger();
   /**
    * From OpenSCENARIO class model specification: Defines a trigger that stops the act.
    *
    * @return a writer for model property stopTrigger
    */
-  public ITriggerWriter getStopTriggerWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Defines a trigger to that starts the act.
-   *
-   * @param startTriggerWriter writer for the model property startTrigger
-   */
-  public void writeToStartTriggerWriter(ITriggerWriter startTriggerWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines a trigger that stops the act.
-   *
-   * @param stopTriggerWriter writer for the model property stopTrigger
-   */
-  public void writeToStopTriggerWriter(ITriggerWriter stopTriggerWriter);
+  public ITriggerWriter getWriterStopTrigger();
 
   /**
    * From OpenSCENARIO class model specification: A list of maneuver groups representing the act.
    *
    * @return a list of writers for model property maneuverGroups
    */
-  public List<IManeuverGroupWriter> getManeuverGroupsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of maneuver groups representing the act.
-   *
-   * @param maneuverGroupsWriters list of writers for the model property maneuverGroups
-   */
-  public void setManeuverGroupsWriter(List<IManeuverGroupWriter> maneuverGroupsWriters);
+  public List<IManeuverGroupWriter> getWriterManeuverGroups();
 }

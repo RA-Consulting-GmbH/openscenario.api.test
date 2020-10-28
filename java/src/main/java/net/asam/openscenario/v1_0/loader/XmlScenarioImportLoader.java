@@ -93,7 +93,7 @@ public class XmlScenarioImportLoader implements IScenarioLoader {
    * @return the table that maps parameter names to parameter values
    */
   private Hashtable<String, String> getMapFromParameterAssignements(
-      List<IParameterAssignment> parameterAssignments, IParserMessageLogger parserMessageLogger) {
+      Iterable<IParameterAssignment> parameterAssignments, IParserMessageLogger parserMessageLogger) {
     Hashtable<String, String> result = new Hashtable<>();
     if (parameterAssignments != null) {
       for (IParameterAssignment parameterAssignment : parameterAssignments) {

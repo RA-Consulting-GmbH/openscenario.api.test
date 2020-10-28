@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficSignalCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,23 +29,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficSignalConditionWriter extends IOpenScenarioModelElement {
+public interface ITrafficSignalConditionWriter
+    extends ITrafficSignalCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: ID of the referenced signal defined in a road
-   * network. The signal ID must be listed in the TrafficSignal list of the RoadNetwork section.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: State of the signal to be reached for the
-   * condition to become true.
-   *
-   * @return value of model property state
-   */
-  public String getState();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: ID of the referenced signal defined in a road
@@ -52,14 +40,14 @@ public interface ITrafficSignalConditionWriter extends IOpenScenarioModelElement
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: State of the signal to be reached for the
    * condition to become true.
    *
    * @param state value of model property state
    */
-  public void writeToState(String state);
+  public void setState(String state);
 
   /**
    * Set a parameter for the attribute name

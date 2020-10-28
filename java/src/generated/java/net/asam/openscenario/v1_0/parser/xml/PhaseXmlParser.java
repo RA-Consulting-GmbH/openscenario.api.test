@@ -26,7 +26,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.ITrafficSignalState;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalStateWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.PhaseImpl;
 import net.asam.openscenario.v1_0.impl.TrafficSignalStateImpl;
@@ -174,7 +174,8 @@ public class PhaseXmlParser extends XmlComplexTypeParser<PhaseImpl> {
       trafficSignalStates.setParent(object);
       this.trafficSignalStateXmlParser.parseElement(
           indexedElement, parserContext, trafficSignalStates);
-      List<ITrafficSignalState> trafficSignalStatesList = object.getTrafficSignalStates();
+      List<ITrafficSignalStateWriter> trafficSignalStatesList =
+          object.getWriterTrafficSignalStates();
       if (trafficSignalStatesList == null) {
         trafficSignalStatesList = new ArrayList<>();
         object.setTrafficSignalStates(trafficSignalStatesList);

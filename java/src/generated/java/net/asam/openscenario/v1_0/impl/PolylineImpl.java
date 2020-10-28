@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -46,12 +47,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter {
+public class PolylineImpl extends BaseImpl implements IPolylineWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IVertex> vertices;
-
-  private List<IVertexWriter> verticesWriters;
+  private List<IVertexWriter> vertices = new ArrayList<>();
 
   /** Default constructor */
   public PolylineImpl() {
@@ -67,16 +66,38 @@ public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter
   }
 
   @Override
-  public List<IVertex> getVertices() {
+  public List<IVertexWriter> getWriterVertices() {
     return this.vertices;
   }
-  /**
-   * Sets the value of model property vertices
-   *
-   * @param vertices from OpenSCENARIO class model specification: [Ordered chain of vertices of the
-   *     polygonal chain.]
-   */
-  public void setVertices(List<IVertex> vertices) {
+
+  @Override
+  public Iterable<IVertex> getVertices() {
+    return new Iterable<IVertex>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IVertex> iterator() {
+        return new ArrayList<IVertex>(PolylineImpl.this.vertices).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getVerticesSize() {
+    if (this.vertices != null) return this.vertices.size();
+    return 0;
+  }
+
+  @Override
+  public IVertex getVerticesAtIndex(int index) {
+    if (index >= 0 && this.vertices != null && this.vertices.size() > index) {
+      return this.vertices.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setVertices(List<IVertexWriter> vertices) {
     this.vertices = vertices;
   }
 
@@ -101,10 +122,10 @@ public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IVertex> vertices = null;
-    vertices = getVertices();
+    List<IVertexWriter> vertices = null;
+    vertices = getWriterVertices();
     if (vertices != null) {
-      for (IVertex item : vertices) {
+      for (IVertexWriter item : vertices) {
         result.add((BaseImpl) item);
       }
     }
@@ -127,12 +148,12 @@ public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IVertex> vertices = null;
-    vertices = getVertices();
+    List<IVertexWriter> vertices = null;
+    vertices = getWriterVertices();
     if (vertices != null) {
-      List<IVertex> clonedList = new ArrayList<>();
-      for (IVertex item : vertices) {
-        VertexImpl clonedChild = ((VertexImpl) item).clone();
+      List<IVertexWriter> clonedList = new ArrayList<>();
+      for (IVertexWriter item : vertices) {
+        IVertexWriter clonedChild = ((VertexImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -221,13 +242,4 @@ public class PolylineImpl extends BaseImpl implements IPolyline, IPolylineWriter
 
   // children
 
-  @Override
-  public List<IVertexWriter> getVerticesWriter() {
-    return this.verticesWriters;
-  }
-
-  @Override
-  public void setVerticesWriter(List<IVertexWriter> verticesWriters) {
-    this.verticesWriters = verticesWriters;
-  }
 }

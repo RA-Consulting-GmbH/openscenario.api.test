@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -48,12 +49,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class VehicleCategoryDistributionImpl extends BaseImpl
-    implements IVehicleCategoryDistribution, IVehicleCategoryDistributionWriter {
+    implements IVehicleCategoryDistributionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries;
-
-  private List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntriesWriters;
+  private List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntries =
+      new ArrayList<>();
 
   /** Default constructor */
   public VehicleCategoryDistributionImpl() {
@@ -69,17 +69,45 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
   }
 
   @Override
-  public List<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries() {
+  public List<IVehicleCategoryDistributionEntryWriter>
+      getWriterVehicleCategoryDistributionEntries() {
     return this.vehicleCategoryDistributionEntries;
   }
-  /**
-   * Sets the value of model property vehicleCategoryDistributionEntries
-   *
-   * @param vehicleCategoryDistributionEntries from OpenSCENARIO class model specification: [List of
-   *     elements that pair vehicle categories and their weight within the distribution.]
-   */
+
+  @Override
+  public Iterable<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries() {
+    return new Iterable<IVehicleCategoryDistributionEntry>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IVehicleCategoryDistributionEntry> iterator() {
+        return new ArrayList<IVehicleCategoryDistributionEntry>(
+                VehicleCategoryDistributionImpl.this.vehicleCategoryDistributionEntries)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getVehicleCategoryDistributionEntriesSize() {
+    if (this.vehicleCategoryDistributionEntries != null)
+      return this.vehicleCategoryDistributionEntries.size();
+    return 0;
+  }
+
+  @Override
+  public IVehicleCategoryDistributionEntry getVehicleCategoryDistributionEntriesAtIndex(int index) {
+    if (index >= 0
+        && this.vehicleCategoryDistributionEntries != null
+        && this.vehicleCategoryDistributionEntries.size() > index) {
+      return this.vehicleCategoryDistributionEntries.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setVehicleCategoryDistributionEntries(
-      List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries) {
+      List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntries) {
     this.vehicleCategoryDistributionEntries = vehicleCategoryDistributionEntries;
   }
 
@@ -104,10 +132,10 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries = null;
-    vehicleCategoryDistributionEntries = getVehicleCategoryDistributionEntries();
+    List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntries = null;
+    vehicleCategoryDistributionEntries = getWriterVehicleCategoryDistributionEntries();
     if (vehicleCategoryDistributionEntries != null) {
-      for (IVehicleCategoryDistributionEntry item : vehicleCategoryDistributionEntries) {
+      for (IVehicleCategoryDistributionEntryWriter item : vehicleCategoryDistributionEntries) {
         result.add((BaseImpl) item);
       }
     }
@@ -130,12 +158,12 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries = null;
-    vehicleCategoryDistributionEntries = getVehicleCategoryDistributionEntries();
+    List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntries = null;
+    vehicleCategoryDistributionEntries = getWriterVehicleCategoryDistributionEntries();
     if (vehicleCategoryDistributionEntries != null) {
-      List<IVehicleCategoryDistributionEntry> clonedList = new ArrayList<>();
-      for (IVehicleCategoryDistributionEntry item : vehicleCategoryDistributionEntries) {
-        VehicleCategoryDistributionEntryImpl clonedChild =
+      List<IVehicleCategoryDistributionEntryWriter> clonedList = new ArrayList<>();
+      for (IVehicleCategoryDistributionEntryWriter item : vehicleCategoryDistributionEntries) {
+        IVehicleCategoryDistributionEntryWriter clonedChild =
             ((VehicleCategoryDistributionEntryImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
@@ -225,15 +253,4 @@ public class VehicleCategoryDistributionImpl extends BaseImpl
 
   // children
 
-  @Override
-  public List<IVehicleCategoryDistributionEntryWriter>
-      getVehicleCategoryDistributionEntriesWriter() {
-    return this.vehicleCategoryDistributionEntriesWriters;
-  }
-
-  @Override
-  public void setVehicleCategoryDistributionEntriesWriter(
-      List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntriesWriters) {
-    this.vehicleCategoryDistributionEntriesWriters = vehicleCategoryDistributionEntriesWriters;
-  }
 }

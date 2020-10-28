@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -34,11 +33,38 @@ public interface IEntities extends IOpenScenarioModelElement {
    *
    * @return value of model property scenarioObjects
    */
-  public List<IScenarioObject> getScenarioObjects();
+  public Iterable<IScenarioObject> getScenarioObjects();
   /**
    * From OpenSCENARIO class model specification: A list of entity selection definitions.
    *
    * @return value of model property entitySelections
    */
-  public List<IEntitySelection> getEntitySelections();
+  public Iterable<IEntitySelection> getEntitySelections();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getScenarioObjectsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IScenarioObject getScenarioObjectsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getEntitySelectionsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IEntitySelection getEntitySelectionsAtIndex(int index);
 }

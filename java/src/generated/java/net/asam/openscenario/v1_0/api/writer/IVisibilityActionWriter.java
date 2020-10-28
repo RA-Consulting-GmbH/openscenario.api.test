@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IVisibilityAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,31 +28,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IVisibilityActionWriter extends IOpenScenarioModelElement {
+public interface IVisibilityActionWriter extends IVisibilityAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: True: actor is visible in image generator(s).
-   * False: actor is not visible in image generator(s).
-   *
-   * @return value of model property graphics
-   */
-  public Boolean getGraphics();
-  /**
-   * From OpenSCENARIO class model specification: True: actor is visible for other traffic
-   * participants, particularly for autonomous driver models. False: actor is not visible for other
-   * traffic participants.
-   *
-   * @return value of model property traffic
-   */
-  public Boolean getTraffic();
-  /**
-   * From OpenSCENARIO class model specification: True: actor is visible in sensor(s). False: actor
-   * is not visible in sensor(s).
-   *
-   * @return value of model property sensors
-   */
-  public Boolean getSensors();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: True: actor is visible in image generator(s).
@@ -59,7 +38,7 @@ public interface IVisibilityActionWriter extends IOpenScenarioModelElement {
    *
    * @param graphics value of model property graphics
    */
-  public void writeToGraphics(Boolean graphics);
+  public void setGraphics(Boolean graphics);
   /**
    * From OpenSCENARIO class model specification: True: actor is visible for other traffic
    * participants, particularly for autonomous driver models. False: actor is not visible for other
@@ -67,14 +46,14 @@ public interface IVisibilityActionWriter extends IOpenScenarioModelElement {
    *
    * @param traffic value of model property traffic
    */
-  public void writeToTraffic(Boolean traffic);
+  public void setTraffic(Boolean traffic);
   /**
    * From OpenSCENARIO class model specification: True: actor is visible in sensor(s). False: actor
    * is not visible in sensor(s).
    *
    * @param sensors value of model property sensors
    */
-  public void writeToSensors(Boolean sensors);
+  public void setSensors(Boolean sensors);
 
   /**
    * Set a parameter for the attribute graphics

@@ -27,7 +27,7 @@ import net.asam.openscenario.parser.WrappedListParser;
 import net.asam.openscenario.parser.modelgroup.XmlAllParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ControllerImpl;
 import net.asam.openscenario.v1_0.impl.ParameterDeclarationImpl;
@@ -148,7 +148,8 @@ public class ControllerXmlParser extends XmlComplexTypeParser<ControllerImpl> {
       parameterDeclarations.setParent(object);
       this.parameterDeclarationXmlParser.parseElement(
           indexedElement, parserContext, parameterDeclarations);
-      List<IParameterDeclaration> parameterDeclarationsList = object.getParameterDeclarations();
+      List<IParameterDeclarationWriter> parameterDeclarationsList =
+          object.getWriterParameterDeclarations();
       if (parameterDeclarationsList == null) {
         parameterDeclarationsList = new ArrayList<>();
         object.setParameterDeclarations(parameterDeclarationsList);

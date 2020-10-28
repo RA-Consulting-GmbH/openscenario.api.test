@@ -17,9 +17,10 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.IPrivate;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -30,22 +31,23 @@ import net.asam.openscenario.v1_0.api.IEntity;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPrivateWriter extends IOpenScenarioModelElement {
+public interface IPrivateWriter extends IPrivate, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification:
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification:
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
+  /**
+   * From OpenSCENARIO class model specification: List of private actions to be executed when the
+   * enclosing container gets triggered.
+   *
+   * @param privateActions value of model property privateActions
+   */
+  public void setPrivateActions(List<IPrivateActionWriter> privateActions);
 
   /**
    * Set a parameter for the attribute entityRef
@@ -77,13 +79,5 @@ public interface IPrivateWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property privateActions
    */
-  public List<IPrivateActionWriter> getPrivateActionsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: List of private actions to be executed when the
-   * enclosing container gets triggered.
-   *
-   * @param privateActionsWriters list of writers for the model property privateActions
-   */
-  public void setPrivateActionsWriter(List<IPrivateActionWriter> privateActionsWriters);
+  public List<IPrivateActionWriter> getWriterPrivateActions();
 }

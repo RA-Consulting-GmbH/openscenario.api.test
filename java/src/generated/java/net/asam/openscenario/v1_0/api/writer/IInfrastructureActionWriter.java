@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IInfrastructureAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,18 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IInfrastructureActionWriter extends IOpenScenarioModelElement {
+public interface IInfrastructureActionWriter
+    extends IInfrastructureAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Set or overwrite a signals state or a signal
+   * controllers state from a road network.
+   *
+   * @param trafficSignalAction value of model property trafficSignalAction
+   */
+  public void setTrafficSignalAction(ITrafficSignalActionWriter trafficSignalAction);
 
   // children
   /**
@@ -35,14 +47,5 @@ public interface IInfrastructureActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property trafficSignalAction
    */
-  public ITrafficSignalActionWriter getTrafficSignalActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Set or overwrite a signals state or a signal
-   * controllers state from a road network.
-   *
-   * @param trafficSignalActionWriter writer for the model property trafficSignalAction
-   */
-  public void writeToTrafficSignalActionWriter(
-      ITrafficSignalActionWriter trafficSignalActionWriter);
+  public ITrafficSignalActionWriter getWriterTrafficSignalAction();
 }

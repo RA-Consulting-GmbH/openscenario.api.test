@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class PositionInRoadCoordinatesImpl extends BaseImpl
-    implements IPositionInRoadCoordinates, IPositionInRoadCoordinatesWriter {
+    implements IPositionInRoadCoordinatesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -81,21 +81,13 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
   public Double getT() {
     return this.t;
   }
-  /**
-   * Sets the value of model property pathS
-   *
-   * @param pathS from OpenSCENARIO class model specification: [Position in s coordinates along the
-   *     reference line of the road.]
-   */
+
+  @Override
   public void setPathS(Double pathS) {
     this.pathS = pathS;
   }
-  /**
-   * Sets the value of model property t
-   *
-   * @param t from OpenSCENARIO class model specification: [Position in t coordinates orthogonal to
-   *     the reference line of the road.]
-   */
+
+  @Override
   public void setT(Double t) {
     this.t = t;
   }
@@ -234,16 +226,6 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "PositionInRoadCoordinates";
-  }
-
-  @Override
-  public void writeToPathS(Double pathS) {
-    setPathS(pathS);
-  }
-
-  @Override
-  public void writeToT(Double t) {
-    setT(t);
   }
 
   @Override

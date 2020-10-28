@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -42,7 +41,7 @@ public interface INurbs extends IOpenScenarioModelElement {
    *
    * @return value of model property controlPoints
    */
-  public List<IControlPoint> getControlPoints();
+  public Iterable<IControlPoint> getControlPoints();
   /**
    * From OpenSCENARIO class model specification: Knot vector of the NURBS trajectory. Knot values
    * must be given in ascending order. The number of knot vector values must be equal to the number
@@ -50,5 +49,32 @@ public interface INurbs extends IOpenScenarioModelElement {
    *
    * @return value of model property knots
    */
-  public List<IKnot> getKnots();
+  public Iterable<IKnot> getKnots();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getControlPointsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IControlPoint getControlPointsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getKnotsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IKnot getKnotsAtIndex(int index);
 }

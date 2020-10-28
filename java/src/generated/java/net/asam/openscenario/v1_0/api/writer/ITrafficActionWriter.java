@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,30 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficActionWriter extends IOpenScenarioModelElement {
+public interface ITrafficActionWriter extends ITrafficAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Defines a source of traffic at a specific
+   * position.
+   *
+   * @param trafficSourceAction value of model property trafficSourceAction
+   */
+  public void setTrafficSourceAction(ITrafficSourceActionWriter trafficSourceAction);
+  /**
+   * From OpenSCENARIO class model specification: Defines a sink of traffic at a specific position.
+   *
+   * @param trafficSinkAction value of model property trafficSinkAction
+   */
+  public void setTrafficSinkAction(ITrafficSinkActionWriter trafficSinkAction);
+  /**
+   * From OpenSCENARIO class model specification: Defines swarm traffic around a given central
+   * entity.
+   *
+   * @param trafficSwarmAction value of model property trafficSwarmAction
+   */
+  public void setTrafficSwarmAction(ITrafficSwarmActionWriter trafficSwarmAction);
 
   // children
   /**
@@ -35,40 +59,18 @@ public interface ITrafficActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property trafficSourceAction
    */
-  public ITrafficSourceActionWriter getTrafficSourceActionWriter();
+  public ITrafficSourceActionWriter getWriterTrafficSourceAction();
   /**
    * From OpenSCENARIO class model specification: Defines a sink of traffic at a specific position.
    *
    * @return a writer for model property trafficSinkAction
    */
-  public ITrafficSinkActionWriter getTrafficSinkActionWriter();
+  public ITrafficSinkActionWriter getWriterTrafficSinkAction();
   /**
    * From OpenSCENARIO class model specification: Defines swarm traffic around a given central
    * entity.
    *
    * @return a writer for model property trafficSwarmAction
    */
-  public ITrafficSwarmActionWriter getTrafficSwarmActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Defines a source of traffic at a specific
-   * position.
-   *
-   * @param trafficSourceActionWriter writer for the model property trafficSourceAction
-   */
-  public void writeToTrafficSourceActionWriter(
-      ITrafficSourceActionWriter trafficSourceActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines a sink of traffic at a specific position.
-   *
-   * @param trafficSinkActionWriter writer for the model property trafficSinkAction
-   */
-  public void writeToTrafficSinkActionWriter(ITrafficSinkActionWriter trafficSinkActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines swarm traffic around a given central
-   * entity.
-   *
-   * @param trafficSwarmActionWriter writer for the model property trafficSwarmAction
-   */
-  public void writeToTrafficSwarmActionWriter(ITrafficSwarmActionWriter trafficSwarmActionWriter);
+  public ITrafficSwarmActionWriter getWriterTrafficSwarmAction();
 }

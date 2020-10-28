@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IVehicleCategoryDistribution;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,20 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IVehicleCategoryDistributionWriter extends IOpenScenarioModelElement {
+public interface IVehicleCategoryDistributionWriter
+    extends IVehicleCategoryDistribution, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: List of elements that pair vehicle categories and
+   * their weight within the distribution.
+   *
+   * @param vehicleCategoryDistributionEntries value of model property
+   *     vehicleCategoryDistributionEntries
+   */
+  public void setVehicleCategoryDistributionEntries(
+      List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntries);
 
   // children
 
@@ -39,15 +53,5 @@ public interface IVehicleCategoryDistributionWriter extends IOpenScenarioModelEl
    * @return a list of writers for model property vehicleCategoryDistributionEntries
    */
   public List<IVehicleCategoryDistributionEntryWriter>
-      getVehicleCategoryDistributionEntriesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: List of elements that pair vehicle categories and
-   * their weight within the distribution.
-   *
-   * @param vehicleCategoryDistributionEntriesWriters list of writers for the model property
-   *     vehicleCategoryDistributionEntries
-   */
-  public void setVehicleCategoryDistributionEntriesWriter(
-      List<IVehicleCategoryDistributionEntryWriter> vehicleCategoryDistributionEntriesWriters);
+      getWriterVehicleCategoryDistributionEntries();
 }

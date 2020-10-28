@@ -51,8 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeTargetSpeedImpl extends BaseImpl
-    implements IRelativeTargetSpeed, IRelativeTargetSpeedWriter {
+public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTargetSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,7 +62,7 @@ public class RelativeTargetSpeedImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__CONTINUOUS, SimpleType.BOOLEAN);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
   private SpeedTargetValueType speedTargetValueType;
   private Boolean continuous;
@@ -100,43 +99,23 @@ public class RelativeTargetSpeedImpl extends BaseImpl
   public Boolean getContinuous() {
     return this.continuous;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the relative speed. This
-   *     value is either given as a delta or as a factor. E.g. value=10 together with ,
-   *     valueType=delta means the entity/entities are supposed to drive 10m/s faster than the
-   *     target reference entity. E.g. , value=1.1 together with valueType=factor means that the
-   *     entity/entities are supposed to drive 10% faster than the target, reference entity. Unit:
-   *     m/s or 1.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property speedTargetValueType
-   *
-   * @param speedTargetValueType from OpenSCENARIO class model specification: [The value is either a
-   *     delta (Unit m/s) or a factor (no Unit).]
-   */
+
+  @Override
   public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
     this.speedTargetValueType = speedTargetValueType;
   }
-  /**
-   * Sets the value of model property continuous
-   *
-   * @param continuous from OpenSCENARIO class model specification: [By setting continuous to true a
-   *     controller comes into place and tries to maintain a continuous relative speed. This may ,
-   *     not be used together with Dynamics.time or Dynamics.distance.]
-   */
+
+  @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
   }
@@ -333,26 +312,6 @@ public class RelativeTargetSpeedImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "RelativeTargetSpeed";
-  }
-
-  @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
-    setSpeedTargetValueType(speedTargetValueType);
-  }
-
-  @Override
-  public void writeToContinuous(Boolean continuous) {
-    setContinuous(continuous);
   }
 
   @Override

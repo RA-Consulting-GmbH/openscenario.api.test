@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideGearActionImpl extends BaseImpl
-    implements IOverrideGearAction, IOverrideGearActionWriter {
+public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -80,20 +79,13 @@ public class OverrideGearActionImpl extends BaseImpl
   public Boolean getActive() {
     return this.active;
   }
-  /**
-   * Sets the value of model property number
-   *
-   * @param number from OpenSCENARIO class model specification: [Gear number.]
-   */
+
+  @Override
   public void setNumber(Double number) {
     this.number = number;
   }
-  /**
-   * Sets the value of model property active
-   *
-   * @param active from OpenSCENARIO class model specification: [True: override; false: stop
-   *     overriding.]
-   */
+
+  @Override
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -237,16 +229,6 @@ public class OverrideGearActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "OverrideGearAction";
-  }
-
-  @Override
-  public void writeToNumber(Double number) {
-    setNumber(number);
-  }
-
-  @Override
-  public void writeToActive(Boolean active) {
-    setActive(active);
   }
 
   @Override

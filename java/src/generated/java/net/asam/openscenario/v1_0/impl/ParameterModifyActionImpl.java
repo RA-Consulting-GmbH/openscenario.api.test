@@ -47,13 +47,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterModifyActionImpl extends BaseImpl
-    implements IParameterModifyAction, IParameterModifyActionWriter {
+public class ParameterModifyActionImpl extends BaseImpl implements IParameterModifyActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IModifyRule rule;
-
-  private IModifyRuleWriter ruleWriter;
+  private IModifyRuleWriter rule;
 
   /** Default constructor */
   public ParameterModifyActionImpl() {
@@ -72,13 +69,9 @@ public class ParameterModifyActionImpl extends BaseImpl
   public IModifyRule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [Either adding a value to a parameter
-   *     or multiply a parameter by a value. Has to match the parameter type.]
-   */
-  public void setRule(IModifyRule rule) {
+
+  @Override
+  public void setRule(IModifyRuleWriter rule) {
     this.rule = rule;
   }
 
@@ -103,8 +96,8 @@ public class ParameterModifyActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IModifyRule rule = null;
-    rule = getRule();
+    IModifyRuleWriter rule = null;
+    rule = getWriterRule();
     if (rule != null) {
       result.add((BaseImpl) rule);
     }
@@ -127,10 +120,10 @@ public class ParameterModifyActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IModifyRule rule = null;
-    rule = getRule();
+    IModifyRuleWriter rule = null;
+    rule = getWriterRule();
     if (rule != null) {
-      ModifyRuleImpl clonedChild = ((ModifyRuleImpl) rule).clone();
+      IModifyRuleWriter clonedChild = ((ModifyRuleImpl) rule).clone();
       clonedObject.setRule(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -216,12 +209,7 @@ public class ParameterModifyActionImpl extends BaseImpl
 
   // children
   @Override
-  public IModifyRuleWriter getRuleWriter() {
-    return this.ruleWriter;
-  }
-
-  @Override
-  public void writeToRuleWriter(IModifyRuleWriter ruleWriter) {
-    this.ruleWriter = ruleWriter;
+  public IModifyRuleWriter getWriterRule() {
+    return this.rule;
   }
 }

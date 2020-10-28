@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IByValueCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,63 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IByValueConditionWriter extends IOpenScenarioModelElement {
+public interface IByValueConditionWriter extends IByValueCondition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: A current parameter value is compared to a
+   * reference value.
+   *
+   * @param parameterCondition value of model property parameterCondition
+   */
+  public void setParameterCondition(IParameterConditionWriter parameterCondition);
+  /**
+   * From OpenSCENARIO class model specification: The current time of day is compared to a reference
+   * value.
+   *
+   * @param timeOfDayCondition value of model property timeOfDayCondition
+   */
+  public void setTimeOfDayCondition(ITimeOfDayConditionWriter timeOfDayCondition);
+  /**
+   * From OpenSCENARIO class model specification: The current simulation time is compared to a
+   * reference value.
+   *
+   * @param simulationTimeCondition value of model property simulationTimeCondition
+   */
+  public void setSimulationTimeCondition(ISimulationTimeConditionWriter simulationTimeCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition becomes true if the referenced
+   * StoryboardElement terminates according to the given rule.
+   *
+   * @param storyboardElementStateCondition value of model property storyboardElementStateCondition
+   */
+  public void setStoryboardElementStateCondition(
+      IStoryboardElementStateConditionWriter storyboardElementStateCondition);
+  /**
+   * From OpenSCENARIO class model specification: The current value of an externally defined named
+   * value is compared to a reference value (less, greater, equal).
+   *
+   * @param userDefinedValueCondition value of model property userDefinedValueCondition
+   */
+  public void setUserDefinedValueCondition(
+      IUserDefinedValueConditionWriter userDefinedValueCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
+   * reaches the indicated state.
+   *
+   * @param trafficSignalCondition value of model property trafficSignalCondition
+   */
+  public void setTrafficSignalCondition(ITrafficSignalConditionWriter trafficSignalCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
+   * controller reaches the indicated state.
+   *
+   * @param trafficSignalControllerCondition value of model property
+   *     trafficSignalControllerCondition
+   */
+  public void setTrafficSignalControllerCondition(
+      ITrafficSignalControllerConditionWriter trafficSignalControllerCondition);
 
   // children
   /**
@@ -35,104 +92,47 @@ public interface IByValueConditionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property parameterCondition
    */
-  public IParameterConditionWriter getParameterConditionWriter();
+  public IParameterConditionWriter getWriterParameterCondition();
   /**
    * From OpenSCENARIO class model specification: The current time of day is compared to a reference
    * value.
    *
    * @return a writer for model property timeOfDayCondition
    */
-  public ITimeOfDayConditionWriter getTimeOfDayConditionWriter();
+  public ITimeOfDayConditionWriter getWriterTimeOfDayCondition();
   /**
    * From OpenSCENARIO class model specification: The current simulation time is compared to a
    * reference value.
    *
    * @return a writer for model property simulationTimeCondition
    */
-  public ISimulationTimeConditionWriter getSimulationTimeConditionWriter();
+  public ISimulationTimeConditionWriter getWriterSimulationTimeCondition();
   /**
    * From OpenSCENARIO class model specification: Condition becomes true if the referenced
    * StoryboardElement terminates according to the given rule.
    *
    * @return a writer for model property storyboardElementStateCondition
    */
-  public IStoryboardElementStateConditionWriter getStoryboardElementStateConditionWriter();
+  public IStoryboardElementStateConditionWriter getWriterStoryboardElementStateCondition();
   /**
    * From OpenSCENARIO class model specification: The current value of an externally defined named
    * value is compared to a reference value (less, greater, equal).
    *
    * @return a writer for model property userDefinedValueCondition
    */
-  public IUserDefinedValueConditionWriter getUserDefinedValueConditionWriter();
+  public IUserDefinedValueConditionWriter getWriterUserDefinedValueCondition();
   /**
    * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
    * reaches the indicated state.
    *
    * @return a writer for model property trafficSignalCondition
    */
-  public ITrafficSignalConditionWriter getTrafficSignalConditionWriter();
+  public ITrafficSignalConditionWriter getWriterTrafficSignalCondition();
   /**
    * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
    * controller reaches the indicated state.
    *
    * @return a writer for model property trafficSignalControllerCondition
    */
-  public ITrafficSignalControllerConditionWriter getTrafficSignalControllerConditionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A current parameter value is compared to a
-   * reference value.
-   *
-   * @param parameterConditionWriter writer for the model property parameterCondition
-   */
-  public void writeToParameterConditionWriter(IParameterConditionWriter parameterConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: The current time of day is compared to a reference
-   * value.
-   *
-   * @param timeOfDayConditionWriter writer for the model property timeOfDayCondition
-   */
-  public void writeToTimeOfDayConditionWriter(ITimeOfDayConditionWriter timeOfDayConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: The current simulation time is compared to a
-   * reference value.
-   *
-   * @param simulationTimeConditionWriter writer for the model property simulationTimeCondition
-   */
-  public void writeToSimulationTimeConditionWriter(
-      ISimulationTimeConditionWriter simulationTimeConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition becomes true if the referenced
-   * StoryboardElement terminates according to the given rule.
-   *
-   * @param storyboardElementStateConditionWriter writer for the model property
-   *     storyboardElementStateCondition
-   */
-  public void writeToStoryboardElementStateConditionWriter(
-      IStoryboardElementStateConditionWriter storyboardElementStateConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: The current value of an externally defined named
-   * value is compared to a reference value (less, greater, equal).
-   *
-   * @param userDefinedValueConditionWriter writer for the model property userDefinedValueCondition
-   */
-  public void writeToUserDefinedValueConditionWriter(
-      IUserDefinedValueConditionWriter userDefinedValueConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
-   * reaches the indicated state.
-   *
-   * @param trafficSignalConditionWriter writer for the model property trafficSignalCondition
-   */
-  public void writeToTrafficSignalConditionWriter(
-      ITrafficSignalConditionWriter trafficSignalConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition becomes true if the referenced signal
-   * controller reaches the indicated state.
-   *
-   * @param trafficSignalControllerConditionWriter writer for the model property
-   *     trafficSignalControllerCondition
-   */
-  public void writeToTrafficSignalControllerConditionWriter(
-      ITrafficSignalControllerConditionWriter trafficSignalControllerConditionWriter);
+  public ITrafficSignalControllerConditionWriter getWriterTrafficSignalControllerCondition();
 }

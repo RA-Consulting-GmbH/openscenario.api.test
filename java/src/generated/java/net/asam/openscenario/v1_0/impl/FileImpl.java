@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileImpl extends BaseImpl implements IFile, IFileWriter {
+public class FileImpl extends BaseImpl implements IFileWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -72,12 +72,8 @@ public class FileImpl extends BaseImpl implements IFile, IFileWriter {
   public String getFilepath() {
     return this.filepath;
   }
-  /**
-   * Sets the value of model property filepath
-   *
-   * @param filepath from OpenSCENARIO class model specification: [Filepath e.g.
-   *     filepath=/home/simulator/customDriverSpecification.xml.]
-   */
+
+  @Override
   public void setFilepath(String filepath) {
     this.filepath = filepath;
   }
@@ -207,11 +203,6 @@ public class FileImpl extends BaseImpl implements IFile, IFileWriter {
   @Override
   public String getModelType() {
     return "File";
-  }
-
-  @Override
-  public void writeToFilepath(String filepath) {
-    setFilepath(filepath);
   }
 
   @Override

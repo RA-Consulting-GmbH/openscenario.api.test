@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,16 +27,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IAbsoluteTargetLaneOffsetWriter extends IOpenScenarioModelElement {
+public interface IAbsoluteTargetLaneOffsetWriter
+    extends IAbsoluteTargetLaneOffset, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Signed number in meters the vehicle should respect
-   * as an offset from the center of the current lane.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Signed number in meters the vehicle should respect
@@ -43,7 +38,7 @@ public interface IAbsoluteTargetLaneOffsetWriter extends IOpenScenarioModelEleme
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
 
   /**
    * Set a parameter for the attribute value

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IEntityCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,103 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEntityConditionWriter extends IOpenScenarioModelElement {
+public interface IEntityConditionWriter extends IEntityCondition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Condition checking for how long the reference
+   * entity has reached the end of the road.
+   *
+   * @param endOfRoadCondition value of model property endOfRoadCondition
+   */
+  public void setEndOfRoadCondition(IEndOfRoadConditionWriter endOfRoadCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking whether the reference entity
+   * was involved in a collision.
+   *
+   * @param collisionCondition value of model property collisionCondition
+   */
+  public void setCollisionCondition(ICollisionConditionWriter collisionCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking for how long the reference
+   * entity has left the road.
+   *
+   * @param offroadCondition value of model property offroadCondition
+   */
+  public void setOffroadCondition(IOffroadConditionWriter offroadCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the time headway between two
+   * entities.
+   *
+   * @param timeHeadwayCondition value of model property timeHeadwayCondition
+   */
+  public void setTimeHeadwayCondition(ITimeHeadwayConditionWriter timeHeadwayCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the time to collision between
+   * two entities.
+   *
+   * @param timeToCollisionCondition value of model property timeToCollisionCondition
+   */
+  public void setTimeToCollisionCondition(ITimeToCollisionConditionWriter timeToCollisionCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the current acceleration of an
+   * entity.
+   *
+   * @param accelerationCondition value of model property accelerationCondition
+   */
+  public void setAccelerationCondition(IAccelerationConditionWriter accelerationCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking for how long the reference
+   * entity has not moved.
+   *
+   * @param standStillCondition value of model property standStillCondition
+   */
+  public void setStandStillCondition(IStandStillConditionWriter standStillCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the current speed of the
+   * referenced entities.
+   *
+   * @param speedCondition value of model property speedCondition
+   */
+  public void setSpeedCondition(ISpeedConditionWriter speedCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the relative speed between two
+   * entity.
+   *
+   * @param relativeSpeedCondition value of model property relativeSpeedCondition
+   */
+  public void setRelativeSpeedCondition(IRelativeSpeedConditionWriter relativeSpeedCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the total traveled distance of
+   * the reference entity since the start of the scenario.
+   *
+   * @param traveledDistanceCondition value of model property traveledDistanceCondition
+   */
+  public void setTraveledDistanceCondition(
+      ITraveledDistanceConditionWriter traveledDistanceCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking whether the reference entity
+   * has reached a given position within a given uncertainty.
+   *
+   * @param reachPositionCondition value of model property reachPositionCondition
+   */
+  public void setReachPositionCondition(IReachPositionConditionWriter reachPositionCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the distance between two
+   * entities or an entity and a position.
+   *
+   * @param distanceCondition value of model property distanceCondition
+   */
+  public void setDistanceCondition(IDistanceConditionWriter distanceCondition);
+  /**
+   * From OpenSCENARIO class model specification: Condition checking the relative distance between
+   * two entities.
+   *
+   * @param relativeDistanceCondition value of model property relativeDistanceCondition
+   */
+  public void setRelativeDistanceCondition(
+      IRelativeDistanceConditionWriter relativeDistanceCondition);
 
   // children
   /**
@@ -35,189 +132,89 @@ public interface IEntityConditionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property endOfRoadCondition
    */
-  public IEndOfRoadConditionWriter getEndOfRoadConditionWriter();
+  public IEndOfRoadConditionWriter getWriterEndOfRoadCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking whether the reference entity
    * was involved in a collision.
    *
    * @return a writer for model property collisionCondition
    */
-  public ICollisionConditionWriter getCollisionConditionWriter();
+  public ICollisionConditionWriter getWriterCollisionCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking for how long the reference
    * entity has left the road.
    *
    * @return a writer for model property offroadCondition
    */
-  public IOffroadConditionWriter getOffroadConditionWriter();
+  public IOffroadConditionWriter getWriterOffroadCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the time headway between two
    * entities.
    *
    * @return a writer for model property timeHeadwayCondition
    */
-  public ITimeHeadwayConditionWriter getTimeHeadwayConditionWriter();
+  public ITimeHeadwayConditionWriter getWriterTimeHeadwayCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the time to collision between
    * two entities.
    *
    * @return a writer for model property timeToCollisionCondition
    */
-  public ITimeToCollisionConditionWriter getTimeToCollisionConditionWriter();
+  public ITimeToCollisionConditionWriter getWriterTimeToCollisionCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the current acceleration of an
    * entity.
    *
    * @return a writer for model property accelerationCondition
    */
-  public IAccelerationConditionWriter getAccelerationConditionWriter();
+  public IAccelerationConditionWriter getWriterAccelerationCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking for how long the reference
    * entity has not moved.
    *
    * @return a writer for model property standStillCondition
    */
-  public IStandStillConditionWriter getStandStillConditionWriter();
+  public IStandStillConditionWriter getWriterStandStillCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the current speed of the
    * referenced entities.
    *
    * @return a writer for model property speedCondition
    */
-  public ISpeedConditionWriter getSpeedConditionWriter();
+  public ISpeedConditionWriter getWriterSpeedCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the relative speed between two
    * entity.
    *
    * @return a writer for model property relativeSpeedCondition
    */
-  public IRelativeSpeedConditionWriter getRelativeSpeedConditionWriter();
+  public IRelativeSpeedConditionWriter getWriterRelativeSpeedCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the total traveled distance of
    * the reference entity since the start of the scenario.
    *
    * @return a writer for model property traveledDistanceCondition
    */
-  public ITraveledDistanceConditionWriter getTraveledDistanceConditionWriter();
+  public ITraveledDistanceConditionWriter getWriterTraveledDistanceCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking whether the reference entity
    * has reached a given position within a given uncertainty.
    *
    * @return a writer for model property reachPositionCondition
    */
-  public IReachPositionConditionWriter getReachPositionConditionWriter();
+  public IReachPositionConditionWriter getWriterReachPositionCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the distance between two
    * entities or an entity and a position.
    *
    * @return a writer for model property distanceCondition
    */
-  public IDistanceConditionWriter getDistanceConditionWriter();
+  public IDistanceConditionWriter getWriterDistanceCondition();
   /**
    * From OpenSCENARIO class model specification: Condition checking the relative distance between
    * two entities.
    *
    * @return a writer for model property relativeDistanceCondition
    */
-  public IRelativeDistanceConditionWriter getRelativeDistanceConditionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Condition checking for how long the reference
-   * entity has reached the end of the road.
-   *
-   * @param endOfRoadConditionWriter writer for the model property endOfRoadCondition
-   */
-  public void writeToEndOfRoadConditionWriter(IEndOfRoadConditionWriter endOfRoadConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking whether the reference entity
-   * was involved in a collision.
-   *
-   * @param collisionConditionWriter writer for the model property collisionCondition
-   */
-  public void writeToCollisionConditionWriter(ICollisionConditionWriter collisionConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking for how long the reference
-   * entity has left the road.
-   *
-   * @param offroadConditionWriter writer for the model property offroadCondition
-   */
-  public void writeToOffroadConditionWriter(IOffroadConditionWriter offroadConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the time headway between two
-   * entities.
-   *
-   * @param timeHeadwayConditionWriter writer for the model property timeHeadwayCondition
-   */
-  public void writeToTimeHeadwayConditionWriter(
-      ITimeHeadwayConditionWriter timeHeadwayConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the time to collision between
-   * two entities.
-   *
-   * @param timeToCollisionConditionWriter writer for the model property timeToCollisionCondition
-   */
-  public void writeToTimeToCollisionConditionWriter(
-      ITimeToCollisionConditionWriter timeToCollisionConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the current acceleration of an
-   * entity.
-   *
-   * @param accelerationConditionWriter writer for the model property accelerationCondition
-   */
-  public void writeToAccelerationConditionWriter(
-      IAccelerationConditionWriter accelerationConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking for how long the reference
-   * entity has not moved.
-   *
-   * @param standStillConditionWriter writer for the model property standStillCondition
-   */
-  public void writeToStandStillConditionWriter(
-      IStandStillConditionWriter standStillConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the current speed of the
-   * referenced entities.
-   *
-   * @param speedConditionWriter writer for the model property speedCondition
-   */
-  public void writeToSpeedConditionWriter(ISpeedConditionWriter speedConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the relative speed between two
-   * entity.
-   *
-   * @param relativeSpeedConditionWriter writer for the model property relativeSpeedCondition
-   */
-  public void writeToRelativeSpeedConditionWriter(
-      IRelativeSpeedConditionWriter relativeSpeedConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the total traveled distance of
-   * the reference entity since the start of the scenario.
-   *
-   * @param traveledDistanceConditionWriter writer for the model property traveledDistanceCondition
-   */
-  public void writeToTraveledDistanceConditionWriter(
-      ITraveledDistanceConditionWriter traveledDistanceConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking whether the reference entity
-   * has reached a given position within a given uncertainty.
-   *
-   * @param reachPositionConditionWriter writer for the model property reachPositionCondition
-   */
-  public void writeToReachPositionConditionWriter(
-      IReachPositionConditionWriter reachPositionConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the distance between two
-   * entities or an entity and a position.
-   *
-   * @param distanceConditionWriter writer for the model property distanceCondition
-   */
-  public void writeToDistanceConditionWriter(IDistanceConditionWriter distanceConditionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Condition checking the relative distance between
-   * two entities.
-   *
-   * @param relativeDistanceConditionWriter writer for the model property relativeDistanceCondition
-   */
-  public void writeToRelativeDistanceConditionWriter(
-      IRelativeDistanceConditionWriter relativeDistanceConditionWriter);
+  public IRelativeDistanceConditionWriter getWriterRelativeDistanceCondition();
 }

@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -50,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
+public class RouteImpl extends BaseImpl implements IRouteWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,11 +62,8 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
 
   private String name;
   private Boolean closed;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private List<IWaypoint> waypoints;
-
-  private List<IParameterDeclarationWriter> parameterDeclarationsWriters;
-  private List<IWaypointWriter> waypointsWriters;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private List<IWaypointWriter> waypoints = new ArrayList<>();
 
   /** Default constructor */
   public RouteImpl() {
@@ -91,48 +89,87 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
   }
 
   @Override
-  public List<IWaypoint> getWaypoints() {
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(RouteImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IWaypointWriter> getWriterWaypoints() {
     return this.waypoints;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the route. Required in
-   *     catalogs.]
-   */
+
+  @Override
+  public Iterable<IWaypoint> getWaypoints() {
+    return new Iterable<IWaypoint>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IWaypoint> iterator() {
+        return new ArrayList<IWaypoint>(RouteImpl.this.waypoints).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getWaypointsSize() {
+    if (this.waypoints != null) return this.waypoints.size();
+    return 0;
+  }
+
+  @Override
+  public IWaypoint getWaypointsAtIndex(int index) {
+    if (index >= 0 && this.waypoints != null && this.waypoints.size() > index) {
+      return this.waypoints.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property closed
-   *
-   * @param closed from OpenSCENARIO class model specification: [In a closed route, the last
-   *     waypoint is followed by the first waypoint to create a closed route.]
-   */
+
+  @Override
   public void setClosed(Boolean closed) {
     this.closed = closed;
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property waypoints
-   *
-   * @param waypoints from OpenSCENARIO class model specification: [At least two waypoints are
-   *     needed to define a route.]
-   */
-  public void setWaypoints(List<IWaypoint> waypoints) {
+
+  @Override
+  public void setWaypoints(List<IWaypointWriter> waypoints) {
     this.waypoints = waypoints;
   }
 
@@ -189,17 +226,17 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    List<IWaypoint> waypoints = null;
-    waypoints = getWaypoints();
+    List<IWaypointWriter> waypoints = null;
+    waypoints = getWriterWaypoints();
     if (waypoints != null) {
-      for (IWaypoint item : waypoints) {
+      for (IWaypointWriter item : waypoints) {
         result.add((BaseImpl) item);
       }
     }
@@ -226,23 +263,23 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
     // Simple type
     clonedObject.setClosed(getClosed());
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    List<IWaypoint> waypoints = null;
-    waypoints = getWaypoints();
+    List<IWaypointWriter> waypoints = null;
+    waypoints = getWriterWaypoints();
     if (waypoints != null) {
-      List<IWaypoint> clonedList = new ArrayList<>();
-      for (IWaypoint item : waypoints) {
-        WaypointImpl clonedChild = ((WaypointImpl) item).clone();
+      List<IWaypointWriter> clonedList = new ArrayList<>();
+      for (IWaypointWriter item : waypoints) {
+        IWaypointWriter clonedChild = ((WaypointImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -345,16 +382,6 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
   }
 
   @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
-  public void writeToClosed(Boolean closed) {
-    setClosed(closed);
-  }
-
-  @Override
   public void writeParameterToName(String parameterName) {
     setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
   }
@@ -386,24 +413,4 @@ public class RouteImpl extends BaseImpl implements IRoute, IRouteWriter {
 
   // children
 
-  @Override
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter() {
-    return this.parameterDeclarationsWriters;
-  }
-
-  @Override
-  public List<IWaypointWriter> getWaypointsWriter() {
-    return this.waypointsWriters;
-  }
-
-  @Override
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters) {
-    this.parameterDeclarationsWriters = parameterDeclarationsWriters;
-  }
-
-  @Override
-  public void setWaypointsWriter(List<IWaypointWriter> waypointsWriters) {
-    this.waypointsWriters = waypointsWriters;
-  }
 }

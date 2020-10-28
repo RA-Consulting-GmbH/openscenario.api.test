@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.IRelativeLanePosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -29,62 +30,44 @@ import net.asam.openscenario.v1_0.api.IEntity;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRelativeLanePositionWriter extends IOpenScenarioModelElement {
+public interface IRelativeLanePositionWriter
+    extends IRelativeLanePosition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Reference entity.
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
-  /**
-   * From OpenSCENARIO class model specification: Relative dlane to the lane of the reference
-   * entity.
-   *
-   * @return value of model property dLane
-   */
-  public Integer getDLane();
-  /**
-   * From OpenSCENARIO class model specification: Relative ds to the s of reference entity.
-   *
-   * @return value of model property ds
-   */
-  public Double getDs();
-  /**
-   * From OpenSCENARIO class model specification: Lateral offset to the taqrget lane. Unit: m;
-   * Range: ]-inf..inf[
-   *
-   * @return value of model property offset
-   */
-  public Double getOffset();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
   /**
    * From OpenSCENARIO class model specification: Relative dlane to the lane of the reference
    * entity.
    *
    * @param dLane value of model property dLane
    */
-  public void writeToDLane(Integer dLane);
+  public void setDLane(Integer dLane);
   /**
    * From OpenSCENARIO class model specification: Relative ds to the s of reference entity.
    *
    * @param ds value of model property ds
    */
-  public void writeToDs(Double ds);
+  public void setDs(Double ds);
   /**
    * From OpenSCENARIO class model specification: Lateral offset to the taqrget lane. Unit: m;
    * Range: ]-inf..inf[
    *
    * @param offset value of model property offset
    */
-  public void writeToOffset(Double offset);
+  public void setOffset(Double offset);
+  /**
+   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
+   * to the referenced lane's s and t coordinates.
+   *
+   * @param orientation value of model property orientation
+   */
+  public void setOrientation(IOrientationWriter orientation);
 
   /**
    * Set a parameter for the attribute entityRef
@@ -172,13 +155,5 @@ public interface IRelativeLanePositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property orientation
    */
-  public IOrientationWriter getOrientationWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
-   * to the referenced lane's s and t coordinates.
-   *
-   * @param orientationWriter writer for the model property orientation
-   */
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter);
+  public IOrientationWriter getWriterOrientation();
 }

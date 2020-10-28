@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IConditionGroup;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,16 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IConditionGroupWriter extends IOpenScenarioModelElement {
+public interface IConditionGroupWriter extends IConditionGroup, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: A associated list of conditions.
+   *
+   * @param conditions value of model property conditions
+   */
+  public void setConditions(List<IConditionWriter> conditions);
 
   // children
 
@@ -37,12 +47,5 @@ public interface IConditionGroupWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property conditions
    */
-  public List<IConditionWriter> getConditionsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A associated list of conditions.
-   *
-   * @param conditionsWriters list of writers for the model property conditions
-   */
-  public void setConditionsWriter(List<IConditionWriter> conditionsWriters);
+  public List<IConditionWriter> getWriterConditions();
 }

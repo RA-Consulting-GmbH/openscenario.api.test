@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteTargetLaneImpl extends BaseImpl
-    implements IAbsoluteTargetLane, IAbsoluteTargetLaneWriter {
+public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetLaneWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -73,12 +72,8 @@ public class AbsoluteTargetLaneImpl extends BaseImpl
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Number (ID) of the target lane the
-   *     entity will change to.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
   }
@@ -208,11 +203,6 @@ public class AbsoluteTargetLaneImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "AbsoluteTargetLane";
-  }
-
-  @Override
-  public void writeToValue(String value) {
-    setValue(value);
   }
 
   @Override

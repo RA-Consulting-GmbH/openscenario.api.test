@@ -58,22 +58,15 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class OverrideControllerValueActionImpl extends BaseImpl
-    implements IOverrideControllerValueAction, IOverrideControllerValueActionWriter {
+    implements IOverrideControllerValueActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IOverrideThrottleAction throttle;
-  private IOverrideBrakeAction brake;
-  private IOverrideClutchAction clutch;
-  private IOverrideParkingBrakeAction parkingBrake;
-  private IOverrideSteeringWheelAction steeringWheel;
-  private IOverrideGearAction gear;
-
-  private IOverrideThrottleActionWriter throttleWriter;
-  private IOverrideBrakeActionWriter brakeWriter;
-  private IOverrideClutchActionWriter clutchWriter;
-  private IOverrideParkingBrakeActionWriter parkingBrakeWriter;
-  private IOverrideSteeringWheelActionWriter steeringWheelWriter;
-  private IOverrideGearActionWriter gearWriter;
+  private IOverrideThrottleActionWriter throttle;
+  private IOverrideBrakeActionWriter brake;
+  private IOverrideClutchActionWriter clutch;
+  private IOverrideParkingBrakeActionWriter parkingBrake;
+  private IOverrideSteeringWheelActionWriter steeringWheel;
+  private IOverrideGearActionWriter gear;
 
   /** Default constructor */
   public OverrideControllerValueActionImpl() {
@@ -117,58 +110,34 @@ public class OverrideControllerValueActionImpl extends BaseImpl
   public IOverrideGearAction getGear() {
     return this.gear;
   }
-  /**
-   * Sets the value of model property throttle
-   *
-   * @param throttle from OpenSCENARIO class model specification: [New value for throttle pedal
-   *     position or unset value.]
-   */
-  public void setThrottle(IOverrideThrottleAction throttle) {
+
+  @Override
+  public void setThrottle(IOverrideThrottleActionWriter throttle) {
     this.throttle = throttle;
   }
-  /**
-   * Sets the value of model property brake
-   *
-   * @param brake from OpenSCENARIO class model specification: [New value for brake position or
-   *     unset value.]
-   */
-  public void setBrake(IOverrideBrakeAction brake) {
+
+  @Override
+  public void setBrake(IOverrideBrakeActionWriter brake) {
     this.brake = brake;
   }
-  /**
-   * Sets the value of model property clutch
-   *
-   * @param clutch from OpenSCENARIO class model specification: [New value for clutch position or
-   *     unset value.]
-   */
-  public void setClutch(IOverrideClutchAction clutch) {
+
+  @Override
+  public void setClutch(IOverrideClutchActionWriter clutch) {
     this.clutch = clutch;
   }
-  /**
-   * Sets the value of model property parkingBrake
-   *
-   * @param parkingBrake from OpenSCENARIO class model specification: [New value for parking brake
-   *     position or unset value.]
-   */
-  public void setParkingBrake(IOverrideParkingBrakeAction parkingBrake) {
+
+  @Override
+  public void setParkingBrake(IOverrideParkingBrakeActionWriter parkingBrake) {
     this.parkingBrake = parkingBrake;
   }
-  /**
-   * Sets the value of model property steeringWheel
-   *
-   * @param steeringWheel from OpenSCENARIO class model specification: [New value for steering wheel
-   *     position or unset value.]
-   */
-  public void setSteeringWheel(IOverrideSteeringWheelAction steeringWheel) {
+
+  @Override
+  public void setSteeringWheel(IOverrideSteeringWheelActionWriter steeringWheel) {
     this.steeringWheel = steeringWheel;
   }
-  /**
-   * Sets the value of model property gear
-   *
-   * @param gear from OpenSCENARIO class model specification: [New value for gear position or unset
-   *     value.]
-   */
-  public void setGear(IOverrideGearAction gear) {
+
+  @Override
+  public void setGear(IOverrideGearActionWriter gear) {
     this.gear = gear;
   }
 
@@ -193,33 +162,33 @@ public class OverrideControllerValueActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IOverrideThrottleAction throttle = null;
-    throttle = getThrottle();
+    IOverrideThrottleActionWriter throttle = null;
+    throttle = getWriterThrottle();
     if (throttle != null) {
       result.add((BaseImpl) throttle);
     }
-    IOverrideBrakeAction brake = null;
-    brake = getBrake();
+    IOverrideBrakeActionWriter brake = null;
+    brake = getWriterBrake();
     if (brake != null) {
       result.add((BaseImpl) brake);
     }
-    IOverrideClutchAction clutch = null;
-    clutch = getClutch();
+    IOverrideClutchActionWriter clutch = null;
+    clutch = getWriterClutch();
     if (clutch != null) {
       result.add((BaseImpl) clutch);
     }
-    IOverrideParkingBrakeAction parkingBrake = null;
-    parkingBrake = getParkingBrake();
+    IOverrideParkingBrakeActionWriter parkingBrake = null;
+    parkingBrake = getWriterParkingBrake();
     if (parkingBrake != null) {
       result.add((BaseImpl) parkingBrake);
     }
-    IOverrideSteeringWheelAction steeringWheel = null;
-    steeringWheel = getSteeringWheel();
+    IOverrideSteeringWheelActionWriter steeringWheel = null;
+    steeringWheel = getWriterSteeringWheel();
     if (steeringWheel != null) {
       result.add((BaseImpl) steeringWheel);
     }
-    IOverrideGearAction gear = null;
-    gear = getGear();
+    IOverrideGearActionWriter gear = null;
+    gear = getWriterGear();
     if (gear != null) {
       result.add((BaseImpl) gear);
     }
@@ -242,47 +211,47 @@ public class OverrideControllerValueActionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IOverrideThrottleAction throttle = null;
-    throttle = getThrottle();
+    IOverrideThrottleActionWriter throttle = null;
+    throttle = getWriterThrottle();
     if (throttle != null) {
-      OverrideThrottleActionImpl clonedChild = ((OverrideThrottleActionImpl) throttle).clone();
+      IOverrideThrottleActionWriter clonedChild = ((OverrideThrottleActionImpl) throttle).clone();
       clonedObject.setThrottle(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOverrideBrakeAction brake = null;
-    brake = getBrake();
+    IOverrideBrakeActionWriter brake = null;
+    brake = getWriterBrake();
     if (brake != null) {
-      OverrideBrakeActionImpl clonedChild = ((OverrideBrakeActionImpl) brake).clone();
+      IOverrideBrakeActionWriter clonedChild = ((OverrideBrakeActionImpl) brake).clone();
       clonedObject.setBrake(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOverrideClutchAction clutch = null;
-    clutch = getClutch();
+    IOverrideClutchActionWriter clutch = null;
+    clutch = getWriterClutch();
     if (clutch != null) {
-      OverrideClutchActionImpl clonedChild = ((OverrideClutchActionImpl) clutch).clone();
+      IOverrideClutchActionWriter clonedChild = ((OverrideClutchActionImpl) clutch).clone();
       clonedObject.setClutch(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOverrideParkingBrakeAction parkingBrake = null;
-    parkingBrake = getParkingBrake();
+    IOverrideParkingBrakeActionWriter parkingBrake = null;
+    parkingBrake = getWriterParkingBrake();
     if (parkingBrake != null) {
-      OverrideParkingBrakeActionImpl clonedChild =
+      IOverrideParkingBrakeActionWriter clonedChild =
           ((OverrideParkingBrakeActionImpl) parkingBrake).clone();
       clonedObject.setParkingBrake(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOverrideSteeringWheelAction steeringWheel = null;
-    steeringWheel = getSteeringWheel();
+    IOverrideSteeringWheelActionWriter steeringWheel = null;
+    steeringWheel = getWriterSteeringWheel();
     if (steeringWheel != null) {
-      OverrideSteeringWheelActionImpl clonedChild =
+      IOverrideSteeringWheelActionWriter clonedChild =
           ((OverrideSteeringWheelActionImpl) steeringWheel).clone();
       clonedObject.setSteeringWheel(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOverrideGearAction gear = null;
-    gear = getGear();
+    IOverrideGearActionWriter gear = null;
+    gear = getWriterGear();
     if (gear != null) {
-      OverrideGearActionImpl clonedChild = ((OverrideGearActionImpl) gear).clone();
+      IOverrideGearActionWriter clonedChild = ((OverrideGearActionImpl) gear).clone();
       clonedObject.setGear(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -383,62 +352,32 @@ public class OverrideControllerValueActionImpl extends BaseImpl
 
   // children
   @Override
-  public IOverrideThrottleActionWriter getThrottleWriter() {
-    return this.throttleWriter;
+  public IOverrideThrottleActionWriter getWriterThrottle() {
+    return this.throttle;
   }
 
   @Override
-  public IOverrideBrakeActionWriter getBrakeWriter() {
-    return this.brakeWriter;
+  public IOverrideBrakeActionWriter getWriterBrake() {
+    return this.brake;
   }
 
   @Override
-  public IOverrideClutchActionWriter getClutchWriter() {
-    return this.clutchWriter;
+  public IOverrideClutchActionWriter getWriterClutch() {
+    return this.clutch;
   }
 
   @Override
-  public IOverrideParkingBrakeActionWriter getParkingBrakeWriter() {
-    return this.parkingBrakeWriter;
+  public IOverrideParkingBrakeActionWriter getWriterParkingBrake() {
+    return this.parkingBrake;
   }
 
   @Override
-  public IOverrideSteeringWheelActionWriter getSteeringWheelWriter() {
-    return this.steeringWheelWriter;
+  public IOverrideSteeringWheelActionWriter getWriterSteeringWheel() {
+    return this.steeringWheel;
   }
 
   @Override
-  public IOverrideGearActionWriter getGearWriter() {
-    return this.gearWriter;
-  }
-
-  @Override
-  public void writeToThrottleWriter(IOverrideThrottleActionWriter throttleWriter) {
-    this.throttleWriter = throttleWriter;
-  }
-
-  @Override
-  public void writeToBrakeWriter(IOverrideBrakeActionWriter brakeWriter) {
-    this.brakeWriter = brakeWriter;
-  }
-
-  @Override
-  public void writeToClutchWriter(IOverrideClutchActionWriter clutchWriter) {
-    this.clutchWriter = clutchWriter;
-  }
-
-  @Override
-  public void writeToParkingBrakeWriter(IOverrideParkingBrakeActionWriter parkingBrakeWriter) {
-    this.parkingBrakeWriter = parkingBrakeWriter;
-  }
-
-  @Override
-  public void writeToSteeringWheelWriter(IOverrideSteeringWheelActionWriter steeringWheelWriter) {
-    this.steeringWheelWriter = steeringWheelWriter;
-  }
-
-  @Override
-  public void writeToGearWriter(IOverrideGearActionWriter gearWriter) {
-    this.gearWriter = gearWriter;
+  public IOverrideGearActionWriter getWriterGear() {
+    return this.gear;
   }
 }

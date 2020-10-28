@@ -46,12 +46,10 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class InitImpl extends BaseImpl implements IInit, IInitWriter {
+public class InitImpl extends BaseImpl implements IInitWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IInitActions actions;
-
-  private IInitActionsWriter actionsWriter;
+  private IInitActionsWriter actions;
 
   /** Default constructor */
   public InitImpl() {
@@ -70,13 +68,9 @@ public class InitImpl extends BaseImpl implements IInit, IInitWriter {
   public IInitActions getActions() {
     return this.actions;
   }
-  /**
-   * Sets the value of model property actions
-   *
-   * @param actions from OpenSCENARIO class model specification: [A list of actions initially
-   *     executed when the enclosing storyboard starts.]
-   */
-  public void setActions(IInitActions actions) {
+
+  @Override
+  public void setActions(IInitActionsWriter actions) {
     this.actions = actions;
   }
 
@@ -101,8 +95,8 @@ public class InitImpl extends BaseImpl implements IInit, IInitWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IInitActions actions = null;
-    actions = getActions();
+    IInitActionsWriter actions = null;
+    actions = getWriterActions();
     if (actions != null) {
       result.add((BaseImpl) actions);
     }
@@ -125,10 +119,10 @@ public class InitImpl extends BaseImpl implements IInit, IInitWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IInitActions actions = null;
-    actions = getActions();
+    IInitActionsWriter actions = null;
+    actions = getWriterActions();
     if (actions != null) {
-      InitActionsImpl clonedChild = ((InitActionsImpl) actions).clone();
+      IInitActionsWriter clonedChild = ((InitActionsImpl) actions).clone();
       clonedObject.setActions(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -214,12 +208,7 @@ public class InitImpl extends BaseImpl implements IInit, IInitWriter {
 
   // children
   @Override
-  public IInitActionsWriter getActionsWriter() {
-    return this.actionsWriter;
-  }
-
-  @Override
-  public void writeToActionsWriter(IInitActionsWriter actionsWriter) {
-    this.actionsWriter = actionsWriter;
+  public IInitActionsWriter getWriterActions() {
+    return this.actions;
   }
 }

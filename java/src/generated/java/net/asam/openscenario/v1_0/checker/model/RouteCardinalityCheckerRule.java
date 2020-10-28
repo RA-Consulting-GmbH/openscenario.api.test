@@ -26,7 +26,6 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.v1_0.api.IRoute;
-import net.asam.openscenario.v1_0.api.IWaypoint;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -84,15 +83,12 @@ public class RouteCardinalityCheckerRule extends CardinalityCheckerRule<IRoute> 
           new CardinalityViolation(OscConstants.ATTRIBUTE__CLOSED, 0, 1, ViolationType.REQUIRED));
     }
     // Check violation
-    List<IWaypoint> waypoints = object.getWaypoints();
+    int waypointsSize = object.getWaypointsSize();
     // Check too few elements
-    if (waypoints == null || waypoints.size() < 2) {
+    if (waypointsSize < 2) {
       violations.add(
           new CardinalityViolation(
-              OscConstants.ELEMENT__WAYPOINT,
-              2,
-              waypoints == null ? 0 : waypoints.size(),
-              ViolationType.TOO_FEW));
+              OscConstants.ELEMENT__WAYPOINT, 2, waypointsSize, ViolationType.TOO_FEW));
     }
     return violations;
   }

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITraveledDistanceCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,16 +28,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITraveledDistanceConditionWriter extends IOpenScenarioModelElement {
+public interface ITraveledDistanceConditionWriter
+    extends ITraveledDistanceCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Amount of traveled distance. Unit: m; Range:
-   * [0..inf[.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Amount of traveled distance. Unit: m; Range:
@@ -44,7 +39,7 @@ public interface ITraveledDistanceConditionWriter extends IOpenScenarioModelElem
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
 
   /**
    * Set a parameter for the attribute value

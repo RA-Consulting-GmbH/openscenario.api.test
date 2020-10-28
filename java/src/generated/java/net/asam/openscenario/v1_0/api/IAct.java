@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -39,7 +37,7 @@ public interface IAct extends IStoryboardElement {
    *
    * @return value of model property maneuverGroups
    */
-  public List<IManeuverGroup> getManeuverGroups();
+  public Iterable<IManeuverGroup> getManeuverGroups();
   /**
    * From OpenSCENARIO class model specification: Defines a trigger to that starts the act.
    *
@@ -52,4 +50,18 @@ public interface IAct extends IStoryboardElement {
    * @return value of model property stopTrigger
    */
   public ITrigger getStopTrigger();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getManeuverGroupsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IManeuverGroup getManeuverGroupsAtIndex(int index);
 }

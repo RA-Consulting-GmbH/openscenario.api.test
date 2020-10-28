@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPolyline;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,16 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPolylineWriter extends IOpenScenarioModelElement {
+public interface IPolylineWriter extends IPolyline, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Ordered chain of vertices of the polygonal chain.
+   *
+   * @param vertices value of model property vertices
+   */
+  public void setVertices(List<IVertexWriter> vertices);
 
   // children
 
@@ -36,12 +46,5 @@ public interface IPolylineWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property vertices
    */
-  public List<IVertexWriter> getVerticesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Ordered chain of vertices of the polygonal chain.
-   *
-   * @param verticesWriters list of writers for the model property vertices
-   */
-  public void setVerticesWriter(List<IVertexWriter> verticesWriters);
+  public List<IVertexWriter> getWriterVertices();
 }

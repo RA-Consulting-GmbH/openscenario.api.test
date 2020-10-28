@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ISpeedCondition;
 import net.asam.openscenario.v1_0.api.Rule;
 
 /**
@@ -28,34 +29,22 @@ import net.asam.openscenario.v1_0.api.Rule;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ISpeedConditionWriter extends IOpenScenarioModelElement {
+public interface ISpeedConditionWriter extends ISpeedCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Speed value of the speed condition. Unit m/s.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
-  /**
-   * From OpenSCENARIO class model specification: The operator (less, greater, equal).
-   *
-   * @return value of model property rule
-   */
-  public Rule getRule();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Speed value of the speed condition. Unit m/s.
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @param rule value of model property rule
    */
-  public void writeToRule(Rule rule);
+  public void setRule(Rule rule);
 
   /**
    * Set a parameter for the attribute value

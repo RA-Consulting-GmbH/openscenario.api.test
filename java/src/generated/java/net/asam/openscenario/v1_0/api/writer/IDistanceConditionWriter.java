@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IDistanceCondition;
 import net.asam.openscenario.v1_0.api.Rule;
 
 /**
@@ -28,62 +29,42 @@ import net.asam.openscenario.v1_0.api.Rule;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IDistanceConditionWriter extends IOpenScenarioModelElement {
+public interface IDistanceConditionWriter extends IDistanceCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The distance value. Unit: s; Range: [0..inf[.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
-  /**
-   * From OpenSCENARIO class model specification: True: distance is measured between closest
-   * bounding box points. False: reference point distance is used.
-   *
-   * @return value of model property freespace
-   */
-  public Boolean getFreespace();
-  /**
-   * From OpenSCENARIO class model specification: True: routing is taken into account, e.g. turns
-   * will increase distance. False: straight line distance is used.
-   *
-   * @return value of model property alongRoute
-   */
-  public Boolean getAlongRoute();
-  /**
-   * From OpenSCENARIO class model specification: The operator (less, greater, equal).
-   *
-   * @return value of model property rule
-   */
-  public Rule getRule();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The distance value. Unit: s; Range: [0..inf[.
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
   /**
    * From OpenSCENARIO class model specification: True: distance is measured between closest
    * bounding box points. False: reference point distance is used.
    *
    * @param freespace value of model property freespace
    */
-  public void writeToFreespace(Boolean freespace);
+  public void setFreespace(Boolean freespace);
   /**
    * From OpenSCENARIO class model specification: True: routing is taken into account, e.g. turns
    * will increase distance. False: straight line distance is used.
    *
    * @param alongRoute value of model property alongRoute
    */
-  public void writeToAlongRoute(Boolean alongRoute);
+  public void setAlongRoute(Boolean alongRoute);
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @param rule value of model property rule
    */
-  public void writeToRule(Rule rule);
+  public void setRule(Rule rule);
+  /**
+   * From OpenSCENARIO class model specification: The given position the distance is related to.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
 
   /**
    * Set a parameter for the attribute value
@@ -170,12 +151,5 @@ public interface IDistanceConditionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The given position the distance is related to.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
+  public IPositionWriter getWriterPosition();
 }

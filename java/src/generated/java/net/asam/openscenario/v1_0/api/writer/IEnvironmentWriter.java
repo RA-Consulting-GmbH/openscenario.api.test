@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IEnvironment;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,16 +28,10 @@ import java.util.List;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEnvironmentWriter extends ICatalogElementWriter {
+public interface IEnvironmentWriter
+    extends ICatalogElementWriter, IEnvironment, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the environment. If used in catalog name
-   * is required.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the environment. If used in catalog name
@@ -43,7 +39,31 @@ public interface IEnvironmentWriter extends ICatalogElementWriter {
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: Definition of additional parameters.
+   *
+   * @param parameterDeclarations value of model property parameterDeclarations
+   */
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations);
+  /**
+   * From OpenSCENARIO class model specification: Time of the day during the simulation.
+   *
+   * @param timeOfDay value of model property timeOfDay
+   */
+  public void setTimeOfDay(ITimeOfDayWriter timeOfDay);
+  /**
+   * From OpenSCENARIO class model specification: Weather conditions during the simulation.
+   *
+   * @param weather value of model property weather
+   */
+  public void setWeather(IWeatherWriter weather);
+  /**
+   * From OpenSCENARIO class model specification: Road conditions during the simulation.
+   *
+   * @param roadCondition value of model property roadCondition
+   */
+  public void setRoadCondition(IRoadConditionWriter roadCondition);
 
   /**
    * Set a parameter for the attribute name
@@ -73,52 +93,24 @@ public interface IEnvironmentWriter extends ICatalogElementWriter {
    *
    * @return a writer for model property timeOfDay
    */
-  public ITimeOfDayWriter getTimeOfDayWriter();
+  public ITimeOfDayWriter getWriterTimeOfDay();
   /**
    * From OpenSCENARIO class model specification: Weather conditions during the simulation.
    *
    * @return a writer for model property weather
    */
-  public IWeatherWriter getWeatherWriter();
+  public IWeatherWriter getWriterWeather();
   /**
    * From OpenSCENARIO class model specification: Road conditions during the simulation.
    *
    * @return a writer for model property roadCondition
    */
-  public IRoadConditionWriter getRoadConditionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Time of the day during the simulation.
-   *
-   * @param timeOfDayWriter writer for the model property timeOfDay
-   */
-  public void writeToTimeOfDayWriter(ITimeOfDayWriter timeOfDayWriter);
-  /**
-   * From OpenSCENARIO class model specification: Weather conditions during the simulation.
-   *
-   * @param weatherWriter writer for the model property weather
-   */
-  public void writeToWeatherWriter(IWeatherWriter weatherWriter);
-  /**
-   * From OpenSCENARIO class model specification: Road conditions during the simulation.
-   *
-   * @param roadConditionWriter writer for the model property roadCondition
-   */
-  public void writeToRoadConditionWriter(IRoadConditionWriter roadConditionWriter);
+  public IRoadConditionWriter getWriterRoadCondition();
 
   /**
    * From OpenSCENARIO class model specification: Definition of additional parameters.
    *
    * @return a list of writers for model property parameterDeclarations
    */
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of additional parameters.
-   *
-   * @param parameterDeclarationsWriters list of writers for the model property
-   *     parameterDeclarations
-   */
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters);
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations();
 }

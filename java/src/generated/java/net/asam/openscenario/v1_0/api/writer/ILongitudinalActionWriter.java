@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ILongitudinalAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,25 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILongitudinalActionWriter extends IOpenScenarioModelElement {
+public interface ILongitudinalActionWriter extends ILongitudinalAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: This action describes the transition between the
+   * current longitudinal speed of an entity and its target speed.
+   *
+   * @param speedAction value of model property speedAction
+   */
+  public void setSpeedAction(ISpeedActionWriter speedAction);
+  /**
+   * From OpenSCENARIO class model specification: This Action defines a continuously kept
+   * longitudinal distance to a specific entity.
+   *
+   * @param longitudinalDistanceAction value of model property longitudinalDistanceAction
+   */
+  public void setLongitudinalDistanceAction(
+      ILongitudinalDistanceActionWriter longitudinalDistanceAction);
 
   // children
   /**
@@ -35,29 +54,12 @@ public interface ILongitudinalActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property speedAction
    */
-  public ISpeedActionWriter getSpeedActionWriter();
+  public ISpeedActionWriter getWriterSpeedAction();
   /**
    * From OpenSCENARIO class model specification: This Action defines a continuously kept
    * longitudinal distance to a specific entity.
    *
    * @return a writer for model property longitudinalDistanceAction
    */
-  public ILongitudinalDistanceActionWriter getLongitudinalDistanceActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: This action describes the transition between the
-   * current longitudinal speed of an entity and its target speed.
-   *
-   * @param speedActionWriter writer for the model property speedAction
-   */
-  public void writeToSpeedActionWriter(ISpeedActionWriter speedActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: This Action defines a continuously kept
-   * longitudinal distance to a specific entity.
-   *
-   * @param longitudinalDistanceActionWriter writer for the model property
-   *     longitudinalDistanceAction
-   */
-  public void writeToLongitudinalDistanceActionWriter(
-      ILongitudinalDistanceActionWriter longitudinalDistanceActionWriter);
+  public ILongitudinalDistanceActionWriter getWriterLongitudinalDistanceAction();
 }

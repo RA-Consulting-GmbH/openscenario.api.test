@@ -51,8 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LateralDistanceActionImpl extends BaseImpl
-    implements ILateralDistanceAction, ILateralDistanceActionWriter {
+public class LateralDistanceActionImpl extends BaseImpl implements ILateralDistanceActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,13 +62,11 @@ public class LateralDistanceActionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__CONTINUOUS, SimpleType.BOOLEAN);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double distance;
   private Boolean freespace;
   private Boolean continuous;
-  private IDynamicConstraints dynamicConstraints;
-
-  private IDynamicConstraintsWriter dynamicConstraintsWriter;
+  private IDynamicConstraintsWriter dynamicConstraints;
 
   /** Default constructor */
   public LateralDistanceActionImpl() {
@@ -108,51 +105,29 @@ public class LateralDistanceActionImpl extends BaseImpl
   public IDynamicConstraints getDynamicConstraints() {
     return this.dynamicConstraints;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity the
-   *     lateral distance shall be kept to.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property distance
-   *
-   * @param distance from OpenSCENARIO class model specification: [Lateral distance value. Unit: m;
-   *     Range: [0..inf[.]
-   */
+
+  @Override
   public void setDistance(Double distance) {
     this.distance = distance;
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: Lateral distance is
-   *     measured using the distance between closest bounding box points. False: Reference point ,
-   *     distance is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
   }
-  /**
-   * Sets the value of model property continuous
-   *
-   * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when
-   *     the target distance is reached. If true it does not end and can only be stopped.]
-   */
+
+  @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
   }
-  /**
-   * Sets the value of model property dynamicConstraints
-   *
-   * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns
-   *     either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed
-   *     to the, action.]
-   */
-  public void setDynamicConstraints(IDynamicConstraints dynamicConstraints) {
+
+  @Override
+  public void setDynamicConstraints(IDynamicConstraintsWriter dynamicConstraints) {
     this.dynamicConstraints = dynamicConstraints;
   }
 
@@ -200,8 +175,8 @@ public class LateralDistanceActionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IDynamicConstraints dynamicConstraints = null;
-    dynamicConstraints = getDynamicConstraints();
+    IDynamicConstraintsWriter dynamicConstraints = null;
+    dynamicConstraints = getWriterDynamicConstraints();
     if (dynamicConstraints != null) {
       result.add((BaseImpl) dynamicConstraints);
     }
@@ -234,10 +209,10 @@ public class LateralDistanceActionImpl extends BaseImpl
     // Simple type
     clonedObject.setContinuous(getContinuous());
     // clone children
-    IDynamicConstraints dynamicConstraints = null;
-    dynamicConstraints = getDynamicConstraints();
+    IDynamicConstraintsWriter dynamicConstraints = null;
+    dynamicConstraints = getWriterDynamicConstraints();
     if (dynamicConstraints != null) {
-      DynamicConstraintsImpl clonedChild = ((DynamicConstraintsImpl) dynamicConstraints).clone();
+      IDynamicConstraintsWriter clonedChild = ((DynamicConstraintsImpl) dynamicConstraints).clone();
       clonedObject.setDynamicConstraints(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -352,26 +327,6 @@ public class LateralDistanceActionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToDistance(Double distance) {
-    setDistance(distance);
-  }
-
-  @Override
-  public void writeToFreespace(Boolean freespace) {
-    setFreespace(freespace);
-  }
-
-  @Override
-  public void writeToContinuous(Boolean continuous) {
-    setContinuous(continuous);
-  }
-
-  @Override
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
@@ -435,12 +390,7 @@ public class LateralDistanceActionImpl extends BaseImpl
 
   // children
   @Override
-  public IDynamicConstraintsWriter getDynamicConstraintsWriter() {
-    return this.dynamicConstraintsWriter;
-  }
-
-  @Override
-  public void writeToDynamicConstraintsWriter(IDynamicConstraintsWriter dynamicConstraintsWriter) {
-    this.dynamicConstraintsWriter = dynamicConstraintsWriter;
+  public IDynamicConstraintsWriter getWriterDynamicConstraints() {
+    return this.dynamicConstraints;
   }
 }

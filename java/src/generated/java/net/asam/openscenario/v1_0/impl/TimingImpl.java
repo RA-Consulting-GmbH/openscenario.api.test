@@ -48,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimingImpl extends BaseImpl implements ITiming, ITimingWriter {
+public class TimingImpl extends BaseImpl implements ITimingWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -89,31 +89,18 @@ public class TimingImpl extends BaseImpl implements ITiming, ITimingWriter {
   public Double getOffset() {
     return this.offset;
   }
-  /**
-   * Sets the value of model property domainAbsoluteRelative
-   *
-   * @param domainAbsoluteRelative from OpenSCENARIO class model specification: [Definition of time
-   *     value context as either absolute or relative.]
-   */
+
+  @Override
   public void setDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative) {
     this.domainAbsoluteRelative = domainAbsoluteRelative;
   }
-  /**
-   * Sets the value of model property scale
-   *
-   * @param scale from OpenSCENARIO class model specification: [Scaling factor for time values.
-   *     While values smaller than 1.0 represent negative scaling, values larger than 1.0 will ,
-   *     result in positive scaling. A value of 1.0 means no scaling. Range: ]0..inf[.]
-   */
+
+  @Override
   public void setScale(Double scale) {
     this.scale = scale;
   }
-  /**
-   * Sets the value of model property offset
-   *
-   * @param offset from OpenSCENARIO class model specification: [Introduction of a global offset for
-   *     all time values. Unit: s; Range: ]-inf..inf[.]
-   */
+
+  @Override
   public void setOffset(Double offset) {
     this.offset = offset;
   }
@@ -280,21 +267,6 @@ public class TimingImpl extends BaseImpl implements ITiming, ITimingWriter {
   @Override
   public String getModelType() {
     return "Timing";
-  }
-
-  @Override
-  public void writeToDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative) {
-    setDomainAbsoluteRelative(domainAbsoluteRelative);
-  }
-
-  @Override
-  public void writeToScale(Double scale) {
-    setScale(scale);
-  }
-
-  @Override
-  public void writeToOffset(Double offset) {
-    setOffset(offset);
   }
 
   @Override

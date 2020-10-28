@@ -51,8 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeObjectPositionImpl extends BaseImpl
-    implements IRelativeObjectPosition, IRelativeObjectPositionWriter {
+public class RelativeObjectPositionImpl extends BaseImpl implements IRelativeObjectPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,13 +62,11 @@ public class RelativeObjectPositionImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__DZ, SimpleType.DOUBLE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double dx;
   private Double dy;
   private Double dz;
-  private IOrientation orientation;
-
-  private IOrientationWriter orientationWriter;
+  private IOrientationWriter orientation;
 
   /** Default constructor */
   public RelativeObjectPositionImpl() {
@@ -108,48 +105,29 @@ public class RelativeObjectPositionImpl extends BaseImpl
   public IOrientation getOrientation() {
     return this.orientation;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
-  /**
-   * Sets the value of model property dx
-   *
-   * @param dx from OpenSCENARIO class model specification: [Relative position in the x axis, using
-   *     the coordinate system of the reference entity.]
-   */
+
+  @Override
   public void setDx(Double dx) {
     this.dx = dx;
   }
-  /**
-   * Sets the value of model property dy
-   *
-   * @param dy from OpenSCENARIO class model specification: [Relative position in the y axis, using
-   *     the coordinate system of the reference entity.]
-   */
+
+  @Override
   public void setDy(Double dy) {
     this.dy = dy;
   }
-  /**
-   * Sets the value of model property dz
-   *
-   * @param dz from OpenSCENARIO class model specification: [Relative position in the z axis, using
-   *     the coordinate system of the reference entity.]
-   */
+
+  @Override
   public void setDz(Double dz) {
     this.dz = dz;
   }
-  /**
-   * Sets the value of model property orientation
-   *
-   * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative
-   *     reference context refers to the orientation of the reference entity.]
-   */
-  public void setOrientation(IOrientation orientation) {
+
+  @Override
+  public void setOrientation(IOrientationWriter orientation) {
     this.orientation = orientation;
   }
 
@@ -197,8 +175,8 @@ public class RelativeObjectPositionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
       result.add((BaseImpl) orientation);
     }
@@ -231,10 +209,10 @@ public class RelativeObjectPositionImpl extends BaseImpl
     // Simple type
     clonedObject.setDz(getDz());
     // clone children
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
-      OrientationImpl clonedChild = ((OrientationImpl) orientation).clone();
+      IOrientationWriter clonedChild = ((OrientationImpl) orientation).clone();
       clonedObject.setOrientation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -345,26 +323,6 @@ public class RelativeObjectPositionImpl extends BaseImpl
   }
 
   @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
-  }
-
-  @Override
-  public void writeToDx(Double dx) {
-    setDx(dx);
-  }
-
-  @Override
-  public void writeToDy(Double dy) {
-    setDy(dy);
-  }
-
-  @Override
-  public void writeToDz(Double dz) {
-    setDz(dz);
-  }
-
-  @Override
   public void writeParameterToEntityRef(String parameterName) {
     setAttributeParameter(
         OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
@@ -427,12 +385,7 @@ public class RelativeObjectPositionImpl extends BaseImpl
 
   // children
   @Override
-  public IOrientationWriter getOrientationWriter() {
-    return this.orientationWriter;
-  }
-
-  @Override
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    this.orientationWriter = orientationWriter;
+  public IOrientationWriter getWriterOrientation() {
+    return this.orientation;
   }
 }

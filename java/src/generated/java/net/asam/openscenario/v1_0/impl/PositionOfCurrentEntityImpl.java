@@ -49,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class PositionOfCurrentEntityImpl extends BaseImpl
-    implements IPositionOfCurrentEntity, IPositionOfCurrentEntityWriter {
+    implements IPositionOfCurrentEntityWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,7 +57,7 @@ public class PositionOfCurrentEntityImpl extends BaseImpl
     propertyToType.put(OscConstants.ATTRIBUTE__ENTITY_REF, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
 
   /** Default constructor */
   public PositionOfCurrentEntityImpl() {
@@ -76,12 +76,9 @@ public class PositionOfCurrentEntityImpl extends BaseImpl
   public INamedReference<IEntity> getEntityRef() {
     return this.entityRef;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference to an entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
   }
 
@@ -222,11 +219,6 @@ public class PositionOfCurrentEntityImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "PositionOfCurrentEntity";
-  }
-
-  @Override
-  public void writeToEntityRef(INamedReference<IEntity> entityRef) {
-    setEntityRef(new NamedReferenceProxy<>(entityRef.getTargetObject(), entityRef.getNameRef()));
   }
 
   @Override

@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -57,7 +55,7 @@ public interface IPedestrian extends ICatalogElement {
    *
    * @return value of model property parameterDeclarations
    */
-  public List<IParameterDeclaration> getParameterDeclarations();
+  public Iterable<IParameterDeclaration> getParameterDeclarations();
   /**
    * From OpenSCENARIO class model specification: Bounding box of the pedestrian.
    *
@@ -70,4 +68,18 @@ public interface IPedestrian extends ICatalogElement {
    * @return value of model property properties
    */
   public IProperties getProperties();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getParameterDeclarationsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index);
 }

@@ -17,8 +17,6 @@
 
 package net.asam.openscenario.v1_0.test;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +27,6 @@ import net.asam.openscenario.loader.FileResourceLocator;
 import net.asam.openscenario.loader.IScenarioLoader;
 import net.asam.openscenario.loader.IScenarioLoaderFactory;
 import net.asam.openscenario.loader.ScenarioLoaderException;
-import net.asam.openscenario.v1_0.api.IAxle;
 import net.asam.openscenario.v1_0.api.IAxles;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IFileHeader;
@@ -94,7 +91,7 @@ public class TestSimpleDemos extends TestBase {
         (IOpenScenario) loader.load(messageLogger).getAdapter(IOpenScenario.class);
 
     // Get the list of scenario objects
-    List<IScenarioObject> scenarioObjects =
+    Iterable<IScenarioObject> scenarioObjects =
         openScenario
             .getOpenScenarioCategory()
             .getScenarioDefinition()
@@ -114,15 +111,15 @@ public class TestSimpleDemos extends TestBase {
             // Now you can access the resolved vehicle
             IAxles axles = vehicle.getAxles();
             // get the additonal axles
-            List<IAxle> additionalAxles = axles.getAdditionalAxles();
-            if (additionalAxles == null || additionalAxles.size() == 0) {
+            int additionalAxlesSize  = axles.getAdditionalAxlesSize();
+            if (additionalAxlesSize == 0) {
               System.out.println("Ego has 2 axles (front, rear)");
             } else {
               System.out.println(
                   "Ego has "
-                      + (2 + additionalAxles.size())
+                      + (2 + additionalAxlesSize)
                       + " axles (front, rear and "
-                      + additionalAxles.size()
+                      + additionalAxlesSize
                       + " addtional axles");
             }
           }

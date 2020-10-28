@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileHeaderImpl extends BaseImpl implements IFileHeader, IFileHeaderWriter {
+public class FileHeaderImpl extends BaseImpl implements IFileHeaderWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -100,47 +100,28 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, IFileHeader
   public String getAuthor() {
     return this.author;
   }
-  /**
-   * Sets the value of model property revMajor
-   *
-   * @param revMajor from OpenSCENARIO class model specification: [Major OpenSCENARIO revision, this
-   *     file conforms to Range: [0..inf[.]
-   */
+
+  @Override
   public void setRevMajor(Integer revMajor) {
     this.revMajor = revMajor;
   }
-  /**
-   * Sets the value of model property revMinor
-   *
-   * @param revMinor from OpenSCENARIO class model specification: [Minor OpenSCENARIO revision, this
-   *     file conforms to Range: [0..inf[.]
-   */
+
+  @Override
   public void setRevMinor(Integer revMinor) {
     this.revMinor = revMinor;
   }
-  /**
-   * Sets the value of model property date
-   *
-   * @param date from OpenSCENARIO class model specification: [User specific date and time
-   *     recommended: YYYY-MM-DDThh:mm:ss.]
-   */
+
+  @Override
   public void setDate(java.util.Date date) {
     this.date = date;
   }
-  /**
-   * Sets the value of model property description
-   *
-   * @param description from OpenSCENARIO class model specification: [User specific description.]
-   */
+
+  @Override
   public void setDescription(String description) {
     this.description = description;
   }
-  /**
-   * Sets the value of model property author
-   *
-   * @param author from OpenSCENARIO class model specification: [Author of the scenario or the
-   *     catalog.]
-   */
+
+  @Override
   public void setAuthor(String author) {
     this.author = author;
   }
@@ -320,31 +301,6 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader, IFileHeader
   @Override
   public String getModelType() {
     return "FileHeader";
-  }
-
-  @Override
-  public void writeToRevMajor(Integer revMajor) {
-    setRevMajor(revMajor);
-  }
-
-  @Override
-  public void writeToRevMinor(Integer revMinor) {
-    setRevMinor(revMinor);
-  }
-
-  @Override
-  public void writeToDate(java.util.Date date) {
-    setDate(date);
-  }
-
-  @Override
-  public void writeToDescription(String description) {
-    setDescription(description);
-  }
-
-  @Override
-  public void writeToAuthor(String author) {
-    setAuthor(author);
   }
 
   @Override

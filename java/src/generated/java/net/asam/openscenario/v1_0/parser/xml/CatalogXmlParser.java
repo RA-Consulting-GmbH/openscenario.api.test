@@ -26,14 +26,14 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IController;
-import net.asam.openscenario.v1_0.api.IEnvironment;
-import net.asam.openscenario.v1_0.api.IManeuver;
-import net.asam.openscenario.v1_0.api.IMiscObject;
-import net.asam.openscenario.v1_0.api.IPedestrian;
-import net.asam.openscenario.v1_0.api.IRoute;
-import net.asam.openscenario.v1_0.api.ITrajectory;
-import net.asam.openscenario.v1_0.api.IVehicle;
+import net.asam.openscenario.v1_0.api.writer.IControllerWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.CatalogImpl;
 import net.asam.openscenario.v1_0.impl.ControllerImpl;
@@ -156,7 +156,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       vehicles.setParent(object);
       this.vehicleXmlParser.parseElement(indexedElement, parserContext, vehicles);
-      List<IVehicle> vehiclesList = object.getVehicles();
+      List<IVehicleWriter> vehiclesList = object.getWriterVehicles();
       if (vehiclesList == null) {
         vehiclesList = new ArrayList<>();
         object.setVehicles(vehiclesList);
@@ -205,7 +205,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       controllers.setParent(object);
       this.controllerXmlParser.parseElement(indexedElement, parserContext, controllers);
-      List<IController> controllersList = object.getControllers();
+      List<IControllerWriter> controllersList = object.getWriterControllers();
       if (controllersList == null) {
         controllersList = new ArrayList<>();
         object.setControllers(controllersList);
@@ -254,7 +254,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       pedestrians.setParent(object);
       this.pedestrianXmlParser.parseElement(indexedElement, parserContext, pedestrians);
-      List<IPedestrian> pedestriansList = object.getPedestrians();
+      List<IPedestrianWriter> pedestriansList = object.getWriterPedestrians();
       if (pedestriansList == null) {
         pedestriansList = new ArrayList<>();
         object.setPedestrians(pedestriansList);
@@ -303,7 +303,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       miscObjects.setParent(object);
       this.miscObjectXmlParser.parseElement(indexedElement, parserContext, miscObjects);
-      List<IMiscObject> miscObjectsList = object.getMiscObjects();
+      List<IMiscObjectWriter> miscObjectsList = object.getWriterMiscObjects();
       if (miscObjectsList == null) {
         miscObjectsList = new ArrayList<>();
         object.setMiscObjects(miscObjectsList);
@@ -352,7 +352,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       environments.setParent(object);
       this.environmentXmlParser.parseElement(indexedElement, parserContext, environments);
-      List<IEnvironment> environmentsList = object.getEnvironments();
+      List<IEnvironmentWriter> environmentsList = object.getWriterEnvironments();
       if (environmentsList == null) {
         environmentsList = new ArrayList<>();
         object.setEnvironments(environmentsList);
@@ -401,7 +401,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       maneuvers.setParent(object);
       this.maneuverXmlParser.parseElement(indexedElement, parserContext, maneuvers);
-      List<IManeuver> maneuversList = object.getManeuvers();
+      List<IManeuverWriter> maneuversList = object.getWriterManeuvers();
       if (maneuversList == null) {
         maneuversList = new ArrayList<>();
         object.setManeuvers(maneuversList);
@@ -450,7 +450,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       trajectories.setParent(object);
       this.trajectoryXmlParser.parseElement(indexedElement, parserContext, trajectories);
-      List<ITrajectory> trajectoriesList = object.getTrajectories();
+      List<ITrajectoryWriter> trajectoriesList = object.getWriterTrajectories();
       if (trajectoriesList == null) {
         trajectoriesList = new ArrayList<>();
         object.setTrajectories(trajectoriesList);
@@ -498,7 +498,7 @@ public class CatalogXmlParser extends XmlComplexTypeParser<CatalogImpl> {
       // Setting the parent
       routes.setParent(object);
       this.routeXmlParser.parseElement(indexedElement, parserContext, routes);
-      List<IRoute> routesList = object.getRoutes();
+      List<IRouteWriter> routesList = object.getWriterRoutes();
       if (routesList == null) {
         routesList = new ArrayList<>();
         object.setRoutes(routesList);

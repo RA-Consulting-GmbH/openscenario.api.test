@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IUserDefinedAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,17 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IUserDefinedActionWriter extends IOpenScenarioModelElement {
+public interface IUserDefinedActionWriter extends IUserDefinedAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: The available commands are subject of a contract
+   * between simulation environment provider and scenario author.
+   *
+   * @param customCommandAction value of model property customCommandAction
+   */
+  public void setCustomCommandAction(ICustomCommandActionWriter customCommandAction);
 
   // children
   /**
@@ -36,14 +47,5 @@ public interface IUserDefinedActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property customCommandAction
    */
-  public ICustomCommandActionWriter getCustomCommandActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The available commands are subject of a contract
-   * between simulation environment provider and scenario author.
-   *
-   * @param customCommandActionWriter writer for the model property customCommandAction
-   */
-  public void writeToCustomCommandActionWriter(
-      ICustomCommandActionWriter customCommandActionWriter);
+  public ICustomCommandActionWriter getWriterCustomCommandAction();
 }

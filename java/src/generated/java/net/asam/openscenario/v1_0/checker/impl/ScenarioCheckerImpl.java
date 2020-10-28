@@ -2417,7 +2417,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IManeuverGroup> maneuverGroups = object.getManeuverGroups();
+    Iterable<IManeuverGroup> maneuverGroups = object.getManeuverGroups();
     if (maneuverGroups != null) {
       for (IManeuverGroup listItem : maneuverGroups) {
         applyManeuverGroupCheckerRules(messageLogger, listItem, contextMode);
@@ -2498,7 +2498,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IEntityRef> entityRefs = object.getEntityRefs();
+    Iterable<IEntityRef> entityRefs = object.getEntityRefs();
     if (entityRefs != null) {
       for (IEntityRef listItem : entityRefs) {
         applyEntityRefCheckerRules(messageLogger, listItem, contextMode);
@@ -2625,7 +2625,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
     if (rearAxle != null) {
       applyAxleCheckerRules(messageLogger, rearAxle, contextMode);
     }
-    List<IAxle> additionalAxles = object.getAdditionalAxles();
+    Iterable<IAxle> additionalAxles = object.getAdditionalAxles();
     if (additionalAxles != null) {
       for (IAxle listItem : additionalAxles) {
         applyAxleCheckerRules(messageLogger, listItem, contextMode);
@@ -2786,49 +2786,49 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IVehicle> vehicles = object.getVehicles();
+    Iterable<IVehicle> vehicles = object.getVehicles();
     if (vehicles != null) {
       for (IVehicle listItem : vehicles) {
         applyVehicleCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IController> controllers = object.getControllers();
+    Iterable<IController> controllers = object.getControllers();
     if (controllers != null) {
       for (IController listItem : controllers) {
         applyControllerCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IPedestrian> pedestrians = object.getPedestrians();
+    Iterable<IPedestrian> pedestrians = object.getPedestrians();
     if (pedestrians != null) {
       for (IPedestrian listItem : pedestrians) {
         applyPedestrianCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IMiscObject> miscObjects = object.getMiscObjects();
+    Iterable<IMiscObject> miscObjects = object.getMiscObjects();
     if (miscObjects != null) {
       for (IMiscObject listItem : miscObjects) {
         applyMiscObjectCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IEnvironment> environments = object.getEnvironments();
+    Iterable<IEnvironment> environments = object.getEnvironments();
     if (environments != null) {
       for (IEnvironment listItem : environments) {
         applyEnvironmentCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IManeuver> maneuvers = object.getManeuvers();
+    Iterable<IManeuver> maneuvers = object.getManeuvers();
     if (maneuvers != null) {
       for (IManeuver listItem : maneuvers) {
         applyManeuverCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<ITrajectory> trajectories = object.getTrajectories();
+    Iterable<ITrajectory> trajectories = object.getTrajectories();
     if (trajectories != null) {
       for (ITrajectory listItem : trajectories) {
         applyTrajectoryCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IRoute> routes = object.getRoutes();
+    Iterable<IRoute> routes = object.getRoutes();
     if (routes != null) {
       for (IRoute listItem : routes) {
         applyRouteCheckerRules(messageLogger, listItem, contextMode);
@@ -2927,7 +2927,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterAssignment> parameterAssignments = object.getParameterAssignments();
+    Iterable<IParameterAssignment> parameterAssignments = object.getParameterAssignments();
     if (parameterAssignments != null) {
       for (IParameterAssignment listItem : parameterAssignments) {
         applyParameterAssignmentCheckerRules(messageLogger, listItem, contextMode);
@@ -3061,7 +3061,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<ICondition> conditions = object.getConditions();
+    Iterable<ICondition> conditions = object.getConditions();
     if (conditions != null) {
       for (ICondition listItem : conditions) {
         applyConditionCheckerRules(messageLogger, listItem, contextMode);
@@ -3105,7 +3105,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
@@ -3190,7 +3190,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IControllerDistributionEntry> controllerDistributionEntries =
+    Iterable<IControllerDistributionEntry> controllerDistributionEntries =
         object.getControllerDistributionEntries();
     if (controllerDistributionEntries != null) {
       for (IControllerDistributionEntry listItem : controllerDistributionEntries) {
@@ -3378,13 +3378,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IScenarioObject> scenarioObjects = object.getScenarioObjects();
+    Iterable<IScenarioObject> scenarioObjects = object.getScenarioObjects();
     if (scenarioObjects != null) {
       for (IScenarioObject listItem : scenarioObjects) {
         applyScenarioObjectCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IEntitySelection> entitySelections = object.getEntitySelections();
+    Iterable<IEntitySelection> entitySelections = object.getEntitySelections();
     if (entitySelections != null) {
       for (IEntitySelection listItem : entitySelections) {
         applyEntitySelectionCheckerRules(messageLogger, listItem, contextMode);
@@ -3579,7 +3579,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
@@ -3666,7 +3666,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IAction> actions = object.getActions();
+    Iterable<IAction> actions = object.getActions();
     if (actions != null) {
       for (IAction listItem : actions) {
         applyActionCheckerRules(messageLogger, listItem, contextMode);
@@ -3924,19 +3924,19 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IGlobalAction> globalActions = object.getGlobalActions();
+    Iterable<IGlobalAction> globalActions = object.getGlobalActions();
     if (globalActions != null) {
       for (IGlobalAction listItem : globalActions) {
         applyGlobalActionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IUserDefinedAction> userDefinedActions = object.getUserDefinedActions();
+    Iterable<IUserDefinedAction> userDefinedActions = object.getUserDefinedActions();
     if (userDefinedActions != null) {
       for (IUserDefinedAction listItem : userDefinedActions) {
         applyUserDefinedActionCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IPrivate> privates = object.getPrivates();
+    Iterable<IPrivate> privates = object.getPrivates();
     if (privates != null) {
       for (IPrivate listItem : privates) {
         applyPrivateCheckerRules(messageLogger, listItem, contextMode);
@@ -4237,13 +4237,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IEvent> events = object.getEvents();
+    Iterable<IEvent> events = object.getEvents();
     if (events != null) {
       for (IEvent listItem : events) {
         applyEventCheckerRules(messageLogger, listItem, contextMode);
@@ -4296,13 +4296,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
     if (actors != null) {
       applyActorsCheckerRules(messageLogger, actors, contextMode);
     }
-    List<ICatalogReference> catalogReferences = object.getCatalogReferences();
+    Iterable<ICatalogReference> catalogReferences = object.getCatalogReferences();
     if (catalogReferences != null) {
       for (ICatalogReference listItem : catalogReferences) {
         applyCatalogReferenceCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IManeuver> maneuvers = object.getManeuvers();
+    Iterable<IManeuver> maneuvers = object.getManeuvers();
     if (maneuvers != null) {
       for (IManeuver listItem : maneuvers) {
         applyManeuverCheckerRules(messageLogger, listItem, contextMode);
@@ -4325,7 +4325,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
@@ -4423,13 +4423,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IControlPoint> controlPoints = object.getControlPoints();
+    Iterable<IControlPoint> controlPoints = object.getControlPoints();
     if (controlPoints != null) {
       for (IControlPoint listItem : controlPoints) {
         applyControlPointCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IKnot> knots = object.getKnots();
+    Iterable<IKnot> knots = object.getKnots();
     if (knots != null) {
       for (IKnot listItem : knots) {
         applyKnotCheckerRules(messageLogger, listItem, contextMode);
@@ -4912,7 +4912,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
@@ -4985,7 +4985,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<ITrafficSignalState> trafficSignalStates = object.getTrafficSignalStates();
+    Iterable<ITrafficSignalState> trafficSignalStates = object.getTrafficSignalStates();
     if (trafficSignalStates != null) {
       for (ITrafficSignalState listItem : trafficSignalStates) {
         applyTrafficSignalStateCheckerRules(messageLogger, listItem, contextMode);
@@ -5008,7 +5008,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IVertex> vertices = object.getVertices();
+    Iterable<IVertex> vertices = object.getVertices();
     if (vertices != null) {
       for (IVertex listItem : vertices) {
         applyVertexCheckerRules(messageLogger, listItem, contextMode);
@@ -5161,7 +5161,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IPrivateAction> privateActions = object.getPrivateActions();
+    Iterable<IPrivateAction> privateActions = object.getPrivateActions();
     if (privateActions != null) {
       for (IPrivateAction listItem : privateActions) {
         applyPrivateActionCheckerRules(messageLogger, listItem, contextMode);
@@ -5235,13 +5235,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IProperty> properties = object.getProperties();
+    Iterable<IProperty> properties = object.getProperties();
     if (properties != null) {
       for (IProperty listItem : properties) {
         applyPropertyCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IFile> files = object.getFiles();
+    Iterable<IFile> files = object.getFiles();
     if (files != null) {
       for (IFile listItem : files) {
         applyFileCheckerRules(messageLogger, listItem, contextMode);
@@ -5560,7 +5560,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
     if (sceneGraphFile != null) {
       applyFileCheckerRules(messageLogger, sceneGraphFile, contextMode);
     }
-    List<ITrafficSignalController> trafficSignals = object.getTrafficSignals();
+    Iterable<ITrafficSignalController> trafficSignals = object.getTrafficSignals();
     if (trafficSignals != null) {
       for (ITrafficSignalController listItem : trafficSignals) {
         applyTrafficSignalControllerCheckerRules(messageLogger, listItem, contextMode);
@@ -5604,13 +5604,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IWaypoint> waypoints = object.getWaypoints();
+    Iterable<IWaypoint> waypoints = object.getWaypoints();
     if (waypoints != null) {
       for (IWaypoint listItem : waypoints) {
         applyWaypointCheckerRules(messageLogger, listItem, contextMode);
@@ -5745,7 +5745,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
@@ -5813,13 +5813,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IEntityRef> entityRef = object.getEntityRef();
+    Iterable<IEntityRef> entityRef = object.getEntityRef();
     if (entityRef != null) {
       for (IEntityRef listItem : entityRef) {
         applyEntityRefCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IByType> byType = object.getByType();
+    Iterable<IByType> byType = object.getByType();
     if (byType != null) {
       for (IByType listItem : byType) {
         applyByTypeCheckerRules(messageLogger, listItem, contextMode);
@@ -5984,13 +5984,13 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
       }
     }
-    List<IAct> acts = object.getActs();
+    Iterable<IAct> acts = object.getActs();
     if (acts != null) {
       for (IAct listItem : acts) {
         applyActCheckerRules(messageLogger, listItem, contextMode);
@@ -6017,7 +6017,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
     if (init != null) {
       applyInitCheckerRules(messageLogger, init, contextMode);
     }
-    List<IStory> stories = object.getStories();
+    Iterable<IStory> stories = object.getStories();
     if (stories != null) {
       for (IStory listItem : stories) {
         applyStoryCheckerRules(messageLogger, listItem, contextMode);
@@ -6408,7 +6408,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IPhase> phases = object.getPhases();
+    Iterable<IPhase> phases = object.getPhases();
     if (phases != null) {
       for (IPhase listItem : phases) {
         applyPhaseCheckerRules(messageLogger, listItem, contextMode);
@@ -6596,7 +6596,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
@@ -6709,7 +6709,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IConditionGroup> conditionGroups = object.getConditionGroups();
+    Iterable<IConditionGroup> conditionGroups = object.getConditionGroups();
     if (conditionGroups != null) {
       for (IConditionGroup listItem : conditionGroups) {
         applyConditionGroupCheckerRules(messageLogger, listItem, contextMode);
@@ -6734,7 +6734,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IEntityRef> entityRefs = object.getEntityRefs();
+    Iterable<IEntityRef> entityRefs = object.getEntityRefs();
     if (entityRefs != null) {
       for (IEntityRef listItem : entityRefs) {
         applyEntityRefCheckerRules(messageLogger, listItem, contextMode);
@@ -6801,7 +6801,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
+    Iterable<IParameterDeclaration> parameterDeclarations = object.getParameterDeclarations();
     if (parameterDeclarations != null) {
       for (IParameterDeclaration listItem : parameterDeclarations) {
         applyParameterDeclarationCheckerRules(messageLogger, listItem, contextMode);
@@ -6869,7 +6869,7 @@ public class ScenarioCheckerImpl implements IScenarioChecker {
       }
     }
     // getChildren
-    List<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries =
+    Iterable<IVehicleCategoryDistributionEntry> vehicleCategoryDistributionEntries =
         object.getVehicleCategoryDistributionEntries();
     if (vehicleCategoryDistributionEntries != null) {
       for (IVehicleCategoryDistributionEntry listItem : vehicleCategoryDistributionEntries) {

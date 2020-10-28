@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IWorldPosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,88 +28,49 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IWorldPositionWriter extends IOpenScenarioModelElement {
+public interface IWorldPositionWriter extends IWorldPosition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The x coordinate value.
-   *
-   * @return value of model property x
-   */
-  public Double getX();
-  /**
-   * From OpenSCENARIO class model specification: The y coordinate value.
-   *
-   * @return value of model property y
-   */
-  public Double getY();
-  /**
-   * From OpenSCENARIO class model specification: The z coordinate value.
-   *
-   * @return value of model property z
-   */
-  public Double getZ();
-  /**
-   * From OpenSCENARIO class model specification: The heading angle of the object, defining a
-   * mathematically positive rotation about the z-axis (see ISO 8855:2011).
-   *
-   * @return value of model property h
-   */
-  public Double getH();
-  /**
-   * From OpenSCENARIO class model specification: The pitch angle of the object, defining a
-   * mathematically positive rotation about the y-axis (see ISO 8855:2011).
-   *
-   * @return value of model property p
-   */
-  public Double getP();
-  /**
-   * From OpenSCENARIO class model specification: The roll angle of the object, defining a
-   * mathematically positive rotation about the x-axis (see ISO 8855:2011).
-   *
-   * @return value of model property r
-   */
-  public Double getR();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The x coordinate value.
    *
    * @param x value of model property x
    */
-  public void writeToX(Double x);
+  public void setX(Double x);
   /**
    * From OpenSCENARIO class model specification: The y coordinate value.
    *
    * @param y value of model property y
    */
-  public void writeToY(Double y);
+  public void setY(Double y);
   /**
    * From OpenSCENARIO class model specification: The z coordinate value.
    *
    * @param z value of model property z
    */
-  public void writeToZ(Double z);
+  public void setZ(Double z);
   /**
    * From OpenSCENARIO class model specification: The heading angle of the object, defining a
    * mathematically positive rotation about the z-axis (see ISO 8855:2011).
    *
    * @param h value of model property h
    */
-  public void writeToH(Double h);
+  public void setH(Double h);
   /**
    * From OpenSCENARIO class model specification: The pitch angle of the object, defining a
    * mathematically positive rotation about the y-axis (see ISO 8855:2011).
    *
    * @param p value of model property p
    */
-  public void writeToP(Double p);
+  public void setP(Double p);
   /**
    * From OpenSCENARIO class model specification: The roll angle of the object, defining a
    * mathematically positive rotation about the x-axis (see ISO 8855:2011).
    *
    * @param r value of model property r
    */
-  public void writeToR(Double r);
+  public void setR(Double r);
 
   /**
    * Set a parameter for the attribute x

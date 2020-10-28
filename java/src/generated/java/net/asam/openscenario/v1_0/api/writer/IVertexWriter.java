@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IVertex;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IVertexWriter extends IOpenScenarioModelElement {
+public interface IVertexWriter extends IVertex, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Optional time specification of the vertex.
-   *
-   * @return value of model property time
-   */
-  public Double getTime();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Optional time specification of the vertex.
    *
    * @param time value of model property time
    */
-  public void writeToTime(Double time);
+  public void setTime(Double time);
+  /**
+   * From OpenSCENARIO class model specification: Position of the vertex.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
 
   /**
    * Set a parameter for the attribute time
@@ -71,12 +72,5 @@ public interface IVertexWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Position of the vertex.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
+  public IPositionWriter getWriterPosition();
 }

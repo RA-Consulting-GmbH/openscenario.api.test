@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IDynamicConstraints;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,30 +28,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IDynamicConstraintsWriter extends IOpenScenarioModelElement {
+public interface IDynamicConstraintsWriter extends IDynamicConstraints, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Maximum acceleration the distance controller is
-   * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.
-   *
-   * @return value of model property maxAcceleration
-   */
-  public Double getMaxAcceleration();
-  /**
-   * From OpenSCENARIO class model specification: Maximum deceleration the distance controller is
-   * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.
-   *
-   * @return value of model property maxDeceleration
-   */
-  public Double getMaxDeceleration();
-  /**
-   * From OpenSCENARIO class model specification: Maximum speed the distance controller is allowed
-   * to use for keeping the distance. Unit: m/s; Range: [0..inf[.
-   *
-   * @return value of model property maxSpeed
-   */
-  public Double getMaxSpeed();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Maximum acceleration the distance controller is
@@ -58,21 +38,21 @@ public interface IDynamicConstraintsWriter extends IOpenScenarioModelElement {
    *
    * @param maxAcceleration value of model property maxAcceleration
    */
-  public void writeToMaxAcceleration(Double maxAcceleration);
+  public void setMaxAcceleration(Double maxAcceleration);
   /**
    * From OpenSCENARIO class model specification: Maximum deceleration the distance controller is
    * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.
    *
    * @param maxDeceleration value of model property maxDeceleration
    */
-  public void writeToMaxDeceleration(Double maxDeceleration);
+  public void setMaxDeceleration(Double maxDeceleration);
   /**
    * From OpenSCENARIO class model specification: Maximum speed the distance controller is allowed
    * to use for keeping the distance. Unit: m/s; Range: [0..inf[.
    *
    * @param maxSpeed value of model property maxSpeed
    */
-  public void writeToMaxSpeed(Double maxSpeed);
+  public void setMaxSpeed(Double maxSpeed);
 
   /**
    * Set a parameter for the attribute maxAcceleration

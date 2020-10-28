@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,29 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IControllerDistributionEntryWriter extends IOpenScenarioModelElement {
+public interface IControllerDistributionEntryWriter
+    extends IControllerDistributionEntry, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The weight of the entry. Range: ]0..inf[.
-   *
-   * @return value of model property weight
-   */
-  public Double getWeight();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The weight of the entry. Range: ]0..inf[.
    *
    * @param weight value of model property weight
    */
-  public void writeToWeight(Double weight);
+  public void setWeight(Double weight);
+  /**
+   * From OpenSCENARIO class model specification: The specified controller type.
+   *
+   * @param controller value of model property controller
+   */
+  public void setController(IControllerWriter controller);
+  /**
+   * From OpenSCENARIO class model specification: A controller type import from a catalog.
+   *
+   * @param catalogReference value of model property catalogReference
+   */
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference);
 
   /**
    * Set a parameter for the attribute weight
@@ -71,24 +79,11 @@ public interface IControllerDistributionEntryWriter extends IOpenScenarioModelEl
    *
    * @return a writer for model property controller
    */
-  public IControllerWriter getControllerWriter();
+  public IControllerWriter getWriterController();
   /**
    * From OpenSCENARIO class model specification: A controller type import from a catalog.
    *
    * @return a writer for model property catalogReference
    */
-  public ICatalogReferenceWriter getCatalogReferenceWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The specified controller type.
-   *
-   * @param controllerWriter writer for the model property controller
-   */
-  public void writeToControllerWriter(IControllerWriter controllerWriter);
-  /**
-   * From OpenSCENARIO class model specification: A controller type import from a catalog.
-   *
-   * @param catalogReferenceWriter writer for the model property catalogReference
-   */
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter);
+  public ICatalogReferenceWriter getWriterCatalogReference();
 }

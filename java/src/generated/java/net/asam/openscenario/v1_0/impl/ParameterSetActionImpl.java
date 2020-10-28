@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterSetActionImpl extends BaseImpl
-    implements IParameterSetAction, IParameterSetActionWriter {
+public class ParameterSetActionImpl extends BaseImpl implements IParameterSetActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -73,11 +72,8 @@ public class ParameterSetActionImpl extends BaseImpl
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The new value for the parameter.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
   }
@@ -207,11 +203,6 @@ public class ParameterSetActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ParameterSetAction";
-  }
-
-  @Override
-  public void writeToValue(String value) {
-    setValue(value);
   }
 
   @Override

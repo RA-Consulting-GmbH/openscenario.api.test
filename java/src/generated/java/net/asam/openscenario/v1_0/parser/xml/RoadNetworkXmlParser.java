@@ -26,7 +26,7 @@ import net.asam.openscenario.parser.WrappedListParser;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.ITrafficSignalController;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.FileImpl;
 import net.asam.openscenario.v1_0.impl.RoadNetworkImpl;
@@ -198,7 +198,7 @@ public class RoadNetworkXmlParser extends XmlComplexTypeParser<RoadNetworkImpl> 
       trafficSignals.setParent(object);
       this.trafficSignalControllerXmlParser.parseElement(
           indexedElement, parserContext, trafficSignals);
-      List<ITrafficSignalController> trafficSignalsList = object.getTrafficSignals();
+      List<ITrafficSignalControllerWriter> trafficSignalsList = object.getWriterTrafficSignals();
       if (trafficSignalsList == null) {
         trafficSignalsList = new ArrayList<>();
         object.setTrafficSignals(trafficSignalsList);

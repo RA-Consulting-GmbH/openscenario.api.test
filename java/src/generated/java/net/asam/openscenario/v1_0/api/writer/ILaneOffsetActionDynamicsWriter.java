@@ -16,8 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.v1_0.api.DynamicsShape;
+import net.asam.openscenario.v1_0.api.ILaneOffsetActionDynamics;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,23 +28,10 @@ import net.asam.openscenario.v1_0.api.DynamicsShape;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILaneOffsetActionDynamicsWriter extends IOpenScenarioModelElement {
+public interface ILaneOffsetActionDynamicsWriter
+    extends ILaneOffsetActionDynamics, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Maximum lateral acceleration used to initially
-   * reach and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.
-   *
-   * @return value of model property maxLateralAcc
-   */
-  public Double getMaxLateralAcc();
-  /**
-   * From OpenSCENARIO class model specification: Geometrical shape of the LaneOffsetAction's
-   * dynamics.
-   *
-   * @return value of model property dynamicsShape
-   */
-  public DynamicsShape getDynamicsShape();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Maximum lateral acceleration used to initially
@@ -51,14 +39,14 @@ public interface ILaneOffsetActionDynamicsWriter extends IOpenScenarioModelEleme
    *
    * @param maxLateralAcc value of model property maxLateralAcc
    */
-  public void writeToMaxLateralAcc(Double maxLateralAcc);
+  public void setMaxLateralAcc(Double maxLateralAcc);
   /**
    * From OpenSCENARIO class model specification: Geometrical shape of the LaneOffsetAction's
    * dynamics.
    *
    * @param dynamicsShape value of model property dynamicsShape
    */
-  public void writeToDynamicsShape(DynamicsShape dynamicsShape);
+  public void setDynamicsShape(DynamicsShape dynamicsShape);
 
   /**
    * Set a parameter for the attribute maxLateralAcc

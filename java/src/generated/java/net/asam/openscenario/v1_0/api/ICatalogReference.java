@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -45,7 +44,7 @@ public interface ICatalogReference extends IOpenScenarioModelElement {
    *
    * @return value of model property parameterAssignments
    */
-  public List<IParameterAssignment> getParameterAssignments();
+  public Iterable<IParameterAssignment> getParameterAssignments();
   /**
    * From OpenSCENARIO class model specification: The resolved reference to a catalog element (out
    * of the catalogName and entryName). Transient means, that it is not mapped to the schema.
@@ -53,4 +52,18 @@ public interface ICatalogReference extends IOpenScenarioModelElement {
    * @return value of model property ref
    */
   public ICatalogElement getRef();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getParameterAssignmentsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IParameterAssignment getParameterAssignmentsAtIndex(int index);
 }

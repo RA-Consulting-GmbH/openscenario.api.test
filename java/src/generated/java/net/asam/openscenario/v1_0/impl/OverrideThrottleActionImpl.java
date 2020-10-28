@@ -46,8 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideThrottleActionImpl extends BaseImpl
-    implements IOverrideThrottleAction, IOverrideThrottleActionWriter {
+public class OverrideThrottleActionImpl extends BaseImpl implements IOverrideThrottleActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -81,21 +80,13 @@ public class OverrideThrottleActionImpl extends BaseImpl
   public Boolean getActive() {
     return this.active;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Throttle pedal value. Range:
-   *     [0..1].0 represents 0%, 1 represents 100% of pressing the throttle pedal.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property active
-   *
-   * @param active from OpenSCENARIO class model specification: [True: override; false: stop
-   *     overriding.]
-   */
+
+  @Override
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -239,16 +230,6 @@ public class OverrideThrottleActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "OverrideThrottleAction";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToActive(Boolean active) {
-    setActive(active);
   }
 
   @Override

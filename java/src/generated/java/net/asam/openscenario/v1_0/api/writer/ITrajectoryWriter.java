@@ -17,6 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrajectory;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +28,10 @@ import java.util.List;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrajectoryWriter extends ICatalogElementWriter {
+public interface ITrajectoryWriter
+    extends ICatalogElementWriter, ITrajectory, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the trajectory type. Required if used in
-   * catalog.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: True if trajectory is closed.
-   *
-   * @return value of model property closed
-   */
-  public Boolean getClosed();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the trajectory type. Required if used in
@@ -49,13 +39,26 @@ public interface ITrajectoryWriter extends ICatalogElementWriter {
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: True if trajectory is closed.
    *
    * @param closed value of model property closed
    */
-  public void writeToClosed(Boolean closed);
+  public void setClosed(Boolean closed);
+  /**
+   * From OpenSCENARIO class model specification: Definition of additional parameters.
+   *
+   * @param parameterDeclarations value of model property parameterDeclarations
+   */
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations);
+  /**
+   * From OpenSCENARIO class model specification: The shape of a trajectory (Polyline, Clothoid or
+   * Nurbs)
+   *
+   * @param shape value of model property shape
+   */
+  public void setShape(IShapeWriter shape);
 
   /**
    * Set a parameter for the attribute name
@@ -105,29 +108,12 @@ public interface ITrajectoryWriter extends ICatalogElementWriter {
    *
    * @return a writer for model property shape
    */
-  public IShapeWriter getShapeWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The shape of a trajectory (Polyline, Clothoid or
-   * Nurbs)
-   *
-   * @param shapeWriter writer for the model property shape
-   */
-  public void writeToShapeWriter(IShapeWriter shapeWriter);
+  public IShapeWriter getWriterShape();
 
   /**
    * From OpenSCENARIO class model specification: Definition of additional parameters.
    *
    * @return a list of writers for model property parameterDeclarations
    */
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Definition of additional parameters.
-   *
-   * @param parameterDeclarationsWriters list of writers for the model property
-   *     parameterDeclarations
-   */
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters);
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations();
 }

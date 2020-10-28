@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ICatalogLocations;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,66 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ICatalogLocationsWriter extends IOpenScenarioModelElement {
+public interface ICatalogLocationsWriter extends ICatalogLocations, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on vehicle types.
+   *
+   * @param vehicleCatalog value of model property vehicleCatalog
+   */
+  public void setVehicleCatalog(IVehicleCatalogLocationWriter vehicleCatalog);
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on controller types.
+   *
+   * @param controllerCatalog value of model property controllerCatalog
+   */
+  public void setControllerCatalog(IControllerCatalogLocationWriter controllerCatalog);
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on pedestrian types.
+   *
+   * @param pedestrianCatalog value of model property pedestrianCatalog
+   */
+  public void setPedestrianCatalog(IPedestrianCatalogLocationWriter pedestrianCatalog);
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on miscellaneous object types.
+   *
+   * @param miscObjectCatalog value of model property miscObjectCatalog
+   */
+  public void setMiscObjectCatalog(IMiscObjectCatalogLocationWriter miscObjectCatalog);
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on environment types.
+   *
+   * @param environmentCatalog value of model property environmentCatalog
+   */
+  public void setEnvironmentCatalog(IEnvironmentCatalogLocationWriter environmentCatalog);
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on maneuver types.
+   *
+   * @param maneuverCatalog value of model property maneuverCatalog
+   */
+  public void setManeuverCatalog(IManeuverCatalogLocationWriter maneuverCatalog);
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on trajectory types.
+   *
+   * @param trajectoryCatalog value of model property trajectoryCatalog
+   */
+  public void setTrajectoryCatalog(ITrajectoryCatalogLocationWriter trajectoryCatalog);
+  /**
+   * From OpenSCENARIO class model specification: This catalog location is the first choice to
+   * resolve CatalogReferences on route types.
+   *
+   * @param routeCatalog value of model property routeCatalog
+   */
+  public void setRouteCatalog(IRouteCatalogLocationWriter routeCatalog);
 
   // children
   /**
@@ -35,116 +95,54 @@ public interface ICatalogLocationsWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property vehicleCatalog
    */
-  public IVehicleCatalogLocationWriter getVehicleCatalogWriter();
+  public IVehicleCatalogLocationWriter getWriterVehicleCatalog();
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on controller types.
    *
    * @return a writer for model property controllerCatalog
    */
-  public IControllerCatalogLocationWriter getControllerCatalogWriter();
+  public IControllerCatalogLocationWriter getWriterControllerCatalog();
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on pedestrian types.
    *
    * @return a writer for model property pedestrianCatalog
    */
-  public IPedestrianCatalogLocationWriter getPedestrianCatalogWriter();
+  public IPedestrianCatalogLocationWriter getWriterPedestrianCatalog();
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on miscellaneous object types.
    *
    * @return a writer for model property miscObjectCatalog
    */
-  public IMiscObjectCatalogLocationWriter getMiscObjectCatalogWriter();
+  public IMiscObjectCatalogLocationWriter getWriterMiscObjectCatalog();
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on environment types.
    *
    * @return a writer for model property environmentCatalog
    */
-  public IEnvironmentCatalogLocationWriter getEnvironmentCatalogWriter();
+  public IEnvironmentCatalogLocationWriter getWriterEnvironmentCatalog();
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on maneuver types.
    *
    * @return a writer for model property maneuverCatalog
    */
-  public IManeuverCatalogLocationWriter getManeuverCatalogWriter();
+  public IManeuverCatalogLocationWriter getWriterManeuverCatalog();
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on trajectory types.
    *
    * @return a writer for model property trajectoryCatalog
    */
-  public ITrajectoryCatalogLocationWriter getTrajectoryCatalogWriter();
+  public ITrajectoryCatalogLocationWriter getWriterTrajectoryCatalog();
   /**
    * From OpenSCENARIO class model specification: This catalog location is the first choice to
    * resolve CatalogReferences on route types.
    *
    * @return a writer for model property routeCatalog
    */
-  public IRouteCatalogLocationWriter getRouteCatalogWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on vehicle types.
-   *
-   * @param vehicleCatalogWriter writer for the model property vehicleCatalog
-   */
-  public void writeToVehicleCatalogWriter(IVehicleCatalogLocationWriter vehicleCatalogWriter);
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on controller types.
-   *
-   * @param controllerCatalogWriter writer for the model property controllerCatalog
-   */
-  public void writeToControllerCatalogWriter(
-      IControllerCatalogLocationWriter controllerCatalogWriter);
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on pedestrian types.
-   *
-   * @param pedestrianCatalogWriter writer for the model property pedestrianCatalog
-   */
-  public void writeToPedestrianCatalogWriter(
-      IPedestrianCatalogLocationWriter pedestrianCatalogWriter);
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on miscellaneous object types.
-   *
-   * @param miscObjectCatalogWriter writer for the model property miscObjectCatalog
-   */
-  public void writeToMiscObjectCatalogWriter(
-      IMiscObjectCatalogLocationWriter miscObjectCatalogWriter);
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on environment types.
-   *
-   * @param environmentCatalogWriter writer for the model property environmentCatalog
-   */
-  public void writeToEnvironmentCatalogWriter(
-      IEnvironmentCatalogLocationWriter environmentCatalogWriter);
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on maneuver types.
-   *
-   * @param maneuverCatalogWriter writer for the model property maneuverCatalog
-   */
-  public void writeToManeuverCatalogWriter(IManeuverCatalogLocationWriter maneuverCatalogWriter);
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on trajectory types.
-   *
-   * @param trajectoryCatalogWriter writer for the model property trajectoryCatalog
-   */
-  public void writeToTrajectoryCatalogWriter(
-      ITrajectoryCatalogLocationWriter trajectoryCatalogWriter);
-  /**
-   * From OpenSCENARIO class model specification: This catalog location is the first choice to
-   * resolve CatalogReferences on route types.
-   *
-   * @param routeCatalogWriter writer for the model property routeCatalog
-   */
-  public void writeToRouteCatalogWriter(IRouteCatalogLocationWriter routeCatalogWriter);
+  public IRouteCatalogLocationWriter getWriterRouteCatalog();
 }

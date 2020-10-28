@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IRoadCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,22 +28,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRoadConditionWriter extends IOpenScenarioModelElement {
+public interface IRoadConditionWriter extends IRoadCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Friction scale factor. Range: [0..inf[
-   *
-   * @return value of model property frictionScaleFactor
-   */
-  public Double getFrictionScaleFactor();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Friction scale factor. Range: [0..inf[
    *
    * @param frictionScaleFactor value of model property frictionScaleFactor
    */
-  public void writeToFrictionScaleFactor(Double frictionScaleFactor);
+  public void setFrictionScaleFactor(Double frictionScaleFactor);
+  /**
+   * From OpenSCENARIO class model specification: Additional properties to describe the road
+   * condition.
+   *
+   * @param properties value of model property properties
+   */
+  public void setProperties(IPropertiesWriter properties);
 
   /**
    * Set a parameter for the attribute frictionScaleFactor
@@ -73,13 +75,5 @@ public interface IRoadConditionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property properties
    */
-  public IPropertiesWriter getPropertiesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Additional properties to describe the road
-   * condition.
-   *
-   * @param propertiesWriter writer for the model property properties
-   */
-  public void writeToPropertiesWriter(IPropertiesWriter propertiesWriter);
+  public IPropertiesWriter getWriterProperties();
 }

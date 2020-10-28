@@ -70,37 +70,22 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityConditionImpl extends BaseImpl
-    implements IEntityCondition, IEntityConditionWriter {
+public class EntityConditionImpl extends BaseImpl implements IEntityConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IEndOfRoadCondition endOfRoadCondition;
-  private ICollisionCondition collisionCondition;
-  private IOffroadCondition offroadCondition;
-  private ITimeHeadwayCondition timeHeadwayCondition;
-  private ITimeToCollisionCondition timeToCollisionCondition;
-  private IAccelerationCondition accelerationCondition;
-  private IStandStillCondition standStillCondition;
-  private ISpeedCondition speedCondition;
-  private IRelativeSpeedCondition relativeSpeedCondition;
-  private ITraveledDistanceCondition traveledDistanceCondition;
-  private IReachPositionCondition reachPositionCondition;
-  private IDistanceCondition distanceCondition;
-  private IRelativeDistanceCondition relativeDistanceCondition;
-
-  private IEndOfRoadConditionWriter endOfRoadConditionWriter;
-  private ICollisionConditionWriter collisionConditionWriter;
-  private IOffroadConditionWriter offroadConditionWriter;
-  private ITimeHeadwayConditionWriter timeHeadwayConditionWriter;
-  private ITimeToCollisionConditionWriter timeToCollisionConditionWriter;
-  private IAccelerationConditionWriter accelerationConditionWriter;
-  private IStandStillConditionWriter standStillConditionWriter;
-  private ISpeedConditionWriter speedConditionWriter;
-  private IRelativeSpeedConditionWriter relativeSpeedConditionWriter;
-  private ITraveledDistanceConditionWriter traveledDistanceConditionWriter;
-  private IReachPositionConditionWriter reachPositionConditionWriter;
-  private IDistanceConditionWriter distanceConditionWriter;
-  private IRelativeDistanceConditionWriter relativeDistanceConditionWriter;
+  private IEndOfRoadConditionWriter endOfRoadCondition;
+  private ICollisionConditionWriter collisionCondition;
+  private IOffroadConditionWriter offroadCondition;
+  private ITimeHeadwayConditionWriter timeHeadwayCondition;
+  private ITimeToCollisionConditionWriter timeToCollisionCondition;
+  private IAccelerationConditionWriter accelerationCondition;
+  private IStandStillConditionWriter standStillCondition;
+  private ISpeedConditionWriter speedCondition;
+  private IRelativeSpeedConditionWriter relativeSpeedCondition;
+  private ITraveledDistanceConditionWriter traveledDistanceCondition;
+  private IReachPositionConditionWriter reachPositionCondition;
+  private IDistanceConditionWriter distanceCondition;
+  private IRelativeDistanceConditionWriter relativeDistanceCondition;
 
   /** Default constructor */
   public EntityConditionImpl() {
@@ -179,122 +164,72 @@ public class EntityConditionImpl extends BaseImpl
   public IRelativeDistanceCondition getRelativeDistanceCondition() {
     return this.relativeDistanceCondition;
   }
-  /**
-   * Sets the value of model property endOfRoadCondition
-   *
-   * @param endOfRoadCondition from OpenSCENARIO class model specification: [Condition checking for
-   *     how long the reference entity has reached the end of the road.]
-   */
-  public void setEndOfRoadCondition(IEndOfRoadCondition endOfRoadCondition) {
+
+  @Override
+  public void setEndOfRoadCondition(IEndOfRoadConditionWriter endOfRoadCondition) {
     this.endOfRoadCondition = endOfRoadCondition;
   }
-  /**
-   * Sets the value of model property collisionCondition
-   *
-   * @param collisionCondition from OpenSCENARIO class model specification: [Condition checking
-   *     whether the reference entity was involved in a collision.]
-   */
-  public void setCollisionCondition(ICollisionCondition collisionCondition) {
+
+  @Override
+  public void setCollisionCondition(ICollisionConditionWriter collisionCondition) {
     this.collisionCondition = collisionCondition;
   }
-  /**
-   * Sets the value of model property offroadCondition
-   *
-   * @param offroadCondition from OpenSCENARIO class model specification: [Condition checking for
-   *     how long the reference entity has left the road.]
-   */
-  public void setOffroadCondition(IOffroadCondition offroadCondition) {
+
+  @Override
+  public void setOffroadCondition(IOffroadConditionWriter offroadCondition) {
     this.offroadCondition = offroadCondition;
   }
-  /**
-   * Sets the value of model property timeHeadwayCondition
-   *
-   * @param timeHeadwayCondition from OpenSCENARIO class model specification: [Condition checking
-   *     the time headway between two entities.]
-   */
-  public void setTimeHeadwayCondition(ITimeHeadwayCondition timeHeadwayCondition) {
+
+  @Override
+  public void setTimeHeadwayCondition(ITimeHeadwayConditionWriter timeHeadwayCondition) {
     this.timeHeadwayCondition = timeHeadwayCondition;
   }
-  /**
-   * Sets the value of model property timeToCollisionCondition
-   *
-   * @param timeToCollisionCondition from OpenSCENARIO class model specification: [Condition
-   *     checking the time to collision between two entities.]
-   */
-  public void setTimeToCollisionCondition(ITimeToCollisionCondition timeToCollisionCondition) {
+
+  @Override
+  public void setTimeToCollisionCondition(
+      ITimeToCollisionConditionWriter timeToCollisionCondition) {
     this.timeToCollisionCondition = timeToCollisionCondition;
   }
-  /**
-   * Sets the value of model property accelerationCondition
-   *
-   * @param accelerationCondition from OpenSCENARIO class model specification: [Condition checking
-   *     the current acceleration of an entity.]
-   */
-  public void setAccelerationCondition(IAccelerationCondition accelerationCondition) {
+
+  @Override
+  public void setAccelerationCondition(IAccelerationConditionWriter accelerationCondition) {
     this.accelerationCondition = accelerationCondition;
   }
-  /**
-   * Sets the value of model property standStillCondition
-   *
-   * @param standStillCondition from OpenSCENARIO class model specification: [Condition checking for
-   *     how long the reference entity has not moved.]
-   */
-  public void setStandStillCondition(IStandStillCondition standStillCondition) {
+
+  @Override
+  public void setStandStillCondition(IStandStillConditionWriter standStillCondition) {
     this.standStillCondition = standStillCondition;
   }
-  /**
-   * Sets the value of model property speedCondition
-   *
-   * @param speedCondition from OpenSCENARIO class model specification: [Condition checking the
-   *     current speed of the referenced entities.]
-   */
-  public void setSpeedCondition(ISpeedCondition speedCondition) {
+
+  @Override
+  public void setSpeedCondition(ISpeedConditionWriter speedCondition) {
     this.speedCondition = speedCondition;
   }
-  /**
-   * Sets the value of model property relativeSpeedCondition
-   *
-   * @param relativeSpeedCondition from OpenSCENARIO class model specification: [Condition checking
-   *     the relative speed between two entity.]
-   */
-  public void setRelativeSpeedCondition(IRelativeSpeedCondition relativeSpeedCondition) {
+
+  @Override
+  public void setRelativeSpeedCondition(IRelativeSpeedConditionWriter relativeSpeedCondition) {
     this.relativeSpeedCondition = relativeSpeedCondition;
   }
-  /**
-   * Sets the value of model property traveledDistanceCondition
-   *
-   * @param traveledDistanceCondition from OpenSCENARIO class model specification: [Condition
-   *     checking the total traveled distance of the reference entity since the start of the
-   *     scenario.]
-   */
-  public void setTraveledDistanceCondition(ITraveledDistanceCondition traveledDistanceCondition) {
+
+  @Override
+  public void setTraveledDistanceCondition(
+      ITraveledDistanceConditionWriter traveledDistanceCondition) {
     this.traveledDistanceCondition = traveledDistanceCondition;
   }
-  /**
-   * Sets the value of model property reachPositionCondition
-   *
-   * @param reachPositionCondition from OpenSCENARIO class model specification: [Condition checking
-   *     whether the reference entity has reached a given position within a given uncertainty.]
-   */
-  public void setReachPositionCondition(IReachPositionCondition reachPositionCondition) {
+
+  @Override
+  public void setReachPositionCondition(IReachPositionConditionWriter reachPositionCondition) {
     this.reachPositionCondition = reachPositionCondition;
   }
-  /**
-   * Sets the value of model property distanceCondition
-   *
-   * @param distanceCondition from OpenSCENARIO class model specification: [Condition checking the
-   *     distance between two entities or an entity and a position.]
-   */
-  public void setDistanceCondition(IDistanceCondition distanceCondition) {
+
+  @Override
+  public void setDistanceCondition(IDistanceConditionWriter distanceCondition) {
     this.distanceCondition = distanceCondition;
   }
-  /**
-   * Sets the value of model property relativeDistanceCondition
-   *
-   * @param relativeDistanceCondition from OpenSCENARIO class model specification: [Condition
-   *     checking the relative distance between two entities.]
-   */
-  public void setRelativeDistanceCondition(IRelativeDistanceCondition relativeDistanceCondition) {
+
+  @Override
+  public void setRelativeDistanceCondition(
+      IRelativeDistanceConditionWriter relativeDistanceCondition) {
     this.relativeDistanceCondition = relativeDistanceCondition;
   }
 
@@ -319,68 +254,68 @@ public class EntityConditionImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IEndOfRoadCondition endOfRoadCondition = null;
-    endOfRoadCondition = getEndOfRoadCondition();
+    IEndOfRoadConditionWriter endOfRoadCondition = null;
+    endOfRoadCondition = getWriterEndOfRoadCondition();
     if (endOfRoadCondition != null) {
       result.add((BaseImpl) endOfRoadCondition);
     }
-    ICollisionCondition collisionCondition = null;
-    collisionCondition = getCollisionCondition();
+    ICollisionConditionWriter collisionCondition = null;
+    collisionCondition = getWriterCollisionCondition();
     if (collisionCondition != null) {
       result.add((BaseImpl) collisionCondition);
     }
-    IOffroadCondition offroadCondition = null;
-    offroadCondition = getOffroadCondition();
+    IOffroadConditionWriter offroadCondition = null;
+    offroadCondition = getWriterOffroadCondition();
     if (offroadCondition != null) {
       result.add((BaseImpl) offroadCondition);
     }
-    ITimeHeadwayCondition timeHeadwayCondition = null;
-    timeHeadwayCondition = getTimeHeadwayCondition();
+    ITimeHeadwayConditionWriter timeHeadwayCondition = null;
+    timeHeadwayCondition = getWriterTimeHeadwayCondition();
     if (timeHeadwayCondition != null) {
       result.add((BaseImpl) timeHeadwayCondition);
     }
-    ITimeToCollisionCondition timeToCollisionCondition = null;
-    timeToCollisionCondition = getTimeToCollisionCondition();
+    ITimeToCollisionConditionWriter timeToCollisionCondition = null;
+    timeToCollisionCondition = getWriterTimeToCollisionCondition();
     if (timeToCollisionCondition != null) {
       result.add((BaseImpl) timeToCollisionCondition);
     }
-    IAccelerationCondition accelerationCondition = null;
-    accelerationCondition = getAccelerationCondition();
+    IAccelerationConditionWriter accelerationCondition = null;
+    accelerationCondition = getWriterAccelerationCondition();
     if (accelerationCondition != null) {
       result.add((BaseImpl) accelerationCondition);
     }
-    IStandStillCondition standStillCondition = null;
-    standStillCondition = getStandStillCondition();
+    IStandStillConditionWriter standStillCondition = null;
+    standStillCondition = getWriterStandStillCondition();
     if (standStillCondition != null) {
       result.add((BaseImpl) standStillCondition);
     }
-    ISpeedCondition speedCondition = null;
-    speedCondition = getSpeedCondition();
+    ISpeedConditionWriter speedCondition = null;
+    speedCondition = getWriterSpeedCondition();
     if (speedCondition != null) {
       result.add((BaseImpl) speedCondition);
     }
-    IRelativeSpeedCondition relativeSpeedCondition = null;
-    relativeSpeedCondition = getRelativeSpeedCondition();
+    IRelativeSpeedConditionWriter relativeSpeedCondition = null;
+    relativeSpeedCondition = getWriterRelativeSpeedCondition();
     if (relativeSpeedCondition != null) {
       result.add((BaseImpl) relativeSpeedCondition);
     }
-    ITraveledDistanceCondition traveledDistanceCondition = null;
-    traveledDistanceCondition = getTraveledDistanceCondition();
+    ITraveledDistanceConditionWriter traveledDistanceCondition = null;
+    traveledDistanceCondition = getWriterTraveledDistanceCondition();
     if (traveledDistanceCondition != null) {
       result.add((BaseImpl) traveledDistanceCondition);
     }
-    IReachPositionCondition reachPositionCondition = null;
-    reachPositionCondition = getReachPositionCondition();
+    IReachPositionConditionWriter reachPositionCondition = null;
+    reachPositionCondition = getWriterReachPositionCondition();
     if (reachPositionCondition != null) {
       result.add((BaseImpl) reachPositionCondition);
     }
-    IDistanceCondition distanceCondition = null;
-    distanceCondition = getDistanceCondition();
+    IDistanceConditionWriter distanceCondition = null;
+    distanceCondition = getWriterDistanceCondition();
     if (distanceCondition != null) {
       result.add((BaseImpl) distanceCondition);
     }
-    IRelativeDistanceCondition relativeDistanceCondition = null;
-    relativeDistanceCondition = getRelativeDistanceCondition();
+    IRelativeDistanceConditionWriter relativeDistanceCondition = null;
+    relativeDistanceCondition = getWriterRelativeDistanceCondition();
     if (relativeDistanceCondition != null) {
       result.add((BaseImpl) relativeDistanceCondition);
     }
@@ -403,100 +338,101 @@ public class EntityConditionImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IEndOfRoadCondition endOfRoadCondition = null;
-    endOfRoadCondition = getEndOfRoadCondition();
+    IEndOfRoadConditionWriter endOfRoadCondition = null;
+    endOfRoadCondition = getWriterEndOfRoadCondition();
     if (endOfRoadCondition != null) {
-      EndOfRoadConditionImpl clonedChild = ((EndOfRoadConditionImpl) endOfRoadCondition).clone();
+      IEndOfRoadConditionWriter clonedChild = ((EndOfRoadConditionImpl) endOfRoadCondition).clone();
       clonedObject.setEndOfRoadCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICollisionCondition collisionCondition = null;
-    collisionCondition = getCollisionCondition();
+    ICollisionConditionWriter collisionCondition = null;
+    collisionCondition = getWriterCollisionCondition();
     if (collisionCondition != null) {
-      CollisionConditionImpl clonedChild = ((CollisionConditionImpl) collisionCondition).clone();
+      ICollisionConditionWriter clonedChild = ((CollisionConditionImpl) collisionCondition).clone();
       clonedObject.setCollisionCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOffroadCondition offroadCondition = null;
-    offroadCondition = getOffroadCondition();
+    IOffroadConditionWriter offroadCondition = null;
+    offroadCondition = getWriterOffroadCondition();
     if (offroadCondition != null) {
-      OffroadConditionImpl clonedChild = ((OffroadConditionImpl) offroadCondition).clone();
+      IOffroadConditionWriter clonedChild = ((OffroadConditionImpl) offroadCondition).clone();
       clonedObject.setOffroadCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITimeHeadwayCondition timeHeadwayCondition = null;
-    timeHeadwayCondition = getTimeHeadwayCondition();
+    ITimeHeadwayConditionWriter timeHeadwayCondition = null;
+    timeHeadwayCondition = getWriterTimeHeadwayCondition();
     if (timeHeadwayCondition != null) {
-      TimeHeadwayConditionImpl clonedChild =
+      ITimeHeadwayConditionWriter clonedChild =
           ((TimeHeadwayConditionImpl) timeHeadwayCondition).clone();
       clonedObject.setTimeHeadwayCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITimeToCollisionCondition timeToCollisionCondition = null;
-    timeToCollisionCondition = getTimeToCollisionCondition();
+    ITimeToCollisionConditionWriter timeToCollisionCondition = null;
+    timeToCollisionCondition = getWriterTimeToCollisionCondition();
     if (timeToCollisionCondition != null) {
-      TimeToCollisionConditionImpl clonedChild =
+      ITimeToCollisionConditionWriter clonedChild =
           ((TimeToCollisionConditionImpl) timeToCollisionCondition).clone();
       clonedObject.setTimeToCollisionCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IAccelerationCondition accelerationCondition = null;
-    accelerationCondition = getAccelerationCondition();
+    IAccelerationConditionWriter accelerationCondition = null;
+    accelerationCondition = getWriterAccelerationCondition();
     if (accelerationCondition != null) {
-      AccelerationConditionImpl clonedChild =
+      IAccelerationConditionWriter clonedChild =
           ((AccelerationConditionImpl) accelerationCondition).clone();
       clonedObject.setAccelerationCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IStandStillCondition standStillCondition = null;
-    standStillCondition = getStandStillCondition();
+    IStandStillConditionWriter standStillCondition = null;
+    standStillCondition = getWriterStandStillCondition();
     if (standStillCondition != null) {
-      StandStillConditionImpl clonedChild = ((StandStillConditionImpl) standStillCondition).clone();
+      IStandStillConditionWriter clonedChild =
+          ((StandStillConditionImpl) standStillCondition).clone();
       clonedObject.setStandStillCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ISpeedCondition speedCondition = null;
-    speedCondition = getSpeedCondition();
+    ISpeedConditionWriter speedCondition = null;
+    speedCondition = getWriterSpeedCondition();
     if (speedCondition != null) {
-      SpeedConditionImpl clonedChild = ((SpeedConditionImpl) speedCondition).clone();
+      ISpeedConditionWriter clonedChild = ((SpeedConditionImpl) speedCondition).clone();
       clonedObject.setSpeedCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRelativeSpeedCondition relativeSpeedCondition = null;
-    relativeSpeedCondition = getRelativeSpeedCondition();
+    IRelativeSpeedConditionWriter relativeSpeedCondition = null;
+    relativeSpeedCondition = getWriterRelativeSpeedCondition();
     if (relativeSpeedCondition != null) {
-      RelativeSpeedConditionImpl clonedChild =
+      IRelativeSpeedConditionWriter clonedChild =
           ((RelativeSpeedConditionImpl) relativeSpeedCondition).clone();
       clonedObject.setRelativeSpeedCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITraveledDistanceCondition traveledDistanceCondition = null;
-    traveledDistanceCondition = getTraveledDistanceCondition();
+    ITraveledDistanceConditionWriter traveledDistanceCondition = null;
+    traveledDistanceCondition = getWriterTraveledDistanceCondition();
     if (traveledDistanceCondition != null) {
-      TraveledDistanceConditionImpl clonedChild =
+      ITraveledDistanceConditionWriter clonedChild =
           ((TraveledDistanceConditionImpl) traveledDistanceCondition).clone();
       clonedObject.setTraveledDistanceCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IReachPositionCondition reachPositionCondition = null;
-    reachPositionCondition = getReachPositionCondition();
+    IReachPositionConditionWriter reachPositionCondition = null;
+    reachPositionCondition = getWriterReachPositionCondition();
     if (reachPositionCondition != null) {
-      ReachPositionConditionImpl clonedChild =
+      IReachPositionConditionWriter clonedChild =
           ((ReachPositionConditionImpl) reachPositionCondition).clone();
       clonedObject.setReachPositionCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IDistanceCondition distanceCondition = null;
-    distanceCondition = getDistanceCondition();
+    IDistanceConditionWriter distanceCondition = null;
+    distanceCondition = getWriterDistanceCondition();
     if (distanceCondition != null) {
-      DistanceConditionImpl clonedChild = ((DistanceConditionImpl) distanceCondition).clone();
+      IDistanceConditionWriter clonedChild = ((DistanceConditionImpl) distanceCondition).clone();
       clonedObject.setDistanceCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRelativeDistanceCondition relativeDistanceCondition = null;
-    relativeDistanceCondition = getRelativeDistanceCondition();
+    IRelativeDistanceConditionWriter relativeDistanceCondition = null;
+    relativeDistanceCondition = getWriterRelativeDistanceCondition();
     if (relativeDistanceCondition != null) {
-      RelativeDistanceConditionImpl clonedChild =
+      IRelativeDistanceConditionWriter clonedChild =
           ((RelativeDistanceConditionImpl) relativeDistanceCondition).clone();
       clonedObject.setRelativeDistanceCondition(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -619,140 +555,67 @@ public class EntityConditionImpl extends BaseImpl
 
   // children
   @Override
-  public IEndOfRoadConditionWriter getEndOfRoadConditionWriter() {
-    return this.endOfRoadConditionWriter;
+  public IEndOfRoadConditionWriter getWriterEndOfRoadCondition() {
+    return this.endOfRoadCondition;
   }
 
   @Override
-  public ICollisionConditionWriter getCollisionConditionWriter() {
-    return this.collisionConditionWriter;
+  public ICollisionConditionWriter getWriterCollisionCondition() {
+    return this.collisionCondition;
   }
 
   @Override
-  public IOffroadConditionWriter getOffroadConditionWriter() {
-    return this.offroadConditionWriter;
+  public IOffroadConditionWriter getWriterOffroadCondition() {
+    return this.offroadCondition;
   }
 
   @Override
-  public ITimeHeadwayConditionWriter getTimeHeadwayConditionWriter() {
-    return this.timeHeadwayConditionWriter;
+  public ITimeHeadwayConditionWriter getWriterTimeHeadwayCondition() {
+    return this.timeHeadwayCondition;
   }
 
   @Override
-  public ITimeToCollisionConditionWriter getTimeToCollisionConditionWriter() {
-    return this.timeToCollisionConditionWriter;
+  public ITimeToCollisionConditionWriter getWriterTimeToCollisionCondition() {
+    return this.timeToCollisionCondition;
   }
 
   @Override
-  public IAccelerationConditionWriter getAccelerationConditionWriter() {
-    return this.accelerationConditionWriter;
+  public IAccelerationConditionWriter getWriterAccelerationCondition() {
+    return this.accelerationCondition;
   }
 
   @Override
-  public IStandStillConditionWriter getStandStillConditionWriter() {
-    return this.standStillConditionWriter;
+  public IStandStillConditionWriter getWriterStandStillCondition() {
+    return this.standStillCondition;
   }
 
   @Override
-  public ISpeedConditionWriter getSpeedConditionWriter() {
-    return this.speedConditionWriter;
+  public ISpeedConditionWriter getWriterSpeedCondition() {
+    return this.speedCondition;
   }
 
   @Override
-  public IRelativeSpeedConditionWriter getRelativeSpeedConditionWriter() {
-    return this.relativeSpeedConditionWriter;
+  public IRelativeSpeedConditionWriter getWriterRelativeSpeedCondition() {
+    return this.relativeSpeedCondition;
   }
 
   @Override
-  public ITraveledDistanceConditionWriter getTraveledDistanceConditionWriter() {
-    return this.traveledDistanceConditionWriter;
+  public ITraveledDistanceConditionWriter getWriterTraveledDistanceCondition() {
+    return this.traveledDistanceCondition;
   }
 
   @Override
-  public IReachPositionConditionWriter getReachPositionConditionWriter() {
-    return this.reachPositionConditionWriter;
+  public IReachPositionConditionWriter getWriterReachPositionCondition() {
+    return this.reachPositionCondition;
   }
 
   @Override
-  public IDistanceConditionWriter getDistanceConditionWriter() {
-    return this.distanceConditionWriter;
+  public IDistanceConditionWriter getWriterDistanceCondition() {
+    return this.distanceCondition;
   }
 
   @Override
-  public IRelativeDistanceConditionWriter getRelativeDistanceConditionWriter() {
-    return this.relativeDistanceConditionWriter;
-  }
-
-  @Override
-  public void writeToEndOfRoadConditionWriter(IEndOfRoadConditionWriter endOfRoadConditionWriter) {
-    this.endOfRoadConditionWriter = endOfRoadConditionWriter;
-  }
-
-  @Override
-  public void writeToCollisionConditionWriter(ICollisionConditionWriter collisionConditionWriter) {
-    this.collisionConditionWriter = collisionConditionWriter;
-  }
-
-  @Override
-  public void writeToOffroadConditionWriter(IOffroadConditionWriter offroadConditionWriter) {
-    this.offroadConditionWriter = offroadConditionWriter;
-  }
-
-  @Override
-  public void writeToTimeHeadwayConditionWriter(
-      ITimeHeadwayConditionWriter timeHeadwayConditionWriter) {
-    this.timeHeadwayConditionWriter = timeHeadwayConditionWriter;
-  }
-
-  @Override
-  public void writeToTimeToCollisionConditionWriter(
-      ITimeToCollisionConditionWriter timeToCollisionConditionWriter) {
-    this.timeToCollisionConditionWriter = timeToCollisionConditionWriter;
-  }
-
-  @Override
-  public void writeToAccelerationConditionWriter(
-      IAccelerationConditionWriter accelerationConditionWriter) {
-    this.accelerationConditionWriter = accelerationConditionWriter;
-  }
-
-  @Override
-  public void writeToStandStillConditionWriter(
-      IStandStillConditionWriter standStillConditionWriter) {
-    this.standStillConditionWriter = standStillConditionWriter;
-  }
-
-  @Override
-  public void writeToSpeedConditionWriter(ISpeedConditionWriter speedConditionWriter) {
-    this.speedConditionWriter = speedConditionWriter;
-  }
-
-  @Override
-  public void writeToRelativeSpeedConditionWriter(
-      IRelativeSpeedConditionWriter relativeSpeedConditionWriter) {
-    this.relativeSpeedConditionWriter = relativeSpeedConditionWriter;
-  }
-
-  @Override
-  public void writeToTraveledDistanceConditionWriter(
-      ITraveledDistanceConditionWriter traveledDistanceConditionWriter) {
-    this.traveledDistanceConditionWriter = traveledDistanceConditionWriter;
-  }
-
-  @Override
-  public void writeToReachPositionConditionWriter(
-      IReachPositionConditionWriter reachPositionConditionWriter) {
-    this.reachPositionConditionWriter = reachPositionConditionWriter;
-  }
-
-  @Override
-  public void writeToDistanceConditionWriter(IDistanceConditionWriter distanceConditionWriter) {
-    this.distanceConditionWriter = distanceConditionWriter;
-  }
-
-  @Override
-  public void writeToRelativeDistanceConditionWriter(
-      IRelativeDistanceConditionWriter relativeDistanceConditionWriter) {
-    this.relativeDistanceConditionWriter = relativeDistanceConditionWriter;
+  public IRelativeDistanceConditionWriter getWriterRelativeDistanceCondition() {
+    return this.relativeDistanceCondition;
   }
 }

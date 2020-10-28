@@ -48,14 +48,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBoundingBoxWriter {
+public class BoundingBoxImpl extends BaseImpl implements IBoundingBoxWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ICenter center;
-  private IDimensions dimensions;
-
-  private ICenterWriter centerWriter;
-  private IDimensionsWriter dimensionsWriter;
+  private ICenterWriter center;
+  private IDimensionsWriter dimensions;
 
   /** Default constructor */
   public BoundingBoxImpl() {
@@ -79,23 +76,14 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBounding
   public IDimensions getDimensions() {
     return this.dimensions;
   }
-  /**
-   * Sets the value of model property center
-   *
-   * @param center from OpenSCENARIO class model specification: [Represents the geometrical center
-   *     of the bounding box expressed in coordinates that refer to the coordinate system of , the
-   *     entity (e.g. the vehicle coordinate system).]
-   */
-  public void setCenter(ICenter center) {
+
+  @Override
+  public void setCenter(ICenterWriter center) {
     this.center = center;
   }
-  /**
-   * Sets the value of model property dimensions
-   *
-   * @param dimensions from OpenSCENARIO class model specification: [Width, length and height of the
-   *     bounding box.]
-   */
-  public void setDimensions(IDimensions dimensions) {
+
+  @Override
+  public void setDimensions(IDimensionsWriter dimensions) {
     this.dimensions = dimensions;
   }
 
@@ -120,13 +108,13 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBounding
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ICenter center = null;
-    center = getCenter();
+    ICenterWriter center = null;
+    center = getWriterCenter();
     if (center != null) {
       result.add((BaseImpl) center);
     }
-    IDimensions dimensions = null;
-    dimensions = getDimensions();
+    IDimensionsWriter dimensions = null;
+    dimensions = getWriterDimensions();
     if (dimensions != null) {
       result.add((BaseImpl) dimensions);
     }
@@ -149,17 +137,17 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBounding
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ICenter center = null;
-    center = getCenter();
+    ICenterWriter center = null;
+    center = getWriterCenter();
     if (center != null) {
-      CenterImpl clonedChild = ((CenterImpl) center).clone();
+      ICenterWriter clonedChild = ((CenterImpl) center).clone();
       clonedObject.setCenter(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IDimensions dimensions = null;
-    dimensions = getDimensions();
+    IDimensionsWriter dimensions = null;
+    dimensions = getWriterDimensions();
     if (dimensions != null) {
-      DimensionsImpl clonedChild = ((DimensionsImpl) dimensions).clone();
+      IDimensionsWriter clonedChild = ((DimensionsImpl) dimensions).clone();
       clonedObject.setDimensions(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -248,22 +236,12 @@ public class BoundingBoxImpl extends BaseImpl implements IBoundingBox, IBounding
 
   // children
   @Override
-  public ICenterWriter getCenterWriter() {
-    return this.centerWriter;
+  public ICenterWriter getWriterCenter() {
+    return this.center;
   }
 
   @Override
-  public IDimensionsWriter getDimensionsWriter() {
-    return this.dimensionsWriter;
-  }
-
-  @Override
-  public void writeToCenterWriter(ICenterWriter centerWriter) {
-    this.centerWriter = centerWriter;
-  }
-
-  @Override
-  public void writeToDimensionsWriter(IDimensionsWriter dimensionsWriter) {
-    this.dimensionsWriter = dimensionsWriter;
+  public IDimensionsWriter getWriterDimensions() {
+    return this.dimensions;
   }
 }

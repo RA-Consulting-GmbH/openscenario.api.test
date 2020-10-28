@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficSignalController;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,33 +28,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficSignalControllerWriter extends IOpenScenarioModelElement {
+public interface ITrafficSignalControllerWriter
+    extends ITrafficSignalController, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: ID of the traffic signal controller in the road
-   * network.
-   *
-   * @return value of model property name
-   */
-  public String getName();
-  /**
-   * From OpenSCENARIO class model specification: The delay to the controller in the reference
-   * property. A controller having a delay to another one means that its first phase virtually
-   * starts delaytime seconds after the start of the reference's first phase. This can be used to
-   * define a progressive signal system, but only makes sense, if the total times of all connected
-   * controllers are the same. If delay is set, reference is required. Unit: s; Range: [0..inf[.
-   *
-   * @return value of model property delay
-   */
-  public Double getDelay();
-  /**
-   * From OpenSCENARIO class model specification: A reference (ID) to the connected controller in
-   * the road network. If reference is set, a delay is required.
-   *
-   * @return value of model property reference
-   */
-  public String getReference();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: ID of the traffic signal controller in the road
@@ -61,7 +39,7 @@ public interface ITrafficSignalControllerWriter extends IOpenScenarioModelElemen
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
   /**
    * From OpenSCENARIO class model specification: The delay to the controller in the reference
    * property. A controller having a delay to another one means that its first phase virtually
@@ -71,14 +49,20 @@ public interface ITrafficSignalControllerWriter extends IOpenScenarioModelElemen
    *
    * @param delay value of model property delay
    */
-  public void writeToDelay(Double delay);
+  public void setDelay(Double delay);
   /**
    * From OpenSCENARIO class model specification: A reference (ID) to the connected controller in
    * the road network. If reference is set, a delay is required.
    *
    * @param reference value of model property reference
    */
-  public void writeToReference(String reference);
+  public void setReference(String reference);
+  /**
+   * From OpenSCENARIO class model specification: Phases of a TrafficSignalController.
+   *
+   * @param phases value of model property phases
+   */
+  public void setPhases(List<IPhaseWriter> phases);
 
   /**
    * Set a parameter for the attribute name
@@ -147,12 +131,5 @@ public interface ITrafficSignalControllerWriter extends IOpenScenarioModelElemen
    *
    * @return a list of writers for model property phases
    */
-  public List<IPhaseWriter> getPhasesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Phases of a TrafficSignalController.
-   *
-   * @param phasesWriters list of writers for the model property phases
-   */
-  public void setPhasesWriter(List<IPhaseWriter> phasesWriters);
+  public List<IPhaseWriter> getWriterPhases();
 }

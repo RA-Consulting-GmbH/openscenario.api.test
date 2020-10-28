@@ -43,7 +43,7 @@ import net.asam.openscenario.v1_0.api.writer.INoneWriter;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class NoneImpl extends BaseImpl implements INone, INoneWriter {
+public class NoneImpl extends BaseImpl implements INoneWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Default constructor */

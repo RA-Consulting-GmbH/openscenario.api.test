@@ -28,7 +28,7 @@ import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
 import net.asam.openscenario.v1_0.api.IEntity;
-import net.asam.openscenario.v1_0.api.IPrivateAction;
+import net.asam.openscenario.v1_0.api.writer.IPrivateActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.PrivateActionImpl;
 import net.asam.openscenario.v1_0.impl.PrivateImpl;
@@ -140,7 +140,7 @@ public class PrivateXmlParser extends XmlComplexTypeParser<PrivateImpl> {
       // Setting the parent
       privateActions.setParent(object);
       this.privateActionXmlParser.parseElement(indexedElement, parserContext, privateActions);
-      List<IPrivateAction> privateActionsList = object.getPrivateActions();
+      List<IPrivateActionWriter> privateActionsList = object.getWriterPrivateActions();
       if (privateActionsList == null) {
         privateActionsList = new ArrayList<>();
         object.setPrivateActions(privateActionsList);

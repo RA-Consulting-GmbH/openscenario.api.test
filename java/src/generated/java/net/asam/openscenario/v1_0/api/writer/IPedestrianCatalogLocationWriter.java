@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IPedestrianCatalogLocation;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,17 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IPedestrianCatalogLocationWriter extends IOpenScenarioModelElement {
+public interface IPedestrianCatalogLocationWriter
+    extends IPedestrianCatalogLocation, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: File path for the pedestrian catalog files.
+   *
+   * @param directory value of model property directory
+   */
+  public void setDirectory(IDirectoryWriter directory);
 
   // children
   /**
@@ -34,12 +45,5 @@ public interface IPedestrianCatalogLocationWriter extends IOpenScenarioModelElem
    *
    * @return a writer for model property directory
    */
-  public IDirectoryWriter getDirectoryWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: File path for the pedestrian catalog files.
-   *
-   * @param directoryWriter writer for the model property directory
-   */
-  public void writeToDirectoryWriter(IDirectoryWriter directoryWriter);
+  public IDirectoryWriter getWriterDirectory();
 }

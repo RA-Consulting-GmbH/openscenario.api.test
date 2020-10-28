@@ -49,8 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TransitionDynamicsImpl extends BaseImpl
-    implements ITransitionDynamics, ITransitionDynamicsWriter {
+public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynamicsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -91,31 +90,18 @@ public class TransitionDynamicsImpl extends BaseImpl
   public DynamicsDimension getDynamicsDimension() {
     return this.dynamicsDimension;
   }
-  /**
-   * Sets the value of model property dynamicsShape
-   *
-   * @param dynamicsShape from OpenSCENARIO class model specification: [The shape of the transition
-   *     function f(x) between current and target value.]
-   */
+
+  @Override
   public void setDynamicsShape(DynamicsShape dynamicsShape) {
     this.dynamicsShape = dynamicsShape;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The value for a predefined rate
-   *     (Unit: delta/s), time (Unit: s) or distance (Unit: m) to acquire the target value. , Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property dynamicsDimension
-   *
-   * @param dynamicsDimension from OpenSCENARIO class model specification: [The semantics of the
-   *     value: 'rate', 'time' or 'distance'.]
-   */
+
+  @Override
   public void setDynamicsDimension(DynamicsDimension dynamicsDimension) {
     this.dynamicsDimension = dynamicsDimension;
   }
@@ -294,21 +280,6 @@ public class TransitionDynamicsImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TransitionDynamics";
-  }
-
-  @Override
-  public void writeToDynamicsShape(DynamicsShape dynamicsShape) {
-    setDynamicsShape(dynamicsShape);
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToDynamicsDimension(DynamicsDimension dynamicsDimension) {
-    setDynamicsDimension(dynamicsDimension);
   }
 
   @Override

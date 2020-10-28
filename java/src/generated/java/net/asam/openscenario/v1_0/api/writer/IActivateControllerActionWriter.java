@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IActivateControllerAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,23 +28,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IActivateControllerActionWriter extends IOpenScenarioModelElement {
+public interface IActivateControllerActionWriter
+    extends IActivateControllerAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: In lateral domain: Activate or deactivate
-   * controller defined (e.g. automated, autonomous) behavior.
-   *
-   * @return value of model property lateral
-   */
-  public Boolean getLateral();
-  /**
-   * From OpenSCENARIO class model specification: In longitudinal domain: Activate or deactivate
-   * autonomous behavior.
-   *
-   * @return value of model property longitudinal
-   */
-  public Boolean getLongitudinal();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: In lateral domain: Activate or deactivate
@@ -51,14 +39,14 @@ public interface IActivateControllerActionWriter extends IOpenScenarioModelEleme
    *
    * @param lateral value of model property lateral
    */
-  public void writeToLateral(Boolean lateral);
+  public void setLateral(Boolean lateral);
   /**
    * From OpenSCENARIO class model specification: In longitudinal domain: Activate or deactivate
    * autonomous behavior.
    *
    * @param longitudinal value of model property longitudinal
    */
-  public void writeToLongitudinal(Boolean longitudinal);
+  public void setLongitudinal(Boolean longitudinal);
 
   /**
    * Set a parameter for the attribute lateral

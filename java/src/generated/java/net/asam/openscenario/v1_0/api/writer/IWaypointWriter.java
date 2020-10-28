@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IWaypoint;
 import net.asam.openscenario.v1_0.api.RouteStrategy;
 
 /**
@@ -27,16 +28,9 @@ import net.asam.openscenario.v1_0.api.RouteStrategy;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IWaypointWriter extends IOpenScenarioModelElement {
+public interface IWaypointWriter extends IWaypoint, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The corresponding routing strategy (fastest,
-   * shortest, random, leastIntersections).
-   *
-   * @return value of model property routeStrategy
-   */
-  public RouteStrategy getRouteStrategy();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The corresponding routing strategy (fastest,
@@ -44,7 +38,13 @@ public interface IWaypointWriter extends IOpenScenarioModelElement {
    *
    * @param routeStrategy value of model property routeStrategy
    */
-  public void writeToRouteStrategy(RouteStrategy routeStrategy);
+  public void setRouteStrategy(RouteStrategy routeStrategy);
+  /**
+   * From OpenSCENARIO class model specification: The reference position to form the route.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
 
   /**
    * Set a parameter for the attribute routeStrategy
@@ -74,12 +74,5 @@ public interface IWaypointWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The reference position to form the route.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
+  public IPositionWriter getWriterPosition();
 }

@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IStoryboardElement;
+import net.asam.openscenario.v1_0.api.IStoryboardElementStateCondition;
 import net.asam.openscenario.v1_0.api.StoryboardElementState;
 import net.asam.openscenario.v1_0.api.StoryboardElementType;
 
@@ -33,48 +34,30 @@ import net.asam.openscenario.v1_0.api.StoryboardElementType;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IStoryboardElementStateConditionWriter extends IOpenScenarioModelElement {
+public interface IStoryboardElementStateConditionWriter
+    extends IStoryboardElementStateCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Type of storyboard element instance.
-   *
-   * @return value of model property storyboardElementType
-   */
-  public StoryboardElementType getStoryboardElementType();
-  /**
-   * From OpenSCENARIO class model specification: Name of the referenced Storyboard instance.
-   *
-   * @return value of model property storyboardElementRef
-   */
-  public INamedReference<IStoryboardElement> getStoryboardElementRef();
-  /**
-   * From OpenSCENARIO class model specification: The state or the transition of the storyboard
-   * element instance for which the condition becomes true.
-   *
-   * @return value of model property state
-   */
-  public StoryboardElementState getState();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Type of storyboard element instance.
    *
    * @param storyboardElementType value of model property storyboardElementType
    */
-  public void writeToStoryboardElementType(StoryboardElementType storyboardElementType);
+  public void setStoryboardElementType(StoryboardElementType storyboardElementType);
   /**
    * From OpenSCENARIO class model specification: Name of the referenced Storyboard instance.
    *
    * @param storyboardElementRef value of model property storyboardElementRef
    */
-  public void writeToStoryboardElementRef(INamedReference<IStoryboardElement> storyboardElementRef);
+  public void setStoryboardElementRef(INamedReference<IStoryboardElement> storyboardElementRef);
   /**
    * From OpenSCENARIO class model specification: The state or the transition of the storyboard
    * element instance for which the condition becomes true.
    *
    * @param state value of model property state
    */
-  public void writeToState(StoryboardElementState state);
+  public void setState(StoryboardElementState state);
 
   /**
    * Set a parameter for the attribute storyboardElementType

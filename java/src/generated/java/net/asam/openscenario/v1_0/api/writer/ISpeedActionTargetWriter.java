@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ISpeedActionTarget;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,24 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ISpeedActionTargetWriter extends IOpenScenarioModelElement {
+public interface ISpeedActionTargetWriter extends ISpeedActionTarget, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Defines the target speed as relative speed to a
+   * reference entity. Unit: m/s.
+   *
+   * @param relativeTargetSpeed value of model property relativeTargetSpeed
+   */
+  public void setRelativeTargetSpeed(IRelativeTargetSpeedWriter relativeTargetSpeed);
+  /**
+   * From OpenSCENARIO class model specification: Defines the target speed as absolute speed.Unit:
+   * m/s.
+   *
+   * @param absoluteTargetSpeed value of model property absoluteTargetSpeed
+   */
+  public void setAbsoluteTargetSpeed(IAbsoluteTargetSpeedWriter absoluteTargetSpeed);
 
   // children
   /**
@@ -36,29 +54,12 @@ public interface ISpeedActionTargetWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property relativeTargetSpeed
    */
-  public IRelativeTargetSpeedWriter getRelativeTargetSpeedWriter();
+  public IRelativeTargetSpeedWriter getWriterRelativeTargetSpeed();
   /**
    * From OpenSCENARIO class model specification: Defines the target speed as absolute speed.Unit:
    * m/s.
    *
    * @return a writer for model property absoluteTargetSpeed
    */
-  public IAbsoluteTargetSpeedWriter getAbsoluteTargetSpeedWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Defines the target speed as relative speed to a
-   * reference entity. Unit: m/s.
-   *
-   * @param relativeTargetSpeedWriter writer for the model property relativeTargetSpeed
-   */
-  public void writeToRelativeTargetSpeedWriter(
-      IRelativeTargetSpeedWriter relativeTargetSpeedWriter);
-  /**
-   * From OpenSCENARIO class model specification: Defines the target speed as absolute speed.Unit:
-   * m/s.
-   *
-   * @param absoluteTargetSpeedWriter writer for the model property absoluteTargetSpeed
-   */
-  public void writeToAbsoluteTargetSpeedWriter(
-      IAbsoluteTargetSpeedWriter absoluteTargetSpeedWriter);
+  public IAbsoluteTargetSpeedWriter getWriterAbsoluteTargetSpeed();
 }

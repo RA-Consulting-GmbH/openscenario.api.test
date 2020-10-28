@@ -50,14 +50,11 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TimeToCollisionConditionTargetImpl extends BaseImpl
-    implements ITimeToCollisionConditionTarget, ITimeToCollisionConditionTargetWriter {
+    implements ITimeToCollisionConditionTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IPosition position;
-  private IEntityRef entityRef;
-
-  private IPositionWriter positionWriter;
-  private IEntityRefWriter entityRefWriter;
+  private IPositionWriter position;
+  private IEntityRefWriter entityRef;
 
   /** Default constructor */
   public TimeToCollisionConditionTargetImpl() {
@@ -81,20 +78,14 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   public IEntityRef getEntityRef() {
     return this.entityRef;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [Position.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(IEntityRef entityRef) {
+
+  @Override
+  public void setEntityRef(IEntityRefWriter entityRef) {
     this.entityRef = entityRef;
   }
 
@@ -119,13 +110,13 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
       result.add((BaseImpl) entityRef);
     }
@@ -148,17 +139,17 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
-      EntityRefImpl clonedChild = ((EntityRefImpl) entityRef).clone();
+      IEntityRefWriter clonedChild = ((EntityRefImpl) entityRef).clone();
       clonedObject.setEntityRef(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -247,22 +238,12 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
 
   // children
   @Override
-  public IPositionWriter getPositionWriter() {
-    return this.positionWriter;
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 
   @Override
-  public IEntityRefWriter getEntityRefWriter() {
-    return this.entityRefWriter;
-  }
-
-  @Override
-  public void writeToPositionWriter(IPositionWriter positionWriter) {
-    this.positionWriter = positionWriter;
-  }
-
-  @Override
-  public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter) {
-    this.entityRefWriter = entityRefWriter;
+  public IEntityRefWriter getWriterEntityRef() {
+    return this.entityRef;
   }
 }

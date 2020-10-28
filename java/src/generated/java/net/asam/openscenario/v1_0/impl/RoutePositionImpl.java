@@ -50,16 +50,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRoutePositionWriter {
+public class RoutePositionImpl extends BaseImpl implements IRoutePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IRouteRef routeRef;
-  private IOrientation orientation;
-  private IInRoutePosition inRoutePosition;
-
-  private IRouteRefWriter routeRefWriter;
-  private IOrientationWriter orientationWriter;
-  private IInRoutePositionWriter inRoutePositionWriter;
+  private IRouteRefWriter routeRef;
+  private IOrientationWriter orientation;
+  private IInRoutePositionWriter inRoutePosition;
 
   /** Default constructor */
   public RoutePositionImpl() {
@@ -88,31 +84,19 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRout
   public IInRoutePosition getInRoutePosition() {
     return this.inRoutePosition;
   }
-  /**
-   * Sets the value of model property routeRef
-   *
-   * @param routeRef from OpenSCENARIO class model specification: [Reference to the route the
-   *     position is calculated from.]
-   */
-  public void setRouteRef(IRouteRef routeRef) {
+
+  @Override
+  public void setRouteRef(IRouteRefWriter routeRef) {
     this.routeRef = routeRef;
   }
-  /**
-   * Sets the value of model property orientation
-   *
-   * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative
-   *     reference context refers to the referenced road's s and t coordinates, to the current
-   *     lane's s, and t coordinates or to the orientation of the reference entity.]
-   */
-  public void setOrientation(IOrientation orientation) {
+
+  @Override
+  public void setOrientation(IOrientationWriter orientation) {
     this.orientation = orientation;
   }
-  /**
-   * Sets the value of model property inRoutePosition
-   *
-   * @param inRoutePosition from OpenSCENARIO class model specification: [Position along the route.]
-   */
-  public void setInRoutePosition(IInRoutePosition inRoutePosition) {
+
+  @Override
+  public void setInRoutePosition(IInRoutePositionWriter inRoutePosition) {
     this.inRoutePosition = inRoutePosition;
   }
 
@@ -137,18 +121,18 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRout
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IRouteRef routeRef = null;
-    routeRef = getRouteRef();
+    IRouteRefWriter routeRef = null;
+    routeRef = getWriterRouteRef();
     if (routeRef != null) {
       result.add((BaseImpl) routeRef);
     }
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
       result.add((BaseImpl) orientation);
     }
-    IInRoutePosition inRoutePosition = null;
-    inRoutePosition = getInRoutePosition();
+    IInRoutePositionWriter inRoutePosition = null;
+    inRoutePosition = getWriterInRoutePosition();
     if (inRoutePosition != null) {
       result.add((BaseImpl) inRoutePosition);
     }
@@ -171,24 +155,24 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRout
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IRouteRef routeRef = null;
-    routeRef = getRouteRef();
+    IRouteRefWriter routeRef = null;
+    routeRef = getWriterRouteRef();
     if (routeRef != null) {
-      RouteRefImpl clonedChild = ((RouteRefImpl) routeRef).clone();
+      IRouteRefWriter clonedChild = ((RouteRefImpl) routeRef).clone();
       clonedObject.setRouteRef(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
-      OrientationImpl clonedChild = ((OrientationImpl) orientation).clone();
+      IOrientationWriter clonedChild = ((OrientationImpl) orientation).clone();
       clonedObject.setOrientation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IInRoutePosition inRoutePosition = null;
-    inRoutePosition = getInRoutePosition();
+    IInRoutePositionWriter inRoutePosition = null;
+    inRoutePosition = getWriterInRoutePosition();
     if (inRoutePosition != null) {
-      InRoutePositionImpl clonedChild = ((InRoutePositionImpl) inRoutePosition).clone();
+      IInRoutePositionWriter clonedChild = ((InRoutePositionImpl) inRoutePosition).clone();
       clonedObject.setInRoutePosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -280,32 +264,17 @@ public class RoutePositionImpl extends BaseImpl implements IRoutePosition, IRout
 
   // children
   @Override
-  public IRouteRefWriter getRouteRefWriter() {
-    return this.routeRefWriter;
+  public IRouteRefWriter getWriterRouteRef() {
+    return this.routeRef;
   }
 
   @Override
-  public IOrientationWriter getOrientationWriter() {
-    return this.orientationWriter;
+  public IOrientationWriter getWriterOrientation() {
+    return this.orientation;
   }
 
   @Override
-  public IInRoutePositionWriter getInRoutePositionWriter() {
-    return this.inRoutePositionWriter;
-  }
-
-  @Override
-  public void writeToRouteRefWriter(IRouteRefWriter routeRefWriter) {
-    this.routeRefWriter = routeRefWriter;
-  }
-
-  @Override
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter) {
-    this.orientationWriter = orientationWriter;
-  }
-
-  @Override
-  public void writeToInRoutePositionWriter(IInRoutePositionWriter inRoutePositionWriter) {
-    this.inRoutePositionWriter = inRoutePositionWriter;
+  public IInRoutePositionWriter getWriterInRoutePosition() {
+    return this.inRoutePosition;
   }
 }

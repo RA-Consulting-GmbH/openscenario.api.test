@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PropertyImpl extends BaseImpl implements IProperty, IPropertyWriter {
+public class PropertyImpl extends BaseImpl implements IPropertyWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -79,19 +79,13 @@ public class PropertyImpl extends BaseImpl implements IProperty, IPropertyWriter
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of a user defined property.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of a user defined property.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
   }
@@ -231,16 +225,6 @@ public class PropertyImpl extends BaseImpl implements IProperty, IPropertyWriter
   @Override
   public String getModelType() {
     return "Property";
-  }
-
-  @Override
-  public void writeToName(String name) {
-    setName(name);
-  }
-
-  @Override
-  public void writeToValue(String value) {
-    setValue(value);
   }
 
   @Override

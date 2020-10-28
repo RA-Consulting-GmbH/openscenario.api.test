@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ISelectedEntities;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ISelectedEntitiesWriter extends IOpenScenarioModelElement {
+public interface ISelectedEntitiesWriter extends ISelectedEntities, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: References to the selected entities.
+   *
+   * @param entityRef value of model property entityRef
+   */
+  public void setEntityRef(List<IEntityRefWriter> entityRef);
+  /**
+   * From OpenSCENARIO class model specification: Defines the type to determine that all entities of
+   * a specific type are members.
+   *
+   * @param byType value of model property byType
+   */
+  public void setByType(List<IByTypeWriter> byType);
 
   // children
 
@@ -37,26 +54,12 @@ public interface ISelectedEntitiesWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property entityRef
    */
-  public List<IEntityRefWriter> getEntityRefWriter();
+  public List<IEntityRefWriter> getWriterEntityRef();
   /**
    * From OpenSCENARIO class model specification: Defines the type to determine that all entities of
    * a specific type are members.
    *
    * @return a list of writers for model property byType
    */
-  public List<IByTypeWriter> getByTypeWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: References to the selected entities.
-   *
-   * @param entityRefWriters list of writers for the model property entityRef
-   */
-  public void setEntityRefWriter(List<IEntityRefWriter> entityRefWriters);
-  /**
-   * From OpenSCENARIO class model specification: Defines the type to determine that all entities of
-   * a specific type are members.
-   *
-   * @param byTypeWriters list of writers for the model property byType
-   */
-  public void setByTypeWriter(List<IByTypeWriter> byTypeWriters);
+  public List<IByTypeWriter> getWriterByType();
 }

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IGlobalAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,41 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IGlobalActionWriter extends IOpenScenarioModelElement {
+public interface IGlobalActionWriter extends IGlobalAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Sets the weather state, road conditions, and time
+   * of the day.
+   *
+   * @param environmentAction value of model property environmentAction
+   */
+  public void setEnvironmentAction(IEnvironmentActionWriter environmentAction);
+  /**
+   * From OpenSCENARIO class model specification: Removing or adding entities.
+   *
+   * @param entityAction value of model property entityAction
+   */
+  public void setEntityAction(IEntityActionWriter entityAction);
+  /**
+   * From OpenSCENARIO class model specification: Setting/modifying values of parameters.
+   *
+   * @param parameterAction value of model property parameterAction
+   */
+  public void setParameterAction(IParameterActionWriter parameterAction);
+  /**
+   * From OpenSCENARIO class model specification: Setting/modifying traffic signals.
+   *
+   * @param infrastructureAction value of model property infrastructureAction
+   */
+  public void setInfrastructureAction(IInfrastructureActionWriter infrastructureAction);
+  /**
+   * From OpenSCENARIO class model specification: Populating ambient traffic.
+   *
+   * @param trafficAction value of model property trafficAction
+   */
+  public void setTrafficAction(ITrafficActionWriter trafficAction);
 
   // children
   /**
@@ -35,62 +70,29 @@ public interface IGlobalActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property environmentAction
    */
-  public IEnvironmentActionWriter getEnvironmentActionWriter();
+  public IEnvironmentActionWriter getWriterEnvironmentAction();
   /**
    * From OpenSCENARIO class model specification: Removing or adding entities.
    *
    * @return a writer for model property entityAction
    */
-  public IEntityActionWriter getEntityActionWriter();
+  public IEntityActionWriter getWriterEntityAction();
   /**
    * From OpenSCENARIO class model specification: Setting/modifying values of parameters.
    *
    * @return a writer for model property parameterAction
    */
-  public IParameterActionWriter getParameterActionWriter();
+  public IParameterActionWriter getWriterParameterAction();
   /**
    * From OpenSCENARIO class model specification: Setting/modifying traffic signals.
    *
    * @return a writer for model property infrastructureAction
    */
-  public IInfrastructureActionWriter getInfrastructureActionWriter();
+  public IInfrastructureActionWriter getWriterInfrastructureAction();
   /**
    * From OpenSCENARIO class model specification: Populating ambient traffic.
    *
    * @return a writer for model property trafficAction
    */
-  public ITrafficActionWriter getTrafficActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Sets the weather state, road conditions, and time
-   * of the day.
-   *
-   * @param environmentActionWriter writer for the model property environmentAction
-   */
-  public void writeToEnvironmentActionWriter(IEnvironmentActionWriter environmentActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Removing or adding entities.
-   *
-   * @param entityActionWriter writer for the model property entityAction
-   */
-  public void writeToEntityActionWriter(IEntityActionWriter entityActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Setting/modifying values of parameters.
-   *
-   * @param parameterActionWriter writer for the model property parameterAction
-   */
-  public void writeToParameterActionWriter(IParameterActionWriter parameterActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Setting/modifying traffic signals.
-   *
-   * @param infrastructureActionWriter writer for the model property infrastructureAction
-   */
-  public void writeToInfrastructureActionWriter(
-      IInfrastructureActionWriter infrastructureActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Populating ambient traffic.
-   *
-   * @param trafficActionWriter writer for the model property trafficAction
-   */
-  public void writeToTrafficActionWriter(ITrafficActionWriter trafficActionWriter);
+  public ITrafficActionWriter getWriterTrafficAction();
 }

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IOverrideGearAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,34 +27,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IOverrideGearActionWriter extends IOpenScenarioModelElement {
+public interface IOverrideGearActionWriter extends IOverrideGearAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Gear number.
-   *
-   * @return value of model property number
-   */
-  public Double getNumber();
-  /**
-   * From OpenSCENARIO class model specification: True: override; false: stop overriding.
-   *
-   * @return value of model property active
-   */
-  public Boolean getActive();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Gear number.
    *
    * @param number value of model property number
    */
-  public void writeToNumber(Double number);
+  public void setNumber(Double number);
   /**
    * From OpenSCENARIO class model specification: True: override; false: stop overriding.
    *
    * @param active value of model property active
    */
-  public void writeToActive(Boolean active);
+  public void setActive(Boolean active);
 
   /**
    * Set a parameter for the attribute number

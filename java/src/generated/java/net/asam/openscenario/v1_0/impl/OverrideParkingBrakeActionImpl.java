@@ -47,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class OverrideParkingBrakeActionImpl extends BaseImpl
-    implements IOverrideParkingBrakeAction, IOverrideParkingBrakeActionWriter {
+    implements IOverrideParkingBrakeActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -81,21 +81,13 @@ public class OverrideParkingBrakeActionImpl extends BaseImpl
   public Boolean getActive() {
     return this.active;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Parking brake value. Unit: %; Range:
-   *     [0..1]. The value 1 represent the maximum parking brake state.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
   }
-  /**
-   * Sets the value of model property active
-   *
-   * @param active from OpenSCENARIO class model specification: [True: override; false: stop
-   *     overriding.]
-   */
+
+  @Override
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -239,16 +231,6 @@ public class OverrideParkingBrakeActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "OverrideParkingBrakeAction";
-  }
-
-  @Override
-  public void writeToValue(Double value) {
-    setValue(value);
-  }
-
-  @Override
-  public void writeToActive(Boolean active) {
-    setActive(active);
   }
 
   @Override

@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ILaneChangeAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -31,16 +32,9 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ILaneChangeActionWriter extends IOpenScenarioModelElement {
+public interface ILaneChangeActionWriter extends ILaneChangeAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Lane offset to be reached at the target lane; the
-   * action will end there. Unit: m.
-   *
-   * @return value of model property targetLaneOffset
-   */
-  public Double getTargetLaneOffset();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Lane offset to be reached at the target lane; the
@@ -48,7 +42,19 @@ public interface ILaneChangeActionWriter extends IOpenScenarioModelElement {
    *
    * @param targetLaneOffset value of model property targetLaneOffset
    */
-  public void writeToTargetLaneOffset(Double targetLaneOffset);
+  public void setTargetLaneOffset(Double targetLaneOffset);
+  /**
+   * From OpenSCENARIO class model specification: Shape/time of lane change action.
+   *
+   * @param laneChangeActionDynamics value of model property laneChangeActionDynamics
+   */
+  public void setLaneChangeActionDynamics(ITransitionDynamicsWriter laneChangeActionDynamics);
+  /**
+   * From OpenSCENARIO class model specification: Direction of lane change action.
+   *
+   * @param laneChangeTarget value of model property laneChangeTarget
+   */
+  public void setLaneChangeTarget(ILaneChangeTargetWriter laneChangeTarget);
 
   /**
    * Set a parameter for the attribute targetLaneOffset
@@ -78,25 +84,11 @@ public interface ILaneChangeActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property laneChangeActionDynamics
    */
-  public ITransitionDynamicsWriter getLaneChangeActionDynamicsWriter();
+  public ITransitionDynamicsWriter getWriterLaneChangeActionDynamics();
   /**
    * From OpenSCENARIO class model specification: Direction of lane change action.
    *
    * @return a writer for model property laneChangeTarget
    */
-  public ILaneChangeTargetWriter getLaneChangeTargetWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Shape/time of lane change action.
-   *
-   * @param laneChangeActionDynamicsWriter writer for the model property laneChangeActionDynamics
-   */
-  public void writeToLaneChangeActionDynamicsWriter(
-      ITransitionDynamicsWriter laneChangeActionDynamicsWriter);
-  /**
-   * From OpenSCENARIO class model specification: Direction of lane change action.
-   *
-   * @param laneChangeTargetWriter writer for the model property laneChangeTarget
-   */
-  public void writeToLaneChangeTargetWriter(ILaneChangeTargetWriter laneChangeTargetWriter);
+  public ILaneChangeTargetWriter getWriterLaneChangeTarget();
 }

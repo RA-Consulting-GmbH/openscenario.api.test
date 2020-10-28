@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITrafficDefinition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,22 +27,30 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrafficDefinitionWriter extends IOpenScenarioModelElement {
+public interface ITrafficDefinitionWriter extends ITrafficDefinition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the traffic definition.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the traffic definition.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: Distribution of vehicle categories within the
+   * traffic.
+   *
+   * @param vehicleCategoryDistribution value of model property vehicleCategoryDistribution
+   */
+  public void setVehicleCategoryDistribution(
+      IVehicleCategoryDistributionWriter vehicleCategoryDistribution);
+  /**
+   * From OpenSCENARIO class model specification: Distribution of controllers within this traffic.
+   *
+   * @param controllerDistribution value of model property controllerDistribution
+   */
+  public void setControllerDistribution(IControllerDistributionWriter controllerDistribution);
 
   /**
    * Set a parameter for the attribute name
@@ -72,28 +81,11 @@ public interface ITrafficDefinitionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property vehicleCategoryDistribution
    */
-  public IVehicleCategoryDistributionWriter getVehicleCategoryDistributionWriter();
+  public IVehicleCategoryDistributionWriter getWriterVehicleCategoryDistribution();
   /**
    * From OpenSCENARIO class model specification: Distribution of controllers within this traffic.
    *
    * @return a writer for model property controllerDistribution
    */
-  public IControllerDistributionWriter getControllerDistributionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Distribution of vehicle categories within the
-   * traffic.
-   *
-   * @param vehicleCategoryDistributionWriter writer for the model property
-   *     vehicleCategoryDistribution
-   */
-  public void writeToVehicleCategoryDistributionWriter(
-      IVehicleCategoryDistributionWriter vehicleCategoryDistributionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Distribution of controllers within this traffic.
-   *
-   * @param controllerDistributionWriter writer for the model property controllerDistribution
-   */
-  public void writeToControllerDistributionWriter(
-      IControllerDistributionWriter controllerDistributionWriter);
+  public IControllerDistributionWriter getWriterControllerDistribution();
 }

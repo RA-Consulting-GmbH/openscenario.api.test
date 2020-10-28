@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITeleportAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,17 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITeleportActionWriter extends IOpenScenarioModelElement {
+public interface ITeleportActionWriter extends ITeleportAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: The position the entity/entities are teleported
+   * to.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
 
   // children
   /**
@@ -35,13 +46,5 @@ public interface ITeleportActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The position the entity/entities are teleported
-   * to.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
+  public IPositionWriter getWriterPosition();
 }

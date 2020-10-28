@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IEntityObject;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -26,7 +27,35 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEntityObjectWriter extends IOpenScenarioModelElement {
+public interface IEntityObjectWriter extends IEntityObject, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Reference to a catalog entry of type MiscObject,
+   * Vehicle or Pedestrian.
+   *
+   * @param catalogReference value of model property catalogReference
+   */
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference);
+  /**
+   * From OpenSCENARIO class model specification: Vehicle definition.
+   *
+   * @param vehicle value of model property vehicle
+   */
+  public void setVehicle(IVehicleWriter vehicle);
+  /**
+   * From OpenSCENARIO class model specification: Pedestrian definition.
+   *
+   * @param pedestrian value of model property pedestrian
+   */
+  public void setPedestrian(IPedestrianWriter pedestrian);
+  /**
+   * From OpenSCENARIO class model specification: Definition of a MiscObject.
+   *
+   * @param miscObject value of model property miscObject
+   */
+  public void setMiscObject(IMiscObjectWriter miscObject);
 
   // children
   /**
@@ -35,49 +64,23 @@ public interface IEntityObjectWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property catalogReference
    */
-  public ICatalogReferenceWriter getCatalogReferenceWriter();
+  public ICatalogReferenceWriter getWriterCatalogReference();
   /**
    * From OpenSCENARIO class model specification: Vehicle definition.
    *
    * @return a writer for model property vehicle
    */
-  public IVehicleWriter getVehicleWriter();
+  public IVehicleWriter getWriterVehicle();
   /**
    * From OpenSCENARIO class model specification: Pedestrian definition.
    *
    * @return a writer for model property pedestrian
    */
-  public IPedestrianWriter getPedestrianWriter();
+  public IPedestrianWriter getWriterPedestrian();
   /**
    * From OpenSCENARIO class model specification: Definition of a MiscObject.
    *
    * @return a writer for model property miscObject
    */
-  public IMiscObjectWriter getMiscObjectWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Reference to a catalog entry of type MiscObject,
-   * Vehicle or Pedestrian.
-   *
-   * @param catalogReferenceWriter writer for the model property catalogReference
-   */
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter);
-  /**
-   * From OpenSCENARIO class model specification: Vehicle definition.
-   *
-   * @param vehicleWriter writer for the model property vehicle
-   */
-  public void writeToVehicleWriter(IVehicleWriter vehicleWriter);
-  /**
-   * From OpenSCENARIO class model specification: Pedestrian definition.
-   *
-   * @param pedestrianWriter writer for the model property pedestrian
-   */
-  public void writeToPedestrianWriter(IPedestrianWriter pedestrianWriter);
-  /**
-   * From OpenSCENARIO class model specification: Definition of a MiscObject.
-   *
-   * @param miscObjectWriter writer for the model property miscObject
-   */
-  public void writeToMiscObjectWriter(IMiscObjectWriter miscObjectWriter);
+  public IMiscObjectWriter getWriterMiscObject();
 }

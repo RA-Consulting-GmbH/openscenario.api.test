@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IAssignRouteAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,7 +29,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IAssignRouteActionWriter extends IOpenScenarioModelElement {
+public interface IAssignRouteActionWriter extends IAssignRouteAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: The route definition.
+   *
+   * @param route value of model property route
+   */
+  public void setRoute(IRouteWriter route);
+  /**
+   * From OpenSCENARIO class model specification: A reference to the route definition in a catalog.
+   * The reference must point to a route.
+   *
+   * @param catalogReference value of model property catalogReference
+   */
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference);
 
   // children
   /**
@@ -36,26 +53,12 @@ public interface IAssignRouteActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property route
    */
-  public IRouteWriter getRouteWriter();
+  public IRouteWriter getWriterRoute();
   /**
    * From OpenSCENARIO class model specification: A reference to the route definition in a catalog.
    * The reference must point to a route.
    *
    * @return a writer for model property catalogReference
    */
-  public ICatalogReferenceWriter getCatalogReferenceWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: The route definition.
-   *
-   * @param routeWriter writer for the model property route
-   */
-  public void writeToRouteWriter(IRouteWriter routeWriter);
-  /**
-   * From OpenSCENARIO class model specification: A reference to the route definition in a catalog.
-   * The reference must point to a route.
-   *
-   * @param catalogReferenceWriter writer for the model property catalogReference
-   */
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter);
+  public ICatalogReferenceWriter getWriterCatalogReference();
 }

@@ -45,8 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CustomCommandActionImpl extends BaseImpl
-    implements ICustomCommandAction, ICustomCommandActionWriter {
+public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -80,21 +79,13 @@ public class CustomCommandActionImpl extends BaseImpl
   public String getContent() {
     return this.content;
   }
-  /**
-   * Sets the value of model property type
-   *
-   * @param type from OpenSCENARIO class model specification: [Type that is defined as a contract
-   *     between the simulation environment provider and the author of a scenario.]
-   */
+
+  @Override
   public void setType(String type) {
     this.type = type;
   }
-  /**
-   * Sets the value of model property content
-   *
-   * @param content from OpenSCENARIO class model specification: [The command that is defined as a
-   *     contract between the simulation environment provider and the author of a scenario.]
-   */
+
+  @Override
   public void setContent(String content) {
     this.content = content;
   }
@@ -232,16 +223,6 @@ public class CustomCommandActionImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "CustomCommandAction";
-  }
-
-  @Override
-  public void writeToType(String type) {
-    setType(type);
-  }
-
-  @Override
-  public void writeToContent(String content) {
-    setContent(content);
   }
 
   @Override

@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IScenarioDefinition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,46 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IScenarioDefinitionWriter extends IOpenScenarioModelElement {
+public interface IScenarioDefinitionWriter extends IScenarioDefinition, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Global Parameter declaration. Some parameter
+   * represent placeholders to be resolved when the scenario file is loaded. Some parameters
+   * represent runtime values that can be controlled with ParameterActions and ParameterConditions
+   * during simulation time.
+   *
+   * @param parameterDeclarations value of model property parameterDeclarations
+   */
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations);
+  /**
+   * From OpenSCENARIO class model specification: A list of locations to look up catalog files. Each
+   * catalog element type has its own list.
+   *
+   * @param catalogLocations value of model property catalogLocations
+   */
+  public void setCatalogLocations(ICatalogLocationsWriter catalogLocations);
+  /**
+   * From OpenSCENARIO class model specification: Reference to the road network.
+   *
+   * @param roadNetwork value of model property roadNetwork
+   */
+  public void setRoadNetwork(IRoadNetworkWriter roadNetwork);
+  /**
+   * From OpenSCENARIO class model specification: Container for entity selections and scenario
+   * object definitions. Instances of ScenarioObject, of EntitySelection and of SpawnedObject
+   * considered instances of Entity.
+   *
+   * @param entities value of model property entities
+   */
+  public void setEntities(IEntitiesWriter entities);
+  /**
+   * From OpenSCENARIO class model specification: Container for the dynamic content of the scenario.
+   *
+   * @param storyboard value of model property storyboard
+   */
+  public void setStoryboard(IStoryboardWriter storyboard);
 
   // children
   /**
@@ -36,13 +76,13 @@ public interface IScenarioDefinitionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property catalogLocations
    */
-  public ICatalogLocationsWriter getCatalogLocationsWriter();
+  public ICatalogLocationsWriter getWriterCatalogLocations();
   /**
    * From OpenSCENARIO class model specification: Reference to the road network.
    *
    * @return a writer for model property roadNetwork
    */
-  public IRoadNetworkWriter getRoadNetworkWriter();
+  public IRoadNetworkWriter getWriterRoadNetwork();
   /**
    * From OpenSCENARIO class model specification: Container for entity selections and scenario
    * object definitions. Instances of ScenarioObject, of EntitySelection and of SpawnedObject
@@ -50,41 +90,13 @@ public interface IScenarioDefinitionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property entities
    */
-  public IEntitiesWriter getEntitiesWriter();
+  public IEntitiesWriter getWriterEntities();
   /**
    * From OpenSCENARIO class model specification: Container for the dynamic content of the scenario.
    *
    * @return a writer for model property storyboard
    */
-  public IStoryboardWriter getStoryboardWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of locations to look up catalog files. Each
-   * catalog element type has its own list.
-   *
-   * @param catalogLocationsWriter writer for the model property catalogLocations
-   */
-  public void writeToCatalogLocationsWriter(ICatalogLocationsWriter catalogLocationsWriter);
-  /**
-   * From OpenSCENARIO class model specification: Reference to the road network.
-   *
-   * @param roadNetworkWriter writer for the model property roadNetwork
-   */
-  public void writeToRoadNetworkWriter(IRoadNetworkWriter roadNetworkWriter);
-  /**
-   * From OpenSCENARIO class model specification: Container for entity selections and scenario
-   * object definitions. Instances of ScenarioObject, of EntitySelection and of SpawnedObject
-   * considered instances of Entity.
-   *
-   * @param entitiesWriter writer for the model property entities
-   */
-  public void writeToEntitiesWriter(IEntitiesWriter entitiesWriter);
-  /**
-   * From OpenSCENARIO class model specification: Container for the dynamic content of the scenario.
-   *
-   * @param storyboardWriter writer for the model property storyboard
-   */
-  public void writeToStoryboardWriter(IStoryboardWriter storyboardWriter);
+  public IStoryboardWriter getWriterStoryboard();
 
   /**
    * From OpenSCENARIO class model specification: Global Parameter declaration. Some parameter
@@ -94,17 +106,5 @@ public interface IScenarioDefinitionWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property parameterDeclarations
    */
-  public List<IParameterDeclarationWriter> getParameterDeclarationsWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Global Parameter declaration. Some parameter
-   * represent placeholders to be resolved when the scenario file is loaded. Some parameters
-   * represent runtime values that can be controlled with ParameterActions and ParameterConditions
-   * during simulation time.
-   *
-   * @param parameterDeclarationsWriters list of writers for the model property
-   *     parameterDeclarations
-   */
-  public void setParameterDeclarationsWriter(
-      List<IParameterDeclarationWriter> parameterDeclarationsWriters);
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations();
 }

@@ -17,7 +17,8 @@
 package net.asam.openscenario.v1_0.api.writer;
 
 import java.util.List;
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ICatalog;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -28,22 +29,72 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ICatalogWriter extends IOpenScenarioModelElement {
+public interface ICatalogWriter extends ICatalog, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the catalog.
-   *
-   * @return value of model property name
-   */
-  public String getName();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the catalog.
    *
    * @param name value of model property name
    */
-  public void writeToName(String name);
+  public void setName(String name);
+  /**
+   * From OpenSCENARIO class model specification: A list of vehicle types that can be reused in a
+   * scenario.
+   *
+   * @param vehicles value of model property vehicles
+   */
+  public void setVehicles(List<IVehicleWriter> vehicles);
+  /**
+   * From OpenSCENARIO class model specification: A list of controller types that can be reused in a
+   * scenario.
+   *
+   * @param controllers value of model property controllers
+   */
+  public void setControllers(List<IControllerWriter> controllers);
+  /**
+   * From OpenSCENARIO class model specification: A list of pedestrian types that can be reused in a
+   * scenario.
+   *
+   * @param pedestrians value of model property pedestrians
+   */
+  public void setPedestrians(List<IPedestrianWriter> pedestrians);
+  /**
+   * From OpenSCENARIO class model specification: A list of miscellaneous object type that that can
+   * be reused in a scenario.
+   *
+   * @param miscObjects value of model property miscObjects
+   */
+  public void setMiscObjects(List<IMiscObjectWriter> miscObjects);
+  /**
+   * From OpenSCENARIO class model specification: A list of environment types that can be reused in
+   * a scenario.
+   *
+   * @param environments value of model property environments
+   */
+  public void setEnvironments(List<IEnvironmentWriter> environments);
+  /**
+   * From OpenSCENARIO class model specification: A list of maneuver types that can be reused in a
+   * scenario.
+   *
+   * @param maneuvers value of model property maneuvers
+   */
+  public void setManeuvers(List<IManeuverWriter> maneuvers);
+  /**
+   * From OpenSCENARIO class model specification: A list of trajectory types that can be reused in a
+   * scenario.
+   *
+   * @param trajectories value of model property trajectories
+   */
+  public void setTrajectories(List<ITrajectoryWriter> trajectories);
+  /**
+   * From OpenSCENARIO class model specification: A list of route types that can be reused in a
+   * scenario.
+   *
+   * @param routes value of model property routes
+   */
+  public void setRoutes(List<IRouteWriter> routes);
 
   /**
    * Set a parameter for the attribute name
@@ -75,111 +126,54 @@ public interface ICatalogWriter extends IOpenScenarioModelElement {
    *
    * @return a list of writers for model property vehicles
    */
-  public List<IVehicleWriter> getVehiclesWriter();
+  public List<IVehicleWriter> getWriterVehicles();
   /**
    * From OpenSCENARIO class model specification: A list of controller types that can be reused in a
    * scenario.
    *
    * @return a list of writers for model property controllers
    */
-  public List<IControllerWriter> getControllersWriter();
+  public List<IControllerWriter> getWriterControllers();
   /**
    * From OpenSCENARIO class model specification: A list of pedestrian types that can be reused in a
    * scenario.
    *
    * @return a list of writers for model property pedestrians
    */
-  public List<IPedestrianWriter> getPedestriansWriter();
+  public List<IPedestrianWriter> getWriterPedestrians();
   /**
    * From OpenSCENARIO class model specification: A list of miscellaneous object type that that can
    * be reused in a scenario.
    *
    * @return a list of writers for model property miscObjects
    */
-  public List<IMiscObjectWriter> getMiscObjectsWriter();
+  public List<IMiscObjectWriter> getWriterMiscObjects();
   /**
    * From OpenSCENARIO class model specification: A list of environment types that can be reused in
    * a scenario.
    *
    * @return a list of writers for model property environments
    */
-  public List<IEnvironmentWriter> getEnvironmentsWriter();
+  public List<IEnvironmentWriter> getWriterEnvironments();
   /**
    * From OpenSCENARIO class model specification: A list of maneuver types that can be reused in a
    * scenario.
    *
    * @return a list of writers for model property maneuvers
    */
-  public List<IManeuverWriter> getManeuversWriter();
+  public List<IManeuverWriter> getWriterManeuvers();
   /**
    * From OpenSCENARIO class model specification: A list of trajectory types that can be reused in a
    * scenario.
    *
    * @return a list of writers for model property trajectories
    */
-  public List<ITrajectoryWriter> getTrajectoriesWriter();
+  public List<ITrajectoryWriter> getWriterTrajectories();
   /**
    * From OpenSCENARIO class model specification: A list of route types that can be reused in a
    * scenario.
    *
    * @return a list of writers for model property routes
    */
-  public List<IRouteWriter> getRoutesWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: A list of vehicle types that can be reused in a
-   * scenario.
-   *
-   * @param vehiclesWriters list of writers for the model property vehicles
-   */
-  public void setVehiclesWriter(List<IVehicleWriter> vehiclesWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of controller types that can be reused in a
-   * scenario.
-   *
-   * @param controllersWriters list of writers for the model property controllers
-   */
-  public void setControllersWriter(List<IControllerWriter> controllersWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of pedestrian types that can be reused in a
-   * scenario.
-   *
-   * @param pedestriansWriters list of writers for the model property pedestrians
-   */
-  public void setPedestriansWriter(List<IPedestrianWriter> pedestriansWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of miscellaneous object type that that can
-   * be reused in a scenario.
-   *
-   * @param miscObjectsWriters list of writers for the model property miscObjects
-   */
-  public void setMiscObjectsWriter(List<IMiscObjectWriter> miscObjectsWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of environment types that can be reused in
-   * a scenario.
-   *
-   * @param environmentsWriters list of writers for the model property environments
-   */
-  public void setEnvironmentsWriter(List<IEnvironmentWriter> environmentsWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of maneuver types that can be reused in a
-   * scenario.
-   *
-   * @param maneuversWriters list of writers for the model property maneuvers
-   */
-  public void setManeuversWriter(List<IManeuverWriter> maneuversWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of trajectory types that can be reused in a
-   * scenario.
-   *
-   * @param trajectoriesWriters list of writers for the model property trajectories
-   */
-  public void setTrajectoriesWriter(List<ITrajectoryWriter> trajectoriesWriters);
-  /**
-   * From OpenSCENARIO class model specification: A list of route types that can be reused in a
-   * scenario.
-   *
-   * @param routesWriters list of writers for the model property routes
-   */
-  public void setRoutesWriter(List<IRouteWriter> routesWriters);
+  public List<IRouteWriter> getWriterRoutes();
 }

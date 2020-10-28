@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IStandStillCondition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,16 +28,10 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IStandStillConditionWriter extends IOpenScenarioModelElement {
+public interface IStandStillConditionWriter
+    extends IStandStillCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Duration time of still standing to let the logical
-   * expression become true. Unit: s. Range [0..inf[.
-   *
-   * @return value of model property duration
-   */
-  public Double getDuration();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Duration time of still standing to let the logical
@@ -44,7 +39,7 @@ public interface IStandStillConditionWriter extends IOpenScenarioModelElement {
    *
    * @param duration value of model property duration
    */
-  public void writeToDuration(Double duration);
+  public void setDuration(Double duration);
 
   /**
    * Set a parameter for the attribute duration

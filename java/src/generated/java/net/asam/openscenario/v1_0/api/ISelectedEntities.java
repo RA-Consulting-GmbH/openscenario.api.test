@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -33,12 +32,39 @@ public interface ISelectedEntities extends IOpenScenarioModelElement {
    *
    * @return value of model property entityRef
    */
-  public List<IEntityRef> getEntityRef();
+  public Iterable<IEntityRef> getEntityRef();
   /**
    * From OpenSCENARIO class model specification: Defines the type to determine that all entities of
    * a specific type are members.
    *
    * @return value of model property byType
    */
-  public List<IByType> getByType();
+  public Iterable<IByType> getByType();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getEntityRefSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IEntityRef getEntityRefAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getByTypeSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IByType getByTypeAtIndex(int index);
 }

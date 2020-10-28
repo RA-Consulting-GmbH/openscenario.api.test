@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WorldPositionImpl extends BaseImpl implements IWorldPosition, IWorldPositionWriter {
+public class WorldPositionImpl extends BaseImpl implements IWorldPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -107,54 +107,33 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, IWorl
   public Double getR() {
     return this.r;
   }
-  /**
-   * Sets the value of model property x
-   *
-   * @param x from OpenSCENARIO class model specification: [The x coordinate value.]
-   */
+
+  @Override
   public void setX(Double x) {
     this.x = x;
   }
-  /**
-   * Sets the value of model property y
-   *
-   * @param y from OpenSCENARIO class model specification: [The y coordinate value.]
-   */
+
+  @Override
   public void setY(Double y) {
     this.y = y;
   }
-  /**
-   * Sets the value of model property z
-   *
-   * @param z from OpenSCENARIO class model specification: [The z coordinate value.]
-   */
+
+  @Override
   public void setZ(Double z) {
     this.z = z;
   }
-  /**
-   * Sets the value of model property h
-   *
-   * @param h from OpenSCENARIO class model specification: [The heading angle of the object,
-   *     defining a mathematically positive rotation about the z-axis (see ISO 8855:2011).]
-   */
+
+  @Override
   public void setH(Double h) {
     this.h = h;
   }
-  /**
-   * Sets the value of model property p
-   *
-   * @param p from OpenSCENARIO class model specification: [The pitch angle of the object, defining
-   *     a mathematically positive rotation about the y-axis (see ISO 8855:2011).]
-   */
+
+  @Override
   public void setP(Double p) {
     this.p = p;
   }
-  /**
-   * Sets the value of model property r
-   *
-   * @param r from OpenSCENARIO class model specification: [The roll angle of the object, defining a
-   *     mathematically positive rotation about the x-axis (see ISO 8855:2011).]
-   */
+
+  @Override
   public void setR(Double r) {
     this.r = r;
   }
@@ -328,36 +307,6 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition, IWorl
   @Override
   public String getModelType() {
     return "WorldPosition";
-  }
-
-  @Override
-  public void writeToX(Double x) {
-    setX(x);
-  }
-
-  @Override
-  public void writeToY(Double y) {
-    setY(y);
-  }
-
-  @Override
-  public void writeToZ(Double z) {
-    setZ(z);
-  }
-
-  @Override
-  public void writeToH(Double h) {
-    setH(h);
-  }
-
-  @Override
-  public void writeToP(Double p) {
-    setP(p);
-  }
-
-  @Override
-  public void writeToR(Double r) {
-    setR(r);
   }
 
   @Override

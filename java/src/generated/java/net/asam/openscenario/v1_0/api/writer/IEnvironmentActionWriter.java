@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.IEnvironmentAction;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,22 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IEnvironmentActionWriter extends IOpenScenarioModelElement {
+public interface IEnvironmentActionWriter extends IEnvironmentAction, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: New environment definition.
+   *
+   * @param environment value of model property environment
+   */
+  public void setEnvironment(IEnvironmentWriter environment);
+  /**
+   * From OpenSCENARIO class model specification: Reference to a catalog entry of type Environment.
+   *
+   * @param catalogReference value of model property catalogReference
+   */
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference);
 
   // children
   /**
@@ -35,24 +51,11 @@ public interface IEnvironmentActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property environment
    */
-  public IEnvironmentWriter getEnvironmentWriter();
+  public IEnvironmentWriter getWriterEnvironment();
   /**
    * From OpenSCENARIO class model specification: Reference to a catalog entry of type Environment.
    *
    * @return a writer for model property catalogReference
    */
-  public ICatalogReferenceWriter getCatalogReferenceWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: New environment definition.
-   *
-   * @param environmentWriter writer for the model property environment
-   */
-  public void writeToEnvironmentWriter(IEnvironmentWriter environmentWriter);
-  /**
-   * From OpenSCENARIO class model specification: Reference to a catalog entry of type Environment.
-   *
-   * @param catalogReferenceWriter writer for the model property catalogReference
-   */
-  public void writeToCatalogReferenceWriter(ICatalogReferenceWriter catalogReferenceWriter);
+  public ICatalogReferenceWriter getWriterCatalogReference();
 }

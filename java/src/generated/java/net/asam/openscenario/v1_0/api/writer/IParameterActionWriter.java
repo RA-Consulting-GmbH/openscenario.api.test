@@ -16,8 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
+import net.asam.openscenario.v1_0.api.IParameterAction;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 
 /**
@@ -28,22 +29,29 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IParameterActionWriter extends IOpenScenarioModelElement {
+public interface IParameterActionWriter extends IParameterAction, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the parameter.
-   *
-   * @return value of model property parameterRef
-   */
-  public INamedReference<IParameterDeclaration> getParameterRef();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the parameter.
    *
    * @param parameterRef value of model property parameterRef
    */
-  public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef);
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef);
+  /**
+   * From OpenSCENARIO class model specification: New value for the parameter.
+   *
+   * @param setAction value of model property setAction
+   */
+  public void setSetAction(IParameterSetActionWriter setAction);
+  /**
+   * From OpenSCENARIO class model specification: Modifying rule for the parameter (Add value or
+   * multiply by value).
+   *
+   * @param modifyAction value of model property modifyAction
+   */
+  public void setModifyAction(IParameterModifyActionWriter modifyAction);
 
   /**
    * Set a parameter for the attribute parameterRef
@@ -73,26 +81,12 @@ public interface IParameterActionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property setAction
    */
-  public IParameterSetActionWriter getSetActionWriter();
+  public IParameterSetActionWriter getWriterSetAction();
   /**
    * From OpenSCENARIO class model specification: Modifying rule for the parameter (Add value or
    * multiply by value).
    *
    * @return a writer for model property modifyAction
    */
-  public IParameterModifyActionWriter getModifyActionWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: New value for the parameter.
-   *
-   * @param setActionWriter writer for the model property setAction
-   */
-  public void writeToSetActionWriter(IParameterSetActionWriter setActionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Modifying rule for the parameter (Add value or
-   * multiply by value).
-   *
-   * @param modifyActionWriter writer for the model property modifyAction
-   */
-  public void writeToModifyActionWriter(IParameterModifyActionWriter modifyActionWriter);
+  public IParameterModifyActionWriter getWriterModifyAction();
 }

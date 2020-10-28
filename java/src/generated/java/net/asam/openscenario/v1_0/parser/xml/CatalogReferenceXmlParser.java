@@ -27,7 +27,7 @@ import net.asam.openscenario.parser.WrappedListParser;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IParameterAssignment;
+import net.asam.openscenario.v1_0.api.writer.IParameterAssignmentWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.CatalogReferenceImpl;
 import net.asam.openscenario.v1_0.impl.ParameterAssignmentImpl;
@@ -190,7 +190,8 @@ public class CatalogReferenceXmlParser extends XmlComplexTypeParser<CatalogRefer
       parameterAssignments.setParent(object);
       this.parameterAssignmentXmlParser.parseElement(
           indexedElement, parserContext, parameterAssignments);
-      List<IParameterAssignment> parameterAssignmentsList = object.getParameterAssignments();
+      List<IParameterAssignmentWriter> parameterAssignmentsList =
+          object.getWriterParameterAssignments();
       if (parameterAssignmentsList == null) {
         parameterAssignmentsList = new ArrayList<>();
         object.setParameterAssignments(parameterAssignmentsList);

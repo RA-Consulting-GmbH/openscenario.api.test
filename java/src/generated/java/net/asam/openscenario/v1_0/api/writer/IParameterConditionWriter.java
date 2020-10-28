@@ -16,8 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
+import net.asam.openscenario.v1_0.api.IParameterCondition;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.Rule;
 
@@ -31,46 +32,28 @@ import net.asam.openscenario.v1_0.api.Rule;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IParameterConditionWriter extends IOpenScenarioModelElement {
+public interface IParameterConditionWriter extends IParameterCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Name of the parameter that must be defined.
-   *
-   * @return value of model property parameterRef
-   */
-  public INamedReference<IParameterDeclaration> getParameterRef();
-  /**
-   * From OpenSCENARIO class model specification: Value of the parameter.
-   *
-   * @return value of model property value
-   */
-  public String getValue();
-  /**
-   * From OpenSCENARIO class model specification: The operator (less, greater, equal).
-   *
-   * @return value of model property rule
-   */
-  public Rule getRule();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Name of the parameter that must be defined.
    *
    * @param parameterRef value of model property parameterRef
    */
-  public void writeToParameterRef(INamedReference<IParameterDeclaration> parameterRef);
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef);
   /**
    * From OpenSCENARIO class model specification: Value of the parameter.
    *
    * @param value value of model property value
    */
-  public void writeToValue(String value);
+  public void setValue(String value);
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @param rule value of model property rule
    */
-  public void writeToRule(Rule rule);
+  public void setRule(Rule rule);
 
   /**
    * Set a parameter for the attribute parameterRef

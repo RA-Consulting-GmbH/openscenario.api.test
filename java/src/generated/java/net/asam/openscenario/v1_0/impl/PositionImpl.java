@@ -60,26 +60,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter {
+public class PositionImpl extends BaseImpl implements IPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IWorldPosition worldPosition;
-  private IRelativeWorldPosition relativeWorldPosition;
-  private IRelativeObjectPosition relativeObjectPosition;
-  private IRoadPosition roadPosition;
-  private IRelativeRoadPosition relativeRoadPosition;
-  private ILanePosition lanePosition;
-  private IRelativeLanePosition relativeLanePosition;
-  private IRoutePosition routePosition;
-
-  private IWorldPositionWriter worldPositionWriter;
-  private IRelativeWorldPositionWriter relativeWorldPositionWriter;
-  private IRelativeObjectPositionWriter relativeObjectPositionWriter;
-  private IRoadPositionWriter roadPositionWriter;
-  private IRelativeRoadPositionWriter relativeRoadPositionWriter;
-  private ILanePositionWriter lanePositionWriter;
-  private IRelativeLanePositionWriter relativeLanePositionWriter;
-  private IRoutePositionWriter routePositionWriter;
+  private IWorldPositionWriter worldPosition;
+  private IRelativeWorldPositionWriter relativeWorldPosition;
+  private IRelativeObjectPositionWriter relativeObjectPosition;
+  private IRoadPositionWriter roadPosition;
+  private IRelativeRoadPositionWriter relativeRoadPosition;
+  private ILanePositionWriter lanePosition;
+  private IRelativeLanePositionWriter relativeLanePosition;
+  private IRoutePositionWriter routePosition;
 
   /** Default constructor */
   public PositionImpl() {
@@ -133,77 +124,44 @@ public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter
   public IRoutePosition getRoutePosition() {
     return this.routePosition;
   }
-  /**
-   * Sets the value of model property worldPosition
-   *
-   * @param worldPosition from OpenSCENARIO class model specification: [Position that uses global
-   *     coordinates.]
-   */
-  public void setWorldPosition(IWorldPosition worldPosition) {
+
+  @Override
+  public void setWorldPosition(IWorldPositionWriter worldPosition) {
     this.worldPosition = worldPosition;
   }
-  /**
-   * Sets the value of model property relativeWorldPosition
-   *
-   * @param relativeWorldPosition from OpenSCENARIO class model specification: [Position is given
-   *     relative to a world position.]
-   */
-  public void setRelativeWorldPosition(IRelativeWorldPosition relativeWorldPosition) {
+
+  @Override
+  public void setRelativeWorldPosition(IRelativeWorldPositionWriter relativeWorldPosition) {
     this.relativeWorldPosition = relativeWorldPosition;
   }
-  /**
-   * Sets the value of model property relativeObjectPosition
-   *
-   * @param relativeObjectPosition from OpenSCENARIO class model specification: [Position is given
-   *     relative to an entity.]
-   */
-  public void setRelativeObjectPosition(IRelativeObjectPosition relativeObjectPosition) {
+
+  @Override
+  public void setRelativeObjectPosition(IRelativeObjectPositionWriter relativeObjectPosition) {
     this.relativeObjectPosition = relativeObjectPosition;
   }
-  /**
-   * Sets the value of model property roadPosition
-   *
-   * @param roadPosition from OpenSCENARIO class model specification: [Position in road coordinates
-   *     (t,s) applied to a given road.]
-   */
-  public void setRoadPosition(IRoadPosition roadPosition) {
+
+  @Override
+  public void setRoadPosition(IRoadPositionWriter roadPosition) {
     this.roadPosition = roadPosition;
   }
-  /**
-   * Sets the value of model property relativeRoadPosition
-   *
-   * @param relativeRoadPosition from OpenSCENARIO class model specification: [Position relative to
-   *     an entity's road position (ds, dt).]
-   */
-  public void setRelativeRoadPosition(IRelativeRoadPosition relativeRoadPosition) {
+
+  @Override
+  public void setRelativeRoadPosition(IRelativeRoadPositionWriter relativeRoadPosition) {
     this.relativeRoadPosition = relativeRoadPosition;
   }
-  /**
-   * Sets the value of model property lanePosition
-   *
-   * @param lanePosition from OpenSCENARIO class model specification: [Position that is determined
-   *     by a lane (lane ID) and the s coordinate of a given road.]
-   */
-  public void setLanePosition(ILanePosition lanePosition) {
+
+  @Override
+  public void setLanePosition(ILanePositionWriter lanePosition) {
     this.lanePosition = lanePosition;
   }
-  /**
-   * Sets the value of model property relativeLanePosition
-   *
-   * @param relativeLanePosition from OpenSCENARIO class model specification: [Position that is
-   *     determined relative to the lane coordinates of a given entity. (Relative lane and relative
-   *     s to this , entity).]
-   */
-  public void setRelativeLanePosition(IRelativeLanePosition relativeLanePosition) {
+
+  @Override
+  public void setRelativeLanePosition(IRelativeLanePositionWriter relativeLanePosition) {
     this.relativeLanePosition = relativeLanePosition;
   }
-  /**
-   * Sets the value of model property routePosition
-   *
-   * @param routePosition from OpenSCENARIO class model specification: [Position that is determined
-   *     by a given route.]
-   */
-  public void setRoutePosition(IRoutePosition routePosition) {
+
+  @Override
+  public void setRoutePosition(IRoutePositionWriter routePosition) {
     this.routePosition = routePosition;
   }
 
@@ -228,43 +186,43 @@ public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IWorldPosition worldPosition = null;
-    worldPosition = getWorldPosition();
+    IWorldPositionWriter worldPosition = null;
+    worldPosition = getWriterWorldPosition();
     if (worldPosition != null) {
       result.add((BaseImpl) worldPosition);
     }
-    IRelativeWorldPosition relativeWorldPosition = null;
-    relativeWorldPosition = getRelativeWorldPosition();
+    IRelativeWorldPositionWriter relativeWorldPosition = null;
+    relativeWorldPosition = getWriterRelativeWorldPosition();
     if (relativeWorldPosition != null) {
       result.add((BaseImpl) relativeWorldPosition);
     }
-    IRelativeObjectPosition relativeObjectPosition = null;
-    relativeObjectPosition = getRelativeObjectPosition();
+    IRelativeObjectPositionWriter relativeObjectPosition = null;
+    relativeObjectPosition = getWriterRelativeObjectPosition();
     if (relativeObjectPosition != null) {
       result.add((BaseImpl) relativeObjectPosition);
     }
-    IRoadPosition roadPosition = null;
-    roadPosition = getRoadPosition();
+    IRoadPositionWriter roadPosition = null;
+    roadPosition = getWriterRoadPosition();
     if (roadPosition != null) {
       result.add((BaseImpl) roadPosition);
     }
-    IRelativeRoadPosition relativeRoadPosition = null;
-    relativeRoadPosition = getRelativeRoadPosition();
+    IRelativeRoadPositionWriter relativeRoadPosition = null;
+    relativeRoadPosition = getWriterRelativeRoadPosition();
     if (relativeRoadPosition != null) {
       result.add((BaseImpl) relativeRoadPosition);
     }
-    ILanePosition lanePosition = null;
-    lanePosition = getLanePosition();
+    ILanePositionWriter lanePosition = null;
+    lanePosition = getWriterLanePosition();
     if (lanePosition != null) {
       result.add((BaseImpl) lanePosition);
     }
-    IRelativeLanePosition relativeLanePosition = null;
-    relativeLanePosition = getRelativeLanePosition();
+    IRelativeLanePositionWriter relativeLanePosition = null;
+    relativeLanePosition = getWriterRelativeLanePosition();
     if (relativeLanePosition != null) {
       result.add((BaseImpl) relativeLanePosition);
     }
-    IRoutePosition routePosition = null;
-    routePosition = getRoutePosition();
+    IRoutePositionWriter routePosition = null;
+    routePosition = getWriterRoutePosition();
     if (routePosition != null) {
       result.add((BaseImpl) routePosition);
     }
@@ -287,63 +245,63 @@ public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IWorldPosition worldPosition = null;
-    worldPosition = getWorldPosition();
+    IWorldPositionWriter worldPosition = null;
+    worldPosition = getWriterWorldPosition();
     if (worldPosition != null) {
-      WorldPositionImpl clonedChild = ((WorldPositionImpl) worldPosition).clone();
+      IWorldPositionWriter clonedChild = ((WorldPositionImpl) worldPosition).clone();
       clonedObject.setWorldPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRelativeWorldPosition relativeWorldPosition = null;
-    relativeWorldPosition = getRelativeWorldPosition();
+    IRelativeWorldPositionWriter relativeWorldPosition = null;
+    relativeWorldPosition = getWriterRelativeWorldPosition();
     if (relativeWorldPosition != null) {
-      RelativeWorldPositionImpl clonedChild =
+      IRelativeWorldPositionWriter clonedChild =
           ((RelativeWorldPositionImpl) relativeWorldPosition).clone();
       clonedObject.setRelativeWorldPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRelativeObjectPosition relativeObjectPosition = null;
-    relativeObjectPosition = getRelativeObjectPosition();
+    IRelativeObjectPositionWriter relativeObjectPosition = null;
+    relativeObjectPosition = getWriterRelativeObjectPosition();
     if (relativeObjectPosition != null) {
-      RelativeObjectPositionImpl clonedChild =
+      IRelativeObjectPositionWriter clonedChild =
           ((RelativeObjectPositionImpl) relativeObjectPosition).clone();
       clonedObject.setRelativeObjectPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRoadPosition roadPosition = null;
-    roadPosition = getRoadPosition();
+    IRoadPositionWriter roadPosition = null;
+    roadPosition = getWriterRoadPosition();
     if (roadPosition != null) {
-      RoadPositionImpl clonedChild = ((RoadPositionImpl) roadPosition).clone();
+      IRoadPositionWriter clonedChild = ((RoadPositionImpl) roadPosition).clone();
       clonedObject.setRoadPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRelativeRoadPosition relativeRoadPosition = null;
-    relativeRoadPosition = getRelativeRoadPosition();
+    IRelativeRoadPositionWriter relativeRoadPosition = null;
+    relativeRoadPosition = getWriterRelativeRoadPosition();
     if (relativeRoadPosition != null) {
-      RelativeRoadPositionImpl clonedChild =
+      IRelativeRoadPositionWriter clonedChild =
           ((RelativeRoadPositionImpl) relativeRoadPosition).clone();
       clonedObject.setRelativeRoadPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ILanePosition lanePosition = null;
-    lanePosition = getLanePosition();
+    ILanePositionWriter lanePosition = null;
+    lanePosition = getWriterLanePosition();
     if (lanePosition != null) {
-      LanePositionImpl clonedChild = ((LanePositionImpl) lanePosition).clone();
+      ILanePositionWriter clonedChild = ((LanePositionImpl) lanePosition).clone();
       clonedObject.setLanePosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRelativeLanePosition relativeLanePosition = null;
-    relativeLanePosition = getRelativeLanePosition();
+    IRelativeLanePositionWriter relativeLanePosition = null;
+    relativeLanePosition = getWriterRelativeLanePosition();
     if (relativeLanePosition != null) {
-      RelativeLanePositionImpl clonedChild =
+      IRelativeLanePositionWriter clonedChild =
           ((RelativeLanePositionImpl) relativeLanePosition).clone();
       clonedObject.setRelativeLanePosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRoutePosition routePosition = null;
-    routePosition = getRoutePosition();
+    IRoutePositionWriter routePosition = null;
+    routePosition = getWriterRoutePosition();
     if (routePosition != null) {
-      RoutePositionImpl clonedChild = ((RoutePositionImpl) routePosition).clone();
+      IRoutePositionWriter clonedChild = ((RoutePositionImpl) routePosition).clone();
       clonedObject.setRoutePosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -450,86 +408,42 @@ public class PositionImpl extends BaseImpl implements IPosition, IPositionWriter
 
   // children
   @Override
-  public IWorldPositionWriter getWorldPositionWriter() {
-    return this.worldPositionWriter;
+  public IWorldPositionWriter getWriterWorldPosition() {
+    return this.worldPosition;
   }
 
   @Override
-  public IRelativeWorldPositionWriter getRelativeWorldPositionWriter() {
-    return this.relativeWorldPositionWriter;
+  public IRelativeWorldPositionWriter getWriterRelativeWorldPosition() {
+    return this.relativeWorldPosition;
   }
 
   @Override
-  public IRelativeObjectPositionWriter getRelativeObjectPositionWriter() {
-    return this.relativeObjectPositionWriter;
+  public IRelativeObjectPositionWriter getWriterRelativeObjectPosition() {
+    return this.relativeObjectPosition;
   }
 
   @Override
-  public IRoadPositionWriter getRoadPositionWriter() {
-    return this.roadPositionWriter;
+  public IRoadPositionWriter getWriterRoadPosition() {
+    return this.roadPosition;
   }
 
   @Override
-  public IRelativeRoadPositionWriter getRelativeRoadPositionWriter() {
-    return this.relativeRoadPositionWriter;
+  public IRelativeRoadPositionWriter getWriterRelativeRoadPosition() {
+    return this.relativeRoadPosition;
   }
 
   @Override
-  public ILanePositionWriter getLanePositionWriter() {
-    return this.lanePositionWriter;
+  public ILanePositionWriter getWriterLanePosition() {
+    return this.lanePosition;
   }
 
   @Override
-  public IRelativeLanePositionWriter getRelativeLanePositionWriter() {
-    return this.relativeLanePositionWriter;
+  public IRelativeLanePositionWriter getWriterRelativeLanePosition() {
+    return this.relativeLanePosition;
   }
 
   @Override
-  public IRoutePositionWriter getRoutePositionWriter() {
-    return this.routePositionWriter;
-  }
-
-  @Override
-  public void writeToWorldPositionWriter(IWorldPositionWriter worldPositionWriter) {
-    this.worldPositionWriter = worldPositionWriter;
-  }
-
-  @Override
-  public void writeToRelativeWorldPositionWriter(
-      IRelativeWorldPositionWriter relativeWorldPositionWriter) {
-    this.relativeWorldPositionWriter = relativeWorldPositionWriter;
-  }
-
-  @Override
-  public void writeToRelativeObjectPositionWriter(
-      IRelativeObjectPositionWriter relativeObjectPositionWriter) {
-    this.relativeObjectPositionWriter = relativeObjectPositionWriter;
-  }
-
-  @Override
-  public void writeToRoadPositionWriter(IRoadPositionWriter roadPositionWriter) {
-    this.roadPositionWriter = roadPositionWriter;
-  }
-
-  @Override
-  public void writeToRelativeRoadPositionWriter(
-      IRelativeRoadPositionWriter relativeRoadPositionWriter) {
-    this.relativeRoadPositionWriter = relativeRoadPositionWriter;
-  }
-
-  @Override
-  public void writeToLanePositionWriter(ILanePositionWriter lanePositionWriter) {
-    this.lanePositionWriter = lanePositionWriter;
-  }
-
-  @Override
-  public void writeToRelativeLanePositionWriter(
-      IRelativeLanePositionWriter relativeLanePositionWriter) {
-    this.relativeLanePositionWriter = relativeLanePositionWriter;
-  }
-
-  @Override
-  public void writeToRoutePositionWriter(IRoutePositionWriter routePositionWriter) {
-    this.routePositionWriter = routePositionWriter;
+  public IRoutePositionWriter getWriterRoutePosition() {
+    return this.routePosition;
   }
 }

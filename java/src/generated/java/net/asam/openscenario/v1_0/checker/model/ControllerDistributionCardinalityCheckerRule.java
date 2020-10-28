@@ -26,7 +26,6 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.v1_0.api.IControllerDistribution;
-import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -74,15 +73,14 @@ public class ControllerDistributionCardinalityCheckerRule
   private List<CardinalityViolation> getAllViolations(IControllerDistribution object) {
     List<CardinalityViolation> violations = new ArrayList<>();
     // Check violation
-    List<IControllerDistributionEntry> controllerDistributionEntries =
-        object.getControllerDistributionEntries();
+    int controllerDistributionEntriesSize = object.getControllerDistributionEntriesSize();
     // Check too few elements
-    if (controllerDistributionEntries == null || controllerDistributionEntries.size() < 1) {
+    if (controllerDistributionEntriesSize < 1) {
       violations.add(
           new CardinalityViolation(
               OscConstants.ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY,
               1,
-              controllerDistributionEntries == null ? 0 : controllerDistributionEntries.size(),
+              controllerDistributionEntriesSize,
               ViolationType.TOO_FEW));
     }
     return violations;

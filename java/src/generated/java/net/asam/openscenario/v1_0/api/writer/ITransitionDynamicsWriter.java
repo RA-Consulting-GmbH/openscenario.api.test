@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.v1_0.api.DynamicsDimension;
 import net.asam.openscenario.v1_0.api.DynamicsShape;
+import net.asam.openscenario.v1_0.api.ITransitionDynamics;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -32,30 +33,9 @@ import net.asam.openscenario.v1_0.api.DynamicsShape;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITransitionDynamicsWriter extends IOpenScenarioModelElement {
+public interface ITransitionDynamicsWriter extends ITransitionDynamics, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: The shape of the transition function f(x) between
-   * current and target value.
-   *
-   * @return value of model property dynamicsShape
-   */
-  public DynamicsShape getDynamicsShape();
-  /**
-   * From OpenSCENARIO class model specification: The value for a predefined rate (Unit: delta/s),
-   * time (Unit: s) or distance (Unit: m) to acquire the target value. Range: [0..inf[.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
-  /**
-   * From OpenSCENARIO class model specification: The semantics of the value: 'rate', 'time' or
-   * 'distance'.
-   *
-   * @return value of model property dynamicsDimension
-   */
-  public DynamicsDimension getDynamicsDimension();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: The shape of the transition function f(x) between
@@ -63,21 +43,21 @@ public interface ITransitionDynamicsWriter extends IOpenScenarioModelElement {
    *
    * @param dynamicsShape value of model property dynamicsShape
    */
-  public void writeToDynamicsShape(DynamicsShape dynamicsShape);
+  public void setDynamicsShape(DynamicsShape dynamicsShape);
   /**
    * From OpenSCENARIO class model specification: The value for a predefined rate (Unit: delta/s),
    * time (Unit: s) or distance (Unit: m) to acquire the target value. Range: [0..inf[.
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
   /**
    * From OpenSCENARIO class model specification: The semantics of the value: 'rate', 'time' or
    * 'distance'.
    *
    * @param dynamicsDimension value of model property dynamicsDimension
    */
-  public void writeToDynamicsDimension(DynamicsDimension dynamicsDimension);
+  public void setDynamicsDimension(DynamicsDimension dynamicsDimension);
 
   /**
    * Set a parameter for the attribute dynamicsShape

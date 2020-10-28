@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.IRelativeDistanceCondition;
 import net.asam.openscenario.v1_0.api.RelativeDistanceType;
 import net.asam.openscenario.v1_0.api.Rule;
 
@@ -31,72 +32,42 @@ import net.asam.openscenario.v1_0.api.Rule;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRelativeDistanceConditionWriter extends IOpenScenarioModelElement {
+public interface IRelativeDistanceConditionWriter
+    extends IRelativeDistanceCondition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Reference entity.
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
-  /**
-   * From OpenSCENARIO class model specification: The domain the distance is calculated in.
-   *
-   * @return value of model property relativeDistanceType
-   */
-  public RelativeDistanceType getRelativeDistanceType();
-  /**
-   * From OpenSCENARIO class model specification: The distance value. Unit: m; Range: [0..inf[.
-   *
-   * @return value of model property value
-   */
-  public Double getValue();
-  /**
-   * From OpenSCENARIO class model specification: True: distance is measured between closest
-   * bounding box points. False: reference point distance is used.
-   *
-   * @return value of model property freespace
-   */
-  public Boolean getFreespace();
-  /**
-   * From OpenSCENARIO class model specification: The operator (less, greater, equal).
-   *
-   * @return value of model property rule
-   */
-  public Rule getRule();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
   /**
    * From OpenSCENARIO class model specification: The domain the distance is calculated in.
    *
    * @param relativeDistanceType value of model property relativeDistanceType
    */
-  public void writeToRelativeDistanceType(RelativeDistanceType relativeDistanceType);
+  public void setRelativeDistanceType(RelativeDistanceType relativeDistanceType);
   /**
    * From OpenSCENARIO class model specification: The distance value. Unit: m; Range: [0..inf[.
    *
    * @param value value of model property value
    */
-  public void writeToValue(Double value);
+  public void setValue(Double value);
   /**
    * From OpenSCENARIO class model specification: True: distance is measured between closest
    * bounding box points. False: reference point distance is used.
    *
    * @param freespace value of model property freespace
    */
-  public void writeToFreespace(Boolean freespace);
+  public void setFreespace(Boolean freespace);
   /**
    * From OpenSCENARIO class model specification: The operator (less, greater, equal).
    *
    * @param rule value of model property rule
    */
-  public void writeToRule(Rule rule);
+  public void setRule(Rule rule);
 
   /**
    * Set a parameter for the attribute entityRef

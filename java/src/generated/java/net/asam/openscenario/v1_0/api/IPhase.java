@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -47,5 +46,19 @@ public interface IPhase extends IOpenScenarioModelElement {
    *
    * @return value of model property trafficSignalStates
    */
-  public List<ITrafficSignalState> getTrafficSignalStates();
+  public Iterable<ITrafficSignalState> getTrafficSignalStates();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getTrafficSignalStatesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public ITrafficSignalState getTrafficSignalStatesAtIndex(int index);
 }

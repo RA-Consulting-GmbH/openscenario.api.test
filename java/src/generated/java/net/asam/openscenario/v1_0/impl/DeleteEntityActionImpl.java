@@ -43,8 +43,7 @@ import net.asam.openscenario.v1_0.api.writer.IDeleteEntityActionWriter;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DeleteEntityActionImpl extends BaseImpl
-    implements IDeleteEntityAction, IDeleteEntityActionWriter {
+public class DeleteEntityActionImpl extends BaseImpl implements IDeleteEntityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Default constructor */

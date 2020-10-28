@@ -16,7 +16,8 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
+import net.asam.openscenario.v1_0.api.ITimeToCollisionConditionTarget;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,7 +28,23 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITimeToCollisionConditionTargetWriter extends IOpenScenarioModelElement {
+public interface ITimeToCollisionConditionTargetWriter
+    extends ITimeToCollisionConditionTarget, IOpenScenarioElementWriter {
+
+  // Setters for all attributes
+
+  /**
+   * From OpenSCENARIO class model specification: Position.
+   *
+   * @param position value of model property position
+   */
+  public void setPosition(IPositionWriter position);
+  /**
+   * From OpenSCENARIO class model specification: Reference entity.
+   *
+   * @param entityRef value of model property entityRef
+   */
+  public void setEntityRef(IEntityRefWriter entityRef);
 
   // children
   /**
@@ -35,24 +52,11 @@ public interface ITimeToCollisionConditionTargetWriter extends IOpenScenarioMode
    *
    * @return a writer for model property position
    */
-  public IPositionWriter getPositionWriter();
+  public IPositionWriter getWriterPosition();
   /**
    * From OpenSCENARIO class model specification: Reference entity.
    *
    * @return a writer for model property entityRef
    */
-  public IEntityRefWriter getEntityRefWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Position.
-   *
-   * @param positionWriter writer for the model property position
-   */
-  public void writeToPositionWriter(IPositionWriter positionWriter);
-  /**
-   * From OpenSCENARIO class model specification: Reference entity.
-   *
-   * @param entityRefWriter writer for the model property entityRef
-   */
-  public void writeToEntityRefWriter(IEntityRefWriter entityRefWriter);
+  public IEntityRefWriter getWriterEntityRef();
 }

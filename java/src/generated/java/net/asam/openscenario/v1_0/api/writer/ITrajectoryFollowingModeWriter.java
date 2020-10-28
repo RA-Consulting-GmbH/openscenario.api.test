@@ -16,8 +16,9 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.v1_0.api.FollowingMode;
+import net.asam.openscenario.v1_0.api.ITrajectoryFollowingMode;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -27,19 +28,10 @@ import net.asam.openscenario.v1_0.api.FollowingMode;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface ITrajectoryFollowingModeWriter extends IOpenScenarioModelElement {
+public interface ITrajectoryFollowingModeWriter
+    extends ITrajectoryFollowingMode, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: Defines (lateral) trajectory following behavior of
-   * the actor: Mode 'position' forces the actor to strictly adhere to the trajectory. In contrast,
-   * mode 'follow' hands over control to the actor. In this mode, the actor tries to follow the
-   * trajectory as best as he can. This may be restricted by dynamics constraints and/or control
-   * loop implementation.
-   *
-   * @return value of model property followingMode
-   */
-  public FollowingMode getFollowingMode();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: Defines (lateral) trajectory following behavior of
@@ -50,7 +42,7 @@ public interface ITrajectoryFollowingModeWriter extends IOpenScenarioModelElemen
    *
    * @param followingMode value of model property followingMode
    */
-  public void writeToFollowingMode(FollowingMode followingMode);
+  public void setFollowingMode(FollowingMode followingMode);
 
   /**
    * Set a parameter for the attribute followingMode

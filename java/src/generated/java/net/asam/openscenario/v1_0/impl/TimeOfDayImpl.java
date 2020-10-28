@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, ITimeOfDayWriter {
+public class TimeOfDayImpl extends BaseImpl implements ITimeOfDayWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -79,21 +79,13 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, ITimeOfDayWri
   public java.util.Date getDateTime() {
     return this.dateTime;
   }
-  /**
-   * Sets the value of model property animation
-   *
-   * @param animation from OpenSCENARIO class model specification: [If true, the timeofday is
-   *     animated with progressing simulation time, e.g. in order to animate the position of the
-   *     sun.]
-   */
+
+  @Override
   public void setAnimation(Boolean animation) {
     this.animation = animation;
   }
-  /**
-   * Sets the value of model property dateTime
-   *
-   * @param dateTime from OpenSCENARIO class model specification: [Datetime value.]
-   */
+
+  @Override
   public void setDateTime(java.util.Date dateTime) {
     this.dateTime = dateTime;
   }
@@ -237,16 +229,6 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay, ITimeOfDayWri
   @Override
   public String getModelType() {
     return "TimeOfDay";
-  }
-
-  @Override
-  public void writeToAnimation(Boolean animation) {
-    setAnimation(animation);
-  }
-
-  @Override
-  public void writeToDateTime(java.util.Date dateTime) {
-    setDateTime(dateTime);
   }
 
   @Override

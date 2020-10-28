@@ -16,9 +16,10 @@
  */
 package net.asam.openscenario.v1_0.api.writer;
 
-import net.asam.openscenario.api.IOpenScenarioModelElement;
+import net.asam.openscenario.api.writer.IOpenScenarioElementWriter;
 import net.asam.openscenario.common.INamedReference;
 import net.asam.openscenario.v1_0.api.IEntity;
+import net.asam.openscenario.v1_0.api.IRelativeRoadPosition;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -29,50 +30,38 @@ import net.asam.openscenario.v1_0.api.IEntity;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public interface IRelativeRoadPositionWriter extends IOpenScenarioModelElement {
+public interface IRelativeRoadPositionWriter
+    extends IRelativeRoadPosition, IOpenScenarioElementWriter {
 
-  // Getters and setter for all attributes
-  /**
-   * From OpenSCENARIO class model specification: reference entity.
-   *
-   * @return value of model property entityRef
-   */
-  public INamedReference<IEntity> getEntityRef();
-  /**
-   * From OpenSCENARIO class model specification: Relative ds road coordinate to s coordinate of the
-   * reference entity.
-   *
-   * @return value of model property ds
-   */
-  public Double getDs();
-  /**
-   * From OpenSCENARIO class model specification: Relative dt road coordinate to t coordinate of the
-   * reference entity.
-   *
-   * @return value of model property dt
-   */
-  public Double getDt();
+  // Setters for all attributes
 
   /**
    * From OpenSCENARIO class model specification: reference entity.
    *
    * @param entityRef value of model property entityRef
    */
-  public void writeToEntityRef(INamedReference<IEntity> entityRef);
+  public void setEntityRef(INamedReference<IEntity> entityRef);
   /**
    * From OpenSCENARIO class model specification: Relative ds road coordinate to s coordinate of the
    * reference entity.
    *
    * @param ds value of model property ds
    */
-  public void writeToDs(Double ds);
+  public void setDs(Double ds);
   /**
    * From OpenSCENARIO class model specification: Relative dt road coordinate to t coordinate of the
    * reference entity.
    *
    * @param dt value of model property dt
    */
-  public void writeToDt(Double dt);
+  public void setDt(Double dt);
+  /**
+   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
+   * to the referenced road's s and t coordinates.
+   *
+   * @param orientation value of model property orientation
+   */
+  public void setOrientation(IOrientationWriter orientation);
 
   /**
    * Set a parameter for the attribute entityRef
@@ -141,13 +130,5 @@ public interface IRelativeRoadPositionWriter extends IOpenScenarioModelElement {
    *
    * @return a writer for model property orientation
    */
-  public IOrientationWriter getOrientationWriter();
-
-  /**
-   * From OpenSCENARIO class model specification: Orientation. The relative reference context refers
-   * to the referenced road's s and t coordinates.
-   *
-   * @param orientationWriter writer for the model property orientation
-   */
-  public void writeToOrientationWriter(IOrientationWriter orientationWriter);
+  public IOrientationWriter getWriterOrientation();
 }

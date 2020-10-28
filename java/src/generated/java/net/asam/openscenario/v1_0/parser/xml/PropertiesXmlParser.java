@@ -25,8 +25,8 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IFile;
-import net.asam.openscenario.v1_0.api.IProperty;
+import net.asam.openscenario.v1_0.api.writer.IFileWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertyWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.FileImpl;
 import net.asam.openscenario.v1_0.impl.PropertiesImpl;
@@ -100,7 +100,7 @@ public class PropertiesXmlParser extends XmlComplexTypeParser<PropertiesImpl> {
       // Setting the parent
       properties.setParent(object);
       this.propertyXmlParser.parseElement(indexedElement, parserContext, properties);
-      List<IProperty> propertiesList = object.getProperties();
+      List<IPropertyWriter> propertiesList = object.getWriterProperties();
       if (propertiesList == null) {
         propertiesList = new ArrayList<>();
         object.setProperties(propertiesList);
@@ -149,7 +149,7 @@ public class PropertiesXmlParser extends XmlComplexTypeParser<PropertiesImpl> {
       // Setting the parent
       files.setParent(object);
       this.fileXmlParser.parseElement(indexedElement, parserContext, files);
-      List<IFile> filesList = object.getFiles();
+      List<IFileWriter> filesList = object.getWriterFiles();
       if (filesList == null) {
         filesList = new ArrayList<>();
         object.setFiles(filesList);

@@ -45,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DirectoryImpl extends BaseImpl implements IDirectory, IDirectoryWriter {
+public class DirectoryImpl extends BaseImpl implements IDirectoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -72,12 +72,8 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, IDirectoryWri
   public String getPath() {
     return this.path;
   }
-  /**
-   * Sets the value of model property path
-   *
-   * @param path from OpenSCENARIO class model specification: [File system path, e.g.
-   *     path=/home/simulation/.]
-   */
+
+  @Override
   public void setPath(String path) {
     this.path = path;
   }
@@ -207,11 +203,6 @@ public class DirectoryImpl extends BaseImpl implements IDirectory, IDirectoryWri
   @Override
   public String getModelType() {
     return "Directory";
-  }
-
-  @Override
-  public void writeToPath(String path) {
-    setPath(path);
   }
 
   @Override

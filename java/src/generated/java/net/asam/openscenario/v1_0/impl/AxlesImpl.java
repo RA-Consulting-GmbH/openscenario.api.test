@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -46,16 +47,12 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
+public class AxlesImpl extends BaseImpl implements IAxlesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IAxle frontAxle;
-  private IAxle rearAxle;
-  private List<IAxle> additionalAxles;
-
-  private IAxleWriter frontAxleWriter;
-  private IAxleWriter rearAxleWriter;
-  private List<IAxleWriter> additionalAxlesWriters;
+  private IAxleWriter frontAxle;
+  private IAxleWriter rearAxle;
+  private List<IAxleWriter> additionalAxles = new ArrayList<>();
 
   /** Default constructor */
   public AxlesImpl() {
@@ -81,32 +78,48 @@ public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
   }
 
   @Override
-  public List<IAxle> getAdditionalAxles() {
+  public List<IAxleWriter> getWriterAdditionalAxles() {
     return this.additionalAxles;
   }
-  /**
-   * Sets the value of model property frontAxle
-   *
-   * @param frontAxle from OpenSCENARIO class model specification: [Front axle.]
-   */
-  public void setFrontAxle(IAxle frontAxle) {
+
+  @Override
+  public Iterable<IAxle> getAdditionalAxles() {
+    return new Iterable<IAxle>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IAxle> iterator() {
+        return new ArrayList<IAxle>(AxlesImpl.this.additionalAxles).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getAdditionalAxlesSize() {
+    if (this.additionalAxles != null) return this.additionalAxles.size();
+    return 0;
+  }
+
+  @Override
+  public IAxle getAdditionalAxlesAtIndex(int index) {
+    if (index >= 0 && this.additionalAxles != null && this.additionalAxles.size() > index) {
+      return this.additionalAxles.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setFrontAxle(IAxleWriter frontAxle) {
     this.frontAxle = frontAxle;
   }
-  /**
-   * Sets the value of model property rearAxle
-   *
-   * @param rearAxle from OpenSCENARIO class model specification: [Rear axle.]
-   */
-  public void setRearAxle(IAxle rearAxle) {
+
+  @Override
+  public void setRearAxle(IAxleWriter rearAxle) {
     this.rearAxle = rearAxle;
   }
-  /**
-   * Sets the value of model property additionalAxles
-   *
-   * @param additionalAxles from OpenSCENARIO class model specification: [A list of optional
-   *     additional axles.]
-   */
-  public void setAdditionalAxles(List<IAxle> additionalAxles) {
+
+  @Override
+  public void setAdditionalAxles(List<IAxleWriter> additionalAxles) {
     this.additionalAxles = additionalAxles;
   }
 
@@ -131,20 +144,20 @@ public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IAxle frontAxle = null;
-    frontAxle = getFrontAxle();
+    IAxleWriter frontAxle = null;
+    frontAxle = getWriterFrontAxle();
     if (frontAxle != null) {
       result.add((BaseImpl) frontAxle);
     }
-    IAxle rearAxle = null;
-    rearAxle = getRearAxle();
+    IAxleWriter rearAxle = null;
+    rearAxle = getWriterRearAxle();
     if (rearAxle != null) {
       result.add((BaseImpl) rearAxle);
     }
-    List<IAxle> additionalAxles = null;
-    additionalAxles = getAdditionalAxles();
+    List<IAxleWriter> additionalAxles = null;
+    additionalAxles = getWriterAdditionalAxles();
     if (additionalAxles != null) {
-      for (IAxle item : additionalAxles) {
+      for (IAxleWriter item : additionalAxles) {
         result.add((BaseImpl) item);
       }
     }
@@ -167,26 +180,26 @@ public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IAxle frontAxle = null;
-    frontAxle = getFrontAxle();
+    IAxleWriter frontAxle = null;
+    frontAxle = getWriterFrontAxle();
     if (frontAxle != null) {
-      AxleImpl clonedChild = ((AxleImpl) frontAxle).clone();
+      IAxleWriter clonedChild = ((AxleImpl) frontAxle).clone();
       clonedObject.setFrontAxle(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IAxle rearAxle = null;
-    rearAxle = getRearAxle();
+    IAxleWriter rearAxle = null;
+    rearAxle = getWriterRearAxle();
     if (rearAxle != null) {
-      AxleImpl clonedChild = ((AxleImpl) rearAxle).clone();
+      IAxleWriter clonedChild = ((AxleImpl) rearAxle).clone();
       clonedObject.setRearAxle(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    List<IAxle> additionalAxles = null;
-    additionalAxles = getAdditionalAxles();
+    List<IAxleWriter> additionalAxles = null;
+    additionalAxles = getWriterAdditionalAxles();
     if (additionalAxles != null) {
-      List<IAxle> clonedList = new ArrayList<>();
-      for (IAxle item : additionalAxles) {
-        AxleImpl clonedChild = ((AxleImpl) item).clone();
+      List<IAxleWriter> clonedList = new ArrayList<>();
+      for (IAxleWriter item : additionalAxles) {
+        IAxleWriter clonedChild = ((AxleImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -284,32 +297,12 @@ public class AxlesImpl extends BaseImpl implements IAxles, IAxlesWriter {
 
   // children
   @Override
-  public IAxleWriter getFrontAxleWriter() {
-    return this.frontAxleWriter;
+  public IAxleWriter getWriterFrontAxle() {
+    return this.frontAxle;
   }
 
   @Override
-  public IAxleWriter getRearAxleWriter() {
-    return this.rearAxleWriter;
-  }
-
-  @Override
-  public void writeToFrontAxleWriter(IAxleWriter frontAxleWriter) {
-    this.frontAxleWriter = frontAxleWriter;
-  }
-
-  @Override
-  public void writeToRearAxleWriter(IAxleWriter rearAxleWriter) {
-    this.rearAxleWriter = rearAxleWriter;
-  }
-
-  @Override
-  public List<IAxleWriter> getAdditionalAxlesWriter() {
-    return this.additionalAxlesWriters;
-  }
-
-  @Override
-  public void setAdditionalAxlesWriter(List<IAxleWriter> additionalAxlesWriters) {
-    this.additionalAxlesWriters = additionalAxlesWriters;
+  public IAxleWriter getWriterRearAxle() {
+    return this.rearAxle;
   }
 }
