@@ -1,0 +1,119 @@
+/*
+ * Copyright 2020 RA Consulting
+ *
+ * RA Consulting GmbH licenses this file under the Apache License, 
+ * Version 2.0 (the "License"); you may not use this file except 
+ * in compliance with the License. 
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */package de.rac.openscenario.generator.helper
+
+import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.uml.framework.UmlClass
+import de.rac.openscenario.uml.framework.UmlProperty
+
+public class ImplClassHelper {
+
+	public makeGetterJavaDoc(UmlClass umlClass, property)
+	{
+		def lines = [];
+		lines.add("From OpenSCENARIO class model specification:")
+		lines.addAll(JavaDocHelper.formatString(property.annotation));
+		lines.addAll("");
+		lines.addAll("@return value of model property ${property.name.toMemberName()}");
+		return JavaDocHelper.makeComment(lines, "\t")
+	}
+  
+    public makeGetterCppDoc(UmlClass umlClass, property,  indent= "")
+    {
+        def lines = [];
+        lines.add("From OpenSCENARIO class model specification:")
+        lines.addAll(JavaDocHelper.formatString(property.annotation));
+        lines.addAll("");
+        lines.addAll("@return value of model property ${property.name.toMemberName()}");
+        return JavaDocHelper.makeComment(lines, indent)
+    }
+
+	public makeSetterJavaDoc(UmlClass umlClass, property)
+	{
+		def lines = [];
+		lines.add("Sets the value of model property ${property.name.toMemberName()}")
+		lines.addAll("@param ${property.name.toMemberName()}${property.isXmlElementProperty()?"Writer":""} from OpenSCENARIO class model specification: "+ JavaDocHelper.formatString(property.annotation));
+		lines.addAll("");
+		return JavaDocHelper.makeComment(lines, "\t")
+	}
+  
+    public makeSetterListJavaDoc(UmlClass umlClass, property)
+    {
+        def lines = [];
+        lines.add("Sets the value of model property ${property.name.toMemberName()}")
+        lines.addAll("@param ${property.name.toMemberName()}${property.isTransient()?"":"Writers"} from OpenSCENARIO class model specification: "+ JavaDocHelper.formatString(property.annotation));
+        lines.addAll("");
+        return JavaDocHelper.makeComment(lines, "\t")
+    }
+  
+    public makeSetterCppDoc(UmlClass umlClass, property,  indent)
+    {
+        def lines = [];
+        lines.add("Sets the value of model property ${property.name.toMemberName()}")
+        lines.addAll("@param ${property.name.toMemberName()} from OpenSCENARIO class model specification: "+ JavaDocHelper.formatString(property.annotation));
+        lines.addAll("");
+        return JavaDocHelper.makeComment(lines, indent)
+    }
+	
+	
+	public String makeClassJavaDoc(UmlClass umlClass,  version, indent = "")
+	{
+		def lines = [];
+		lines.add("<p>");
+		lines.add("Value class that implements I${umlClass.name.toClassName()}. With setter methods to fill the properties.")
+		lines.add("<ul>")
+		lines.add("<li> getter methods for properties (implemented methods of I${umlClass.name.toClassName()})")
+		lines.add("<li> setter methods for properties")
+		lines.add("<li> getChildren method to collect all children")
+		lines.add("<li> clone function to make a deep copy")
+		lines.add("<li> overrides from BaseImpl")
+		lines.add("</ul>")
+		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		
+	}
+	
+	public String getExtendsExpression(UmlClass umlClass)
+	{
+		List interfaceRealizationList = umlClass.getInterfaceRealization().collect{interfaceRealization-> return "I" +interfaceRealization.name.toClassName()};
+		if (interfaceRealizationList && !interfaceRealizationList.isEmpty()){
+			return "extends " +  String.join(",", interfaceRealizationList);
+		}else
+		{
+			return "";
+		}
+	}
+
+	public java.util.HashSet getTypeImport(UmlClass umlClass, packageName)
+	{
+		List properties = umlClass.umlProperties;
+		def result =  properties.collect(){ property -> return property.type.isPrimitiveType()?null:packageName + "." + property.type.toJavaName() + ";\n"}
+		properties = umlClass.getXmlElementProperties();
+        result.addAll(properties.collect(){ property -> return property.type.isPrimitiveType()?null:packageName + ".writer." + property.type.toJavaName() + "Writer;\n"});
+        Set<String> resultSet= new HashSet<String>(result.findAll(){item -> item != null});
+		return resultSet;
+		
+	}
+
+    public java.util.HashSet getTypeImportCpp(UmlClass umlClass, packageName)
+    {
+        List properties = umlClass.umlProperties;
+        def result =  properties.collect(){UmlProperty property -> return property.type.isPrimitiveType()?null:packageName + "." + property.type.toCppName() + ";\n"}
+        Set<String> resultSet= new HashSet<String>(result.findAll(){item -> item != null});
+        return resultSet;
+        
+    }
+	
+}
