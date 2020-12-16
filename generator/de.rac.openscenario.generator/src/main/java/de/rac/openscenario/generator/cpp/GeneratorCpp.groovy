@@ -33,7 +33,6 @@ import de.rac.openscenario.generator.helper.RangeCheckerRuleHelper
 import de.rac.openscenario.generator.helper.ScenarioCheckerImplHelper
 import de.rac.openscenario.generator.helper.ScenarioCheckerInterfaceHelper
 import de.rac.openscenario.generator.helper.XmlParserClassHelper
-import de.rac.openscenario.generator.utils.CompareDirectories
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlModel
 import de.rac.openscenario.uml.framework.UmlProperty

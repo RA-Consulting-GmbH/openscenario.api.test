@@ -44,7 +44,6 @@ import de.rac.openscenario.generator.helper.UnionCheckerRuleHelper
 import de.rac.openscenario.generator.helper.XmlExporterClassHelper;
 import de.rac.openscenario.generator.helper.XmlParserClassHelper
 import de.rac.openscenario.generator.java.GeneratorJava.TypeHelperJava
-import de.rac.openscenario.generator.utils.CompareDirectories
 import de.rac.openscenario.uml.framework.Stereotype
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlEnumeration
