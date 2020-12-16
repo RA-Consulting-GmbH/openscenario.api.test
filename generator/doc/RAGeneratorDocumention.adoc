@@ -1,10 +1,11 @@
+:imagesdir: images
 image:image1.png[image,width=370,height=370]
 
 = RA Generator for OpenSCENARIO
 
 :toc:
 :sectnums:
-:imagesdir: images
+
 
 [cols=",,,",]
 |====================================================
