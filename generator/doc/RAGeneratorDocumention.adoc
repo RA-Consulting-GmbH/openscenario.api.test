@@ -8,8 +8,6 @@ RA Consulting GmbH, https://www-rac.de[www-rac.de]
 
 :toc:
 :sectnums:
-
-
 [cols=",,,",]
 |====================================================
 |Version |Date |Author |Changes
