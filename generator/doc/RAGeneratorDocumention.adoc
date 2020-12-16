@@ -66,16 +66,16 @@ Follow the instructions https://www.eclipse.org/downloads/packages/installer[her
 * Open Eclipse. _Choose Help->Eclipse Marketplace_.
 * Search for groovy
 * Choose “Groovy Development Tools (...)” and press _Install_
-* Add “Groovy-Eclipse M2E integration” and press _Confirm_
+* Add “Groovy-Eclipse M2E integration” and press _Confirm_ +
 image:image2.png[image,width=520,height=350]
 * Restart Eclipse
 
 ==== Install Template Editor Plugin
 
-* Open Eclipse. _Choose Help->Install New Software_. Choose _Add..._ 
+* Open Eclipse. _Choose Help->Install New Software_. Choose _Add..._ + 
 image:image3.png[image,width=604,height=490]
-* Choose _Archive..._ and add _de.rac.groovy.extension.feature.1_0_0.zip_ from your local hard drive.
-* image:image4.png[image,width=475,height=181]
+* Choose _Archive..._ and add _de.rac.groovy.extension.feature.1_0_0.zip_ from your local hard drive.+
+image:image4.png[image,width=475,height=181]
 * Deselect _Group items by category_ and select _RAC template editor feature_. Then choose _Next_ +
 image:image5.png[image,width=604,height=490]
 * Select _Install anyway_ (if you trust RA Consulting) +
