@@ -1,0 +1,36 @@
+OpenSCENARIO Generator for OpenSCENARIO
+Copyright 2020 ASAM e.V.
+
+This software was initially contributed by RA Consulting GmbH.
+This product includes software developed at RA Consulting GmbH.
+
+This section lists the full license text and copyrights of the third-party software packages or files that are incorporated into this distribution:
+
+- Groovy: Apache 2.0 license. 
+- Log4J: Apache 2.0 License
+- Google Java Format: Apache 2.0 license.
+
+Separate package
+- Template Editor: See license during installtion.
+
+Groovy
+======
+https://github.com/apache/groovy/blob/master/LICENSE
+
+Log4J
+=====
+https://logging.apache.org/log4j/2.x/license.html
+
+Google java format
+==================
+
+https://github.com/google/google-java-format/blob/master/LICENSE
+
+Template Editor
+===============
+See sub-directory eclipse-editor/de.rac.groovy.extension.feature.1_0_0.zip
+This eclipse plugin is not part of the generator itself. Generation can be used without this plugin. 
+The template editor is provided by RA Consulting and is for your convenience when editing and viewing *.tpl files with eclipse.
+See the license information during installation.
+
+RA Consulting GmbH grants the right to use it as is in the OpenSCENARIO project.
