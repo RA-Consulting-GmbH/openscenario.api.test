@@ -1,3 +1,4 @@
+:imagesdir: images
 image:image1.png[image,width=370,height=370]
 
 RA Consulting GmbH, https://www-rac.de[www-rac.de]
@@ -7,8 +8,6 @@ RA Consulting GmbH, https://www-rac.de[www-rac.de]
 
 :toc:
 :sectnums:
-:imagesdir: images
-
 [cols=",,,",]
 |====================================================
 |Version |Date |Author |Changes
