@@ -1,5 +1,8 @@
 image:image1.png[image,width=370,height=370]
 
+RA Consulting GmbH, https://www-rac.de[www-rac.de]
+
+
 = RA Generator for OpenSCENARIO
 
 :toc:
