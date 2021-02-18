@@ -25,6 +25,7 @@
 #include "RangeCheckerRule.h"
 #include "MemLeakDetection.h"
 #include "ExportDefinitions.h"
+#include "ITreeMessageLogger.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -34,9 +35,12 @@ namespace NET_ASAM_OPENSCENARIO
 <%= helper.makeClassJavaDoc(element, oscVersion, "        ")%>
         class <%=element.name.toClassName()%>RangeCheckerRule: public RangeCheckerRule<I<%=element.name.toClassName()%>>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) const;
         public:
             <%=element.name.toClassName()%>RangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) override;
         };
 
     <%-}-%>

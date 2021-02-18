@@ -274,7 +274,7 @@ public:
             auto openScenarioImpl = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(kFilename));
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
-            const auto kContent = openScenarioImpl->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetInit()->GetActions()->GetUserDefinedActions()[0]->GetCustomCommandAction()->GetContent();
+            const auto kContent = openScenarioImpl->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetInit()->GetActions()->GetUserDefinedActionsAtIndex(0)->GetCustomCommandAction()->GetContent();
             res = res && Assert("\n				This is text defined  Inhalt" == kContent, ASSERT_LOCATION);
             return res;
         }

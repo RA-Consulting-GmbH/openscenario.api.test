@@ -27,17 +27,16 @@
 
 class EgoCheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule<NET_ASAM_OPENSCENARIO::v1_0::IEntities> 
 {
-public:
-
-    void ApplyRule(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger>& messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEntities> object) override
+private:
+    bool IsEgoDefined(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEntities> object) const
     {
         bool isEgoDefined = false;
 
         // We are adding the validation code here
         auto scenarioObjects = object->GetScenarioObjects();
-        if (!scenarioObjects.empty()) 
+        if ( object->GetScenarioObjectsSize() != 0 )
         {
-            for ( auto&& scenarioObject : scenarioObjects) 
+            for (auto&& scenarioObject : scenarioObjects)
             {
                 auto name = scenarioObject->GetName();
                 for (std::string::iterator it = name.begin(); it != name.end(); ++it)
@@ -50,7 +49,14 @@ public:
             }
         }
 
-        if (!isEgoDefined) 
+        return isEgoDefined;
+    }
+
+public:
+
+    void ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEntities> object) override
+    {
+        if (!IsEgoDefined(object))
         {
             auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
             if (locator) 
@@ -59,6 +65,21 @@ public:
                 messageLogger->LogMessage(msg);
             }
             
+        }
+    }
+
+    void ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEntities> object) override
+    {
+        if (!IsEgoDefined(object))
+        {
+            //const auto kLocator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
+            //if (kLocator)
+            //{
+                const auto kContext = std::make_shared<NET_ASAM_OPENSCENARIO::BaseTreeContext>(object);
+                NET_ASAM_OPENSCENARIO::TreeContentMessage tcm("No ego vehicle defined", NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, kContext);
+                messageLogger->LogMessage(tcm);
+            //}
+
         }
     }
 };

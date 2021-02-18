@@ -23,86 +23,86 @@ namespace NET_ASAM_OPENSCENARIO
     {
         std::map<std::string, CloudState::CloudStateEnum> CloudState::_stringToEnum = 
         {
-            {"skyOff", SKY_OFF},
-            {"free", FREE},
             {"cloudy", CLOUDY},
+            {"free", FREE},
             {"overcast", OVERCAST},
             {"rainy", RAINY},
+            {"skyOff", SKY_OFF},
         };
 
         std::map<std::string, ConditionEdge::ConditionEdgeEnum> ConditionEdge::_stringToEnum = 
         {
-            {"rising", RISING},
             {"falling", FALLING},
-            {"risingOrFalling", RISING_OR_FALLING},
             {"none", NONE},
+            {"rising", RISING},
+            {"risingOrFalling", RISING_OR_FALLING},
         };
 
         std::map<std::string, DynamicsDimension::DynamicsDimensionEnum> DynamicsDimension::_stringToEnum = 
         {
+            {"distance", DISTANCE},
             {"rate", RATE},
             {"time", TIME},
-            {"distance", DISTANCE},
         };
 
         std::map<std::string, DynamicsShape::DynamicsShapeEnum> DynamicsShape::_stringToEnum = 
         {
-            {"linear", LINEAR},
             {"cubic", CUBIC},
+            {"linear", LINEAR},
             {"sinusoidal", SINUSOIDAL},
             {"step", STEP},
         };
 
         std::map<std::string, FollowingMode::FollowingModeEnum> FollowingMode::_stringToEnum = 
         {
-            {"position", POSITION},
             {"follow", FOLLOW},
+            {"position", POSITION},
         };
 
         std::map<std::string, MiscObjectCategory::MiscObjectCategoryEnum> MiscObjectCategory::_stringToEnum = 
         {
-            {"none", NONE},
-            {"obstacle", OBSTACLE},
-            {"pole", POLE},
-            {"tree", TREE},
-            {"vegetation", VEGETATION},
             {"barrier", BARRIER},
             {"building", BUILDING},
+            {"crosswalk", CROSSWALK},
+            {"gantry", GANTRY},
+            {"none", NONE},
+            {"obstacle", OBSTACLE},
             {"parkingSpace", PARKING_SPACE},
             {"patch", PATCH},
+            {"pole", POLE},
             {"railing", RAILING},
-            {"trafficIsland", TRAFFIC_ISLAND},
-            {"crosswalk", CROSSWALK},
-            {"streetLamp", STREET_LAMP},
-            {"gantry", GANTRY},
-            {"soundBarrier", SOUND_BARRIER},
-            {"wind", WIND},
             {"roadMark", ROAD_MARK},
+            {"soundBarrier", SOUND_BARRIER},
+            {"streetLamp", STREET_LAMP},
+            {"trafficIsland", TRAFFIC_ISLAND},
+            {"tree", TREE},
+            {"vegetation", VEGETATION},
+            {"wind", WIND},
         };
 
         std::map<std::string, ObjectType::ObjectTypeEnum> ObjectType::_stringToEnum = 
         {
+            {"miscellaneous", MISCELLANEOUS},
             {"pedestrian", PEDESTRIAN},
             {"vehicle", VEHICLE},
-            {"miscellaneous", MISCELLANEOUS},
         };
 
         std::map<std::string, ParameterType::ParameterTypeEnum> ParameterType::_stringToEnum = 
         {
-            {"integer", INTEGER},
+            {"boolean", BOOLEAN},
+            {"dateTime", DATE_TIME},
             {"double", DOUBLE},
+            {"integer", INTEGER},
             {"string", STRING},
             {"unsignedInt", UNSIGNED_INT},
             {"unsignedShort", UNSIGNED_SHORT},
-            {"boolean", BOOLEAN},
-            {"dateTime", DATE_TIME},
         };
 
         std::map<std::string, PedestrianCategory::PedestrianCategoryEnum> PedestrianCategory::_stringToEnum = 
         {
+            {"animal", ANIMAL},
             {"pedestrian", PEDESTRIAN},
             {"wheelchair", WHEELCHAIR},
-            {"animal", ANIMAL},
         };
 
         std::map<std::string, PrecipitationType::PrecipitationTypeEnum> PrecipitationType::_stringToEnum = 
@@ -115,36 +115,36 @@ namespace NET_ASAM_OPENSCENARIO
         std::map<std::string, Priority::PriorityEnum> Priority::_stringToEnum = 
         {
             {"overwrite", OVERWRITE},
-            {"skip", SKIP},
             {"parallel", PARALLEL},
+            {"skip", SKIP},
         };
 
         std::map<std::string, ReferenceContext::ReferenceContextEnum> ReferenceContext::_stringToEnum = 
         {
-            {"relative", RELATIVE},
             {"absolute", ABSOLUTE},
+            {"relative", RELATIVE},
         };
 
         std::map<std::string, RelativeDistanceType::RelativeDistanceTypeEnum> RelativeDistanceType::_stringToEnum = 
         {
-            {"longitudinal", LONGITUDINAL},
-            {"lateral", LATERAL},
             {"cartesianDistance", CARTESIAN_DISTANCE},
+            {"lateral", LATERAL},
+            {"longitudinal", LONGITUDINAL},
         };
 
         std::map<std::string, RouteStrategy::RouteStrategyEnum> RouteStrategy::_stringToEnum = 
         {
             {"fastest", FASTEST},
-            {"shortest", SHORTEST},
             {"leastIntersections", LEAST_INTERSECTIONS},
             {"random", RANDOM},
+            {"shortest", SHORTEST},
         };
 
         std::map<std::string, Rule::RuleEnum> Rule::_stringToEnum = 
         {
+            {"equalTo", EQUAL_TO},
             {"greaterThan", GREATER_THAN},
             {"lessThan", LESS_THAN},
-            {"equalTo", EQUAL_TO},
         };
 
         std::map<std::string, SpeedTargetValueType::SpeedTargetValueTypeEnum> SpeedTargetValueType::_stringToEnum = 
@@ -155,43 +155,43 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::map<std::string, StoryboardElementState::StoryboardElementStateEnum> StoryboardElementState::_stringToEnum = 
         {
-            {"startTransition", START_TRANSITION},
-            {"endTransition", END_TRANSITION},
-            {"stopTransition", STOP_TRANSITION},
-            {"skipTransition", SKIP_TRANSITION},
             {"completeState", COMPLETE_STATE},
+            {"endTransition", END_TRANSITION},
             {"runningState", RUNNING_STATE},
+            {"skipTransition", SKIP_TRANSITION},
             {"standbyState", STANDBY_STATE},
+            {"startTransition", START_TRANSITION},
+            {"stopTransition", STOP_TRANSITION},
         };
 
         std::map<std::string, StoryboardElementType::StoryboardElementTypeEnum> StoryboardElementType::_stringToEnum = 
         {
-            {"story", STORY},
             {"act", ACT},
-            {"maneuver", MANEUVER},
-            {"event", EVENT},
             {"action", ACTION},
+            {"event", EVENT},
+            {"maneuver", MANEUVER},
             {"maneuverGroup", MANEUVER_GROUP},
+            {"story", STORY},
         };
 
         std::map<std::string, TriggeringEntitiesRule::TriggeringEntitiesRuleEnum> TriggeringEntitiesRule::_stringToEnum = 
         {
-            {"any", ANY},
             {"all", ALL},
+            {"any", ANY},
         };
 
         std::map<std::string, VehicleCategory::VehicleCategoryEnum> VehicleCategory::_stringToEnum = 
         {
-            {"car", CAR},
-            {"van", VAN},
-            {"truck", TRUCK},
-            {"trailer", TRAILER},
-            {"semitrailer", SEMITRAILER},
-            {"bus", BUS},
-            {"motorbike", MOTORBIKE},
             {"bicycle", BICYCLE},
+            {"bus", BUS},
+            {"car", CAR},
+            {"motorbike", MOTORBIKE},
+            {"semitrailer", SEMITRAILER},
+            {"trailer", TRAILER},
             {"train", TRAIN},
             {"tram", TRAM},
+            {"truck", TRUCK},
+            {"van", VAN},
         };
 
     }

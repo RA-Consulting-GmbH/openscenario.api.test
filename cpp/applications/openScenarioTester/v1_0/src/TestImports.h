@@ -98,6 +98,7 @@ public:
             auto ref = catalogReference->GetRef();
             auto vehicleImportEgo = NET_ASAM_OPENSCENARIO::v1_0::CatalogHelper::AsVehicle(ref);
             res = res && Assert(vehicleImportEgo != nullptr, ASSERT_LOCATION);
+            auto temp = vehicleImportEgo->GetPerformance()->GetMaxSpeed();
             res = res && Assert(vehicleImportEgo->GetPerformance()->GetMaxSpeed() == 70.0, ASSERT_LOCATION);
 
             // Overtaker: Same import, different ParamterAssignements for maxSpeed

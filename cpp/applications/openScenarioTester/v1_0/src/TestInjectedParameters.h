@@ -82,14 +82,14 @@ public:
             res = res && Assert(2 == GetLaneChangeAction(eventPtr)->GetLaneChangeTarget()->GetRelativeTargetLane()->GetValue(), ASSERT_LOCATION);
 
             // testDateTime
-            auto date = eventPtr->GetStartTrigger()->GetConditionGroups()[0]->GetConditions()[0]->GetByValueCondition()->GetTimeOfDayCondition()->GetDateTime();
+            auto date = eventPtr->GetStartTrigger()->GetConditionGroupsAtIndex(0)->GetConditionsAtIndex(0)->GetByValueCondition()->GetTimeOfDayCondition()->GetDateTime();
             res = res && Assert("2018-02-24T10:00:00" == NET_ASAM_OPENSCENARIO::DateTimeParser::ToString(date), ASSERT_LOCATION);
 
             // testDouble
             res = res && Assert(2 == GetLaneChangeAction(eventPtr)->GetLaneChangeActionDynamics()->GetValue(), ASSERT_LOCATION);
 
             // testBoolean
-            res = res && Assert(openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetActors()->GetSelectTriggeringEntities(), ASSERT_LOCATION);
+            res = res && Assert(openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStoriesAtIndex(0)->GetActsAtIndex(0)->GetManeuverGroupsAtIndex(0)->GetActors()->GetSelectTriggeringEntities(), ASSERT_LOCATION);
 
             // testUnsignedShort
             // cannot be tested because data structures are above the Parameter definitions
@@ -191,7 +191,7 @@ private:
     */
     std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::ILaneChangeAction> GetLaneChangeAction(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEvent> eventPtr)
     {
-        return eventPtr->GetActions()[0]->GetPrivateAction()->GetLateralAction()->GetLaneChangeAction();
+        return eventPtr->GetActionsAtIndex(0)->GetPrivateAction()->GetLateralAction()->GetLaneChangeAction();
     }
 
     /**
@@ -200,6 +200,6 @@ private:
     */
     std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEvent> GetEvent(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario> openScenario)
     {
-        return openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetManeuvers()[0]->GetEvents()[0];
+        return openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStoriesAtIndex(0)->GetActsAtIndex(0)->GetManeuverGroupsAtIndex(0)->GetManeuversAtIndex(0)->GetEventsAtIndex(0);
     }
 };

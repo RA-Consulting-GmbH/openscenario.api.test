@@ -24,9 +24,14 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0
     {
-        void ScenarioCheckerImpl::CheckScenario(std::shared_ptr<IParserMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
+        void ScenarioCheckerImpl::CheckScenarioInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
         {
-            ApplyOpenScenarioCheckerRules(messageLogger, openScenario);
+            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger<FileContentMessage>>(messageLogger), openScenario, MODE_FILE);
+        }
+
+        void ScenarioCheckerImpl::CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
+        {
+            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger<TreeContentMessage>>(messageLogger), openScenario, MODE_TREE);
         }
 
     <%- element.each{ umlClass ->-%>
@@ -35,40 +40,6 @@ namespace NET_ASAM_OPENSCENARIO
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(I<%=umlClass.name.toClassName()%>).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(I<%=umlClass.name.toClassName()%>).name()] = checkerRulesForType;
-        }
-
-    <%-}-%>
-    <%- element.each{ umlClass ->-%>
-        void ScenarioCheckerImpl::Apply<%=umlClass.name.toClassName()%>CheckerRules(std::shared_ptr<IParserMessageLogger>& messageLogger, const std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
-        {
-            auto checkerRulesForType = _typeToCheckerRuleList[typeid(I<%=umlClass.name.toClassName()%>).name()];
-            if ( !checkerRulesForType.empty() )
-            {
-                for (auto& checkerRule:checkerRulesForType)
-                {
-                    auto typedCheckerRule = std::dynamic_pointer_cast<ICheckerRule<I<%=umlClass.name.toClassName()%>>> (checkerRule);
-                    typedCheckerRule->ApplyRule(messageLogger, object);
-                }
-            }
-
-            // getChildren
-            <%-properties = umlClass.getXmlElementProperties();-%>
-            <%- properties.each { property -> -%>
-                <%-if (property.isList()){-%>
-            const auto k<%=property.name.toClassName()%> = object->Get<%=property.name.toClassName()%>();
-            for(auto& kListItem: k<%=property.name.toClassName()%>)
-            {
-                if ( kListItem )
-                    Apply<%=property.type.name.toClassName()%>CheckerRules(messageLogger, kListItem);
-            }
-                <%-} else {-%>
-            const auto k<%=property.name.toClassName()%> = object->Get<%=property.name.toClassName()%>();
-            if ( k<%=property.name.toClassName()%>)
-            {
-                Apply<%=property.type.name.toClassName()%>CheckerRules(messageLogger, k<%=property.name.toClassName()%>);
-            }
-                <%-}-%>
-            <%-}-%>
         }
 
     <%-}-%>

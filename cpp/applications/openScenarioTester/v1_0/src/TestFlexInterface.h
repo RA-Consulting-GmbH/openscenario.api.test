@@ -127,14 +127,14 @@ private:
         res = res && Assert(init != nullptr, ASSERT_LOCATION);
         auto actions = init->GetActions();
         res = res && Assert(actions != nullptr, ASSERT_LOCATION);
-        auto privates = actions->GetPrivates();
-        res = res && Assert(privates.size() == 3, ASSERT_LOCATION);
-        auto privateAction = privates[0];
-        auto privateActions = privateAction->GetPrivateActions();
-        res = res && Assert(privateActions.size() == 2, ASSERT_LOCATION);
-        auto speedAction = privateActions[0]->GetLongitudinalAction()->GetSpeedAction();
+        const auto kPrivatesSize = actions->GetPrivatesSize();
+        res = res && Assert(kPrivatesSize == 3, ASSERT_LOCATION);
+        auto privateAction = actions->GetPrivatesAtIndex(0);
+        const auto kPrivateActionsSize = privateAction->GetPrivateActionsSize();
+        res = res && Assert(kPrivateActionsSize == 2, ASSERT_LOCATION);
+        auto speedAction = privateAction->GetPrivateActionsAtIndex(0)->GetLongitudinalAction()->GetSpeedAction();
         return speedAction->GetSpeedActionDynamics();
- }
+    }
 
     // ReSharper disable once CppMemberFunctionMayBeStatic
     std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEvent> GetEvent(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario> openScenario) 
@@ -143,7 +143,7 @@ private:
         auto scenarioDefinition = openScenarioCategory->GetScenarioDefinition();
         auto storyboard = scenarioDefinition->GetStoryboard();
 
-        return storyboard->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetManeuvers()[0]->GetEvents()[0];
+        return storyboard->GetStoriesAtIndex(0)->GetActsAtIndex(0)->GetManeuverGroupsAtIndex(0)->GetManeuversAtIndex(0)->GetEventsAtIndex(0);
     }
 
     // ReSharper disable once CppMemberFunctionMayBeStatic
@@ -158,7 +158,7 @@ private:
         auto openScenarioCategory = openScenario->GetOpenScenarioCategory();
         auto scenarioDefinition = openScenarioCategory->GetScenarioDefinition();
         auto storyboard = scenarioDefinition->GetStoryboard();
-        return storyboard->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetActors();
+        return storyboard->GetStoriesAtIndex(0)->GetActsAtIndex(0)->GetManeuverGroupsAtIndex(0)->GetActors();
     }
 
     template <typename T>

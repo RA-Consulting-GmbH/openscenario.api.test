@@ -28,7 +28,17 @@ namespace NET_ASAM_OPENSCENARIO
     namespace v1_0
     {
     <%- model.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null}.each{ element->-%>
-        void <%=element.name.toClassName()%>RangeCheckerRule::ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object)
+        void <%=element.name.toClassName()%>RangeCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object)
+        {
+            Apply(messageLogger, nullptr, object);
+        }
+
+        void <%=element.name.toClassName()%>RangeCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object)
+        {
+            Apply(nullptr, messageLogger, object);
+        }
+
+        void <%=element.name.toClassName()%>RangeCheckerRule::Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) const
         {
             <%-Map propertyMap = rangeCheckerRules[element.name.toClassName()];-%>
             <%-List properties = element.getXmlAttributeProperties().findAll(){property-> propertyMap[property.name.toMemberName()] != null};-%>
@@ -40,14 +50,27 @@ namespace NET_ASAM_OPENSCENARIO
                 <%-if (rangeMap["upperBoundValue"]){-%>
                 if (!(k<%=property.name.toClassName()%> <%=rangeMap["upperBoundOperator"]%> <%=rangeMap["upperBoundValue"].replaceFirst("java.lang.Math.PI", "M_PI")%>))
                 {
-                    LogMessage(object, messageLogger, OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["upperBoundOperator"]%>", "<%=rangeMap["upperBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
-
+                    if (fileMessageLogger) 
+                    {
+                        LogFileContentMessage(object, fileMessageLogger, OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>,std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["upperBoundOperator"]%>", "<%=rangeMap["upperBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                    } 
+                    else 
+                    {
+                        LogTreeContentMessage(object, treeMessageLogger, OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>,std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["upperBoundOperator"]%>", "<%=rangeMap["upperBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                    }
                 }
                 <%-}-%>
                 <%-if (rangeMap["lowerBoundValue"]){-%>
                 if (!(k<%=property.name.toClassName()%> <%=rangeMap["lowerBoundOperator"]%> <%=rangeMap["lowerBoundValue"].replaceFirst("java.lang.Math.PI", "M_PI")%>))
                 {
-                    LogMessage(object,  messageLogger,  OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> , std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["lowerBoundOperator"]%>", "<%=rangeMap["lowerBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                    if (fileMessageLogger) 
+                    {
+                        LogFileContentMessage(object,  fileMessageLogger,  OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> , std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["lowerBoundOperator"]%>", "<%=rangeMap["lowerBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                    } 
+                    else 
+                    {
+                        LogTreeContentMessage(object,  treeMessageLogger,  OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> , std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["lowerBoundOperator"]%>", "<%=rangeMap["lowerBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                    }
                 }
                 <%-}-%>
             }

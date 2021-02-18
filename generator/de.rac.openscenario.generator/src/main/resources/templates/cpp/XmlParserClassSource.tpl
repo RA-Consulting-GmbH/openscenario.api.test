@@ -60,8 +60,8 @@ namespace NET_ASAM_OPENSCENARIO
                         // Parse value
                         <%-if (property.isProxy()){-%>
                         // Proxy
-                        NamedReferenceProxy<I<%=property.type.name.toClassName()%>> proxy(attributeValue);
-                        proxy.SetParent(object);
+                        auto proxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(attributeValue);
+                        proxy->SetParent(object);
                         object->Set<%=property.name.toClassName()%>(proxy);
                         <%-} else if (property.type.isPrimitiveType()) {-%>
                         // Simple type
@@ -87,8 +87,8 @@ namespace NET_ASAM_OPENSCENARIO
                     // This is a special case for ParameterDeclaration.name or ParamterAssignment.parameterRef
                         <%-if (property.isProxy()){-%>
                     // Proxy
-                    NamedReferenceProxy<I<%=property.type.name.toClassName()%>> proxy(StripDollarSign(attributeValue));
-                    proxy.SetParent(object);
+                    auto proxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(StripDollarSign(attributeValue));
+                    proxy->SetParent(object);
                     object->Set<%=property.name.toClassName()%>(proxy);
                     <%-} else if (property.type.isPrimitiveType()) {-%>
                     // Simple type
@@ -143,14 +143,14 @@ namespace NET_ASAM_OPENSCENARIO
             <%=property.name.toMemberName()%>->SetParent(object);
             _<%=property.type.name.toMemberName()%>XmlParser->ParseElement(indexedElement, parserContext, <%=property.name.toMemberName()%>);
             <%-if (property.isList()){-%>
-            auto <%=property.name.toMemberName()%>List = object->Get<%=property.name.toClassName()%>();
+            auto <%=property.name.toMemberName()%>List = object->GetWriter<%=property.name.toClassName()%>();
             <%=property.name.toMemberName()%>List.push_back(<%=property.name.toMemberName()%>);
             object->Set<%=property.name.toClassName()%>(<%=property.name.toMemberName()%>List);
             <%-} else {%>
             object->Set<%=property.name.toClassName()%>(<%=property.name.toMemberName()%>);
             <%-}-%>
             <%- if (property.type.name.toClassName() == "CatalogReference"){-%>
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(<%=property.name.toMemberName()%>);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<I<%=property.type.name.toClassName()%>>(<%=property.name.toMemberName()%>));
             <%-}-%>
         }
         <%-}-%>
